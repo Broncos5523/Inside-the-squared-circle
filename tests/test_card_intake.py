@@ -76,6 +76,20 @@ class MatchIntakeTests(unittest.TestCase):
         self.assertEqual(parse_bouts("Fantasy booking\nA vs. B"), [])
         self.assertEqual(parse_bouts("<script>alert(1)</script>"), [])
 
+    def test_no_result_spoilers_in_reported_match_lines(self):
+        self.assertEqual(
+            parse_bouts("Singles Match\nJohn Cena vs. CM Punk — Winner: John Cena"), []
+        )
+        self.assertEqual(
+            parse_bouts("Title Match\nJohn Cena vs. CM Punk; CM Punk retained"), []
+        )
+        self.assertEqual(
+            parse_bouts("Street Fight\nGiulia vs. Blake Monroe"), [
+                {"kind": "possible_match", "status": "UNVERIFIED_SOURCE_MENTION",
+                 "description": "Giulia vs. Blake Monroe", "stipulation": "Street Fight"}
+            ]
+        )
+
     def test_utc_day_differs_from_local_airdate(self):
         self.assertEqual(broadcast_date(TNA), "2026-10-22")
         self.assertEqual(len(relevant_events("tna", "2026-10-22", [TNA])), 1)

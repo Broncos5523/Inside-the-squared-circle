@@ -42,6 +42,14 @@ def parse_bouts(description: str) -> list[dict]:
         for line in lines[1:]:
             if len(line) > 210:
                 continue
+            # Provider descriptions may be updated AFTER taping or broadcast.
+            # Never render a winner/result annotation as an upcoming match.
+            if re.search(
+                r"\b(?:winner|result|spoiler|defeated|defeats|pinned|"
+                r"retained|won|lost|victory|post[- ]match)\b",
+                line, flags=re.I,
+            ):
+                continue
             parts = re.split(r"\s+vs\.?\s+", line, flags=re.I)
             if len(parts) < 2 or any(len(p.strip()) < 2 for p in parts):
                 continue
