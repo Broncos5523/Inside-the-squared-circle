@@ -2,8 +2,8 @@
   "schema_version": 1,
   "mode": "DATED_RESEARCH_SUPPLEMENT_UNVERIFIED",
   "reviewed_at_et": "2026-10-22",
-  "method": "ONE_TIME_HUMAN_REVIEW_NOT_AUTOMATIC",
-  "policy": "Supplement of individually source-linked broadcast facts manually reviewed on 2026-10-22. UNVERIFIED / SUBJECT TO CHANGE. Not an automated source, not a complete card. Show only if the exact show's next airdate matches and it has not passed in US Eastern time.",
+  "method": "ONE_TIME_HUMAN_REVIEW_PLUS_HISTORIC_PROVIDER_SNAPSHOT_NOT_AUTOMATIC",
+  "policy": "One-time Oct 22 source-attributed research plus previously observed TheSportsDB API event descriptions; NOT a live updated provider feed. REPORTED / UNVERIFIED, subject to cancellations. Each match is restricted to its original listed broadcast date and expires after that date in Eastern Time.",
   "programs": [
     {
       "show_id": "raw",
@@ -29,6 +29,30 @@
           "source_name": "WWE preview fact, manually reviewed",
           "evidence_url": "https://www.wwe.com/shows/smackdown/2026-10-23",
           "status": "REPORTED_UNVERIFIED"
+        },
+        {
+          "text": "Giulia vs. Blake Monroe",
+          "stipulation": "Street Fight",
+          "evidence_url": "https://www.thesportsdb.com/api/v1/json/123/lookupevent.php?id=2599790",
+          "source_name": "TheSportsDB API snapshot · Oct 22",
+          "status": "REPORTED_UNVERIFIED",
+          "origin_observed_at": "2026-10-22T17:09:39.950157-04:00"
+        },
+        {
+          "text": "Alexa Bliss & Tatum Paxley (c) vs. B-Fab & Michin (w/Jade Cargill)",
+          "stipulation": "WWE Women's Tag Team Title Match",
+          "evidence_url": "https://www.thesportsdb.com/api/v1/json/123/lookupevent.php?id=2599790",
+          "source_name": "TheSportsDB API snapshot · Oct 22",
+          "status": "REPORTED_UNVERIFIED",
+          "origin_observed_at": "2026-10-22T17:09:39.950157-04:00"
+        },
+        {
+          "text": "MFTs (Talla Tonga & Tama Tonga) (w/Haku) vs. Bakusai (Kyoki & Shinsuke Nakamura)",
+          "stipulation": "Non Title Tag Team Match",
+          "evidence_url": "https://www.thesportsdb.com/api/v1/json/123/lookupevent.php?id=2599790",
+          "source_name": "TheSportsDB API snapshot · Oct 22",
+          "status": "REPORTED_UNVERIFIED",
+          "origin_observed_at": "2026-10-22T17:09:39.950157-04:00"
         }
       ],
       "appearances": []
@@ -85,7 +109,32 @@
     {
       "show_id": "tna",
       "airdate": "2026-10-22",
-      "matches": [],
+      "matches": [
+        {
+          "text": "Joe Alonzo vs. Avery Styles",
+          "stipulation": "Singles Match",
+          "evidence_url": "https://www.thesportsdb.com/api/v1/json/123/lookupevent.php?id=2618956",
+          "source_name": "TheSportsDB API snapshot · Oct 22",
+          "status": "REPORTED_UNVERIFIED",
+          "origin_observed_at": "2026-10-22T17:09:39.950157-04:00"
+        },
+        {
+          "text": "Rich Swann vs. Cedric Alexander vs. Fabian Aichner vs. KC Navarro",
+          "stipulation": "TNA X-Division Title Four Way #1 Contendership Match",
+          "evidence_url": "https://www.thesportsdb.com/api/v1/json/123/lookupevent.php?id=2618956",
+          "source_name": "TheSportsDB API snapshot · Oct 22",
+          "status": "REPORTED_UNVERIFIED",
+          "origin_observed_at": "2026-10-22T17:09:39.950157-04:00"
+        },
+        {
+          "text": "Jason Hotch (c) vs. Mustafa Ali",
+          "stipulation": "TNA International Title Best Two Out Of Three Falls Match",
+          "evidence_url": "https://www.thesportsdb.com/api/v1/json/123/lookupevent.php?id=2618956",
+          "source_name": "TheSportsDB API snapshot · Oct 22",
+          "status": "REPORTED_UNVERIFIED",
+          "origin_observed_at": "2026-10-22T17:09:39.950157-04:00"
+        }
+      ],
       "appearances": [
         {
           "text": "Daria Rae scheduled to open iMPACT!",
