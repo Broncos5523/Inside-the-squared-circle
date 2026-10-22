@@ -22,6 +22,13 @@ from proof.results_intake import broadcast_complete
 TZ = ZoneInfo("America/New_York")
 MODE = "PUBLISHER_RSS_POST_SHOW_LINKS_ONLY"
 FEED_URL = "https://www.f4wonline.com/rss.xml"
+# Standard publisher RSS syndication paths for results-specific categories.
+# Optional: unsupported URLs are simply ignored, never scraped as HTML.
+FEED_URLS = (
+    FEED_URL,
+    "https://www.f4wonline.com/category/news/wwe/results/feed/",
+    "https://www.f4wonline.com/category/news/nxt/nxt-results/feed/",
+)
 ALLOWED_HOSTS = {"www.f4wonline.com", "f4wonline.com"}
 RESULT_WORDS = re.compile(r"\b(?:results?|recap|fallout)\b", re.I)
 EXCLUDE = re.compile(
@@ -87,8 +94,10 @@ def filter_title(title: object, show_id: str, aired: str) -> str | None:
     return title
 
 
-def request_rss(timeout: int = 14) -> bytes:
-    req = Request(FEED_URL, headers={
+def request_rss(timeout: int = 14, url: str = FEED_URL) -> bytes:
+    if url not in FEED_URLS:
+        raise ValueError('RSS URL not approved')
+    req = Request(url, headers={
         "User-Agent":"InsideSquaredCircleHouseholdResearch/0.8",
         "Accept":"application/rss+xml,application/xml,text/xml",
     })
@@ -195,19 +204,26 @@ def main():
     snap=json.loads(Path(args.snapshot).read_text(encoding="utf-8"))
     if snap.get("schema_version")!=1 or len(snap.get("shows",[]))!=6:
         raise SystemExit("Invalid schedule; no RSS result written")
-    status="ok"
-    try:
-        items=parse_feed(request_rss())
-        print("RSS_DIAGNOSTIC_PARSED_COUNT:",len(items))
-        print("RSS_DIAGNOSTIC_RESULTS_HEADLINES:", [
-            (x["title"][:110], x["published_at"].isoformat())
-            for x in items if RESULT_WORDS.search(x.get("title") or "")][:18])
-    except Exception as exc:
-        status="rss_unavailable"
-        print("RSS source temporarily unavailable:",type(exc).__name__,str(exc)[:120])
-        items=[]
+    items=[]
+    links_seen=set()
+    working_feeds=[]
+    for feed in FEED_URLS:
+        try:
+            parsed=parse_feed(request_rss(url=feed))
+        except Exception as exc:
+            print("RSS syndicated feed unavailable:",feed,
+                  type(exc).__name__,str(exc)[:100])
+            continue
+        print("RSS provider items from syndicated URL:",feed,len(parsed))
+        working_feeds.append(feed)
+        for item in parsed:
+            if item["url"] not in links_seen:
+                links_seen.add(item["url"])
+                items.append(item)
+    status="ok" if working_feeds else "rss_unavailable"
     data=build_links(snap,items)
     data["collection_status"]=status
+    data["successful_feed_urls"]=working_feeds
     out=Path(args.out)
     tmp=out.with_suffix(".tmp")
     tmp.write_text(json.dumps(data,indent=2,ensure_ascii=False)+"\n",encoding="utf-8")
