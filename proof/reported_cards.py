@@ -7,7 +7,7 @@ No HTML scraping or AI hallucination.
 from __future__ import annotations
 
 import argparse
-from datetime import date, datetime
+from datetime import date, datetime, time, timedelta
 import json
 import re
 from pathlib import Path
@@ -19,6 +19,25 @@ TZ = ZoneInfo("America/New_York")
 MAX_SHOW_MATCHES = 8
 MAX_TEXT = 210
 MAX_APPEARANCES = 5
+
+
+def broadcast_finished(show_id: str, airdate: str, now: datetime) -> bool:
+    """Do not treat advance/taped spoilers as an aired television result.
+
+    TNA's AMC U.S. linear broadcast is 9-11 p.m. Eastern; the extra 15 minutes
+    prevents premature handoff. Until an equally reliable clock is available
+    for other programs, use 4 a.m. ET on the following date conservatively.
+    """
+    try:
+        day = date.fromisoformat(airdate)
+    except (TypeError, ValueError):
+        return False
+    moment = now.astimezone(TZ)
+    if show_id == "tna":
+        end = datetime.combine(day, time(23, 15), tzinfo=TZ)
+    else:
+        end = datetime.combine(day + timedelta(days=1), time(4, 0), tzinfo=TZ)
+    return moment >= end
 
 
 def parse_reported_appearances(description: str) -> list[dict]:
@@ -65,6 +84,7 @@ def build_reported(snapshot: dict, requester=request_events, now=None, next_look
     for s in snapshot.get("shows", []):
         slug = s.get("id")
         air = (s.get("next") or {}).get("date")
+        has_aired = broadcast_finished(slug, air, now)
         entry = {
             "show_id": slug,
             "airdate": air if isinstance(air, str) else None,
@@ -85,7 +105,7 @@ def build_reported(snapshot: dict, requester=request_events, now=None, next_look
             prior=next((p for p in previous_items if isinstance(p,dict)
                         and p.get("show_id")==slug and p.get("airdate")==air),None)
             if prior:
-                entry["episode_outcome_detected"]=prior.get("episode_outcome_detected") is True
+                entry["episode_outcome_detected"]=has_aired and prior.get("episode_outcome_detected") is True
                 entry["episode_withdrawn"]=prior.get("episode_withdrawn") is True
                 if entry["episode_outcome_detected"] and re.fullmatch(
                     r"https://www\.thesportsdb\.com/api/v1/json/123/lookupevent\.php\?id=\d+",
@@ -108,7 +128,7 @@ def build_reported(snapshot: dict, requester=request_events, now=None, next_look
             for candidate in rows:
                 if not event_identity_matches(slug, air, candidate):
                     continue
-                if outcome_reported(candidate):
+                if has_aired and outcome_reported(candidate):
                     entry["episode_outcome_detected"] = True
                     provider_id=str(candidate.get("idEvent",""))
                     if re.fullmatch(r"[1-9]\d{0,14}",provider_id):
@@ -227,7 +247,8 @@ def build_reported(snapshot: dict, requester=request_events, now=None, next_look
         "policy": (
             "Opt-in UNVERIFIED match and explicit segment mentions only. May be stale, speculative, "
             "misassigned, dark matches, taped show results or subject to change. "
-            "Not announcements from WWE, AAA or TNA."
+            "Not announcements from WWE, AAA or TNA. Taped/early results never withdraw "
+            "advance cards before scheduled U.S. broadcast completion."
         ),
         "programs": output,
         "total_reported_matches": sum(len(x["matches"]) for x in output),

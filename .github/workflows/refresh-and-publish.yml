@@ -163,6 +163,17 @@ jobs:
           Path('/tmp/squared-circle-v411.js').write_text(page.split('<script>',1)[1].split('</script>',1)[0])
           PY
           node --check /tmp/squared-circle-v411.js
+      - name: Validate v4.12 pre-air spoiler guard and JavaScript syntax
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          page=Path('web/preview-v4-12.html').read_text()
+          assert 'DISPLAY BUILD 4.12' in page
+          assert 'televisionBroadcastFinished' in page
+          assert '#board{width:min(100vw,56.25dvh)' in page
+          Path('/tmp/squared-circle-v412.js').write_text(page.split('<script>',1)[1].split('</script>',1)[0])
+          PY
+          node --check /tmp/squared-circle-v412.js
       - name: Collect unverified match-card research leads
         run: python proof/card_intake.py --snapshot web/data/snapshot.json --out web/data/candidates.json --also-next-league
       - name: Build opt-in reported match descriptions (never confirmed)
@@ -294,6 +305,8 @@ jobs:
               (f'{base}/preview-v4-10.html?show=tna&probe={nonce}', 'v410'),
               (f'{base}/preview-v4-11.html?show=tna&probe={nonce}', 'v411'),
               (f'{base}/preview-v4-11.html?show=smackdown&probe={nonce}', 'v411'),
+              (f'{base}/preview-v4-12.html?show=tna&probe={nonce}', 'v412'),
+              (f'{base}/preview-v4-12.html?show=smackdown&probe={nonce}', 'v412'),
               (f'{base}/data/research-20261022.json?probe={nonce}', 'research'),
               (f'{base}/data/tvmaze-reported.json?probe={nonce}', 'tvmaze'),
           ]
@@ -316,6 +329,10 @@ jobs:
                           supplement = json.loads(body)
                           assert supplement['mode']=='DATED_RESEARCH_SUPPLEMENT_UNVERIFIED'
                           assert len(supplement['programs'])==6
+                      elif kind == 'v412':
+                          assert b'DISPLAY BUILD 4.12' in body
+                          assert b'televisionBroadcastFinished' in body
+                          assert b'9 PM ET' in body
                       elif kind == 'v411':
                           assert b'DISPLAY BUILD 4.11' in body
                           assert b'episode_outcome_detected' in body

@@ -2,11 +2,12 @@ import unittest
 from datetime import datetime
 from zoneinfo import ZoneInfo
 
-from proof.reported_cards import build_reported
+from proof.reported_cards import build_reported, broadcast_finished
 
 
 ET = ZoneInfo("America/New_York")
 NOW = datetime(2026, 10, 22, 16, 0, tzinfo=ET)
+POST_TNA = datetime(2026, 10, 22, 23, 20, tzinfo=ET)
 
 EVENT_SD = {
     "idLeague": "4444", "idEvent": "2599790", "strEvent": "SmackDown #1418",
@@ -89,12 +90,37 @@ class ReportedCardTests(unittest.TestCase):
         self.assertNotIn("confirmed", str(result).lower())
         self.assertNotIn("advertised_appearances", str(result))
 
+    def test_tna_result_spoilers_pre_airdo_not_pull_matchcard(self):
+        self.assertFalse(broadcast_finished("tna","2026-10-22",NOW))
+        self.assertFalse(broadcast_finished("tna","2026-10-22",datetime(2026,10,22,23,14,tzinfo=ET)))
+        self.assertTrue(broadcast_finished("tna","2026-10-22",POST_TNA))
+        prematch=dict(EVENT_TNA,strResult="Singles Match\nAvery Styles defeats Joe Alonzo")
+        d=build_reported(snapshot(),requester=lambda day,league:[prematch] if league==4455 else [],now=NOW)
+        row=next(p for p in d["programs"] if p["show_id"]=="tna")
+        self.assertFalse(row["episode_outcome_detected"])
+        self.assertFalse(row["episode_withdrawn"])
+
+    def test_old_early_tombstone_rejected_before_airdate_ends(self):
+        old={"programs":[{"show_id":"tna","airdate":"2026-10-22",
+                          "episode_outcome_detected":True,
+                          "episode_outcome_evidence_url":"https://www.thesportsdb.com/api/v1/json/123/lookupevent.php?id=2618956"}]}
+        d=build_reported(snapshot(),requester=lambda *_:[],now=NOW,previous=old)
+        record=next(x for x in d["programs"] if x["show_id"]=="tna")
+        self.assertFalse(record["episode_outcome_detected"])
+        self.assertIsNone(record["episode_outcome_evidence_url"])
+
+    def test_others_do_not_enter_result_mode_before_next_day_4am(self):
+        self.assertFalse(broadcast_finished("smackdown","2026-10-23",
+                                            datetime(2026,10,24,3,59,tzinfo=ET)))
+        self.assertTrue(broadcast_finished("smackdown","2026-10-23",
+                                           datetime(2026,10,24,4,0,tzinfo=ET)))
+
     def test_result_tombstone_survives_upstream_blackout_only_same_airdate(self):
         prior={"programs":[{"show_id":"tna","airdate":"2026-10-22",
                             "episode_outcome_detected":True,"episode_withdrawn":False},
                            {"show_id":"smackdown","airdate":"2026-10-16",
                             "episode_outcome_detected":True}]}
-        d=build_reported(snapshot(),requester=lambda *_:[],now=NOW,previous=prior)
+        d=build_reported(snapshot(),requester=lambda *_:[],now=POST_TNA,previous=prior)
         by={p["show_id"]:p for p in d["programs"]}
         self.assertTrue(by["tna"]["episode_outcome_detected"])
         self.assertEqual(by["tna"]["matches"],[])
@@ -103,7 +129,7 @@ class ReportedCardTests(unittest.TestCase):
     def test_result_detection_suppresses_stale_advertised_cards(self):
         recorded=dict(EVENT_TNA, strResult="Singles Match\nAvery Styles defeats Joe Alonzo")
         d=build_reported(snapshot(),requester=lambda day,league:[recorded] if league==4455 else [],
-                         now=NOW)
+                         now=POST_TNA)
         tna=next(x for x in d["programs"] if x["show_id"]=="tna")
         self.assertTrue(tna["episode_outcome_detected"])
         self.assertEqual(tna["episode_outcome_evidence_url"], "https://www.thesportsdb.com/api/v1/json/123/lookupevent.php?id=2618956")
