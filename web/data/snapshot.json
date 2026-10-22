@@ -1,0 +1,73 @@
+{
+  "schema_version": 1,
+  "mode": "SAMPLE_FIXTURE_ONLY",
+  "generated_at": "2026-10-22T19:00:00Z",
+  "shows": [
+    {
+      "id": "raw",
+      "name": "MONDAY NIGHT RAW",
+      "color": "#EC354C",
+      "category": "primary",
+      "next": null,
+      "previous": null,
+      "schedule_status": "sample",
+      "confirmed_matches": [],
+      "confirmed_appearances": []
+    },
+    {
+      "id": "smackdown",
+      "name": "FRIDAY NIGHT SMACKDOWN",
+      "color": "#2385FF",
+      "category": "primary",
+      "next": null,
+      "previous": null,
+      "schedule_status": "sample",
+      "confirmed_matches": [],
+      "confirmed_appearances": []
+    },
+    {
+      "id": "nxt",
+      "name": "WWE NXT",
+      "color": "#E5BD50",
+      "category": "primary",
+      "next": null,
+      "previous": null,
+      "schedule_status": "sample",
+      "confirmed_matches": [],
+      "confirmed_appearances": []
+    },
+    {
+      "id": "aaa",
+      "name": "LUCHA LIBRE AAA",
+      "color": "#21C6AE",
+      "category": "primary",
+      "next": null,
+      "previous": null,
+      "schedule_status": "sample",
+      "confirmed_matches": [],
+      "confirmed_appearances": []
+    },
+    {
+      "id": "tna",
+      "name": "TNA iMPACT!",
+      "color": "#FC493F",
+      "category": "primary",
+      "next": null,
+      "previous": null,
+      "schedule_status": "sample",
+      "confirmed_matches": [],
+      "confirmed_appearances": []
+    },
+    {
+      "id": "evolve",
+      "name": "LAST WEEK ON EVOLVE",
+      "color": "#BA80F7",
+      "category": "recap",
+      "next": null,
+      "previous": null,
+      "schedule_status": "sample",
+      "confirmed_matches": [],
+      "confirmed_appearances": []
+    }
+  ]
+}
