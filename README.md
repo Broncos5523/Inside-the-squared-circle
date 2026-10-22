@@ -35,6 +35,25 @@ A public repository is used for GitHub Free Pages. Never commit passwords or pri
 
 Schedule information: [TVmaze API](https://www.tvmaze.com/api), CC BY-SA (check applicable attribution and derivative licensing requirements). There are no copied wrestler headshots, protected event broadcast artworks, or publisher article text in this repository.
 
+
+
+## Candidate match-card ingestion (research-only, October 22, 2026)
+
+An additional automatically scheduled **TheSportsDB API** research pipeline is now present:
+
+- `proof/card_intake.py` fetches possible match mentions using the documented API, filtered to the TVmaze **local broadcast date, promotion and show identity**. Because UTC and local dates can differ for TNA, it checks the appropriate additional UTC calendar day.
+- RAW, SmackDown, NXT and TNA are searched where they can be safely matched. **AAA multi-week edited broadcasts and Evolve recaps are deliberately excluded** from automatic event-to-show association.
+- `tests/test_card_intake.py` checks 12 deterministic cases, including UTC/local discrepancies, rejected wrong leagues and dates, non-promotional text, duplicate events, outages, and no false match verification.
+- `web/data/candidates.json` is updated by the existing GitHub Actions schedule **as research lead counts and evidence event links only**. It deliberately contains **zero verified matches and zero verified appearances**.
+- `web/evidence-lab.html` is a separately labeled research monitoring page displaying source coverage and candidate mention counts. This is **not** the TV card.
+- Existing `web/preview-v4-4.html` and `web/index.html` continue to display only the schedule, with no invented card.
+
+**Evidence-lab URL after successful deployment:** https://broncos5523.github.io/Inside-the-squared-circle/evidence-lab.html
+
+**TheSportsDB rights:** the official terms (2026-09-17) permit API content copying/modification subject to rights and attribution, but prohibit automated scraping of the website. This pipeline calls only the documented API. See https://www.thesportsdb.com/docs_terms_of_use.php
+
+**What remains unresolved:** A qualified and permitted match-card announcement source, claim-level provenance/confirmation and cancellations, advertised talent/segments, show recaps and final approved broadcast assets. Research leads from TheSportsDB are **never described as WWE or TNA-confirmed information**.
+
 ### Data reliability
 
 Episode numbers and timing can conflict between providers. The schedule collector relies on TVmaze's IDs and shows times as *provider-local*, not conclusively ET. The JSON timestamp indicates collection time, **not** independent verification of each announced match.
