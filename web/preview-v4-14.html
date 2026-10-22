@@ -210,7 +210,7 @@ footer a{color:#dfbd7f}
  </div>
  <div class="sections">
   <div class="mini"><h2 id="card-title">REPORTED MATCHES · UNVERIFIED</h2><div id="card">Waiting for verified source evidence.</div><div id="report-status" class="unconnected">UNVERIFIED LEADS · SOURCE PENDING</div></div>
-  <div class="mini" id="appearance-panel"><h2 id="segment-title">APPEARANCES</h2><div id="appearances">Only explicitly sourced appearances will display.</div><div class="unconnected">SOURCE NOT CONNECTED</div></div>
+  <div class="mini" id="appearance-panel"><h2 id="segment-title">APPEARANCES</h2><div id="appearances"></div></div>
  </div>
  <div class="timeline"><div class="timeline-title" id="timeline-title">PREVIOUS BROADCAST · SCHEDULE ONLY</div><div id="prev">Checking previous episode</div></div>
  <div class="schedule-strip"><div class="strip-title">NEXT UP · FIVE-SHOW PROGRAM GUIDE</div><div id="schedule"></div></div>
@@ -367,6 +367,7 @@ footer a{color:#dfbd7f}
     const panel=$('appearance-panel'),area=$('appearances');area.replaceChildren();
     $('board').classList.add('v46-with-matches');
     put('card-title','LAST WEEK ON EVOLVE · REPORTED RESULTS');
+    put('status-chip','RECAP · SOURCED');
     put('date-title','MOST RECENT FINISHED EVOLVE EPISODE');
     put('time','TUBI · POST-BROADCAST RECAP');
     const editorial=safeEvolveEditorial(show);
