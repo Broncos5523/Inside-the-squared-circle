@@ -12,8 +12,10 @@ class PublisherCoverPreviewTests(unittest.TestCase):
             self.assertIn(text,PAGE)
     def test_source_specific_footer_corrected(self):
         self.assertIn('id="source-footer"',PAGE)
-        self.assertIn("function renderAttribution(evolve,resultsPage,coveragePage)",PAGE)
-        self.assertIn("Evolve recap: independent episode review / TVmaze synopsis",PAGE)
+        self.assertIn("function renderAttribution(show,evolve,resultsPage,coveragePage)",PAGE)
+        self.assertIn("if(safeEvolveEditorial(show))",PAGE)
+        self.assertIn("Episode synopsis only · no results inferred",PAGE)
+        self.assertIn("TVmaze (CC BY-SA)",PAGE)
         self.assertNotIn('Reported matches and appearances are UNVERIFIED · <a href="https://www.thesportsdb.com/">TheSportsDB</a>',PAGE)
     def test_existing_approved_geometry_and_spoiler_guard(self):
         self.assertIn("#board{width:min(100vw,56.25dvh)",PAGE)

@@ -382,29 +382,40 @@ footer a{color:#dfbd7f}
     section.append(type,headline,label,link);card.append(section);
     foot.textContent='COVERAGE LINK '+(page+1)+' OF '+items.length+' · NO MATCH OUTCOMES INFERRED';
   }
-  function renderAttribution(evolve,resultsPage,coveragePage){
+  function renderAttribution(show,evolve,resultsPage,coveragePage){
     const element=$('source-footer');element.replaceChildren();
-    const text=document.createElement('span');
-    text.textContent=coveragePage?'Related article headlines only · ':
-      resultsPage?'Provider-reported match outcomes (unverified) · ':
-      evolve?'Evolve recap: independent episode review / TVmaze synopsis · ':
-      'Reported match cards: source reports (unverified) · ';
-    const link=document.createElement('a');
-    link.target='_blank';link.rel='noopener noreferrer';
-    if(coveragePage){
-      link.href='https://www.f4wonline.com/rss.xml';
-      link.textContent='F4W RSS';
-    }else if(evolve){
-      link.href='https://www.blogofdoom.com/2026/10/21/wwe-evolve-october-21st-2026/';
-      link.textContent='episode review';
-    }else if(resultsPage){
-      link.href='https://www.thesportsdb.com/docs_api_guide';
-      link.textContent='TheSportsDB';
-    }else{
-      link.href='https://www.thesportsdb.com/docs_api_guide';
-      link.textContent='TheSportsDB + TVmaze';
+    const note=document.createElement('span');
+    function sourceLink(url,label){
+      const a=document.createElement('a');a.href=url;a.textContent=label;
+      a.target='_blank';a.rel='noopener noreferrer';return a;
     }
-    element.append(text,link);
+    if(coveragePage){
+      note.textContent='Publisher headline links only · ';
+      element.append(note,sourceLink('https://www.f4wonline.com/rss.xml','F4W RSS'));
+    }else if(resultsPage){
+      note.textContent='Provider-reported results · UNVERIFIED · ';
+      element.append(note,sourceLink('https://www.thesportsdb.com/docs_api_guide','TheSportsDB'));
+    }else if(evolve){
+      if(safeEvolveEditorial(show)){
+        note.textContent='Oct 21 recap · independent reported facts · ';
+        element.append(note,sourceLink(
+          'https://www.blogofdoom.com/2026/10/21/wwe-evolve-october-21st-2026/',
+          'episode review'));
+      }else if(evolveSynopsis?.airdate===show.previous?.date &&
+               evolveSynopsis?.status==='episode_synopsis_available'){
+        note.textContent='Episode synopsis only · no results inferred · ';
+        element.append(note,sourceLink('https://www.tvmaze.com/api','TVmaze (CC BY-SA)'));
+      }else{
+        note.textContent='Episode schedule only · ';
+        element.append(note,sourceLink('https://www.tvmaze.com/api','TVmaze'));
+      }
+    }else{
+      note.textContent='Match reports UNVERIFIED · ';
+      element.append(note,
+        sourceLink('https://www.thesportsdb.com/docs_api_guide','TheSportsDB'),
+        document.createTextNode(' · '),
+        sourceLink('https://www.tvmaze.com/api','TVmaze (CC BY-SA)'));
+    }
   }
   function renderResults(show,key){
     const panel=$('appearance-panel');
@@ -625,7 +636,7 @@ footer a{color:#dfbd7f}
     showReportedCard(show,key,evolve);
     showReportedAppearances(show,key,evolve);
   }
-  renderAttribution(evolve,resultsPage,coveragePage);
+  renderAttribution(show,evolve,resultsPage,coveragePage);
   const prev=(resultsPage||coveragePage)?show.next:evolve?show.next:show.previous;
   put('timeline-title',(resultsPage||coveragePage)?'NEXT LISTED BROADCAST · SCHEDULE ONLY':evolve?'FOLLOWING EVOLVE BROADCAST · SCHEDULE ONLY':'LAST BROADCAST · EPISODE LISTING ONLY');
   put('prev',prev?.date?(short(prev.date)+' · '+(prev.title||'Episode')):'No reliable earlier episode information');
