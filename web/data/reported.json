@@ -1,9 +1,9 @@
 {
   "schema_version": 1,
   "mode": "REPORTED_MATCHES_UNVERIFIED",
-  "generated_at": "2026-10-22T17:39:38.921244-04:00",
+  "generated_at": "2026-10-22T17:56:39.326211-04:00",
   "valid_as_of_et": "2026-10-22",
-  "policy": "Opt-in UNVERIFIED match and explicit segment mentions only. May be stale, speculative, misassigned, dark matches, taped show results or subject to change. Not announcements from WWE, AAA or TNA.",
+  "policy": "Opt-in UNVERIFIED match and explicit segment mentions only. May be stale, speculative, misassigned, dark matches, taped show results or subject to change. Not announcements from WWE, AAA or TNA. Taped/early results never withdraw advance cards before scheduled U.S. broadcast completion.",
   "programs": [
     {
       "show_id": "raw",
@@ -85,9 +85,9 @@
       "matches": [],
       "appearances": [],
       "error": "PROVIDER_PARTIAL_OR_UNAVAILABLE",
-      "episode_outcome_detected": true,
+      "episode_outcome_detected": false,
       "episode_withdrawn": false,
-      "episode_outcome_evidence_url": "https://www.thesportsdb.com/api/v1/json/123/lookupevent.php?id=2618956",
+      "episode_outcome_evidence_url": null,
       "source_name": "TheSportsDB"
     },
     {
