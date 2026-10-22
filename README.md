@@ -1,53 +1,42 @@
-# Inside the Squared Circle — v4.3 Connected-Pipeline Proof
+# Man Cave Sports Book Presents: Inside the Squared Circle
 
-**Status: proof of concept only; NOT PUBLISHED and NOT a complete wrestling card system.**
+**“When the bell rings, it gets real.”**
 
-This extends the research after v4.0/v4.2 and answers the next question: **can a data collection job safely turn documented TV episode API results into static JSON that a Fire TV browser can continuously display, without putting an unverified wrestling match on the screen?**
+## GitHub staging deployment — October 22, 2026
 
-## What you get
+This repository now contains a **limited, source-conscious cloud research display**. It is an independent wrestling project and makes **no changes to the approved 28 sports boards**.
 
-- `proof/collector.py`: real internet-capable TVmaze collector (6 programs) using Python standard library, retry/backoff, source/time validation, per-show last-good, atomic cache update.
-- **Research-only preview paragraph extraction:** TVmaze episode summaries, when supplied, are separated into candidate evidence excerpts marked `UNVERIFIED_DESCRIPTION` and never displayed as confirmed matches. This is not yet a model-based extractor.
-- `web/index.html`, `web/assets/*`: real portrait-format HTML/CSS/JS display, rotates five primary shows every 14 seconds with a secondary Evolve recap once per two primary cycles, polls cached JSON every 2 minutes, fits a 9:16 viewport without cropping. Each primary show has a distinct color accent; this **is a testing UI, NOT the approved finished wrestling designs**.
-- `web/data/snapshot.json`: clearly marked **October 22 fixture based on previously observed TVmaze metadata**, not a live/current feed. It cannot populate a verified match card.
-- `tests/test_collector.py`: deterministic software behavior tests with synthetic source fixtures; includes failure, stale, spoiler/risk protections.
-- `.github/workflows/refresh-and-publish.yml`: optional GitHub Actions scheduled job (every 4 hours), tests, collector, persistent last-good JSON commit, and GitHub Pages deployment. **Requires user-owned GitHub account/repository and Pages enabled**; not deployed from this conversation.
-- `docs/PROVIDER_GATE.md`: contract for attaching an expressly licensed match-card source. No news RSS publisher crawler is enabled.
+### Files already uploaded
 
-## Run locally (without internet)
+- `web/index.html` — portrait 9:16 test screen, suitable for trying in Amazon Fire TV Silk; rotates RAW, SmackDown, NXT, AAA, TNA, plus a less frequent Evolve recap slot.
+- `web/data/snapshot.json` — explicit dated seed placeholder; **not yet live** until GitHub Actions completes the first collection.
+- `.github/workflows/refresh-and-publish.yml` — scheduled every four hours, manual trigger and push trigger; fetches six TVmaze show schedules, retains previous schedule info on partial errors, commits the latest JSON, and deploys GitHub Pages.
 
-At the project root:
+**This GitHub staging build is smaller than the separately packaged v4.3 local research archive.** The v4.3 source archive and full 13-unit-test suite have not yet been copied into this repository. Do not interpret this as the final approved graphics.
 
-```bash
-python -m unittest discover -s tests -v
-python -m http.server 8000 -d web
-```
+### One-time setup
 
-Open `http://localhost:8000`. The packaged schedule is a dated research example. The live data-collection command below must be run on a machine with internet:
+1. Repository **Settings → Pages → Build and deployment → Source: GitHub Actions**.
+2. Repository **Settings → Actions → General → Workflow permissions**: grant **Read and write permissions** only if the existing workflow-scoped `contents: write` token is insufficient for the scheduled cache commit.
+3. Repository **Actions → Refresh schedules and publish display → Run workflow**. Verify each step succeeds, including Pages deployment.
+4. Once GitHub Pages is live, check:
+   **https://broncos5523.github.io/Inside-the-squared-circle/**
+5. Test that published URL in Fire TV Silk at portrait orientation.
 
-```bash
-python proof/collector.py --out web/data/snapshot.json
-```
+A public repository is used for GitHub Free Pages. Never commit passwords or private data. Scheduled workflows are best-effort and GitHub can delay or disable them.
 
-If all providers fail, the collector exits nonzero **without overwriting previously saved data**. The display uses the retained JSON and reports age/staleness.
+### What's real and what's missing
 
-## Optional free hosting, but not guaranteed forever
+**Implemented:** Public TVmaze show schedule refresh, five-show/recap rotation, a 9:16 static browser surface, last-known episode fallback, and clear unknown-card labeling.
 
-1. Create a **public** GitHub repo and upload this package at repo root. Public repos are necessary for GitHub Pages on GitHub Free; published information is public.
-2. In GitHub repository Settings → Pages, set source to **GitHub Actions**.
-3. Ensure repository Actions have permission to write content (the workflow needs `contents: write` to persist the JSON cache); configure branch protection accordingly.
-4. Open Actions → “Refresh schedules and publish research display” → **Run workflow**.
-5. Watch the tests/collector and then the resulting Pages link. Only share/use it as a **research demo**.
-6. GitHub Actions scheduled jobs **can be delayed/dropped** and may be disabled in an inactive public repo after **60 days**. Consequently, this is not a proven set-and-forget 24/7 service; no deployments have been attempted.
+**Not implemented:** Automatically verified wrestling matches, title changes, appearances, results, PLE content, editorial rights to scrape WWE/TNA, or the approved show-specific master branding. Do not conflate published schedules with verified advertised matches.
 
-No account credentials are needed for TVmaze. None should be hardcoded in a public repo. Do not add unauthorized WWE, TNA or publisher scraping.
+### Attribution and rights
 
-## Data and licensing
+Schedule information: [TVmaze API](https://www.tvmaze.com/api), CC BY-SA (check applicable attribution and derivative licensing requirements). There are no copied wrestler headshots, protected event broadcast artworks, or publisher article text in this repository.
 
-TVmaze documents its free API under **CC BY-SA**, including attribution and ShareAlike obligations. The display retains a TVmaze attribution link. Before a public deployment, review whether additional notices and ShareAlike requirements apply to your adapted data. This package contains **no wrestler photographs, logos, actual broadcast artwork, scraped articles, or copyrighted matching of approved graphics**.
+### Data reliability
 
-**Critical limit:** The collector connects only the *schedule*. Actual wrestling match cards, confirmed appearances, titles and results remain empty until an independently tested and authorized provider is added. This is deliberate to prevent hallucinations. On-screen fallback means *no authorized card feed is connected*, **not** *no matches announced*.
+Episode numbers and timing can conflict between providers. The schedule collector relies on TVmaze's IDs and shows times as *provider-local*, not conclusively ET. The JSON timestamp indicates collection time, **not** independent verification of each announced match.
 
-## Cache persistence caveat
-
-The scheduled workflow commits **only `web/data/snapshot.json`** back to the public repository after collection, before deploying Pages. This is deliberate: fresh GitHub Actions runners otherwise restart with the original dated sample snapshot and cannot retain last-good schedules across runs. Repository branch rules may prevent the bot push; in that case the workflow fails rather than pretending that the cache is durable. API collection, a full scheduled workflow, and the published website still need user-owned GitHub deployment validation.
+To protect the display, unverified match information is never filled in simply because the title is a weekly program.
