@@ -277,6 +277,19 @@ jobs:
           Path('/tmp/squared-circle-v420.js').write_text(html.split('<script>',1)[1].split('</script>',1)[0])
           PY
           node --check /tmp/squared-circle-v420.js
+      - name: Validate v4.21 recap layout and source-safe JavaScript
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          p=Path('web/preview-v4-21.html').read_text()
+          assert 'DISPLAY BUILD 4.21' in p
+          assert 'groupedRecapResultPages(rows)' in p
+          assert 'createRecapResult(results[n],n)' in p
+          assert "createElement('a')" not in p
+          assert '#board{width:min(100vw,56.25dvh)' in p
+          Path('/tmp/squared-circle-v421.js').write_text(p.split('<script>',1)[1].split('</script>',1)[0])
+          PY
+          node --check /tmp/squared-circle-v421.js
       - name: Collect unverified match-card research leads
         run: python proof/card_intake.py --snapshot web/data/snapshot.json --out web/data/candidates.json --also-next-league
       - name: Build opt-in reported match descriptions (never confirmed)
@@ -522,6 +535,9 @@ jobs:
               (f'{base}/preview-v4-20.html?show=nxt&view=recap&probe={nonce}', 'v420'),
               (f'{base}/preview-v4-20.html?show=tna&view=recap&probe={nonce}', 'v420'),
               (f'{base}/preview-v4-20.html?show=evolve&probe={nonce}', 'v420'),
+              (f'{base}/preview-v4-21.html?show=raw&view=recap&probe={nonce}', 'v421'),
+              (f'{base}/preview-v4-21.html?show=nxt&view=recap&probe={nonce}', 'v421'),
+              (f'{base}/preview-v4-21.html?show=evolve&probe={nonce}', 'v421'),
               (f'{base}/data/research-20261022.json?probe={nonce}', 'research'),
               (f'{base}/data/tvmaze-reported.json?probe={nonce}', 'tvmaze'),
           ]
@@ -535,7 +551,12 @@ jobs:
                       with urlopen(request, timeout=18) as response:
                           assert response.status == 200
                           body = response.read()
-                      if kind == 'v420':
+                      if kind == 'v421':
+                          assert b'DISPLAY BUILD 4.21' in body
+                          assert b'groupedRecapResultPages' in body
+                          assert b'two-result-mode' in body
+                          assert b"createElement('a')" not in body
+                      elif kind == 'v420':
                           assert b'DISPLAY BUILD 4.20' in body
                           assert b'UPCOMING MATCHES' in body
                           assert b'MATCH CARDS SUBJECT TO CHANGE' in body
