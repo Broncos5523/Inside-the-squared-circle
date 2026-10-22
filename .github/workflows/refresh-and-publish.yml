@@ -245,6 +245,21 @@ jobs:
           Path('/tmp/squared-circle-v418.js').write_text(html.split('<script>',1)[1].split('</script>',1)[0])
           PY
           node --check /tmp/squared-circle-v418.js
+      - name: Validate v4.19 results-first preview JavaScript
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          html=Path('web/preview-v4-19.html').read_text()
+          assert 'DISPLAY BUILD 4.19' in html
+          assert 'MATCH RESULTS · SOURCED' in html
+          assert "['recap','coverage'].includes(reviewParams.get('view'))" in html
+          assert "renderEditorialRecap(show,key)" in html
+          assert "coverageRows(k).length" not in html
+          assert "renderCoverage(show,key)" not in html
+          assert '#board{width:min(100vw,56.25dvh)' in html
+          Path('/tmp/squared-circle-v419.js').write_text(html.split('<script>',1)[1].split('</script>',1)[0])
+          PY
+          node --check /tmp/squared-circle-v419.js
       - name: Collect unverified match-card research leads
         run: python proof/card_intake.py --snapshot web/data/snapshot.json --out web/data/candidates.json --also-next-league
       - name: Build opt-in reported match descriptions (never confirmed)
@@ -482,6 +497,9 @@ jobs:
               (f'{base}/preview-v4-18.html?show=raw&view=coverage&probe={nonce}', 'v418'),
               (f'{base}/preview-v4-18.html?show=nxt&view=coverage&probe={nonce}', 'v418'),
               (f'{base}/preview-v4-18.html?show=evolve&probe={nonce}', 'v418'),
+              (f'{base}/preview-v4-19.html?show=raw&view=coverage&probe={nonce}', 'v419'),
+              (f'{base}/preview-v4-19.html?show=nxt&view=recap&probe={nonce}', 'v419'),
+              (f'{base}/preview-v4-19.html?show=evolve&probe={nonce}', 'v419'),
               (f'{base}/data/research-20261022.json?probe={nonce}', 'research'),
               (f'{base}/data/tvmaze-reported.json?probe={nonce}', 'tvmaze'),
           ]
@@ -495,7 +513,12 @@ jobs:
                       with urlopen(request, timeout=18) as response:
                           assert response.status == 200
                           body = response.read()
-                      if kind == 'v418':
+                      if kind == 'v419':
+                          assert b'DISPLAY BUILD 4.19' in body
+                          assert b'MATCH RESULTS' in body
+                          assert b'renderEditorialRecap' in body
+                          assert b'REPORTED / UNVERIFIED' in body
+                      elif kind == 'v418':
                           assert b'DISPLAY BUILD 4.18' in body
                           assert b'function coverageWindow' in body
                           assert b'coverage-entry' in body
