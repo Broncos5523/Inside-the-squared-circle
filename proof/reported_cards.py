@@ -74,6 +74,7 @@ def build_reported(snapshot: dict, requester=request_events, now=None, next_look
             "error": None,
             "episode_outcome_detected": False,
             "episode_withdrawn": False,
+            "episode_outcome_evidence_url": None,
             "source_name": "TheSportsDB",
         }
         # Once an outcome/cancellation has been SEEN for this exact show/date,
@@ -86,6 +87,10 @@ def build_reported(snapshot: dict, requester=request_events, now=None, next_look
             if prior:
                 entry["episode_outcome_detected"]=prior.get("episode_outcome_detected") is True
                 entry["episode_withdrawn"]=prior.get("episode_withdrawn") is True
+                if entry["episode_outcome_detected"] and re.fullmatch(
+                    r"https://www\.thesportsdb\.com/api/v1/json/123/lookupevent\.php\?id=\d+",
+                    prior.get("episode_outcome_evidence_url") or ""):
+                    entry["episode_outcome_evidence_url"]=prior["episode_outcome_evidence_url"]
         # AAA's named multi-week tape package cannot be assigned to a weekly episode.
         # Evolve is results-only. Matches must never be inferred for either.
         if slug not in SHOWS or not valid_upcoming(air, local_today):
@@ -105,6 +110,11 @@ def build_reported(snapshot: dict, requester=request_events, now=None, next_look
                     continue
                 if outcome_reported(candidate):
                     entry["episode_outcome_detected"] = True
+                    provider_id=str(candidate.get("idEvent",""))
+                    if re.fullmatch(r"[1-9]\d{0,14}",provider_id):
+                        entry["episode_outcome_evidence_url"]=(
+                            "https://www.thesportsdb.com/api/v1/json/123/lookupevent.php?id="+provider_id
+                        )
                 if withdrawn_event(candidate):
                     entry["episode_withdrawn"] = True
 

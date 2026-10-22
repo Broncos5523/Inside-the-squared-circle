@@ -3,7 +3,7 @@
   "mode": "REPORTED_MATCHES_UNVERIFIED",
   "generated_at": "2026-10-22T17:38:43.995505-04:00",
   "valid_as_of_et": "2026-10-22",
-  "policy": "Opt-in UNVERIFIED match and explicit segment mentions only. May be stale, speculative, misassigned, dark matches, taped show results or subject to change. Not announcements from WWE, AAA or TNA.",
+  "policy": "Opt-in UNVERIFIED match and explicit segment mentions only. May be stale, speculative, misassigned, dark matches, taped show results or subject to change. Not announcements from WWE, AAA or TNA. TNA Oct 22 result-state observed via live documented API at 17:29 ET, retained to suppress stale/early reported cards; no result text copied.",
   "programs": [
     {
       "show_id": "raw",
@@ -81,9 +81,11 @@
       "matches": [],
       "appearances": [],
       "error": "PROVIDER_PARTIAL_OR_UNAVAILABLE",
-      "episode_outcome_detected": false,
+      "episode_outcome_detected": true,
       "episode_withdrawn": false,
-      "source_name": "TheSportsDB"
+      "source_name": "TheSportsDB",
+      "episode_outcome_evidence_url": "https://www.thesportsdb.com/api/v1/json/123/lookupevent.php?id=2618956",
+      "outcome_observed_at": "2026-10-22T17:29:26-04:00"
     },
     {
       "show_id": "evolve",

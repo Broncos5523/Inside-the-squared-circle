@@ -106,6 +106,7 @@ class ReportedCardTests(unittest.TestCase):
                          now=NOW)
         tna=next(x for x in d["programs"] if x["show_id"]=="tna")
         self.assertTrue(tna["episode_outcome_detected"])
+        self.assertEqual(tna["episode_outcome_evidence_url"], "https://www.thesportsdb.com/api/v1/json/123/lookupevent.php?id=2618956")
         self.assertEqual(tna["matches"],[])
         self.assertFalse(next(x for x in d["programs"] if x["show_id"]=="smackdown")["episode_outcome_detected"])
 
