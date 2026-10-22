@@ -174,12 +174,49 @@ jobs:
           Path('/tmp/squared-circle-v412.js').write_text(page.split('<script>',1)[1].split('</script>',1)[0])
           PY
           node --check /tmp/squared-circle-v412.js
+      - name: Validate v4.13 Results and Fallout JavaScript
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          h=Path('web/preview-v4-13.html').read_text()
+          assert 'DISPLAY BUILD 4.13' in h
+          assert 'data/results.json' in h
+          assert '#board{width:min(100vw,56.25dvh)' in h
+          Path('/tmp/squared-circle-v413.js').write_text(h.split('<script>',1)[1].split('</script>',1)[0])
+          PY
+          node --check /tmp/squared-circle-v413.js
       - name: Collect unverified match-card research leads
         run: python proof/card_intake.py --snapshot web/data/snapshot.json --out web/data/candidates.json --also-next-league
       - name: Build opt-in reported match descriptions (never confirmed)
         run: python -m proof.reported_cards --snapshot web/data/snapshot.json --out web/data/reported.json --also-next-league --known-ids web/data/known-events.json --recheck-ids --previous web/data/reported.json
       - name: Persist validated event identifiers (not stale match text)
         run: python -m proof.known_events --previous web/data/known-events.json --reported web/data/reported.json --out web/data/known-events.json
+      - name: Collect post-TV-broadcast provider results (never pre-air)
+        run: python -m proof.results_intake --snapshot web/data/snapshot.json --known web/data/known-events.json --out web/data/results.json
+      - name: Audit sourced results, local airdate, attribution and spoiler safety
+        run: |
+          python - <<'PY'
+          from datetime import datetime
+          from pathlib import Path
+          from zoneinfo import ZoneInfo
+          import json,re
+          from proof.results_intake import broadcast_complete
+          d=json.loads(Path('web/data/results.json').read_text())
+          assert d['mode']=='PROVIDER_REPORTED_POST_BROADCAST_RESULTS_UNVERIFIED'
+          assert len(d['programs'])==6
+          now=datetime.now(ZoneInfo('America/New_York'))
+          for item in d['programs']:
+              if item['show_id'] in ('aaa','evolve'):
+                  assert not item['results']
+              if item['results']:
+                  assert broadcast_complete(item['show_id'],item['airdate'],now)
+              for outcome in item['results']:
+                  assert outcome['status']=='REPORTED_UNVERIFIED'
+                  assert outcome['source_name']=='TheSportsDB'
+                  assert re.fullmatch(r'https://www.thesportsdb.com/api/v1/json/123/lookupevent.php\?id=\d+',outcome['evidence_url'])
+                  assert ' defeats ' in outcome['text']
+          print('POST-SHOW OUTCOME / PRE-AIR SPOILER SAFETY PASS')
+          PY
       - name: Collect TVmaze episode-summary leads (reported, never confirmed)
         run: python -m proof.tvmaze_intake --snapshot web/data/snapshot.json --out web/data/tvmaze-reported.json
       - name: Validate additional TVmaze reports
@@ -245,6 +282,7 @@ jobs:
           cp web/data/reported.json /tmp/itsc-new-reported.json
           cp web/data/known-events.json /tmp/itsc-new-known-events.json
           cp web/data/tvmaze-reported.json /tmp/itsc-new-tvmaze.json
+          cp web/data/results.json /tmp/itsc-new-results.json
           for attempt in 1 2 3; do
             git fetch origin main
             git reset --hard origin/main
@@ -253,7 +291,8 @@ jobs:
             cp /tmp/itsc-new-reported.json web/data/reported.json
             cp /tmp/itsc-new-known-events.json web/data/known-events.json
             cp /tmp/itsc-new-tvmaze.json web/data/tvmaze-reported.json
-            git add web/data/snapshot.json web/data/candidates.json web/data/reported.json web/data/tvmaze-reported.json web/data/known-events.json
+            cp /tmp/itsc-new-results.json web/data/results.json
+            git add web/data/snapshot.json web/data/candidates.json web/data/reported.json web/data/tvmaze-reported.json web/data/known-events.json web/data/results.json
             if git diff --cached --quiet; then
               echo "No schedule changes to commit"
               break
@@ -289,6 +328,7 @@ jobs:
           nonce = os.environ.get('GITHUB_RUN_ID', 'check')
           expected = json.loads(Path('web/data/reported.json').read_text(encoding='utf-8'))
           expected_tvmaze = json.loads(Path('web/data/tvmaze-reported.json').read_text(encoding='utf-8'))
+          expected_results = json.loads(Path('web/data/results.json').read_text(encoding='utf-8'))
           checks = [
               (f'{base}/preview-v4-6.html?show=smackdown&probe={nonce}', 'smackdown'),
               (f'{base}/preview-v4-6.html?show=tna&probe={nonce}', 'tna'),
@@ -307,6 +347,9 @@ jobs:
               (f'{base}/preview-v4-11.html?show=smackdown&probe={nonce}', 'v411'),
               (f'{base}/preview-v4-12.html?show=tna&probe={nonce}', 'v412'),
               (f'{base}/preview-v4-12.html?show=smackdown&probe={nonce}', 'v412'),
+              (f'{base}/preview-v4-13.html?show=tna&view=results&probe={nonce}', 'v413'),
+              (f'{base}/preview-v4-13.html?show=smackdown&probe={nonce}', 'v413'),
+              (f'{base}/data/results.json?probe={nonce}', 'results'),
               (f'{base}/data/research-20261022.json?probe={nonce}', 'research'),
               (f'{base}/data/tvmaze-reported.json?probe={nonce}', 'tvmaze'),
           ]
@@ -320,7 +363,16 @@ jobs:
                       with urlopen(request, timeout=18) as response:
                           assert response.status == 200
                           body = response.read()
-                      if kind == 'tvmaze':
+                      if kind == 'results':
+                          feed = json.loads(body)
+                          assert feed['mode']=='PROVIDER_REPORTED_POST_BROADCAST_RESULTS_UNVERIFIED'
+                          assert feed['generated_at']==expected_results['generated_at']
+                          assert len(feed['programs'])==6
+                      elif kind == 'v413':
+                          assert b'DISPLAY BUILD 4.13' in body
+                          assert b'function renderResults' in body
+                          assert b'data/results.json' in body
+                      elif kind == 'tvmaze':
                           feed = json.loads(body)
                           assert feed['mode']=='TVMAZE_EPISODE_SUMMARY_REPORTED_UNVERIFIED'
                           assert len(feed['programs'])==6
