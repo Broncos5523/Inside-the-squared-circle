@@ -101,6 +101,19 @@ jobs:
           PY
       - name: Test research intake safeguards
         run: python -m unittest discover -s tests -v
+      - name: Validate preview JavaScript and portrait card pagination
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          html=Path('web/preview-v4-7.html').read_text()
+          assert html.count('<script>')==1 and html.count('</script>')==1
+          script=html.split('<script>',1)[1].split('</script>',1)[0]
+          assert 'const perPage=1' in script
+          assert 'DATED_RESEARCH_SUPPLEMENT_UNVERIFIED' in script
+          assert '#board{width:min(100vw,56.25dvh)' in html
+          Path('/tmp/squared-circle-v47.js').write_text(script)
+          PY
+          node --check /tmp/squared-circle-v47.js
       - name: Collect unverified match-card research leads
         run: python proof/card_intake.py --snapshot web/data/snapshot.json --out web/data/candidates.json
       - name: Build opt-in reported match descriptions (never confirmed)
