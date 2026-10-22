@@ -1,0 +1,113 @@
+{
+  "schema_version": 1,
+  "mode": "DATED_RESEARCH_SUPPLEMENT_UNVERIFIED",
+  "reviewed_at_et": "2026-10-22",
+  "method": "ONE_TIME_HUMAN_REVIEW_NOT_AUTOMATIC",
+  "policy": "Supplement of individually source-linked broadcast facts manually reviewed on 2026-10-22. UNVERIFIED / SUBJECT TO CHANGE. Not an automated source, not a complete card. Show only if the exact show's next airdate matches and it has not passed in US Eastern time.",
+  "programs": [
+    {
+      "show_id": "raw",
+      "airdate": "2026-10-26",
+      "matches": [
+        {
+          "text": "Bayley vs. Lyra Valkyria",
+          "stipulation": "No Disqualification Match",
+          "source_name": "F4W / Wrestling Observer",
+          "evidence_url": "https://www.f4wonline.com/news/wwe/bayley-vs-lyra-valkyria-no-disqualification-match-set-for-next-weeks-wwe-raw/",
+          "status": "REPORTED_UNVERIFIED"
+        }
+      ],
+      "appearances": []
+    },
+    {
+      "show_id": "smackdown",
+      "airdate": "2026-10-23",
+      "matches": [
+        {
+          "text": "Chelsea Green vs. Roxanne Perez",
+          "stipulation": "WWE Women's Championship",
+          "source_name": "WWE preview fact, manually reviewed",
+          "evidence_url": "https://www.wwe.com/shows/smackdown/2026-10-23",
+          "status": "REPORTED_UNVERIFIED"
+        }
+      ],
+      "appearances": []
+    },
+    {
+      "show_id": "nxt",
+      "airdate": "2026-10-27",
+      "matches": [
+        {
+          "text": "Jackson Drake vs. E.K. Prosper",
+          "stipulation": "NXT North American Championship",
+          "source_name": "F4W / Wrestling Observer",
+          "evidence_url": "https://www.f4wonline.com/news/nxt/north-american-title-match-part-of-next-weeks-wwe-nxt-lineup-2/",
+          "status": "REPORTED_UNVERIFIED"
+        },
+        {
+          "text": "Ricky Smokes & Brad Baylor vs. Noam Dar & Romeo Moreno",
+          "stipulation": "Dusty Rhodes Tag Team Classic Semifinal",
+          "source_name": "F4W / Wrestling Observer",
+          "evidence_url": "https://www.f4wonline.com/news/nxt/north-american-title-match-part-of-next-weeks-wwe-nxt-lineup-2/",
+          "status": "REPORTED_UNVERIFIED"
+        },
+        {
+          "text": "Hank & Tank vs. The Wagner Brothers",
+          "stipulation": "Dusty Rhodes Tag Team Classic Semifinal",
+          "source_name": "F4W / Wrestling Observer",
+          "evidence_url": "https://www.f4wonline.com/news/nxt/north-american-title-match-part-of-next-weeks-wwe-nxt-lineup-2/",
+          "status": "REPORTED_UNVERIFIED"
+        },
+        {
+          "text": "Lizzy Rain vs. Chantel Monroe",
+          "stipulation": "Singles Match",
+          "source_name": "F4W / Wrestling Observer",
+          "evidence_url": "https://www.f4wonline.com/news/nxt/north-american-title-match-part-of-next-weeks-wwe-nxt-lineup-2/",
+          "status": "REPORTED_UNVERIFIED"
+        },
+        {
+          "text": "Saquon Shugars vs. Sean Legacy",
+          "stipulation": "Singles Match",
+          "source_name": "F4W / Wrestling Observer",
+          "evidence_url": "https://www.f4wonline.com/news/nxt/north-american-title-match-part-of-next-weeks-wwe-nxt-lineup-2/",
+          "status": "REPORTED_UNVERIFIED"
+        }
+      ],
+      "appearances": []
+    },
+    {
+      "show_id": "aaa",
+      "airdate": "2026-10-24",
+      "matches": [],
+      "appearances": [],
+      "note": "Héroes Inmortales is split into television weeks; event-level matches cannot safely be mapped to the October 24 episode."
+    },
+    {
+      "show_id": "tna",
+      "airdate": "2026-10-22",
+      "matches": [],
+      "appearances": [
+        {
+          "text": "Daria Rae scheduled to open iMPACT!",
+          "type": "Opening segment",
+          "source_name": "TNA episode preview, manually reviewed",
+          "evidence_url": "https://tnawrestling.com/news/tna-thursday-night-impact-on-amc-preview-october-22-2026",
+          "status": "REPORTED_UNVERIFIED"
+        },
+        {
+          "text": "Allie and Kiera Hogan scheduled to address the Knockouts division",
+          "type": "Speaking segment",
+          "source_name": "TNA episode preview, manually reviewed",
+          "evidence_url": "https://tnawrestling.com/news/tna-thursday-night-impact-on-amc-preview-october-22-2026",
+          "status": "REPORTED_UNVERIFIED"
+        }
+      ]
+    },
+    {
+      "show_id": "evolve",
+      "airdate": "2026-10-28",
+      "matches": [],
+      "appearances": []
+    }
+  ]
+}

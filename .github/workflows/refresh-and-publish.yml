@@ -189,6 +189,10 @@ jobs:
               (f'{base}/preview-v4-6.html?show=smackdown&probe={nonce}', 'smackdown'),
               (f'{base}/preview-v4-6.html?show=tna&probe={nonce}', 'tna'),
               (f'{base}/data/reported.json?probe={nonce}', 'reported'),
+              (f'{base}/preview-v4-7.html?show=raw&probe={nonce}', 'v47'),
+              (f'{base}/preview-v4-7.html?show=smackdown&probe={nonce}', 'v47'),
+              (f'{base}/preview-v4-7.html?show=nxt&probe={nonce}', 'v47'),
+              (f'{base}/data/research-20261022.json?probe={nonce}', 'research'),
           ]
           for attempt in range(15):
               try:
@@ -200,7 +204,15 @@ jobs:
                       with urlopen(request, timeout=18) as response:
                           assert response.status == 200
                           body = response.read()
-                      if kind == 'reported':
+                      if kind == 'research':
+                          supplement = json.loads(body)
+                          assert supplement['mode']=='DATED_RESEARCH_SUPPLEMENT_UNVERIFIED'
+                          assert len(supplement['programs'])==6
+                      elif kind == 'v47':
+                          assert b'DISPLAY BUILD 4.7' in body
+                          assert b'const perPage=1' in body
+                          assert b'DATED_RESEARCH_SUPPLEMENT_UNVERIFIED' in body
+                      elif kind == 'reported':
                           published = json.loads(body)
                           assert published['mode'] == 'REPORTED_MATCHES_UNVERIFIED'
                           assert published['generated_at'] == expected['generated_at']

@@ -1,0 +1,307 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#060b16">
+<title>Inside the Squared Circle — v4.7 Research-Supplemented Preview</title>
+<style>
+:root{color-scheme:dark;font-family:Arial,Helvetica,sans-serif;background:#07090e;color:#f5f8ff;font-weight:400}
+*{box-sizing:border-box}html,body{margin:0;width:100%;height:100%;overflow:hidden}
+body{display:grid;place-items:center;background:#070910}
+#board{width:min(100vw,56.25dvh);height:min(100dvh,177.778vw);aspect-ratio:9/16;overflow:hidden;display:flex;flex-direction:column;position:relative;isolation:isolate;container-type:size;padding:3.2cqw;background:radial-gradient(ellipse 95% 43% at 50% 31%,#273d58 0%,#0d1929 45%,#050914 86%);border:1px solid #3b4a64;box-shadow:0 0 38px #050611}
+#board:before{content:"";position:absolute;inset:0;z-index:-2;opacity:.43;background:repeating-linear-gradient(92deg,transparent 0,transparent 32px,#63799514 33px,#63799514 34px),radial-gradient(ellipse 30% 46% at 12% 12%,#819bbd77 0%,transparent 80%),radial-gradient(ellipse 30% 46% at 88% 12%,#819bbd77 0%,transparent 80%)}
+#board:after{content:"";position:absolute;z-index:-1;top:27%;left:-12%;width:124%;height:24%;opacity:.36;border-top:3px solid #cbd7e7;border-bottom:3px solid #cbd7e7;transform:perspective(200px) rotateX(-14deg);box-shadow:0 8px 0 var(--show-accent,#df2841),0 -8px 0 var(--show-accent,#df2841);pointer-events:none}
+header{display:flex;flex-direction:column;align-items:center;text-align:center;padding:1.3cqw .6cqw 2.7cqw;min-height:19.7cqh;border-bottom:1px solid #829ab754}
+.brand-over{font-size:2.1cqw;font-weight:900;letter-spacing:.3em;color:#d9e5f8;margin-bottom:1cqw}
+.brand-main{font-size:8.7cqw;line-height:.94;letter-spacing:-.055em;font-weight:1000;text-shadow:0 2px 0 #1e3149,0 5px 12px #000}
+.brand-main span{display:block;color:#f2c97c;text-shadow:0 2px 0 #7a5225,0 4px 0 #44310f,0 6px 13px #000}
+.brand-tag{font-size:2.3cqw;font-weight:800;letter-spacing:.11em;color:#e4b96e;margin-top:1.9cqw}
+.brand-sub{font-size:1.75cqw;letter-spacing:.16em;color:#9fb7d6;margin-top:2.4cqw;font-weight:700}
+#masthead-img{display:none;width:100%;max-height:17.9cqh;object-fit:contain}
+#board.with-logo #masthead-img{display:block}
+#board.with-logo .brand-over,#board.with-logo .brand-main,#board.with-logo .brand-tag{display:none}
+#board.with-logo header{min-height:19cqh}
+#sourcebar{display:flex;align-items:center;gap:1.6cqw;flex-shrink:0;margin-top:2.6cqw;padding:2.5cqw 2.4cqw;background:#101c2ee6;border:1px solid #48617b80;box-shadow:inset 0 0 0 1px #ffffff08;min-height:6.6cqh}
+.lamp{flex:none;height:2cqw;width:2cqw;border-radius:50%;background:#42db9f;box-shadow:0 0 10px #42db9f80}
+#health{font-weight:900;font-size:2.0cqw;letter-spacing:.065em;line-height:1.3}
+#screen{--accent:#eb4052;flex:1;display:flex;flex-direction:column;min-height:0;margin-top:2.5cqw;border:1px solid var(--accent);border-radius:2.6cqw;background:linear-gradient(150deg,#111e31de 0%,#091224ed 74%);overflow:hidden;box-shadow:inset 0 0 25px #0007,0 0 18px #0006;position:relative}
+#screen:before{content:"";position:absolute;inset:0 0 auto 0;height:16cqh;background:radial-gradient(ellipse at top right,var(--accent),transparent 65%);opacity:.16;pointer-events:none}
+.promo{position:relative;padding:4.1cqw 4.2cqw 3.1cqw;border-bottom:1px solid #ffffff30;flex-shrink:0}
+.show-row{display:flex;align-items:center;justify-content:space-between;gap:2cqw}
+#type{color:var(--accent);font-weight:900;font-size:2cqw;letter-spacing:.15em}
+#counter{background:#0c1220c9;border:1px solid #ffffff30;padding:1cqw 1.4cqw;border-radius:1cqw;color:#c6d3e7;font-size:1.9cqw;font-weight:bold}
+#show{position:relative;font-size:8.4cqw;line-height:.98;letter-spacing:-.045em;font-weight:1000;text-transform:uppercase;margin:2cqw 0 1.5cqw;max-width:100%;overflow-wrap:break-word;text-shadow:0 4px 16px #000}
+#show.evolve{font-size:7cqw}
+.show-underline{width:48%;height:.8cqw;background:var(--accent);box-shadow:0 0 12px var(--accent)}
+.episode-banner{padding:3.2cqw 4.2cqw 2.5cqw;flex-shrink:0}
+.data-label{font-weight:900;font-size:1.95cqw;letter-spacing:.14em;color:#adc3d9}
+#date{font-size:5cqw;line-height:1.1;font-weight:1000;margin-top:1.35cqw;letter-spacing:-.02em;color:#fff}
+#episode{font-size:2.3cqw;line-height:1.3;color:#c1d2e7;margin-top:1.65cqw;overflow-wrap:break-word}
+#episode-meta{display:flex;gap:2cqw;align-items:center;justify-content:space-between;margin-top:2.8cqw}
+.pill{display:inline-block;background:var(--accent);color:#071020;border-radius:1.3cqw;padding:1.4cqw 2cqw;font-weight:900;letter-spacing:.08em;font-size:2cqw}
+#time{font-size:2cqw;color:#c8d4e3;text-align:right}
+.sections{display:grid;grid-template-columns:1fr 1fr;gap:2.1cqw;padding:1.6cqw 4.2cqw 2.5cqw;flex-shrink:0}
+.mini{background:#0b1423c9;border:1px solid #50617f88;border-radius:1.5cqw;padding:2.5cqw;min-height:12cqh;display:flex;flex-direction:column}
+.mini h2{font-size:2.55cqw;line-height:1.1;margin:0 0 1.5cqw;letter-spacing:.08em;color:#f7f9fe}
+#card,#appearances{font-size:2.3cqw;line-height:1.3;color:#c9d7e8}
+.unconnected{margin-top:auto;color:#ffc97e;font-size:1.75cqw;letter-spacing:.08em;font-weight:900;padding-top:1.8cqw}
+.timeline{margin:0 4.2cqw 2.8cqw;border-top:1px solid #ffffff26;border-bottom:1px solid #ffffff26;padding:2.2cqw 0;flex-shrink:0}
+.timeline-title{font-size:2cqw;letter-spacing:.14em;color:#e4b96e;font-weight:900;margin-bottom:2cqw}
+#prev{font-size:2.65cqw;line-height:1.32;font-weight:bold;color:#e5ecf7;overflow-wrap:break-word}
+#prev .muted{color:#a1b1c8;font-weight:normal}
+.schedule-strip{margin-top:auto;background:#07111ed9;padding:2.1cqw 3cqw 2.1cqw;border-top:1px solid #c9b38b5c;flex-shrink:0}
+.strip-title{color:#ecc281;font-weight:900;font-size:2.05cqw;letter-spacing:.16em;margin-bottom:2.1cqw}
+#schedule{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:.85cqw}
+.slot{border-radius:1.1cqw;border:1px solid #42587388;background:#19263d;min-width:0;padding:1.7cqw .2cqw;text-align:center}
+.slot strong{display:block;font-size:2.2cqw;white-space:nowrap;line-height:1.25}
+.slot span{display:block;color:#b6c6d9;font-size:1.76cqw;margin-top:.8cqw}
+.slot.active{border-color:var(--accent);box-shadow:inset 0 0 0 1px var(--accent)}
+footer{margin-top:2.4cqw;flex-shrink:0;display:flex;justify-content:space-between;align-items:flex-start;gap:2cqw;font-size:1.86cqw;line-height:1.38;color:#c2d0df;min-height:5.5cqh}
+footer a{color:#dfbd7f}
+#timestamp{text-align:right;color:#91aaca}
+#board.badsource .lamp{background:#edaf5c;box-shadow:none}
+@media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+
+/* v4.6: separate preview. Prior versions are unchanged. */
+.sections{display:flex;flex-direction:column;gap:1.15cqw;min-height:0;flex:1;overflow:hidden;padding:1.6cqw 4.2cqw}
+.mini{min-height:0}
+.mini:first-child{flex:1;min-height:0;overflow:hidden;display:flex;flex-direction:column}
+.mini:nth-child(2){flex:0 0 auto;padding:1.7cqw 2.3cqw}
+.mini:nth-child(2) h2{font-size:2.05cqw;margin-bottom:.7cqw}
+.mini:nth-child(2) #appearances{font-size:1.94cqw;line-height:1.22}
+.mini:nth-child(2) .unconnected{display:none}
+#card{overflow:hidden;flex:1;min-height:0}
+#card .reported-match{padding:.75cqw 0;border-top:1px solid #f2f5ff22;line-height:1.18}
+#card .reported-match:first-child{border-top:none}
+#card .reported-stip{font-size:1.9cqw;color:#ffda8b;font-weight:900;margin-bottom:.34cqw;text-transform:uppercase;letter-spacing:.04em}
+#card .reported-text{font-size:2.28cqw;color:#f2f5ff;font-weight:700}
+#report-status{padding-top:.4cqw;font-size:1.65cqw}
+#report-status a{color:#ffd48c;font-weight:900}
+#card-title{color:#ffd48c}
+#card .reported-match{padding:1.15cqw 0}
+#card .reported-text{font-size:2.65cqw;line-height:1.28;overflow-wrap:anywhere}
+#card .reported-stip{font-size:2.05cqw}
+#card .reported-flag{display:block;color:#ffd28f;font-size:1.67cqw;font-weight:900;letter-spacing:.07em;margin-top:.6cqw}
+#card .reported-source{display:inline-block;color:#b9d5ff;font-size:1.66cqw;margin-top:.55cqw}
+#report-status{font-size:1.8cqw;line-height:1.3}
+#appearances .appearance-item{padding:.65cqw 0;border-top:1px solid #ffffff26}
+#appearances .appearance-item:first-child{border-top:0}
+#appearances .appearance-item strong{display:block;color:#dfc99d;font-size:1.67cqw}
+#appearances .appearance-item span{display:block;color:#f2f4fa;font-size:2.05cqw;line-height:1.22}
+#appearances .appearance-item a{font-size:1.6cqw;color:#b9d5ff}
+#board.v46-with-matches .timeline{display:none}
+#board.v46-with-matches .episode-banner{padding-top:2cqw;padding-bottom:1.6cqw}
+#board.v46-with-matches #episode-meta{margin-top:1.65cqw}
+#board.v46-with-matches .sections{padding-top:1cqw}
+#board.v46-with-matches .mini:nth-child(2){max-height:16cqh;overflow:hidden}
+
+
+/* V4.7, one fully readable match per 14-second card cycle. */
+#card{overflow:visible;flex:1 1 auto;min-height:0;display:flex;flex-direction:column;justify-content:center}
+#card .reported-match{padding:1cqw 0;border-top:0;line-height:1.34}
+#card .reported-stip{font-size:2.5cqw;line-height:1.2;margin-bottom:1.15cqw;overflow-wrap:anywhere}
+#card .reported-text{font-size:3.5cqw;line-height:1.32;overflow-wrap:anywhere}
+#card .reported-flag{font-size:2.1cqw;margin-top:1.2cqw}
+#card .reported-source{display:inline-block;font-size:2.0cqw;margin-top:1.1cqw;overflow-wrap:anywhere}
+#report-status{flex:0 0 auto;padding-top:1.3cqw;margin-top:.8cqw;border-top:1px solid #ffffff35;font-size:1.9cqw;line-height:1.3}
+#board.v46-with-matches .mini:first-child{padding:2.5cqw;min-height:17cqh;overflow:hidden}
+#board.v46-with-matches .mini:nth-child(2){flex:0 0 auto;max-height:18cqh;overflow:hidden}
+#board.v46-with-matches .promo{padding-top:2.6cqw;padding-bottom:2.2cqw}
+#board.v46-with-matches .episode-banner{padding-top:1.4cqw;padding-bottom:1.1cqw}
+#board.v46-with-matches .timeline{display:none}
+</style>
+</head>
+<body>
+<div id="board" aria-live="polite">
+<header>
+  <img id="masthead-img" src="./assets/inside-squared-circle-master.png" alt="Inside the Squared Circle master logo">
+  <div class="brand-over">MAN CAVE SPORTS BOOK PRESENTS</div>
+  <div class="brand-main">INSIDE THE <span>SQUARED CIRCLE</span></div>
+  <div class="brand-tag">WHEN THE BELL RINGS, IT GETS REAL.</div>
+  <div class="brand-sub">24/7 WRESTLING · REPORTED CARDS CAN CHANGE</div>
+</header>
+<div id="sourcebar"><span class="lamp"></span><span id="health">CONNECTING TO AUTOMATIC SCHEDULE DATA</span></div>
+<main id="screen">
+ <div class="promo">
+  <div class="show-row"><div id="type">WEEKLY WRESTLING</div><div id="counter">01 / 11</div></div>
+  <h1 id="show">LOADING SHOW</h1><div class="show-underline"></div>
+ </div>
+ <div class="episode-banner">
+  <div id="date-title" class="data-label">NEXT BROADCAST</div>
+  <div id="date">CHECKING SCHEDULE</div>
+  <div id="episode">Waiting for episode details</div>
+  <div id="episode-meta"><span id="status-chip" class="pill">SCHEDULE CHECK</span><span id="time">Time not verified</span></div>
+ </div>
+ <div class="sections">
+  <div class="mini"><h2 id="card-title">REPORTED MATCHES · UNVERIFIED</h2><div id="card">Waiting for verified source evidence.</div><div id="report-status" class="unconnected">UNVERIFIED LEADS · SOURCE PENDING</div></div>
+  <div class="mini"><h2 id="segment-title">APPEARANCES</h2><div id="appearances">Only explicitly sourced appearances will display.</div><div class="unconnected">SOURCE NOT CONNECTED</div></div>
+ </div>
+ <div class="timeline"><div class="timeline-title" id="timeline-title">PREVIOUS BROADCAST · SCHEDULE ONLY</div><div id="prev">Checking previous episode</div></div>
+ <div class="schedule-strip"><div class="strip-title">NEXT UP · FIVE-SHOW PROGRAM GUIDE</div><div id="schedule"></div></div>
+</main>
+<footer><div>Schedules <a href="https://www.tvmaze.com/api">TVmaze</a> (CC BY-SA)<div>Reported matches and appearances are UNVERIFIED · <a href="https://www.thesportsdb.com/">TheSportsDB</a></div></div><div id="timestamp">DISPLAY BUILD 4.7<br>Awaiting first update</div></footer>
+</div>
+<script>
+(()=>{'use strict';
+ const keys=['raw','smackdown','nxt','aaa','tna','raw','smackdown','nxt','aaa','tna','evolve'];
+ // Optional fixed show for QA, e.g. ?show=smackdown — normal URL still rotates.
+ const requested=new URLSearchParams(window.location.search).get('show');
+ if(['raw','smackdown','nxt','aaa','tna','evolve'].includes(requested)){keys.splice(0,keys.length,requested)}
+ const labels={raw:'RAW',smackdown:'SMACKDOWN',nxt:'NXT',aaa:'AAA',tna:'TNA'};
+ const $=id=>document.getElementById(id),put=(id,s)=>{$(id).textContent=String(s)};
+ const formatted=d=>{if(!/^\d{4}-\d{2}-\d{2}$/.test(d||''))return 'DATE UNAVAILABLE';const [y,m,day]=d.split('-').map(Number);const v=new Date(Date.UTC(y,m-1,day,12));if(v.getUTCFullYear()!==y||v.getUTCMonth()!==m-1||v.getUTCDate()!==day)return 'DATE UNAVAILABLE';return new Intl.DateTimeFormat('en-US',{timeZone:'UTC',weekday:'long',month:'short',day:'numeric',year:'numeric'}).format(v).toUpperCase()};
+ const abbrev=d=>/^\d{4}-\d{2}-\d{2}$/.test(d||'')?d.slice(5).replace('-','/'):'TBD';
+ const short=d=>formatted(d).replace(/^[^,]+, /,'');
+ let data=null,position=0,networkFailed=false,lastSuccessfulRequest=0;
+ const master=$('masthead-img');
+ master.onload=()=>{$('board').classList.add('with-logo')};master.onerror=()=>{$('board').classList.remove('with-logo')};
+
+  // These are API-reported mentions, NOT verified or officially announced matches.
+  // Spoiler-free results: match winners and outcomes are never displayed.
+  let reportedFeed=null,researchedFeed=null;
+
+  const setReportStatus=s=>put('report-status',s);
+  const easternToday=()=>{
+    const d=Object.fromEntries(new Intl.DateTimeFormat('en-US',{timeZone:'America/New_York',year:'numeric',month:'2-digit',day:'2-digit'}).formatToParts(new Date()).map(p=>[p.type,p.value]));
+    return d.year+'-'+d.month+'-'+d.day;
+  };
+  const safeLink=u=>typeof u==='string'&&/^https:\/\/(?:www\.)?(?:wwe\.com|f4wonline\.com|tnawrestling\.com|thesportsdb\.com)\//.test(u);
+  const pairKey=s=>String(s||'').toLowerCase().replace(/\(c\)|\(w\/[^)]*\)/g,'').replace(/[^a-z0-9]/g,'');
+  function datedRows(show,key,kind){
+    if(researchedFeed?.mode!=='DATED_RESEARCH_SUPPLEMENT_UNVERIFIED')return [];
+    const item=researchedFeed.programs?.find(x=>x.show_id===key);
+    if(!item||item.airdate!==show.next?.date||item.airdate<easternToday()||researchedFeed.reviewed_at_et>easternToday())return [];
+    return (Array.isArray(item[kind])?item[kind]:[]).filter(x=>
+      x.status==='REPORTED_UNVERIFIED'&&typeof x.text==='string'&&x.text.length<=210&&
+      typeof x.source_name==='string'&&x.source_name.length<=100&&safeLink(x.evidence_url)
+    ).map(x=>({...x,origin:'RESEARCH'}));
+  }
+  function uniqueRows(api,research){
+    const result=[...api];
+    for(const x of research){
+      if(!result.some(v=>pairKey(v.text)===pairKey(x.text)))result.push(x);
+    }
+    return result;
+  }
+  function reportedRows(show,key,kind){
+    const p=reportedFeed?.programs?.find(x=>x.show_id===key);
+    const ts=Date.parse(reportedFeed?.generated_at||'');
+    const age=(Date.now()-ts)/60000;
+    const good=Number.isFinite(age)&&age>=0&&age<=480&&p?.airdate===show.next?.date;
+    const api=good&&Array.isArray(p[kind])?p[kind].filter(x=>
+      x.status==='REPORTED_UNVERIFIED'&&typeof x.text==='string'&&x.text.length<=210&&
+      x.evidence_url?.startsWith('https://www.thesportsdb.com/api/v1/json/123/lookupevent.php?id=')
+    ).map(x=>({...x,origin:'API'})):[];
+    return uniqueRows(api,datedRows(show,key,kind));
+  }
+  function showReportedCard(show,key,evolve){
+    const card=$('card');card.replaceChildren();
+    $('board').classList.remove('v46-with-matches');
+    const footer=$('report-status');footer.replaceChildren();
+    if(evolve){
+      card.textContent='Evolve results require a distinct, appropriately sourced finished-show recap.';
+      setReportStatus('RECAP DATA NOT CONNECTED');return;
+    }
+    const rows=reportedRows(show,key,'matches');
+    if(!rows.length){
+      card.textContent=key==='aaa'?'Héroes Inmortales event card exists, but matches cannot yet be assigned to this TV episode.':'No source-matched match reported here yet; other matches may have been announced.';
+      setReportStatus('COVERAGE INCOMPLETE · NOT A ZERO-MATCH CLAIM');
+      return;
+    }
+    $('board').classList.add('v46-with-matches');
+    const perPage=1,pages=Math.ceil(rows.length/perPage);
+    const page=Math.floor(position/(keys.length===1?1:5))%pages;
+    for(const match of rows.slice(page*perPage,(page+1)*perPage)){
+      const row=document.createElement('div');row.className='reported-match';
+      const st=document.createElement('div');st.className='reported-stip';st.textContent=match.stipulation||'REPORTED MATCH';
+      const name=document.createElement('div');name.className='reported-text';name.textContent=match.text;
+      const flag=document.createElement('span');flag.className='reported-flag';flag.textContent='REPORTED / UNVERIFIED · CARD SUBJECT TO CHANGE';
+      const source=document.createElement('a');source.className='reported-source';source.href=match.evidence_url;
+      source.target='_blank';source.rel='noopener noreferrer';
+      source.textContent=match.origin==='RESEARCH'?'REVIEWED OCT 22 · '+match.source_name:'API SOURCE · THE SPORTS DB';
+      row.append(st,name,flag,source);card.append(row);
+    }
+    footer.textContent='MATCH '+(page+1)+' OF '+rows.length+' · AUTOMATIC NEXT CARD IN 14s';
+  }
+  function showReportedAppearances(show,key,evolve){
+    const area=$('appearances');area.replaceChildren();
+    if(evolve){area.textContent='Finished-show results are not connected yet.';return;}
+    const rows=reportedRows(show,key,'appearances');
+    if(!rows.length){area.textContent='No sourced appearance details in available feeds for this episode.';return;}
+    for(const x of rows.slice(0,2)){
+      const div=document.createElement('div');div.className='appearance-item';
+      const typ=document.createElement('strong');typ.textContent=(x.type||'APPEARANCE').toUpperCase()+' · REPORTED / UNVERIFIED';
+      const desc=document.createElement('span');desc.textContent=x.text;
+      const link=document.createElement('a');link.href=x.evidence_url;link.target='_blank';link.rel='noopener noreferrer';
+      link.textContent=x.origin==='RESEARCH'?'OCT 22 RESEARCH · '+x.source_name:'THE SPORTS DB SOURCE';
+      div.append(typ,desc,link);area.append(div);
+    }
+  }
+ function render(){
+  if(!data)return;
+  const key=keys[position%keys.length],show=data.shows.find(x=>x.id===key);
+  if(!show)return;
+  const evolve=key==='evolve',ep=evolve?show.previous:show.next;
+  const accent=/^#[\da-f]{6}$/i.test(show.color||'')?show.color:'#e4b96e';
+  $('screen').style.setProperty('--accent',accent);$('board').style.setProperty('--show-accent',accent);
+  put('type',evolve?'DEVELOPMENTAL · WEEKLY RECAP':'WEEKLY WRESTLING · PROGRAM GUIDE');
+  put('counter',String(position%keys.length+1).padStart(2,'0')+' / '+keys.length);
+  const title=show.name||key.toUpperCase();put('show',title);
+  $('show').classList.toggle('evolve',evolve);
+  put('date-title',evolve?'LATEST LISTED EVOLVE BROADCAST':'NEXT LISTED BROADCAST');
+  put('date',formatted(ep?.date));
+  put('episode',ep?.title||'Episode details have not been published by the schedule source');
+  put('time',ep?.time?ep.time+' · provider-local time':'Airtime not verified');
+  put('status-chip',show.schedule_status==='fresh'?'SCHEDULE RECEIVED':'SCHEDULE DELAYED');
+  put('card-title',evolve?'RESULTS & FALLOUT':'ANNOUNCED MATCHES');
+  put('segment-title',evolve?'STORYLINES':'CONFIRMED APPEARANCES');
+  put('card',evolve?'No authorized finished-show recap provider is connected. This is an airdate reference, not a results recap.':'Awaiting authorized match-card data. This does not mean no matches have been announced.');
+  put('appearances',evolve?'Verified championship and storyline developments are not available from this schedule-only feed.':'Advertised talent and segments will appear only with supporting evidence.');
+  if(!evolve){put('card-title','REPORTED MATCHES · UNVERIFIED');put('segment-title','REPORTED APPEARANCES · UNVERIFIED');}
+  showReportedCard(show,key,evolve);
+  showReportedAppearances(show,key,evolve);
+  const prev=evolve?show.next:show.previous;
+  put('timeline-title',evolve?'FOLLOWING EVOLVE BROADCAST · SCHEDULE ONLY':'LAST BROADCAST · EPISODE LISTING ONLY');
+  put('prev',prev?.date?(short(prev.date)+' · '+(prev.title||'Episode')):'No reliable earlier episode information');
+  const generated=Date.parse(data.generated_at||''),hours=Number.isFinite(generated)?Math.max(0,Math.floor((Date.now()-generated)/3600000)):null;
+  const fresh=data.mode==='LIVE_SCHEDULES_ONLY'&&show.schedule_status==='fresh'&&hours!==null&&hours<8&&!networkFailed;
+  put('health',networkFailed?'DISPLAY UPDATE DELAYED · USING LAST LOADED DATA':fresh?'SCHEDULE CURRENT · REPORTED CARDS UNVERIFIED':'SCHEDULE MAY BE STALE · MATCHES NOT VERIFIED');
+  $('board').classList.toggle('badsource',!fresh);
+  put('timestamp',`DISPLAY BUILD 4.7 · ${hours===null?'Collection time unavailable':'Collection '+hours+'h ago'}`);
+  const grid=$('schedule');grid.replaceChildren();
+  for(const slotKey of ['raw','smackdown','nxt','aaa','tna']){
+   const s=data.shows.find(x=>x.id===slotKey),box=document.createElement('div');box.className='slot'+(slotKey===key?' active':'');
+   const nm=document.createElement('strong');nm.textContent=labels[slotKey];
+   const when=document.createElement('span');when.textContent=abbrev(s?.next?.date);
+   box.append(nm,when);grid.append(box);
+  }
+ }
+ async function refresh(){
+  try{
+   const res=await fetch('./data/snapshot.json?v='+Math.floor(Date.now()/120000),{cache:'no-store'});
+   if(!res.ok)throw Error('network');const next=await res.json();
+   if(next.schema_version!==1||!Array.isArray(next.shows)||next.shows.length!==6||!['LIVE_SCHEDULES_ONLY','STALE_SCHEDULES_ONLY','SAMPLE_FIXTURE_ONLY'].includes(next.mode))throw Error('invalid schema');
+   if(['raw','smackdown','nxt','aaa','tna','evolve'].some(k=>!next.shows.some(s=>s.id===k)))throw Error('missing show');
+   data=next;networkFailed=false;lastSuccessfulRequest=Date.now();
+   try{
+     const rr=await fetch('./data/reported.json?v='+Math.floor(Date.now()/120000),{cache:'no-store'});
+     if(!rr.ok)throw Error('reported source unavailable');
+     const rf=await rr.json();
+     if(rf.schema_version!==1||rf.mode!=='REPORTED_MATCHES_UNVERIFIED'||!Array.isArray(rf.programs)||rf.programs.length!==6)throw Error('reported source invalid');
+     reportedFeed=rf;
+   }catch(e){reportedFeed=null}
+   try{
+     const er=await fetch('./data/research-20261022.json?v='+Math.floor(Date.now()/600000),{cache:'no-store'});
+     if(!er.ok)throw Error('research feed missing');
+     const rf=await er.json();
+     if(rf.schema_version!==1||rf.mode!=='DATED_RESEARCH_SUPPLEMENT_UNVERIFIED'||!Array.isArray(rf.programs)||rf.programs.length!==6)throw Error('invalid research feed');
+     researchedFeed=rf;
+   }catch(e){researchedFeed=null}
+   render();
+  }catch(e){networkFailed=true;if(data)render();else put('health','SCHEDULE FEED UNAVAILABLE · WAITING FOR LAST-GOOD DATA')}
+ }
+ setInterval(()=>{position++;render()},14000);setInterval(refresh,120000);refresh();
+})();
+</script>
+</body>
+</html>
