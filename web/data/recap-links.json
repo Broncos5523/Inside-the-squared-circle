@@ -1,54 +1,54 @@
 {
   "schema_version": 1,
   "mode": "PUBLISHER_RSS_POST_SHOW_LINKS_ONLY",
-  "generated_at": "2026-10-22T18:25:00-04:00",
+  "generated_at": "2026-10-22T18:36:16.932597-04:00",
   "source_name": "F4W / Wrestling Observer",
   "source_url": "https://www.f4wonline.com/rss.xml",
-  "policy": "RSS publisher headlines and hyperlinks only; no winners inferred.",
-  "collection_status": "awaiting_first_collection",
+  "policy": "RSS headlines and article links only. Not licensed article bodies, not verified match outcomes or official results. No inference of winners, titles or storylines. Date-window association is informational, not proof of episode coverage.",
   "programs": [
     {
       "show_id": "raw",
       "airdate": null,
       "links": [],
       "source_name": "F4W / Wrestling Observer",
-      "status": "awaiting_first_collection"
+      "status": "no_matching_published_coverage"
     },
     {
       "show_id": "smackdown",
       "airdate": null,
       "links": [],
       "source_name": "F4W / Wrestling Observer",
-      "status": "awaiting_first_collection"
+      "status": "no_matching_published_coverage"
     },
     {
       "show_id": "nxt",
       "airdate": null,
       "links": [],
       "source_name": "F4W / Wrestling Observer",
-      "status": "awaiting_first_collection"
+      "status": "no_matching_published_coverage"
     },
     {
       "show_id": "aaa",
       "airdate": null,
       "links": [],
       "source_name": "F4W / Wrestling Observer",
-      "status": "awaiting_first_collection"
+      "status": "not_supported"
     },
     {
       "show_id": "tna",
       "airdate": null,
       "links": [],
       "source_name": "F4W / Wrestling Observer",
-      "status": "awaiting_first_collection"
+      "status": "no_matching_published_coverage"
     },
     {
       "show_id": "evolve",
       "airdate": null,
       "links": [],
       "source_name": "F4W / Wrestling Observer",
-      "status": "awaiting_first_collection"
+      "status": "no_matching_published_coverage"
     }
   ],
-  "total_links": 0
+  "total_links": 0,
+  "collection_status": "ok"
 }
