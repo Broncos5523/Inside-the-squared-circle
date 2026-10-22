@@ -198,6 +198,10 @@ def main():
     status="ok"
     try:
         items=parse_feed(request_rss())
+        print("RSS_DIAGNOSTIC_PARSED_COUNT:",len(items))
+        print("RSS_DIAGNOSTIC_RESULTS_HEADLINES:", [
+            (x["title"][:110], x["published_at"].isoformat())
+            for x in items if RESULT_WORDS.search(x.get("title") or "")][:18])
     except Exception as exc:
         status="rss_unavailable"
         print("RSS source temporarily unavailable:",type(exc).__name__,str(exc)[:120])
