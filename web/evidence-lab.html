@@ -1,0 +1,95 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#0c1222">
+<title>Inside the Squared Circle — Evidence Lab</title>
+<style>
+*{box-sizing:border-box}html{color-scheme:dark;background:#070d18}body{margin:0;color:#eff5ff;font:15px/1.5 system-ui,Arial,sans-serif;background:radial-gradient(ellipse at 50% 0,#28364f,#070d18 63%);min-height:100vh}
+main{max-width:900px;margin:auto;padding:26px 18px 80px}
+.brand{color:#f3c987;letter-spacing:.19em;font-weight:800;font-size:12px}
+h1{font-size:clamp(27px,6vw,50px);line-height:1.06;margin:10px 0 9px}h1 span{color:#f3c987}
+.sub{color:#b6c9de;margin:0 0 25px}
+.top,.tiles article{background:#111e32dc;border:1px solid #53678288;border-radius:14px;padding:17px}
+.top{margin:18px 0 20px}.top strong{color:#ffcc90}.top p{margin:9px 0 0}
+#stats{display:flex;flex-wrap:wrap;gap:10px;margin:20px 0}
+.pill{padding:12px 14px;flex:1;min-width:135px;background:#0d1a2a;border:1px solid #324763;border-radius:12px}
+.pill b{font-size:31px;line-height:1.2;display:block}.pill span{color:#aabfd6;font-size:12px;font-weight:700;letter-spacing:.045em}
+.tiles{display:grid;grid-template-columns:repeat(auto-fit,minmax(235px,1fr));gap:12px}
+.tiles article{min-height:170px;border-top:3px solid #dda96c}
+.tiles h2{font-size:21px;line-height:1.1;margin:2px 0 10px}
+small,.muted{color:#a7b8d0}dl{display:grid;grid-template-columns:1fr auto;gap:4px 9px;margin:0}dt{color:#b9cce0}dd{margin:0;font-weight:700}
+.flag{color:#ffd490;font-size:12px;font-weight:800;margin-top:12px}
+a{color:#f2c47e}a:focus-visible{outline:2px solid #fff;outline-offset:4px}
+.sources{font-size:13px;margin:10px 0 0;padding-left:16px}
+footer{margin-top:25px;border-top:1px solid #475773;padding-top:17px;color:#a9bfd6;font-size:13px}
+.err{color:#ffb4b4}
+</style>
+</head>
+<body>
+<main>
+<div class="brand">MAN CAVE SPORTS BOOK PRESENTS</div>
+<h1>INSIDE THE <span>SQUARED CIRCLE</span></h1>
+<p class="sub">Cloud evidence monitor · Source investigation, not the television broadcast</p>
+<div class="top" role="status">
+<strong>RESEARCH LEADS ARE NOT VERIFIED MATCH ANNOUNCEMENTS</strong>
+<p>Episode schedules come from TVmaze. Possible wrestling match mentions are independently searched in TheSportsDB event descriptions. <b>Nothing on this page establishes that an event is officially confirmed.</b> The TV broadcast remains empty of unverified cards.</p>
+</div>
+<div id="status" class="muted">Connecting to automatic research feed…</div>
+<div id="stats">
+ <div class="pill"><b id="count">—</b><span>UNVERIFIED POSSIBLE MATCH MENTIONS</span></div>
+ <div class="pill"><b id="confirmed">0</b><span>VERIFIED MATCHES</span></div>
+ <div class="pill"><b id="sources">—</b><span>SHOWS CHECKED</span></div>
+</div>
+<div class="tiles" id="tiles" aria-live="polite"></div>
+<footer>
+ <p><b>How to interpret results:</b> A research lead may be wrong, outdated, a dark match, a taped-show recording, or something mentioned for a different airdate. Zero leads does not mean a show has no announced matches. TNA UTC/local-date discrepancies are handled conservatively; AAA segmented TV broadcasts and Evolve recaps aren't auto-matched to event cards.</p>
+ <p>Source attribution: <a href="https://www.tvmaze.com/api">TVmaze API</a> (CC BY-SA) and <a href="https://www.thesportsdb.com/">TheSportsDB</a>. No full publisher article text is redistributed. This is a source-coverage research tool, not an official WWE or TNA publication.</p>
+ <p><a href="./preview-v4-4.html">Return to broadcast design preview</a></p>
+</footer>
+</main>
+<script>
+(() => {'use strict';
+ const $=id=>document.getElementById(id);
+ const names={raw:'Monday Night RAW',smackdown:'Friday Night SmackDown',nxt:'WWE NXT',aaa:'Lucha Libre AAA',tna:'TNA iMPACT!',evolve:'Last Week on Evolve'};
+ const txt=(node,s)=>{node.textContent=String(s)};
+ const validDate=d=>/^\d{4}-\d{2}-\d{2}$/.test(d||'');
+ async function load(){
+ try{
+  const [r1,r2]=await Promise.all(['./data/candidates.json','./data/snapshot.json'].map(u=>fetch(u+'?r='+Math.floor(Date.now()/120000),{cache:'no-store'})));
+  if(!r1.ok||!r2.ok)throw Error('source not available');
+  const candidates=await r1.json(),schedules=await r2.json();
+  if(candidates.mode!=='RESEARCH_LEADS_ONLY'||!Array.isArray(candidates.programs)||candidates.programs.length!==6||!Array.isArray(schedules.shows)||schedules.shows.length!==6||candidates.verified_matches?.length||candidates.verified_appearances?.length)throw Error('invalid source data');
+  const mins=Math.round((Date.now()-Date.parse(candidates.generated_at||''))/60000);
+  const freshness=Number.isFinite(mins)&&mins>=0&&mins<480;
+  txt($('status'),'Last attempted collection: '+(Number.isFinite(mins)?Math.max(0,mins)+' minutes ago':'time unavailable')+(freshness?' · Recent':' · DELAYED OR TIME UNKNOWN'));
+  txt($('count'),candidates.total_unverified_possible_match_mentions);
+  txt($('confirmed'),'0');
+  txt($('sources'),candidates.programs.length);
+  const grid=$('tiles');grid.replaceChildren();
+  for(const p of candidates.programs){
+   const card=document.createElement('article');
+   const title=document.createElement('h2');txt(title,names[p.show_id]||String(p.show_id));
+   const dl=document.createElement('dl');
+   const stats=[['Broadcast date',validDate(p.airdate)?p.airdate:'Unknown'],['Possible mentions',Number(p.candidate_count)||0],['Intake',String(p.intake_status||'unavailable').replaceAll('_',' ')],['Verified',0]];
+   for(const [term,val] of stats){const dt=document.createElement('dt'),dd=document.createElement('dd');txt(dt,term);txt(dd,val);dl.append(dt,dd)}
+   card.append(title,dl);
+   const note=document.createElement('div');note.className='flag';txt(note,'DO NOT DISPLAY AS CONFIRMED');card.append(note);
+   const ev=Array.isArray(p.events_considered)?p.events_considered:[];
+   if(ev.length){const ul=document.createElement('ul');ul.className='sources';
+    for(const e of ev.slice(0,4)){
+     if(!/^https:\/\/www\.thesportsdb\.com\/api\/v1\/json\/123\/lookupevent\.php\?id=\d+$/.test(e.source_url||''))continue;
+     const li=document.createElement('li'),a=document.createElement('a');
+     a.href=e.source_url;a.rel='noopener noreferrer';a.target='_blank';
+     txt(a,'Source event '+e.event_id+' · '+(Number(e.possible_match_mentions)||0)+' leads');
+     li.append(a);ul.append(li);
+    }card.append(ul)}
+   grid.append(card);
+  }
+ }catch(e){$('status').className='err';txt($('status'),'Research feed not available or invalid. Previous display schedules are unaffected.')}
+ }
+ load();setInterval(load,120000);
+})();
+</script>
+</body>
+</html>
