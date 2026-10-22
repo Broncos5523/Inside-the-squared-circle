@@ -1,0 +1,119 @@
+name: Refresh schedules and publish display
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+  schedule:
+    - cron: '23 */4 * * *'
+permissions:
+  contents: write
+  pages: write
+  id-token: write
+concurrency:
+  group: squared-circle-pages
+  cancel-in-progress: true
+jobs:
+  refresh-and-publish:
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deploy.outputs.page_url }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Collect permitted TVmaze schedule data
+        run: |
+          python - <<'PY'
+          import datetime as dt
+          import json
+          import re
+          import time
+          from pathlib import Path
+          from urllib.request import Request,urlopen
+          from urllib.error import HTTPError,URLError
+
+          path=Path('web/data/snapshot.json')
+          try:
+              old=json.loads(path.read_text())
+          except (ValueError,FileNotFoundError):
+              old={}
+          prior={s.get('id'):s for s in old.get('shows',[]) if isinstance(s,dict)}
+          specs=[
+              ('raw','MONDAY NIGHT RAW',802,'#EC354C','primary'),
+              ('smackdown','FRIDAY NIGHT SMACKDOWN',803,'#2385FF','primary'),
+              ('nxt','WWE NXT',2266,'#E5BD50','primary'),
+              ('aaa','LUCHA LIBRE AAA',89983,'#21C6AE','primary'),
+              ('tna','TNA iMPACT!',1349,'#FC493F','primary'),
+              ('evolve','LAST WEEK ON EVOLVE',82403,'#BA80F7','recap')]
+          today=dt.datetime.now(dt.timezone.utc).date()
+          fresh=0
+          output=[]
+          def episode(x):
+              if not isinstance(x,dict): return None
+              date=x.get('airdate')
+              try: dt.date.fromisoformat(date)
+              except (TypeError,ValueError): return None
+              time_value=x.get('airtime')
+              if not isinstance(time_value,str) or not re.fullmatch(r'(?:[01][0-9]|2[0-3]):[0-5][0-9]',time_value):
+                  time_value=None
+              return {'date':date,'time':time_value,'title':str(x.get('name') or 'Episode')[:100]}
+          for slug,name,id,color,category in specs:
+              record={'id':slug,'name':name,'color':color,'category':category,
+                      'next':None,'previous':None,'schedule_status':'unavailable',
+                      'confirmed_matches':[],'confirmed_appearances':[]}
+              url=f'https://api.tvmaze.com/shows/{id}?embed%5B%5D=nextepisode&embed%5B%5D=previousepisode'
+              try:
+                  request=Request(url,headers={'User-Agent':'InsideSquaredCircleHouseholdDemo/0.1','Accept':'application/json'})
+                  with urlopen(request,timeout=18) as response:
+                      data=json.load(response)
+                  if data.get('id') != id: raise ValueError('TVmaze show ID mismatch')
+                  embed=data.get('_embedded') or {}
+                  record['next']=episode(embed.get('nextepisode'))
+                  record['previous']=episode(embed.get('previousepisode'))
+                  if record['next'] and record['next']['date'] < today.isoformat():
+                      record['next']=None
+                  record['schedule_status']='fresh'
+                  fresh+=1
+              except Exception as error:
+                  print(f'{slug}: source delayed: {type(error).__name__}: {str(error)[:90]}')
+                  previous=prior.get(slug)
+                  if previous:
+                      record['next']=previous.get('next')
+                      record['previous']=previous.get('previous')
+                      if record['next'] and record['next'].get('date','') < today.isoformat():
+                          record['next']=None
+                      record['schedule_status']='stale'
+              output.append(record)
+          snap={'schema_version':1,
+                'mode':'LIVE_SCHEDULES_ONLY' if fresh else 'STALE_SCHEDULES_ONLY',
+                'generated_at':dt.datetime.now(dt.timezone.utc).isoformat(),
+                'fresh_shows':fresh,
+                'shows':output}
+          assert len(snap['shows'])==6
+          assert all(not s['confirmed_matches'] and not s['confirmed_appearances'] for s in output)
+          path.parent.mkdir(parents=True,exist_ok=True)
+          temp=path.with_suffix('.tmp')
+          temp.write_text(json.dumps(snap,ensure_ascii=False,indent=2)+'\n')
+          temp.replace(path)
+          print('Live schedule responses:',fresh,'of',len(specs))
+          PY
+      - name: Save last-known schedule cache
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add web/data/snapshot.json
+          if ! git diff --cached --quiet; then
+            git commit -m "chore: update automated wrestling schedules"
+            git push origin HEAD:main
+          fi
+      - name: Configure GitHub Pages
+        uses: actions/configure-pages@v5
+      - name: Upload static display
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: web
+      - name: Publish static display
+        id: deploy
+        uses: actions/deploy-pages@v4
