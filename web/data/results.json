@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "mode": "PROVIDER_REPORTED_POST_BROADCAST_RESULTS_UNVERIFIED",
-  "generated_at": "2026-10-22T18:16:47.524828-04:00",
+  "generated_at": "2026-10-22T18:18:28.194264-04:00",
   "policy": "Post-broadcast TheSportsDB result lines only, labelled REPORTED / UNVERIFIED. No inferred title changes, rivalries or storylines; not official announcements.",
   "programs": [
     {
@@ -38,51 +38,10 @@
     },
     {
       "show_id": "tna",
-      "airdate": "2026-10-15",
-      "results": [
-        {
-          "text": "Nic Nemeth defeats Ryan Nemeth (5:00)",
-          "match_type": "Singles Match",
-          "status": "REPORTED_UNVERIFIED",
-          "source_name": "TheSportsDB",
-          "evidence_url": "https://www.thesportsdb.com/api/v1/json/123/lookupevent.php?id=2618946",
-          "provider_event_id": "2618946"
-        },
-        {
-          "text": "syX (Joseph Sawyer & Samuel Shaw) defeats The Righteous (Dutch & Vincent) (9:35)",
-          "match_type": "Tag Team Tables Match",
-          "status": "REPORTED_UNVERIFIED",
-          "source_name": "TheSportsDB",
-          "evidence_url": "https://www.thesportsdb.com/api/v1/json/123/lookupevent.php?id=2618946",
-          "provider_event_id": "2618946"
-        },
-        {
-          "text": "The Hardys (Jeff Hardy & Matt Hardy) defeats AJ Francis & Expressions (5:35)",
-          "match_type": "Tag Team Match",
-          "status": "REPORTED_UNVERIFIED",
-          "source_name": "TheSportsDB",
-          "evidence_url": "https://www.thesportsdb.com/api/v1/json/123/lookupevent.php?id=2618946",
-          "provider_event_id": "2618946"
-        },
-        {
-          "text": "Apex (Shayna Baszler & Zoey Serrano) & Xia Brookside defeats Gabby Forza, Harley Hudson & Indi Hartwell (5:25)",
-          "match_type": "Six Man Tag Team Match",
-          "status": "REPORTED_UNVERIFIED",
-          "source_name": "TheSportsDB",
-          "evidence_url": "https://www.thesportsdb.com/api/v1/json/123/lookupevent.php?id=2618946",
-          "provider_event_id": "2618946"
-        },
-        {
-          "text": "Trey Miguel defeats Elijah and Jason Hotch and Moose and Ricky Sosa (17:53)",
-          "match_type": "TNA World Heavyweight Title #1 Contendership Five Way Ladder Match",
-          "status": "REPORTED_UNVERIFIED",
-          "source_name": "TheSportsDB",
-          "evidence_url": "https://www.thesportsdb.com/api/v1/json/123/lookupevent.php?id=2618946",
-          "provider_event_id": "2618946"
-        }
-      ],
+      "airdate": null,
+      "results": [],
       "source_name": "TheSportsDB",
-      "status": "reported_outcomes",
+      "status": "no_parseable_source_results",
       "partial_source_error": true
     },
     {
@@ -94,5 +53,5 @@
       "partial_source_error": false
     }
   ],
-  "total_reported_results": 5
+  "total_reported_results": 0
 }
