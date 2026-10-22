@@ -220,6 +220,18 @@ jobs:
           Path('/tmp/squared-circle-v416.js').write_text(page.split('<script>',1)[1].split('</script>',1)[0])
           PY
           node --check /tmp/squared-circle-v416.js
+      - name: Validate v4.17 RSS source-matched preview
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          html=Path('web/preview-v4-17.html').read_text()
+          assert 'DISPLAY BUILD 4.17' in html
+          assert "'Fightful':" in html and "'411Mania':" in html
+          assert 'recap-links.json' in html
+          assert '#board{width:min(100vw,56.25dvh)' in html
+          Path('/tmp/squared-circle-v417.js').write_text(html.split('<script>',1)[1].split('</script>',1)[0])
+          PY
+          node --check /tmp/squared-circle-v417.js
       - name: Collect unverified match-card research leads
         run: python proof/card_intake.py --snapshot web/data/snapshot.json --out web/data/candidates.json --also-next-league
       - name: Build opt-in reported match descriptions (never confirmed)
@@ -450,6 +462,9 @@ jobs:
               (f'{base}/preview-v4-16.html?show=nxt&view=recap&probe={nonce}', 'v416'),
               (f'{base}/preview-v4-16.html?show=tna&view=recap&probe={nonce}', 'v416'),
               (f'{base}/data/editorial-recaps-20261022.json?probe={nonce}', 'editorial'),
+              (f'{base}/preview-v4-17.html?show=tna&view=coverage&probe={nonce}', 'v417'),
+              (f'{base}/preview-v4-17.html?show=nxt&view=coverage&probe={nonce}', 'v417'),
+              (f'{base}/preview-v4-17.html?show=evolve&probe={nonce}', 'v417'),
               (f'{base}/data/research-20261022.json?probe={nonce}', 'research'),
               (f'{base}/data/tvmaze-reported.json?probe={nonce}', 'tvmaze'),
           ]
@@ -463,7 +478,12 @@ jobs:
                       with urlopen(request, timeout=18) as response:
                           assert response.status == 200
                           body = response.read()
-                      if kind == 'editorial':
+                      if kind == 'v417':
+                          assert b'DISPLAY BUILD 4.17' in body
+                          assert b'411Mania' in body
+                          assert b'Fightful' in body
+                          assert b'PUBLISHER_HEADLINE_LINK_ONLY' in body
+                      elif kind == 'editorial':
                           source=json.loads(body)
                           assert source['mode']=='DATED_MULTI_SOURCE_RECAP_REVIEW_UNVERIFIED'
                           assert len(source['programs'])==4
