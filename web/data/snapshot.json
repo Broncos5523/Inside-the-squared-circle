@@ -1,16 +1,25 @@
 {
   "schema_version": 1,
-  "mode": "SAMPLE_FIXTURE_ONLY",
-  "generated_at": "2026-10-22T19:00:00Z",
+  "mode": "LIVE_SCHEDULES_ONLY",
+  "generated_at": "2026-10-22T19:26:13.246237+00:00",
+  "fresh_shows": 6,
   "shows": [
     {
       "id": "raw",
       "name": "MONDAY NIGHT RAW",
       "color": "#EC354C",
       "category": "primary",
-      "next": null,
-      "previous": null,
-      "schedule_status": "sample",
+      "next": {
+        "date": "2026-10-26",
+        "time": null,
+        "title": "#1743 - Save Mart Center in Fresno, CA"
+      },
+      "previous": {
+        "date": "2026-10-19",
+        "time": null,
+        "title": "#1742 - Pechanga Arena in San Diego, CA"
+      },
+      "schedule_status": "fresh",
       "confirmed_matches": [],
       "confirmed_appearances": []
     },
@@ -19,9 +28,17 @@
       "name": "FRIDAY NIGHT SMACKDOWN",
       "color": "#2385FF",
       "category": "primary",
-      "next": null,
-      "previous": null,
-      "schedule_status": "sample",
+      "next": {
+        "date": "2026-10-23",
+        "time": "20:00",
+        "title": "#1416 - Toyota Arena in Ontario, CA"
+      },
+      "previous": {
+        "date": "2026-10-16",
+        "time": "20:00",
+        "title": "#1415 - Golden 1 Center in Sacramento, CA"
+      },
+      "schedule_status": "fresh",
       "confirmed_matches": [],
       "confirmed_appearances": []
     },
@@ -30,9 +47,17 @@
       "name": "WWE NXT",
       "color": "#E5BD50",
       "category": "primary",
-      "next": null,
-      "previous": null,
-      "schedule_status": "sample",
+      "next": {
+        "date": "2026-10-27",
+        "time": "20:00",
+        "title": "43"
+      },
+      "previous": {
+        "date": "2026-10-20",
+        "time": "20:00",
+        "title": "Main Event: Dion Lennox vs. Cruz Montana"
+      },
+      "schedule_status": "fresh",
       "confirmed_matches": [],
       "confirmed_appearances": []
     },
@@ -41,9 +66,17 @@
       "name": "LUCHA LIBRE AAA",
       "color": "#21C6AE",
       "category": "primary",
-      "next": null,
-      "previous": null,
-      "schedule_status": "sample",
+      "next": {
+        "date": "2026-10-24",
+        "time": null,
+        "title": "#40 - Héroes Inmortales (Week 1)"
+      },
+      "previous": {
+        "date": "2026-10-17",
+        "time": null,
+        "title": "#39"
+      },
+      "schedule_status": "fresh",
       "confirmed_matches": [],
       "confirmed_appearances": []
     },
@@ -52,9 +85,17 @@
       "name": "TNA iMPACT!",
       "color": "#FC493F",
       "category": "primary",
-      "next": null,
-      "previous": null,
-      "schedule_status": "sample",
+      "next": {
+        "date": "2026-10-22",
+        "time": "21:00",
+        "title": "Episode 43"
+      },
+      "previous": {
+        "date": "2026-10-15",
+        "time": "21:00",
+        "title": "Episode 42"
+      },
+      "schedule_status": "fresh",
       "confirmed_matches": [],
       "confirmed_appearances": []
     },
@@ -63,9 +104,17 @@
       "name": "LAST WEEK ON EVOLVE",
       "color": "#BA80F7",
       "category": "recap",
-      "next": null,
-      "previous": null,
-      "schedule_status": "sample",
+      "next": {
+        "date": "2026-10-28",
+        "time": null,
+        "title": "Episode 35"
+      },
+      "previous": {
+        "date": "2026-10-21",
+        "time": null,
+        "title": "Episode 34"
+      },
+      "schedule_status": "fresh",
       "confirmed_matches": [],
       "confirmed_appearances": []
     }
