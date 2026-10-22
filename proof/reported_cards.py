@@ -9,6 +9,7 @@ from __future__ import annotations
 import argparse
 from datetime import date, datetime
 import json
+import re
 from pathlib import Path
 from zoneinfo import ZoneInfo
 
@@ -17,6 +18,41 @@ from proof.card_intake import SHOWS, parse_bouts, relevant_events, request_event
 TZ = ZoneInfo("America/New_York")
 MAX_SHOW_MATCHES = 8
 MAX_TEXT = 210
+MAX_APPEARANCES = 5
+
+
+def parse_reported_appearances(description: str) -> list[dict]:
+    """Extract only explicitly labeled appearance/segment lines from API plain text.
+
+    The claim is a source report, never an official advertisement or a result.
+    Wrestlers appearing in a match are NOT assumed to have separate appearances.
+    """
+    if not isinstance(description, str) or "<" in description or ">" in description:
+        return []
+    text = description.replace("\r\n", "\n").replace("\r", "\n")[:12000]
+    found = []
+    headings = re.compile(
+        r"^(?:in[- ]ring |backstage )?"
+        r"(promo(?: segment)?|segment|interview|contract signing|face[- ]to[- ]face|appearance)$",
+        re.I,
+    )
+    barred = re.compile(
+        r"\b(?:vs\.?|defeat(?:ed|s)?|pinn?ed|winner|result|retained|"
+        r"won|lost|match|spoiler|dark match|taping)\b",
+        re.I,
+    )
+    for paragraph in re.split(r"\n\s*\n+", text):
+        lines = [line.strip() for line in paragraph.splitlines() if line.strip()]
+        if len(lines) != 2 or not headings.fullmatch(lines[0]):
+            continue
+        statement = " ".join(lines[1].split())
+        if not 6 <= len(statement) <= 160 or barred.search(statement):
+            continue
+        found.append({"type": lines[0][:48], "text": statement})
+        if len(found) >= MAX_APPEARANCES:
+            break
+    return found
+
 
 
 def build_reported(snapshot: dict, requester=request_events, now=None) -> dict:
@@ -32,6 +68,7 @@ def build_reported(snapshot: dict, requester=request_events, now=None) -> dict:
             "airdate": air if isinstance(air, str) else None,
             "display_label": "REPORTED · UNVERIFIED",
             "matches": [],
+            "appearances": [],
             "error": None,
             "source_name": "TheSportsDB",
         }
@@ -61,9 +98,24 @@ def build_reported(snapshot: dict, requester=request_events, now=None) -> dict:
             for event in relevant_events(slug, air, cache[cache_key]):
                 events[str(event["idEvent"])] = event
         unique = set()
+        unique_appearances = set()
         for event in events.values():
             source_id = str(event["idEvent"])
             source_url = "https://www.thesportsdb.com/api/v1/json/123/lookupevent.php?id=" + source_id
+            for mention in parse_reported_appearances(event.get("strDescriptionEN") or ""):
+                signature = (mention["type"].casefold(), mention["text"].casefold())
+                if signature in unique_appearances:
+                    continue
+                unique_appearances.add(signature)
+                if len(entry["appearances"]) < MAX_APPEARANCES:
+                    entry["appearances"].append({
+                        "text": mention["text"],
+                        "type": mention["type"],
+                        "evidence_url": source_url,
+                        "provider_event_id": source_id,
+                        "status": "REPORTED_UNVERIFIED",
+                        "source_name": "TheSportsDB",
+                    })
             for match in parse_bouts(event.get("strDescriptionEN") or ""):
                 wording = " ".join(match["description"].split())[:MAX_TEXT]
                 stipulation = " ".join(match["stipulation"].split())[:110]
@@ -92,12 +144,13 @@ def build_reported(snapshot: dict, requester=request_events, now=None) -> dict:
         "generated_at": now.isoformat(),
         "valid_as_of_et": local_today.isoformat(),
         "policy": (
-            "Opt-in UNVERIFIED match mentions only. May be stale, speculative, "
+            "Opt-in UNVERIFIED match and explicit segment mentions only. May be stale, speculative, "
             "misassigned, dark matches, taped show results or subject to change. "
             "Not announcements from WWE, AAA or TNA."
         ),
         "programs": output,
         "total_reported_matches": sum(len(x["matches"]) for x in output),
+        "total_reported_appearances": sum(len(x["appearances"]) for x in output),
     }
 
 

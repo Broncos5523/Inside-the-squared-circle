@@ -117,6 +117,9 @@ jobs:
               assert item['display_label']=='REPORTED · UNVERIFIED'
               if item['show_id'] in ('aaa','evolve'):
                   assert not item['matches']
+              for appearance in item.get('appearances', []):
+                  assert appearance['status']=='REPORTED_UNVERIFIED'
+                  assert re.fullmatch(r'https://www.thesportsdb.com/api/v1/json/123/lookupevent.php\?id=\d+',appearance['evidence_url'])
               for match in item['matches']:
                   assert match['status']=='REPORTED_UNVERIFIED'
                   assert re.fullmatch(r'https://www.thesportsdb.com/api/v1/json/123/lookupevent.php\?id=\d+',match['evidence_url'])
