@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "mode": "REPORTED_MATCHES_UNVERIFIED",
-  "generated_at": "2026-10-22T17:09:39.950157-04:00",
+  "generated_at": "2026-10-22T17:24:17.979900-04:00",
   "valid_as_of_et": "2026-10-22",
   "policy": "Opt-in UNVERIFIED match and explicit segment mentions only. May be stale, speculative, misassigned, dark matches, taped show results or subject to change. Not announcements from WWE, AAA or TNA.",
   "programs": [
@@ -18,32 +18,7 @@
       "show_id": "smackdown",
       "airdate": "2026-10-23",
       "display_label": "REPORTED · UNVERIFIED",
-      "matches": [
-        {
-          "text": "Giulia vs. Blake Monroe",
-          "stipulation": "Street Fight",
-          "evidence_url": "https://www.thesportsdb.com/api/v1/json/123/lookupevent.php?id=2599790",
-          "provider_event_id": "2599790",
-          "status": "REPORTED_UNVERIFIED",
-          "source_name": "TheSportsDB"
-        },
-        {
-          "text": "Alexa Bliss & Tatum Paxley (c) vs. B-Fab & Michin (w/Jade Cargill)",
-          "stipulation": "WWE Women's Tag Team Title Match",
-          "evidence_url": "https://www.thesportsdb.com/api/v1/json/123/lookupevent.php?id=2599790",
-          "provider_event_id": "2599790",
-          "status": "REPORTED_UNVERIFIED",
-          "source_name": "TheSportsDB"
-        },
-        {
-          "text": "MFTs (Talla Tonga & Tama Tonga) (w/Haku) vs. Bakusai (Kyoki & Shinsuke Nakamura)",
-          "stipulation": "Non Title Tag Team Match",
-          "evidence_url": "https://www.thesportsdb.com/api/v1/json/123/lookupevent.php?id=2599790",
-          "provider_event_id": "2599790",
-          "status": "REPORTED_UNVERIFIED",
-          "source_name": "TheSportsDB"
-        }
-      ],
+      "matches": [],
       "appearances": [],
       "error": null,
       "source_name": "TheSportsDB"
@@ -54,7 +29,7 @@
       "display_label": "REPORTED · UNVERIFIED",
       "matches": [],
       "appearances": [],
-      "error": null,
+      "error": "PROVIDER_PARTIAL_OR_UNAVAILABLE",
       "source_name": "TheSportsDB"
     },
     {
@@ -70,34 +45,9 @@
       "show_id": "tna",
       "airdate": "2026-10-22",
       "display_label": "REPORTED · UNVERIFIED",
-      "matches": [
-        {
-          "text": "Joe Alonzo vs. Avery Styles",
-          "stipulation": "Singles Match",
-          "evidence_url": "https://www.thesportsdb.com/api/v1/json/123/lookupevent.php?id=2618956",
-          "provider_event_id": "2618956",
-          "status": "REPORTED_UNVERIFIED",
-          "source_name": "TheSportsDB"
-        },
-        {
-          "text": "Rich Swann vs. Cedric Alexander vs. Fabian Aichner vs. KC Navarro",
-          "stipulation": "TNA X-Division Title Four Way #1 Contendership Match",
-          "evidence_url": "https://www.thesportsdb.com/api/v1/json/123/lookupevent.php?id=2618956",
-          "provider_event_id": "2618956",
-          "status": "REPORTED_UNVERIFIED",
-          "source_name": "TheSportsDB"
-        },
-        {
-          "text": "Jason Hotch (c) vs. Mustafa Ali",
-          "stipulation": "TNA International Title Best Two Out Of Three Falls Match",
-          "evidence_url": "https://www.thesportsdb.com/api/v1/json/123/lookupevent.php?id=2618956",
-          "provider_event_id": "2618956",
-          "status": "REPORTED_UNVERIFIED",
-          "source_name": "TheSportsDB"
-        }
-      ],
+      "matches": [],
       "appearances": [],
-      "error": null,
+      "error": "PROVIDER_PARTIAL_OR_UNAVAILABLE",
       "source_name": "TheSportsDB"
     },
     {
@@ -110,6 +60,6 @@
       "source_name": "TheSportsDB"
     }
   ],
-  "total_reported_matches": 6,
+  "total_reported_matches": 0,
   "total_reported_appearances": 0
 }

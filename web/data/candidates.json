@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "mode": "RESEARCH_LEADS_ONLY",
-  "generated_at": "2026-10-22T21:09:39.279497+00:00",
+  "generated_at": "2026-10-22T21:24:17.101176+00:00",
   "policy": "Mentions are NOT confirmations. Do not put candidate matches on the public broadcast.",
   "source": "TheSportsDB (free API); attribution required; no artwork fetched.",
   "programs": [
@@ -25,19 +25,11 @@
     {
       "show_id": "smackdown",
       "airdate": "2026-10-23",
-      "intake_status": "unverified_leads_found",
-      "candidate_count": 3,
+      "intake_status": "no_parseable_leads",
+      "candidate_count": 0,
       "verified_match_count": 0,
       "verified_appearance_count": 0,
-      "events_considered": [
-        {
-          "event_id": "2599790",
-          "event_title": "SmackDown #1418",
-          "source_url": "https://www.thesportsdb.com/api/v1/json/123/lookupevent.php?id=2599790",
-          "possible_match_mentions": 3,
-          "verification": "NOT_CONFIRMED"
-        }
-      ]
+      "events_considered": []
     },
     {
       "show_id": "nxt",
@@ -60,19 +52,11 @@
     {
       "show_id": "tna",
       "airdate": "2026-10-22",
-      "intake_status": "unverified_leads_found",
-      "candidate_count": 3,
+      "intake_status": "no_parseable_leads",
+      "candidate_count": 0,
       "verified_match_count": 0,
       "verified_appearance_count": 0,
-      "events_considered": [
-        {
-          "event_id": "2618956",
-          "event_title": "TNA iMPACT #1161",
-          "source_url": "https://www.thesportsdb.com/api/v1/json/123/lookupevent.php?id=2618956",
-          "possible_match_mentions": 3,
-          "verification": "NOT_CONFIRMED"
-        }
-      ]
+      "events_considered": []
     },
     {
       "show_id": "evolve",
@@ -86,5 +70,5 @@
   ],
   "verified_matches": [],
   "verified_appearances": [],
-  "total_unverified_possible_match_mentions": 6
+  "total_unverified_possible_match_mentions": 0
 }
