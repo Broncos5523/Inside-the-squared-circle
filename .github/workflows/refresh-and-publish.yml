@@ -173,3 +173,47 @@ jobs:
       - name: Publish static display
         id: deploy
         uses: actions/deploy-pages@v4
+      - name: Smoke-test public v4.6 previews and deployed reported feed
+        run: |
+          python - <<'PY'
+          import json
+          import os
+          import time
+          from pathlib import Path
+          from urllib.request import Request, urlopen
+
+          base = 'https://broncos5523.github.io/Inside-the-squared-circle'
+          nonce = os.environ.get('GITHUB_RUN_ID', 'check')
+          expected = json.loads(Path('web/data/reported.json').read_text(encoding='utf-8'))
+          checks = [
+              (f'{base}/preview-v4-6.html?show=smackdown&probe={nonce}', 'smackdown'),
+              (f'{base}/preview-v4-6.html?show=tna&probe={nonce}', 'tna'),
+              (f'{base}/data/reported.json?probe={nonce}', 'reported'),
+          ]
+          for attempt in range(15):
+              try:
+                  for url, kind in checks:
+                      request = Request(url, headers={
+                          'User-Agent': 'InsideSquaredCircleSmokeTest/0.1',
+                          'Cache-Control': 'no-cache',
+                      })
+                      with urlopen(request, timeout=18) as response:
+                          assert response.status == 200
+                          body = response.read()
+                      if kind == 'reported':
+                          published = json.loads(body)
+                          assert published['mode'] == 'REPORTED_MATCHES_UNVERIFIED'
+                          assert published['generated_at'] == expected['generated_at']
+                          assert len(published['programs']) == 6
+                      else:
+                          assert b'DISPLAY BUILD 4.6' in body
+                          assert b'const perPage=2' in body
+                          assert b'REPORTED / UNVERIFIED' in body
+                  print('PUBLIC PAGE SMOKE PASS: v4.6 direct review links + matching reported.json')
+                  break
+              except Exception as exc:
+                  if attempt == 14:
+                      raise RuntimeError('Public Pages post-deploy smoke test failed') from exc
+                  print(f'Awaiting Pages CDN update: {type(exc).__name__}: {str(exc)[:120]}')
+                  time.sleep(7)
+          PY
