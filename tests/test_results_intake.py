@@ -51,6 +51,24 @@ class ResultsIntakeTests(unittest.TestCase):
         self.assertEqual(parse_result_lines("Winner TBD\nA vs B"),[])
         self.assertEqual(parse_result_lines("Title Match\nPrediction: Joe defeats Cody"),[])
         self.assertEqual(parse_result_lines("<script>Joe defeats Cody</script>"),[])
+    def test_past_league_endpoint_recovers_missing_exact_previous_event(self):
+        previous=dict(TNA,idEvent="2618998",dateEventLocal="2026-10-15",dateEvent="2026-10-16",
+                      strResult="Singles Match\nAvery Styles defeats Joe Alonzo")
+        calls=[]
+        def past(league):
+            calls.append(league)
+            return [previous] if league==4455 else []
+        r=build_results(snap(),requester=lambda *_:[],past_lookup=past,known={},now=at())
+        tna=next(x for x in r["programs"] if x["show_id"]=="tna")
+        self.assertEqual(tna["airdate"],"2026-10-15")
+        self.assertEqual(len(tna["results"]),1)
+        self.assertEqual(calls.count(4455),1)
+        self.assertEqual(tna["results"][0]["provider_event_id"],"2618998")
+    def test_past_league_wrong_show_or_date_rejected(self):
+        wrong=dict(TNA,idEvent="2618998",dateEventLocal="2026-10-16")
+        r=build_results(snap(),requester=lambda *_:[],past_lookup=lambda league:[wrong],
+                        known={},now=at())
+        self.assertEqual(r["total_reported_results"],0)
     def test_no_wrong_show_date_or_aaa_evolve_assignment(self):
         wrong=dict(TNA,dateEventLocal="2026-10-23")
         r=build_results(snap(),requester=lambda d,l:[wrong],known={},now=at(hour=23,minute=20))

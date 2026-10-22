@@ -12,6 +12,7 @@ from datetime import date, datetime, time, timedelta
 import json
 from pathlib import Path
 import re
+from urllib.request import Request, urlopen
 from zoneinfo import ZoneInfo
 
 from proof.card_intake import (
@@ -94,11 +95,30 @@ def eligible_episodes(show: dict, now: datetime) -> list[str]:
     return sorted(days, reverse=True)
 
 
+def request_past_league(league: int, timeout: int = 15) -> list[dict]:
+    """Documented TheSportsDB v1 past-league endpoint (limited free-tier coverage)."""
+    if league not in (4444, 4455):
+        return []
+    url = "https://www.thesportsdb.com/api/v1/json/123/eventspastleague.php?id=" + str(league)
+    req = Request(url, headers={
+        "Accept": "application/json",
+        "User-Agent": "InsideSquaredCircleHouseholdResearch/0.6",
+    })
+    with urlopen(req, timeout=timeout) as response:
+        payload = json.load(response)
+    if not isinstance(payload, dict):
+        raise ValueError("Invalid past-league API response")
+    events = payload.get("events")
+    return events[:15] if isinstance(events, list) else []
+
+
 def build_results(snapshot: dict, requester=request_events, event_lookup=request_event_by_id,
-                  known=None, now=None) -> dict:
+                  known=None, now=None, past_lookup=None) -> dict:
+
     now = now or datetime.now(ET)
     cache = {}
     lookup_cache = {}
+    league_past_cache = {}
     programs = []
     known_rows = (known or {}).get("entries", [])
     if not isinstance(known_rows, list):
@@ -130,6 +150,22 @@ def build_results(snapshot: dict, requester=request_events, event_lookup=request
                 for event in cache[key]:
                     if event_identity_matches(sid, day, event):
                         events[str(event["idEvent"])] = event
+
+            # Documented past-league feed is a limited safety net when the
+            # daily date query drops a previously aired program. No inference
+            # from league-only results: exact show/local day still required.
+            if past_lookup is not None:
+                if league not in league_past_cache:
+                    try:
+                        league_past_cache[league] = past_lookup(league)
+                    except Exception:
+                        league_past_cache[league] = None
+                if league_past_cache[league] is None:
+                    entry["partial_source_error"] = True
+                else:
+                    for event in league_past_cache[league]:
+                        if event_identity_matches(sid, day, event):
+                            events[str(event["idEvent"])] = event
 
             # Re-check only *historically observed* provider IDs for same show/day.
             for known_row in known_rows:
@@ -198,7 +234,7 @@ def main():
             known={}
     except (ValueError, OSError, AttributeError):
         known={}
-    feed=build_results(snap, known=known)
+    feed=build_results(snap, known=known, past_lookup=request_past_league)
     out=Path(args.out)
     tmp=out.with_suffix(".tmp")
     tmp.write_text(json.dumps(feed,ensure_ascii=False,indent=2)+"\n",encoding="utf-8")
