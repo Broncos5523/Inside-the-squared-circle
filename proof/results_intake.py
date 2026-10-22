@@ -148,7 +148,10 @@ def build_results(snapshot: dict, requester=request_events, event_lookup=request
         if sid not in ALLOWED:
             programs.append(entry)
             continue
-        for day in eligible_episodes(show, now):
+        # Only the MOST RECENT completed broadcast is eligible. If the
+        # new episode has no provider outcomes yet, do not resurrect the
+        # previous week's recap merely because that older event is indexed.
+        for day in eligible_episodes(show, now)[:1]:
             league = SHOWS[sid][0]
             dates = [day]
             if sid == "tna":

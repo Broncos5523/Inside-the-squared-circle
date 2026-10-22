@@ -92,6 +92,19 @@ class ResultsIntakeTests(unittest.TestCase):
         self.assertEqual(len(tna["results"]),1)
         self.assertEqual(calls.count(4455),1)
         self.assertEqual(tna["results"][0]["provider_event_id"],"2618998")
+    def test_previous_week_result_is_not_recycled_after_new_broadcast(self):
+        older=dict(TNA,idEvent="2618998",dateEventLocal="2026-10-15",
+                   dateEvent="2026-10-16",
+                   strResult="Singles Match\nAvery Styles defeated Joe Alonzo")
+        # Current October 22 broadcast has finished, but the provider only
+        # has October 15 results indexed.
+        r=build_results(snap(),requester=lambda d,l:[older] if d=="2026-10-16" else [],
+                        past_lookup=lambda l:[older] if l==4455 else [],
+                        known={},now=at(hour=23,minute=20))
+        tna=next(x for x in r["programs"] if x["show_id"]=="tna")
+        self.assertEqual(tna["results"],[])
+        self.assertIsNone(tna["airdate"])
+        self.assertEqual(r["total_reported_results"],0)
     def test_past_league_wrong_show_or_date_rejected(self):
         wrong=dict(TNA,idEvent="2618998",dateEventLocal="2026-10-16")
         r=build_results(snap(),requester=lambda *_:[],past_lookup=lambda league:[wrong],
