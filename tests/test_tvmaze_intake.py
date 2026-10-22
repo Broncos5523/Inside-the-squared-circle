@@ -22,6 +22,22 @@ class TVmazeTests(unittest.TestCase):
         self.assertEqual(len(matches),2)
         self.assertEqual(matches[1]["text"],"Chelsea Green vs Roxanne Perez")
         self.assertEqual(matches[1]["stipulation"],"WWE Women's Championship Match")
+    def test_narrative_future_title_defense_extracts_only_explicit_pair(self):
+        summary=("<p>Chelsea Green is set to put her WWE Women's Championship on "
+                 "the line against The Judgment Day's Roxanne Perez this Friday "
+                 "on SmackDown, even as her potential Champion vs. Champion "
+                 "Match looms.</p>")
+        self.assertEqual(candidates_from_summary(summary), [
+            {"text":"Chelsea Green vs. Roxanne Perez",
+             "stipulation":"WWE Women's Championship Match"}
+        ])
+    def test_no_past_result_or_speculative_title_match(self):
+        self.assertEqual(candidates_from_summary(
+            "<p>Yesterday Chelsea Green put the WWE Women's Championship "
+            "on the line against Roxanne Perez.</p>"), [])
+        self.assertEqual(candidates_from_summary(
+            "<p>Chelsea Green may put her WWE Women's Championship "
+            "on the line against Roxanne Perez this Friday.</p>"), [])
     def test_not_match_unrelated_storylines_outcomes_or_dark_matches(self):
         self.assertEqual(candidates_from_summary(UNSAFE["summary"]),[])
         self.assertEqual(candidates_from_summary("<p>Cody Rhodes and Randy Orton will appear</p>"),[])

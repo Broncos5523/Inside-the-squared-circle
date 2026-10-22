@@ -42,6 +42,34 @@ class Blocks(HTMLParser):
     def handle_data(self,data):
         self.parts.append(data)
 
+# Limited syntactic recognition of prospective title defenses in natural prose.
+# No wrestler-name dictionary, no predictions, no past-tense "defeated" text.
+TITLE_DEFENSE = re.compile(
+    r"^(?P<left>[A-Z][A-Za-zÀ-ÿ'.-]{1,35}(?: [A-Z][A-Za-zÀ-ÿ'.-]{1,35}){1,2})"
+    r" is set to put (?P<title>[^,.!?]{8,100}?) on the line against "
+    r"(?:(?:The|the) [A-Za-z ]{2,42}'s )?"
+    r"(?P<right>[A-Z][A-Za-zÀ-ÿ'.-]{1,35}(?: [A-Z][A-Za-zÀ-ÿ'.-]{1,35}){1,2})"
+    r" this (?:Monday|Tuesday|Wednesday|Thursday|Friday|Saturday|Sunday)\b",
+    re.I,
+)
+
+def direct_title_defense(text: str) -> dict | None:
+    """Construct only the explicitly named pair of a future-tense title defense."""
+    if BLOCKED.search(text):
+        return None
+    first_clause = text.split(",",1)[0].strip()
+    match = TITLE_DEFENSE.search(first_clause)
+    if not match:
+        return None
+    left,right = match.group("left"),match.group("right")
+    title = re.sub(r"^(?:her|his|their|the) ", "", match.group("title").strip(), flags=re.I)
+    if not title.lower().endswith(("championship","title")):
+        return None
+    names=f"{left} vs. {right}"
+    if len(names)>150:
+        return None
+    return {"text":names,"stipulation":title+" Match"}
+
 def candidates_from_summary(summary: object) -> list[dict]:
     """Accept only explicit X vs Y formulations in prospective episode descriptions.
 
@@ -59,6 +87,15 @@ def candidates_from_summary(summary: object) -> list[dict]:
     for block in re.split(r"[\n;]+|(?<=[.!?])\s+(?=[A-Z])", raw):
         b=" ".join(block.split()).strip(" \t-•")
         if not b or len(b)>210 or BLOCKED.search(b):
+            continue
+        defense=direct_title_defense(b)
+        if defense:
+            sig=re.sub(r"[^a-z0-9]","",defense["text"].casefold())
+            if sig not in seen:
+                seen.add(sig)
+                entries.append(defense)
+            if len(entries)>=8:
+                break
             continue
         # Only a short explicit match entry, optionally preceded by a
         # stipulation and delimiter, is extracted. Narrative clauses rejected.
@@ -137,8 +174,6 @@ def build_tvmaze(snapshot:dict, requester=request_episodes,now=None)->dict:
                 if not isinstance(episode_id,int) or episode_id<=0:
                     continue
                 url=f"https://api.tvmaze.com/episodes/{episode_id}"
-                if key=="smackdown":
-                    print("TVMAZE_DEBUG_SUMMARY:", repr(episode.get("summary"))[:1800])
                 for hit in candidates_from_summary(episode.get("summary")):
                     if hit["text"] in (m["text"] for m in matches):
                         continue
