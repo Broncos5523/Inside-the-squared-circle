@@ -12,7 +12,7 @@ import json
 from pathlib import Path
 from zoneinfo import ZoneInfo
 
-from card_intake import SHOWS, parse_bouts, relevant_events, request_events, valid_upcoming
+from proof.card_intake import SHOWS, parse_bouts, relevant_events, request_events, valid_upcoming
 
 TZ = ZoneInfo("America/New_York")
 MAX_SHOW_MATCHES = 8
