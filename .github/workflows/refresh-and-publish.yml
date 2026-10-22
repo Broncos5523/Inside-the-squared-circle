@@ -208,6 +208,18 @@ jobs:
           Path('/tmp/squared-circle-v415.js').write_text(page.split('<script>',1)[1].split('</script>',1)[0])
           PY
           node --check /tmp/squared-circle-v415.js
+      - name: Validate v4.16 multi-source recaps JavaScript
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          page=Path('web/preview-v4-16.html').read_text()
+          assert 'DISPLAY BUILD 4.16' in page
+          assert 'renderEditorialRecap(show,key)' in page
+          assert 'editorial-recaps-20261022.json' in page
+          assert '#board{width:min(100vw,56.25dvh)' in page
+          Path('/tmp/squared-circle-v416.js').write_text(page.split('<script>',1)[1].split('</script>',1)[0])
+          PY
+          node --check /tmp/squared-circle-v416.js
       - name: Collect unverified match-card research leads
         run: python proof/card_intake.py --snapshot web/data/snapshot.json --out web/data/candidates.json --also-next-league
       - name: Build opt-in reported match descriptions (never confirmed)
@@ -425,6 +437,11 @@ jobs:
               (f'{base}/preview-v4-15.html?show=evolve&probe={nonce}', 'v415'),
               (f'{base}/preview-v4-15.html?show=nxt&view=coverage&probe={nonce}', 'v415'),
               (f'{base}/data/recap-links.json?probe={nonce}', 'recap-links'),
+              (f'{base}/preview-v4-16.html?show=evolve&probe={nonce}', 'v416'),
+              (f'{base}/preview-v4-16.html?show=raw&view=recap&probe={nonce}', 'v416'),
+              (f'{base}/preview-v4-16.html?show=nxt&view=recap&probe={nonce}', 'v416'),
+              (f'{base}/preview-v4-16.html?show=tna&view=recap&probe={nonce}', 'v416'),
+              (f'{base}/data/editorial-recaps-20261022.json?probe={nonce}', 'editorial'),
               (f'{base}/data/research-20261022.json?probe={nonce}', 'research'),
               (f'{base}/data/tvmaze-reported.json?probe={nonce}', 'tvmaze'),
           ]
@@ -438,7 +455,16 @@ jobs:
                       with urlopen(request, timeout=18) as response:
                           assert response.status == 200
                           body = response.read()
-                      if kind == 'recap-links':
+                      if kind == 'editorial':
+                          source=json.loads(body)
+                          assert source['mode']=='DATED_MULTI_SOURCE_RECAP_REVIEW_UNVERIFIED'
+                          assert len(source['programs'])==4
+                          assert sum(len(p['results']) for p in source['programs'])>=15
+                      elif kind == 'v416':
+                          assert b'DISPLAY BUILD 4.16' in body
+                          assert b'renderEditorialRecap' in body
+                          assert b'editorial-recaps-20261022.json' in body
+                      elif kind == 'recap-links':
                           linkfeed=json.loads(body)
                           assert linkfeed['mode']=='PUBLISHER_RSS_POST_SHOW_LINKS_ONLY'
                           assert linkfeed['generated_at']==expected_links['generated_at']
