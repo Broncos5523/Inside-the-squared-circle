@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "mode": "REPORTED_MATCHES_UNVERIFIED",
-  "generated_at": "2026-10-22T17:28:09.959594-04:00",
+  "generated_at": "2026-10-22T17:29:27.611527-04:00",
   "valid_as_of_et": "2026-10-22",
   "policy": "Opt-in UNVERIFIED match and explicit segment mentions only. May be stale, speculative, misassigned, dark matches, taped show results or subject to change. Not announcements from WWE, AAA or TNA.",
   "programs": [
@@ -11,7 +11,7 @@
       "display_label": "REPORTED · UNVERIFIED",
       "matches": [],
       "appearances": [],
-      "error": null,
+      "error": "PROVIDER_PARTIAL_OR_UNAVAILABLE",
       "source_name": "TheSportsDB"
     },
     {
@@ -20,7 +20,7 @@
       "display_label": "REPORTED · UNVERIFIED",
       "matches": [],
       "appearances": [],
-      "error": null,
+      "error": "PROVIDER_PARTIAL_OR_UNAVAILABLE",
       "source_name": "TheSportsDB"
     },
     {
@@ -29,7 +29,7 @@
       "display_label": "REPORTED · UNVERIFIED",
       "matches": [],
       "appearances": [],
-      "error": null,
+      "error": "PROVIDER_PARTIAL_OR_UNAVAILABLE",
       "source_name": "TheSportsDB"
     },
     {
@@ -47,7 +47,7 @@
       "display_label": "REPORTED · UNVERIFIED",
       "matches": [],
       "appearances": [],
-      "error": null,
+      "error": "PROVIDER_PARTIAL_OR_UNAVAILABLE",
       "source_name": "TheSportsDB"
     },
     {
