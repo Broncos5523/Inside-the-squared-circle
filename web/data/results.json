@@ -1,0 +1,57 @@
+{
+  "schema_version": 1,
+  "mode": "PROVIDER_REPORTED_POST_BROADCAST_RESULTS_UNVERIFIED",
+  "generated_at": "2026-10-22T17:55:00-04:00",
+  "policy": "Initial empty seed. Broadcast-time gating happens in collector; no pre-air spoilers.",
+  "programs": [
+    {
+      "show_id": "raw",
+      "airdate": null,
+      "results": [],
+      "source_name": "TheSportsDB",
+      "status": "awaiting_first_collection",
+      "partial_source_error": false
+    },
+    {
+      "show_id": "smackdown",
+      "airdate": null,
+      "results": [],
+      "source_name": "TheSportsDB",
+      "status": "awaiting_first_collection",
+      "partial_source_error": false
+    },
+    {
+      "show_id": "nxt",
+      "airdate": null,
+      "results": [],
+      "source_name": "TheSportsDB",
+      "status": "awaiting_first_collection",
+      "partial_source_error": false
+    },
+    {
+      "show_id": "aaa",
+      "airdate": null,
+      "results": [],
+      "source_name": "TheSportsDB",
+      "status": "awaiting_first_collection",
+      "partial_source_error": false
+    },
+    {
+      "show_id": "tna",
+      "airdate": null,
+      "results": [],
+      "source_name": "TheSportsDB",
+      "status": "awaiting_first_collection",
+      "partial_source_error": false
+    },
+    {
+      "show_id": "evolve",
+      "airdate": null,
+      "results": [],
+      "source_name": "TheSportsDB",
+      "status": "awaiting_first_collection",
+      "partial_source_error": false
+    }
+  ],
+  "total_reported_results": 0
+}
