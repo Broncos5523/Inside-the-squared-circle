@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "mode": "TVMAZE_EPISODE_SUMMARY_REPORTED_UNVERIFIED",
-  "generated_at": "2026-10-22T17:02:48.200128-04:00",
+  "generated_at": "2026-10-22T17:03:57.106053-04:00",
   "policy": "CC BY-SA TVmaze attributed episode-summary leads, not official advertised cards. Exact local airdate only; no spoilers or claims of completeness.",
   "programs": [
     {
@@ -16,9 +16,18 @@
       "show_id": "smackdown",
       "airdate": "2026-10-23",
       "source_name": "TVmaze",
-      "matches": [],
+      "matches": [
+        {
+          "text": "Chelsea Green vs. Roxanne Perez",
+          "stipulation": "WWE Women's Championship Match",
+          "evidence_url": "https://api.tvmaze.com/episodes/3680017",
+          "status": "REPORTED_UNVERIFIED",
+          "source_name": "TVmaze",
+          "provider_episode_id": 3680017
+        }
+      ],
       "appearances": [],
-      "collection_status": "no_parseable_match_mentions"
+      "collection_status": "reported_mentions"
     },
     {
       "show_id": "nxt",
@@ -53,5 +62,5 @@
       "collection_status": "not_supported"
     }
   ],
-  "total_reported_matches": 0
+  "total_reported_matches": 1
 }
