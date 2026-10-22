@@ -55,7 +55,7 @@ class RecapLinksTests(unittest.TestCase):
         self.assertEqual(len(row["links"]),1)
         self.assertEqual(row["airdate"],"2026-10-22")
     def test_extended_feeds_and_dotted_dates(self):
-        self.assertEqual(len(FEED_URLS),5)
+        self.assertEqual(len(FEED_URLS),6)
         self.assertEqual(PUBLISHERS["411mania.com"],"411Mania")
         self.assertEqual(PUBLISHERS["www.fightful.com"],"Fightful")
         self.assertEqual(filter_title("Hall’s WWE Smackdown Review 10.16.26",

@@ -29,6 +29,7 @@ FEED_URLS = (
     "https://www.f4wonline.com/category/news/wwe/results/feed/",
     "https://www.f4wonline.com/category/news/nxt/nxt-results/feed/",
     "https://411mania.com/wrestling/feed/",
+    "https://411mania.com/wrestling/category/tv-report/feed/",
     "https://www.fightful.com/wrestling/rss",
 )
 PUBLISHERS={
