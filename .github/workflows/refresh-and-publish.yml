@@ -103,6 +103,25 @@ jobs:
         run: python -m unittest discover -s tests -v
       - name: Collect unverified match-card research leads
         run: python proof/card_intake.py --snapshot web/data/snapshot.json --out web/data/candidates.json
+      - name: Build opt-in reported match descriptions (never confirmed)
+        run: python -m proof.reported_cards --snapshot web/data/snapshot.json --out web/data/reported.json
+      - name: Check unverified labeling and source references
+        run: |
+          python - <<'PY'
+          import json,re
+          from pathlib import Path
+          report=json.loads(Path('web/data/reported.json').read_text())
+          assert report['mode']=='REPORTED_MATCHES_UNVERIFIED'
+          assert len(report['programs'])==6
+          for item in report['programs']:
+              assert item['display_label']=='REPORTED · UNVERIFIED'
+              if item['show_id'] in ('aaa','evolve'):
+                  assert not item['matches']
+              for match in item['matches']:
+                  assert match['status']=='REPORTED_UNVERIFIED'
+                  assert re.fullmatch(r'https://www.thesportsdb.com/api/v1/json/123/lookupevent.php\?id=\d+',match['evidence_url'])
+          print('PASS: no candidate presented as official confirmation')
+          PY
       - name: Audit zero-confirmed-match guarantee
         run: |
           python - <<'PY'
@@ -121,12 +140,14 @@ jobs:
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           cp web/data/snapshot.json /tmp/itsc-new-snapshot.json
           cp web/data/candidates.json /tmp/itsc-new-candidates.json
+          cp web/data/reported.json /tmp/itsc-new-reported.json
           for attempt in 1 2 3; do
             git fetch origin main
             git reset --hard origin/main
             cp /tmp/itsc-new-snapshot.json web/data/snapshot.json
             cp /tmp/itsc-new-candidates.json web/data/candidates.json
-            git add web/data/snapshot.json web/data/candidates.json
+            cp /tmp/itsc-new-reported.json web/data/reported.json
+            git add web/data/snapshot.json web/data/candidates.json web/data/reported.json
             if git diff --cached --quiet; then
               echo "No schedule changes to commit"
               break
