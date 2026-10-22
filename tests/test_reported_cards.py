@@ -1,0 +1,100 @@
+import unittest
+from datetime import datetime
+from zoneinfo import ZoneInfo
+
+from proof.reported_cards import build_reported
+
+
+ET = ZoneInfo("America/New_York")
+NOW = datetime(2026, 10, 22, 16, 0, tzinfo=ET)
+
+EVENT_SD = {
+    "idLeague": "4444", "idEvent": "2599790", "strEvent": "SmackDown #1418",
+    "dateEventLocal": "2026-10-23", "dateEvent": "2026-10-23",
+    "strDescriptionEN": "Street Fight\nGiulia vs. Blake Monroe\n\n"
+                        "WWE Women's Tag Team Title Match\n"
+                        "Alexa Bliss & Tatum Paxley vs. B-Fab & Michin\n\n"
+                        "Non Title Match\nMFTs vs. Bakusai",
+}
+EVENT_TNA = {
+    "idLeague": "4455", "idEvent": "2618956", "strEvent": "TNA iMPACT #1161",
+    "dateEventLocal": "2026-10-22", "dateEvent": "2026-10-23",
+    "strDescriptionEN": "Singles Match\nJoe Alonzo vs. Avery Styles",
+}
+EVENT_AAA = {
+    "idLeague": "4593", "idEvent": "2618990", "strEvent": "Heroes Inmortales",
+    "dateEventLocal": "2026-10-24", "dateEvent": "2026-10-24",
+    "strDescriptionEN": "Singles Match\nA vs. B",
+}
+
+
+def snapshot():
+    return {"shows": [
+        {"id": "raw", "next": {"date": "2026-10-26"}},
+        {"id": "smackdown", "next": {"date": "2026-10-23"}},
+        {"id": "nxt", "next": {"date": "2026-10-27"}},
+        {"id": "aaa", "next": {"date": "2026-10-24"}},
+        {"id": "tna", "next": {"date": "2026-10-22"}},
+        {"id": "evolve", "next": {"date": "2026-10-28"}},
+    ]}
+
+
+def provider(day, league):
+    if day == "2026-10-23" and league == 4444:
+        return [EVENT_SD, EVENT_SD]
+    if day == "2026-10-23" and league == 4455:
+        return [EVENT_TNA]
+    if day == "2026-10-24" and league == 4593:
+        return [EVENT_AAA]
+    return []
+
+
+class ReportedCardTests(unittest.TestCase):
+    def test_reported_not_confirmed_and_source_traced(self):
+        result = build_reported(snapshot(), requester=provider, now=NOW)
+        self.assertEqual(result["mode"], "REPORTED_MATCHES_UNVERIFIED")
+        sd = next(x for x in result["programs"] if x["show_id"] == "smackdown")
+        self.assertEqual(len(sd["matches"]), 3)
+        self.assertTrue(all(m["status"] == "REPORTED_UNVERIFIED" for m in sd["matches"]))
+        self.assertTrue(all(m["source_name"] == "TheSportsDB" for m in sd["matches"]))
+        self.assertTrue(all(m["evidence_url"].endswith("?id=2599790") for m in sd["matches"]))
+
+    def test_tna_uses_local_airdate_even_utc_next_day(self):
+        result = build_reported(snapshot(), requester=provider, now=NOW)
+        tna = next(x for x in result["programs"] if x["show_id"] == "tna")
+        self.assertEqual(len(tna["matches"]), 1)
+        self.assertEqual(tna["matches"][0]["text"], "Joe Alonzo vs. Avery Styles")
+
+    def test_aaa_evolve_not_misassigned(self):
+        result = build_reported(snapshot(), requester=provider, now=NOW)
+        for name in ("aaa", "evolve"):
+            item = next(x for x in result["programs"] if x["show_id"] == name)
+            self.assertEqual(item["matches"], [])
+
+    def test_expired_airdate_displays_nothing(self):
+        old = snapshot()
+        old["shows"][1]["next"]["date"] = "2026-10-21"
+        result = build_reported(old, requester=provider, now=NOW)
+        self.assertEqual(result["programs"][1]["matches"], [])
+
+    def test_no_invented_matches_if_provider_fails(self):
+        def fail(day, league):
+            raise RuntimeError("API unavailable")
+        result = build_reported(snapshot(), requester=fail, now=NOW)
+        self.assertEqual(result["total_reported_matches"], 0)
+        self.assertEqual(next(x for x in result["programs"] if x["show_id"] == "smackdown")["error"], "PROVIDER_PARTIAL_OR_UNAVAILABLE")
+
+    def test_no_unverified_appearances_in_feed(self):
+        result = build_reported(snapshot(), requester=provider, now=NOW)
+        self.assertNotIn("confirmed", str(result).lower())
+        self.assertNotIn("advertised_appearances", str(result))
+
+    def test_no_match_after_program_changes(self):
+        snap = snapshot()
+        snap["shows"][1]["next"]["date"] = "2026-10-30"
+        result = build_reported(snap, requester=provider, now=NOW)
+        self.assertEqual(result["programs"][1]["matches"], [])
+
+
+if __name__ == "__main__":
+    unittest.main()
