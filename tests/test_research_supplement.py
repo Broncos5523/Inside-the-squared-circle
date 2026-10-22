@@ -22,7 +22,7 @@ class ResearchSupplementTests(unittest.TestCase):
             for x in v['matches']+v['appearances']:
                 self.assertEqual(x['status'],'REPORTED_UNVERIFIED')
                 self.assertEqual(urlparse(x['evidence_url']).scheme,'https')
-                self.assertIn(urlparse(x['evidence_url']).netloc,{'www.wwe.com','www.f4wonline.com','tnawrestling.com'})
+                self.assertIn(urlparse(x['evidence_url']).netloc,{'www.wwe.com','www.f4wonline.com','tnawrestling.com','www.thesportsdb.com'})
                 self.assertTrue(x['source_name'])
         self.assertEqual(len(rows['raw']['matches']),1)
         self.assertEqual(len(rows['smackdown']['matches']),1)
