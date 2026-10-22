@@ -185,6 +185,17 @@ jobs:
           Path('/tmp/squared-circle-v413.js').write_text(h.split('<script>',1)[1].split('</script>',1)[0])
           PY
           node --check /tmp/squared-circle-v413.js
+      - name: Validate v4.14 Evolve recap preview JavaScript
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          h=Path('web/preview-v4-14.html').read_text()
+          assert 'DISPLAY BUILD 4.14' in h
+          assert 'function renderEvolveRecap' in h
+          assert '#board{width:min(100vw,56.25dvh)' in h
+          Path('/tmp/squared-circle-v414.js').write_text(h.split('<script>',1)[1].split('</script>',1)[0])
+          PY
+          node --check /tmp/squared-circle-v414.js
       - name: Collect unverified match-card research leads
         run: python proof/card_intake.py --snapshot web/data/snapshot.json --out web/data/candidates.json --also-next-league
       - name: Build opt-in reported match descriptions (never confirmed)
@@ -216,6 +227,23 @@ jobs:
                   assert re.fullmatch(r'https://www.thesportsdb.com/api/v1/json/123/lookupevent.php\?id=\d+',outcome['evidence_url'])
                   assert ' defeats ' in outcome['text']
           print('POST-SHOW OUTCOME / PRE-AIR SPOILER SAFETY PASS')
+          PY
+      - name: Collect licensed TVmaze Evolve finished-episode synopsis
+        run: python -m proof.evolve_intake --snapshot web/data/snapshot.json --out web/data/evolve-synopsis.json
+      - name: Audit Evolve attribution and never-infer-results policy
+        run: |
+          python - <<'PY'
+          import json,re
+          from pathlib import Path
+          e=json.loads(Path('web/data/evolve-synopsis.json').read_text())
+          assert e['mode']=='TVMAZE_EVOLVE_EPISODE_SYNOPSIS_ONLY'
+          assert e['source_name']=='TVmaze' and e['license']=='CC BY-SA'
+          if e['status']=='episode_synopsis_available':
+              assert re.fullmatch(r'https://api.tvmaze.com/episodes/[1-9][0-9]*',e['evidence_url'])
+              assert isinstance(e['synopsis'],str) and 0<len(e['synopsis'])<=240
+          # Episode synopsis must never be a synthetic results feed.
+          assert 'results' not in e and 'winner' not in e
+          print('EVOLVE LICENSE / EPISODE SAFETY PASS')
           PY
       - name: Collect TVmaze episode-summary leads (reported, never confirmed)
         run: python -m proof.tvmaze_intake --snapshot web/data/snapshot.json --out web/data/tvmaze-reported.json
@@ -283,6 +311,7 @@ jobs:
           cp web/data/known-events.json /tmp/itsc-new-known-events.json
           cp web/data/tvmaze-reported.json /tmp/itsc-new-tvmaze.json
           cp web/data/results.json /tmp/itsc-new-results.json
+          cp web/data/evolve-synopsis.json /tmp/itsc-new-evolve-synopsis.json
           for attempt in 1 2 3; do
             git fetch origin main
             git reset --hard origin/main
@@ -292,7 +321,8 @@ jobs:
             cp /tmp/itsc-new-known-events.json web/data/known-events.json
             cp /tmp/itsc-new-tvmaze.json web/data/tvmaze-reported.json
             cp /tmp/itsc-new-results.json web/data/results.json
-            git add web/data/snapshot.json web/data/candidates.json web/data/reported.json web/data/tvmaze-reported.json web/data/known-events.json web/data/results.json
+            cp /tmp/itsc-new-evolve-synopsis.json web/data/evolve-synopsis.json
+            git add web/data/snapshot.json web/data/candidates.json web/data/reported.json web/data/tvmaze-reported.json web/data/known-events.json web/data/results.json web/data/evolve-synopsis.json
             if git diff --cached --quiet; then
               echo "No schedule changes to commit"
               break
@@ -329,6 +359,7 @@ jobs:
           expected = json.loads(Path('web/data/reported.json').read_text(encoding='utf-8'))
           expected_tvmaze = json.loads(Path('web/data/tvmaze-reported.json').read_text(encoding='utf-8'))
           expected_results = json.loads(Path('web/data/results.json').read_text(encoding='utf-8'))
+          expected_evolve = json.loads(Path('web/data/evolve-synopsis.json').read_text(encoding='utf-8'))
           checks = [
               (f'{base}/preview-v4-6.html?show=smackdown&probe={nonce}', 'smackdown'),
               (f'{base}/preview-v4-6.html?show=tna&probe={nonce}', 'tna'),
@@ -350,6 +381,10 @@ jobs:
               (f'{base}/preview-v4-13.html?show=tna&view=results&probe={nonce}', 'v413'),
               (f'{base}/preview-v4-13.html?show=smackdown&probe={nonce}', 'v413'),
               (f'{base}/data/results.json?probe={nonce}', 'results'),
+              (f'{base}/data/evolve-synopsis.json?probe={nonce}', 'evolve-synopsis'),
+              (f'{base}/data/evolve-recap-20261021.json?probe={nonce}', 'evolve-editorial'),
+              (f'{base}/preview-v4-14.html?show=evolve&probe={nonce}', 'v414'),
+              (f'{base}/preview-v4-14.html?show=tna&probe={nonce}', 'v414'),
               (f'{base}/data/research-20261022.json?probe={nonce}', 'research'),
               (f'{base}/data/tvmaze-reported.json?probe={nonce}', 'tvmaze'),
           ]
@@ -363,7 +398,19 @@ jobs:
                       with urlopen(request, timeout=18) as response:
                           assert response.status == 200
                           body = response.read()
-                      if kind == 'results':
+                      if kind == 'evolve-synopsis':
+                          ev=json.loads(body)
+                          assert ev['mode']=='TVMAZE_EVOLVE_EPISODE_SYNOPSIS_ONLY'
+                          assert ev['generated_at']==expected_evolve['generated_at']
+                      elif kind == 'evolve-editorial':
+                          ed=json.loads(body)
+                          assert ed['mode']=='DATED_EDITORIAL_EVOLVE_RECAP_UNVERIFIED'
+                          assert len(ed['results'])==3
+                      elif kind == 'v414':
+                          assert b'DISPLAY BUILD 4.14' in body
+                          assert b'renderEvolveRecap' in body
+                          assert b'evolve-synopsis.json' in body
+                      elif kind == 'results':
                           feed = json.loads(body)
                           assert feed['mode']=='PROVIDER_REPORTED_POST_BROADCAST_RESULTS_UNVERIFIED'
                           assert feed['generated_at']==expected_results['generated_at']
