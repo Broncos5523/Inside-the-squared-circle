@@ -1,0 +1,54 @@
+{
+  "schema_version": 1,
+  "mode": "PUBLISHER_RSS_POST_SHOW_LINKS_ONLY",
+  "generated_at": "2026-10-22T18:25:00-04:00",
+  "source_name": "F4W / Wrestling Observer",
+  "source_url": "https://www.f4wonline.com/rss.xml",
+  "policy": "RSS publisher headlines and hyperlinks only; no winners inferred.",
+  "collection_status": "awaiting_first_collection",
+  "programs": [
+    {
+      "show_id": "raw",
+      "airdate": null,
+      "links": [],
+      "source_name": "F4W / Wrestling Observer",
+      "status": "awaiting_first_collection"
+    },
+    {
+      "show_id": "smackdown",
+      "airdate": null,
+      "links": [],
+      "source_name": "F4W / Wrestling Observer",
+      "status": "awaiting_first_collection"
+    },
+    {
+      "show_id": "nxt",
+      "airdate": null,
+      "links": [],
+      "source_name": "F4W / Wrestling Observer",
+      "status": "awaiting_first_collection"
+    },
+    {
+      "show_id": "aaa",
+      "airdate": null,
+      "links": [],
+      "source_name": "F4W / Wrestling Observer",
+      "status": "awaiting_first_collection"
+    },
+    {
+      "show_id": "tna",
+      "airdate": null,
+      "links": [],
+      "source_name": "F4W / Wrestling Observer",
+      "status": "awaiting_first_collection"
+    },
+    {
+      "show_id": "evolve",
+      "airdate": null,
+      "links": [],
+      "source_name": "F4W / Wrestling Observer",
+      "status": "awaiting_first_collection"
+    }
+  ],
+  "total_links": 0
+}
