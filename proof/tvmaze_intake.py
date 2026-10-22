@@ -137,6 +137,8 @@ def build_tvmaze(snapshot:dict, requester=request_episodes,now=None)->dict:
                 if not isinstance(episode_id,int) or episode_id<=0:
                     continue
                 url=f"https://api.tvmaze.com/episodes/{episode_id}"
+                if key=="smackdown":
+                    print("TVMAZE_DEBUG_SUMMARY:", repr(episode.get("summary"))[:1800])
                 for hit in candidates_from_summary(episode.get("summary")):
                     if hit["text"] in (m["text"] for m in matches):
                         continue
