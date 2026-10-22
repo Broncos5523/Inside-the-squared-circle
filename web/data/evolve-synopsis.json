@@ -1,0 +1,14 @@
+{
+  "schema_version": 1,
+  "mode": "TVMAZE_EVOLVE_EPISODE_SYNOPSIS_ONLY",
+  "generated_at": "2026-10-22T18:00:00-04:00",
+  "show_id": "evolve",
+  "airdate": null,
+  "episode_id": null,
+  "synopsis": null,
+  "evidence_url": null,
+  "source_name": "TVmaze",
+  "license": "CC BY-SA",
+  "status": "awaiting_first_collection",
+  "policy": "Episode synopsis only. Not reported winners or results."
+}

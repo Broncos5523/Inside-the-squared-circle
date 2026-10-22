@@ -1,0 +1,44 @@
+{
+  "schema_version": 1,
+  "mode": "DATED_EDITORIAL_EVOLVE_RECAP_UNVERIFIED",
+  "show_id": "evolve",
+  "airdate": "2026-10-21",
+  "reviewed_at_et": "2026-10-22",
+  "source_name": "Scott's Blog of Doom — October 21 episode review",
+  "source_url": "https://www.blogofdoom.com/2026/10/21/wwe-evolve-october-21st-2026/",
+  "policy": "Manually reviewed, independently reported outcome and storyline facts, not publisher's licensed feed or official WWE results. Short fact-level paraphrases only, no excerpts. NOT an automatically updated future result feed. Valid only for matching last-broadcast Evolve episode within 14 days.",
+  "results": [
+    {
+      "text": "Cappuccino Jones & Chazz “Starboy” Hall defeated The Mog Squad (Jacari Ball & Santi Rivera)",
+      "match_type": "Tag Team Match",
+      "status": "REPORTED_UNVERIFIED"
+    },
+    {
+      "text": "Skylar Raye defeated Sloane Jacobs",
+      "match_type": "Singles Match",
+      "status": "REPORTED_UNVERIFIED"
+    },
+    {
+      "text": "Kale Dixon defeated Aaron Rourke",
+      "match_type": "Singles Match",
+      "status": "REPORTED_UNVERIFIED"
+    }
+  ],
+  "developments": [
+    {
+      "text": "Adriana Rizzo introduced Jones and Hall as a team called The Star Brew",
+      "type": "Team development",
+      "status": "REPORTED_UNVERIFIED"
+    },
+    {
+      "text": "Skylar Raye called out Nikkita Lyons following their match",
+      "type": "Post-match segment",
+      "status": "REPORTED_UNVERIFIED"
+    },
+    {
+      "text": "Harlem Lewis indicated he would accept another title match with Harley Riggins",
+      "type": "Championship storyline",
+      "status": "REPORTED_UNVERIFIED"
+    }
+  ]
+}
