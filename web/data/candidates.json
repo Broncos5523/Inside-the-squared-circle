@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "mode": "RESEARCH_LEADS_ONLY",
-  "generated_at": "2026-10-22T21:29:26.402512+00:00",
+  "generated_at": "2026-10-22T21:33:13.673056+00:00",
   "policy": "Mentions are NOT confirmations. Do not put candidate matches on the public broadcast.",
   "source": "TheSportsDB (free API); attribution required; no artwork fetched.",
   "programs": [
@@ -25,11 +25,19 @@
     {
       "show_id": "smackdown",
       "airdate": "2026-10-23",
-      "intake_status": "no_parseable_leads",
-      "candidate_count": 0,
+      "intake_status": "unverified_leads_found",
+      "candidate_count": 3,
       "verified_match_count": 0,
       "verified_appearance_count": 0,
-      "events_considered": []
+      "events_considered": [
+        {
+          "event_id": "2599790",
+          "event_title": "SmackDown #1418",
+          "source_url": "https://www.thesportsdb.com/api/v1/json/123/lookupevent.php?id=2599790",
+          "possible_match_mentions": 3,
+          "verification": "NOT_CONFIRMED"
+        }
+      ]
     },
     {
       "show_id": "nxt",
@@ -70,5 +78,5 @@
   ],
   "verified_matches": [],
   "verified_appearances": [],
-  "total_unverified_possible_match_mentions": 0
+  "total_unverified_possible_match_mentions": 3
 }
