@@ -33,19 +33,20 @@ footer{margin-top:25px;border-top:1px solid #475773;padding-top:17px;color:#a9bf
 <p class="sub">Cloud evidence monitor · Source investigation, not the television broadcast</p>
 <div class="top" role="status">
 <strong>RESEARCH LEADS ARE NOT VERIFIED MATCH ANNOUNCEMENTS</strong>
-<p>Episode schedules come from TVmaze. Possible wrestling match mentions are independently searched in TheSportsDB event descriptions. <b>Nothing on this page establishes that an event is officially confirmed.</b> The TV broadcast remains empty of unverified cards.</p>
+<p>Episode schedules and additional summary-based leads come from TVmaze; TheSportsDB separately supplies possible event-card mentions. <b>Nothing on this page establishes that an event is officially confirmed.</b> The V4.9 preview displays explicitly labeled unverified card reports from supported sources; this monitor is not a final-card confirmation.</p>
 </div>
 <div id="status" class="muted">Connecting to automatic research feed…</div>
 <div id="stats">
  <div class="pill"><b id="count">—</b><span>UNVERIFIED POSSIBLE MATCH MENTIONS</span></div>
  <div class="pill"><b id="confirmed">0</b><span>VERIFIED MATCHES</span></div>
  <div class="pill"><b id="sources">—</b><span>SHOWS CHECKED</span></div>
+ <div class="pill"><b id="tvmaze-count">—</b><span>TVMAZE AUTOMATED EPISODE MENTIONS</span></div>
 </div>
 <div class="tiles" id="tiles" aria-live="polite"></div>
 <footer>
  <p><b>How to interpret results:</b> A research lead may be wrong, outdated, a dark match, a taped-show recording, or something mentioned for a different airdate. Zero leads does not mean a show has no announced matches. TNA UTC/local-date discrepancies are handled conservatively; AAA segmented TV broadcasts and Evolve recaps aren't auto-matched to event cards.</p>
  <p>Source attribution: <a href="https://www.tvmaze.com/api">TVmaze API</a> (CC BY-SA) and <a href="https://www.thesportsdb.com/">TheSportsDB</a>. No full publisher article text is redistributed. This is a source-coverage research tool, not an official WWE or TNA publication.</p>
- <p><a href="./preview-v4-4.html">Return to broadcast design preview</a></p>
+ <p><a href="./preview-v4-9.html">Open current research-enabled preview (V4.9)</a></p>
 </footer>
 </main>
 <script>
@@ -56,10 +57,12 @@ footer{margin-top:25px;border-top:1px solid #475773;padding-top:17px;color:#a9bf
  const validDate=d=>/^\d{4}-\d{2}-\d{2}$/.test(d||'');
  async function load(){
  try{
-  const [r1,r2]=await Promise.all(['./data/candidates.json','./data/snapshot.json'].map(u=>fetch(u+'?r='+Math.floor(Date.now()/120000),{cache:'no-store'})));
-  if(!r1.ok||!r2.ok)throw Error('source not available');
-  const candidates=await r1.json(),schedules=await r2.json();
+  const [r1,r2,r3]=await Promise.all(['./data/candidates.json','./data/snapshot.json','./data/tvmaze-reported.json'].map(u=>fetch(u+'?r='+Math.floor(Date.now()/120000),{cache:'no-store'})));
+  if(!r1.ok||!r2.ok||!r3.ok)throw Error('source not available');
+  const candidates=await r1.json(),schedules=await r2.json(),tvmaze=await r3.json();
   if(candidates.mode!=='RESEARCH_LEADS_ONLY'||!Array.isArray(candidates.programs)||candidates.programs.length!==6||!Array.isArray(schedules.shows)||schedules.shows.length!==6||candidates.verified_matches?.length||candidates.verified_appearances?.length)throw Error('invalid source data');
+  if(tvmaze.mode!=='TVMAZE_EPISODE_SUMMARY_REPORTED_UNVERIFIED'||!Array.isArray(tvmaze.programs)||tvmaze.programs.length!==6)throw Error('TVmaze source invalid');
+  txt($('tvmaze-count'),Number(tvmaze.total_reported_matches)||0);
   const mins=Math.round((Date.now()-Date.parse(candidates.generated_at||''))/60000);
   const freshness=Number.isFinite(mins)&&mins>=0&&mins<480;
   txt($('status'),'Last attempted collection: '+(Number.isFinite(mins)?Math.max(0,mins)+' minutes ago':'time unavailable')+(freshness?' · Recent':' · DELAYED OR TIME UNKNOWN'));
@@ -71,7 +74,8 @@ footer{margin-top:25px;border-top:1px solid #475773;padding-top:17px;color:#a9bf
    const card=document.createElement('article');
    const title=document.createElement('h2');txt(title,names[p.show_id]||String(p.show_id));
    const dl=document.createElement('dl');
-   const stats=[['Broadcast date',validDate(p.airdate)?p.airdate:'Unknown'],['Possible mentions',Number(p.candidate_count)||0],['Intake',String(p.intake_status||'unavailable').replaceAll('_',' ')],['Verified',0]];
+   const tv=tvmaze.programs.find(t=>t.show_id===p.show_id);
+   const stats=[['Broadcast date',validDate(p.airdate)?p.airdate:'Unknown'],['TheSportsDB possible mentions',Number(p.candidate_count)||0],['TVmaze episode mentions',Number(tv?.matches?.length)||0],['TVmaze intake',String(tv?.collection_status||'unavailable').replaceAll('_',' ')],['Verified',0]];
    for(const [term,val] of stats){const dt=document.createElement('dt'),dd=document.createElement('dd');txt(dt,term);txt(dd,val);dl.append(dt,dd)}
    card.append(title,dl);
    const note=document.createElement('div');note.className='flag';txt(note,'DO NOT DISPLAY AS CONFIRMED');card.append(note);
