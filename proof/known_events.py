@@ -17,41 +17,50 @@ MODE="KNOWN_PROVIDER_EVENT_IDENTIFIERS"
 ID=re.compile(r"[1-9]\d{0,14}")
 
 
-def build_known(previous: dict, report: dict, today:date) -> dict:
+def build_known(previous: dict, report: dict, today: date) -> dict:
+    """Preserve source-observed IDs across broadcast day and short index gaps.
+
+    IDs are NOT match claims. Results intake always re-fetches the event and
+    checks exact show, league and airdate before generating an outcome.
+    """
     if report.get("mode")!="REPORTED_MATCHES_UNVERIFIED":
         raise ValueError("Untrusted reported feed")
-    old={(x.get("show_id"),x.get("airdate")):x.get("event_ids",[])
-         for x in previous.get("entries",[]) if isinstance(x,dict)}
-    entries=[]
-    for p in report.get("programs",[]):
-        sid,air=p.get("show_id"),p.get("airdate")
+    earliest=today-timedelta(days=14)
+    latest=today+timedelta(days=365)
+    merged={}
+    def accept(sid,air,values):
         if sid not in ALLOWED:
-            continue
+            return
         try:
-            when=date.fromisoformat(air)
+            day=date.fromisoformat(air)
         except (TypeError,ValueError):
+            return
+        if not earliest<=day<=latest:
+            return
+        key=(sid,air)
+        ids=merged.setdefault(key,[])
+        for v in values:
+            val=str(v)
+            if ID.fullmatch(val) and val not in ids and len(ids)<4:
+                ids.append(val)
+    for old in previous.get("entries",[]) if isinstance(previous.get("entries"),list) else []:
+        if isinstance(old,dict):
+            accept(old.get("show_id"),old.get("airdate"),(old.get("event_ids") or [])[:8])
+    for program in report.get("programs",[]):
+        if not isinstance(program,dict):
             continue
-        if not today<=when<=today+timedelta(days=365):
-            # Date-scoped cache can never resurface an old TV card.
-            continue
-        ids=[]
-        for val in list(old.get((sid,air),[]) or [])+[
-            m.get("provider_event_id") for m in p.get("matches",[])+p.get("appearances",[])
-            if isinstance(m,dict)]:
-            s=str(val)
-            if ID.fullmatch(s) and s not in ids:
-                ids.append(s)
-            if len(ids)>=4:
-                break
-        if ids:
-            entries.append({"show_id":sid,"airdate":air,"event_ids":ids})
+        source=(program.get("matches") or [])+(program.get("appearances") or [])
+        accept(program.get("show_id"),program.get("airdate"),
+               [row.get("provider_event_id") for row in source if isinstance(row,dict)])
+    entries=[{"show_id":sid,"airdate":day,"event_ids":ids}
+             for (sid,day),ids in sorted(merged.items())
+             if ids]
     return {
-        "schema_version":1, "mode":MODE,
+        "schema_version":1,"mode":MODE,
         "generated_at":datetime.now(TZ).isoformat(),
-        "policy":"Identifiers only. Always re-fetch a live API event and recheck show/date/status before displaying; never copy historic match text.",
+        "policy":"Identifiers only, retained 14 days after airdate to permit post-show lookup. Always re-fetch source event and recheck league/show/local day; never copy historic match claims.",
         "entries":entries
     }
-
 
 def main():
     ap=argparse.ArgumentParser()

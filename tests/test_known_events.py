@@ -16,8 +16,27 @@ class IdentifierCacheTests(unittest.TestCase):
         self.assertEqual(by["smackdown"]["event_ids"],["2599790"])
         self.assertEqual(by["raw"]["event_ids"],["3414141"])
         self.assertNotIn("aaa",by)
-        self.assertNotIn("tna",by)
+        self.assertEqual(by["tna"]["event_ids"],["123"])
         self.assertNotIn("Fake text",str(result))
+    def test_retains_crossed_broadcast_event_ids_for_result_refresh(self):
+        previous={"entries":[
+            {"show_id":"tna","airdate":"2026-10-22","event_ids":["2618956"]},
+            {"show_id":"smackdown","airdate":"2026-10-23","event_ids":["2599790"]}]}
+        no_card={"mode":"REPORTED_MATCHES_UNVERIFIED","programs":[]}
+        after=build_known(previous,no_card,date(2026,10,23))
+        self.assertEqual({(x["show_id"],x["airdate"]) for x in after["entries"]},
+                         {("tna","2026-10-22"),("smackdown","2026-10-23")})
+        self.assertEqual(after["entries"][1]["event_ids"],["2618956"])
+        stale=build_known(previous,no_card,date(2026,11,7))
+        self.assertFalse(any(x["show_id"]=="tna" for x in stale["entries"]))
+        self.assertNotIn("2618956",str(stale))
+    def test_does_not_reuse_old_ids_on_future_new_episode(self):
+        prev={"entries":[{"show_id":"raw","airdate":"2026-10-19","event_ids":["1234567"]}]}
+        report={"mode":"REPORTED_MATCHES_UNVERIFIED","programs":[
+            {"show_id":"raw","airdate":"2026-10-26","matches":[],"appearances":[]}]}
+        got=build_known(prev,report,date(2026,10,26))
+        self.assertEqual(len(got["entries"]),1)
+        self.assertEqual(got["entries"][0]["airdate"],"2026-10-19")
     def test_rejects_bad_ids(self):
         d=build_known({},{"mode":"REPORTED_MATCHES_UNVERIFIED","programs":[
             {"show_id":"raw","airdate":"2026-10-26","matches":[{"provider_event_id":"javascript:void(0)"},

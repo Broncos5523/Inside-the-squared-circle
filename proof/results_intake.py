@@ -24,7 +24,7 @@ MODE = "PROVIDER_REPORTED_POST_BROADCAST_RESULTS_UNVERIFIED"
 MAX_AGE_DAYS = 10
 LINE_CAP = 8
 ALLOWED = {"raw", "smackdown", "nxt", "tna"}
-WIN = re.compile(r"^(.{2,90}?)\s+defeats?\s+(.{2,140})$", re.I)
+WIN = re.compile(r"^(.{2,90}?)\s+(?:defeats?|defeated|def\.)\s+(.{2,140})$", re.I)
 BAD = re.compile(r"\b(?:spoiler|prediction|rumou?r|dark match|fantasy booking|"
                  r"no result|tbd|cancelled|postponed|not aired)\b", re.I)
 
@@ -73,6 +73,23 @@ def parse_result_lines(raw: object) -> list[dict]:
         if len(output) >= LINE_CAP:
             break
     return output
+
+
+RESULT_SECTION = re.compile(r"(?im)^[ \t]*(?:match[ \t]+)?results?[ \t]*:[ \t]*$")
+def parse_explicit_description_results(raw: object) -> list[dict]:
+    """Only parse a provider's explicitly headed, post-broadcast results
+    section. Never turn a preview, unrelated storyline, or simple 'vs' into
+    an outcome. This is a best-effort supplemental source field.
+    """
+    if not isinstance(raw,str) or not 10<len(raw)<=14000 or "<" in raw or ">" in raw:
+        return []
+    header=RESULT_SECTION.search(raw)
+    if header is None:
+        return []
+    section=raw[header.end():]
+    # Do not parse older storylines after a different section heading.
+    section=re.split(r"(?m)^\s*(?:Storyline|Preview|Previously|Background|Next Week)\s*:",section,maxsplit=1,flags=re.I)[0]
+    return parse_result_lines(section)
 
 
 def eligible_episodes(show: dict, now: datetime) -> list[str]:
@@ -191,7 +208,9 @@ def build_results(snapshot: dict, requester=request_events, event_lookup=request
             for event in events.values():
                 if str(event.get("strPostponed", "")).lower() in ("yes","true","1"):
                     continue
-                for line in parse_result_lines(event.get("strResult")):
+                provider_lines=parse_result_lines(event.get("strResult"))
+                description_lines=parse_explicit_description_results(event.get("strDescriptionEN"))
+                for line in provider_lines+description_lines:
                     signature = re.sub(r"[^a-z0-9]","",line["text"].lower())
                     if signature in seen:
                         continue
@@ -201,6 +220,7 @@ def build_results(snapshot: dict, requester=request_events, event_lookup=request
                         "source_name": "TheSportsDB",
                         "evidence_url": "https://www.thesportsdb.com/api/v1/json/123/lookupevent.php?id="+str(event["idEvent"]),
                         "provider_event_id": str(event["idEvent"]),
+                        "provider_field": "strResult" if line in provider_lines else "strDescriptionEN/results_section",
                     })
                     if len(results)>=LINE_CAP:
                         break

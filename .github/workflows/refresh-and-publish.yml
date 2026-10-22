@@ -303,6 +303,18 @@ jobs:
           Path('/tmp/squared-circle-v422.js').write_text(h.split('<script>',1)[1].split('</script>',1)[0])
           PY
           node --check /tmp/squared-circle-v422.js
+      - name: Validate v4.23 automatic result freshness gate
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          h=Path('web/preview-v4-23.html').read_text()
+          assert 'DISPLAY BUILD 4.23' in h
+          assert 'record.airdate!==completed' in h
+          assert "createElement('a')" not in h
+          assert '#board{width:min(100vw,56.25dvh)' in h
+          Path('/tmp/squared-circle-v423.js').write_text(h.split('<script>',1)[1].split('</script>',1)[0])
+          PY
+          node --check /tmp/squared-circle-v423.js
       - name: Collect unverified match-card research leads
         run: python proof/card_intake.py --snapshot web/data/snapshot.json --out web/data/candidates.json --also-next-league
       - name: Build opt-in reported match descriptions (never confirmed)
@@ -554,6 +566,9 @@ jobs:
               (f'{base}/preview-v4-22.html?show=evolve&probe={nonce}', 'v422'),
               (f'{base}/preview-v4-22.html?show=raw&probe={nonce}', 'v422'),
               (f'{base}/preview-v4-22.html?show=raw&view=recap&probe={nonce}', 'v422'),
+              (f'{base}/preview-v4-23.html?show=raw&view=recap&probe={nonce}', 'v423'),
+              (f'{base}/preview-v4-23.html?show=tna&view=results&probe={nonce}', 'v423'),
+              (f'{base}/preview-v4-23.html?show=evolve&probe={nonce}', 'v423'),
               (f'{base}/data/research-20261022.json?probe={nonce}', 'research'),
               (f'{base}/data/tvmaze-reported.json?probe={nonce}', 'tvmaze'),
           ]
@@ -567,7 +582,11 @@ jobs:
                       with urlopen(request, timeout=18) as response:
                           assert response.status == 200
                           body = response.read()
-                      if kind == 'v422':
+                      if kind == 'v423':
+                          assert b'DISPLAY BUILD 4.23' in body
+                          assert b'record.airdate!==completed' in body
+                          assert b'RESULTS & FALLOUT' in body
+                      elif kind == 'v422':
                           assert b'DISPLAY BUILD 4.22' in body
                           assert b'justify-content:space-evenly;' in body
                           assert b'createRecapResult' in body

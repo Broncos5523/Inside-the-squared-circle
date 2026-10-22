@@ -1,7 +1,7 @@
 import unittest
 from datetime import datetime
 from zoneinfo import ZoneInfo
-from proof.results_intake import build_results, broadcast_complete, parse_result_lines, eligible_episodes
+from proof.results_intake import build_results, broadcast_complete, parse_result_lines, parse_explicit_description_results, eligible_episodes
 
 ET=ZoneInfo("America/New_York")
 def at(day=22,hour=17,minute=55): return datetime(2026,10,day,hour,minute,tzinfo=ET)
@@ -43,6 +43,34 @@ class ResultsIntakeTests(unittest.TestCase):
         self.assertEqual(tna["results"][0]["text"],"Avery Styles defeats Joe Alonzo")
         self.assertTrue(all(m["status"]=="REPORTED_UNVERIFIED" for m in tna["results"]))
         self.assertTrue(all(m["evidence_url"].endswith("id=2618956") for m in tna["results"]))
+    def test_wrestling_result_grammar_defeated_and_def_dot(self):
+        parsed=parse_result_lines(
+            "Tag Team Match\nCody Rhodes & Jey Uso defeated Jimmy Uso & Solo Sikoa\n\n"
+            "Singles Match\nSkylar Raye def. Sloane Jacobs")
+        self.assertEqual(len(parsed),2)
+        self.assertEqual(parsed[0]["text"],"Cody Rhodes & Jey Uso defeats Jimmy Uso & Solo Sikoa")
+        self.assertEqual(parsed[1]["text"],"Skylar Raye defeats Sloane Jacobs")
+    def test_only_explicit_results_section_of_description(self):
+        desc=("Preview: Joe vs. Ali\n"
+              "The challenger hopes to defeat the champion.\n\n"
+              "Match Results:\n"
+              "Singles Match\nAvery Styles defeated Joe Alonzo\n\n"
+              "Next Week:\nJohn Cena defeated Randy Orton")
+        actual=parse_explicit_description_results(desc)
+        self.assertEqual(len(actual),1)
+        self.assertEqual(actual[0]["text"],"Avery Styles defeats Joe Alonzo")
+        self.assertEqual(parse_explicit_description_results("Storyline:\nRandy defeated Cody last week"),[])
+        self.assertEqual(parse_explicit_description_results("Next Week:\nCody vs. Randy"),[])
+    def test_description_result_used_only_after_air_and_matching_provider(self):
+        described=dict(TNA,strResult=None,strDescriptionEN=
+                       "Match Results:\nSingles Match\nAvery Styles defeated Joe Alonzo")
+        feed=lambda d,l:[described] if d=="2026-10-23" and l==4455 else []
+        before=build_results(snap(),requester=feed,known={},now=at(hour=22,minute=50))
+        self.assertEqual(before["total_reported_results"],0)
+        after=build_results(snap(),requester=feed,known={},now=at(hour=23,minute=20))
+        tna=next(x for x in after["programs"] if x["show_id"]=="tna")
+        self.assertEqual(len(tna["results"]),1)
+        self.assertEqual(tna["results"][0]["provider_field"],"strDescriptionEN/results_section")
     def test_no_winner_from_advance_card(self):
         self.assertEqual(parse_result_lines(SD["strResult"]),[])
         self.assertEqual(parse_result_lines("Street Fight\nGiulia vs. Blake Monroe"),[])
