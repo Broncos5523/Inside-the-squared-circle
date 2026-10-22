@@ -1,15 +1,16 @@
 {
   "schema_version": 1,
   "mode": "REPORTED_MATCHES_UNVERIFIED",
-  "generated_at": "2026-10-22T16:18:30.080893-04:00",
+  "generated_at": "2026-10-22T16:28:32.571937-04:00",
   "valid_as_of_et": "2026-10-22",
-  "policy": "Opt-in UNVERIFIED match mentions only. May be stale, speculative, misassigned, dark matches, taped show results or subject to change. Not announcements from WWE, AAA or TNA.",
+  "policy": "Opt-in UNVERIFIED match and explicit segment mentions only. May be stale, speculative, misassigned, dark matches, taped show results or subject to change. Not announcements from WWE, AAA or TNA.",
   "programs": [
     {
       "show_id": "raw",
       "airdate": "2026-10-26",
       "display_label": "REPORTED · UNVERIFIED",
       "matches": [],
+      "appearances": [],
       "error": null,
       "source_name": "TheSportsDB"
     },
@@ -43,6 +44,7 @@
           "source_name": "TheSportsDB"
         }
       ],
+      "appearances": [],
       "error": null,
       "source_name": "TheSportsDB"
     },
@@ -51,6 +53,7 @@
       "airdate": "2026-10-27",
       "display_label": "REPORTED · UNVERIFIED",
       "matches": [],
+      "appearances": [],
       "error": null,
       "source_name": "TheSportsDB"
     },
@@ -59,6 +62,7 @@
       "airdate": "2026-10-24",
       "display_label": "REPORTED · UNVERIFIED",
       "matches": [],
+      "appearances": [],
       "error": null,
       "source_name": "TheSportsDB"
     },
@@ -92,6 +96,7 @@
           "source_name": "TheSportsDB"
         }
       ],
+      "appearances": [],
       "error": null,
       "source_name": "TheSportsDB"
     },
@@ -100,9 +105,11 @@
       "airdate": "2026-10-28",
       "display_label": "REPORTED · UNVERIFIED",
       "matches": [],
+      "appearances": [],
       "error": null,
       "source_name": "TheSportsDB"
     }
   ],
-  "total_reported_matches": 6
+  "total_reported_matches": 6,
+  "total_reported_appearances": 0
 }
