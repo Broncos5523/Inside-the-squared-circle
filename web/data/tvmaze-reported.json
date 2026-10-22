@@ -1,0 +1,57 @@
+{
+  "schema_version": 1,
+  "mode": "TVMAZE_EPISODE_SUMMARY_REPORTED_UNVERIFIED",
+  "generated_at": "2026-10-22T16:55:00-04:00",
+  "policy": "Initial empty seed; scheduled collector replaces automatically.",
+  "programs": [
+    {
+      "show_id": "raw",
+      "airdate": null,
+      "source_name": "TVmaze",
+      "matches": [],
+      "appearances": [],
+      "collection_status": "awaiting_first_collection"
+    },
+    {
+      "show_id": "smackdown",
+      "airdate": null,
+      "source_name": "TVmaze",
+      "matches": [],
+      "appearances": [],
+      "collection_status": "awaiting_first_collection"
+    },
+    {
+      "show_id": "nxt",
+      "airdate": null,
+      "source_name": "TVmaze",
+      "matches": [],
+      "appearances": [],
+      "collection_status": "awaiting_first_collection"
+    },
+    {
+      "show_id": "aaa",
+      "airdate": null,
+      "source_name": "TVmaze",
+      "matches": [],
+      "appearances": [],
+      "collection_status": "awaiting_first_collection"
+    },
+    {
+      "show_id": "tna",
+      "airdate": null,
+      "source_name": "TVmaze",
+      "matches": [],
+      "appearances": [],
+      "collection_status": "awaiting_first_collection"
+    },
+    {
+      "show_id": "evolve",
+      "airdate": null,
+      "source_name": "TVmaze",
+      "matches": [],
+      "appearances": [],
+      "collection_status": "awaiting_first_collection"
+    }
+  ],
+  "total_reported_matches": 0
+}

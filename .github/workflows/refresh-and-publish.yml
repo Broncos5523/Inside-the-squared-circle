@@ -130,6 +130,26 @@ jobs:
         run: python proof/card_intake.py --snapshot web/data/snapshot.json --out web/data/candidates.json
       - name: Build opt-in reported match descriptions (never confirmed)
         run: python -m proof.reported_cards --snapshot web/data/snapshot.json --out web/data/reported.json
+      - name: Collect TVmaze episode-summary leads (reported, never confirmed)
+        run: python -m proof.tvmaze_intake --snapshot web/data/snapshot.json --out web/data/tvmaze-reported.json
+      - name: Validate additional TVmaze reports
+        run: |
+          python - <<'PY'
+          import json,re
+          from pathlib import Path
+          d=json.loads(Path('web/data/tvmaze-reported.json').read_text())
+          assert d['mode']=='TVMAZE_EPISODE_SUMMARY_REPORTED_UNVERIFIED'
+          assert len(d['programs'])==6
+          for row in d['programs']:
+              assert not row['appearances']
+              if row['show_id'] in ('aaa','evolve'):
+                  assert not row['matches']
+              for match in row['matches']:
+                  assert match['status']=='REPORTED_UNVERIFIED'
+                  assert match['source_name']=='TVmaze'
+                  assert re.fullmatch(r'https://api.tvmaze.com/episodes/\d+',match['evidence_url'])
+          print('TVmaze evidence audit PASS')
+          PY
       - name: Check unverified labeling and source references
         run: |
           python - <<'PY'
@@ -169,13 +189,15 @@ jobs:
           cp web/data/snapshot.json /tmp/itsc-new-snapshot.json
           cp web/data/candidates.json /tmp/itsc-new-candidates.json
           cp web/data/reported.json /tmp/itsc-new-reported.json
+          cp web/data/tvmaze-reported.json /tmp/itsc-new-tvmaze.json
           for attempt in 1 2 3; do
             git fetch origin main
             git reset --hard origin/main
             cp /tmp/itsc-new-snapshot.json web/data/snapshot.json
             cp /tmp/itsc-new-candidates.json web/data/candidates.json
             cp /tmp/itsc-new-reported.json web/data/reported.json
-            git add web/data/snapshot.json web/data/candidates.json web/data/reported.json
+            cp /tmp/itsc-new-tvmaze.json web/data/tvmaze-reported.json
+            git add web/data/snapshot.json web/data/candidates.json web/data/reported.json web/data/tvmaze-reported.json
             if git diff --cached --quiet; then
               echo "No schedule changes to commit"
               break
@@ -210,6 +232,7 @@ jobs:
           base = 'https://broncos5523.github.io/Inside-the-squared-circle'
           nonce = os.environ.get('GITHUB_RUN_ID', 'check')
           expected = json.loads(Path('web/data/reported.json').read_text(encoding='utf-8'))
+          expected_tvmaze = json.loads(Path('web/data/tvmaze-reported.json').read_text(encoding='utf-8'))
           checks = [
               (f'{base}/preview-v4-6.html?show=smackdown&probe={nonce}', 'smackdown'),
               (f'{base}/preview-v4-6.html?show=tna&probe={nonce}', 'tna'),
@@ -221,6 +244,7 @@ jobs:
               (f'{base}/preview-v4-8.html?show=nxt&probe={nonce}', 'v48'),
               (f'{base}/preview-v4-8.html?show=smackdown&probe={nonce}', 'v48'),
               (f'{base}/data/research-20261022.json?probe={nonce}', 'research'),
+              (f'{base}/data/tvmaze-reported.json?probe={nonce}', 'tvmaze'),
           ]
           for attempt in range(15):
               try:
@@ -232,7 +256,12 @@ jobs:
                       with urlopen(request, timeout=18) as response:
                           assert response.status == 200
                           body = response.read()
-                      if kind == 'research':
+                      if kind == 'tvmaze':
+                          feed = json.loads(body)
+                          assert feed['mode']=='TVMAZE_EPISODE_SUMMARY_REPORTED_UNVERIFIED'
+                          assert len(feed['programs'])==6
+                          assert feed['generated_at']==expected_tvmaze['generated_at']
+                      elif kind == 'research':
                           supplement = json.loads(body)
                           assert supplement['mode']=='DATED_RESEARCH_SUPPLEMENT_UNVERIFIED'
                           assert len(supplement['programs'])==6
