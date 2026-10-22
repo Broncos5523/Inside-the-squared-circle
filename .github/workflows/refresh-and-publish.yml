@@ -260,6 +260,23 @@ jobs:
           Path('/tmp/squared-circle-v419.js').write_text(html.split('<script>',1)[1].split('</script>',1)[0])
           PY
           node --check /tmp/squared-circle-v419.js
+      - name: Validate v4.20 clean TV presentation and JavaScript
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          import re
+          html=Path('web/preview-v4-20.html').read_text()
+          assert 'DISPLAY BUILD 4.20' in html
+          assert not re.search(r'<a\b',html,re.I)
+          assert "createElement('a')" not in html
+          assert 'REPORTED MATCHES · UNVERIFIED' not in html
+          assert 'REPORTED / UNVERIFIED · FINISHED SHOW' not in html
+          assert 'SCHEDULE CURRENT · REPORTED CARDS UNVERIFIED' not in html
+          assert 'TVmaze (CC BY-SA)' in html
+          assert '#board{width:min(100vw,56.25dvh)' in html
+          Path('/tmp/squared-circle-v420.js').write_text(html.split('<script>',1)[1].split('</script>',1)[0])
+          PY
+          node --check /tmp/squared-circle-v420.js
       - name: Collect unverified match-card research leads
         run: python proof/card_intake.py --snapshot web/data/snapshot.json --out web/data/candidates.json --also-next-league
       - name: Build opt-in reported match descriptions (never confirmed)
@@ -500,6 +517,11 @@ jobs:
               (f'{base}/preview-v4-19.html?show=raw&view=coverage&probe={nonce}', 'v419'),
               (f'{base}/preview-v4-19.html?show=nxt&view=recap&probe={nonce}', 'v419'),
               (f'{base}/preview-v4-19.html?show=evolve&probe={nonce}', 'v419'),
+              (f'{base}/preview-v4-20.html?show=raw&view=recap&probe={nonce}', 'v420'),
+              (f'{base}/preview-v4-20.html?show=smackdown&view=recap&probe={nonce}', 'v420'),
+              (f'{base}/preview-v4-20.html?show=nxt&view=recap&probe={nonce}', 'v420'),
+              (f'{base}/preview-v4-20.html?show=tna&view=recap&probe={nonce}', 'v420'),
+              (f'{base}/preview-v4-20.html?show=evolve&probe={nonce}', 'v420'),
               (f'{base}/data/research-20261022.json?probe={nonce}', 'research'),
               (f'{base}/data/tvmaze-reported.json?probe={nonce}', 'tvmaze'),
           ]
@@ -513,7 +535,13 @@ jobs:
                       with urlopen(request, timeout=18) as response:
                           assert response.status == 200
                           body = response.read()
-                      if kind == 'v419':
+                      if kind == 'v420':
+                          assert b'DISPLAY BUILD 4.20' in body
+                          assert b'UPCOMING MATCHES' in body
+                          assert b'MATCH CARDS SUBJECT TO CHANGE' in body
+                          assert b'<a ' not in body
+                          assert b"createElement('a')" not in body
+                      elif kind == 'v419':
                           assert b'DISPLAY BUILD 4.19' in body
                           assert b'MATCH RESULTS' in body
                           assert b'renderEditorialRecap' in body
