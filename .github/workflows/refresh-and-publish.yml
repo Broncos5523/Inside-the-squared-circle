@@ -114,6 +114,18 @@ jobs:
           Path('/tmp/squared-circle-v47.js').write_text(script)
           PY
           node --check /tmp/squared-circle-v47.js
+      - name: Validate v4.8 JavaScript syntax
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          html=Path('web/preview-v4-8.html').read_text()
+          assert 'DISPLAY BUILD 4.8' in html
+          assert '#board{width:min(100vw,56.25dvh)' in html
+          assert 'const x=rows[page];' in html
+          script=html.split('<script>',1)[1].split('</script>',1)[0]
+          Path('/tmp/squared-circle-v48.js').write_text(script)
+          PY
+          node --check /tmp/squared-circle-v48.js
       - name: Collect unverified match-card research leads
         run: python proof/card_intake.py --snapshot web/data/snapshot.json --out web/data/candidates.json
       - name: Build opt-in reported match descriptions (never confirmed)
@@ -205,6 +217,9 @@ jobs:
               (f'{base}/preview-v4-7.html?show=raw&probe={nonce}', 'v47'),
               (f'{base}/preview-v4-7.html?show=smackdown&probe={nonce}', 'v47'),
               (f'{base}/preview-v4-7.html?show=nxt&probe={nonce}', 'v47'),
+              (f'{base}/preview-v4-8.html?show=tna&probe={nonce}', 'v48'),
+              (f'{base}/preview-v4-8.html?show=nxt&probe={nonce}', 'v48'),
+              (f'{base}/preview-v4-8.html?show=smackdown&probe={nonce}', 'v48'),
               (f'{base}/data/research-20261022.json?probe={nonce}', 'research'),
           ]
           for attempt in range(15):
@@ -221,6 +236,10 @@ jobs:
                           supplement = json.loads(body)
                           assert supplement['mode']=='DATED_RESEARCH_SUPPLEMENT_UNVERIFIED'
                           assert len(supplement['programs'])==6
+                      elif kind == 'v48':
+                          assert b'DISPLAY BUILD 4.8' in body
+                          assert b'const x=rows[page];' in body
+                          assert b'REPORTED APPEARANCE' in body
                       elif kind == 'v47':
                           assert b'DISPLAY BUILD 4.7' in body
                           assert b'const perPage=1' in body
