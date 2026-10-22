@@ -1,9 +1,9 @@
 {
   "schema_version": 1,
   "mode": "REPORTED_MATCHES_UNVERIFIED",
-  "generated_at": "2026-10-22T17:38:43.995505-04:00",
+  "generated_at": "2026-10-22T17:39:38.921244-04:00",
   "valid_as_of_et": "2026-10-22",
-  "policy": "Opt-in UNVERIFIED match and explicit segment mentions only. May be stale, speculative, misassigned, dark matches, taped show results or subject to change. Not announcements from WWE, AAA or TNA. TNA Oct 22 result-state observed via live documented API at 17:29 ET, retained to suppress stale/early reported cards; no result text copied.",
+  "policy": "Opt-in UNVERIFIED match and explicit segment mentions only. May be stale, speculative, misassigned, dark matches, taped show results or subject to change. Not announcements from WWE, AAA or TNA.",
   "programs": [
     {
       "show_id": "raw",
@@ -14,6 +14,7 @@
       "error": null,
       "episode_outcome_detected": false,
       "episode_withdrawn": false,
+      "episode_outcome_evidence_url": null,
       "source_name": "TheSportsDB"
     },
     {
@@ -50,6 +51,7 @@
       "error": null,
       "episode_outcome_detected": false,
       "episode_withdrawn": false,
+      "episode_outcome_evidence_url": null,
       "source_name": "TheSportsDB"
     },
     {
@@ -61,6 +63,7 @@
       "error": "PROVIDER_PARTIAL_OR_UNAVAILABLE",
       "episode_outcome_detected": false,
       "episode_withdrawn": false,
+      "episode_outcome_evidence_url": null,
       "source_name": "TheSportsDB"
     },
     {
@@ -72,6 +75,7 @@
       "error": null,
       "episode_outcome_detected": false,
       "episode_withdrawn": false,
+      "episode_outcome_evidence_url": null,
       "source_name": "TheSportsDB"
     },
     {
@@ -83,9 +87,8 @@
       "error": "PROVIDER_PARTIAL_OR_UNAVAILABLE",
       "episode_outcome_detected": true,
       "episode_withdrawn": false,
-      "source_name": "TheSportsDB",
       "episode_outcome_evidence_url": "https://www.thesportsdb.com/api/v1/json/123/lookupevent.php?id=2618956",
-      "outcome_observed_at": "2026-10-22T17:29:26-04:00"
+      "source_name": "TheSportsDB"
     },
     {
       "show_id": "evolve",
@@ -96,6 +99,7 @@
       "error": null,
       "episode_outcome_detected": false,
       "episode_withdrawn": false,
+      "episode_outcome_evidence_url": null,
       "source_name": "TheSportsDB"
     }
   ],
