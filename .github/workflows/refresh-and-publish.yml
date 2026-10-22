@@ -232,6 +232,19 @@ jobs:
           Path('/tmp/squared-circle-v417.js').write_text(html.split('<script>',1)[1].split('</script>',1)[0])
           PY
           node --check /tmp/squared-circle-v417.js
+      - name: Validate v4.18 grouped coverage layout JavaScript
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          html=Path('web/preview-v4-18.html').read_text()
+          assert 'DISPLAY BUILD 4.18' in html
+          assert 'coverageWindow(key)' in html
+          assert 'coverage-entry' in html
+          assert 'REPORTED / UNVERIFIED' in html
+          assert '#board{width:min(100vw,56.25dvh)' in html
+          Path('/tmp/squared-circle-v418.js').write_text(html.split('<script>',1)[1].split('</script>',1)[0])
+          PY
+          node --check /tmp/squared-circle-v418.js
       - name: Collect unverified match-card research leads
         run: python proof/card_intake.py --snapshot web/data/snapshot.json --out web/data/candidates.json --also-next-league
       - name: Build opt-in reported match descriptions (never confirmed)
@@ -466,6 +479,9 @@ jobs:
               (f'{base}/preview-v4-17.html?show=tna&view=coverage&probe={nonce}', 'v417'),
               (f'{base}/preview-v4-17.html?show=nxt&view=coverage&probe={nonce}', 'v417'),
               (f'{base}/preview-v4-17.html?show=evolve&probe={nonce}', 'v417'),
+              (f'{base}/preview-v4-18.html?show=raw&view=coverage&probe={nonce}', 'v418'),
+              (f'{base}/preview-v4-18.html?show=nxt&view=coverage&probe={nonce}', 'v418'),
+              (f'{base}/preview-v4-18.html?show=evolve&probe={nonce}', 'v418'),
               (f'{base}/data/research-20261022.json?probe={nonce}', 'research'),
               (f'{base}/data/tvmaze-reported.json?probe={nonce}', 'tvmaze'),
           ]
@@ -479,7 +495,11 @@ jobs:
                       with urlopen(request, timeout=18) as response:
                           assert response.status == 200
                           body = response.read()
-                      if kind == 'v417':
+                      if kind == 'v418':
+                          assert b'DISPLAY BUILD 4.18' in body
+                          assert b'function coverageWindow' in body
+                          assert b'coverage-entry' in body
+                      elif kind == 'v417':
                           assert b'DISPLAY BUILD 4.17' in body
                           assert b'411Mania' in body
                           assert b'Fightful' in body
