@@ -37,6 +37,11 @@ SHOW_MARKERS = {
     "evolve": re.compile(r"\b(?:wwe[\s:-]+)?evolve\b", re.I),
 }
 INLINE_DATE = re.compile(r"\b(\d{1,2})[/-](\d{1,2})(?:[/-]\d{2,4})?\b")
+MONTHS = ("January","February","March","April","May","June","July",
+          "August","September","October","November","December")
+WRITTEN_DATE = re.compile(
+    r"\b("+"|".join(MONTHS)+r")\s+([0-3]?\d)(?:st|nd|rd|th)?\b", re.I
+)
 
 
 def clean_link(url: object) -> str | None:
@@ -74,6 +79,10 @@ def filter_title(title: object, show_id: str, aired: str) -> str | None:
     for m in INLINE_DATE.finditer(title):
         mon, day = int(m.group(1)), int(m.group(2))
         if 1 <= mon <= 12 and 1 <= day <= 31 and (mon,day) != (d.month,d.day):
+            return None
+    for m in WRITTEN_DATE.finditer(title):
+        mon=next((i+1 for i,name in enumerate(MONTHS) if name.lower()==m.group(1).lower()),None)
+        if mon and (mon,int(m.group(2))) != (d.month,d.day):
             return None
     return title
 

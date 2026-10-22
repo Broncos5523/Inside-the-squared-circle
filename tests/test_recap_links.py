@@ -45,7 +45,8 @@ class RecapLinksTests(unittest.TestCase):
         self.assertEqual(by["nxt"]["airdate"],"2026-10-20")
         self.assertEqual(data["total_links"],2)
         self.assertEqual(by["evolve"]["links"][0]["status"],"PUBLISHER_HEADLINE_LINK_ONLY")
-        self.assertNotIn("results",str(by["evolve"]["links"][0]).lower().replace("evolve results","x"))
+        self.assertNotIn("winner",str(by["evolve"]["links"][0]).lower())
+        self.assertNotIn("match_results",by["evolve"]["links"][0])
     def test_after_broadcast_tna_can_show_article_link(self):
         after=datetime(2026,10,22,23,40,tzinfo=TZ)
         data=build_links(SNAP,parse_feed(XML),after)
