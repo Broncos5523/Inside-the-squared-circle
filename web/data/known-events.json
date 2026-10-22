@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "mode": "KNOWN_PROVIDER_EVENT_IDENTIFIERS",
-  "generated_at": "2026-10-22T18:50:49.462962-04:00",
+  "generated_at": "2026-10-22T18:58:05.734237-04:00",
   "policy": "Identifiers only. Always re-fetch a live API event and recheck show/date/status before displaying; never copy historic match text.",
   "entries": [
     {

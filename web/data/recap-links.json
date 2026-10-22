@@ -1,10 +1,15 @@
 {
   "schema_version": 1,
   "mode": "PUBLISHER_RSS_POST_SHOW_LINKS_ONLY",
-  "generated_at": "2026-10-22T18:51:02.015629-04:00",
-  "source_name": "F4W / Wrestling Observer",
+  "generated_at": "2026-10-22T18:58:20.834008-04:00",
+  "source_name": "Multiple publisher RSS feeds",
   "source_url": "https://www.f4wonline.com/rss.xml",
-  "policy": "RSS headlines and article links only. Not licensed article bodies, not verified match outcomes or official results. No inference of winners, titles or storylines. Date-window association is informational, not proof of episode coverage.",
+  "approved_publishers": [
+    "F4W / Wrestling Observer",
+    "411Mania",
+    "Fightful"
+  ],
+  "policy": "F4W, 411Mania and Fightful publisher-syndicated RSS headlines and links only. No article-body scraping or republishing. Coverage leads, not independently confirmed match outcomes; local airdate and after-air safeguards. Never infer winners or storylines.",
   "programs": [
     {
       "show_id": "raw",
@@ -18,7 +23,7 @@
           "status": "PUBLISHER_HEADLINE_LINK_ONLY"
         }
       ],
-      "source_name": "F4W / Wrestling Observer",
+      "source_name": "Multiple publisher RSS feeds",
       "status": "publisher_coverage_links"
     },
     {
@@ -33,7 +38,7 @@
           "status": "PUBLISHER_HEADLINE_LINK_ONLY"
         }
       ],
-      "source_name": "F4W / Wrestling Observer",
+      "source_name": "Multiple publisher RSS feeds",
       "status": "publisher_coverage_links"
     },
     {
@@ -48,28 +53,28 @@
           "status": "PUBLISHER_HEADLINE_LINK_ONLY"
         }
       ],
-      "source_name": "F4W / Wrestling Observer",
+      "source_name": "Multiple publisher RSS feeds",
       "status": "publisher_coverage_links"
     },
     {
       "show_id": "aaa",
       "airdate": null,
       "links": [],
-      "source_name": "F4W / Wrestling Observer",
+      "source_name": "Multiple publisher RSS feeds",
       "status": "not_supported"
     },
     {
       "show_id": "tna",
       "airdate": null,
       "links": [],
-      "source_name": "F4W / Wrestling Observer",
+      "source_name": "Multiple publisher RSS feeds",
       "status": "no_matching_published_coverage"
     },
     {
       "show_id": "evolve",
       "airdate": null,
       "links": [],
-      "source_name": "F4W / Wrestling Observer",
+      "source_name": "Multiple publisher RSS feeds",
       "status": "no_matching_published_coverage"
     }
   ],
@@ -78,6 +83,8 @@
   "successful_feed_urls": [
     "https://www.f4wonline.com/rss.xml",
     "https://www.f4wonline.com/category/news/wwe/results/feed/",
-    "https://www.f4wonline.com/category/news/nxt/nxt-results/feed/"
+    "https://www.f4wonline.com/category/news/nxt/nxt-results/feed/",
+    "https://411mania.com/wrestling/feed/",
+    "https://www.fightful.com/wrestling/rss"
   ]
 }
