@@ -153,7 +153,9 @@ jobs:
       - name: Collect unverified match-card research leads
         run: python proof/card_intake.py --snapshot web/data/snapshot.json --out web/data/candidates.json --also-next-league
       - name: Build opt-in reported match descriptions (never confirmed)
-        run: python -m proof.reported_cards --snapshot web/data/snapshot.json --out web/data/reported.json --also-next-league
+        run: python -m proof.reported_cards --snapshot web/data/snapshot.json --out web/data/reported.json --also-next-league --known-ids web/data/known-events.json --recheck-ids
+      - name: Persist validated event identifiers (not stale match text)
+        run: python -m proof.known_events --previous web/data/known-events.json --reported web/data/reported.json --out web/data/known-events.json
       - name: Collect TVmaze episode-summary leads (reported, never confirmed)
         run: python -m proof.tvmaze_intake --snapshot web/data/snapshot.json --out web/data/tvmaze-reported.json
       - name: Validate additional TVmaze reports
@@ -213,6 +215,7 @@ jobs:
           cp web/data/snapshot.json /tmp/itsc-new-snapshot.json
           cp web/data/candidates.json /tmp/itsc-new-candidates.json
           cp web/data/reported.json /tmp/itsc-new-reported.json
+          cp web/data/known-events.json /tmp/itsc-new-known-events.json
           cp web/data/tvmaze-reported.json /tmp/itsc-new-tvmaze.json
           for attempt in 1 2 3; do
             git fetch origin main
@@ -220,8 +223,9 @@ jobs:
             cp /tmp/itsc-new-snapshot.json web/data/snapshot.json
             cp /tmp/itsc-new-candidates.json web/data/candidates.json
             cp /tmp/itsc-new-reported.json web/data/reported.json
+            cp /tmp/itsc-new-known-events.json web/data/known-events.json
             cp /tmp/itsc-new-tvmaze.json web/data/tvmaze-reported.json
-            git add web/data/snapshot.json web/data/candidates.json web/data/reported.json web/data/tvmaze-reported.json
+            git add web/data/snapshot.json web/data/candidates.json web/data/reported.json web/data/tvmaze-reported.json web/data/known-events.json
             if git diff --cached --quiet; then
               echo "No schedule changes to commit"
               break

@@ -1,0 +1,22 @@
+{
+  "schema_version": 1,
+  "mode": "KNOWN_PROVIDER_EVENT_IDENTIFIERS",
+  "generated_at": "2026-10-22T17:09:39.950157-04:00",
+  "policy": "Only identifiers previously found in a real TheSportsDB reported feed. Every episode re-queries the API for current descriptions, local date, show, promotion and cancellation status. IDs are NOT a cached match card.",
+  "entries": [
+    {
+      "show_id": "smackdown",
+      "airdate": "2026-10-23",
+      "event_ids": [
+        "2599790"
+      ]
+    },
+    {
+      "show_id": "tna",
+      "airdate": "2026-10-22",
+      "event_ids": [
+        "2618956"
+      ]
+    }
+  ]
+}

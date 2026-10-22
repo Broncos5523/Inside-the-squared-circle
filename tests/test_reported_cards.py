@@ -89,6 +89,41 @@ class ReportedCardTests(unittest.TestCase):
         self.assertNotIn("confirmed", str(result).lower())
         self.assertNotIn("advertised_appearances", str(result))
 
+    def test_known_event_identifier_requeries_live_and_recovers_index_gap(self):
+        known = {"entries": [
+            {"show_id":"smackdown","airdate":"2026-10-23","event_ids":["2599790"]},
+            {"show_id":"tna","airdate":"2026-10-22","event_ids":["2618956"]},
+        ]}
+        calls=[]
+        def lookup(event_id):
+            calls.append(event_id)
+            return [EVENT_SD] if event_id=="2599790" else [EVENT_TNA]
+        result=build_reported(snapshot(),requester=lambda *_: [],now=NOW,
+                              known_events=known,event_lookup=lookup)
+        self.assertEqual(result["total_reported_matches"],4)
+        self.assertEqual(calls,["2599790","2618956"])
+        self.assertEqual(next(x for x in result["programs"] if x["show_id"]=="smackdown")["matches"][0]["status"],"REPORTED_UNVERIFIED")
+
+    def test_known_id_rejects_expired_mismatch_cancelled_and_finished(self):
+        known={"entries":[{"show_id":"smackdown","airdate":"2026-10-23","event_ids":["2599790"]}]}
+        for altered in [
+            dict(EVENT_SD,strStatus="Cancelled"),
+            dict(EVENT_SD,strResult="Match winner published"),
+            dict(EVENT_SD,dateEventLocal="2026-10-30"),
+            dict(EVENT_SD,strEvent="RAW #1700"),
+        ]:
+            with self.subTest(event=altered):
+                result=build_reported(snapshot(),requester=lambda *_:[],now=NOW,
+                                      known_events=known,event_lookup=lambda _: [altered])
+                self.assertEqual(result["total_reported_matches"],0)
+
+    def test_known_id_is_ignored_for_other_airdate_or_wrong_provider_id(self):
+        known={"entries":[{"show_id":"smackdown","airdate":"2026-10-30","event_ids":["2599790"]},
+                          {"show_id":"smackdown","airdate":"2026-10-23","event_ids":["9999999"]}]}
+        result=build_reported(snapshot(),requester=lambda *_: [],now=NOW,
+                              known_events=known,event_lookup=lambda _: [EVENT_SD])
+        self.assertEqual(result["total_reported_matches"],0)
+
     def test_next_league_enriches_but_never_cross_assigns(self):
         episode = dict(EVENT_SD, idEvent="2777111", strEvent="RAW #1744",
                        dateEventLocal="2026-10-26", dateEvent="2026-10-26",

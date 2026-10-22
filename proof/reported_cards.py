@@ -13,7 +13,7 @@ import re
 from pathlib import Path
 from zoneinfo import ZoneInfo
 
-from proof.card_intake import SHOWS, parse_bouts, relevant_events, request_events, request_next_league, valid_upcoming
+from proof.card_intake import SHOWS, parse_bouts, relevant_events, request_events, request_next_league, request_event_by_id, valid_upcoming
 
 TZ = ZoneInfo("America/New_York")
 MAX_SHOW_MATCHES = 8
@@ -55,12 +55,13 @@ def parse_reported_appearances(description: str) -> list[dict]:
 
 
 
-def build_reported(snapshot: dict, requester=request_events, now=None, next_lookup=None) -> dict:
+def build_reported(snapshot: dict, requester=request_events, now=None, next_lookup=None, known_events=None, event_lookup=None) -> dict:
     now = now or datetime.now(TZ)
     local_today = now.astimezone(TZ).date()
     output = []
     cache = {}
     league_cache = {}
+    id_cache = {}
     for s in snapshot.get("shows", []):
         slug = s.get("id")
         air = (s.get("next") or {}).get("date")
@@ -112,6 +113,32 @@ def build_reported(snapshot: dict, requester=request_events, now=None, next_look
             else:
                 for event in relevant_events(slug, air, league_cache[league]):
                     events.setdefault(str(event["idEvent"]), event)
+        # Re-query previously observed (not guessed) event IDs through the
+        # documented lookupevent endpoint when a date index is incomplete.
+        # Never copy old match text: the live response must STILL match the
+        # show, promotion, local airdate and cancelled/finished safety gates.
+        known_rows = (known_events or {}).get("entries", [])
+        if event_lookup is not None and isinstance(known_rows, list):
+            for known in known_rows:
+                if not isinstance(known, dict):
+                    continue
+                if known.get("show_id") != slug or known.get("airdate") != air:
+                    continue
+                for event_id in (known.get("event_ids") or [])[:4]:
+                    sid = str(event_id)
+                    if not re.fullmatch(r"[1-9]\d{0,14}", sid) or sid in events:
+                        continue
+                    if sid not in id_cache:
+                        try:
+                            id_cache[sid] = event_lookup(sid)
+                        except Exception:
+                            id_cache[sid] = None
+                    if id_cache[sid] is None:
+                        had_error = True
+                        continue
+                    for event in relevant_events(slug, air, id_cache[sid]):
+                        if str(event.get("idEvent")) == sid:
+                            events[sid] = event
         unique = set()
         unique_appearances = set()
         for event in events.values():
@@ -174,11 +201,23 @@ def main() -> None:
     parser.add_argument("--snapshot", default="web/data/snapshot.json")
     parser.add_argument("--out", default="web/data/reported.json")
     parser.add_argument("--also-next-league", action="store_true")
+    parser.add_argument("--known-ids", default=None, help="Previously observed provider IDs, rechecked live")
+    parser.add_argument("--recheck-ids", action="store_true")
     args = parser.parse_args()
     snapshot = json.loads(Path(args.snapshot).read_text(encoding="utf-8"))
     if snapshot.get("schema_version") != 1 or len(snapshot.get("shows", [])) != 6:
         raise SystemExit("Invalid schedule snapshot; do not overwrite reported feed")
-    result = build_reported(snapshot, next_lookup=request_next_league if args.also_next_league else None)
+    known = None
+    if args.recheck_ids and args.known_ids:
+        p = Path(args.known_ids)
+        try:
+            known = json.loads(p.read_text(encoding="utf-8"))
+            if known.get("schema_version") != 1 or known.get("mode") != "KNOWN_PROVIDER_EVENT_IDENTIFIERS":
+                known = None
+        except (ValueError, OSError, AttributeError):
+            known = None
+    result = build_reported(snapshot, next_lookup=request_next_league if args.also_next_league else None,
+                            known_events=known, event_lookup=request_event_by_id if known is not None else None)
     target = Path(args.out)
     target.parent.mkdir(parents=True, exist_ok=True)
     temp = target.with_suffix(".tmp")

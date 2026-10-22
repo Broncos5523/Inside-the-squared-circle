@@ -166,6 +166,24 @@ def request_next_league(league: int, timeout: int = 15) -> list[dict]:
     return events[:10] if isinstance(events, list) else []
 
 
+
+def request_event_by_id(event_id: str, timeout: int = 15) -> list[dict]:
+    """Documented lookupevent API: revalidate an already observed event identifier."""
+    if not re.fullmatch(r"[1-9]\d{0,14}", str(event_id)):
+        raise ValueError("Invalid known event identifier")
+    url = "https://www.thesportsdb.com/api/v1/json/123/lookupevent.php?id=" + str(event_id)
+    request = Request(url, headers={
+        "User-Agent": "InsideSquaredCircleHouseholdResearch/0.5",
+        "Accept": "application/json",
+    })
+    with urlopen(request, timeout=timeout) as response:
+        payload = json.load(response)
+    if not isinstance(payload, dict):
+        raise ValueError("Invalid lookupevent response")
+    rows = payload.get("events")
+    return rows[:4] if isinstance(rows, list) else []
+
+
 def build_report(snapshot: dict, requester=request_events, clock=None, next_lookup=None) -> dict:
     """Counts evidence candidates; no source is promoted to verified."""
     today = clock or datetime.now(timezone.utc).date()
