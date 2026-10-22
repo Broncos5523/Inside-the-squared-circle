@@ -166,7 +166,7 @@ jobs:
       - name: Collect unverified match-card research leads
         run: python proof/card_intake.py --snapshot web/data/snapshot.json --out web/data/candidates.json --also-next-league
       - name: Build opt-in reported match descriptions (never confirmed)
-        run: python -m proof.reported_cards --snapshot web/data/snapshot.json --out web/data/reported.json --also-next-league --known-ids web/data/known-events.json --recheck-ids
+        run: python -m proof.reported_cards --snapshot web/data/snapshot.json --out web/data/reported.json --also-next-league --known-ids web/data/known-events.json --recheck-ids --previous web/data/reported.json
       - name: Persist validated event identifiers (not stale match text)
         run: python -m proof.known_events --previous web/data/known-events.json --reported web/data/reported.json --out web/data/known-events.json
       - name: Collect TVmaze episode-summary leads (reported, never confirmed)

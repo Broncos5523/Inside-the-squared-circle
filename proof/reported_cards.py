@@ -55,7 +55,7 @@ def parse_reported_appearances(description: str) -> list[dict]:
 
 
 
-def build_reported(snapshot: dict, requester=request_events, now=None, next_lookup=None, known_events=None, event_lookup=None) -> dict:
+def build_reported(snapshot: dict, requester=request_events, now=None, next_lookup=None, known_events=None, event_lookup=None, previous=None) -> dict:
     now = now or datetime.now(TZ)
     local_today = now.astimezone(TZ).date()
     output = []
@@ -76,6 +76,16 @@ def build_reported(snapshot: dict, requester=request_events, now=None, next_look
             "episode_withdrawn": False,
             "source_name": "TheSportsDB",
         }
+        # Once an outcome/cancellation has been SEEN for this exact show/date,
+        # keep its safety flag through intermittent upstream outages. Never
+        # carry state onto the following week's broadcast date.
+        previous_items=(previous or {}).get("programs",[])
+        if isinstance(previous_items,list):
+            prior=next((p for p in previous_items if isinstance(p,dict)
+                        and p.get("show_id")==slug and p.get("airdate")==air),None)
+            if prior:
+                entry["episode_outcome_detected"]=prior.get("episode_outcome_detected") is True
+                entry["episode_withdrawn"]=prior.get("episode_withdrawn") is True
         # AAA's named multi-week tape package cannot be assigned to a weekly episode.
         # Evolve is results-only. Matches must never be inferred for either.
         if slug not in SHOWS or not valid_upcoming(air, local_today):
@@ -222,6 +232,7 @@ def main() -> None:
     parser.add_argument("--also-next-league", action="store_true")
     parser.add_argument("--known-ids", default=None, help="Previously observed provider IDs, rechecked live")
     parser.add_argument("--recheck-ids", action="store_true")
+    parser.add_argument("--previous", default=None, help="Prior reported JSON for monotonic same-date outcome/cancellation flags")
     args = parser.parse_args()
     snapshot = json.loads(Path(args.snapshot).read_text(encoding="utf-8"))
     if snapshot.get("schema_version") != 1 or len(snapshot.get("shows", [])) != 6:
@@ -235,8 +246,16 @@ def main() -> None:
                 known = None
         except (ValueError, OSError, AttributeError):
             known = None
+    previous = None
+    if args.previous:
+        try:
+            previous=json.loads(Path(args.previous).read_text(encoding="utf-8"))
+            if previous.get("mode")!="REPORTED_MATCHES_UNVERIFIED":
+                previous=None
+        except (ValueError,OSError,AttributeError):
+            previous=None
     result = build_reported(snapshot, next_lookup=request_next_league if args.also_next_league else None,
-                            known_events=known, event_lookup=request_event_by_id if known is not None else None)
+                            known_events=known, event_lookup=request_event_by_id if known is not None else None, previous=previous)
     target = Path(args.out)
     target.parent.mkdir(parents=True, exist_ok=True)
     temp = target.with_suffix(".tmp")

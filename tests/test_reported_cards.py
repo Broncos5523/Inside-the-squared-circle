@@ -89,6 +89,17 @@ class ReportedCardTests(unittest.TestCase):
         self.assertNotIn("confirmed", str(result).lower())
         self.assertNotIn("advertised_appearances", str(result))
 
+    def test_result_tombstone_survives_upstream_blackout_only_same_airdate(self):
+        prior={"programs":[{"show_id":"tna","airdate":"2026-10-22",
+                            "episode_outcome_detected":True,"episode_withdrawn":False},
+                           {"show_id":"smackdown","airdate":"2026-10-16",
+                            "episode_outcome_detected":True}]}
+        d=build_reported(snapshot(),requester=lambda *_:[],now=NOW,previous=prior)
+        by={p["show_id"]:p for p in d["programs"]}
+        self.assertTrue(by["tna"]["episode_outcome_detected"])
+        self.assertEqual(by["tna"]["matches"],[])
+        self.assertFalse(by["smackdown"]["episode_outcome_detected"])
+
     def test_result_detection_suppresses_stale_advertised_cards(self):
         recorded=dict(EVENT_TNA, strResult="Singles Match\nAvery Styles defeats Joe Alonzo")
         d=build_reported(snapshot(),requester=lambda day,league:[recorded] if league==4455 else [],
