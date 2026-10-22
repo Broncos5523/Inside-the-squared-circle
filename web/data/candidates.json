@@ -1,0 +1,90 @@
+{
+  "schema_version": 1,
+  "mode": "RESEARCH_LEADS_ONLY",
+  "generated_at": "2026-10-22T20:06:32.423952+00:00",
+  "policy": "Mentions are NOT confirmations. Do not put candidate matches on the public broadcast.",
+  "source": "TheSportsDB (free API); attribution required; no artwork fetched.",
+  "programs": [
+    {
+      "show_id": "raw",
+      "airdate": "2026-10-26",
+      "intake_status": "no_parseable_leads",
+      "candidate_count": 0,
+      "verified_match_count": 0,
+      "verified_appearance_count": 0,
+      "events_considered": [
+        {
+          "event_id": "2599791",
+          "event_title": "RAW #1744",
+          "source_url": "https://www.thesportsdb.com/api/v1/json/123/lookupevent.php?id=2599791",
+          "possible_match_mentions": 0,
+          "verification": "NOT_CONFIRMED"
+        }
+      ]
+    },
+    {
+      "show_id": "smackdown",
+      "airdate": "2026-10-23",
+      "intake_status": "unverified_leads_found",
+      "candidate_count": 3,
+      "verified_match_count": 0,
+      "verified_appearance_count": 0,
+      "events_considered": [
+        {
+          "event_id": "2599790",
+          "event_title": "SmackDown #1418",
+          "source_url": "https://www.thesportsdb.com/api/v1/json/123/lookupevent.php?id=2599790",
+          "possible_match_mentions": 3,
+          "verification": "NOT_CONFIRMED"
+        }
+      ]
+    },
+    {
+      "show_id": "nxt",
+      "airdate": "2026-10-27",
+      "intake_status": "no_parseable_leads",
+      "candidate_count": 0,
+      "verified_match_count": 0,
+      "verified_appearance_count": 0,
+      "events_considered": []
+    },
+    {
+      "show_id": "aaa",
+      "airdate": "2026-10-24",
+      "intake_status": "unsupported_show",
+      "candidate_count": 0,
+      "verified_match_count": 0,
+      "verified_appearance_count": 0,
+      "events_considered": []
+    },
+    {
+      "show_id": "tna",
+      "airdate": "2026-10-22",
+      "intake_status": "unverified_leads_found",
+      "candidate_count": 3,
+      "verified_match_count": 0,
+      "verified_appearance_count": 0,
+      "events_considered": [
+        {
+          "event_id": "2618956",
+          "event_title": "TNA iMPACT #1161",
+          "source_url": "https://www.thesportsdb.com/api/v1/json/123/lookupevent.php?id=2618956",
+          "possible_match_mentions": 3,
+          "verification": "NOT_CONFIRMED"
+        }
+      ]
+    },
+    {
+      "show_id": "evolve",
+      "airdate": "2026-10-28",
+      "intake_status": "unsupported_show",
+      "candidate_count": 0,
+      "verified_match_count": 0,
+      "verified_appearance_count": 0,
+      "events_considered": []
+    }
+  ],
+  "verified_matches": [],
+  "verified_appearances": [],
+  "total_unverified_possible_match_mentions": 6
+}
