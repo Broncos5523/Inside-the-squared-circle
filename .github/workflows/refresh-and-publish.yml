@@ -150,6 +150,28 @@ jobs:
           Path('/tmp/squared-circle-v410.js').write_text(script)
           PY
           node --check /tmp/squared-circle-v410.js
+      - name: Diagnose optional TheSportsDB record metadata
+        run: |
+          python - <<'PY'
+          import json
+          from urllib.request import Request,urlopen
+          urls=[
+             'https://www.thesportsdb.com/api/v1/json/123/lookupevent.php?id=2599790',
+             'https://www.thesportsdb.com/api/v1/json/123/lookupevent.php?id=2618956',
+             'https://www.thesportsdb.com/api/v1/json/123/eventsday.php?d=2026-10-23&l=4444',
+          ]
+          for url in urls:
+              try:
+                  with urlopen(Request(url,headers={'User-Agent':'InsideSquaredCircleHouseholdResearch/0.5','Accept':'application/json'}),timeout=12) as r:
+                      d=json.load(r)
+                  events=d.get('events',[]) if isinstance(d,dict) else []
+                  print('PROBE',url.split('/')[-1], 'rows',len(events or []))
+                  for e in (events or [])[:3]:
+                      print('FIELDS',{k:e.get(k) for k in ('idEvent','strEvent','dateEvent','dateEventLocal','strStatus','strPostponed','strResult','strLocked')},
+                            'description_length',len(e.get('strDescriptionEN') or ''))
+              except Exception as exc:
+                  print('PROBE FAILURE',url.split('/')[-1],type(exc).__name__,str(exc)[:100])
+          PY
       - name: Collect unverified match-card research leads
         run: python proof/card_intake.py --snapshot web/data/snapshot.json --out web/data/candidates.json --also-next-league
       - name: Build opt-in reported match descriptions (never confirmed)
