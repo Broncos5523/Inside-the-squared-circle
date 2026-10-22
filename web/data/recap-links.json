@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "mode": "PUBLISHER_RSS_POST_SHOW_LINKS_ONLY",
-  "generated_at": "2026-10-22T18:59:30.927432-04:00",
+  "generated_at": "2026-10-22T19:01:35.512715-04:00",
   "source_name": "Multiple publisher RSS feeds",
   "source_url": "https://www.f4wonline.com/rss.xml",
   "approved_publishers": [
@@ -15,6 +15,20 @@
       "show_id": "raw",
       "airdate": "2026-10-19",
       "links": [
+        {
+          "headline": "Cook’s WWE Raw Review 10.19.26",
+          "url": "https://411mania.com/wrestling/cooks-wwe-raw-review-10-19-26/",
+          "published_at": "2026-10-20T02:44:03+00:00",
+          "source_name": "411Mania",
+          "status": "PUBLISHER_HEADLINE_LINK_ONLY"
+        },
+        {
+          "headline": "Hall’s WWE Raw Review 10.19.26",
+          "url": "https://411mania.com/wrestling/halls-wwe-raw-review-10-19-26/",
+          "published_at": "2026-10-20T02:35:27+00:00",
+          "source_name": "411Mania",
+          "status": "PUBLISHER_HEADLINE_LINK_ONLY"
+        },
         {
           "headline": "WWE Raw live results: Road to Crown Jewel, Roman Reigns returns",
           "url": "https://www.f4wonline.com/news/wwe/results/wwe-raw-live-results-road-to-crown-jewel-roman-reigns/",
@@ -46,6 +60,20 @@
       "airdate": "2026-10-20",
       "links": [
         {
+          "headline": "Hall’s WWE NXT Review 10.20.26",
+          "url": "https://411mania.com/wrestling/halls-wwe-nxt-review-10-20-26/",
+          "published_at": "2026-10-22T01:39:57+00:00",
+          "source_name": "411Mania",
+          "status": "PUBLISHER_HEADLINE_LINK_ONLY"
+        },
+        {
+          "headline": "Cook’s WWE NXT Review 10.20.26",
+          "url": "https://411mania.com/wrestling/cooks-wwe-nxt-review-10-20-26/",
+          "published_at": "2026-10-21T02:10:48+00:00",
+          "source_name": "411Mania",
+          "status": "PUBLISHER_HEADLINE_LINK_ONLY"
+        },
+        {
           "headline": "WWE NXT live results: Cruz Montana vs. Dion Lennox, Dusty Rhodes Tag Team Classic continues",
           "url": "https://www.f4wonline.com/news/nxt/nxt-results/wwe-nxt-live-results-october-20-2026/",
           "published_at": "2026-10-20T23:15:00+00:00",
@@ -72,19 +100,35 @@
     },
     {
       "show_id": "evolve",
-      "airdate": null,
-      "links": [],
+      "airdate": "2026-10-21",
+      "links": [
+        {
+          "headline": "Hall’s WWE Evolve Review 10.21.26",
+          "url": "https://411mania.com/wrestling/halls-wwe-evolve-review-10-21-26/",
+          "published_at": "2026-10-22T14:48:11+00:00",
+          "source_name": "411Mania",
+          "status": "PUBLISHER_HEADLINE_LINK_ONLY"
+        },
+        {
+          "headline": "Leighty’s WWE Evolve Review: 10.21.26",
+          "url": "https://411mania.com/wrestling/leightys-wwe-evolve-review-10-21-26/",
+          "published_at": "2026-10-22T04:36:54+00:00",
+          "source_name": "411Mania",
+          "status": "PUBLISHER_HEADLINE_LINK_ONLY"
+        }
+      ],
       "source_name": "Multiple publisher RSS feeds",
-      "status": "no_matching_published_coverage"
+      "status": "publisher_coverage_links"
     }
   ],
-  "total_links": 3,
+  "total_links": 9,
   "collection_status": "ok",
   "successful_feed_urls": [
     "https://www.f4wonline.com/rss.xml",
     "https://www.f4wonline.com/category/news/wwe/results/feed/",
     "https://www.f4wonline.com/category/news/nxt/nxt-results/feed/",
     "https://411mania.com/wrestling/feed/",
+    "https://411mania.com/wrestling/category/tv-report/feed/",
     "https://www.fightful.com/wrestling/rss"
   ]
 }
