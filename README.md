@@ -76,3 +76,12 @@ containing result data are excluded. The optional next-league endpoint is
 cached per league within each collection run; outages do not delete valid
 day-endpoint matches. AAA multipart tapings and Evolve previews stay excluded.
 Generated mentions remain \`REPORTED_UNVERIFIED\`.
+
+
+## Multi-publisher RSS coverage pipeline
+The 24/7 scheduled collector now requests public RSS syndication endpoints from
+F4W/Wrestling Observer, 411Mania, and Fightful and uses only publisher headline,
+publication time, and permalink. Individual source names are retained. Headlines
+are eligible only for exact show and recent post-telecast date windows. No article
+bodies are fetched, match results invented, or retro review assigned to a current
+show. Some publishers may block automated requests, resulting in fewer links.

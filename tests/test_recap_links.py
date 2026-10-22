@@ -1,7 +1,7 @@
 import unittest
 from datetime import datetime, timezone
 from zoneinfo import ZoneInfo
-from proof.recap_links import parse_feed, filter_title, clean_link, eligible_dates, build_links
+from proof.recap_links import parse_feed, filter_title, clean_link, eligible_dates, build_links, PUBLISHERS, FEED_URLS
 
 TZ=ZoneInfo("America/New_York")
 NOW=datetime(2026,10,22,18,20,tzinfo=TZ)
@@ -26,6 +26,7 @@ class RecapLinksTests(unittest.TestCase):
         parsed=parse_feed(XML)
         self.assertEqual(len(parsed),5)
         self.assertNotIn("utm",parsed[0]["url"])
+        self.assertEqual(parsed[0]["source_name"],"F4W / Wrestling Observer")
         self.assertNotIn("body",parsed[0])
     def test_no_cross_show_or_future_or_spoiler_links(self):
         self.assertIsNone(filter_title("WWE SmackDown and NXT results","nxt","2026-10-20"))
@@ -53,6 +54,35 @@ class RecapLinksTests(unittest.TestCase):
         row=next(x for x in data["programs"] if x["show_id"]=="tna")
         self.assertEqual(len(row["links"]),1)
         self.assertEqual(row["airdate"],"2026-10-22")
+    def test_extended_feeds_and_dotted_dates(self):
+        self.assertEqual(len(FEED_URLS),5)
+        self.assertEqual(PUBLISHERS["411mania.com"],"411Mania")
+        self.assertEqual(PUBLISHERS["www.fightful.com"],"Fightful")
+        self.assertEqual(filter_title("Hall’s WWE Smackdown Review 10.16.26",
+                            "smackdown","2026-10-16"),
+                         "Hall’s WWE Smackdown Review 10.16.26")
+        self.assertIsNone(filter_title("Hall’s WWE Smackdown Review 10.17.26",
+                           "smackdown","2026-10-16"))
+        self.assertIsNone(filter_title("Hall’s Retro WWE Smackdown Review 10.16.26",
+                           "smackdown","2026-10-16"))
+        self.assertIsNone(clean_link("https://fake-fightful.com/wrestling/x"))
+    def test_other_publisher_source_provenance_with_no_full_articles(self):
+        xml=b"""<rss><channel><item>
+           <title>Hall's TNA Impact Wrestling Review 10.15.26</title>
+           <link>https://411mania.com/wrestling/halls-tna-impact-review-10-15-26/?foo=bar</link>
+           <pubDate>Fri, 16 Oct 2026 04:15:00 GMT</pubDate></item>
+           <item><title>WWE NXT Results 10/20/2026: Dusty Cup</title>
+           <link>https://www.fightful.com/wrestling/wwe-nxt-results-10-20-2026</link>
+           <pubDate>Wed, 21 Oct 2026 02:15:00 GMT</pubDate>
+           </item></channel></rss>"""
+        records=parse_feed(xml)
+        self.assertEqual([x["source_name"] for x in records],["411Mania","Fightful"])
+        data=build_links(SNAP,records,NOW)
+        shows={x["show_id"]:x for x in data["programs"]}
+        self.assertEqual(shows["tna"]["links"][0]["source_name"],"411Mania")
+        self.assertEqual(shows["nxt"]["links"][0]["source_name"],"Fightful")
+        self.assertEqual(data["total_links"],2)
+        self.assertFalse(any("body" in x for x in shows["nxt"]["links"]))
     def test_empty_is_honest_and_no_result_inference(self):
         output=build_links(SNAP,[],NOW)
         self.assertEqual(output["total_links"],0)

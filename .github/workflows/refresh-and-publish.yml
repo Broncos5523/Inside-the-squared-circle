@@ -285,8 +285,16 @@ jobs:
                   assert not row['links']
               for link in row['links']:
                   assert link['status']=='PUBLISHER_HEADLINE_LINK_ONLY'
-                  assert link['source_name']=='F4W / Wrestling Observer'
-                  assert re.fullmatch(r'https://(?:www\.)?f4wonline\.com/[^?#\s]+',link['url'])
+                  from urllib.parse import urlsplit
+                  approved={
+                      'F4W / Wrestling Observer':{'www.f4wonline.com','f4wonline.com'},
+                      '411Mania':{'411mania.com','www.411mania.com'},
+                      'Fightful':{'fightful.com','www.fightful.com'},
+                  }
+                  assert link['source_name'] in approved
+                  parsed=urlsplit(link['url'])
+                  assert parsed.scheme=='https' and parsed.hostname in approved[link['source_name']]
+                  assert not parsed.query and not parsed.fragment
                   assert len(link['headline'])<=150
                   assert 'winner' not in link and 'match_results' not in link
           print('Publisher headline-only audit PASSED')

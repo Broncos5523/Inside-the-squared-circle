@@ -28,11 +28,21 @@ FEED_URLS = (
     FEED_URL,
     "https://www.f4wonline.com/category/news/wwe/results/feed/",
     "https://www.f4wonline.com/category/news/nxt/nxt-results/feed/",
+    "https://411mania.com/wrestling/feed/",
+    "https://www.fightful.com/wrestling/rss",
 )
-ALLOWED_HOSTS = {"www.f4wonline.com", "f4wonline.com"}
-RESULT_WORDS = re.compile(r"\b(?:results?|recap|fallout)\b", re.I)
+PUBLISHERS={
+    "www.f4wonline.com":"F4W / Wrestling Observer",
+    "f4wonline.com":"F4W / Wrestling Observer",
+    "411mania.com":"411Mania",
+    "www.411mania.com":"411Mania",
+    "www.fightful.com":"Fightful",
+    "fightful.com":"Fightful",
+}
+ALLOWED_HOSTS = frozenset(PUBLISHERS)
+RESULT_WORDS = re.compile(r"\b(?:results?|recap|fallout|reviews?|highlights)\b", re.I)
 EXCLUDE = re.compile(
-    r"\b(?:spoilers?|taping|predictions?|preview|ratings|"
+    r"\b(?:spoilers?|taping|predictions?|preview|ratings|retro|rewatch|"
     r"rumou?rs?|upcoming|advertised|tonight|"
     r"live\s+coverage\s+preview)\b", re.I
 )
@@ -43,7 +53,7 @@ SHOW_MARKERS = {
     "tna": re.compile(r"\b(?:tna[\s:-]+impact|impact[\s:-]+wrestling)\b", re.I),
     "evolve": re.compile(r"\b(?:wwe[\s:-]+)?evolve\b", re.I),
 }
-INLINE_DATE = re.compile(r"\b(\d{1,2})[/-](\d{1,2})(?:[/-]\d{2,4})?\b")
+INLINE_DATE = re.compile(r"\b(\d{1,2})[./-](\d{1,2})(?:[./-]\d{2,4})?\b")
 MONTHS = ("January","February","March","April","May","June","July",
           "August","September","October","November","December")
 WRITTEN_DATE = re.compile(
@@ -129,7 +139,8 @@ def parse_feed(raw: bytes) -> list[dict]:
             stamp = stamp.astimezone(timezone.utc)
         except (ValueError, TypeError, IndexError):
             continue
-        entries.append({"title":title,"url":url,"published_at":stamp})
+        entries.append({"title":title,"url":url,"published_at":stamp,
+                        "source_name":PUBLISHERS[urlsplit(url).hostname]})
     return entries
 
 
@@ -157,7 +168,7 @@ def build_links(snapshot: dict, entries: list[dict], now=None) -> dict:
     for show in snapshot.get("shows",[]):
         sid=show.get("id")
         row={"show_id":sid,"airdate":None,"links":[],
-             "source_name":"F4W / Wrestling Observer",
+             "source_name":"Multiple publisher RSS feeds",
              "status":"not_supported" if sid=="aaa" else "no_matching_published_coverage"}
         for day in eligible_dates(show,now):
             day_start=datetime.combine(date.fromisoformat(day),time.min,tzinfo=TZ)
@@ -179,19 +190,23 @@ def build_links(snapshot: dict, entries: list[dict], now=None) -> dict:
                 if url in seen:
                     continue
                 seen.add(url)
+                provider=PUBLISHERS[urlsplit(url).hostname]
+                if entry.get("source_name",provider)!=provider:
+                    continue
                 matches.append({"headline":title,"url":url,
                                 "published_at":stamp.isoformat(),
-                                "source_name":"F4W / Wrestling Observer",
+                                "source_name":provider,
                                 "status":"PUBLISHER_HEADLINE_LINK_ONLY"})
             if matches:
-                row.update(airdate=day,links=sorted(matches,key=lambda x:x["published_at"],reverse=True)[:3],
+                row.update(airdate=day,links=sorted(matches,key=lambda x:x["published_at"],reverse=True)[:5],
                            status="publisher_coverage_links")
                 break
         programs.append(row)
     return {"schema_version":1,"mode":MODE,"generated_at":now.astimezone(TZ).isoformat(),
-            "source_name":"F4W / Wrestling Observer",
+            "source_name":"Multiple publisher RSS feeds",
             "source_url":FEED_URL,
-            "policy":"RSS headlines and article links only. Not licensed article bodies, not verified match outcomes or official results. No inference of winners, titles or storylines. Date-window association is informational, not proof of episode coverage.",
+            "approved_publishers":["F4W / Wrestling Observer","411Mania","Fightful"],
+            "policy":"F4W, 411Mania and Fightful publisher-syndicated RSS headlines and links only. No article-body scraping or republishing. Coverage leads, not independently confirmed match outcomes; local airdate and after-air safeguards. Never infer winners or storylines.",
             "programs":programs,
             "total_links":sum(len(x["links"]) for x in programs)}
 
