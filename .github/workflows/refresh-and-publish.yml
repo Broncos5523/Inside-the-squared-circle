@@ -292,6 +292,7 @@ jobs:
           assert d['mode']=='PUBLISHER_RSS_POST_SHOW_LINKS_ONLY'
           assert len(d['programs'])==6
           assert d['collection_status'] in ('ok','rss_unavailable')
+          assert isinstance(d['retained_link_count'],int) and d['retained_link_count']>=0
           for row in d['programs']:
               if row['show_id']=='aaa':
                   assert not row['links']

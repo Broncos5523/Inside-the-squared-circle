@@ -470,7 +470,7 @@ footer a{color:#dfbd7f}
     const headline=document.createElement('div');headline.className='reported-text';
     headline.textContent=selected.headline;
     const label=document.createElement('span');label.className='reported-flag';
-    label.textContent='PUBLISHER HEADLINE ONLY · RESULTS NOT INDEPENDENTLY VERIFIED';
+    label.textContent=selected.retained_from_previous?'RETAINED LINK · ORIGINAL RSS HEADLINE · UNVERIFIED':'PUBLISHER HEADLINE ONLY · RESULTS NOT INDEPENDENTLY VERIFIED';
     const link=document.createElement('a');link.className='reported-source';
     link.href=selected.url;link.target='_blank';link.rel='noopener noreferrer';
     link.textContent='READ ARTICLE · '+selected.source_name.toUpperCase();

@@ -163,7 +163,44 @@ def eligible_dates(program: dict, now: datetime) -> list[str]:
     return sorted(dates,reverse=True)
 
 
-def build_links(snapshot: dict, entries: list[dict], now=None) -> dict:
+def safe_retained_links(previous: dict | None, sid: str, aired: str,
+                        window_start: datetime, window_end: datetime,
+                        now: datetime) -> list[dict]:
+    """Keep previously observed publisher HEADLINES if they still match
+    this week's last broadcast. This is not a cached match result.
+    """
+    if not isinstance(previous,dict) or previous.get("mode")!=MODE:
+        return []
+    old=next((x for x in previous.get("programs",[]) if
+              isinstance(x,dict) and x.get("show_id")==sid
+              and x.get("airdate")==aired),None)
+    if not old:
+        return []
+    result=[]
+    for item in (old.get("links") or [])[:8]:
+        if not isinstance(item,dict) or item.get("status")!="PUBLISHER_HEADLINE_LINK_ONLY":
+            continue
+        title=filter_title(item.get("headline"),sid,aired)
+        url=clean_link(item.get("url"))
+        if not title or not url or PUBLISHERS[urlsplit(url).hostname]!=item.get("source_name"):
+            continue
+        try:
+            stamp=datetime.fromisoformat(item["published_at"])
+        except (TypeError,ValueError,KeyError):
+            continue
+        if stamp.tzinfo is None or not window_start <= stamp.astimezone(TZ) <= window_end:
+            continue
+        if stamp.astimezone(TZ)>now.astimezone(TZ):
+            continue
+        result.append({"headline":title,"url":url,
+                       "published_at":stamp.isoformat(),
+                       "source_name":item["source_name"],
+                       "status":"PUBLISHER_HEADLINE_LINK_ONLY",
+                       "retained_from_previous":True})
+    return result
+
+
+def build_links(snapshot: dict, entries: list[dict], now=None, previous=None) -> dict:
     now = now or datetime.now(TZ)
     programs=[]
     for show in snapshot.get("shows",[]):
@@ -198,6 +235,15 @@ def build_links(snapshot: dict, entries: list[dict], now=None) -> dict:
                                 "published_at":stamp.isoformat(),
                                 "source_name":provider,
                                 "status":"PUBLISHER_HEADLINE_LINK_ONLY"})
+            # A syndicated feed may roll a review off its latest-10 list
+            # before the next weekly episode airs. Preserve its *attributed
+            # headline link* only for the exact show/airdate, with validation.
+            seen_urls={x["url"] for x in matches}
+            for saved in safe_retained_links(previous,sid,day,
+                                              day_start-timedelta(hours=3),latest,now):
+                if saved["url"] not in seen_urls:
+                    matches.append(saved)
+                    seen_urls.add(saved["url"])
             if matches:
                 row.update(airdate=day,links=sorted(matches,key=lambda x:x["published_at"],reverse=True)[:5],
                            status="publisher_coverage_links")
@@ -209,13 +255,15 @@ def build_links(snapshot: dict, entries: list[dict], now=None) -> dict:
             "approved_publishers":["F4W / Wrestling Observer","411Mania","Fightful"],
             "policy":"F4W, 411Mania and Fightful publisher-syndicated RSS headlines and links only. No article-body scraping or republishing. Coverage leads, not independently confirmed match outcomes; local airdate and after-air safeguards. Never infer winners or storylines.",
             "programs":programs,
-            "total_links":sum(len(x["links"]) for x in programs)}
+            "total_links":sum(len(x["links"]) for x in programs),
+            "retained_link_count":sum(sum(bool(e.get('retained_from_previous')) for e in x['links']) for x in programs)}
 
 
 def main():
     ap=argparse.ArgumentParser()
     ap.add_argument("--snapshot",default="web/data/snapshot.json")
     ap.add_argument("--out",default="web/data/recap-links.json")
+    ap.add_argument("--previous",default="web/data/recap-links.json")
     args=ap.parse_args()
     snap=json.loads(Path(args.snapshot).read_text(encoding="utf-8"))
     if snap.get("schema_version")!=1 or len(snap.get("shows",[]))!=6:
@@ -237,7 +285,13 @@ def main():
                 links_seen.add(item["url"])
                 items.append(item)
     status="ok" if working_feeds else "rss_unavailable"
-    data=build_links(snap,items)
+    # Before replacing the public JSON, load its previous source-attributed
+    # headline links so brief feed gaps do not blank the weekly display.
+    try:
+        previous=json.loads(Path(args.previous).read_text(encoding="utf-8"))
+    except (OSError,ValueError):
+        previous=None
+    data=build_links(snap,items,previous=previous)
     data["collection_status"]=status
     data["successful_feed_urls"]=working_feeds
     out=Path(args.out)

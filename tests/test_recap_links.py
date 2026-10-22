@@ -83,6 +83,29 @@ class RecapLinksTests(unittest.TestCase):
         self.assertEqual(shows["nxt"]["links"][0]["source_name"],"Fightful")
         self.assertEqual(data["total_links"],2)
         self.assertFalse(any("body" in x for x in shows["nxt"]["links"]))
+    def test_previous_source_link_retained_only_for_same_broadcast(self):
+        source=parse_feed(XML)
+        old=build_links(SNAP,source,NOW)
+        restored=build_links(SNAP,[],NOW,previous=old)
+        self.assertEqual(restored["total_links"],old["total_links"])
+        self.assertEqual(restored["retained_link_count"],old["total_links"])
+        self.assertTrue(all(x.get("retained_from_previous") for row in restored["programs"] for x in row["links"]))
+        # Once the next show airs and the prior episode changes, old
+        # references must never migrate to the new week's recap.
+        changed={"shows":[{**s,"previous":{"date":"2026-10-26"}} if s["id"]=="raw" else s for s in SNAP["shows"]]}
+        next_week=datetime(2026,10,29,19,tzinfo=TZ)
+        wrong=build_links(changed,[],next_week,previous=old)
+        self.assertFalse(next(p for p in wrong["programs"] if p["show_id"]=="raw")["links"])
+    def test_wrong_provider_provenance_never_retained(self):
+        previous={"mode":"PUBLISHER_RSS_POST_SHOW_LINKS_ONLY","programs":[
+          {"show_id":"evolve","airdate":"2026-10-21","links":[{
+            "headline":"WWE Evolve results: October 21 episode recap",
+            "url":"https://www.fightful.com/wrestling/something",
+            "source_name":"411Mania",
+            "published_at":"2026-10-21T23:00:00+00:00",
+            "status":"PUBLISHER_HEADLINE_LINK_ONLY"
+          }]}]}
+        self.assertEqual(build_links(SNAP,[],NOW,previous=previous)["total_links"],0)
     def test_empty_is_honest_and_no_result_inference(self):
         output=build_links(SNAP,[],NOW)
         self.assertEqual(output["total_links"],0)
