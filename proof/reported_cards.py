@@ -13,7 +13,7 @@ import re
 from pathlib import Path
 from zoneinfo import ZoneInfo
 
-from proof.card_intake import SHOWS, parse_bouts, relevant_events, request_events, valid_upcoming
+from proof.card_intake import SHOWS, parse_bouts, relevant_events, request_events, request_next_league, valid_upcoming
 
 TZ = ZoneInfo("America/New_York")
 MAX_SHOW_MATCHES = 8
@@ -55,11 +55,12 @@ def parse_reported_appearances(description: str) -> list[dict]:
 
 
 
-def build_reported(snapshot: dict, requester=request_events, now=None) -> dict:
+def build_reported(snapshot: dict, requester=request_events, now=None, next_lookup=None) -> dict:
     now = now or datetime.now(TZ)
     local_today = now.astimezone(TZ).date()
     output = []
     cache = {}
+    league_cache = {}
     for s in snapshot.get("shows", []):
         slug = s.get("id")
         air = (s.get("next") or {}).get("date")
@@ -97,6 +98,20 @@ def build_reported(snapshot: dict, requester=request_events, now=None) -> dict:
                 continue
             for event in relevant_events(slug, air, cache[cache_key]):
                 events[str(event["idEvent"])] = event
+        # The V1 next-league endpoint can supply a candidate when the day
+        # index omits it. It is still subject to show+promotion+LOCAL airdate
+        # matching and cancellation/result exclusions.
+        if next_lookup is not None:
+            if league not in league_cache:
+                try:
+                    league_cache[league] = next_lookup(league)
+                except Exception:
+                    league_cache[league] = None
+            if league_cache[league] is None:
+                had_error = True
+            else:
+                for event in relevant_events(slug, air, league_cache[league]):
+                    events.setdefault(str(event["idEvent"]), event)
         unique = set()
         unique_appearances = set()
         for event in events.values():
@@ -158,11 +173,12 @@ def main() -> None:
     parser = argparse.ArgumentParser()
     parser.add_argument("--snapshot", default="web/data/snapshot.json")
     parser.add_argument("--out", default="web/data/reported.json")
+    parser.add_argument("--also-next-league", action="store_true")
     args = parser.parse_args()
     snapshot = json.loads(Path(args.snapshot).read_text(encoding="utf-8"))
     if snapshot.get("schema_version") != 1 or len(snapshot.get("shows", [])) != 6:
         raise SystemExit("Invalid schedule snapshot; do not overwrite reported feed")
-    result = build_reported(snapshot)
+    result = build_reported(snapshot, next_lookup=request_next_league if args.also_next_league else None)
     target = Path(args.out)
     target.parent.mkdir(parents=True, exist_ok=True)
     temp = target.with_suffix(".tmp")

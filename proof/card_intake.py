@@ -15,6 +15,26 @@ from pathlib import Path
 from urllib.request import Request, urlopen
 
 BASE = "https://www.thesportsdb.com/api/v1/json/123/eventsday.php"
+NEXT_BASE = "https://www.thesportsdb.com/api/v1/json/123/eventsnextleague.php"
+BLOCKED_EVENT_STATUS = re.compile(
+    r"\b(?:cancelled|canceled|postponed|abandoned|finished|completed|"
+    r"ended|result|taped|aired)\b", re.I,
+)
+
+
+def unusable_upcoming_event(event: dict) -> bool:
+    """Never advertise an event marked cancelled, finished, or already scored."""
+    flag = event.get("strPostponed")
+    if flag is True or str(flag).strip().lower() in ("yes", "y", "true", "1"):
+        return True
+    status = event.get("strStatus")
+    if isinstance(status, str) and BLOCKED_EVENT_STATUS.search(status):
+        return True
+    result = event.get("strResult")
+    if isinstance(result, str) and result.strip():
+        return True
+    return False
+
 SHOWS = {
     "raw": (4444, re.compile(r"^raw\b", re.I)),
     "smackdown": (4444, re.compile(r"^smackdown\b", re.I)),
@@ -85,6 +105,8 @@ def relevant_events(show_id: str, day: str, event_rows: list[dict]) -> list[dict
     for event in event_rows:
         if not isinstance(event, dict):
             continue
+        if unusable_upcoming_event(event):
+            continue
         if str(event.get("idLeague")) != str(league):
             continue
         if not matcher.search(str(event.get("strEvent", ""))):
@@ -126,12 +148,31 @@ def request_events(day: str, league: int, timeout: int = 15) -> list[dict]:
     return []
 
 
-def build_report(snapshot: dict, requester=request_events, clock=None) -> dict:
+
+def request_next_league(league: int, timeout: int = 15) -> list[dict]:
+    """Documented V1 API; free tier may return only ONE upcoming league event."""
+    if league not in (4444, 4455):
+        return []
+    url = NEXT_BASE + "?id=" + str(league)
+    req = Request(url, headers={
+        "User-Agent": "InsideSquaredCircleHouseholdResearch/0.4",
+        "Accept": "application/json",
+    })
+    with urlopen(req, timeout=timeout) as response:
+        obj = json.load(response)
+    if not isinstance(obj, dict):
+        raise ValueError("Unexpected next-league source response")
+    events = obj.get("events")
+    return events[:10] if isinstance(events, list) else []
+
+
+def build_report(snapshot: dict, requester=request_events, clock=None, next_lookup=None) -> dict:
     """Counts evidence candidates; no source is promoted to verified."""
     today = clock or datetime.now(timezone.utc).date()
     source_date = datetime.now(timezone.utc).isoformat()
     entries = []
     cache = {}
+    league_cache = {}
     for show in snapshot.get("shows", []):
         sid = show.get("id", "")
         next_episode = show.get("next") or {}
@@ -168,6 +209,16 @@ def build_report(snapshot: dict, requester=request_events, clock=None) -> dict:
                 failed = True
                 continue
             results.extend(relevant_events(sid, air_day, rows))
+        if next_lookup is not None:
+            if league not in league_cache:
+                try:
+                    league_cache[league] = next_lookup(league)
+                except Exception:
+                    league_cache[league] = None
+            if league_cache[league] is None:
+                failed = True
+            else:
+                results.extend(relevant_events(sid, air_day, league_cache[league]))
         dedup = {}
         for row in results:
             dedup[str(row["idEvent"])] = row
@@ -204,11 +255,12 @@ def main() -> None:
     ap = argparse.ArgumentParser()
     ap.add_argument("--snapshot", default="web/data/snapshot.json")
     ap.add_argument("--out", default="web/data/candidates.json")
+    ap.add_argument("--also-next-league", action="store_true", help="Check the documented next-league API in addition to date queries")
     args = ap.parse_args()
     snapshot = json.loads(Path(args.snapshot).read_text(encoding="utf-8"))
     if snapshot.get("schema_version") != 1 or len(snapshot.get("shows", [])) != 6:
         raise SystemExit("Refusing to scan malformed schedule JSON")
-    result = build_report(snapshot)
+    result = build_report(snapshot, next_lookup=request_next_league if args.also_next_league else None)
     dest = Path(args.out)
     dest.parent.mkdir(parents=True, exist_ok=True)
     tmp = dest.with_suffix(".tmp")

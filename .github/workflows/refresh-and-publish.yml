@@ -151,9 +151,9 @@ jobs:
           PY
           node --check /tmp/squared-circle-v410.js
       - name: Collect unverified match-card research leads
-        run: python proof/card_intake.py --snapshot web/data/snapshot.json --out web/data/candidates.json
+        run: python proof/card_intake.py --snapshot web/data/snapshot.json --out web/data/candidates.json --also-next-league
       - name: Build opt-in reported match descriptions (never confirmed)
-        run: python -m proof.reported_cards --snapshot web/data/snapshot.json --out web/data/reported.json
+        run: python -m proof.reported_cards --snapshot web/data/snapshot.json --out web/data/reported.json --also-next-league
       - name: Collect TVmaze episode-summary leads (reported, never confirmed)
         run: python -m proof.tvmaze_intake --snapshot web/data/snapshot.json --out web/data/tvmaze-reported.json
       - name: Validate additional TVmaze reports

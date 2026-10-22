@@ -2,7 +2,7 @@ import unittest
 from datetime import date, timedelta
 
 from proof.card_intake import (
-    broadcast_date, build_report, parse_bouts, relevant_events, valid_upcoming
+    broadcast_date, build_report, parse_bouts, relevant_events, valid_upcoming, unusable_upcoming_event
 )
 
 TODAY = date(2026, 10, 22)
@@ -105,6 +105,33 @@ class MatchIntakeTests(unittest.TestCase):
         self.assertEqual(relevant_events("smackdown", "2026-10-23", [wrong]), [])
         wrong = dict(SMACKDOWN, dateEventLocal="2026-10-24")
         self.assertEqual(relevant_events("smackdown", "2026-10-23", [wrong]), [])
+
+    def test_cancelled_postponed_and_aired_records_rejected(self):
+        for field, val in [
+            ("strStatus", "Match Finished"), ("strStatus", "Postponed"),
+            ("strStatus", "Cancelled"), ("strPostponed", "yes"),
+            ("strPostponed", 1), ("strResult", "Joe Alonzo won"),
+        ]:
+            event = dict(SMACKDOWN, **{field: val})
+            with self.subTest(field=field, val=val):
+                self.assertTrue(unusable_upcoming_event(event))
+                self.assertEqual(relevant_events("smackdown", "2026-10-23", [event]), [])
+        self.assertFalse(unusable_upcoming_event(dict(SMACKDOWN, strStatus="Scheduled")))
+
+    def test_optional_next_league_rows_strict_and_deduplicated(self):
+        calls = []
+        def league_fetch(league):
+            calls.append(league)
+            return [SMACKDOWN, RAW, dict(SMACKDOWN, strResult="Result available"), AAA]
+        def day_fetch(day, league):
+            return [SMACKDOWN] if (day, league) == ("2026-10-23", 4444) else []
+        d = build_report(sample_snapshot(), requester=day_fetch, clock=TODAY, next_lookup=league_fetch)
+        by = {e["show_id"]: e for e in d["programs"]}
+        self.assertEqual(by["smackdown"]["candidate_count"], 3)
+        self.assertEqual(by["raw"]["candidate_count"], 0)
+        self.assertEqual(by["aaa"]["candidate_count"], 0)
+        self.assertEqual(calls.count(4444), 1)
+        self.assertEqual(calls.count(4455), 1)
 
     def test_aaa_segmented_tv_event_never_autolinked(self):
         self.assertEqual(relevant_events("aaa", "2026-10-24", [AAA]), [])

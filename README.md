@@ -59,3 +59,20 @@ An additional automatically scheduled **TheSportsDB API** research pipeline is n
 Episode numbers and timing can conflict between providers. The schedule collector relies on TVmaze's IDs and shows times as *provider-local*, not conclusively ET. The JSON timestamp indicates collection time, **not** independent verification of each announced match.
 
 To protect the display, unverified match information is never filled in simply because the title is a weekly program.
+
+
+## Additional automatic TheSportsDB next-league safety net — October 22, 2026
+
+The automatic four-hour workflow now checks two documented public v1 API paths:
+the existing \`eventsday.php\` lookup and \`eventsnextleague.php\` for eligible
+WWE/TNA league IDs. The free-tier next-league endpoint can return as few as
+**one upcoming league event**, so this is only a conservative backup
+discovery route — **not** an announcement feed or complete-card guarantee.
+
+All supplemental events still must match the **promotion, television show,
+local episode date and numeric provider ID** before their match-description
+lines are considered. Events flagged cancelled, postponed, completed, or
+containing result data are excluded. The optional next-league endpoint is
+cached per league within each collection run; outages do not delete valid
+day-endpoint matches. AAA multipart tapings and Evolve previews stay excluded.
+Generated mentions remain \`REPORTED_UNVERIFIED\`.

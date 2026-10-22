@@ -89,6 +89,38 @@ class ReportedCardTests(unittest.TestCase):
         self.assertNotIn("confirmed", str(result).lower())
         self.assertNotIn("advertised_appearances", str(result))
 
+    def test_next_league_enriches_but_never_cross_assigns(self):
+        episode = dict(EVENT_SD, idEvent="2777111", strEvent="RAW #1744",
+                       dateEventLocal="2026-10-26", dateEvent="2026-10-26",
+                       strDescriptionEN="Singles Match\nBayley vs. Lyra Valkyria")
+        calls = []
+        def fetch_next(league):
+            calls.append(league)
+            return [episode, EVENT_SD] if league == 4444 else []
+        empty=lambda day,league: []
+        result = build_reported(snapshot(), requester=empty, now=NOW, next_lookup=fetch_next)
+        by = {p["show_id"]: p for p in result["programs"]}
+        self.assertEqual(len(by["raw"]["matches"]), 1)
+        self.assertEqual(by["raw"]["matches"][0]["text"], "Bayley vs. Lyra Valkyria")
+        self.assertEqual(len(by["smackdown"]["matches"]), 3)
+        self.assertEqual(by["nxt"]["matches"], [])
+        self.assertEqual(by["aaa"]["matches"], [])
+        self.assertEqual(calls.count(4444), 1)
+
+    def test_expired_or_cancelled_next_league_records_ignored(self):
+        cancelled = dict(EVENT_SD, strStatus="Cancelled")
+        dated = dict(EVENT_SD, dateEventLocal="2026-10-30")
+        result=build_reported(snapshot(), requester=lambda *args: [], now=NOW,
+                              next_lookup=lambda league: [cancelled, dated])
+        self.assertEqual(result["total_reported_matches"], 0)
+
+    def test_next_league_failure_is_partial_but_day_source_survives(self):
+        def fail(*args):raise ConnectionError("provider offline")
+        result=build_reported(snapshot(), requester=provider, now=NOW, next_lookup=fail)
+        sm=next(x for x in result["programs"] if x["show_id"]=="smackdown")
+        self.assertEqual(len(sm["matches"]),3)
+        self.assertEqual(sm["error"], "PROVIDER_PARTIAL_OR_UNAVAILABLE")
+
     def test_no_match_after_program_changes(self):
         snap = snapshot()
         snap["shows"][1]["next"]["date"] = "2026-10-30"
