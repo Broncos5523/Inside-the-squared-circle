@@ -1,31 +1,55 @@
 {
   "schema_version": 1,
   "mode": "PUBLISHER_RSS_POST_SHOW_LINKS_ONLY",
-  "generated_at": "2026-10-22T18:38:22.802942-04:00",
+  "generated_at": "2026-10-22T18:40:48.772274-04:00",
   "source_name": "F4W / Wrestling Observer",
   "source_url": "https://www.f4wonline.com/rss.xml",
   "policy": "RSS headlines and article links only. Not licensed article bodies, not verified match outcomes or official results. No inference of winners, titles or storylines. Date-window association is informational, not proof of episode coverage.",
   "programs": [
     {
       "show_id": "raw",
-      "airdate": null,
-      "links": [],
+      "airdate": "2026-10-19",
+      "links": [
+        {
+          "headline": "WWE Raw live results: Road to Crown Jewel, Roman Reigns returns",
+          "url": "https://www.f4wonline.com/news/wwe/results/wwe-raw-live-results-road-to-crown-jewel-roman-reigns/",
+          "published_at": "2026-10-19T23:15:00+00:00",
+          "source_name": "F4W / Wrestling Observer",
+          "status": "PUBLISHER_HEADLINE_LINK_ONLY"
+        }
+      ],
       "source_name": "F4W / Wrestling Observer",
-      "status": "no_matching_published_coverage"
+      "status": "publisher_coverage_links"
     },
     {
       "show_id": "smackdown",
-      "airdate": null,
-      "links": [],
+      "airdate": "2026-10-16",
+      "links": [
+        {
+          "headline": "WWE SmackDown live results: Cody Rhodes & Randy Orton face-to-face",
+          "url": "https://www.f4wonline.com/news/wwe/results/wwe-smackdown-live-results-cody-rhodes-randy-orton-face-to-face/",
+          "published_at": "2026-10-16T23:15:00+00:00",
+          "source_name": "F4W / Wrestling Observer",
+          "status": "PUBLISHER_HEADLINE_LINK_ONLY"
+        }
+      ],
       "source_name": "F4W / Wrestling Observer",
-      "status": "no_matching_published_coverage"
+      "status": "publisher_coverage_links"
     },
     {
       "show_id": "nxt",
-      "airdate": null,
-      "links": [],
+      "airdate": "2026-10-20",
+      "links": [
+        {
+          "headline": "WWE NXT live results: Cruz Montana vs. Dion Lennox, Dusty Rhodes Tag Team Classic continues",
+          "url": "https://www.f4wonline.com/news/nxt/nxt-results/wwe-nxt-live-results-october-20-2026/",
+          "published_at": "2026-10-20T23:15:00+00:00",
+          "source_name": "F4W / Wrestling Observer",
+          "status": "PUBLISHER_HEADLINE_LINK_ONLY"
+        }
+      ],
       "source_name": "F4W / Wrestling Observer",
-      "status": "no_matching_published_coverage"
+      "status": "publisher_coverage_links"
     },
     {
       "show_id": "aaa",
@@ -49,6 +73,11 @@
       "status": "no_matching_published_coverage"
     }
   ],
-  "total_links": 0,
-  "collection_status": "ok"
+  "total_links": 3,
+  "collection_status": "ok",
+  "successful_feed_urls": [
+    "https://www.f4wonline.com/rss.xml",
+    "https://www.f4wonline.com/category/news/wwe/results/feed/",
+    "https://www.f4wonline.com/category/news/nxt/nxt-results/feed/"
+  ]
 }
