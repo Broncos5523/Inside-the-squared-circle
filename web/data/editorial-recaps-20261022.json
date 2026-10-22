@@ -1,0 +1,207 @@
+{
+  "schema_version": 1,
+  "mode": "DATED_MULTI_SOURCE_RECAP_REVIEW_UNVERIFIED",
+  "reviewed_at_et": "2026-10-22",
+  "policy": "Human-reviewed short factual paraphrases of published episode reports and promoter results, not syndicated article text or an ongoing automatic result feed. Show only for EXACT prior broadcast show/date for up to 14 days, after TV airing. Each outcome is REPORTED_UNVERIFIED, not a claim of independently confirmed authenticity; no future winners predicted. Do not reuse on subsequent episodes.",
+  "programs": [
+    {
+      "show_id": "raw",
+      "airdate": "2026-10-19",
+      "source_name": "WWE results / 411Mania review",
+      "source_url": "https://www.wwe.com/shows/raw/2026-10-19",
+      "secondary_url": "https://411mania.com/wrestling/halls-wwe-raw-review-10-19-26/",
+      "results": [
+        {
+          "text": "Penta defeated Bron Breakker",
+          "match_type": "Singles Match",
+          "status": "REPORTED_UNVERIFIED"
+        },
+        {
+          "text": "Chelsea Green & IYO SKY defeated Raquel Rodriguez & Roxanne Perez",
+          "match_type": "Tag Team Match",
+          "status": "REPORTED_UNVERIFIED"
+        },
+        {
+          "text": "JD McDonagh defeated Joe Hendry",
+          "match_type": "Singles Match",
+          "status": "REPORTED_UNVERIFIED"
+        },
+        {
+          "text": "Lola Vice defeated Lyra Valkyria",
+          "match_type": "Singles Match",
+          "status": "REPORTED_UNVERIFIED"
+        },
+        {
+          "text": "Chad Gable defeated Rey Mysterio and Dragon Lee",
+          "match_type": "Intercontinental Championship Triple Threat",
+          "status": "REPORTED_UNVERIFIED"
+        }
+      ],
+      "developments": [
+        {
+          "text": "Roman Reigns returned to help The Bloodline drive back The 946",
+          "type": "Faction rivalry",
+          "status": "REPORTED_UNVERIFIED"
+        },
+        {
+          "text": "Bayley challenged Lyra Valkyria to a No Disqualification Match on October 26",
+          "type": "Upcoming rivalry match",
+          "status": "REPORTED_UNVERIFIED"
+        },
+        {
+          "text": "Ethan Page and Big Cass attacked Chad Gable, Rey Mysterio and Dragon Lee after Gable's title defense",
+          "type": "Post-match confrontation",
+          "status": "REPORTED_UNVERIFIED"
+        }
+      ]
+    },
+    {
+      "show_id": "smackdown",
+      "airdate": "2026-10-16",
+      "source_name": "WWE results",
+      "source_url": "https://www.wwe.com/shows/smackdown/2026-10-16",
+      "secondary_url": "https://www.f4wonline.com/news/wwe/results/wwe-smackdown-live-results-cody-rhodes-randy-orton-face-to-face/",
+      "results": [
+        {
+          "text": "Trick Williams defeated Johnny Gargano",
+          "match_type": "Non-Title Match",
+          "status": "REPORTED_UNVERIFIED"
+        },
+        {
+          "text": "Paige defeated Nikki Bella",
+          "match_type": "Singles Match",
+          "status": "REPORTED_UNVERIFIED"
+        },
+        {
+          "text": "Damian Priest defeated R-Truth via referee stoppage",
+          "match_type": "Singles Match",
+          "status": "REPORTED_UNVERIFIED"
+        },
+        {
+          "text": "Rey Fenix defeated Ricky Saints via disqualification",
+          "match_type": "Singles Match",
+          "status": "REPORTED_UNVERIFIED"
+        },
+        {
+          "text": "Cody Rhodes defeated Baron Corbin via disqualification",
+          "match_type": "Singles Match",
+          "status": "REPORTED_UNVERIFIED"
+        }
+      ],
+      "developments": [
+        {
+          "text": "Trick Williams confronted Sami Zayn over the United States and Undisputed WWE championship rivalry",
+          "type": "Champion confrontation",
+          "status": "REPORTED_UNVERIFIED"
+        },
+        {
+          "text": "Randy Orton attacked Cody Rhodes, triggering a disqualification before Rhodes punted Baron Corbin",
+          "type": "Cody Rhodes / Randy Orton rivalry",
+          "status": "REPORTED_UNVERIFIED"
+        },
+        {
+          "text": "Alexa Bliss and Tatum Paxley fought off an attack from Fatal Influence",
+          "type": "Women's tag team developments",
+          "status": "REPORTED_UNVERIFIED"
+        }
+      ]
+    },
+    {
+      "show_id": "nxt",
+      "airdate": "2026-10-20",
+      "source_name": "WWE results / Fightful / 411Mania",
+      "source_url": "https://www.wwe.com/shows/wwenxt/2026-10-20/results",
+      "secondary_url": "https://411mania.com/wrestling/cooks-wwe-nxt-review-10-20-26/",
+      "results": [
+        {
+          "text": "El Hijo de Dr. Wagner Jr. & Galeno defeated BirthRight",
+          "match_type": "Dusty Rhodes Tag Team Classic Quarterfinal",
+          "status": "REPORTED_UNVERIFIED"
+        },
+        {
+          "text": "Izzi Dame defeated Layla Diggs",
+          "match_type": "Singles Match",
+          "status": "REPORTED_UNVERIFIED"
+        },
+        {
+          "text": "Hank & Tank defeated The Creed Brothers",
+          "match_type": "Dusty Rhodes Tag Team Classic Quarterfinal",
+          "status": "REPORTED_UNVERIFIED"
+        },
+        {
+          "text": "Dion Lennox vs. Cruz Montana ended in a double count-out",
+          "match_type": "Singles Match",
+          "status": "REPORTED_UNVERIFIED"
+        }
+      ],
+      "developments": [
+        {
+          "text": "Zilla Fatu intervened during BirthRight's Dusty Cup match",
+          "type": "Dusty Rhodes Classic fallout",
+          "status": "REPORTED_UNVERIFIED"
+        },
+        {
+          "text": "Izzi Dame rejected a championship opportunity offered by Zaria",
+          "type": "Women's North American Championship storyline",
+          "status": "REPORTED_UNVERIFIED"
+        },
+        {
+          "text": "Cruz Montana continued attacking Dion Lennox after their double count-out",
+          "type": "Post-match confrontation",
+          "status": "REPORTED_UNVERIFIED"
+        },
+        {
+          "text": "Grayson Waller and Tony D'Angelo exchanged heated words before Halloween Havoc",
+          "type": "NXT Championship rivalry",
+          "status": "REPORTED_UNVERIFIED"
+        }
+      ]
+    },
+    {
+      "show_id": "tna",
+      "airdate": "2026-10-15",
+      "source_name": "411Mania TNA iMPACT! episode review",
+      "source_url": "https://411mania.com/wrestling/cioccos-tna-impact-review-10-15-26/",
+      "secondary_url": null,
+      "results": [
+        {
+          "text": "syX defeated The Righteous",
+          "match_type": "Tables Match",
+          "status": "REPORTED_UNVERIFIED"
+        },
+        {
+          "text": "The Hardys won their anniversary showcase match",
+          "match_type": "Tag Team Match",
+          "status": "REPORTED_UNVERIFIED"
+        },
+        {
+          "text": "Xia Brookside & APEX defeated Indi Hartwell, Gabby Forza & Harley Hudson",
+          "match_type": "Six-Woman Tag Match",
+          "status": "REPORTED_UNVERIFIED"
+        },
+        {
+          "text": "Trey Miguel won the five-way ladder match for a TNA World Title opportunity",
+          "match_type": "No. 1 Contender Ladder Match",
+          "status": "REPORTED_UNVERIFIED"
+        }
+      ],
+      "developments": [
+        {
+          "text": "The Hardys helped direct the show during their 35th anniversary celebration",
+          "type": "Show storyline",
+          "status": "REPORTED_UNVERIFIED"
+        },
+        {
+          "text": "Trey Miguel earned a TNA World Championship opportunity in the five-way ladder match",
+          "type": "World Championship contender",
+          "status": "REPORTED_UNVERIFIED"
+        },
+        {
+          "text": "Leon Slater confronted Trey Miguel following the ladder match",
+          "type": "Championship confrontation",
+          "status": "REPORTED_UNVERIFIED"
+        }
+      ]
+    }
+  ]
+}
