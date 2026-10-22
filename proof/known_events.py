@@ -5,7 +5,7 @@ on a broadcast. Local date and show filters are applied in reported_cards.py.
 """
 from __future__ import annotations
 import argparse
-from datetime import datetime, date
+from datetime import datetime, date, timedelta
 import json
 from pathlib import Path
 import re
@@ -31,7 +31,7 @@ def build_known(previous: dict, report: dict, today:date) -> dict:
             when=date.fromisoformat(air)
         except (TypeError,ValueError):
             continue
-        if not today<=when<=today.replace(year=today.year+1):
+        if not today<=when<=today+timedelta(days=365):
             # Date-scoped cache can never resurface an old TV card.
             continue
         ids=[]

@@ -16,6 +16,11 @@ from urllib.request import Request, urlopen
 
 BASE = "https://www.thesportsdb.com/api/v1/json/123/eventsday.php"
 NEXT_BASE = "https://www.thesportsdb.com/api/v1/json/123/eventsnextleague.php"
+RESULT_OUTCOME = re.compile(
+    r"\b(?:defeats?|defeated|pinn?ed|winner|winners|"
+    r"won|lost|retained|pinfall|submission|no contest|"
+    r"via dq|by disqualification|finished|completed)\b", re.I,
+)
 BLOCKED_EVENT_STATUS = re.compile(
     r"\b(?:cancelled|canceled|postponed|abandoned|finished|completed|"
     r"ended|result|taped|aired)\b", re.I,
@@ -31,7 +36,9 @@ def unusable_upcoming_event(event: dict) -> bool:
     if isinstance(status, str) and BLOCKED_EVENT_STATUS.search(status):
         return True
     result = event.get("strResult")
-    if isinstance(result, str) and result.strip():
+    # TheSportsDB's strResult is populated with PRE-EVENT match cards too.
+    # Reject concrete outcomes, not an otherwise unplayed bout listing.
+    if isinstance(result, str) and RESULT_OUTCOME.search(result):
         return True
     return False
 

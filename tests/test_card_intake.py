@@ -118,6 +118,14 @@ class MatchIntakeTests(unittest.TestCase):
                 self.assertEqual(relevant_events("smackdown", "2026-10-23", [event]), [])
         self.assertFalse(unusable_upcoming_event(dict(SMACKDOWN, strStatus="Scheduled")))
 
+    def test_provider_pre_event_strresult_contains_card_without_outcomes(self):
+        event = dict(SMACKDOWN, strStatus="", strPostponed="no",
+                     strResult=SMACKDOWN["strDescriptionEN"])
+        self.assertFalse(unusable_upcoming_event(event))
+        self.assertEqual(len(relevant_events("smackdown", "2026-10-23", [event])), 1)
+        finished = dict(event, strResult="Singles Match\nGiulia defeats Blake Monroe")
+        self.assertEqual(relevant_events("smackdown", "2026-10-23", [finished]), [])
+
     def test_optional_next_league_rows_strict_and_deduplicated(self):
         calls = []
         def league_fetch(league):
