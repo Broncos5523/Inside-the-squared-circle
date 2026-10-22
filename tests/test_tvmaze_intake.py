@@ -31,6 +31,13 @@ class TVmazeTests(unittest.TestCase):
             {"text":"Chelsea Green vs. Roxanne Perez",
              "stipulation":"WWE Women's Championship Match"}
         ])
+    def test_long_tvm_synopsis_first_clause_match(self):
+        live=("<p>Chelsea Green is set to put her WWE Women's Championship on the "
+              "line against The Judgment Day's Roxanne Perez this Friday on SmackDown, "
+              "even as her potential Champion vs. Champion Match against Women's World "
+              "Champion Liv Morgan at WWE Crown Jewel looms on the horizon.</p>")
+        self.assertEqual(len(candidates_from_summary(live)),1)
+        self.assertEqual(candidates_from_summary(live)[0]["text"],"Chelsea Green vs. Roxanne Perez")
     def test_no_past_result_or_speculative_title_match(self):
         self.assertEqual(candidates_from_summary(
             "<p>Yesterday Chelsea Green put the WWE Women's Championship "

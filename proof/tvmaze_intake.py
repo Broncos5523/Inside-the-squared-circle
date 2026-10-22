@@ -86,7 +86,7 @@ def candidates_from_summary(summary: object) -> list[dict]:
     seen=set()
     for block in re.split(r"[\n;]+|(?<=[.!?])\s+(?=[A-Z])", raw):
         b=" ".join(block.split()).strip(" \t-•")
-        if not b or len(b)>210 or BLOCKED.search(b):
+        if not b or BLOCKED.search(b):
             continue
         defense=direct_title_defense(b)
         if defense:
@@ -97,6 +97,8 @@ def candidates_from_summary(summary: object) -> list[dict]:
             if len(entries)>=8:
                 break
             continue
+        if len(b)>210:
+            continue  # Natural-language title defense was already checked safely.
         # Only a short explicit match entry, optionally preceded by a
         # stipulation and delimiter, is extracted. Narrative clauses rejected.
         label="Reported match"
