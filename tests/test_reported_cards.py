@@ -89,6 +89,23 @@ class ReportedCardTests(unittest.TestCase):
         self.assertNotIn("confirmed", str(result).lower())
         self.assertNotIn("advertised_appearances", str(result))
 
+    def test_result_detection_suppresses_stale_advertised_cards(self):
+        recorded=dict(EVENT_TNA, strResult="Singles Match\nAvery Styles defeats Joe Alonzo")
+        d=build_reported(snapshot(),requester=lambda day,league:[recorded] if league==4455 else [],
+                         now=NOW)
+        tna=next(x for x in d["programs"] if x["show_id"]=="tna")
+        self.assertTrue(tna["episode_outcome_detected"])
+        self.assertEqual(tna["matches"],[])
+        self.assertFalse(next(x for x in d["programs"] if x["show_id"]=="smackdown")["episode_outcome_detected"])
+
+    def test_cancelled_episode_sets_withdrawn_flag_and_no_card(self):
+        cancelled=dict(EVENT_SD,strStatus="Cancelled")
+        d=build_reported(snapshot(),requester=lambda day,league:[cancelled] if league==4444 else [],
+                         now=NOW)
+        sd=next(x for x in d["programs"] if x["show_id"]=="smackdown")
+        self.assertTrue(sd["episode_withdrawn"])
+        self.assertEqual(sd["matches"],[])
+
     def test_known_event_identifier_requeries_live_and_recovers_index_gap(self):
         known = {"entries": [
             {"show_id":"smackdown","airdate":"2026-10-23","event_ids":["2599790"]},

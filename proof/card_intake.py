@@ -27,20 +27,26 @@ BLOCKED_EVENT_STATUS = re.compile(
 )
 
 
-def unusable_upcoming_event(event: dict) -> bool:
-    """Never advertise an event marked cancelled, finished, or already scored."""
-    flag = event.get("strPostponed")
-    if flag is True or str(flag).strip().lower() in ("yes", "y", "true", "1"):
-        return True
+def outcome_reported(event: dict) -> bool:
     status = event.get("strStatus")
-    if isinstance(status, str) and BLOCKED_EVENT_STATUS.search(status):
+    if isinstance(status,str) and re.search(r"\b(?:finished|completed|ended|result|aired|taped)\b", status, re.I):
         return True
-    result = event.get("strResult")
-    # TheSportsDB's strResult is populated with PRE-EVENT match cards too.
-    # Reject concrete outcomes, not an otherwise unplayed bout listing.
-    if isinstance(result, str) and RESULT_OUTCOME.search(result):
+    result=event.get("strResult")
+    return isinstance(result,str) and bool(RESULT_OUTCOME.search(result))
+
+
+def withdrawn_event(event: dict) -> bool:
+    value=event.get("strPostponed")
+    if value is True or str(value).strip().lower() in ("yes","y","true","1"):
         return True
-    return False
+    status=event.get("strStatus")
+    return isinstance(status,str) and bool(re.search(r"\b(?:cancelled|canceled|postponed|abandoned)\b",status,re.I))
+
+
+def unusable_upcoming_event(event: dict) -> bool:
+    """Provider status and outcome annotations override early card mentions."""
+    return outcome_reported(event) or withdrawn_event(event)
+
 
 SHOWS = {
     "raw": (4444, re.compile(r"^raw\b", re.I)),
@@ -103,27 +109,22 @@ def broadcast_date(event: dict) -> str | None:
     return None
 
 
+def event_identity_matches(show_id: str, day: str, event: dict) -> bool:
+    """Pure show/promotion/local-airdate check, independent of outcome status."""
+    if show_id not in SHOWS or not isinstance(event,dict):
+        return False
+    league, matcher=SHOWS[show_id]
+    return (str(event.get("idLeague"))==str(league)
+            and bool(matcher.search(str(event.get("strEvent",""))))
+            and broadcast_date(event)==day
+            and str(event.get("idEvent","")).isdigit())
+
+
 def relevant_events(show_id: str, day: str, event_rows: list[dict]) -> list[dict]:
-    """Require matching show, league, and LOCAL day; do not match episode #."""
-    if show_id not in SHOWS:
-        return []
-    league, matcher = SHOWS[show_id]
-    matched = []
-    for event in event_rows:
-        if not isinstance(event, dict):
-            continue
-        if unusable_upcoming_event(event):
-            continue
-        if str(event.get("idLeague")) != str(league):
-            continue
-        if not matcher.search(str(event.get("strEvent", ""))):
-            continue
-        if broadcast_date(event) != day:
-            continue
-        if not str(event.get("idEvent", "")).isdigit():
-            continue
-        matched.append(event)
-    return matched[:4]
+    """Reject outcomes/cancellations after exact show+date+promotion matching."""
+    return [event for event in event_rows if
+            event_identity_matches(show_id, day, event) and
+            not unusable_upcoming_event(event)][:4]
 
 
 def valid_upcoming(day: object, today: date) -> bool:

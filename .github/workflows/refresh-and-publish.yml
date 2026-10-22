@@ -150,6 +150,19 @@ jobs:
           Path('/tmp/squared-circle-v410.js').write_text(script)
           PY
           node --check /tmp/squared-circle-v410.js
+      - name: Validate v4.11 outcome-gated card preview
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          page=Path('web/preview-v4-11.html').read_text()
+          assert 'DISPLAY BUILD 4.11' in page
+          assert 'episode_outcome_detected' in page
+          assert 'episode_withdrawn' in page
+          assert 'tvmaze-reported.json' in page
+          assert '#board{width:min(100vw,56.25dvh)' in page
+          Path('/tmp/squared-circle-v411.js').write_text(page.split('<script>',1)[1].split('</script>',1)[0])
+          PY
+          node --check /tmp/squared-circle-v411.js
       - name: Collect unverified match-card research leads
         run: python proof/card_intake.py --snapshot web/data/snapshot.json --out web/data/candidates.json --also-next-league
       - name: Build opt-in reported match descriptions (never confirmed)
@@ -191,6 +204,10 @@ jobs:
               for appearance in item.get('appearances', []):
                   assert appearance['status']=='REPORTED_UNVERIFIED'
                   assert re.fullmatch(r'https://www.thesportsdb.com/api/v1/json/123/lookupevent.php\?id=\d+',appearance['evidence_url'])
+              assert isinstance(item.get('episode_outcome_detected'),bool)
+              assert isinstance(item.get('episode_withdrawn'),bool)
+              if item['episode_outcome_detected'] or item['episode_withdrawn']:
+                  assert not item['matches'] and not item.get('appearances')
               for match in item['matches']:
                   assert match['status']=='REPORTED_UNVERIFIED'
                   assert re.fullmatch(r'https://www.thesportsdb.com/api/v1/json/123/lookupevent.php\?id=\d+',match['evidence_url'])
@@ -275,6 +292,8 @@ jobs:
               (f'{base}/preview-v4-9.html?show=nxt&probe={nonce}', 'v49'),
               (f'{base}/preview-v4-10.html?show=raw&probe={nonce}', 'v410'),
               (f'{base}/preview-v4-10.html?show=tna&probe={nonce}', 'v410'),
+              (f'{base}/preview-v4-11.html?show=tna&probe={nonce}', 'v411'),
+              (f'{base}/preview-v4-11.html?show=smackdown&probe={nonce}', 'v411'),
               (f'{base}/data/research-20261022.json?probe={nonce}', 'research'),
               (f'{base}/data/tvmaze-reported.json?probe={nonce}', 'tvmaze'),
           ]
@@ -297,6 +316,9 @@ jobs:
                           supplement = json.loads(body)
                           assert supplement['mode']=='DATED_RESEARCH_SUPPLEMENT_UNVERIFIED'
                           assert len(supplement['programs'])==6
+                      elif kind == 'v411':
+                          assert b'DISPLAY BUILD 4.11' in body
+                          assert b'episode_outcome_detected' in body
                       elif kind == 'v410':
                           assert b'DISPLAY BUILD 4.10' in body
                           assert b'panel.hidden=!hasAppearances;' in body

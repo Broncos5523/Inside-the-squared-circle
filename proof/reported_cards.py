@@ -13,7 +13,7 @@ import re
 from pathlib import Path
 from zoneinfo import ZoneInfo
 
-from proof.card_intake import SHOWS, parse_bouts, relevant_events, request_events, request_next_league, request_event_by_id, valid_upcoming
+from proof.card_intake import SHOWS, parse_bouts, relevant_events, request_events, request_next_league, request_event_by_id, valid_upcoming, event_identity_matches, outcome_reported, withdrawn_event
 
 TZ = ZoneInfo("America/New_York")
 MAX_SHOW_MATCHES = 8
@@ -72,6 +72,8 @@ def build_reported(snapshot: dict, requester=request_events, now=None, next_look
             "matches": [],
             "appearances": [],
             "error": None,
+            "episode_outcome_detected": False,
+            "episode_withdrawn": False,
             "source_name": "TheSportsDB",
         }
         # AAA's named multi-week tape package cannot be assigned to a weekly episode.
@@ -87,6 +89,15 @@ def build_reported(snapshot: dict, requester=request_events, now=None, next_look
             days.append((date.fromisoformat(air) + timedelta(days=1)).isoformat())
         events = {}
         had_error = False
+        def observe_flags(rows):
+            for candidate in rows:
+                if not event_identity_matches(slug, air, candidate):
+                    continue
+                if outcome_reported(candidate):
+                    entry["episode_outcome_detected"] = True
+                if withdrawn_event(candidate):
+                    entry["episode_withdrawn"] = True
+
         for day in days:
             cache_key = (league, day)
             if cache_key not in cache:
@@ -97,6 +108,7 @@ def build_reported(snapshot: dict, requester=request_events, now=None, next_look
             if cache[cache_key] is None:
                 had_error = True
                 continue
+            observe_flags(cache[cache_key])
             for event in relevant_events(slug, air, cache[cache_key]):
                 events[str(event["idEvent"])] = event
         # The V1 next-league endpoint can supply a candidate when the day
@@ -111,6 +123,7 @@ def build_reported(snapshot: dict, requester=request_events, now=None, next_look
             if league_cache[league] is None:
                 had_error = True
             else:
+                observe_flags(league_cache[league])
                 for event in relevant_events(slug, air, league_cache[league]):
                     events.setdefault(str(event["idEvent"]), event)
         # Re-query previously observed (not guessed) event IDs through the
@@ -136,6 +149,7 @@ def build_reported(snapshot: dict, requester=request_events, now=None, next_look
                     if id_cache[sid] is None:
                         had_error = True
                         continue
+                    observe_flags(id_cache[sid])
                     for event in relevant_events(slug, air, id_cache[sid]):
                         if str(event.get("idEvent")) == sid:
                             events[sid] = event
@@ -177,6 +191,11 @@ def build_reported(snapshot: dict, requester=request_events, now=None, next_look
                     break
             if len(entry["matches"]) >= MAX_SHOW_MATCHES:
                 break
+        if entry["episode_outcome_detected"] or entry["episode_withdrawn"]:
+            # Never combine older reported bouts with a provider-known result
+            # or cancellation, even when another source still lists that bout.
+            entry["matches"] = []
+            entry["appearances"] = []
         if had_error:
             entry["error"] = "PROVIDER_PARTIAL_OR_UNAVAILABLE"
         output.append(entry)

@@ -2,7 +2,7 @@ import unittest
 from datetime import date, timedelta
 
 from proof.card_intake import (
-    broadcast_date, build_report, parse_bouts, relevant_events, valid_upcoming, unusable_upcoming_event
+    broadcast_date, build_report, parse_bouts, relevant_events, valid_upcoming, unusable_upcoming_event, event_identity_matches
 )
 
 TODAY = date(2026, 10, 22)
@@ -117,6 +117,12 @@ class MatchIntakeTests(unittest.TestCase):
                 self.assertTrue(unusable_upcoming_event(event))
                 self.assertEqual(relevant_events("smackdown", "2026-10-23", [event]), [])
         self.assertFalse(unusable_upcoming_event(dict(SMACKDOWN, strStatus="Scheduled")))
+
+    def test_identity_matching_kept_even_when_results_supplied(self):
+        event=dict(SMACKDOWN, strResult="Giulia defeats Blake Monroe")
+        self.assertTrue(event_identity_matches("smackdown","2026-10-23",event))
+        self.assertEqual(relevant_events("smackdown","2026-10-23",[event]),[])
+        self.assertFalse(event_identity_matches("raw","2026-10-23",event))
 
     def test_provider_pre_event_strresult_contains_card_without_outcomes(self):
         event = dict(SMACKDOWN, strStatus="", strPostponed="no",
