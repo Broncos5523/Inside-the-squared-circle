@@ -396,6 +396,19 @@ jobs:
           Path('/tmp/squared-circle-v429.js').write_text(h.split('<script>',1)[1].split('</script>',1)[0])
           PY
           node --check /tmp/squared-circle-v429.js
+      - name: Verify reviewed facts and v4.30 portrait JavaScript
+        run: |
+          python -m proof.reviewed_recaps --verify
+          python - <<'PY'
+          from pathlib import Path
+          html=Path('web/preview-v4-30.html').read_text()
+          assert 'DISPLAY BUILD 4.30' in html
+          assert 'reviewed-recaps.json' in html
+          assert '#board{width:min(100vw,56.25dvh)' in html
+          assert "createElement('a')" not in html
+          Path('/tmp/squared-circle-v430.js').write_text(html.split('<script>',1)[1].split('</script>',1)[0])
+          PY
+          node --check /tmp/squared-circle-v430.js
       - name: Collect unverified match-card research leads
         run: python proof/card_intake.py --snapshot web/data/snapshot.json --out web/data/candidates.json --also-next-league
       - name: Build opt-in reported match descriptions (never confirmed)
@@ -823,6 +836,9 @@ jobs:
               (f'{base}/coverage-health.html?probe={nonce}', 'coverage-page'),
               (f'{base}/preview-v4-29.html?show=raw&view=results&probe={nonce}', 'v429'),
               (f'{base}/preview-v4-29.html?show=nxt&view=results&probe={nonce}', 'v429'),
+              (f'{base}/preview-v4-30.html?show=raw&view=recap&probe={nonce}', 'v430'),
+              (f'{base}/preview-v4-30.html?show=evolve&probe={nonce}', 'v430'),
+              (f'{base}/data/reviewed-recaps.json?probe={nonce}', 'reviewed'),
               (f'{base}/data/episode-briefs.json?probe={nonce}', 'episode-briefs'),
               (f'{base}/data/research-20261022.json?probe={nonce}', 'research'),
               (f'{base}/data/tvmaze-reported.json?probe={nonce}', 'tvmaze'),
@@ -850,6 +866,15 @@ jobs:
                           assert payload['mode']=='POST_BROADCAST_RSS_FALLOUT_FACTS_UNVERIFIED'
                           assert payload['generated_at']==expected_fallout['generated_at']
                           assert len(payload['programs'])==6
+                      elif kind == 'reviewed':
+                          approved=json.loads(body)
+                          assert approved['schema_version']==1
+                          assert approved['mode']=='REVIEWED_WEEKLY_EPISODE_FACTS_V1'
+                          assert isinstance(approved['programs'],list)
+                      elif kind == 'v430':
+                          assert b'DISPLAY BUILD 4.30' in body
+                          assert b'reviewed-recaps.json' in body
+                          assert b'optInReviewedRecap' in body
                       elif kind == 'v429':
                           assert b'DISPLAY BUILD 4.29' in body
                           assert b'rss-fallout.json' in body
