@@ -33,6 +33,8 @@ FEED_URLS = (
     "https://www.fightful.com/wrestling/rss",
     "https://gerweck.net/category/results/feed/",
     "https://www.tpww.net/feed/",
+    "https://www.ringsidenews.com/feed/",
+    "https://wrestlingheadlines.com/feed/",
 )
 PUBLISHERS={
     "www.f4wonline.com":"F4W / Wrestling Observer",
@@ -45,6 +47,10 @@ PUBLISHERS={
     "www.gerweck.net":"Gerweck.net",
     "tpww.net":"TPWW",
     "www.tpww.net":"TPWW",
+    "ringsidenews.com":"Ringside News",
+    "www.ringsidenews.com":"Ringside News",
+    "wrestlingheadlines.com":"Wrestling Headlines",
+    "www.wrestlingheadlines.com":"Wrestling Headlines",
 }
 ALLOWED_HOSTS = frozenset(PUBLISHERS)
 RESULT_WORDS = re.compile(r"\b(?:results?|recap|fallout|reviews?|highlights)\b", re.I)

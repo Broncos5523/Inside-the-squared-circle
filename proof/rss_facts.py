@@ -20,13 +20,9 @@ TZ=ZoneInfo("America/New_York")
 MODE="POST_BROADCAST_RSS_EXPLICIT_FACTS_UNVERIFIED"
 FEED_MODE="PUBLISHER_RSS_POST_SHOW_LINKS_ONLY"
 ALLOWED={"raw","smackdown","nxt","tna","evolve"}
-APPROVED={
-    "411Mania":{"411mania.com","www.411mania.com"},
-    "Fightful":{"fightful.com","www.fightful.com"},
-    "F4W / Wrestling Observer":{"f4wonline.com","www.f4wonline.com"},
-    "Gerweck.net":{"gerweck.net","www.gerweck.net"},
-    "TPWW":{"tpww.net","www.tpww.net"},
-}
+from proof.recap_links import PUBLISHERS
+APPROVED={source:{host for host,name in PUBLISHERS.items() if name==source}
+          for source in set(PUBLISHERS.values())}
 SHOW={
   "raw":re.compile(r"\b(?:wwe\s+)?raw\b",re.I),
   "smackdown":re.compile(r"\bsmack[\s-]?down\b",re.I),

@@ -101,8 +101,6 @@ jobs:
           PY
       - name: Research-only documented open wrestling API schema probe
         run: python -m proof.owdb_probe
-      - name: Audit public MIT weekly WWE match data coverage (research only)
-        run: python -m proof.wvez_audit
       - name: Test research intake safeguards
         run: python -m unittest discover -s tests -v
       - name: Validate preview JavaScript and portrait card pagination
@@ -369,6 +367,19 @@ jobs:
           Path('/tmp/squared-circle-v427.js').write_text(h.split('<script>',1)[1].split('</script>',1)[0])
           PY
           node --check /tmp/squared-circle-v427.js
+      - name: Validate v4.28 expanded results sources preview
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          h=Path('web/preview-v4-28.html').read_text()
+          assert 'DISPLAY BUILD 4.28' in h
+          for source in ('Ringside News','Wrestling Headlines','Gerweck.net','TPWW'):
+              assert source in h
+          assert "createElement('a')" not in h
+          assert '#board{width:min(100vw,56.25dvh)' in h
+          Path('/tmp/squared-circle-v428.js').write_text(h.split('<script>',1)[1].split('</script>',1)[0])
+          PY
+          node --check /tmp/squared-circle-v428.js
       - name: Collect unverified match-card research leads
         run: python proof/card_intake.py --snapshot web/data/snapshot.json --out web/data/candidates.json --also-next-league
       - name: Build opt-in reported match descriptions (never confirmed)
@@ -461,13 +472,9 @@ jobs:
               for link in row['links']:
                   assert link['status']=='PUBLISHER_HEADLINE_LINK_ONLY'
                   from urllib.parse import urlsplit
-                  approved={
-                      'F4W / Wrestling Observer':{'www.f4wonline.com','f4wonline.com'},
-                      '411Mania':{'411mania.com','www.411mania.com'},
-                      'Fightful':{'fightful.com','www.fightful.com'},
-                      'Gerweck.net':{'gerweck.net','www.gerweck.net'},
-                      'TPWW':{'tpww.net','www.tpww.net'},
-                  }
+                  from proof.recap_links import PUBLISHERS
+                  approved={src:{host for host,name in PUBLISHERS.items() if name==src}
+                            for src in set(PUBLISHERS.values())}
                   assert link['source_name'] in approved
                   parsed=urlsplit(link['url'])
                   assert parsed.scheme=='https' and parsed.hostname in approved[link['source_name']]
@@ -732,6 +739,9 @@ jobs:
               (f'{base}/preview-v4-27.html?show=raw&view=recap&probe={nonce}', 'v427'),
               (f'{base}/preview-v4-27.html?show=evolve&probe={nonce}', 'v427'),
               (f'{base}/preview-v4-27.html?show=tna&view=results&probe={nonce}', 'v427'),
+              (f'{base}/preview-v4-28.html?show=raw&view=recap&probe={nonce}', 'v428'),
+              (f'{base}/preview-v4-28.html?show=tna&view=results&probe={nonce}', 'v428'),
+              (f'{base}/preview-v4-28.html?show=evolve&probe={nonce}', 'v428'),
               (f'{base}/data/rss-excerpt-results.json?probe={nonce}', 'rss-excerpt'),
               (f'{base}/data/episode-briefs.json?probe={nonce}', 'episode-briefs'),
               (f'{base}/data/research-20261022.json?probe={nonce}', 'research'),
@@ -752,6 +762,9 @@ jobs:
                           assert d['mode']=='POST_BROADCAST_RSS_SYNDICATED_EXCERPT_FACTS_UNVERIFIED'
                           assert d['generated_at']==expected_excerpts['generated_at']
                           assert len(d['programs'])==6
+                      elif kind == 'v428':
+                          assert b'DISPLAY BUILD 4.28' in body
+                          assert b'Ringside News' in body and b'Wrestling Headlines' in body
                       elif kind == 'v427':
                           assert b'DISPLAY BUILD 4.27' in body
                           assert b'Gerweck.net' in body and b'TPWW' in body

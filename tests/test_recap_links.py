@@ -55,9 +55,11 @@ class RecapLinksTests(unittest.TestCase):
         self.assertEqual(len(row["links"]),1)
         self.assertEqual(row["airdate"],"2026-10-22")
     def test_extended_feeds_and_dotted_dates(self):
-        self.assertEqual(len(FEED_URLS),8)
+        self.assertEqual(len(FEED_URLS),10)
         self.assertEqual(PUBLISHERS["411mania.com"],"411Mania")
         self.assertEqual(PUBLISHERS["www.fightful.com"],"Fightful")
+        self.assertEqual(PUBLISHERS["www.ringsidenews.com"],"Ringside News")
+        self.assertEqual(PUBLISHERS["wrestlingheadlines.com"],"Wrestling Headlines")
         self.assertEqual(PUBLISHERS["gerweck.net"],"Gerweck.net")
         self.assertEqual(PUBLISHERS["www.tpww.net"],"TPWW")
         self.assertIn("https://gerweck.net/category/results/feed/",FEED_URLS)
