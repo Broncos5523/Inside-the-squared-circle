@@ -595,6 +595,17 @@ footer a{color:#dfbd7f}
     if(!/^https:\/\/(?:www\.wwe\.com|411mania\.com)\/[^\s?#]+$/.test(record.source_url||''))return null;
     return record;
   }
+
+  // Advance content by ACTUAL appearances in the rotation, not by the
+  // absolute frame number. An alternating show + recap otherwise skips
+  // half of an even-numbered set of results in ?show=single-show mode.
+  function recapRotationPage(slot,pages){
+    const sequence=rotationKeys();
+    if(!sequence.length||pages<1)return 0;
+    const timesPerCycle=sequence.filter(x=>x===slot).length;
+    const earlierThisCycle=sequence.slice(0,position%sequence.length).filter(x=>x===slot).length;
+    return (Math.floor(position/sequence.length)*timesPerCycle+earlierThisCycle)%pages;
+  }
   function groupedRecapResultPages(rows){
     // Target two meaningful match results per screen, but keep lengthy
     // wrestler lists together on a single screen instead of clipping.
@@ -645,7 +656,7 @@ footer a{color:#dfbd7f}
       // outcome per screen instead; retain two-result grouping when there
       // is no competing storyline panel. All results remain reachable.
       const pages=notes.length?rows.map((_,i)=>[i]):groupedRecapResultPages(rows);
-      const i=Math.floor(position/(keys.length===1?1:5))%pages.length;
+      const i=recapRotationPage(key+'-recap',pages.length);
       const indices=pages[i];
       card.classList.toggle('two-result-mode',indices.length===2);
       for(const n of indices)card.append(createRecapResult(rows[n],n));
@@ -655,7 +666,7 @@ footer a{color:#dfbd7f}
     aside.hidden=!notes.length;
     $('board').classList.toggle('has-appearances',notes.length>0);
     if(notes.length){
-      const i=Math.floor(position/(keys.length===1?1:5))%notes.length;
+      const i=recapRotationPage(key+'-recap',notes.length);
       const item=notes[i],wrap=document.createElement('div');wrap.className='appearance-item';
       put('segment-title','STORYLINES & FALLOUT · '+(i+1)+' OF '+notes.length);
       const type=document.createElement('strong');type.textContent=item.type.toUpperCase();
@@ -818,8 +829,8 @@ footer a{color:#dfbd7f}
     const footer=$('report-status');footer.replaceChildren();
     put('counter',results.length?String(results.length).padStart(2,'0')+' RESULTS':'RECAP');
     if(results.length){
-      const pages=groupedRecapResultPages(results);
-      const page=Math.floor(position/(keys.length===1?1:5))%pages.length;
+      const pages=notes.length?results.map((_,i)=>[i]):groupedRecapResultPages(results);
+      const page=recapRotationPage('evolve',pages.length);
       const indices=pages[page];
       card.classList.toggle('two-result-mode',indices.length===2);
       for(const n of indices)card.append(createRecapResult(results[n],n));
@@ -846,7 +857,7 @@ footer a{color:#dfbd7f}
     panel.hidden=!notes.length;
     $('board').classList.toggle('has-appearances',notes.length>0);
     if(notes.length){
-      const page=Math.floor(position/(keys.length===1?1:5))%notes.length;
+      const page=recapRotationPage('evolve',notes.length);
       const note=notes[page];
       put('segment-title','RECAP DEVELOPMENTS · '+(page+1)+' OF '+notes.length);
       const cardNote=document.createElement('div');cardNote.className='appearance-item';
