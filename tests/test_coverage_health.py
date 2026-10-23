@@ -33,8 +33,10 @@ class SourceCoverageTests(unittest.TestCase):
   self.assertEqual(out["totals"]["automatic_match_outcomes"],0)
  def test_evolve_source_review_not_lost_from_coverage(self):
   e={"mode":"DATED_EDITORIAL_EVOLVE_RECAP_UNVERIFIED","show_id":"evolve",
-     "airdate":"2026-10-22","results":[{},{},{}],"developments":[{},{}]}
-  out=build(SNAP,{}, {},NOW,evolve=e)
+     "airdate":"2026-10-21","results":[{},{},{}],"developments":[{},{}]}
+  schedule={"schema_version":1,"shows":[
+     dict(s,previous={"date":"2026-10-21"}) if s["id"]=="evolve" else s for s in SNAP["shows"]]}
+  out=build(schedule,{}, {},NOW,evolve=e)
   row=next(x for x in out["programs"] if x["show_id"]=="evolve")
   self.assertEqual(row["manually_reviewed_outcomes"],3)
   self.assertEqual(row["manually_reviewed_storylines"],2)
