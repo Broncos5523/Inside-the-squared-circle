@@ -1,6 +1,9 @@
 import tempfile, unittest
 from pathlib import Path
-from PIL import Image, ImageDraw
+try:
+ from PIL import Image, ImageDraw
+except ImportError:
+ Image=ImageDraw=None  # Main display runner does not install photo-editing tools.
 from proof.make_champion_cutouts import HERO, build, crop_alpha, meaningful_transparency
 
 def fake_foreground(img):
@@ -8,6 +11,7 @@ def fake_foreground(img):
  ImageDraw.Draw(alpha).ellipse((img.width//6,14,img.width*5//6,img.height-8),fill=255)
  out.putalpha(alpha);return out
 
+@unittest.skipIf(Image is None, 'Pillow only needed in the opt-in photo-cutout workflow')
 class ChampionCutoutTests(unittest.TestCase):
  def test_names_and_positions(self):
   self.assertEqual([r[0] for r in HERO],["chelsea green","sami zayn","trick williams"])
