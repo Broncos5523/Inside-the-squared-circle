@@ -1574,6 +1574,13 @@ footer a{color:#dfbd7f}
       }
     }
     const appearances=forceAfterBell?[]:reportedRows(show,key,'appearances');
+    // Avoid duplicating the same current matches in BOTH lower cards.
+    // Only completed-episode, exact-date-gated editorial recap material
+    // may populate this expressly labelled LAST WEEK panel.
+    const previous=forceAfterBell?null:editorialRecap(show,key);
+    const priorNotes=Array.isArray(previous?.developments)?previous.developments.filter(x=>
+      x.status==='REPORTED_UNVERIFIED'&&typeof x.text==='string'&&x.text.length<=190
+      &&typeof x.type==='string'&&x.type.length<=100).slice(0,2):[];
     if(forceAfterBell){
       // The date-matched results + storyline branch above owns both boxes.
       // Do not project announced upcoming cards into a completed-show recap.
@@ -1583,16 +1590,17 @@ footer a{color:#dfbd7f}
         const div=bdNode('div','bd-secondary-item',item.text);
         notes.append(div);
       }
-    }else{
-      // A second match-card category from the SAME source-gated future show,
-      // not invented appearances or previously aired storylines.
-      bd('notes-title').textContent='MORE ON THE CARD';
-      for(const item of rows.slice(0,2)){
+    }else if(priorNotes.length){
+      bd('notes-title').textContent="LAST WEEK'S FALLOUT";
+      for(const item of priorNotes){
         const div=bdNode('div','bd-secondary-item');
-        div.append(bdNode('b','', '◆'),bdNode('span','',item.text));
+        div.append(bdNode('b','', '◆'),bdNode('span','',item.type+': '+item.text));
         notes.append(div);
       }
-      if(!rows.length)notes.append(bdNode('div','bd-secondary-item','Card details will appear as published.'));
+    }else{
+      bd('notes-title').textContent='PROGRAM NOTES';
+      notes.append(bdNode('div','bd-secondary-item',
+        'Match cards and advertised appearances update when new show information is published.'));
     }
     bd('ticker').textContent=forceAfterBell
       ? (verifiedResults.length
