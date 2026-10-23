@@ -1,48 +1,48 @@
 {
   "schema_version": 1,
   "mode": "TVMAZE_FINISHED_EPISODE_GUIDE_SYNOPSIS_ONLY",
-  "generated_at": "2026-10-22T22:40:00-04:00",
-  "policy": "Licensed TVmaze episode summaries, never outcomes.",
+  "generated_at": "2026-10-22T22:38:32.433258-04:00",
+  "policy": "TVmaze CC BY-SA episode synopses only; these may have been written before broadcast. No match winners, title changes, storylines or confirmed appearances may be inferred.",
   "programs": [
     {
       "show_id": "raw",
-      "airdate": null,
-      "synopsis": null,
-      "episode_id": null,
-      "evidence_url": null,
+      "airdate": "2026-10-19",
+      "synopsis": "For the first time since his hard-fought title defense against LA Knight at WWE Money in the Bank, World Heavyweight Champion Roman Reigns returns to Monday Night Raw. Last week, The 946 became an even bigger threat to The Bloodline afte…",
+      "episode_id": 3680023,
+      "evidence_url": "https://api.tvmaze.com/episodes/3680023",
       "source_name": "TVmaze",
       "license": "CC BY-SA",
-      "status": "awaiting_first_collection"
+      "status": "episode_synopsis"
     },
     {
       "show_id": "smackdown",
-      "airdate": null,
-      "synopsis": null,
-      "episode_id": null,
-      "evidence_url": null,
+      "airdate": "2026-10-16",
+      "synopsis": "In the latest chapter of his volatile rivalry with Randy Orton, Cody Rhodes has demanded that SmackDown General Manager Nick Aldis produce The Viper. The American Nightmare will come face-to-face with Orton. After Nikki Bella used the ro…",
+      "episode_id": 3680016,
+      "evidence_url": "https://api.tvmaze.com/episodes/3680016",
       "source_name": "TVmaze",
       "license": "CC BY-SA",
-      "status": "awaiting_first_collection"
+      "status": "episode_synopsis"
     },
     {
       "show_id": "nxt",
-      "airdate": null,
+      "airdate": "2026-10-20",
       "synopsis": null,
       "episode_id": null,
       "evidence_url": null,
       "source_name": "TVmaze",
       "license": "CC BY-SA",
-      "status": "awaiting_first_collection"
+      "status": "no_synopsis"
     },
     {
       "show_id": "aaa",
-      "airdate": null,
+      "airdate": "2026-10-17",
       "synopsis": null,
       "episode_id": null,
       "evidence_url": null,
       "source_name": "TVmaze",
       "license": "CC BY-SA",
-      "status": "awaiting_first_collection"
+      "status": "no_synopsis"
     },
     {
       "show_id": "tna",
@@ -52,18 +52,18 @@
       "evidence_url": null,
       "source_name": "TVmaze",
       "license": "CC BY-SA",
-      "status": "awaiting_first_collection"
+      "status": "no_completed_episode"
     },
     {
       "show_id": "evolve",
-      "airdate": null,
-      "synopsis": null,
-      "episode_id": null,
-      "evidence_url": null,
+      "airdate": "2026-10-21",
+      "synopsis": "Aaron Rourke gets a rematch against Kale Dixon and looks for payback after Dixon's recent steel chair attack.",
+      "episode_id": 3716724,
+      "evidence_url": "https://api.tvmaze.com/episodes/3716724",
       "source_name": "TVmaze",
       "license": "CC BY-SA",
-      "status": "awaiting_first_collection"
+      "status": "episode_synopsis"
     }
   ],
-  "synopses_available": 0
+  "synopses_available": 3
 }
