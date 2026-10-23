@@ -1,0 +1,99 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#07100b">
+<title>Inside the Squared Circle — WrestleMania PLE Visual Concept v1</title>
+<style>
+:root{color-scheme:dark;font-family:Arial,Helvetica,sans-serif;background:#030607;color:#fff}
+*{box-sizing:border-box}html,body{margin:0;height:100%;width:100%;overflow:hidden}
+body{display:grid;place-items:center;background:#030607}
+#board{container-type:size;position:relative;isolation:isolate;overflow:hidden;width:min(100vw,56.25dvh);height:min(100dvh,177.7778vw);aspect-ratio:9/16;background:#06110c;border:1px solid #687a50;box-shadow:0 0 50px #000;--gold:#e6cb88;--emerald:#369765}
+.photo{position:absolute;inset:0;background-image:url('https://thumb.wikimedia.org/wikipedia/commons/thumb/2/29/Wrestlemania_40_Main_Event.jpg/960px-Wrestlemania_40_Main_Event.jpg');background-size:auto 69%;background-position:52% 34%;background-repeat:no-repeat;filter:saturate(.8) contrast(1.13);opacity:.86;z-index:-5}
+.vignette{position:absolute;inset:0;z-index:-4;background:linear-gradient(180deg,#030907 0%,#07130cca 17%,#061a13ac 29%,#01130c23 42%,#06100bc7 57%,#020606 67%,#020507 100%),radial-gradient(ellipse at 50% 35%,transparent 5%,#0209078a 78%),linear-gradient(90deg,#001108bb,transparent 26%,transparent 74%,#001108bb)}
+.aurora{position:absolute;z-index:-3;top:16%;left:-20%;width:140%;height:48%;background:radial-gradient(ellipse at 50% 12%,#b9df8a4c,transparent 51%),radial-gradient(ellipse at 20% 40%,#25c35a33,transparent 39%),radial-gradient(ellipse at 79% 40%,#28926c35,transparent 35%);mix-blend-mode:screen}
+.scan{position:absolute;inset:0;z-index:-2;pointer-events:none;background:repeating-linear-gradient(0deg,#0000 0px,#0000 5px,#b8e6b008 6px);opacity:.38}
+.gold-edge{position:absolute;inset:1.7cqw;border:1px solid #d7bb7050;pointer-events:none}
+.corner{position:absolute;width:12cqw;height:11cqw;border:solid #e6cb88a3;pointer-events:none;z-index:3}
+.c1{left:1.7cqw;top:1.7cqw;border-width:2px 0 0 2px}.c2{right:1.7cqw;top:1.7cqw;border-width:2px 2px 0 0}.c3{left:1.7cqw;bottom:1.7cqw;border-width:0 0 2px 2px}.c4{right:1.7cqw;bottom:1.7cqw;border-width:0 2px 2px 0}
+#masthead{position:absolute;top:2.5%;left:5%;width:90%;height:16.6%;text-align:center;display:flex;align-items:center;flex-direction:column;justify-content:flex-start;text-shadow:0 .6cqw 1cqw #000,0 2px 3px #000;z-index:4}
+.brand{font-weight:1000;font-size:4.15cqw;letter-spacing:.11em;color:#f4e9c1;border-top:1px solid #d9c68e;border-bottom:1px solid #d9c68e;padding:.45cqw 5cqw;background:linear-gradient(90deg,transparent,#07130eb8,transparent);white-space:nowrap}
+.brand small{display:block;font-size:1.9cqw;letter-spacing:.43em;margin-top:.2cqw;color:#dfcb9b}
+.present{margin-top:1.3cqw;color:#e0ba6e;letter-spacing:.45em;font-size:1.95cqw;font-weight:900}
+.master{margin-top:1.25cqw;line-height:.84;font-weight:1000;font-size:7.1cqw;letter-spacing:-.075em;color:#e5e7e6;text-transform:uppercase;-webkit-text-stroke:.08cqw #73818c}
+.master b{display:block;font-size:8.0cqw;color:#e9c878;-webkit-text-stroke:.08cqw #695631;text-shadow:0 .4cqw #3e3521,0 1.1cqw 1.4cqw #000}
+.tagline{font-weight:700;font-size:1.95cqw;color:#eddbac;letter-spacing:.065em;margin-top:1.2cqw;font-style:italic}
+.ple-banner{position:absolute;top:19.4%;left:4.3%;right:4.3%;height:33%;text-align:center;z-index:2}
+.ple-kicker{display:flex;align-items:center;justify-content:center;gap:1.6cqw;color:#eee5ce;font-weight:900;letter-spacing:.34em;font-size:1.85cqw}
+.ple-kicker:before,.ple-kicker:after{content:"";width:12cqw;height:1px;background:linear-gradient(90deg,transparent,#e6ca81)}
+.ple-kicker:after{transform:rotate(180deg)}
+.event-plaque{margin-top:2.2cqw;padding:3.4cqw 1.4cqw 2.2cqw;border:1px solid #f3d69991;background:linear-gradient(180deg,#010905e9,#06170dba 53%,#02120ae7);box-shadow:0 0 3cqw #031409,0 0 0 1cqw #0a170b8a,inset 0 0 2.4cqw #c4b77722;clip-path:polygon(4% 0,96% 0,100% 12%,100% 88%,96% 100%,4% 100%,0 88%,0 12%);position:relative}
+.event-plaque:before{content:"✦";position:absolute;left:2.8cqw;top:50%;color:#c5a45d;font-size:5cqw;transform:translateY(-50%)}
+.event-plaque:after{content:"✦";position:absolute;right:2.8cqw;top:50%;color:#c5a45d;font-size:5cqw;transform:translateY(-50%)}
+.eyebrow{font-size:2.5cqw;letter-spacing:.4em;font-weight:1000;color:#e9d39c}
+.event-name{font-family:Impact,'Arial Black',Arial,sans-serif;font-weight:1000;letter-spacing:-.06em;line-height:.96;font-size:10.7cqw;text-shadow:0 .6cqw #123626,0 1.4cqw 1.5cqw #000;color:#f5eac7}
+.event-name span{color:#c1e4bc}
+.mark43{font-size:6cqw;line-height:1.1;color:#f3d47f;font-weight:1000;letter-spacing:.27em;text-shadow:0 3px #142b16}
+.host{display:flex;align-items:center;justify-content:center;gap:2cqw;margin:2.7cqw auto 0;padding:1.55cqw 2cqw;width:83%;border-block:1px solid #d8c17b;background:linear-gradient(90deg,transparent,#001a0edb,transparent);font-size:2.75cqw;font-weight:900;letter-spacing:.2em;color:#ffefbd}
+.hero-caption{position:absolute;top:53%;width:100%;text-align:center;font-size:2.08cqw;color:#f3e7cb;font-weight:900;letter-spacing:.24em;text-shadow:0 2px 8px #000;z-index:2}
+.hero-caption span{display:inline-block;background:#040d07d9;padding:1.8cqw 4.2cqw;border:1px solid #e4c98b7a}
+#broadcast{position:absolute;top:60.2%;bottom:6.3%;left:4%;right:4%;display:grid;grid-template-rows:1.08fr .75fr;gap:1.65cqw;z-index:2}
+.feature{position:relative;border:1px solid #bdaf77d6;background:linear-gradient(130deg,#10251eed,#061009fa 58%,#09170ff2);box-shadow:0 .7cqw 2cqw #000,inset 0 0 3cqw #82a66818;overflow:hidden;padding:2.8cqw 3.7cqw}
+.feature:before{content:"";position:absolute;inset:0;background:linear-gradient(114deg,transparent 47%,#97dd7d12 49%,transparent 51%),radial-gradient(ellipse at right,#2daf612e,transparent 60%);pointer-events:none}
+.section-top{display:flex;align-items:center;justify-content:space-between;font-weight:1000;letter-spacing:.14em;font-size:2.1cqw;color:#ddc78f}
+.chip{color:#071008;background:#d6bd78;padding:.55cqw 1.2cqw;font-size:1.7cqw;font-weight:900;letter-spacing:.08em}
+.feature-title{font-family:Impact,'Arial Black',Arial,sans-serif;font-size:6.1cqw;line-height:.92;letter-spacing:-.02em;margin-top:3cqw;color:#fff3ce;text-shadow:0 .4cqw 1cqw #000}
+.feature-title b{display:block;color:#e2c172}
+.rule{height:.4cqw;background:linear-gradient(90deg,#e2c67a,#468b57,transparent);width:76%;margin:2cqw 0}
+.feature-desc{color:#e8e6d9;font-size:2.75cqw;line-height:1.23;font-weight:700;max-width:90%}
+.infos{display:grid;grid-template-columns:1fr 1fr;gap:1.55cqw}
+.panel{min-width:0;border:1px solid #b29f66a3;background:#08120eee;box-shadow:inset 0 0 3cqw #11472d38;padding:2.1cqw}
+.panel-title{font-weight:1000;font-size:2.55cqw;letter-spacing:.09em;color:#f5dd9d;border-bottom:1px solid #8f9f79;padding-bottom:1.5cqw}
+.panel-body{font-size:2.55cqw;line-height:1.3;font-weight:800;margin-top:2.2cqw;color:#f5f6f1}
+.panel-caption{font-size:1.85cqw;color:#becfc0;line-height:1.24;margin-top:1cqw}
+.bottom{position:absolute;bottom:2.2%;left:3%;right:3%;border-block:1px solid #bbaa70;background:#03130cea;height:3.25%;display:flex;align-items:center;justify-content:center;gap:1.6cqw;overflow:hidden;white-space:nowrap;font-size:1.85cqw;font-weight:900;letter-spacing:.11em;color:#eee2b7}
+.bottom strong{color:#9bdd9d}
+.credit{position:absolute;bottom:.32%;left:4%;right:4%;text-align:center;color:#b5b9ac;font-size:1.15cqw;z-index:5}
+.credit a{color:inherit}
+@media (prefers-reduced-motion:no-preference){.aurora{animation:breathe 11s ease-in-out infinite alternate}@keyframes breathe{to{opacity:.67;transform:scale(1.04)}}}
+</style>
+</head>
+<body>
+<main id="board" aria-label="Unpublished WrestleMania 43 visual concept for portrait TV">
+<div class="photo" role="img" aria-label="Archival photo of the WrestleMania XL crowd and stage from 2024, used for atmosphere only"></div>
+<div class="vignette"></div><div class="aurora"></div><div class="scan"></div><div class="gold-edge"></div>
+<div class="corner c1"></div><div class="corner c2"></div><div class="corner c3"></div><div class="corner c4"></div>
+<header id="masthead">
+<div class="brand">MAN CAVE<small>SPORTS BOOK</small></div>
+<div class="present">★ PRESENTS ★</div>
+<div class="master">INSIDE THE<b>SQUARED CIRCLE</b></div>
+<div class="tagline">“When the bell rings, it gets real.”</div>
+</header>
+<section class="ple-banner" aria-label="Premium live event identity">
+<div class="ple-kicker">PREMIUM LIVE EVENT</div>
+<div class="event-plaque">
+<div class="eyebrow">RIYADH</div>
+<div class="event-name">WRESTLE<span>MANIA</span></div>
+<div class="mark43">✦ 43 ✦</div>
+</div>
+<div class="host">RIYADH <span aria-hidden="true">◆</span> 2027</div>
+</section>
+<div class="hero-caption"><span>THE SHOWCASE OF THE IMMORTALS</span></div>
+<section id="broadcast" aria-label="Future PLE broadcast layout">
+<div class="feature">
+<div class="section-top"><span>THE ROAD TO WRESTLEMANIA</span><span class="chip">EVENT SPOTLIGHT</span></div>
+<div class="feature-title">EVERY LEGEND<br><b>HAS A MOMENT.</b></div>
+<div class="rule"></div>
+<div class="feature-desc">The biggest stage. The stories that lead to it.</div>
+</div>
+<div class="infos">
+<div class="panel"><div class="panel-title">MATCH CARD</div><div class="panel-body">On the road to 43</div><div class="panel-caption">Verified announcements will populate this panel.</div></div>
+<div class="panel"><div class="panel-title">RESULTS &amp; FALLOUT</div><div class="panel-body">After the bell</div><div class="panel-caption">Completed match outcomes and storylines, once sourced.</div></div>
+</div>
+</section>
+<div class="bottom"><strong>PLE PREVIEW</strong><span>◆</span> WRESTLEMANIA 43 <span>◆</span> RIYADH 2027</div>
+<div class="credit">VISUAL CONCEPT — NOT LIVE MATCH DATA · Archive photo: Ian D’Andrea / WrestleMania XL (2024), <a href="https://commons.wikimedia.org/wiki/File:Wrestlemania_40_Main_Event.jpg">CC BY-SA 4.0</a>; cropped, tinted</div>
+</main>
+</body>
+</html>
