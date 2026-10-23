@@ -613,6 +613,23 @@ jobs:
           PY
           node --check /tmp/itsc-v441.js
           node tests/test_broadcast_v441.js
+      - name: Validate V4.42 screenshot-driven SmackDown broadcast fixes
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          old=Path('web/preview-v4-41-licensed-stars-broadcast.html').read_text()
+          new=Path('web/preview-v4-42-smackdown-reference-qa.html').read_text()
+          assert 'DISPLAY BUILD 4.42' in new
+          assert 'id="bd-build">DISPLAY 4.42' in new
+          assert 'const archiveFallback=!forceAfterBell;' in new
+          assert 'ARCHIVAL PHOTOS · NOT ADVERTISED APPEARANCES' in new
+          assert new.split('<style>',1)[1].split('</style>',1)[0].startswith(
+                 old.split('<style>',1)[1].split('</style>',1)[0])
+          assert not Path('web/data/wcn-match-cards-private.json').exists()
+          Path('/tmp/itsc-v442.js').write_text(new.split('<script>',1)[1].split('</script>',1)[0])
+          PY
+          node --check /tmp/itsc-v442.js
+          node tests/test_broadcast_v442.js
       - name: Collect unverified match-card research leads
         run: python proof/card_intake.py --snapshot web/data/snapshot.json --out web/data/candidates.json --also-next-league
       - name: Build opt-in reported match descriptions (never confirmed)
@@ -1074,6 +1091,8 @@ jobs:
               (f'{base}/preview-v4-40-smackdown-broadcast-recaps.html?show=smackdown&view=afterbell&probe={nonce}', 'v440'),
               (f'{base}/preview-v4-41-licensed-stars-broadcast.html?show=smackdown&view=broadcast&probe={nonce}', 'v441'),
               (f'{base}/preview-v4-41-licensed-stars-broadcast.html?show=smackdown&view=afterbell&probe={nonce}', 'v441'),
+              (f'{base}/preview-v4-42-smackdown-reference-qa.html?show=smackdown&view=broadcast&probe={nonce}', 'v442'),
+              (f'{base}/preview-v4-42-smackdown-reference-qa.html?show=smackdown&view=afterbell&probe={nonce}', 'v442'),
               (f'{base}/data/visual-source-registry.json?probe={nonce}', 'visual-registry'),
               (f'{base}/asset-review.html?probe={nonce}', 'asset-review'),
               (f'{base}/assets/vetted/asset-manifest.json?probe={nonce}', 'asset-registry'),
@@ -1136,6 +1155,10 @@ jobs:
                           assert b'DISPLAY BUILD 4.39' in body
                           assert b'id="bc-people"' in body
                           assert b'OTHER REPORTED MATCHES' in body
+                      elif kind == 'v442':
+                          assert b'DISPLAY BUILD 4.42' in body
+                          assert b'ARCHIVAL PHOTOS' in body
+                          assert b'bd-hero-note' in body
                       elif kind == 'v441':
                           assert b'DISPLAY BUILD 4.41' in body
                           assert b'la-knight.jpg' in body
