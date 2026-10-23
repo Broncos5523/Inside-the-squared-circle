@@ -514,6 +514,21 @@ jobs:
           Path('/tmp/v436.js').write_text(new.split('<script>',1)[1].split('</script>',1)[0])
           PY
           node --check /tmp/v436.js
+      - name: Validate V4.37 source-matched three-person showcase
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          h=Path('web/preview-v4-37-smackdown-photo-showcase.html').read_text()
+          old=Path('web/preview-v4-36-authentic-smackdown.html').read_text()
+          assert 'DISPLAY BUILD 4.37' in h
+          assert 'renderSdShowcase' in h and 'sdNamedCompetitors' in h
+          assert "if(!forceShowcase||key!=='smackdown')return" in h
+          assert h.split('<style>',1)[1].split('</style>',1)[0].startswith(old.split('<style>',1)[1].split('</style>',1)[0])
+          assert "createElement('a')" not in h
+          Path('/tmp/squared-circle-v437.js').write_text(h.split('<script>',1)[1].split('</script>',1)[0])
+          PY
+          node --check /tmp/squared-circle-v437.js
+          node tests/test_graphics_roster_v437.js
       - name: Collect unverified match-card research leads
         run: python proof/card_intake.py --snapshot web/data/snapshot.json --out web/data/candidates.json --also-next-league
       - name: Build opt-in reported match descriptions (never confirmed)
@@ -967,6 +982,7 @@ jobs:
               (f'{base}/preview-v4-35-smackdown-graphics.html?show=smackdown&view=recap&probe={nonce}', 'v435'),
               (f'{base}/preview-v4-36-authentic-smackdown.html?show=smackdown&probe={nonce}', 'v436'),
               (f'{base}/preview-v4-36-authentic-smackdown.html?show=smackdown&view=recap&probe={nonce}', 'v436'),
+              (f'{base}/preview-v4-37-smackdown-photo-showcase.html?show=smackdown&view=showcase&probe={nonce}', 'v437'),
               (f'{base}/data/visual-source-registry.json?probe={nonce}', 'visual-registry'),
               (f'{base}/asset-review.html?probe={nonce}', 'asset-review'),
               (f'{base}/assets/vetted/asset-manifest.json?probe={nonce}', 'asset-registry'),
@@ -1020,6 +1036,10 @@ jobs:
                       elif kind == 'smackdown-art':
                           assert b'viewBox="0 0 720 1280"' in body
                           assert b'SMACK' in body and b'DOWN' in body
+                      elif kind == 'v437':
+                          assert b'DISPLAY BUILD 4.37' in body
+                          assert b'sdNamedCompetitors' in body
+                          assert b'smackdown-showcase' in body
                       elif kind == 'v436':
                           assert b'DISPLAY BUILD 4.36' in body
                           assert b'sd-show-logo' in body
