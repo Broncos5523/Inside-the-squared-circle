@@ -108,7 +108,7 @@ def build(out_dir,fetcher=fetch,clock=None):
   except Exception as exc:
    # No substitute, no image misinformation, and no build outage due to
    # a rate-limited external thumbnail service.
-   issues.append({"id":entry["id"],"reason":type(exc).__name__})
+   issues.append({"id":entry["id"],"reason":type(exc).__name__,"detail":str(exc)[:180]})
    saved.append({**entry,"status":"unavailable"})
  manifest={"schema_version":1,"mode":"COMMONS_REVIEWED_WRESTLING_VISUAL_ASSETS",
    "collected_at":(clock or datetime.now(timezone.utc)).isoformat(),
