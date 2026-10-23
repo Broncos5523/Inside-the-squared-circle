@@ -5,6 +5,7 @@ from datetime import datetime,date
 from pathlib import Path
 from zoneinfo import ZoneInfo
 from proof.results_intake import broadcast_complete
+from proof.reviewed_recaps import MODE as REVIEWED_MODE, ReviewError, validate_feed
 ET=ZoneInfo("America/New_York")
 SOURCES={
  "reported":("REPORTED_MATCHES_UNVERIFIED","reported.json"),
@@ -38,7 +39,7 @@ def find(feed,sid,day):
              and x.get("show_id")==sid and x.get("airdate")==day),{})
 def tally(row,key):
  return len(row.get(key,[])) if isinstance(row.get(key),list) else 0
-def build(snapshot,feeds,editorial,now=None,evolve=None):
+def build(snapshot,feeds,editorial,now=None,evolve=None,reviewed=None):
  now=now or datetime.now(ET)
  if snapshot.get("schema_version")!=1 or len(snapshot.get("shows",[]))!=6:
   raise ValueError("Invalid schedule")
@@ -50,6 +51,14 @@ def build(snapshot,feeds,editorial,now=None,evolve=None):
   live[key]=val if ok else {}
   source_health[key]={"fresh":ok,"generated_at":val.get("generated_at") if isinstance(val,dict) else None}
  editorial=editorial if isinstance(editorial,dict) and editorial.get("mode")=="DATED_MULTI_SOURCE_RECAP_REVIEW_UNVERIFIED" else {}
+ # Reviewed facts are a distinct manually supplied feed, never automatic.
+ # Revalidate at read time; malformed/future/unsourced imports never count.
+ try:
+  reviewed=validate_feed(reviewed,now) if isinstance(reviewed,dict) else {}
+ except ReviewError:
+  reviewed={}
+ if not isinstance(reviewed,dict) or reviewed.get("mode")!=REVIEWED_MODE:
+  reviewed={}
  programs=[]
  for show in snapshot["shows"]:
   sid=show.get("id")
@@ -67,6 +76,12 @@ def build(snapshot,feeds,editorial,now=None,evolve=None):
       evolve.get("show_id")=="evolve" and evolve.get("airdate")==last):
    manual_count=tally(evolve,"results")
    manual_stories=tally(evolve,"developments")
+  imported=find(reviewed,sid,last)
+  # A reviewed episode replaces the legacy manual recap count for this
+  # show/date; do not double-count the same underlying match outcome.
+  if imported:
+   manual_count=tally(imported,"results")
+   manual_stories=tally(imported,"developments")
   synopsis=find(live["episode_briefs"],sid,last)
   notes=(isinstance(synopsis.get("synopsis"),str)
          and synopsis.get("source_name")=="TVmaze" and synopsis.get("license")=="CC BY-SA")
@@ -81,7 +96,7 @@ def build(snapshot,feeds,editorial,now=None,evolve=None):
    "episode_synopsis_available":bool(notes),
    "publisher_headline_links":headlines,
    "results_data_status":("automatic_results_present" if auto else
-     "manual_review_available" if manual_count else "no_usable_result_facts")
+     "manual_review_available" if manual_count or manual_stories else "no_usable_result_facts")
   })
  counts=("upcoming_reported_matches","upcoming_reported_appearances",
          "automatic_match_outcomes","automatic_storylines",
@@ -124,7 +139,7 @@ def main():
   try:return json.loads((root/path).read_text(encoding="utf-8"))
   except (ValueError,OSError):return {}
  feeds={k:get(path) for k,(_,path) in SOURCES.items()}
- report=build(get("snapshot.json"),feeds,get("editorial-recaps-20261022.json"),evolve=get("evolve-recap-20261021.json"))
+ report=build(get("snapshot.json"),feeds,get("editorial-recaps-20261022.json"),evolve=get("evolve-recap-20261021.json"),reviewed=get("reviewed-recaps.json"))
  out=Path(args.out);tmp=out.with_suffix(".tmp")
  tmp.write_text(json.dumps(report,ensure_ascii=False,indent=2)+"\n",encoding="utf-8")
  tmp.replace(out)

@@ -1,6 +1,72 @@
 {
   "schema_version": 1,
   "mode": "REVIEWED_WEEKLY_EPISODE_FACTS_V1",
-  "reviewed_at_et": null,
-  "programs": []
+  "reviewed_at_et": "2026-10-23T00:38:37.724-04:00",
+  "policy": "Manually checked, dated primary-source and independent-secondary-source facts in short original wording; not a live automatic results collector. Original URLs stay in data. Preserve exact TV broadcast date. No article body redistribution.",
+  "programs": [
+    {
+      "show_id": "tna",
+      "airdate": "2026-10-22",
+      "review_method": "MANUAL_SOURCE_REVIEW",
+      "reuse_basis": "FACT_ONLY_PARAPHRASE",
+      "source_name": "TNA Wrestling — October 22 results",
+      "source_url": "https://tnawrestling.com/news/tna-thursday-night-impact-on-amc-results-october-22-2026",
+      "secondary_source_name": "Fightful — October 22 results",
+      "secondary_source_url": "https://www.fightful.com/wrestling/tna-impact-results-10-22-mustafa-ali-vs-jason-hotch/",
+      "results": [
+        {
+          "text": "Indi Hartwell defeated Xia Brookside and retained the Knockouts World Championship",
+          "match_type": "Knockouts World Championship",
+          "status": "REPORTED_UNVERIFIED"
+        },
+        {
+          "text": "Cedric Alexander defeated Rich Swann, KC Navarro and Fabian Aichner",
+          "match_type": "X-Division Number One Contender Four-Way",
+          "status": "REPORTED_UNVERIFIED"
+        },
+        {
+          "text": "Avery Styles defeated Joe Alonzo",
+          "match_type": "Singles Match",
+          "status": "REPORTED_UNVERIFIED"
+        },
+        {
+          "text": "Jason Hotch defeated Mustafa Ali and retained the TNA International Championship",
+          "match_type": "Two Out of Three Falls Championship Match",
+          "status": "REPORTED_UNVERIFIED"
+        }
+      ],
+      "developments": [
+        {
+          "text": "Daria Rae ordered Indi Hartwell to defend her title immediately; Apex attacked Hartwell after her victory",
+          "type": "Knockouts Championship Rivalry",
+          "status": "REPORTED_UNVERIFIED"
+        },
+        {
+          "text": "The System assisted Cedric Alexander in earning an X-Division title opportunity against Amazing Red",
+          "type": "X-Division Title Picture",
+          "status": "REPORTED_UNVERIFIED"
+        },
+        {
+          "text": "Kiera Hogan and Tasha Steelz attacked Allie; Shotzi Blackheart intervened on Allie's behalf",
+          "type": "Knockouts Tag Team Fallout",
+          "status": "REPORTED_UNVERIFIED"
+        },
+        {
+          "text": "Santino Marella announced two Ultimate X matches and the World X-Cup for Destination X",
+          "type": "Destination X Announcements",
+          "status": "REPORTED_UNVERIFIED"
+        },
+        {
+          "text": "Leon Slater and Trey Miguel discussed their upcoming TNA World Championship match",
+          "type": "World Championship Rivalry",
+          "status": "REPORTED_UNVERIFIED"
+        },
+        {
+          "text": "syX challenged The Hardys ahead of the next iMPACT! episode",
+          "type": "Tag Team Challenge",
+          "status": "REPORTED_UNVERIFIED"
+        }
+      ]
+    }
+  ]
 }

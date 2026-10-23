@@ -76,4 +76,32 @@ class SourceCoverageTests(unittest.TestCase):
  def test_wrong_source_mode_does_not_count(self):
   x=feed("results",results=[{}]);x["mode"]="OTHER"
   self.assertEqual(build(SNAP,{"results":x},{},NOW)["totals"]["automatic_match_outcomes"],0)
+ def test_reviewed_episode_counts_are_distinct_and_not_duplicated(self):
+  reviewed={"schema_version":1,"mode":"REVIEWED_WEEKLY_EPISODE_FACTS_V1",
+   "reviewed_at_et":"2026-10-22T23:45:00-04:00","programs":[{
+    "show_id":"tna","airdate":"2026-10-22","review_method":"MANUAL_SOURCE_REVIEW",
+    "reuse_basis":"FACT_ONLY_PARAPHRASE","source_name":"TNA Wrestling",
+    "source_url":"https://tnawrestling.com/news/tna-impact-reviewed-episode",
+    "results":[{"text":"Fixture Alpha defeated Fixture Bravo",
+                "match_type":"Singles Match","status":"REPORTED_UNVERIFIED"}],
+    "developments":[{"text":"Fixture Alpha confronted Fixture Gamma after the match",
+                     "type":"Post-match rivalry","status":"REPORTED_UNVERIFIED"}]}]}
+  old={"mode":"DATED_MULTI_SOURCE_RECAP_REVIEW_UNVERIFIED","programs":[{
+   "show_id":"tna","airdate":"2026-10-22","results":[{},{}],"developments":[{},{}]}]}
+  out=build(SNAP,{},old,NOW,reviewed=reviewed)
+  row=next(x for x in out["programs"] if x["show_id"]=="tna")
+  self.assertEqual(row["manually_reviewed_outcomes"],1)
+  self.assertEqual(row["manually_reviewed_storylines"],1)
+  self.assertEqual(out["totals"]["automatic_match_outcomes"],0)
+  self.assertEqual(out["totals"]["automatic_storylines"],0)
+ def test_invalid_reviewed_future_or_preview_cannot_count(self):
+  reviewed={"schema_version":1,"mode":"REVIEWED_WEEKLY_EPISODE_FACTS_V1",
+   "reviewed_at_et":"2026-10-23T12:00:00-04:00","programs":[{
+    "show_id":"tna","airdate":"2026-10-29","review_method":"MANUAL_SOURCE_REVIEW",
+    "reuse_basis":"FACT_ONLY_PARAPHRASE","source_name":"TNA Wrestling",
+    "source_url":"https://tnawrestling.com/news/tna-impact-reviewed-episode",
+    "results":[{"text":"Fixture A vs. Fixture B","match_type":"Singles Match",
+                "status":"REPORTED_UNVERIFIED"}],"developments":[]}]}
+  out=build(SNAP,{}, {},NOW,reviewed=reviewed)
+  self.assertEqual(out["totals"]["manually_reviewed_outcomes"],0)
 if __name__=="__main__":unittest.main()
