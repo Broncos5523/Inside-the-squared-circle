@@ -1,0 +1,59 @@
+{
+  "schema_version": 1,
+  "mode": "EDITORIAL_CHAMPION_HERO_SELECTION",
+  "as_of": "2026-10-23",
+  "show": "smackdown",
+  "display_size": "720x1280 portrait",
+  "selection_status": "USER_DIRECTION_LOCKED_ASSET_PREP_PENDING",
+  "hero": {
+    "left": {
+      "name": "Chelsea Green",
+      "championship": "WWE Women's Championship",
+      "image_source": "web/assets/vetted/chelsea-green.jpg",
+      "cutout_status": "pending"
+    },
+    "center": {
+      "name": "Sami Zayn",
+      "championship": "Undisputed WWE Championship",
+      "source_candidate": "https://commons.wikimedia.org/wiki/File:Sami_Zayn,_April_2024.jpg",
+      "cutout_status": "pending"
+    },
+    "right": {
+      "name": "Trick Williams",
+      "championship": "WWE United States Championship",
+      "source_candidate": "https://commons.wikimedia.org/wiki/File:Trick_Williams_FOS_2026_version_3_(cropped).png",
+      "cutout_status": "pending"
+    }
+  },
+  "excluded_from_smackdown_hero": [
+    "Roman Reigns"
+  ],
+  "behavior": {
+    "no_roman_in_smackdown_hero": true,
+    "dont_delete_shared_roman_photos_from_other_show_assets": true,
+    "no_implied_upcoming_appearance": true,
+    "dont_show_fake_championship_belts": true,
+    "real_person_cutouts_only": true,
+    "source_license_and_cutout_review_required": true,
+    "current_titleholders_must_be_revalidated_before_live_display": true,
+    "do_not_modify_old_approved_versions": true,
+    "no_image_generation": true
+  },
+  "verified_context": [
+    {
+      "fact": "Sami Zayn is Undisputed WWE Champion",
+      "source": "https://www.wwe.com/shows/smackdown/archive",
+      "source_date": "2026-10-16"
+    },
+    {
+      "fact": "Chelsea Green is WWE Women's Champion",
+      "source": "https://www.wwe.com/shows/smackdown/2026-10-23",
+      "source_date": "2026-10-23"
+    },
+    {
+      "fact": "Trick Williams is WWE United States Champion",
+      "source": "https://www.wwe.com/shows/smackdown/archive",
+      "source_date": "2026-10-16"
+    }
+  ]
+}
