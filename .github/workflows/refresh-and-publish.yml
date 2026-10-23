@@ -1052,7 +1052,7 @@ jobs:
               (f'{base}/preview-v4-36-authentic-smackdown.html?show=smackdown&view=recap&probe={nonce}', 'v436'),
               (f'{base}/preview-v4-37-smackdown-photo-showcase.html?show=smackdown&view=showcase&probe={nonce}', 'v437'),
               (f'{base}/preview-v4-38-smackdown-broadcast-review.html?show=smackdown&view=showcase&probe={nonce}', 'v438'),
-              (f'{base}/preview-v4-39-reference-broadcast.html?show=smackdown&view=broadcast&probe={nonce}', 'v439'),
+              (f'{base}/preview-v4-39-reference-broadcast.html?show=smackdown&view=broadcast&probe={nonce}', 'v439ref'),
               (f'{base}/preview-v4-39-smackdown-full-broadcast.html?show=smackdown&view=broadcast&probe={nonce}', 'v439'),
               (f'{base}/preview-v4-40-smackdown-broadcast-recaps.html?show=smackdown&view=broadcast&probe={nonce}', 'v440'),
               (f'{base}/preview-v4-40-smackdown-broadcast-recaps.html?show=smackdown&view=afterbell&probe={nonce}', 'v440'),
@@ -1114,7 +1114,7 @@ jobs:
                           assert b'bd-brand-plate' in body
                           assert b'renderSdBroadcast' in body
                           assert b'CHAMPIONSHIP WATCH' in body
-                      elif kind == 'v439':
+                      elif kind == 'v439ref':
                           assert b'DISPLAY BUILD 4.39' in body
                           assert b'id="bc-people"' in body
                           assert b'OTHER REPORTED MATCHES' in body
