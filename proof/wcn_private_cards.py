@@ -24,7 +24,7 @@ NAME=r"[A-ZÀ-Ý][\wÀ-ÿ’'\-]*(?:\s+[A-ZÀ-Ý][\wÀ-ÿ’'\-]*){0,3}"
 SIDE=rf"(?:{NAME})(?:\s+and\s+{NAME})?"
 DIRECT=re.compile(rf"^(?P<a>{SIDE})\s+(?:will\s+)?(?:face|faces|take on|takes on|vs\.?|versus)\s+(?P<b>{SIDE})(?=\s|[.,;!?]|$)")
 PITTING=re.compile(rf"\b(?:pits?|pitting|featuring)\s+(?P<a>{SIDE})\s+(?:against|vs\.?|versus)\s+(?P<b>{SIDE})(?=\s|[.,;!?]|$)")
-DEFENSE=re.compile(rf"^(?P<a>{SIDE})\s+(?:will\s+)?(?:make|makes|defend|defends)\b.{0,110}?\s+against\s+(?P<b>{SIDE})(?=\s|[.,;!?]|$)")
+DEFENSE=re.compile(rf"^(?P<a>{SIDE})\s+(?:will\s+)?(?:make|makes|defend|defends)\b.{{0,110}}?\s+against\s+(?P<b>{SIDE})(?=\s|[.,;!?]|$)")
 NO_SUBJECT=re.compile(r"\b(?:match|championship|title|episode|story|preview|card|tonight|last|next|another|bout|event)\b",re.I)
 SPOILERS=re.compile(r"\b(?:defeated|defeats|pinned|won|retained|winner|spoiler)\b",re.I)
 
