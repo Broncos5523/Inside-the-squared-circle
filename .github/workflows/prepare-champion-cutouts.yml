@@ -1,0 +1,102 @@
+name: Prepare authentic SmackDown champion cutouts
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'proof/approved_graphics.py'
+      - 'proof/make_champion_cutouts.py'
+      - 'web/data/champion-hero-plan.json'
+      - '.github/workflows/prepare-champion-cutouts.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: smackdown-champion-assets
+  cancel-in-progress: true
+
+jobs:
+  source-and-segment:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Install reproducible CPU-only subject segmentation
+        run: |
+          python -m pip install "rembg[cpu]==2.0.67" "Pillow>=10,<12"
+      - name: Retrieve only exact-license Commons source photographs
+        run: |
+          python -m proof.approved_graphics --out web/assets/vetted
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          manifest=json.loads(Path('web/assets/vetted/asset-manifest.json').read_text())
+          needed={'chelsea green','sami zayn','trick williams'}
+          found={a['id']:a for a in manifest['assets'] if a['id'] in needed}
+          assert set(found)==needed
+          for name in needed:
+              a=found[name]
+              assert a['status']=='ready',name
+              assert a['license'] in ('CC BY 2.0','CC BY 4.0'),name
+              assert Path('web/assets/vetted',a['file']).exists()
+          PY
+      - name: Extract person alpha only — never synthesize or switch identities
+        run: |
+          python -m proof.make_champion_cutouts --out web/assets/graphics/smackdown/hero
+      - name: Validate alpha PNGs and rights manifests
+        run: |
+          python -m unittest tests.test_champion_cutouts -v
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          from PIL import Image
+          from proof.make_champion_cutouts import meaningful_transparency
+          root=Path('web/assets/graphics/smackdown/hero')
+          data=json.loads((root/'cutout-manifest.json').read_text())
+          assert data['no_roman_reigns_in_smackdown_hero']
+          assert len(data['assets'])==3
+          for entry in data['assets']:
+              assert entry['status']=='draft_ready',entry
+              assert entry['visual_approval']=='required',entry
+              assert 'roman' not in entry['person']
+              filename=Path(entry['cutout']).name
+              with Image.open(root/filename) as img:
+                  assert img.mode=='RGBA' and meaningful_transparency(img),filename
+              print('CUTOUT DRAFT',filename,entry['width'],entry['height'])
+          PY
+      - name: Stage files without affecting existing production board
+        run: |
+          mkdir -p /tmp/smackdown-asset-stage
+          cp -a web/assets/graphics/smackdown/hero /tmp/smackdown-asset-stage/
+          cp web/assets/vetted/sami-zayn.jpg /tmp/smackdown-asset-stage/
+          cp web/assets/vetted/trick-williams.png /tmp/smackdown-asset-stage/
+          cp web/assets/vetted/asset-manifest.json /tmp/smackdown-asset-stage/
+      - name: Safely publish drafts for human visual approval
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          for attempt in 1 2 3; do
+            git fetch origin main
+            git reset --hard origin/main
+            mkdir -p web/assets/graphics/smackdown/hero web/assets/vetted
+            cp -a /tmp/smackdown-asset-stage/hero/. web/assets/graphics/smackdown/hero/
+            cp /tmp/smackdown-asset-stage/sami-zayn.jpg web/assets/vetted/
+            cp /tmp/smackdown-asset-stage/trick-williams.png web/assets/vetted/
+            cp /tmp/smackdown-asset-stage/asset-manifest.json web/assets/vetted/
+            git add web/assets/graphics/smackdown/hero web/assets/vetted
+            if git diff --cached --quiet; then
+              echo "Already committed the exact draft assets"
+              exit 0
+            fi
+            git commit -m "assets: prepare three real-photo transparent champion cutout drafts"
+            if git push origin HEAD:main; then exit 0; fi
+            if [ "$attempt" = "3" ]; then
+              echo "Could not publish review-only assets after retries" >&2
+              exit 1
+            fi
+          done

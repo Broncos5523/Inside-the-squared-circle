@@ -1,0 +1,37 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>SmackDown Champion Cutout Review</title>
+<style>
+*{box-sizing:border-box}body{margin:0;background:#031022;color:#eef8ff;font:15px/1.45 system-ui,Arial}
+main{max-width:1100px;margin:auto;padding:20px 14px 55px}h1{font-size:clamp(27px,5vw,43px);margin:10px 0}
+header{border-bottom:1px solid #4779a9;padding-bottom:15px}p{color:#b4cce6}
+small{color:#d6bc87}.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:13px;margin-top:17px}
+.card{border:1px solid #318dff;border-radius:10px;overflow:hidden;background:#0a2042}
+.stage{height:350px;display:flex;align-items:end;justify-content:center;
+background:radial-gradient(ellipse at 50% 70%,#298effa1,transparent 60%),
+repeating-linear-gradient(115deg,transparent 0 29px,#ecf8ff0c 30px 31px),
+linear-gradient(#04112a,#1a498f 73%,#030b20)}
+.stage img{max-width:99%;max-height:98%;object-fit:contain;filter:drop-shadow(0 0 12px #1d8affab)}
+.caption{padding:12px}.caption strong{display:block;font-size:20px}.caption small{display:block}
+.role{font-size:12px;letter-spacing:.08em;font-weight:900;color:#ffd58a}
+.missing{display:none;color:#ffb0b0}#status{border:1px solid #486c99;padding:13px;margin:17px 0;background:#0a284d}
+a{color:#8fd5ff}footer{margin-top:20px;font-size:12px;color:#bad1e9}
+</style></head><body><main><header>
+<small>MAN CAVE SPORTS BOOK PRESENTS · LICENSED PHOTO ASSET QA</small>
+<h1>SmackDown Champion Cutouts</h1>
+<p>Real photographs with background removal, NOT AI-generated wrestler likenesses. The blue stage is a separate review background; the PNGs should be transparent. These are unfinished drafts requiring edge inspection before television use. An editorial hero does not announce appearances tonight.</p></header>
+<div id="status">Checking segmentation status...</div>
+<div class="cards">
+<article class="card"><div class="stage"><img src="./assets/graphics/smackdown/hero/chelsea-green-cutout-draft.png" alt="Chelsea Green real photo transparent cutout draft"></div><div class="caption"><div class="role">LEFT · WOMEN'S CHAMPION</div><strong>Chelsea Green</strong><small>Diego Serrano · CC BY 2.0</small><p class="missing">No cutout available; no substitute.</p></div></article>
+<article class="card"><div class="stage"><img src="./assets/graphics/smackdown/hero/sami-zayn-cutout-draft.png" alt="Sami Zayn real photo transparent cutout draft"></div><div class="caption"><div class="role">CENTER · UNDISPUTED CHAMPION</div><strong>Sami Zayn</strong><small>Diego Serrano · CC BY 2.0</small><p class="missing">No cutout available; no substitute.</p></div></article>
+<article class="card"><div class="stage"><img src="./assets/graphics/smackdown/hero/trick-williams-cutout-draft.png" alt="Trick Williams real photo transparent cutout draft"></div><div class="caption"><div class="role">RIGHT · US CHAMPION</div><strong>Trick Williams</strong><small>Front Office Sports · CC BY 4.0</small><p class="missing">No cutout available; no substitute.</p></div></article>
+</div><footer>Roman Reigns is excluded from the SmackDown hero. <a href="./assets/vetted/asset-manifest.json">Original photo credits</a> · <a href="./assets/graphics/smackdown/hero/cutout-manifest.json">Mask and QA manifest</a>. Transparent drafts are not the Gold Master.</footer></main>
+<script>
+document.querySelectorAll('.card').forEach(card=>{const img=card.querySelector('img');
+const onMissing=()=>{img.hidden=true;card.querySelector('.missing').style.display='block';};
+img.onerror=onMissing;if(img.complete&&!img.naturalWidth)onMissing();});
+fetch('./assets/graphics/smackdown/hero/cutout-manifest.json',{cache:'no-store'})
+.then(r=>r.ok?r.json():Promise.reject(Error('pending')))
+.then(d=>document.getElementById('status').textContent='Cutout drafts: '+d.assets.map(x=>x.person+': '+x.status).join(' · ')+'; visual approval required.')
+.catch(()=>document.getElementById('status').textContent='Cutout workflow not published yet. Sources remain intact; no replacement portraits.');
+</script></body></html>
