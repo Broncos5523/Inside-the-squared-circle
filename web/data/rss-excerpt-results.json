@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "mode": "POST_BROADCAST_RSS_SYNDICATED_EXCERPT_FACTS_UNVERIFIED",
-  "generated_at": "2026-10-23T16:53:55.412100-04:00",
+  "generated_at": "2026-10-23T17:15:22.461566-04:00",
   "policy": "Short factual winner/loser statements only from approved publisher-syndicated RSS descriptions after broadcast. Excerpt not published. Zero is acceptable; no website scraping, source quotes, title changes or storyline inference.",
   "programs": [
     {
@@ -95,8 +95,8 @@
       "status": "ok"
     },
     "https://www.fightful.com/wrestling/rss": {
-      "items": 0,
-      "with_description": 0,
+      "items": 10,
+      "with_description": 10,
       "with_defeated_word": 0,
       "with_explicit_outcome_sentence": 0,
       "dated_broadcast_headlines": 0,

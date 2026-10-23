@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "mode": "PUBLISHER_RSS_POST_SHOW_LINKS_ONLY",
-  "generated_at": "2026-10-23T16:53:45.525734-04:00",
+  "generated_at": "2026-10-23T17:15:12.739782-04:00",
   "source_name": "Multiple publisher RSS feeds",
   "source_url": "https://www.f4wonline.com/rss.xml",
   "approved_publishers": [
@@ -136,8 +136,7 @@
           "url": "https://www.fightful.com/wrestling-news/danhausen-stars-in-halloween-snickers-ad-tna-impact-highlights-more-fight-size",
           "published_at": "2026-10-23T18:00:00+00:00",
           "source_name": "Fightful",
-          "status": "PUBLISHER_HEADLINE_LINK_ONLY",
-          "retained_from_previous": true
+          "status": "PUBLISHER_HEADLINE_LINK_ONLY"
         },
         {
           "headline": "10/22/26 TNA Impact Recap",
@@ -203,7 +202,7 @@
     }
   ],
   "total_links": 20,
-  "retained_link_count": 3,
+  "retained_link_count": 2,
   "collection_status": "ok",
   "successful_feed_urls": [
     "https://www.f4wonline.com/rss.xml",
