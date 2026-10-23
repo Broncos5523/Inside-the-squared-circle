@@ -99,6 +99,8 @@ jobs:
           temp.replace(path)
           print('Live schedule responses:',fresh,'of',len(specs))
           PY
+      - name: Research-only documented open wrestling API schema probe
+        run: python -m proof.owdb_probe
       - name: Test research intake safeguards
         run: python -m unittest discover -s tests -v
       - name: Validate preview JavaScript and portrait card pagination
