@@ -50,6 +50,14 @@ ASSETS=(
   "file":"cody-rhodes.jpg","license":"CC BY 2.0","artist":"Diego Serrano",
   "credit":"Diego Serrano / CC BY 2.0",
   "source":"https://commons.wikimedia.org/wiki/File:Cody_Rhodes_RR25.jpg"},
+ {"id":"sami zayn","type":"portrait","title":"Sami Zayn, April 2024 (cropped).jpg",
+  "file":"sami-zayn.jpg","license":"CC BY 2.0","artist":"Diego Serrano",
+  "credit":"Diego Serrano / CC BY 2.0 (cropped Wikimedia version)",
+  "source":"https://commons.wikimedia.org/wiki/File:Sami_Zayn,_April_2024_(cropped).jpg"},
+ {"id":"trick williams","type":"portrait","title":"Trick Williams FOS 2026 version 3 (cropped).png",
+  "file":"trick-williams.png","license":"CC BY 4.0","artist":"Front Office Sports",
+  "credit":"Front Office Sports / CC BY 4.0 (cropped Wikimedia version)",
+  "source":"https://commons.wikimedia.org/wiki/File:Trick_Williams_FOS_2026_version_3_(cropped).png"},
 )
 LIMIT_BYTES=2_100_000
 
@@ -85,14 +93,14 @@ def image_info(asset,fetcher=fetch):
  if urlsplit(url).hostname not in {"upload.wikimedia.org","thumb.wikimedia.org"} or urlsplit(url).scheme!="https":
   raise ValueError("Missing trusted Wikimedia thumbnail for "+asset["id"])
  suffix=urlsplit(url).path.lower()
- expected=".png" if asset["type"]=="logo" else ".jpg"
+ expected=".png" if asset["file"].endswith(".png") else ".jpg"
  if not suffix.endswith(expected):raise ValueError("Unexpected image extension for "+asset["id"])
  return url
 
 def valid_image(asset,data):
  if len(data)<100 or len(data)>LIMIT_BYTES:raise ValueError("Downloaded asset size invalid")
- if asset["type"]=="logo":
-  if not data.startswith(b"\x89PNG\r\n\x1a\n"):raise ValueError("Expected PNG logo thumbnail")
+ if asset["file"].endswith(".png"):
+  if not data.startswith(b"\x89PNG\r\n\x1a\n"):raise ValueError("Expected PNG Wikimedia thumbnail")
  else:
   if not (data.startswith(b"\xff\xd8\xff") and data.endswith(b"\xff\xd9")):
    raise ValueError("Expected JPEG wrestler portrait")

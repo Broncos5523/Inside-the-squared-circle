@@ -4,25 +4,29 @@
   "as_of": "2026-10-23",
   "show": "smackdown",
   "display_size": "720x1280 portrait",
-  "selection_status": "USER_DIRECTION_LOCKED_ASSET_PREP_PENDING",
+  "selection_status": "CHAMPIONS_IDENTIFIED_SOURCE_IMAGES_PENDING_CUTOUTS",
   "hero": {
     "left": {
       "name": "Chelsea Green",
       "championship": "WWE Women's Championship",
       "image_source": "web/assets/vetted/chelsea-green.jpg",
-      "cutout_status": "pending"
+      "cutout_status": "pending_background_removal"
     },
     "center": {
       "name": "Sami Zayn",
       "championship": "Undisputed WWE Championship",
-      "source_candidate": "https://commons.wikimedia.org/wiki/File:Sami_Zayn,_April_2024.jpg",
-      "cutout_status": "pending"
+      "source_candidate": "https://commons.wikimedia.org/wiki/File:Sami_Zayn,_April_2024_(cropped).jpg",
+      "cutout_status": "pending_background_removal",
+      "image_source": "web/assets/vetted/sami-zayn.jpg",
+      "source_license": "CC BY 2.0"
     },
     "right": {
       "name": "Trick Williams",
       "championship": "WWE United States Championship",
       "source_candidate": "https://commons.wikimedia.org/wiki/File:Trick_Williams_FOS_2026_version_3_(cropped).png",
-      "cutout_status": "pending"
+      "cutout_status": "pending_background_removal",
+      "image_source": "web/assets/vetted/trick-williams.png",
+      "source_license": "CC BY 4.0"
     }
   },
   "excluded_from_smackdown_hero": [
@@ -55,5 +59,6 @@
       "source": "https://www.wwe.com/shows/smackdown/archive",
       "source_date": "2026-10-16"
     }
-  ]
+  ],
+  "asset_stage_notes": "SmackDown hero excludes Roman Reigns. New licensed portraits are source files, NOT transparent. New segmentations need individual visual approval. No generated wrestler images."
 }

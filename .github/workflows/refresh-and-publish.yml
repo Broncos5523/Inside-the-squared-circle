@@ -911,8 +911,8 @@ jobs:
           p=Path('web/assets/vetted/asset-manifest.json')
           d=json.loads(p.read_text())
           assert d['mode']=='COMMONS_REVIEWED_WRESTLING_VISUAL_ASSETS'
-          assert len(d['assets'])==8
-          assert all(a['license'] in ('CC BY 2.0','Public domain') for a in d['assets'])
+          assert len(d['assets'])==10
+          assert all(a['license'] in ('CC BY 2.0','CC BY 4.0','Public domain') for a in d['assets'])
           print('Real license-vetted images:',[(a['id'],a['status']) for a in d['assets']])
           PY
       - name: Save last-known schedule cache
@@ -1103,7 +1103,7 @@ jobs:
               (f'{base}/data/research-20261022.json?probe={nonce}', 'research'),
               (f'{base}/data/tvmaze-reported.json?probe={nonce}', 'tvmaze'),
           ]
-          for asset in ('smackdown-mark.png','chelsea-green.jpg','roxanne-perez.jpg','giulia.jpg','alexa-bliss.jpg','la-knight.jpg','roman-reigns.jpg','cody-rhodes.jpg'):
+          for asset in ('smackdown-mark.png','chelsea-green.jpg','roxanne-perez.jpg','giulia.jpg','alexa-bliss.jpg','la-knight.jpg','roman-reigns.jpg','cody-rhodes.jpg','sami-zayn.jpg','trick-williams.png'):
               if Path('web/assets/vetted',asset).is_file():
                   kind='visual-png' if asset.endswith('.png') else 'visual-jpg'
                   checks.append((f'{base}/assets/vetted/{asset}?probe={nonce}',kind))
@@ -1190,7 +1190,7 @@ jobs:
                       elif kind == 'asset-registry':
                           reg=json.loads(body)
                           assert reg['mode']=='COMMONS_REVIEWED_WRESTLING_VISUAL_ASSETS'
-                          assert len(reg['assets'])==8
+                          assert len(reg['assets'])==10
                       elif kind == 'visual-png':
                           assert body.startswith(b'\x89PNG\r\n\x1a\n')
                       elif kind == 'visual-jpg':
