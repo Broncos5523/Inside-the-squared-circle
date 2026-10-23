@@ -1,35 +1,35 @@
 {
   "schema_version": 1,
   "mode": "WRESTLING_CONTENT_COVERAGE_COUNTS_ONLY",
-  "generated_at": "2026-10-22T23:32:49.586987-04:00",
+  "generated_at": "2026-10-22T23:36:04.403543-04:00",
   "source_health": {
     "reported": {
       "fresh": true,
-      "generated_at": "2026-10-22T23:32:01.610157-04:00"
+      "generated_at": "2026-10-22T23:35:16.725912-04:00"
     },
     "results": {
       "fresh": true,
-      "generated_at": "2026-10-22T23:32:08.081863-04:00"
+      "generated_at": "2026-10-22T23:35:23.179697-04:00"
     },
     "rss_facts": {
       "fresh": true,
-      "generated_at": "2026-10-22T23:32:30.636658-04:00"
+      "generated_at": "2026-10-22T23:35:46.787291-04:00"
     },
     "rss_excerpts": {
       "fresh": true,
-      "generated_at": "2026-10-22T23:32:39.467208-04:00"
+      "generated_at": "2026-10-22T23:35:54.665590-04:00"
     },
     "fallout": {
       "fresh": true,
-      "generated_at": "2026-10-22T23:32:47.986516-04:00"
+      "generated_at": "2026-10-22T23:36:02.848879-04:00"
     },
     "recap_links": {
       "fresh": true,
-      "generated_at": "2026-10-22T23:32:30.427786-04:00"
+      "generated_at": "2026-10-22T23:35:46.618756-04:00"
     },
     "episode_briefs": {
       "fresh": true,
-      "generated_at": "2026-10-22T23:32:18.998447-04:00"
+      "generated_at": "2026-10-22T23:35:34.035509-04:00"
     }
   },
   "totals": {
@@ -40,6 +40,11 @@
     "manually_reviewed_outcomes": 17,
     "manually_reviewed_storylines": 13,
     "publisher_headline_links": 19,
+    "rss_feeds_checked": 10,
+    "rss_feeds_responding": 10,
+    "rss_items_examined": 345,
+    "rss_dated_episode_headlines": 12,
+    "rss_dated_headlines_with_explicit_winner": 0,
     "rss_descriptions_with_defeated_word": 25,
     "rss_explicit_winner_sentences": 0
   },
@@ -129,5 +134,6 @@
       "results_data_status": "manual_review_available"
     }
   ],
+  "rss_bottleneck": "no_explicit_winner_sentences",
   "interpretation": "Counts of data availability, not match counts in the real world. Headline links and TVmaze episode synopses are not results. Automated source counts can duplicate the same match."
 }
