@@ -1,35 +1,35 @@
 {
   "schema_version": 1,
   "mode": "WRESTLING_CONTENT_COVERAGE_COUNTS_ONLY",
-  "generated_at": "2026-10-23T00:41:00.054753-04:00",
+  "generated_at": "2026-10-23T00:43:49.448899-04:00",
   "source_health": {
     "reported": {
       "fresh": true,
-      "generated_at": "2026-10-23T00:40:10.283977-04:00"
+      "generated_at": "2026-10-23T00:43:02.434734-04:00"
     },
     "results": {
       "fresh": true,
-      "generated_at": "2026-10-23T00:40:16.752040-04:00"
+      "generated_at": "2026-10-23T00:43:08.885108-04:00"
     },
     "rss_facts": {
       "fresh": true,
-      "generated_at": "2026-10-23T00:40:40.174695-04:00"
+      "generated_at": "2026-10-23T00:43:30.470369-04:00"
     },
     "rss_excerpts": {
       "fresh": true,
-      "generated_at": "2026-10-23T00:40:50.049134-04:00"
+      "generated_at": "2026-10-23T00:43:38.461387-04:00"
     },
     "fallout": {
       "fresh": true,
-      "generated_at": "2026-10-23T00:40:58.484154-04:00"
+      "generated_at": "2026-10-23T00:43:47.811741-04:00"
     },
     "recap_links": {
       "fresh": true,
-      "generated_at": "2026-10-23T00:40:40.004181-04:00"
+      "generated_at": "2026-10-23T00:43:30.261161-04:00"
     },
     "episode_briefs": {
       "fresh": true,
-      "generated_at": "2026-10-23T00:40:27.607289-04:00"
+      "generated_at": "2026-10-23T00:43:19.750093-04:00"
     }
   },
   "totals": {
@@ -37,8 +37,8 @@
     "upcoming_reported_appearances": 0,
     "automatic_match_outcomes": 0,
     "automatic_storylines": 0,
-    "manually_reviewed_outcomes": 21,
-    "manually_reviewed_storylines": 19,
+    "manually_reviewed_outcomes": 23,
+    "manually_reviewed_storylines": 25,
     "publisher_headline_links": 20,
     "rss_feeds_checked": 10,
     "rss_feeds_responding": 10,
@@ -100,11 +100,11 @@
       "upcoming_reported_appearances": 0,
       "automatic_match_outcomes": 0,
       "automatic_storylines": 0,
-      "manually_reviewed_outcomes": 0,
-      "manually_reviewed_storylines": 0,
+      "manually_reviewed_outcomes": 2,
+      "manually_reviewed_storylines": 6,
       "episode_synopsis_available": false,
       "publisher_headline_links": 0,
-      "results_data_status": "no_usable_result_facts"
+      "results_data_status": "manual_review_available"
     },
     {
       "show_id": "tna",
