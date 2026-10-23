@@ -342,6 +342,19 @@ jobs:
           Path('/tmp/squared-circle-v425.js').write_text(h.split('<script>',1)[1].split('</script>',1)[0])
           PY
           node --check /tmp/squared-circle-v425.js
+      - name: Validate v4.26 syndicated fact results preview
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          h=Path('web/preview-v4-26.html').read_text()
+          assert 'DISPLAY BUILD 4.26' in h
+          assert 'rss-excerpt-results.json' in h
+          assert 'RSS_SYNDICATED_EXCERPT_FACT' in h
+          assert '#board{width:min(100vw,56.25dvh)' in h
+          assert "createElement('a')" not in h
+          Path('/tmp/squared-circle-v426.js').write_text(h.split('<script>',1)[1].split('</script>',1)[0])
+          PY
+          node --check /tmp/squared-circle-v426.js
       - name: Collect unverified match-card research leads
         run: python proof/card_intake.py --snapshot web/data/snapshot.json --out web/data/candidates.json --also-next-league
       - name: Build opt-in reported match descriptions (never confirmed)
@@ -476,6 +489,37 @@ jobs:
                   assert ' defeated ' in r['text']
           print('RSS FACT SPOILER/DATE/ATTRIBUTION AUDIT PASS')
           PY
+      - name: Collect explicit publisher-syndicated excerpt facts (no article scraping)
+        run: python -m proof.rss_excerpt_results --snapshot web/data/snapshot.json --out web/data/rss-excerpt-results.json
+      - name: Audit excerpt-based match outcomes and no spoiler leakage
+        run: |
+          python - <<'PY'
+          import json
+          from datetime import datetime
+          from pathlib import Path
+          from zoneinfo import ZoneInfo
+          from urllib.parse import urlsplit
+          from proof.rss_facts import current_completed_airdate,APPROVED
+          f=json.loads(Path('web/data/rss-excerpt-results.json').read_text())
+          snap=json.loads(Path('web/data/snapshot.json').read_text())
+          now=datetime.now(ZoneInfo('America/New_York'))
+          assert f['mode']=='POST_BROADCAST_RSS_SYNDICATED_EXCERPT_FACTS_UNVERIFIED'
+          assert len(f['programs'])==6
+          assert f['total_reported_results']==sum(len(x['results']) for x in f['programs'])
+          for row in f['programs']:
+              if row['results']:
+                  s=next(x for x in snap['shows'] if x['id']==row['show_id'])
+                  assert row['airdate']==current_completed_airdate(s,row['show_id'],now)
+              if row['show_id']=='aaa':assert not row['results']
+              for fact in row['results']:
+                  assert fact['status']=='REPORTED_UNVERIFIED'
+                  assert fact['evidence_type']=='RSS_SYNDICATED_EXCERPT_FACT'
+                  assert ' defeated ' in fact['text']
+                  assert urlsplit(fact['source_url']).hostname in APPROVED[fact['source_name']]
+                  assert datetime.fromisoformat(fact['published_at'])<=now
+                  assert 'excerpt' not in fact
+          print('RSS SYNDICATED FACT ATTRIBUTION/DATES AUDIT PASSED')
+          PY
       - name: Collect TVmaze episode-summary leads (reported, never confirmed)
         run: python -m proof.tvmaze_intake --snapshot web/data/snapshot.json --out web/data/tvmaze-reported.json
       - name: Validate additional TVmaze reports
@@ -546,6 +590,7 @@ jobs:
           cp web/data/recap-links.json /tmp/itsc-new-recap-links.json
           cp web/data/rss-facts.json /tmp/itsc-new-rss-facts.json
           cp web/data/episode-briefs.json /tmp/itsc-new-episode-briefs.json
+          cp web/data/rss-excerpt-results.json /tmp/itsc-new-rss-excerpt-results.json
           for attempt in 1 2 3; do
             git fetch origin main
             git reset --hard origin/main
@@ -559,7 +604,8 @@ jobs:
             cp /tmp/itsc-new-recap-links.json web/data/recap-links.json
             cp /tmp/itsc-new-rss-facts.json web/data/rss-facts.json
             cp /tmp/itsc-new-episode-briefs.json web/data/episode-briefs.json
-            git add web/data/snapshot.json web/data/candidates.json web/data/reported.json web/data/tvmaze-reported.json web/data/known-events.json web/data/results.json web/data/evolve-synopsis.json web/data/recap-links.json web/data/rss-facts.json web/data/episode-briefs.json
+            cp /tmp/itsc-new-rss-excerpt-results.json web/data/rss-excerpt-results.json
+            git add web/data/snapshot.json web/data/candidates.json web/data/reported.json web/data/tvmaze-reported.json web/data/known-events.json web/data/results.json web/data/evolve-synopsis.json web/data/recap-links.json web/data/rss-facts.json web/data/episode-briefs.json web/data/rss-excerpt-results.json
             if git diff --cached --quiet; then
               echo "No schedule changes to commit"
               break
@@ -600,6 +646,7 @@ jobs:
           expected_links = json.loads(Path('web/data/recap-links.json').read_text(encoding='utf-8'))
           expected_rss_facts = json.loads(Path('web/data/rss-facts.json').read_text(encoding='utf-8'))
           expected_episode_briefs = json.loads(Path('web/data/episode-briefs.json').read_text(encoding='utf-8'))
+          expected_excerpts = json.loads(Path('web/data/rss-excerpt-results.json').read_text(encoding='utf-8'))
           checks = [
               (f'{base}/preview-v4-6.html?show=smackdown&probe={nonce}', 'smackdown'),
               (f'{base}/preview-v4-6.html?show=tna&probe={nonce}', 'tna'),
@@ -663,6 +710,10 @@ jobs:
               (f'{base}/preview-v4-25.html?show=raw&view=brief&probe={nonce}', 'v425'),
               (f'{base}/preview-v4-25.html?show=smackdown&view=brief&probe={nonce}', 'v425'),
               (f'{base}/preview-v4-25.html?show=evolve&probe={nonce}', 'v425'),
+              (f'{base}/preview-v4-26.html?show=raw&view=results&probe={nonce}', 'v426'),
+              (f'{base}/preview-v4-26.html?show=tna&view=results&probe={nonce}', 'v426'),
+              (f'{base}/preview-v4-26.html?show=evolve&probe={nonce}', 'v426'),
+              (f'{base}/data/rss-excerpt-results.json?probe={nonce}', 'rss-excerpt'),
               (f'{base}/data/episode-briefs.json?probe={nonce}', 'episode-briefs'),
               (f'{base}/data/research-20261022.json?probe={nonce}', 'research'),
               (f'{base}/data/tvmaze-reported.json?probe={nonce}', 'tvmaze'),
@@ -677,7 +728,16 @@ jobs:
                       with urlopen(request, timeout=18) as response:
                           assert response.status == 200
                           body = response.read()
-                      if kind == 'episode-briefs':
+                      if kind == 'rss-excerpt':
+                          d=json.loads(body)
+                          assert d['mode']=='POST_BROADCAST_RSS_SYNDICATED_EXCERPT_FACTS_UNVERIFIED'
+                          assert d['generated_at']==expected_excerpts['generated_at']
+                          assert len(d['programs'])==6
+                      elif kind == 'v426':
+                          assert b'DISPLAY BUILD 4.26' in body
+                          assert b'rss-excerpt-results.json' in body
+                          assert b'RSS_SYNDICATED_EXCERPT_FACT' in body
+                      elif kind == 'episode-briefs':
                           payload=json.loads(body)
                           assert payload['mode']=='TVMAZE_FINISHED_EPISODE_GUIDE_SYNOPSIS_ONLY'
                           assert payload['generated_at']==expected_episode_briefs['generated_at']
