@@ -451,6 +451,19 @@ jobs:
           Path('/tmp/v432.js').write_text(h.split('<script>',1)[1].split('</script>',1)[0])
           PY
           node --check /tmp/v432.js
+      - name: Verify v4.33 complete-results portrait fallback and JavaScript
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          new=Path('web/preview-v4-33-private-wcn.html').read_text()
+          old=Path('web/preview-v4-32-private-wcn.html').read_text()
+          assert 'DISPLAY BUILD 4.33' in new
+          assert 'notes.length?rows.map((_,i)=>[i])' in new
+          assert new.split('<style>',1)[1].split('</style>',1)[0]==old.split('<style>',1)[1].split('</style>',1)[0]
+          assert "createElement('a')" not in new
+          Path('/tmp/squared-circle-v433.js').write_text(new.split('<script>',1)[1].split('</script>',1)[0])
+          PY
+          node --check /tmp/squared-circle-v433.js
       - name: Collect unverified match-card research leads
         run: python proof/card_intake.py --snapshot web/data/snapshot.json --out web/data/candidates.json --also-next-league
       - name: Build opt-in reported match descriptions (never confirmed)
@@ -883,6 +896,7 @@ jobs:
               (f'{base}/data/reviewed-recaps.json?probe={nonce}', 'reviewed'),
               (f'{base}/preview-v4-31.html?show=aaa&probe={nonce}', 'v431'),
               (f'{base}/preview-v4-32-private-wcn.html?show=smackdown&probe={nonce}', 'v432'),
+              (f'{base}/preview-v4-33-private-wcn.html?show=smackdown&view=recap&probe={nonce}', 'v433'),
               (f'{base}/preview-v4-31.html?show=tna&view=recap&probe={nonce}', 'v431'),
               (f'{base}/data/aaa-tv-week-cards-20261023.json?probe={nonce}', 'aaa-weeks'),
               (f'{base}/data/episode-briefs.json?probe={nonce}', 'episode-briefs'),
@@ -925,6 +939,9 @@ jobs:
                           weeks=json.loads(body)
                           assert weeks['mode']=='DATED_AAA_TV_WEEK_CARD_REVIEW_UNVERIFIED'
                           assert [x['airdate'] for x in weeks['programs']]==['2026-10-24','2026-10-31','2026-11-07']
+                      elif kind == 'v433':
+                          assert b'DISPLAY BUILD 4.33' in body
+                          assert b'notes.length?rows.map((_,i)=>[i])' in body
                       elif kind == 'v432':
                           assert b'DISPLAY BUILD 4.32' in body
                           assert b'privateWcnRows' in body
