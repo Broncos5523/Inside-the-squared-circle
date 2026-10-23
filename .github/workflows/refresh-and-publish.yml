@@ -315,6 +315,19 @@ jobs:
           Path('/tmp/squared-circle-v423.js').write_text(h.split('<script>',1)[1].split('</script>',1)[0])
           PY
           node --check /tmp/squared-circle-v423.js
+      - name: Validate v4.24 post-broadcast multi-source preview JavaScript
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          h=Path('web/preview-v4-24.html').read_text()
+          assert 'DISPLAY BUILD 4.24' in h
+          assert 'rss-facts.json' in h
+          assert 'newestCompleted(show,key)' in h
+          assert '#board{width:min(100vw,56.25dvh)' in h
+          assert "createElement('a')" not in h
+          Path('/tmp/squared-circle-v424.js').write_text(h.split('<script>',1)[1].split('</script>',1)[0])
+          PY
+          node --check /tmp/squared-circle-v424.js
       - name: Collect unverified match-card research leads
         run: python proof/card_intake.py --snapshot web/data/snapshot.json --out web/data/candidates.json --also-next-league
       - name: Build opt-in reported match descriptions (never confirmed)
@@ -395,6 +408,35 @@ jobs:
                   assert 'winner' not in link and 'match_results' not in link
           print('Publisher headline-only audit PASSED')
           PY
+      - name: Extract explicitly stated post-broadcast RSS outcomes (no article scraping)
+        run: python -m proof.rss_facts --snapshot web/data/snapshot.json --links web/data/recap-links.json --out web/data/rss-facts.json
+      - name: Audit RSS result timestamps, provider attribution and match dates
+        run: |
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          from datetime import datetime
+          from urllib.parse import urlsplit
+          from proof.rss_facts import current_completed_airdate,APPROVED
+          from zoneinfo import ZoneInfo
+          d=json.loads(Path('web/data/rss-facts.json').read_text())
+          snap=json.loads(Path('web/data/snapshot.json').read_text())
+          assert d['mode']=='POST_BROADCAST_RSS_EXPLICIT_FACTS_UNVERIFIED'
+          assert len(d['programs'])==6
+          now=datetime.now(ZoneInfo('America/New_York'))
+          for p in d['programs']:
+              s=next(s for s in snap['shows'] if s['id']==p['show_id'])
+              if p['results']:
+                  assert p['airdate']==current_completed_airdate(s,p['show_id'],now)
+              if p['show_id']=='aaa': assert not p['results']
+              for r in p['results']:
+                  assert r['status']=='REPORTED_UNVERIFIED'
+                  assert r['evidence_type']=='RSS_EXPLICIT_HEADLINE'
+                  assert urlsplit(r['source_url']).hostname in APPROVED[r['source_name']]
+                  assert datetime.fromisoformat(r['published_at'])<=now
+                  assert ' defeated ' in r['text']
+          print('RSS FACT SPOILER/DATE/ATTRIBUTION AUDIT PASS')
+          PY
       - name: Collect TVmaze episode-summary leads (reported, never confirmed)
         run: python -m proof.tvmaze_intake --snapshot web/data/snapshot.json --out web/data/tvmaze-reported.json
       - name: Validate additional TVmaze reports
@@ -463,6 +505,7 @@ jobs:
           cp web/data/results.json /tmp/itsc-new-results.json
           cp web/data/evolve-synopsis.json /tmp/itsc-new-evolve-synopsis.json
           cp web/data/recap-links.json /tmp/itsc-new-recap-links.json
+          cp web/data/rss-facts.json /tmp/itsc-new-rss-facts.json
           for attempt in 1 2 3; do
             git fetch origin main
             git reset --hard origin/main
@@ -474,7 +517,8 @@ jobs:
             cp /tmp/itsc-new-results.json web/data/results.json
             cp /tmp/itsc-new-evolve-synopsis.json web/data/evolve-synopsis.json
             cp /tmp/itsc-new-recap-links.json web/data/recap-links.json
-            git add web/data/snapshot.json web/data/candidates.json web/data/reported.json web/data/tvmaze-reported.json web/data/known-events.json web/data/results.json web/data/evolve-synopsis.json web/data/recap-links.json
+            cp /tmp/itsc-new-rss-facts.json web/data/rss-facts.json
+            git add web/data/snapshot.json web/data/candidates.json web/data/reported.json web/data/tvmaze-reported.json web/data/known-events.json web/data/results.json web/data/evolve-synopsis.json web/data/recap-links.json web/data/rss-facts.json
             if git diff --cached --quiet; then
               echo "No schedule changes to commit"
               break
@@ -513,6 +557,7 @@ jobs:
           expected_results = json.loads(Path('web/data/results.json').read_text(encoding='utf-8'))
           expected_evolve = json.loads(Path('web/data/evolve-synopsis.json').read_text(encoding='utf-8'))
           expected_links = json.loads(Path('web/data/recap-links.json').read_text(encoding='utf-8'))
+          expected_rss_facts = json.loads(Path('web/data/rss-facts.json').read_text(encoding='utf-8'))
           checks = [
               (f'{base}/preview-v4-6.html?show=smackdown&probe={nonce}', 'smackdown'),
               (f'{base}/preview-v4-6.html?show=tna&probe={nonce}', 'tna'),
@@ -569,6 +614,10 @@ jobs:
               (f'{base}/preview-v4-23.html?show=raw&view=recap&probe={nonce}', 'v423'),
               (f'{base}/preview-v4-23.html?show=tna&view=results&probe={nonce}', 'v423'),
               (f'{base}/preview-v4-23.html?show=evolve&probe={nonce}', 'v423'),
+              (f'{base}/data/rss-facts.json?probe={nonce}', 'rss-facts'),
+              (f'{base}/preview-v4-24.html?show=raw&view=recap&probe={nonce}', 'v424'),
+              (f'{base}/preview-v4-24.html?show=tna&view=results&probe={nonce}', 'v424'),
+              (f'{base}/preview-v4-24.html?show=evolve&probe={nonce}', 'v424'),
               (f'{base}/data/research-20261022.json?probe={nonce}', 'research'),
               (f'{base}/data/tvmaze-reported.json?probe={nonce}', 'tvmaze'),
           ]
@@ -582,7 +631,16 @@ jobs:
                       with urlopen(request, timeout=18) as response:
                           assert response.status == 200
                           body = response.read()
-                      if kind == 'v423':
+                      if kind == 'rss-facts':
+                          factfeed=json.loads(body)
+                          assert factfeed['mode']=='POST_BROADCAST_RSS_EXPLICIT_FACTS_UNVERIFIED'
+                          assert factfeed['generated_at']==expected_rss_facts['generated_at']
+                          assert len(factfeed['programs'])==6
+                      elif kind == 'v424':
+                          assert b'DISPLAY BUILD 4.24' in body
+                          assert b'rss-facts.json' in body
+                          assert b'newestCompleted(show,key)' in body
+                      elif kind == 'v423':
                           assert b'DISPLAY BUILD 4.23' in body
                           assert b'record.airdate!==completed' in body
                           assert b'RESULTS & FALLOUT' in body
