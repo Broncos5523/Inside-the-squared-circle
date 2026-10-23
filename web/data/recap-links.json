@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "mode": "PUBLISHER_RSS_POST_SHOW_LINKS_ONLY",
-  "generated_at": "2026-10-23T07:52:29.504496-04:00",
+  "generated_at": "2026-10-23T08:11:47.056741-04:00",
   "source_name": "Multiple publisher RSS feeds",
   "source_url": "https://www.f4wonline.com/rss.xml",
   "approved_publishers": [
@@ -150,7 +150,8 @@
           "url": "https://www.fightful.com/wrestling-news/tna-impact-results-10-22-mustafa-ali-vs-jason-hotch",
           "published_at": "2026-10-23T00:05:53+00:00",
           "source_name": "Fightful",
-          "status": "PUBLISHER_HEADLINE_LINK_ONLY"
+          "status": "PUBLISHER_HEADLINE_LINK_ONLY",
+          "retained_from_previous": true
         },
         {
           "headline": "TNA Impact live results: Jason Hotch vs. Mustafa Ali, Avery Styles vs. Joe Alonzo",
@@ -201,7 +202,7 @@
     }
   ],
   "total_links": 20,
-  "retained_link_count": 1,
+  "retained_link_count": 2,
   "collection_status": "ok",
   "successful_feed_urls": [
     "https://www.f4wonline.com/rss.xml",
