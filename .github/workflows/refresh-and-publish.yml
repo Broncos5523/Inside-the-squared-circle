@@ -104,6 +104,18 @@ jobs:
       - name: Audit recent MIT GitHub wrestling result coverage (read-only)
         if: github.event_name == 'workflow_dispatch'
         run: python -m proof.wvez_audit
+      - name: Audit permitted WCN personal source without publishing its cache
+        run: |
+          python -m proof.wcn_private_cards --snapshot web/data/snapshot.json --out /tmp/wcn-private-cards.json
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          c=json.loads(Path('/tmp/wcn-private-cards.json').read_text())
+          assert c['mode']=='PERSONAL_WCN_REPORTED_CARD_FACTS_V1'
+          assert len(c['programs'])==6
+          assert not Path('web/data/wcn-match-cards-private.json').exists()
+          print('WCN cache remains private; no publishing of WCN facts')
+          PY
       - name: Test research intake safeguards
         run: python -m unittest discover -s tests -v
       - name: Validate preview JavaScript and portrait card pagination
@@ -424,6 +436,21 @@ jobs:
           Path('/tmp/squared-circle-v431.js').write_text(page.split('<script>',1)[1].split('</script>',1)[0])
           PY
           node --check /tmp/squared-circle-v431.js
+      - name: Verify private WCN preview and unchanged portrait visuals
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          h=Path('web/preview-v4-32-private-wcn.html').read_text()
+          old=Path('web/preview-v4-31.html').read_text()
+          assert 'DISPLAY BUILD 4.32' in h
+          assert 'privateWcnRows' in h
+          assert 'wcn-match-cards-private.json' in h
+          assert h.split('<style>',1)[1].split('</style>',1)[0]==old.split('<style>',1)[1].split('</style>',1)[0]
+          assert not Path('web/data/wcn-match-cards-private.json').exists()
+          assert "createElement('a')" not in h
+          Path('/tmp/v432.js').write_text(h.split('<script>',1)[1].split('</script>',1)[0])
+          PY
+          node --check /tmp/v432.js
       - name: Collect unverified match-card research leads
         run: python proof/card_intake.py --snapshot web/data/snapshot.json --out web/data/candidates.json --also-next-league
       - name: Build opt-in reported match descriptions (never confirmed)
@@ -855,6 +882,7 @@ jobs:
               (f'{base}/preview-v4-30.html?show=evolve&probe={nonce}', 'v430'),
               (f'{base}/data/reviewed-recaps.json?probe={nonce}', 'reviewed'),
               (f'{base}/preview-v4-31.html?show=aaa&probe={nonce}', 'v431'),
+              (f'{base}/preview-v4-32-private-wcn.html?show=smackdown&probe={nonce}', 'v432'),
               (f'{base}/preview-v4-31.html?show=tna&view=recap&probe={nonce}', 'v431'),
               (f'{base}/data/aaa-tv-week-cards-20261023.json?probe={nonce}', 'aaa-weeks'),
               (f'{base}/data/episode-briefs.json?probe={nonce}', 'episode-briefs'),
@@ -897,6 +925,9 @@ jobs:
                           weeks=json.loads(body)
                           assert weeks['mode']=='DATED_AAA_TV_WEEK_CARD_REVIEW_UNVERIFIED'
                           assert [x['airdate'] for x in weeks['programs']]==['2026-10-24','2026-10-31','2026-11-07']
+                      elif kind == 'v432':
+                          assert b'DISPLAY BUILD 4.32' in body
+                          assert b'privateWcnRows' in body
                       elif kind == 'v431':
                           assert b'DISPLAY BUILD 4.31' in body
                           assert b'aaa-tv-week-cards-20261023.json' in body
