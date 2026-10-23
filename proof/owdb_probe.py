@@ -90,6 +90,51 @@ def probe_matches_root(requester=None) -> dict:
                 output["example_"+k]=str(row[k])[:160]
     return {"status":"matches_json_discovered","schema":output}
 
+def probe_recent_coverage(requester=None, page_limit=4):
+    """Up to four documented, server-provided pagination links. No scraping."""
+    from datetime import date
+    from urllib.parse import urlsplit
+    PAGE="https://wrestlingdb.org/api/matches/"
+    if requester is None:
+        def requester(url):
+            request=Request(url,headers={"Accept":"application/json",
+                       "User-Agent":"InsideSquaredCircle/1.0 (data coverage research)"})
+            with urlopen(request,timeout=12) as response:
+                if "json" not in response.headers.get("Content-Type","").lower():
+                    raise ValueError("Not JSON")
+                return json.load(response)
+    results=[]
+    visited=set()
+    url=PAGE
+    pages=0
+    while url and pages<page_limit:
+        parsed=urlsplit(url)
+        if parsed.scheme!="https" or parsed.hostname!="wrestlingdb.org" or not parsed.path.startswith("/api/matches/"):
+            break
+        if url in visited:break
+        visited.add(url)
+        try:body=requester(url)
+        except (HTTPError,URLError,OSError,ValueError,TimeoutError):break
+        if not isinstance(body,dict) or not isinstance(body.get("results"),list):break
+        pages+=1
+        for item in body["results"]:
+            if not isinstance(item,dict) or not isinstance(item.get("event"),dict):continue
+            event=item["event"]
+            try:
+                day=date.fromisoformat(event.get("date"))
+            except (ValueError,TypeError):continue
+            name=event.get("name") if isinstance(event.get("name"),str) else ""
+            results.append((day.isoformat(),name[:70]))
+        url=body.get("next") if isinstance(body.get("next"),str) else None
+    recent=sorted((day,name) for day,name in results if day>="2026-09-01")
+    return {"pages_scanned":pages,"records_with_event_date":len(results),
+            "date_min":min((x[0] for x in results),default=None),
+            "date_max":max((x[0] for x in results),default=None),
+            "since_sep2026_count":len(recent),
+            "since_sep2026_events":sorted(set(name for day,name in recent))[:16]}
+
+
 if __name__=="__main__":
     print("OWDB public API non-publishing probe:",json.dumps(probe(),sort_keys=True))
     print("OWDB documented matches schema probe:",json.dumps(probe_matches_root(),sort_keys=True))
+    print("OWDB recent weekly coverage audit:",json.dumps(probe_recent_coverage(),sort_keys=True))
