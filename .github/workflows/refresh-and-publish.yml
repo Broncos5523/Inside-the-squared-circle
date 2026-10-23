@@ -597,6 +597,22 @@ jobs:
           PY
           node --check /tmp/itsc-v440.js
           node tests/test_broadcast_v440.js
+      - name: Verify V4.41 licensed photo archive and no appearance inventions
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          old=Path('web/preview-v4-40-smackdown-broadcast-recaps.html').read_text()
+          new=Path('web/preview-v4-41-licensed-stars-broadcast.html').read_text()
+          assert 'DISPLAY BUILD 4.41' in new
+          assert 'archiveFallback=!forceAfterBell&&matched.length<2' in new
+          assert 'NOT ADVERTISED APPEARANCES' in new
+          assert new.split('<style>',1)[1].split('</style>',1)[0].startswith(
+              old.split('<style>',1)[1].split('</style>',1)[0])
+          assert not Path('web/data/wcn-match-cards-private.json').exists()
+          Path('/tmp/itsc-v441.js').write_text(new.split('<script>',1)[1].split('</script>',1)[0])
+          PY
+          node --check /tmp/itsc-v441.js
+          node tests/test_broadcast_v441.js
       - name: Collect unverified match-card research leads
         run: python proof/card_intake.py --snapshot web/data/snapshot.json --out web/data/candidates.json --also-next-league
       - name: Build opt-in reported match descriptions (never confirmed)
@@ -878,7 +894,7 @@ jobs:
           p=Path('web/assets/vetted/asset-manifest.json')
           d=json.loads(p.read_text())
           assert d['mode']=='COMMONS_REVIEWED_WRESTLING_VISUAL_ASSETS'
-          assert len(d['assets'])==5
+          assert len(d['assets'])==8
           assert all(a['license'] in ('CC BY 2.0','Public domain') for a in d['assets'])
           print('Real license-vetted images:',[(a['id'],a['status']) for a in d['assets']])
           PY
@@ -1056,6 +1072,8 @@ jobs:
               (f'{base}/preview-v4-39-smackdown-full-broadcast.html?show=smackdown&view=broadcast&probe={nonce}', 'v439'),
               (f'{base}/preview-v4-40-smackdown-broadcast-recaps.html?show=smackdown&view=broadcast&probe={nonce}', 'v440'),
               (f'{base}/preview-v4-40-smackdown-broadcast-recaps.html?show=smackdown&view=afterbell&probe={nonce}', 'v440'),
+              (f'{base}/preview-v4-41-licensed-stars-broadcast.html?show=smackdown&view=broadcast&probe={nonce}', 'v441'),
+              (f'{base}/preview-v4-41-licensed-stars-broadcast.html?show=smackdown&view=afterbell&probe={nonce}', 'v441'),
               (f'{base}/data/visual-source-registry.json?probe={nonce}', 'visual-registry'),
               (f'{base}/asset-review.html?probe={nonce}', 'asset-review'),
               (f'{base}/assets/vetted/asset-manifest.json?probe={nonce}', 'asset-registry'),
@@ -1066,7 +1084,7 @@ jobs:
               (f'{base}/data/research-20261022.json?probe={nonce}', 'research'),
               (f'{base}/data/tvmaze-reported.json?probe={nonce}', 'tvmaze'),
           ]
-          for asset in ('smackdown-mark.png','chelsea-green.jpg','roxanne-perez.jpg','giulia.jpg','alexa-bliss.jpg'):
+          for asset in ('smackdown-mark.png','chelsea-green.jpg','roxanne-perez.jpg','giulia.jpg','alexa-bliss.jpg','la-knight.jpg','roman-reigns.jpg','cody-rhodes.jpg'):
               if Path('web/assets/vetted',asset).is_file():
                   kind='visual-png' if asset.endswith('.png') else 'visual-jpg'
                   checks.append((f'{base}/assets/vetted/{asset}?probe={nonce}',kind))
@@ -1118,6 +1136,11 @@ jobs:
                           assert b'DISPLAY BUILD 4.39' in body
                           assert b'id="bc-people"' in body
                           assert b'OTHER REPORTED MATCHES' in body
+                      elif kind == 'v441':
+                          assert b'DISPLAY BUILD 4.41' in body
+                          assert b'la-knight.jpg' in body
+                          assert b'NOT ADVERTISED APPEARANCES' in body
+                          assert b'renderSdRecapBoxes' in body
                       elif kind == 'v440':
                           assert b'DISPLAY BUILD 4.40' in body
                           assert b'renderSdRecapBoxes' in body

@@ -38,6 +38,18 @@ ASSETS=(
   "file":"alexa-bliss.jpg","license":"CC BY 2.0","artist":"Diego Serrano",
   "credit":"Diego Serrano / CC BY 2.0",
   "source":"https://commons.wikimedia.org/wiki/File:Alexa_Bliss_RR25_(1).jpg"},
+ {"id":"la knight","type":"portrait","title":"LA Knight RR25.jpg",
+  "file":"la-knight.jpg","license":"CC BY 2.0","artist":"Diego Serrano",
+  "credit":"Diego Serrano / CC BY 2.0",
+  "source":"https://commons.wikimedia.org/wiki/File:LA_Knight_RR25.jpg"},
+ {"id":"roman reigns","type":"portrait","title":"Roman Reigns RR25 (1).jpg",
+  "file":"roman-reigns.jpg","license":"CC BY 2.0","artist":"Diego Serrano",
+  "credit":"Diego Serrano / CC BY 2.0",
+  "source":"https://commons.wikimedia.org/wiki/File:Roman_Reigns_RR25_(1).jpg"},
+ {"id":"cody rhodes","type":"portrait","title":"Cody Rhodes RR25.jpg",
+  "file":"cody-rhodes.jpg","license":"CC BY 2.0","artist":"Diego Serrano",
+  "credit":"Diego Serrano / CC BY 2.0",
+  "source":"https://commons.wikimedia.org/wiki/File:Cody_Rhodes_RR25.jpg"},
 )
 LIMIT_BYTES=2_100_000
 

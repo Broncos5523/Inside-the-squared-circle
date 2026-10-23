@@ -24,7 +24,7 @@ def mockfetch(url):
 class ApprovedGraphicsTests(unittest.TestCase):
  def test_real_people_and_credit_are_exactly_mapped(self):
   self.assertEqual([x['id'] for x in ASSETS],
-       ['smackdown','chelsea green','roxanne perez','giulia','alexa bliss'])
+       ['smackdown','chelsea green','roxanne perez','giulia','alexa bliss','la knight','roman reigns','cody rhodes'])
   self.assertTrue(all(x['source'].startswith('https://commons.wikimedia.org/wiki/File:') for x in ASSETS))
   self.assertTrue(all(x['license']=='CC BY 2.0' for x in ASSETS if x['type']=='portrait'))
  def test_exact_commons_license_verified_per_file(self):
@@ -43,10 +43,10 @@ class ApprovedGraphicsTests(unittest.TestCase):
     return json.dumps(val).encode()
    return mockfetch(url)
   with self.assertRaises(ValueError):image_info(ASSETS[1],revoked)
- def test_ingest_creates_five_local_images_and_attribution_manifest(self):
+ def test_ingest_creates_eight_local_images_and_attribution_manifest(self):
   with tempfile.TemporaryDirectory() as temp:
    output=build(temp,mockfetch,datetime(2026,10,23,tzinfo=timezone.utc))
-   self.assertEqual([r['status'] for r in output['assets']],['ready']*5)
+   self.assertEqual([r['status'] for r in output['assets']],['ready']*8)
    self.assertEqual(len(output['issues']),0)
    for r in output['assets']:
     self.assertTrue((Path(temp)/r['file']).exists())
@@ -61,5 +61,5 @@ class ApprovedGraphicsTests(unittest.TestCase):
    chelsea=next(r for r in obj['assets'] if r['id']=='chelsea green')
    self.assertEqual(chelsea['status'],'unavailable')
    self.assertFalse((Path(temp)/'chelsea-green.jpg').exists())
-   self.assertEqual(sum(a['status']=='ready' for a in obj['assets']),4)
+   self.assertEqual(sum(a['status']=='ready' for a in obj['assets']),7)
 if __name__=="__main__":unittest.main()
