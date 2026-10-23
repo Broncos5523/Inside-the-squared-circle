@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "mode": "PUBLISHER_RSS_POST_SHOW_LINKS_ONLY",
-  "generated_at": "2026-10-22T23:06:54.211677-04:00",
+  "generated_at": "2026-10-22T23:14:07.677652-04:00",
   "source_name": "Multiple publisher RSS feeds",
   "source_url": "https://www.f4wonline.com/rss.xml",
   "approved_publishers": [
@@ -34,7 +34,8 @@
           "url": "https://www.tpww.net/2026/10/wwe-raw-results-oct-19-2026-wwe-world-heavyweight-champion-roman-reigns-appears-penta-vs-bron-breakker/",
           "published_at": "2026-10-20T00:33:36+00:00",
           "source_name": "TPWW",
-          "status": "PUBLISHER_HEADLINE_LINK_ONLY"
+          "status": "PUBLISHER_HEADLINE_LINK_ONLY",
+          "retained_from_previous": true
         },
         {
           "headline": "WWE Raw live results: Road to Crown Jewel, Roman Reigns returns",
@@ -164,7 +165,7 @@
     }
   ],
   "total_links": 15,
-  "retained_link_count": 0,
+  "retained_link_count": 1,
   "collection_status": "ok",
   "successful_feed_urls": [
     "https://www.f4wonline.com/rss.xml",
@@ -174,6 +175,8 @@
     "https://411mania.com/wrestling/category/tv-report/feed/",
     "https://www.fightful.com/wrestling/rss",
     "https://gerweck.net/category/results/feed/",
-    "https://www.tpww.net/feed/"
+    "https://www.tpww.net/feed/",
+    "https://www.ringsidenews.com/feed/",
+    "https://wrestlingheadlines.com/feed/"
   ]
 }
