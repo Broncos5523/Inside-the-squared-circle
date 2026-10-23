@@ -46,5 +46,50 @@ def probe(requester=None):
     elif isinstance(matches,int):sample["count"]=matches
     return {"status":"json_schema_discovered","top_level_keys":items,"declared_routes":paths,
             "matches_shape":sample}
+
+def probe_matches_root(requester=None) -> dict:
+    """Follow only the matches route explicitly advertised by OWDB."""
+    if requester is None:
+        def requester():
+            root_req=Request(ROOT,headers={"Accept":"application/json",
+                     "User-Agent":"InsideSquaredCircle/1.0 (public API research)"})
+            with urlopen(root_req,timeout=12) as response:
+                if "json" not in response.headers.get("Content-Type","").lower():
+                    return {"status":"not_json"}
+                index=json.load(response)
+            if not isinstance(index,dict) or index.get("matches")!="https://wrestlingdb.org/api/matches/":
+                return {"status":"no_declared_matches_route"}
+            req=Request(index["matches"],headers={"Accept":"application/json",
+                        "User-Agent":"InsideSquaredCircle/1.0 (public API research)"})
+            with urlopen(req,timeout=12) as response:
+                if "json" not in response.headers.get("Content-Type","").lower():
+                    return {"status":"not_json"}
+                return json.load(response)
+    try:
+        body=requester()
+    except (HTTPError,URLError,TimeoutError,ValueError,OSError) as exc:
+        return {"status":"unavailable","reason":type(exc).__name__}
+    if not isinstance(body,(dict,list)):
+        return {"status":"unexpected_schema","kind":type(body).__name__}
+    if isinstance(body,list):
+        items=body
+        output={"kind":"list","total_returned":len(items)}
+    else:
+        output={"kind":"object","top_level_keys":[str(x)[:50] for x in list(body)[:20]]}
+        items=next((body.get(k) for k in ("results","data","matches","items")
+                    if isinstance(body.get(k),list)),[])
+        for count in ("count","total","total_count"):
+            if isinstance(body.get(count),int):output["declared_count"]=body[count]
+    if items and isinstance(items[0],dict):
+        row=items[0]
+        output["first_row_keys"]=[str(x)[:50] for x in list(row)[:35]]
+        for k in ("id","event","event_id","event_name","event_date","date",
+                  "match_date","winner","result","winners","participants","promotion",
+                  "match_type"):
+            if k in row:
+                output["example_"+k]=str(row[k])[:160]
+    return {"status":"matches_json_discovered","schema":output}
+
 if __name__=="__main__":
     print("OWDB public API non-publishing probe:",json.dumps(probe(),sort_keys=True))
+    print("OWDB documented matches schema probe:",json.dumps(probe_matches_root(),sort_keys=True))
