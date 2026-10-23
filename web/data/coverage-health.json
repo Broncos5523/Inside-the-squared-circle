@@ -1,40 +1,42 @@
 {
   "schema_version": 1,
   "mode": "WRESTLING_CONTENT_COVERAGE_COUNTS_ONLY",
-  "generated_at": "2026-10-23T01:31:38.638429-04:00",
+  "generated_at": "2026-10-23T01:35:58.901422-04:00",
   "source_health": {
     "reported": {
       "fresh": true,
-      "generated_at": "2026-10-23T01:30:47.557869-04:00"
+      "generated_at": "2026-10-23T01:35:11.036154-04:00"
     },
     "results": {
       "fresh": true,
-      "generated_at": "2026-10-23T01:30:54.144896-04:00"
+      "generated_at": "2026-10-23T01:35:17.631168-04:00"
     },
     "rss_facts": {
       "fresh": true,
-      "generated_at": "2026-10-23T01:31:18.997375-04:00"
+      "generated_at": "2026-10-23T01:35:39.811414-04:00"
     },
     "rss_excerpts": {
       "fresh": true,
-      "generated_at": "2026-10-23T01:31:27.780766-04:00"
+      "generated_at": "2026-10-23T01:35:48.274461-04:00"
     },
     "fallout": {
       "fresh": true,
-      "generated_at": "2026-10-23T01:31:36.840043-04:00"
+      "generated_at": "2026-10-23T01:35:57.277349-04:00"
     },
     "recap_links": {
       "fresh": true,
-      "generated_at": "2026-10-23T01:31:18.867689-04:00"
+      "generated_at": "2026-10-23T01:35:39.605028-04:00"
     },
     "episode_briefs": {
       "fresh": true,
-      "generated_at": "2026-10-23T01:31:05.152900-04:00"
+      "generated_at": "2026-10-23T01:35:28.646932-04:00"
     }
   },
   "totals": {
     "upcoming_reported_matches": 3,
     "upcoming_reported_appearances": 0,
+    "upcoming_reviewed_matches": 13,
+    "upcoming_reviewed_appearances": 1,
     "automatic_match_outcomes": 0,
     "automatic_storylines": 0,
     "manually_reviewed_outcomes": 23,
@@ -56,6 +58,8 @@
       "next_airdate": "2026-10-26",
       "upcoming_reported_matches": 0,
       "upcoming_reported_appearances": 0,
+      "upcoming_reviewed_matches": 1,
+      "upcoming_reviewed_appearances": 0,
       "automatic_match_outcomes": 0,
       "automatic_storylines": 0,
       "manually_reviewed_outcomes": 5,
@@ -70,6 +74,8 @@
       "next_airdate": "2026-10-23",
       "upcoming_reported_matches": 3,
       "upcoming_reported_appearances": 0,
+      "upcoming_reviewed_matches": 4,
+      "upcoming_reviewed_appearances": 0,
       "automatic_match_outcomes": 0,
       "automatic_storylines": 0,
       "manually_reviewed_outcomes": 5,
@@ -84,6 +90,8 @@
       "next_airdate": "2026-10-27",
       "upcoming_reported_matches": 0,
       "upcoming_reported_appearances": 0,
+      "upcoming_reviewed_matches": 5,
+      "upcoming_reviewed_appearances": 0,
       "automatic_match_outcomes": 0,
       "automatic_storylines": 0,
       "manually_reviewed_outcomes": 4,
@@ -98,6 +106,8 @@
       "next_airdate": "2026-10-24",
       "upcoming_reported_matches": 0,
       "upcoming_reported_appearances": 0,
+      "upcoming_reviewed_matches": 3,
+      "upcoming_reviewed_appearances": 1,
       "automatic_match_outcomes": 0,
       "automatic_storylines": 0,
       "manually_reviewed_outcomes": 2,
@@ -112,6 +122,8 @@
       "next_airdate": "2026-10-29",
       "upcoming_reported_matches": 0,
       "upcoming_reported_appearances": 0,
+      "upcoming_reviewed_matches": 0,
+      "upcoming_reviewed_appearances": 0,
       "automatic_match_outcomes": 0,
       "automatic_storylines": 0,
       "manually_reviewed_outcomes": 4,
@@ -126,6 +138,8 @@
       "next_airdate": "2026-10-28",
       "upcoming_reported_matches": 0,
       "upcoming_reported_appearances": 0,
+      "upcoming_reviewed_matches": 0,
+      "upcoming_reviewed_appearances": 0,
       "automatic_match_outcomes": 0,
       "automatic_storylines": 0,
       "manually_reviewed_outcomes": 3,
@@ -136,5 +150,5 @@
     }
   ],
   "rss_bottleneck": "no_explicit_winner_sentences",
-  "interpretation": "Counts of data availability, not match counts in the real world. Headline links and TVmaze episode synopses are not results. Automated source counts can duplicate the same match."
+  "interpretation": "Availability counts, not a list of unique confirmed matches. Reviewed upcoming card entries are distinct from provider-reported rows and may overlap. Publisher links and synopses are not results."
 }
