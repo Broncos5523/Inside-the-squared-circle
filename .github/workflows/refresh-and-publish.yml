@@ -580,6 +580,23 @@ jobs:
           PY
           node --check /tmp/itsc-v439.js
           node tests/test_broadcast_names_v439.js
+      - name: Verify V4.40 source-gated full-board post-show recaps
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          previous=Path('web/preview-v4-39-smackdown-full-broadcast.html').read_text()
+          newest=Path('web/preview-v4-40-smackdown-broadcast-recaps.html').read_text()
+          assert 'DISPLAY BUILD 4.40' in newest
+          assert 'forceAfterBell' in newest and 'renderSdRecapBoxes' in newest
+          assert newest.split('<style>',1)[1].split('</style>',1)[0].startswith(
+              previous.split('<style>',1)[1].split('</style>',1)[0])
+          assert "const appearances=forceAfterBell?[]:reportedRows(show,key,'appearances')" in newest
+          assert "createElement('a')" not in newest
+          assert not Path('web/data/wcn-match-cards-private.json').exists()
+          Path('/tmp/itsc-v440.js').write_text(newest.split('<script>',1)[1].split('</script>',1)[0])
+          PY
+          node --check /tmp/itsc-v440.js
+          node tests/test_broadcast_v440.js
       - name: Collect unverified match-card research leads
         run: python proof/card_intake.py --snapshot web/data/snapshot.json --out web/data/candidates.json --also-next-league
       - name: Build opt-in reported match descriptions (never confirmed)
@@ -1037,6 +1054,8 @@ jobs:
               (f'{base}/preview-v4-38-smackdown-broadcast-review.html?show=smackdown&view=showcase&probe={nonce}', 'v438'),
               (f'{base}/preview-v4-39-reference-broadcast.html?show=smackdown&view=broadcast&probe={nonce}', 'v439'),
               (f'{base}/preview-v4-39-smackdown-full-broadcast.html?show=smackdown&view=broadcast&probe={nonce}', 'v439'),
+              (f'{base}/preview-v4-40-smackdown-broadcast-recaps.html?show=smackdown&view=broadcast&probe={nonce}', 'v440'),
+              (f'{base}/preview-v4-40-smackdown-broadcast-recaps.html?show=smackdown&view=afterbell&probe={nonce}', 'v440'),
               (f'{base}/data/visual-source-registry.json?probe={nonce}', 'visual-registry'),
               (f'{base}/asset-review.html?probe={nonce}', 'asset-review'),
               (f'{base}/assets/vetted/asset-manifest.json?probe={nonce}', 'asset-registry'),
@@ -1099,6 +1118,10 @@ jobs:
                           assert b'DISPLAY BUILD 4.39' in body
                           assert b'id="bc-people"' in body
                           assert b'OTHER REPORTED MATCHES' in body
+                      elif kind == 'v440':
+                          assert b'DISPLAY BUILD 4.40' in body
+                          assert b'renderSdRecapBoxes' in body
+                          assert b'AFTER THE BELL' in body
                       elif kind == 'v438':
                           assert b'DISPLAY BUILD 4.38' in body
                           assert b'smackdown-showcase' in body
