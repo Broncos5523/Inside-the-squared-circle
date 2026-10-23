@@ -1,9 +1,63 @@
 {
   "schema_version": 1,
   "mode": "REVIEWED_WEEKLY_EPISODE_FACTS_V1",
-  "reviewed_at_et": "2026-10-23T00:38:37.724-04:00",
+  "reviewed_at_et": "2026-10-23T00:42:43-04:00",
   "policy": "Manually checked, dated primary-source and independent-secondary-source facts in short original wording; not a live automatic results collector. Original URLs stay in data. Preserve exact TV broadcast date. No article body redistribution.",
   "programs": [
+    {
+      "show_id": "aaa",
+      "airdate": "2026-10-17",
+      "review_method": "MANUAL_SOURCE_REVIEW",
+      "reuse_basis": "FACT_ONLY_PARAPHRASE",
+      "source_name": "WWE AAA results / TPWW Oct 17 recap",
+      "source_url": "https://www.wwe.com/shows/aaa/lucha-libre-aaa-2026-10-17/lucha-libre-aaa-results-oct-17-2026",
+      "secondary_source_name": "TPWW — AAA TV October 17 review",
+      "secondary_source_url": "https://www.tpww.net/2026/10/10-17-aaa-tv-notes-quick-match-results-el-fiscal-vs-abismo-negro-and-flammer-vs-la-hiedra-vs-la-catalina-for-aaa-reina-de-reinas-title-set-for-aaa-heroes-inmortales-2026/",
+      "results": [
+        {
+          "text": "Taurus defeated El Fiscal after interference from Abismo Negro Jr.",
+          "match_type": "Singles Match",
+          "status": "REPORTED_UNVERIFIED"
+        },
+        {
+          "text": "The Wagner Brothers defeated El Mesías and Mecha Wolf to retain the AAA World Tag Team Championship",
+          "match_type": "AAA World Tag Team Championship",
+          "status": "REPORTED_UNVERIFIED"
+        }
+      ],
+      "developments": [
+        {
+          "text": "Abismo Negro Jr. helped Taurus beat El Fiscal, prompting a confrontation and a future match challenge",
+          "type": "Los Vipers rivalry",
+          "status": "REPORTED_UNVERIFIED"
+        },
+        {
+          "text": "Flammer and La Hiedra argued while confronting AAA Reina de Reinas Champion La Catalina",
+          "type": "Reina de Reinas storyline",
+          "status": "REPORTED_UNVERIFIED"
+        },
+        {
+          "text": "Los Perros del Mal sparked a brawl with the Wagner Brothers and other AAA wrestlers after the tag title match",
+          "type": "Post-match faction brawl",
+          "status": "REPORTED_UNVERIFIED"
+        },
+        {
+          "text": "AAA revealed a Reina de Reinas triple threat with La Catalina, Flammer and La Hiedra for October 24",
+          "type": "Heroes Inmortales Week 1",
+          "status": "REPORTED_UNVERIFIED"
+        },
+        {
+          "text": "El Grande Americano and Dominik Mysterio were listed for the AAA Mega Championship match on October 24",
+          "type": "Heroes Inmortales Week 1",
+          "status": "REPORTED_UNVERIFIED"
+        },
+        {
+          "text": "Los Perros del Mal and the team of La Parka, Mr. Iguana and Niño Hamburguesa were listed for an October 24 trios title match",
+          "type": "Heroes Inmortales Week 1",
+          "status": "REPORTED_UNVERIFIED"
+        }
+      ]
+    },
     {
       "show_id": "tna",
       "airdate": "2026-10-22",
