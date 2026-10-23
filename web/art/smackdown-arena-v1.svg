@@ -1,0 +1,72 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="720" height="1280" viewBox="0 0 720 1280" role="img" aria-label="Illustrated electric-blue wrestling arena background">
+<defs>
+ <linearGradient id="night" x1="0" y1="0" x2="0" y2="1"><stop stop-color="#02040c"/><stop offset=".28" stop-color="#102a5e"/><stop offset=".66" stop-color="#06142e"/><stop offset="1" stop-color="#020711"/></linearGradient>
+ <linearGradient id="led" x1="0" x2="1"><stop stop-color="#063976"/><stop offset=".32" stop-color="#0f80fa"/><stop offset=".52" stop-color="#89f0ff"/><stop offset=".72" stop-color="#1b69f9"/><stop offset="1" stop-color="#073c85"/></linearGradient>
+ <linearGradient id="ledge" x1="0" y1="0" x2="0" y2="1"><stop stop-color="#70d9ff" stop-opacity=".78"/><stop offset=".17" stop-color="#2458d1" stop-opacity=".32"/><stop offset="1" stop-color="#011025" stop-opacity=".05"/></linearGradient>
+ <linearGradient id="beam" x1="0" y1="0" x2=".6" y2="1"><stop stop-color="#e6ffff" stop-opacity=".37"/><stop offset=".22" stop-color="#42c5ff" stop-opacity=".23"/><stop offset="1" stop-color="#12a8ff" stop-opacity="0"/></linearGradient>
+ <radialGradient id="halo"><stop stop-color="#29d0ff" stop-opacity=".75"/><stop offset=".35" stop-color="#1549b9" stop-opacity=".24"/><stop offset="1" stop-color="#0b46de" stop-opacity="0"/></radialGradient>
+ <radialGradient id="crowd"><stop stop-color="#2c68ac" stop-opacity=".5"/><stop offset="1" stop-color="#0b2448" stop-opacity=".05"/></radialGradient>
+ <pattern id="truss" width="48" height="28" patternUnits="userSpaceOnUse">
+  <path d="M0 1H48 M0 27H48 M0 1L48 27 M48 1L0 27" fill="none" stroke="#8db9fb" stroke-opacity=".36" stroke-width="1"/>
+  <path d="M0 0V28 M48 0V28" stroke="#7ab8ff" stroke-opacity=".3" stroke-width="2"/>
+ </pattern>
+ <pattern id="pixels" width="14" height="12" patternUnits="userSpaceOnUse">
+  <rect x="2" y="2" width="3" height="3" fill="#b8eaff" opacity=".18"/>
+  <rect x="9" y="8" width="2.5" height="2" fill="#4d90ff" opacity=".22"/>
+ </pattern>
+ <pattern id="crowdDots" width="29" height="21" patternUnits="userSpaceOnUse">
+  <circle cx="3" cy="9" r="2.2" fill="#6f9beb" opacity=".34"/>
+  <circle cx="15" cy="15" r="2" fill="#afc9fc" opacity=".25"/>
+  <circle cx="24" cy="5" r="1.9" fill="#4fc2fa" opacity=".25"/>
+ </pattern>
+ <filter id="bloom" x="-50%" y="-50%" width="200%" height="200%"><feGaussianBlur stdDeviation="14"/></filter>
+ <filter id="glow" x="-35%" y="-35%" width="170%" height="170%"><feGaussianBlur stdDeviation="4"/></filter>
+ <clipPath id="scene"><rect width="720" height="1280"/></clipPath>
+</defs>
+<g clip-path="url(#scene)">
+ <rect width="720" height="1280" fill="url(#night)"/>
+ <ellipse cx="365" cy="460" rx="530" ry="540" fill="url(#halo)"/>
+ <path d="M0 0H720V255L610 186 360 128 105 191 0 252Z" fill="#030b19" opacity=".95"/>
+ <path d="M-70 140H790V179H-70Z" fill="url(#truss)" stroke="#66baff" stroke-opacity=".3"/>
+ <path d="M-65 267H785V306H-65Z" fill="url(#truss)" stroke="#66baff" stroke-opacity=".3"/>
+ <path d="M-30 205L290 610 330 1140-40 470Z" fill="url(#beam)" opacity=".95"/>
+ <path d="M760 205L425 620 345 1140 780 460Z" fill="url(#beam)" opacity=".95"/>
+ <path d="M96 255L310 550 410 1050 177 467Z" fill="url(#beam)" opacity=".55"/>
+ <path d="M618 255L427 570 304 1040 543 466Z" fill="url(#beam)" opacity=".55"/>
+ <ellipse cx="126" cy="275" rx="55" ry="30" fill="#6adcff" opacity=".5" filter="url(#bloom)"/>
+ <ellipse cx="599" cy="275" rx="55" ry="30" fill="#6adcff" opacity=".5" filter="url(#bloom)"/>
+ <g fill="#d5ffff">
+  <circle cx="126" cy="276" r="5"/><circle cx="599" cy="276" r="5"/><circle cx="360" cy="280" r="5"/><circle cx="235" cy="275" r="3.5"/><circle cx="481" cy="275" r="3.5"/>
+ </g>
+ <path d="M0 328L140 352 140 775 0 850Z" fill="#04112b" stroke="#247fea" stroke-width="4"/>
+ <path d="M720 328L580 352 580 775 720 850Z" fill="#04112b" stroke="#247fea" stroke-width="4"/>
+ <path d="M0 357L120 370V755L0 802Z" fill="url(#led)" opacity=".6"/>
+ <path d="M720 357L600 370V755L720 802Z" fill="url(#led)" opacity=".6"/>
+ <path d="M0 357L120 370V755L0 802Z" fill="url(#pixels)"/>
+ <path d="M720 357L600 370V755L720 802Z" fill="url(#pixels)"/>
+ <rect x="144" y="365" width="430" height="305" rx="7" fill="#000916" stroke="#2c99ff" stroke-width="6"/>
+ <rect x="158" y="379" width="402" height="278" rx="2" fill="url(#led)" opacity=".87"/>
+ <rect x="158" y="379" width="402" height="278" fill="url(#pixels)" opacity=".8"/>
+ <path d="M173 540L555 392 M165 620L555 462 M180 655L550 509" stroke="#b8edff" stroke-width="11" opacity=".17"/>
+ <text x="359" y="497" font-family="Arial,Helvetica,sans-serif" text-anchor="middle" fill="#ebf8ff" font-size="66" font-weight="900" letter-spacing="-6">SMACK</text>
+ <text x="359" y="566" font-family="Arial,Helvetica,sans-serif" text-anchor="middle" fill="#ebf8ff" font-size="68" font-weight="900" letter-spacing="-6">DOWN</text>
+ <path d="M160 592H557" stroke="#b4f7ff" stroke-width="7" opacity=".8"/>
+ <g stroke="#3b9bfe" opacity=".55" fill="none" stroke-width="5">
+  <path d="M141 350L88 298V841L142 783"/><path d="M577 350L635 298V842L577 783"/>
+  <path d="M53 380L53 830 M667 380V830"/>
+ </g>
+ <path d="M0 720Q359 590 720 720V1210H0Z" fill="url(#crowd)"/>
+ <path d="M0 720Q359 590 720 720V1210H0Z" fill="url(#crowdDots)" opacity=".9"/>
+ <path d="M0 867L157 804 563 804 720 867V1055H0Z" fill="#081323" opacity=".83" stroke="#2175ba" stroke-width="4"/>
+ <path d="M140 880L257 793H464L580 880" fill="none" stroke="#6eceff" stroke-width="9" opacity=".44" filter="url(#glow)"/>
+ <path d="M140 880L257 793H464L580 880" fill="none" stroke="#9bdfff" stroke-width="3" opacity=".8"/>
+ <path d="M128 866L592 866 618 1024 103 1024Z" fill="#223964" opacity=".58" stroke="#4e9fff" stroke-width="4"/>
+ <path d="M133 906H588 M125 947H599 M111 986H611" stroke="#c6f3ff" stroke-width="3" opacity=".75"/>
+ <path d="M134 855L119 1037 M583 855L609 1037" stroke="#95cfff" stroke-width="8" opacity=".9"/>
+ <path d="M0 1114Q359 960 720 1114V1280H0Z" fill="#01040e" opacity=".87"/>
+ <path d="M0 1114Q359 960 720 1114" stroke="#127ddc" stroke-width="3" opacity=".38"/>
+ <rect x="0" y="0" width="720" height="1280" fill="url(#ledge)" opacity=".11"/>
+ <path d="M12 38H708 M12 1244H708" stroke="#4b9ded" stroke-opacity=".5" stroke-width="2"/>
+ <path d="M20 38V150 M700 38V150 M20 1142V1244 M700 1142V1244" stroke="#7ddfff" stroke-opacity=".4" stroke-width="4"/>
+</g>
+</svg>

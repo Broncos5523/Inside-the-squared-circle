@@ -481,6 +481,24 @@ jobs:
           Path('/tmp/v434.js').write_text(html.split('<script>',1)[1].split('</script>',1)[0])
           PY
           node --check /tmp/v434.js
+      - name: Validate V4.35 SmackDown graphics assets and JS
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          from xml.etree import ElementTree as ET
+          new=Path('web/preview-v4-35-smackdown-graphics.html').read_text()
+          old=Path('web/preview-v4-34-private-wcn.html').read_text()
+          art=Path('web/art/smackdown-arena-v1.svg').read_text()
+          assert 'DISPLAY BUILD 4.35' in new and 'sdMatchHero' in new
+          assert "classList.toggle('smackdown-graphics',key==='smackdown')" in new
+          assert new.split('<style>',1)[1].split('</style>',1)[0].startswith(
+                 old.split('<style>',1)[1].split('</style>',1)[0])
+          assert ET.fromstring(art).attrib['viewBox']=='0 0 720 1280'
+          assert 'wcn-match-cards-private.json' in new
+          assert not Path('web/data/wcn-match-cards-private.json').exists()
+          Path('/tmp/itsc-v435.js').write_text(new.split('<script>',1)[1].split('</script>',1)[0])
+          PY
+          node --check /tmp/itsc-v435.js
       - name: Collect unverified match-card research leads
         run: python proof/card_intake.py --snapshot web/data/snapshot.json --out web/data/candidates.json --also-next-league
       - name: Build opt-in reported match descriptions (never confirmed)
@@ -915,6 +933,9 @@ jobs:
               (f'{base}/preview-v4-32-private-wcn.html?show=smackdown&probe={nonce}', 'v432'),
               (f'{base}/preview-v4-33-private-wcn.html?show=smackdown&view=recap&probe={nonce}', 'v433'),
               (f'{base}/preview-v4-34-private-wcn.html?show=smackdown&probe={nonce}', 'v434'),
+              (f'{base}/preview-v4-35-smackdown-graphics.html?show=smackdown&probe={nonce}', 'v435'),
+              (f'{base}/preview-v4-35-smackdown-graphics.html?show=smackdown&view=recap&probe={nonce}', 'v435'),
+              (f'{base}/art/smackdown-arena-v1.svg?probe={nonce}', 'smackdown-art'),
               (f'{base}/preview-v4-31.html?show=tna&view=recap&probe={nonce}', 'v431'),
               (f'{base}/data/aaa-tv-week-cards-20261023.json?probe={nonce}', 'aaa-weeks'),
               (f'{base}/data/episode-briefs.json?probe={nonce}', 'episode-briefs'),
@@ -957,6 +978,13 @@ jobs:
                           weeks=json.loads(body)
                           assert weeks['mode']=='DATED_AAA_TV_WEEK_CARD_REVIEW_UNVERIFIED'
                           assert [x['airdate'] for x in weeks['programs']]==['2026-10-24','2026-10-31','2026-11-07']
+                      elif kind == 'smackdown-art':
+                          assert b'viewBox="0 0 720 1280"' in body
+                          assert b'SMACK' in body and b'DOWN' in body
+                      elif kind == 'v435':
+                          assert b'DISPLAY BUILD 4.35' in body
+                          assert b'smackdown-graphics' in body
+                          assert b'sdMatchHero' in body
                       elif kind == 'v434':
                           assert b'DISPLAY BUILD 4.34' in body
                           assert b'Advertised appearance' in body
