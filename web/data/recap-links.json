@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "mode": "PUBLISHER_RSS_POST_SHOW_LINKS_ONLY",
-  "generated_at": "2026-10-22T22:48:23.601718-04:00",
+  "generated_at": "2026-10-22T23:06:54.211677-04:00",
   "source_name": "Multiple publisher RSS feeds",
   "source_url": "https://www.f4wonline.com/rss.xml",
   "approved_publishers": [
@@ -30,10 +30,24 @@
           "status": "PUBLISHER_HEADLINE_LINK_ONLY"
         },
         {
+          "headline": "WWE RAW Results – Oct. 19, 2026 – WWE World Heavyweight Champion Roman Reigns Appears, Penta vs. Bron Breakker",
+          "url": "https://www.tpww.net/2026/10/wwe-raw-results-oct-19-2026-wwe-world-heavyweight-champion-roman-reigns-appears-penta-vs-bron-breakker/",
+          "published_at": "2026-10-20T00:33:36+00:00",
+          "source_name": "TPWW",
+          "status": "PUBLISHER_HEADLINE_LINK_ONLY"
+        },
+        {
           "headline": "WWE Raw live results: Road to Crown Jewel, Roman Reigns returns",
           "url": "https://www.f4wonline.com/news/wwe/results/wwe-raw-live-results-road-to-crown-jewel-roman-reigns/",
           "published_at": "2026-10-19T23:15:00+00:00",
           "source_name": "F4W / Wrestling Observer",
+          "status": "PUBLISHER_HEADLINE_LINK_ONLY"
+        },
+        {
+          "headline": "WWE Raw Results 10/19/26",
+          "url": "https://gerweck.net/2026/10/19/wwe-raw-results-10-19-26/",
+          "published_at": "2026-10-19T23:00:51+00:00",
+          "source_name": "Gerweck.net",
           "status": "PUBLISHER_HEADLINE_LINK_ONLY"
         }
       ],
@@ -44,6 +58,13 @@
       "show_id": "smackdown",
       "airdate": "2026-10-16",
       "links": [
+        {
+          "headline": "WWE SmackDown Results 10/16/26",
+          "url": "https://gerweck.net/2026/10/16/wwe-smackdown-results-10-16-26/",
+          "published_at": "2026-10-16T23:38:40+00:00",
+          "source_name": "Gerweck.net",
+          "status": "PUBLISHER_HEADLINE_LINK_ONLY"
+        },
         {
           "headline": "WWE SmackDown live results: Cody Rhodes & Randy Orton face-to-face",
           "url": "https://www.f4wonline.com/news/wwe/results/wwe-smackdown-live-results-cody-rhodes-randy-orton-face-to-face/",
@@ -67,10 +88,24 @@
           "status": "PUBLISHER_HEADLINE_LINK_ONLY"
         },
         {
+          "headline": "10/20/26 NXT Recap",
+          "url": "https://gerweck.net/2026/10/20/10-20-26-nxt-recap/",
+          "published_at": "2026-10-21T03:15:10+00:00",
+          "source_name": "Gerweck.net",
+          "status": "PUBLISHER_HEADLINE_LINK_ONLY"
+        },
+        {
           "headline": "Cook’s WWE NXT Review 10.20.26",
           "url": "https://411mania.com/wrestling/cooks-wwe-nxt-review-10-20-26/",
           "published_at": "2026-10-21T02:10:48+00:00",
           "source_name": "411Mania",
+          "status": "PUBLISHER_HEADLINE_LINK_ONLY"
+        },
+        {
+          "headline": "WWE NXT Results – Oct. 20, 2026 – Dusty Rhodes Tag Team Classic 2026 Matches, Kelani Jordan & Wren Sinclair NXT Women’s Title Match Contract Signing",
+          "url": "https://www.tpww.net/2026/10/wwe-nxt-results-oct-20-2026-dusty-rhodes-tag-team-classic-2026-matches-kelani-jordan-wren-sinclair-nxt-womens-title-match-contract-signing/",
+          "published_at": "2026-10-20T23:56:48+00:00",
+          "source_name": "TPWW",
           "status": "PUBLISHER_HEADLINE_LINK_ONLY"
         },
         {
@@ -110,6 +145,13 @@
           "status": "PUBLISHER_HEADLINE_LINK_ONLY"
         },
         {
+          "headline": "10/21/26 WWE Evolve Recap",
+          "url": "https://gerweck.net/2026/10/22/10-21-26-wwe-evolve-recap/",
+          "published_at": "2026-10-22T14:02:54+00:00",
+          "source_name": "Gerweck.net",
+          "status": "PUBLISHER_HEADLINE_LINK_ONLY"
+        },
+        {
           "headline": "Leighty’s WWE Evolve Review: 10.21.26",
           "url": "https://411mania.com/wrestling/leightys-wwe-evolve-review-10-21-26/",
           "published_at": "2026-10-22T04:36:54+00:00",
@@ -121,7 +163,7 @@
       "status": "publisher_coverage_links"
     }
   ],
-  "total_links": 9,
+  "total_links": 15,
   "retained_link_count": 0,
   "collection_status": "ok",
   "successful_feed_urls": [
@@ -130,6 +172,8 @@
     "https://www.f4wonline.com/category/news/nxt/nxt-results/feed/",
     "https://411mania.com/wrestling/feed/",
     "https://411mania.com/wrestling/category/tv-report/feed/",
-    "https://www.fightful.com/wrestling/rss"
+    "https://www.fightful.com/wrestling/rss",
+    "https://gerweck.net/category/results/feed/",
+    "https://www.tpww.net/feed/"
   ]
 }
