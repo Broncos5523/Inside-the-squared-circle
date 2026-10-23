@@ -4,29 +4,32 @@
   "as_of": "2026-10-23",
   "show": "smackdown",
   "display_size": "720x1280 portrait",
-  "selection_status": "CHAMPIONS_IDENTIFIED_SOURCE_IMAGES_PENDING_CUTOUTS",
+  "selection_status": "CHAMPION_IDENTITIES_RETAINED__VISUAL_DRAFT_REJECTED_BY_USER",
   "hero": {
     "left": {
       "name": "Chelsea Green",
       "championship": "WWE Women's Championship",
       "image_source": "web/assets/vetted/chelsea-green.jpg",
-      "cutout_status": "pending_background_removal"
+      "cutout_status": "DRAFT_REJECTED_POSE_AND_COMPOSITION__NOT_APPROVED_FOR_BROADCAST",
+      "replace_with": "New rights-checked, presentation-appropriate real photograph with clean isolated subject, preferably waist-up/full-body, confident forward-facing pose"
     },
     "center": {
       "name": "Sami Zayn",
       "championship": "Undisputed WWE Championship",
       "source_candidate": "https://commons.wikimedia.org/wiki/File:Sami_Zayn,_April_2024_(cropped).jpg",
-      "cutout_status": "pending_background_removal",
+      "cutout_status": "DRAFT_REJECTED_POSE_AND_COMPOSITION__NOT_APPROVED_FOR_BROADCAST",
       "image_source": "web/assets/vetted/sami-zayn.jpg",
-      "source_license": "CC BY 2.0"
+      "source_license": "CC BY 2.0",
+      "replace_with": "New rights-checked, presentation-appropriate real photograph with clean isolated subject, preferably waist-up/full-body, confident forward-facing pose"
     },
     "right": {
       "name": "Trick Williams",
       "championship": "WWE United States Championship",
       "source_candidate": "https://commons.wikimedia.org/wiki/File:Trick_Williams_FOS_2026_version_3_(cropped).png",
-      "cutout_status": "pending_background_removal",
+      "cutout_status": "DRAFT_REJECTED_POSE_AND_COMPOSITION__NOT_APPROVED_FOR_BROADCAST",
       "image_source": "web/assets/vetted/trick-williams.png",
-      "source_license": "CC BY 4.0"
+      "source_license": "CC BY 4.0",
+      "replace_with": "New rights-checked, presentation-appropriate real photograph with clean isolated subject, preferably waist-up/full-body, confident forward-facing pose"
     }
   },
   "excluded_from_smackdown_hero": [
@@ -60,5 +63,26 @@
       "source_date": "2026-10-16"
     }
   ],
-  "asset_stage_notes": "SmackDown hero excludes Roman Reigns. New licensed portraits are source files, NOT transparent. New segmentations need individual visual approval. No generated wrestler images."
+  "asset_stage_notes": "The October 23 cutout and CSS dynamic stage preview is explicitly rejected. Existing PNGs are technically transparent but poses, staging and composition are unacceptable. Retain identities Chelsea Green/Sami Zayn/Trick Williams as planned; obtain and check entirely new better-suited source portraits before further visual implementations.",
+  "visual_review": {
+    "date": "2026-10-23",
+    "status": "REJECTED",
+    "preview": "web/champion-stage-review.html",
+    "reason": "User explicitly rejected dynamic arena and first transparent cutout concept; not visually close to supplied full-broadcast reference.",
+    "must_fix": [
+      "Replace Chelsea Green applauding/upward-looking image and cut-off edges with a confident staged pose",
+      "Replace Sami Zayn mid-action/old-belt pose with a camera-facing professional-quality portrait",
+      "Replace Trick Williams interview/microphone portrait with a clean wrestling pose",
+      "Replace flat CSS beam/LED geometry with a convincing depth-layered arena/stage photographic environment where rights allow",
+      "Create user-approved dimensional Man Cave Sports Book Presents / Inside the Squared Circle identity, not flat CSS text",
+      "Recompose hero and lower information panels to match reference; crop/scale all elements at 720x1280"
+    ],
+    "restrictions": [
+      "Do not promote existing rejected draft PNGs into broadcast UI",
+      "Do not generate new wrestler likenesses, background illustrations or logo images",
+      "Retain historical review source files only as rejected draft evidence",
+      "Keep date-matched match/results feed and existing working production unchanged",
+      "Do not substitute Roman Reigns into SmackDown hero"
+    ]
+  }
 }
