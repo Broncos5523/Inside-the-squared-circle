@@ -1,0 +1,69 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#030908"><title>Inside the Squared Circle — WrestleMania 43 Cinematic PLE Concept V2</title>
+<style>
+:root{color-scheme:dark;background:#020504;color:#fefefe;font-family:Arial,Helvetica,sans-serif}
+*{box-sizing:border-box}html,body{width:100%;height:100%;margin:0;overflow:hidden}
+body{background:#020503;display:grid;place-items:center}
+#board{width:min(100vw,56.25dvh);height:min(100dvh,177.7778vw);aspect-ratio:9/16;position:relative;isolation:isolate;overflow:hidden;container-type:size;background:radial-gradient(ellipse at center 37%,#255f39 0%,#0e2a1c 43%,#030706 85%);border:1px solid #41391c}
+.back{position:absolute;inset:12% -30% 0;background-image:url('https://commons.wikimedia.org/wiki/Special:FilePath/Wrestlemania_40.jpg?width=1280');background-repeat:no-repeat;background-position:48% 48%;background-size:cover;opacity:.75;filter:contrast(1.18) saturate(.8);z-index:-5}
+.fog{position:absolute;inset:0;z-index:-4;background:linear-gradient(180deg,#010605 0%,#001007d1 12%,#00100b3b 27%,#01090618 44%,#0011092c 54%,#021008ce 70%,#000403 98%),linear-gradient(90deg,#001208ca,transparent 22%,transparent 79%,#001208c9),radial-gradient(ellipse at 50% 32%,#5daa482c,transparent 58%)}
+.light{position:absolute;z-index:-3;inset:0;background:linear-gradient(119deg,transparent 12%,#bffc7530 18%,transparent 24%),linear-gradient(63deg,transparent 63%,#7bfaa51f 70%,transparent 78%),radial-gradient(ellipse at 50% 46%,transparent 27%,#000b0866 70%);mix-blend-mode:screen;pointer-events:none}
+.rail{position:absolute;inset:1.1cqw;border:1px solid #9d8f5d7d;box-shadow:inset 0 0 0 1px #f6c46818;z-index:12;pointer-events:none}
+.rail:before,.rail:after{content:"";position:absolute;left:12%;right:12%;height:2px;background:linear-gradient(90deg,transparent,#eacf88b5,transparent)}.rail:before{top:1.1%}.rail:after{bottom:1.1%}
+header{position:absolute;z-index:7;top:2.6%;left:4%;right:4%;height:13%;text-align:center;display:flex;align-items:center;flex-direction:column;justify-content:flex-start;text-shadow:0 4px 10px #000}
+.byline{font-weight:1000;letter-spacing:.23em;font-size:3.4cqw;color:#f7e9ca;background:#040a07cb;padding:.7cqw 2cqw;border-top:1px solid #dfc68e80;border-bottom:1px solid #dfc68e80}
+.byline span{display:block;letter-spacing:.42em;font-size:1.7cqw;margin-top:.45cqw}
+.present{font-size:1.75cqw;letter-spacing:.42em;color:#e4cc93;font-weight:900;margin-top:1.1cqw}
+.master{font-family:Impact,'Arial Black',sans-serif;color:#f6f1e9;font-size:6.7cqw;line-height:.88;letter-spacing:.012em;margin-top:1.3cqw;filter:drop-shadow(0 2px 2px #000)}
+.master strong{display:block;font-size:8.1cqw;color:#efc874;text-shadow:0 .5cqw #654c20,0 1.1cqw #1c1606}
+.brand-sweep{position:absolute;top:19%;width:96%;left:2%;height:1.7%;border-block:1px solid #eac47c85;background:linear-gradient(90deg,transparent,#01331cb0 26%,#002c1aa0 74%,transparent);z-index:5;text-align:center;color:#f8df9c;letter-spacing:.24em;font-weight:1000;font-size:2.05cqw;padding-top:.35cqw}
+.event-logo-wrap{position:absolute;z-index:4;left:3%;right:3%;top:22%;height:25.5%;display:flex;align-items:center;justify-content:center;filter:drop-shadow(0 1.8cqw 1.4cqw #000)}
+.event-logo{width:100%;height:100%;object-fit:contain;mix-blend-mode:screen}
+.event-fallback{position:absolute;text-align:center;inset:0;display:flex;align-items:center;justify-content:center;flex-direction:column;z-index:-1;font-family:Impact,'Arial Black',sans-serif;letter-spacing:.02em;font-size:10.4cqw;color:#ebdcab;text-shadow:0 .8cqw #305b35,0 1.8cqw #000}
+.event-fallback strong{font-size:6.2cqw;color:#efd18e}
+.stage{position:absolute;top:48.4%;left:1.9%;right:1.9%;height:20.1%;border-top:1.5px solid #f6d48a9e;border-bottom:1.5px solid #f6d48a9e;box-shadow:0 0 16px #9fce6d55;overflow:hidden;z-index:2;background:#071d13}
+.stage-img{position:absolute;inset:0;background-image:url('https://commons.wikimedia.org/wiki/Special:FilePath/Wrestlemania_40_stage.jpg?width=960');background-position:center 55%;background-size:cover;filter:contrast(1.05) saturate(.9)}
+.stage-shade{position:absolute;inset:0;background:linear-gradient(0deg,#020808e8 0%,transparent 50%,#02120843 100%),linear-gradient(90deg,#00130d9e,transparent 30%,transparent 70%,#00130d9e)}
+.stage-over{position:absolute;inset:auto 2.5cqw 2.6cqw;text-align:center;text-shadow:0 2px 10px #000;font-family:Impact,'Arial Black',sans-serif;font-size:4.6cqw;letter-spacing:.115em;color:#f9ecc8}
+.stage-over small{display:block;font-family:Arial,Helvetica,sans-serif;font-size:2.0cqw;letter-spacing:.3em;color:#bcffa2;font-weight:900;margin-bottom:.9cqw}
+.details{position:absolute;top:69.4%;left:2.4%;right:2.4%;bottom:6.6%;display:flex;flex-direction:column;gap:1.3cqw;z-index:4}
+.location{height:22%;display:flex;align-items:center;justify-content:space-between;padding:0 2.9cqw;background:linear-gradient(120deg,#133e2aee,#071b14f8);border:1px solid #d9bd78bc;border-left:1.4cqw solid #9ccf71;box-shadow:inset 0 0 14px #c2b36b16}
+.loc-kicker{font-size:1.75cqw;letter-spacing:.16em;color:#e9d4a6;font-weight:900}
+.loc-title{font-family:Impact,'Arial Black',sans-serif;font-size:5.2cqw;letter-spacing:.08em;margin-top:.35cqw;color:#f5f3e9;line-height:1}
+.loc-right{color:#ebcf8f;text-align:right;font-family:Impact,'Arial Black',sans-serif;font-size:5.5cqw;letter-spacing:.07em}
+.loc-right span{display:block;font-family:Arial;font-size:1.75cqw;letter-spacing:.17em;color:#cddeb9;margin-top:.4cqw}
+.feature{flex:1;min-height:0;background:linear-gradient(150deg,#091a15f7,#010707f8);border:1px solid #a79357d0;padding:1.9cqw 3cqw;position:relative;box-shadow:0 .8cqw 1.7cqw #000}
+.accent{position:absolute;top:0;right:0;bottom:0;width:16%;background:radial-gradient(ellipse at 100% 43%,#5a9b562d,transparent 75%)}
+.topline{display:flex;justify-content:space-between;gap:2cqw;align-items:center;color:#e7d09a;font-weight:900;letter-spacing:.16em;font-size:1.9cqw}
+.topline b{border:1px solid #8c9f77;background:#133b24;padding:.8cqw 1.3cqw;font-size:1.6cqw;color:#e6ffd3}
+.feature-main{font-family:Impact,'Arial Black',sans-serif;font-size:4.8cqw;color:#ffedc3;letter-spacing:.02em;line-height:1;margin:1.1cqw 0 .75cqw;text-shadow:0 2px 4px #000}
+.feature-main strong{color:#d3efbb}
+.divider{width:80%;height:.4cqw;background:linear-gradient(90deg,#e9ca87,#9aca71,transparent)}
+.feature-sub{font-size:2.05cqw;line-height:1.26;color:#e1e5db;font-weight:700;margin-top:.9cqw}
+.cards{display:grid;grid-template-columns:1fr 1fr;gap:1.4cqw;height:26%}
+.small-card{background:#081610ef;border:1px solid #ab9b67a9;padding:1.7cqw 2.3cqw;overflow:hidden}
+.small-kicker{color:#ddc28b;letter-spacing:.11em;font-weight:900;font-size:1.75cqw}
+.small-main{font-weight:900;font-size:2.4cqw;line-height:1.14;margin-top:1.3cqw;color:#f6faee}
+.small-foot{color:#aebfad;font-size:1.68cqw;line-height:1.24;margin-top:.8cqw}
+.ticker{position:absolute;bottom:2.15%;left:2.2%;right:2.2%;height:3.5%;z-index:5;background:#010907eb;border-top:1px solid #edce8a;border-bottom:1px solid #edce8a;display:flex;align-items:center;white-space:nowrap;gap:2.1cqw;font-weight:900;font-size:1.9cqw;overflow:hidden;padding:0 1.4cqw;color:#dedbc4}
+.ticker b{background:#daba79;color:#06130a;padding:.5cqw 1.4cqw;font-size:2cqw;letter-spacing:.08em}
+.ticker em{font-style:normal;color:#a4dcb2}
+.license{position:absolute;bottom:.26%;left:3%;right:3%;font-size:1.05cqw;color:#c6c3a4;white-space:nowrap;overflow:hidden;text-align:center;z-index:5}
+@media(prefers-reduced-motion:no-preference){.light{animation:glimmer 9s ease-in-out infinite alternate}@keyframes glimmer{to{opacity:.58}}}
+</style></head>
+<body>
+<main id="board" aria-label="WrestleMania 43 cinematic visual review concept, not live match data">
+<div class="back"></div><div class="fog"></div><div class="light"></div><div class="rail"></div>
+<header><div class="byline">MAN CAVE<span>SPORTS BOOK</span></div><div class="present">✦ PRESENTS ✦</div><div class="master">INSIDE THE<strong>SQUARED CIRCLE</strong></div></header>
+<div class="brand-sweep">THE GRAND STAGE · PREMIUM LIVE EVENT</div>
+<div class="event-logo-wrap"><div class="event-fallback">WRESTLEMANIA<strong>43 · 2027</strong></div><img class="event-logo" src="https://assets.khelnow.com/news/uploads/2025/09/WWE-WrestleMania-43-logo.png" alt="WrestleMania 43 Riyadh logo — visual reference; rights not yet cleared for permanent hosting" loading="eager"></div>
+<section class="stage" aria-label="Archival WrestleMania stadium stage photograph"><div class="stage-img"></div><div class="stage-shade"></div><div class="stage-over"><small>THE SHOWCASE OF THE IMMORTALS</small>THE ROAD TO WRESTLEMANIA</div></section>
+<section class="details"><div class="location"><div><div class="loc-kicker">WWE · PREMIUM LIVE EVENT</div><div class="loc-title">RIYADH, SAUDI ARABIA</div></div><div class="loc-right">2027<span>WRESTLEMANIA 43</span></div></div>
+<div class="feature"><div class="accent"></div><div class="topline"><span>THE EVENT SPOTLIGHT</span><b>PREVIEW MODE</b></div><div class="feature-main">ONE STAGE. <strong>EVERY LEGACY.</strong></div><div class="divider"></div><div class="feature-sub">Featured match graphics rotate here once announcements and approved photos are available.</div></div>
+<div class="cards"><div class="small-card"><div class="small-kicker">ANNOUNCED MATCHES</div><div class="small-main">The card takes shape</div><div class="small-foot">Show verified announced matches here</div></div><div class="small-card"><div class="small-kicker">RESULTS &amp; FALLOUT</div><div class="small-main">After the final bell</div><div class="small-foot">Verified outcomes replace previews</div></div></div></section>
+<div class="ticker"><b>PLE</b><em>WRESTLEMANIA 43</em><span>◆</span>RIYADH 2027<span>◆</span>INSIDE THE SQUARED CIRCLE</div>
+<div class="license">Visual concept only · Archival 2024 stage photo: Kemoni Christie (public domain mark); 2024 stadium photo: Krotonix (CC BY-SA 4.0, adapted) · 2027 logo shown as external editorial reference, not cleared for production</div>
+</main></body></html>
