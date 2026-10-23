@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "mode": "PUBLISHER_RSS_POST_SHOW_LINKS_ONLY",
-  "generated_at": "2026-10-22T23:14:07.677652-04:00",
+  "generated_at": "2026-10-22T23:15:59.939729-04:00",
   "source_name": "Multiple publisher RSS feeds",
   "source_url": "https://www.f4wonline.com/rss.xml",
   "approved_publishers": [
@@ -129,10 +129,32 @@
     },
     {
       "show_id": "tna",
-      "airdate": null,
-      "links": [],
+      "airdate": "2026-10-22",
+      "links": [
+        {
+          "headline": "TNA iMPACT! Results (10/22): Mustafa Ali vs. Jason Hotch",
+          "url": "https://www.fightful.com/wrestling-news/tna-impact-results-10-22-mustafa-ali-vs-jason-hotch",
+          "published_at": "2026-10-23T00:05:53+00:00",
+          "source_name": "Fightful",
+          "status": "PUBLISHER_HEADLINE_LINK_ONLY"
+        },
+        {
+          "headline": "TNA Impact live results: Jason Hotch vs. Mustafa Ali, Avery Styles vs. Joe Alonzo",
+          "url": "https://www.f4wonline.com/news/tna-wrestling/tna-results/tna-impact-preview-october-22-2026-jason-hotch-mustafa-ali/",
+          "published_at": "2026-10-22T23:15:00+00:00",
+          "source_name": "F4W / Wrestling Observer",
+          "status": "PUBLISHER_HEADLINE_LINK_ONLY"
+        },
+        {
+          "headline": "TNA iMPACT Results 10/22/26",
+          "url": "https://wrestlingheadlines.com/tna-impact-results-10-22-26/",
+          "published_at": "2026-10-22T22:36:27+00:00",
+          "source_name": "Wrestling Headlines",
+          "status": "PUBLISHER_HEADLINE_LINK_ONLY"
+        }
+      ],
       "source_name": "Multiple publisher RSS feeds",
-      "status": "no_matching_published_coverage"
+      "status": "publisher_coverage_links"
     },
     {
       "show_id": "evolve",
@@ -164,7 +186,7 @@
       "status": "publisher_coverage_links"
     }
   ],
-  "total_links": 15,
+  "total_links": 18,
   "retained_link_count": 1,
   "collection_status": "ok",
   "successful_feed_urls": [

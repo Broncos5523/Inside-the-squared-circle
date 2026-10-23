@@ -1,46 +1,46 @@
 {
   "schema_version": 1,
   "mode": "POST_BROADCAST_RSS_FALLOUT_FACTS_UNVERIFIED",
-  "generated_at": "2026-10-22T23:20:00-04:00",
-  "policy": "Factual subject-verb-object developments only from publisher-syndicated after-air RSS, no excerpt republishing.",
+  "generated_at": "2026-10-22T23:16:17.406537-04:00",
+  "policy": "Post-broadcast exact-date subject/verb/object factual developments only. Original RSS excerpts not republished; no title-change or match-winner inference. Unverified provenance retained in JSON, not presented as official.",
   "programs": [
     {
       "show_id": "raw",
-      "airdate": null,
+      "airdate": "2026-10-19",
       "developments": [],
-      "status": "awaiting_first_collection"
+      "status": "no_explicit_fallout"
     },
     {
       "show_id": "smackdown",
-      "airdate": null,
+      "airdate": "2026-10-16",
       "developments": [],
-      "status": "awaiting_first_collection"
+      "status": "no_explicit_fallout"
     },
     {
       "show_id": "nxt",
-      "airdate": null,
+      "airdate": "2026-10-20",
       "developments": [],
-      "status": "awaiting_first_collection"
+      "status": "no_explicit_fallout"
     },
     {
       "show_id": "aaa",
       "airdate": null,
       "developments": [],
-      "status": "awaiting_first_collection"
+      "status": "no_recent_broadcast"
     },
     {
       "show_id": "tna",
-      "airdate": null,
+      "airdate": "2026-10-22",
       "developments": [],
-      "status": "awaiting_first_collection"
+      "status": "no_explicit_fallout"
     },
     {
       "show_id": "evolve",
-      "airdate": null,
+      "airdate": "2026-10-21",
       "developments": [],
-      "status": "awaiting_first_collection"
+      "status": "no_explicit_fallout"
     }
   ],
   "total_developments": 0,
-  "working_feeds": 0
+  "working_feeds": 10
 }
