@@ -1,0 +1,56 @@
+name: Prepare verified WrestleMania preview assets
+on:
+  push:
+    paths:
+      - '.github/workflows/prepare-ple-assets.yml'
+  workflow_dispatch:
+permissions:
+  contents: write
+jobs:
+  prepare:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: true
+      - name: Download licensed source art and check image signatures
+        shell: bash
+        run: |
+          set -euo pipefail
+          mkdir -p web/assets/ple
+          curl -fLsS --retry 4 --connect-timeout 20 --max-time 120 -A 'InsideSquaredCircleArtReview/1.0 (Wikimedia Commons CC licensed)' \
+            'https://upload.wikimedia.org/wikipedia/commons/thumb/2/29/Wrestlemania_40_Main_Event.jpg/1280px-Wrestlemania_40_Main_Event.jpg' \
+            -o web/assets/ple/wm40-archive-crowd.jpg
+          curl -fLsS --retry 4 --connect-timeout 20 --max-time 120 -A 'InsideSquaredCircleArtReview/1.0 (Wikimedia Commons CC licensed)' \
+            'https://upload.wikimedia.org/wikipedia/commons/6/6c/Standard_WrestleMania_logo_from_2019_to_present.png' \
+            -o web/assets/ple/wrestlemania-standard-cc0.png
+          file web/assets/ple/*.jpg web/assets/ple/*.png
+          file --mime-type web/assets/ple/wm40-archive-crowd.jpg | grep -q 'image/jpeg'
+          file --mime-type web/assets/ple/wrestlemania-standard-cc0.png | grep -q 'image/png'
+          test "$(stat -c %s web/assets/ple/wm40-archive-crowd.jpg)" -gt 50000
+          test "$(stat -c %s web/assets/ple/wrestlemania-standard-cc0.png)" -gt 15000
+      - name: Add license and provenance manifest
+        shell: bash
+        run: |
+          cat > web/assets/ple/SOURCES.md <<'EOF'
+          # WrestleMania PLE preview media (not 2027 event photography)
+          
+          - `wm40-archive-crowd.jpg`: WrestleMania XL main event, April 2024, photographer Ian D'Andrea. Source https://commons.wikimedia.org/wiki/File:Wrestlemania_40_Main_Event.jpg (verify the named author/license on this specific file page). This is **archival** footage only, not a depiction of the 2027 Riyadh venue. Adaptation: dimming/cropping in CSS.
+          - `wrestlemania-standard-cc0.png`: neutral WrestleMania wordmark, uploaded by D15859S, CC0 1.0. https://commons.wikimedia.org/wiki/File:Standard_WrestleMania_logo_from_2019_to_present.png . This is **not** the year-specific WrestleMania 43 logo; WWE marks remain trademarks.
+          
+          Do not use or claim the visual concept as WWE-sponsored or as an authentic 2027 event photograph.
+          EOF
+      - name: Commit preview media without replacing old display
+        shell: bash
+        run: |
+          set -euo pipefail
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add web/assets/ple/
+          if git diff --cached --quiet; then
+            echo 'No media changes'
+          else
+            git commit -m 'assets(ple): cache Wikimedia WrestleMania archival arena and neutral logo'
+            git pull --rebase origin main
+            git push origin HEAD:main
+          fi
