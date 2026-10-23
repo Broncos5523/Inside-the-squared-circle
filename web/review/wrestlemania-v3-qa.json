@@ -1,0 +1,25 @@
+{
+  "http_status": 200,
+  "images": [
+    {
+      "src": "./assets/ple/wm40-archive-crowd.jpg",
+      "ok": true,
+      "naturalWidth": 1280,
+      "naturalHeight": 960
+    },
+    {
+      "src": "./assets/ple/wrestlemania-standard-cc0.png",
+      "ok": true,
+      "naturalWidth": 921,
+      "naturalHeight": 310
+    }
+  ],
+  "board": {
+    "x": 0,
+    "y": 0,
+    "width": 720,
+    "height": 1280
+  },
+  "heading": "INSIDE THE\nSQUARED CIRCLE",
+  "qa_resolution": "720x1280"
+}
