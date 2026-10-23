@@ -562,6 +562,24 @@ jobs:
           PY
           node --check /tmp/itsc-v439.js
           node tests/test_broadcast_v439.js
+      - name: Verify V4.39 SmackDown live broadcast rebuild
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          old=Path('web/preview-v4-38-smackdown-broadcast-review.html').read_text()
+          new=Path('web/preview-v4-39-reference-broadcast.html').read_text()
+          assert 'DISPLAY BUILD 4.39' in new
+          assert 'id="bc-people"' in new
+          assert 'OTHER REPORTED MATCHES' in new
+          assert "renderBroadcast(show)" in new
+          assert new.split('<style>',1)[1].split('</style>',1)[0].startswith(
+                 old.split('<style>',1)[1].split('</style>',1)[0])
+          assert "createElement('a')" not in new
+          assert "wcn-match-cards-private.json" in new
+          Path('/tmp/itsc-v439.js').write_text(new.split('<script>',1)[1].split('</script>',1)[0])
+          PY
+          node --check /tmp/itsc-v439.js
+          node tests/test_broadcast_names_v439.js
       - name: Collect unverified match-card research leads
         run: python proof/card_intake.py --snapshot web/data/snapshot.json --out web/data/candidates.json --also-next-league
       - name: Build opt-in reported match descriptions (never confirmed)
@@ -1017,6 +1035,7 @@ jobs:
               (f'{base}/preview-v4-36-authentic-smackdown.html?show=smackdown&view=recap&probe={nonce}', 'v436'),
               (f'{base}/preview-v4-37-smackdown-photo-showcase.html?show=smackdown&view=showcase&probe={nonce}', 'v437'),
               (f'{base}/preview-v4-38-smackdown-broadcast-review.html?show=smackdown&view=showcase&probe={nonce}', 'v438'),
+              (f'{base}/preview-v4-39-reference-broadcast.html?show=smackdown&view=broadcast&probe={nonce}', 'v439'),
               (f'{base}/preview-v4-39-smackdown-full-broadcast.html?show=smackdown&view=broadcast&probe={nonce}', 'v439'),
               (f'{base}/data/visual-source-registry.json?probe={nonce}', 'visual-registry'),
               (f'{base}/asset-review.html?probe={nonce}', 'asset-review'),
@@ -1076,6 +1095,10 @@ jobs:
                           assert b'bd-brand-plate' in body
                           assert b'renderSdBroadcast' in body
                           assert b'CHAMPIONSHIP WATCH' in body
+                      elif kind == 'v439':
+                          assert b'DISPLAY BUILD 4.39' in body
+                          assert b'id="bc-people"' in body
+                          assert b'OTHER REPORTED MATCHES' in body
                       elif kind == 'v438':
                           assert b'DISPLAY BUILD 4.38' in body
                           assert b'smackdown-showcase' in body

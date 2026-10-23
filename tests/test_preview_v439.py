@@ -1,52 +1,43 @@
-"""V4.39 broadcast-layout is new, real-content-driven and non-destructive."""
+"""V4.39: actual broadcast layout backed by the existing vetted data."""
 import unittest
 from pathlib import Path
-ROOT=Path(__file__).resolve().parents[1]
-OLD=(ROOT/"web/preview-v4-38-smackdown-broadcast-review.html").read_text()
-NEW=(ROOT/"web/preview-v4-39-smackdown-full-broadcast.html").read_text()
-class BroadcastProof(unittest.TestCase):
- def test_existing_layout_code_preserved(self):
-  self.assertTrue(NEW.split("<style>",1)[1].split("</style>",1)[0].startswith(
-                  OLD.split("<style>",1)[1].split("</style>",1)[0]))
-  for marker in ("function renderSdShowcase(show,key)","function renderEditorialRecap(show,key)",
-                 "function showReportedCard(show,key,evolve)","function privateWcnRows(show,key,kind)",
-                 "aaa-tv-week-cards-20261023.json","wcn-match-cards-private.json"):
-   self.assertIn(marker,NEW)
-  self.assertIn("DISPLAY BUILD 4.39",NEW)
- def test_full_broadcast_structure_not_four_text_cards(self):
-  for marker in ('id="sd-broadcast" hidden','bd-brand-plate','bd-logo-side left',
-      'bd-logo-side right','id="bd-hero"','id="bd-primary"','id="bd-side"',
-      'id="bd-others"','id="bd-notes"','id="bd-ticker"','id="bd-dates"',
-      'grid-template-rows:17.5% 25.5% 5.8% 27.5% 12.5% 3% 6.3% 1.9%',
-      'grid-template-columns:58% 42%','bd-photo.center',
-      'bd-ring','bd-main-logo bd-gold'):
-   self.assertIn(marker,NEW)
-  # Standings is present only in historic CSS comments at most, never in the
-  # newly added broadcast composition.
-  markup=NEW.split('<section id="sd-broadcast"',1)[1].split("</section>\n</div>\n<script>",1)[0]
-  self.assertNotIn("STANDINGS",markup.upper())
-  self.assertNotIn("WIN–LOSS",markup.upper())
- def test_real_data_and_correct_photo_allowlist(self):
-  for marker in ("const rows=reportedRows(show,key,'matches')",
-                 "const appearances=reportedRows(show,key,'appearances')",
-                 "const talent=sdNamedCompetitors(show,key)",
-                 "const photo=sdApprovedPhoto(name)",
-                 "const type=(featured.stipulation||'MATCH')",
-                 "if(!rows.length)","if(appearances.length)",
-                 "if(!forceBroadcast||key!=='smackdown')",):
-   if marker=="if(!forceBroadcast||key!=='smackdown')":
-    self.assertIn("const active=forceBroadcast&&key==='smackdown'",NEW)
-   else:self.assertIn(marker,NEW)
-  self.assertIn("SCHEDULE: TVMAZE · WRESTLER PHOTOS: DIEGO SERRANO / CC BY 2.0",NEW)
+R=Path(__file__).resolve().parents[1]
+OLD=(R/'web/preview-v4-38-smackdown-broadcast-review.html').read_text()
+NEW=(R/'web/preview-v4-39-reference-broadcast.html').read_text()
+def css(s):return s.split('<style>',1)[1].split('</style>',1)[0]
+class ReferenceBroadcast(unittest.TestCase):
+ def test_existing_styles_and_version(self):
+  self.assertTrue(css(NEW).startswith(css(OLD)))
+  self.assertIn('DISPLAY BUILD 4.39',NEW)
+  self.assertIn('#board{width:min(100vw,56.25dvh)',NEW)
+  self.assertIn('#board.bc-active #bc{display:grid',NEW)
+ def test_reference_layout_is_nontoken_dense(self):
+  for p in [
+    'MAN CAVE <span>SPORTS BOOK</span><em>PRESENTS</em>',
+    'INSIDE THE<strong>SQUARED CIRCLE</strong>',
+    'When the bell rings, it gets real.',
+    'id="bc-people"','id="bc-now"','id="bc-venue"',
+    'OTHER REPORTED MATCHES',"LAST WEEK'S FALLOUT",
+    'UPCOMING WEEKLY WRESTLING','id="bc-schedule"','bc-ticker',
+    'grid-template-rows:17cqh 27cqh 6.4cqh minmax(0,1fr) 9.2cqh 3.5cqh']:
+   self.assertIn(p,NEW)
+  self.assertNotIn('SMACKDOWN STANDINGS',NEW)
+ def test_exact_source_integrations_not_fiction(self):
+  for p in [
+    "forceBroadcast=reviewParams.get('view')==='broadcast'&&requested==='smackdown'",
+    "if(forceBroadcast&&keys.length===1)return [keys[0]]",
+    "reportedRows(show,'smackdown','matches')",
+    "reportedRows(show,'smackdown','appearances')",
+    "editorialRecap(show,'smackdown')","REPORTED_UNVERIFIED",
+    "sdApprovedPhoto(name)","renderBroadcast(show)",
+    "const rest=rows.filter((_,i)=>i!==page).slice(0,3)"]:
+   self.assertIn(p,NEW)
+ def test_rights_and_logo_integrity(self):
+  for p in ['src="./assets/vetted/smackdown-mark.png"','bc-person',
+            'mask-image:radial-gradient','Diego Serrano / CC BY 2.0',
+            'wcn-match-cards-private.json']:
+   self.assertIn(p,NEW)
   self.assertNotIn("createElement('a')",NEW)
- def test_preserve_separate_review_and_old_pages(self):
-  self.assertIn("const forceBroadcast=reviewParams.get('view')==='broadcast'&&requested==='smackdown'",NEW)
-  self.assertIn("stage.hidden=!active",NEW)
-  self.assertIn("renderSdBroadcast(show,key)",NEW)
-  self.assertIn("sd-broadcast[hidden]",NEW)
-  self.assertIn("url('./art/smackdown-arena-v1.svg')",NEW)
-  self.assertIn("./assets/vetted/smackdown-mark.png",NEW)
- def test_runtime_build_version_not_stale(self):
-  self.assertIn("put('timestamp',\x60DISPLAY BUILD 4.39 ·",NEW)
-  self.assertNotIn("put('timestamp',\x60DISPLAY BUILD 4.31 ·",NEW)
-if __name__=="__main__":unittest.main()
+  self.assertNotIn('Roman Reigns vs. LA Knight',NEW)
+  self.assertNotIn('Inside the Squared Circle Emblem.png',NEW)
+if __name__=='__main__':unittest.main()
