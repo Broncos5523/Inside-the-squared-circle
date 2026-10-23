@@ -48,6 +48,30 @@ class SourceCoverageTests(unittest.TestCase):
   out=build(SNAP,{"rss_excerpts":descriptions},{},NOW)
   self.assertEqual(out["totals"]["rss_descriptions_with_defeated_word"],10)
   self.assertEqual(out["totals"]["automatic_match_outcomes"],0)
+ def test_diagnostics_explain_missing_automated_results(self):
+  def diagnostic(items,headlines,winner_mentions,exact):
+   return {"status":"ok","items":items,"dated_broadcast_headlines":headlines,
+           "with_defeated_word":winner_mentions,
+           "with_explicit_outcome_sentence":0,
+           "dated_descriptions_with_outcome":exact}
+  src={"mode":SOURCES["rss_excerpts"][0],"generated_at":NOW.isoformat(),
+       "source_diagnostics":{"https://411mania.com/wrestling/category/tv-report/feed/":
+                  diagnostic(10,7,0,0),
+                  "https://gerweck.net/category/results/feed/":diagnostic(50,4,10,0)},
+       "programs":[]}
+  out=build(SNAP,{"rss_excerpts":src},{},NOW)
+  self.assertEqual(out["totals"]["rss_items_examined"],60)
+  self.assertEqual(out["totals"]["rss_feeds_checked"],2)
+  self.assertEqual(out["totals"]["rss_feeds_responding"],2)
+  self.assertEqual(out["totals"]["rss_dated_episode_headlines"],11)
+  self.assertEqual(out["totals"]["rss_descriptions_with_defeated_word"],10)
+  self.assertEqual(out["totals"]["rss_dated_headlines_with_explicit_winner"],0)
+  self.assertEqual(out["rss_bottleneck"],"no_explicit_winner_sentences")
+  self.assertEqual(out["totals"]["automatic_match_outcomes"],0)
+  stale=dict(src,generated_at="2026-10-22T10:00:00-04:00")
+  blocked=build(SNAP,{"rss_excerpts":stale},{},NOW)
+  self.assertEqual(blocked["totals"]["rss_items_examined"],0)
+  self.assertEqual(blocked["rss_bottleneck"],"feed_unavailable")
  def test_wrong_source_mode_does_not_count(self):
   x=feed("results",results=[{}]);x["mode"]="OTHER"
   self.assertEqual(build(SNAP,{"results":x},{},NOW)["totals"]["automatic_match_outcomes"],0)

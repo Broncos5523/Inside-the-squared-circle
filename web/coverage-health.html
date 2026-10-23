@@ -13,6 +13,10 @@ p{color:#b9ccdd}a{color:#f4ca8b}.metrics{display:grid;grid-template-columns:repe
 <div id="metrics" class="metrics"></div>
 <div class="note">This monitor distinguishes <b>automatically acquired outcomes</b>, previously reviewed recaps, upcoming reported cards and publisher article links. A zero means the feed lacks parseable data—not that no matches took place.</div>
 <div id="shows" class="shows"></div>
+<section class="details" aria-labelledby="rss-heading">
+ <h2 id="rss-heading">Why aren't new match results appearing?</h2>
+ <div id="diagnostics" class="small">Checking source coverage…</div>
+</section>
 <p class="small" id="sources"></p><p><a href="./evidence-lab.html">Match-card research monitor</a> · <a href="./preview-v4-29.html">Latest Results &amp; Fallout preview</a></p>
 </main><script>
 (async()=>{'use strict';
@@ -49,7 +53,22 @@ p{color:#b9ccdd}a{color:#f4ca8b}.metrics{display:grid;grid-template-columns:repe
    card.append(dl);$('shows').append(card);
   }
   const active=Object.entries(d.source_health).filter(([k,v])=>v.fresh).map(([k])=>k);
-  $('sources').textContent='Current feed groups: '+active.join(', ')+'. RSS descriptions mentioning “defeated”: '+d.totals.rss_descriptions_with_defeated_word+'; strict individual winner sentences: '+d.totals.rss_explicit_winner_sentences+'.';
+  $('sources').textContent='Recently refreshed source groups: '+active.join(', ')+'. An updated source feed does not necessarily contain usable match results.';
+  const diag=d.totals||{};
+  const rationale={
+    'feed_unavailable':'No current RSS excerpt source response is available.',
+    'no_dated_broadcast_coverage':'Current feeds have no dated articles matching the previous episodes.',
+    'no_explicit_winner_sentences':'Dated articles were found, but the syndicated summaries did not contain individual winner-vs-loser statements.',
+    'results_available_to_evaluate':'Source-specific winner statements may be present. Only date-matched, post-broadcast facts can enter the boards.'
+  };
+  $('diagnostics').textContent=
+    (diag.rss_feeds_responding??0)+' of '+(diag.rss_feeds_checked??0)+' syndicated feeds responded. '+
+    (diag.rss_items_examined??0)+' feed items were examined, including '+
+    (diag.rss_dated_episode_headlines??0)+' items with dates matching recently completed broadcasts. '+
+    (diag.rss_descriptions_with_defeated_word??0)+' descriptions mentioned a victory word; '+
+    (diag.rss_dated_headlines_with_explicit_winner??0)+' date-matched descriptions contained a parseable individual winner statement. '+
+    (rationale[d.rss_bottleneck]||'Source coverage is incomplete.')+
+    ' Counts are feed-item occurrences; the same article can be repeated across feeds.';
  }catch(e){$('state').className='error';$('state').textContent='Current coverage report unavailable. No data has been assumed.'}
 })();
 </script></body></html>

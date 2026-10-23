@@ -88,8 +88,16 @@ def build(snapshot,feeds,editorial,now=None,evolve=None):
          "manually_reviewed_outcomes","manually_reviewed_storylines",
          "publisher_headline_links")
  totals={k:sum(x[k] for x in programs) for k in counts}
- diagnostics=feeds.get("rss_excerpts",{}).get("source_diagnostics",{})
+ # Read only current RSS diagnostics. A stale run cannot substantiate
+ # current source coverage, even if its historical counts are nonzero.
+ diagnostics=live["rss_excerpts"].get("source_diagnostics",{})
  if not isinstance(diagnostics,dict):diagnostics={}
+ # Values are per-feed occurrences; publisher feeds can overlap.
+ totals["rss_feeds_checked"]=len(diagnostics)
+ totals["rss_feeds_responding"]=sum(v.get("status")=="ok" for v in diagnostics.values() if isinstance(v,dict))
+ totals["rss_items_examined"]=sum(int(v.get("items",0)) for v in diagnostics.values() if isinstance(v,dict))
+ totals["rss_dated_episode_headlines"]=sum(int(v.get("dated_broadcast_headlines",0)) for v in diagnostics.values() if isinstance(v,dict))
+ totals["rss_dated_headlines_with_explicit_winner"]=sum(int(v.get("dated_descriptions_with_outcome",0)) for v in diagnostics.values() if isinstance(v,dict))
  totals["rss_descriptions_with_defeated_word"]=sum(
    int(v.get("with_defeated_word",0)) for v in diagnostics.values() if isinstance(v,dict))
  totals["rss_explicit_winner_sentences"]=sum(
@@ -98,6 +106,10 @@ def build(snapshot,feeds,editorial,now=None,evolve=None):
   "schema_version":1,"mode":"WRESTLING_CONTENT_COVERAGE_COUNTS_ONLY",
   "generated_at":now.astimezone(ET).isoformat(),"source_health":source_health,
   "totals":totals,"programs":programs,
+  "rss_bottleneck":("feed_unavailable" if not source_health["rss_excerpts"]["fresh"] or not totals["rss_feeds_responding"] else
+   "no_dated_broadcast_coverage" if not totals["rss_dated_episode_headlines"] else
+   "no_explicit_winner_sentences" if not totals["rss_dated_headlines_with_explicit_winner"] else
+   "results_available_to_evaluate"),
   "interpretation":"Counts of data availability, not match counts in the real world. Headline links and TVmaze episode synopses are not results. Automated source counts can duplicate the same match."
  }
 def main():

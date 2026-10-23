@@ -658,6 +658,13 @@ jobs:
           assert d['totals']['automatic_match_outcomes']>=0
           assert d['totals']['publisher_headline_links']>=0
           assert 'results' not in d['programs'][0]
+          excerpts=json.loads(Path('web/data/rss-excerpt-results.json').read_text())
+          diagnostics=excerpts.get('source_diagnostics',{})
+          assert d['totals']['rss_items_examined']==sum(x.get('items',0) for x in diagnostics.values())
+          assert d['totals']['rss_feeds_responding']==sum(x.get('status')=='ok' for x in diagnostics.values())
+          assert d['totals']['rss_dated_episode_headlines']==sum(x.get('dated_broadcast_headlines',0) for x in diagnostics.values())
+          assert d['totals']['rss_descriptions_with_defeated_word']==sum(x.get('with_defeated_word',0) for x in diagnostics.values())
+          assert d['rss_bottleneck'] in ('feed_unavailable','no_dated_broadcast_coverage','no_explicit_winner_sentences','results_available_to_evaluate')
           print('SOURCE COVERAGE AUDIT PASS')
           PY
       - name: Save last-known schedule cache
