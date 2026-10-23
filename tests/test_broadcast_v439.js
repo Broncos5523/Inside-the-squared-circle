@@ -14,7 +14,7 @@ class Element{
 const ids={};for(const id of ['hero','date','time','primary','side','others','notes','prime-title','side-title','notes-title','ticker','dates','credit-left','sd-broadcast'])ids[id]=new Element(id);
 const board=new Element('board');
 const photos=[];
-const $=id=>id==='board'?board:ids[id];
+const $=id=>id==='board'?board:ids[id.startsWith('bd-')?id.slice(3):id];
 const document={getElementById:id=>$(id),createElement:t=>new Element(t)};
 const players=['chelsea green','roxanne perez','giulia','alexa bliss'];
 let matches=[
