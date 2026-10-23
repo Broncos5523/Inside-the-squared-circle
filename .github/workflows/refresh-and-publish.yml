@@ -465,6 +465,8 @@ jobs:
                       'F4W / Wrestling Observer':{'www.f4wonline.com','f4wonline.com'},
                       '411Mania':{'411mania.com','www.411mania.com'},
                       'Fightful':{'fightful.com','www.fightful.com'},
+                      'Gerweck.net':{'gerweck.net','www.gerweck.net'},
+                      'TPWW':{'tpww.net','www.tpww.net'},
                   }
                   assert link['source_name'] in approved
                   parsed=urlsplit(link['url'])
