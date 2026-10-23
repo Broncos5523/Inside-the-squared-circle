@@ -816,6 +816,7 @@ jobs:
           cp web/data/rss-excerpt-results.json /tmp/itsc-new-rss-excerpt-results.json
           cp web/data/rss-fallout.json /tmp/itsc-new-rss-fallout.json
           cp web/data/coverage-health.json /tmp/itsc-new-coverage-health.json
+          cp web/assets/vetted/asset-manifest.json /tmp/itsc-new-asset-manifest.json
           for attempt in 1 2 3; do
             git fetch origin main
             git reset --hard origin/main
@@ -832,6 +833,7 @@ jobs:
             cp /tmp/itsc-new-rss-excerpt-results.json web/data/rss-excerpt-results.json
             cp /tmp/itsc-new-rss-fallout.json web/data/rss-fallout.json
             cp /tmp/itsc-new-coverage-health.json web/data/coverage-health.json
+            cp /tmp/itsc-new-asset-manifest.json web/assets/vetted/asset-manifest.json
             git add web/assets/vetted web/data/snapshot.json web/data/candidates.json web/data/reported.json web/data/tvmaze-reported.json web/data/known-events.json web/data/results.json web/data/evolve-synopsis.json web/data/recap-links.json web/data/rss-facts.json web/data/episode-briefs.json web/data/rss-excerpt-results.json web/data/rss-fallout.json web/data/coverage-health.json
             if git diff --cached --quiet; then
               echo "No schedule changes to commit"

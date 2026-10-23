@@ -118,6 +118,7 @@ def build(out_dir,fetcher=fetch,clock=None):
   json.dumps(manifest,ensure_ascii=False,indent=2)+"\n",encoding="utf-8")
  print("VETTED ASSET INGEST",len([x for x in saved if x["status"]=="ready"]),
        "ready",len(issues),"missing; fallbacks stay intact")
+ if issues:print("WIKIMEDIA SOURCE DETAILS",issues)
  return manifest
 
 def main():
