@@ -1,35 +1,35 @@
 {
   "schema_version": 1,
   "mode": "WRESTLING_CONTENT_COVERAGE_COUNTS_ONLY",
-  "generated_at": "2026-10-22T23:29:10.550938-04:00",
+  "generated_at": "2026-10-22T23:32:49.586987-04:00",
   "source_health": {
     "reported": {
       "fresh": true,
-      "generated_at": "2026-10-22T23:28:17.965274-04:00"
+      "generated_at": "2026-10-22T23:32:01.610157-04:00"
     },
     "results": {
       "fresh": true,
-      "generated_at": "2026-10-22T23:28:24.853632-04:00"
+      "generated_at": "2026-10-22T23:32:08.081863-04:00"
     },
     "rss_facts": {
       "fresh": true,
-      "generated_at": "2026-10-22T23:28:50.683266-04:00"
+      "generated_at": "2026-10-22T23:32:30.636658-04:00"
     },
     "rss_excerpts": {
       "fresh": true,
-      "generated_at": "2026-10-22T23:28:59.966501-04:00"
+      "generated_at": "2026-10-22T23:32:39.467208-04:00"
     },
     "fallout": {
       "fresh": true,
-      "generated_at": "2026-10-22T23:29:08.501857-04:00"
+      "generated_at": "2026-10-22T23:32:47.986516-04:00"
     },
     "recap_links": {
       "fresh": true,
-      "generated_at": "2026-10-22T23:28:50.508304-04:00"
+      "generated_at": "2026-10-22T23:32:30.427786-04:00"
     },
     "episode_briefs": {
       "fresh": true,
-      "generated_at": "2026-10-22T23:28:36.216500-04:00"
+      "generated_at": "2026-10-22T23:32:18.998447-04:00"
     }
   },
   "totals": {
@@ -37,10 +37,10 @@
     "upcoming_reported_appearances": 0,
     "automatic_match_outcomes": 0,
     "automatic_storylines": 0,
-    "manually_reviewed_outcomes": 14,
-    "manually_reviewed_storylines": 10,
+    "manually_reviewed_outcomes": 17,
+    "manually_reviewed_storylines": 13,
     "publisher_headline_links": 19,
-    "rss_descriptions_with_defeated_word": 0,
+    "rss_descriptions_with_defeated_word": 25,
     "rss_explicit_winner_sentences": 0
   },
   "programs": [
@@ -122,11 +122,11 @@
       "upcoming_reported_appearances": 0,
       "automatic_match_outcomes": 0,
       "automatic_storylines": 0,
-      "manually_reviewed_outcomes": 0,
-      "manually_reviewed_storylines": 0,
+      "manually_reviewed_outcomes": 3,
+      "manually_reviewed_storylines": 3,
       "episode_synopsis_available": true,
       "publisher_headline_links": 3,
-      "results_data_status": "no_usable_result_facts"
+      "results_data_status": "manual_review_available"
     }
   ],
   "interpretation": "Counts of data availability, not match counts in the real world. Headline links and TVmaze episode synopses are not results. Automated source counts can duplicate the same match."
