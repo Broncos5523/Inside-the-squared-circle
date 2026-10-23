@@ -1,0 +1,46 @@
+{
+  "schema_version": 1,
+  "mode": "POST_BROADCAST_RSS_FALLOUT_FACTS_UNVERIFIED",
+  "generated_at": "2026-10-22T23:20:00-04:00",
+  "policy": "Factual subject-verb-object developments only from publisher-syndicated after-air RSS, no excerpt republishing.",
+  "programs": [
+    {
+      "show_id": "raw",
+      "airdate": null,
+      "developments": [],
+      "status": "awaiting_first_collection"
+    },
+    {
+      "show_id": "smackdown",
+      "airdate": null,
+      "developments": [],
+      "status": "awaiting_first_collection"
+    },
+    {
+      "show_id": "nxt",
+      "airdate": null,
+      "developments": [],
+      "status": "awaiting_first_collection"
+    },
+    {
+      "show_id": "aaa",
+      "airdate": null,
+      "developments": [],
+      "status": "awaiting_first_collection"
+    },
+    {
+      "show_id": "tna",
+      "airdate": null,
+      "developments": [],
+      "status": "awaiting_first_collection"
+    },
+    {
+      "show_id": "evolve",
+      "airdate": null,
+      "developments": [],
+      "status": "awaiting_first_collection"
+    }
+  ],
+  "total_developments": 0,
+  "working_feeds": 0
+}
