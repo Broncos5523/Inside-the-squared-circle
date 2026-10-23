@@ -24,7 +24,7 @@ WEEKLY={"raw":"wwe-raw","smackdown":"wwe-smackdown","nxt":"wwe-nxt","tna":"tna-i
 # match pairing is extracted deterministically and remains unverified.
 WORD=r"[A-ZÀ-Ý][A-Za-zÀ-ÿ0-9’'\-]*"
 PERSON=rf"{WORD}(?:\s+{WORD}){{0,3}}"
-SIDE=rf"(?:The\s+)?{PERSON}(?:\s+(?:&|and)\s+{PERSON})?"
+SIDE=rf"(?:(?:The|the)\s+)?{PERSON}(?:\s+(?:&|and)\s+{PERSON})?"
 BOUT=re.compile(rf"(?P<a>{SIDE})(?:\s*\([^)]{{1,85}}\))?\s+"
     rf"(?:once\s+again\s+)?(?:faces?|facing|takes?\s+on|collide(?:s)?\s+with|"
     rf"meet(?:s)?|challenge(?:s)?|vs\.?|versus)\s+(?P<b>{SIDE})(?=\s|[.;,!?]|$)")
@@ -81,6 +81,7 @@ def normal_side(name):
     # The role prefix is not part of the wrestler's name.
     name=re.split(r"\bChampions?\s+",name)[-1]
     name=re.sub(r"\s+and\s+"," & "," ".join(name.split()))
+    name=re.sub(r"^the\s+","The ",name)
     return name.strip()
 
 def pairs(paragraph):
