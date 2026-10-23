@@ -499,6 +499,21 @@ jobs:
           Path('/tmp/itsc-v435.js').write_text(new.split('<script>',1)[1].split('</script>',1)[0])
           PY
           node --check /tmp/itsc-v435.js
+      - name: Verify V4.36 authentic SmackDown sources and portrait layout
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          old=Path('web/preview-v4-35-smackdown-graphics.html').read_text()
+          new=Path('web/preview-v4-36-authentic-smackdown.html').read_text()
+          assert 'DISPLAY BUILD 4.36' in new
+          assert 'sdApprovedPhoto' in new and 'sd-show-logo' in new
+          assert "classList.toggle('smackdown-graphics',key==='smackdown')" in new
+          assert new.split('<style>',1)[1].split('</style>',1)[0].startswith(old.split('<style>',1)[1].split('</style>',1)[0])
+          assert not Path('web/data/wcn-match-cards-private.json').exists()
+          assert "createElement('a')" not in new
+          Path('/tmp/v436.js').write_text(new.split('<script>',1)[1].split('</script>',1)[0])
+          PY
+          node --check /tmp/v436.js
       - name: Collect unverified match-card research leads
         run: python proof/card_intake.py --snapshot web/data/snapshot.json --out web/data/candidates.json --also-next-league
       - name: Build opt-in reported match descriptions (never confirmed)
@@ -771,6 +786,19 @@ jobs:
           assert d['rss_bottleneck'] in ('feed_unavailable','no_dated_broadcast_coverage','no_dated_victory_language','no_explicit_winner_sentences','results_available_to_evaluate')
           print('SOURCE COVERAGE AUDIT PASS')
           PY
+      - name: Fetch exact-license SmackDown logo and CC wrestler photographs
+        run: |
+          python -m proof.approved_graphics --out web/assets/vetted
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          p=Path('web/assets/vetted/asset-manifest.json')
+          d=json.loads(p.read_text())
+          assert d['mode']=='COMMONS_REVIEWED_WRESTLING_VISUAL_ASSETS'
+          assert len(d['assets'])==5
+          assert all(a['license'] in ('CC BY 2.0','Public domain') for a in d['assets'])
+          print('Real license-vetted images:',[(a['id'],a['status']) for a in d['assets']])
+          PY
       - name: Save last-known schedule cache
         run: |
           git config user.name "github-actions[bot]"
@@ -804,7 +832,7 @@ jobs:
             cp /tmp/itsc-new-rss-excerpt-results.json web/data/rss-excerpt-results.json
             cp /tmp/itsc-new-rss-fallout.json web/data/rss-fallout.json
             cp /tmp/itsc-new-coverage-health.json web/data/coverage-health.json
-            git add web/data/snapshot.json web/data/candidates.json web/data/reported.json web/data/tvmaze-reported.json web/data/known-events.json web/data/results.json web/data/evolve-synopsis.json web/data/recap-links.json web/data/rss-facts.json web/data/episode-briefs.json web/data/rss-excerpt-results.json web/data/rss-fallout.json web/data/coverage-health.json
+            git add web/assets/vetted web/data/snapshot.json web/data/candidates.json web/data/reported.json web/data/tvmaze-reported.json web/data/known-events.json web/data/results.json web/data/evolve-synopsis.json web/data/recap-links.json web/data/rss-facts.json web/data/episode-briefs.json web/data/rss-excerpt-results.json web/data/rss-fallout.json web/data/coverage-health.json
             if git diff --cached --quiet; then
               echo "No schedule changes to commit"
               break
@@ -935,6 +963,10 @@ jobs:
               (f'{base}/preview-v4-34-private-wcn.html?show=smackdown&probe={nonce}', 'v434'),
               (f'{base}/preview-v4-35-smackdown-graphics.html?show=smackdown&probe={nonce}', 'v435'),
               (f'{base}/preview-v4-35-smackdown-graphics.html?show=smackdown&view=recap&probe={nonce}', 'v435'),
+              (f'{base}/preview-v4-36-authentic-smackdown.html?show=smackdown&probe={nonce}', 'v436'),
+              (f'{base}/preview-v4-36-authentic-smackdown.html?show=smackdown&view=recap&probe={nonce}', 'v436'),
+              (f'{base}/data/visual-source-registry.json?probe={nonce}', 'visual-registry'),
+              (f'{base}/assets/vetted/asset-manifest.json?probe={nonce}', 'asset-registry'),
               (f'{base}/art/smackdown-arena-v1.svg?probe={nonce}', 'smackdown-art'),
               (f'{base}/preview-v4-31.html?show=tna&view=recap&probe={nonce}', 'v431'),
               (f'{base}/data/aaa-tv-week-cards-20261023.json?probe={nonce}', 'aaa-weeks'),
@@ -942,6 +974,10 @@ jobs:
               (f'{base}/data/research-20261022.json?probe={nonce}', 'research'),
               (f'{base}/data/tvmaze-reported.json?probe={nonce}', 'tvmaze'),
           ]
+          for asset in ('smackdown-mark.png','chelsea-green.jpg','roxanne-perez.jpg','giulia.jpg','alexa-bliss.jpg'):
+              if Path('web/assets/vetted',asset).is_file():
+                  kind='visual-png' if asset.endswith('.png') else 'visual-jpg'
+                  checks.append((f'{base}/assets/vetted/{asset}?probe={nonce}',kind))
           for attempt in range(15):
               try:
                   for url, kind in checks:
@@ -981,6 +1017,22 @@ jobs:
                       elif kind == 'smackdown-art':
                           assert b'viewBox="0 0 720 1280"' in body
                           assert b'SMACK' in body and b'DOWN' in body
+                      elif kind == 'v436':
+                          assert b'DISPLAY BUILD 4.36' in body
+                          assert b'sd-show-logo' in body
+                          assert b'sdApprovedPhoto' in body
+                      elif kind == 'visual-registry':
+                          reg=json.loads(body)
+                          assert len(reg['shows'])==6
+                          assert reg['mode']=='WRESTLING_SHOW_VISUAL_SOURCE_REVIEW'
+                      elif kind == 'asset-registry':
+                          reg=json.loads(body)
+                          assert reg['mode']=='COMMONS_REVIEWED_WRESTLING_VISUAL_ASSETS'
+                          assert len(reg['assets'])==5
+                      elif kind == 'visual-png':
+                          assert body.startswith(b'\x89PNG\r\n\x1a\n')
+                      elif kind == 'visual-jpg':
+                          assert body.startswith(b'\xff\xd8\xff')
                       elif kind == 'v435':
                           assert b'DISPLAY BUILD 4.35' in body
                           assert b'smackdown-graphics' in body

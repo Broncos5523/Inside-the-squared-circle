@@ -1,0 +1,55 @@
+{
+  "schema_version": 1,
+  "mode": "WRESTLING_SHOW_VISUAL_SOURCE_REVIEW",
+  "generated_on": "2026-10-23",
+  "legend": {
+    "source_verified_not_user_approved": "source and license checked, identity still needs TV preview approval",
+    "research_only": "not placed into any display until independently verified"
+  },
+  "shows": [
+    {
+      "show_id": "smackdown",
+      "logo_source": "https://commons.wikimedia.org/wiki/File:WWE_SmackDown_(2024)_Logo.svg",
+      "era": "2024–present",
+      "source_license": "Public domain text logo, trademarked",
+      "state": "source_verified_not_user_approved",
+      "first_preview": "V4.36",
+      "actual_file": "web/assets/vetted/smackdown-mark.png"
+    },
+    {
+      "show_id": "raw",
+      "logo_source": "https://commons.wikimedia.org/wiki/File:WWE_RAW_Logo_2025.svg",
+      "era": "2025–present",
+      "source_license": "Public domain text logo, trademarked",
+      "state": "source_verified_not_user_approved"
+    },
+    {
+      "show_id": "nxt",
+      "logo_source": "https://commons.wikimedia.org/wiki/File:WWE_NXT_2024_Logo.svg",
+      "era": "2024–present",
+      "source_license": "Public domain text logo, trademarked",
+      "state": "source_verified_not_user_approved"
+    },
+    {
+      "show_id": "tna",
+      "logo_source": "https://commons.wikimedia.org/wiki/File:TNA_Wrestling_(2024)_Logo.svg",
+      "era": "2024–present; show-specific iMPACT mark to verify",
+      "source_license": "Public domain text logo, trademarked",
+      "state": "research_only"
+    },
+    {
+      "show_id": "aaa",
+      "logo_source": "https://commons.wikimedia.org/wiki/File:Lucha_Libre_AAA_Worldwide_logo_(fixed).png",
+      "era": "2025 file; broadcast identity must be checked",
+      "source_license": "CC BY 4.0 stated on Commons; trademark",
+      "state": "research_only"
+    },
+    {
+      "show_id": "evolve",
+      "logo_source": null,
+      "era": "2025–2026 version still needs evidence",
+      "source_license": null,
+      "state": "research_only"
+    }
+  ]
+}
