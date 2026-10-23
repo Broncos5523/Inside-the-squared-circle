@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "mode": "COMMONS_REVIEWED_WRESTLING_VISUAL_ASSETS",
-  "collected_at": "2026-10-23T12:28:47.901822+00:00",
+  "collected_at": "2026-10-23T12:37:54.408697+00:00",
   "usage": "attributed_wrestling_broadcast_identification",
   "assets": [
     {
@@ -62,6 +62,42 @@
       "credit": "Diego Serrano / CC BY 2.0",
       "source": "https://commons.wikimedia.org/wiki/File:Alexa_Bliss_RR25_(1).jpg",
       "path": "./assets/vetted/alexa-bliss.jpg",
+      "status": "ready"
+    },
+    {
+      "id": "la knight",
+      "type": "portrait",
+      "title": "LA Knight RR25.jpg",
+      "file": "la-knight.jpg",
+      "license": "CC BY 2.0",
+      "artist": "Diego Serrano",
+      "credit": "Diego Serrano / CC BY 2.0",
+      "source": "https://commons.wikimedia.org/wiki/File:LA_Knight_RR25.jpg",
+      "path": "./assets/vetted/la-knight.jpg",
+      "status": "ready"
+    },
+    {
+      "id": "roman reigns",
+      "type": "portrait",
+      "title": "Roman Reigns RR25 (1).jpg",
+      "file": "roman-reigns.jpg",
+      "license": "CC BY 2.0",
+      "artist": "Diego Serrano",
+      "credit": "Diego Serrano / CC BY 2.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Roman_Reigns_RR25_(1).jpg",
+      "path": "./assets/vetted/roman-reigns.jpg",
+      "status": "ready"
+    },
+    {
+      "id": "cody rhodes",
+      "type": "portrait",
+      "title": "Cody Rhodes RR25.jpg",
+      "file": "cody-rhodes.jpg",
+      "license": "CC BY 2.0",
+      "artist": "Diego Serrano",
+      "credit": "Diego Serrano / CC BY 2.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Cody_Rhodes_RR25.jpg",
+      "path": "./assets/vetted/cody-rhodes.jpg",
       "status": "ready"
     }
   ],
