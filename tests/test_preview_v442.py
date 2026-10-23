@@ -23,6 +23,10 @@ class ScreenshotQA(unittest.TestCase):
   self.assertIn("const first=archiveFallback?0:position%talent.length",NEW)
   self.assertIn("const rows=forceAfterBell?[]:reportedRows(show,key,'matches')",NEW)
   self.assertIn('renderSdRecapBoxes(record,verifiedResults,developments',NEW)
+  self.assertIn('const previous=forceAfterBell?null:editorialRecap(show,key)',NEW)
+  self.assertIn('priorNotes=Array.isArray(previous?.developments)',NEW)
+  self.assertIn("LAST WEEK'S FALLOUT",NEW)
+  self.assertNotIn("bd('notes-title').textContent='MORE ON THE CARD'",NEW)
  def test_version_and_original_working_board_intact(self):
   self.assertIn('DISPLAY BUILD 4.42',NEW)
   self.assertIn('id="bd-build">DISPLAY 4.42',NEW)

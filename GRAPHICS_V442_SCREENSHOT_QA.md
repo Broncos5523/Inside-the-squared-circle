@@ -38,3 +38,9 @@ No generated images, no new Google photos, no fake champions or standings.
 The existing Real Man Cave official master-emblem asset is still unresolved;
 the rejected checkerboard emblem remains excluded. This is a review,
 not a user-approved gold master.
+
+**Additional fix:** The lower right panel in the screenshot duplicated upcoming
+matches from the left panel. V4.42 now uses previous week's date-gated,
+reviewed storyline developments under LAST WEEK'S FALLOUT when available.
+Without reviewed notes or advertised appearances, it shows one short neutral
+program note instead of duplicated bouts. No raw article links are exposed.

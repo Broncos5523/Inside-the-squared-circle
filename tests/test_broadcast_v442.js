@@ -36,7 +36,7 @@ const construct=new Function('$','document','reportedRows','sdNamedCompetitors',
 const make=(position,bc,after,recap)=>construct($,document,(_,__,kind)=>kind==='matches'?rows:appearances,
   roster,nameplate,data,position,s=>s==='2026-10-16'?'FRIDAY, OCT 16':'FRIDAY, OCT 23',
   Object.fromEntries(data.shows.map(x=>[x.id,x.id.toUpperCase()])),s=>'10/23',bc,after,()=>recap,names);
-let runtime=make(1,true,false,null);
+let runtime=make(1,true,false,record);
 runtime.renderSdBroadcast(show,'smackdown');
 assert.equal(ids['sd-broadcast'].hidden,false);
 assert.equal(ids['hero-note'].textContent,'EDITORIAL HERO · ARCHIVAL PHOTOS · NOT ADVERTISED APPEARANCES');
@@ -46,10 +46,14 @@ assert.deepEqual(ids.hero.children.filter(x=>x.className.startsWith('bd-photo'))
 assert.equal(ids['air-label'].textContent,'NEXT ON');
 assert.equal(ids['prime-title'].textContent,'FEATURED MATCH · 2 / 2');
 assert.equal(ids['others-title'].textContent,'OTHER FEATURED MATCHES');
+assert.equal(ids['notes-title'].textContent,"LAST WEEK'S FALLOUT");
+assert(ids.notes.textContent.includes('Alexa Bliss and Tatum Paxley'));
+assert(!ids.notes.textContent.includes('Giulia vs. Blake Monroe'));
 assert.equal(ids.hero.children.filter(x=>x.className.startsWith('bd-photo')).length,3);
 currentNames=[];
 runtime=make(1,true,false,null);
 runtime.renderSdBroadcast(show,'smackdown');
+assert.equal(ids['notes-title'].textContent,'PROGRAM NOTES');
 const archivalPhotos=ids.hero.children.filter(x=>x.className.startsWith('bd-photo'))
  .map(x=>x.children[0].title);
 assert.deepEqual(archivalPhotos,['la knight','roman reigns','cody rhodes']);
