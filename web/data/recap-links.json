@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "mode": "PUBLISHER_RSS_POST_SHOW_LINKS_ONLY",
-  "generated_at": "2026-10-23T12:39:23.165538-04:00",
+  "generated_at": "2026-10-23T12:57:17.354688-04:00",
   "source_name": "Multiple publisher RSS feeds",
   "source_url": "https://www.f4wonline.com/rss.xml",
   "approved_publishers": [
@@ -49,7 +49,8 @@
           "url": "https://gerweck.net/2026/10/19/wwe-raw-results-10-19-26/",
           "published_at": "2026-10-19T23:00:51+00:00",
           "source_name": "Gerweck.net",
-          "status": "PUBLISHER_HEADLINE_LINK_ONLY"
+          "status": "PUBLISHER_HEADLINE_LINK_ONLY",
+          "retained_from_previous": true
         }
       ],
       "source_name": "Multiple publisher RSS feeds",
@@ -64,7 +65,8 @@
           "url": "https://gerweck.net/2026/10/16/wwe-smackdown-results-10-16-26/",
           "published_at": "2026-10-16T23:38:40+00:00",
           "source_name": "Gerweck.net",
-          "status": "PUBLISHER_HEADLINE_LINK_ONLY"
+          "status": "PUBLISHER_HEADLINE_LINK_ONLY",
+          "retained_from_previous": true
         },
         {
           "headline": "WWE SmackDown live results: Cody Rhodes & Randy Orton face-to-face",
@@ -93,7 +95,8 @@
           "url": "https://gerweck.net/2026/10/20/10-20-26-nxt-recap/",
           "published_at": "2026-10-21T03:15:10+00:00",
           "source_name": "Gerweck.net",
-          "status": "PUBLISHER_HEADLINE_LINK_ONLY"
+          "status": "PUBLISHER_HEADLINE_LINK_ONLY",
+          "retained_from_previous": true
         },
         {
           "headline": "Cook’s WWE NXT Review 10.20.26",
@@ -136,7 +139,8 @@
           "url": "https://gerweck.net/2026/10/23/10-22-26-tna-impact-recap/",
           "published_at": "2026-10-23T04:27:15+00:00",
           "source_name": "Gerweck.net",
-          "status": "PUBLISHER_HEADLINE_LINK_ONLY"
+          "status": "PUBLISHER_HEADLINE_LINK_ONLY",
+          "retained_from_previous": true
         },
         {
           "headline": "Ciocco’s TNA Impact Review 10.22.26",
@@ -187,7 +191,8 @@
           "url": "https://gerweck.net/2026/10/22/10-21-26-wwe-evolve-recap/",
           "published_at": "2026-10-22T14:02:54+00:00",
           "source_name": "Gerweck.net",
-          "status": "PUBLISHER_HEADLINE_LINK_ONLY"
+          "status": "PUBLISHER_HEADLINE_LINK_ONLY",
+          "retained_from_previous": true
         },
         {
           "headline": "Leighty’s WWE Evolve Review: 10.21.26",
@@ -202,7 +207,7 @@
     }
   ],
   "total_links": 20,
-  "retained_link_count": 2,
+  "retained_link_count": 7,
   "collection_status": "ok",
   "successful_feed_urls": [
     "https://www.f4wonline.com/rss.xml",
@@ -210,7 +215,6 @@
     "https://www.f4wonline.com/category/news/nxt/nxt-results/feed/",
     "https://411mania.com/wrestling/feed/",
     "https://411mania.com/wrestling/category/tv-report/feed/",
-    "https://gerweck.net/category/results/feed/",
     "https://www.tpww.net/feed/",
     "https://www.ringsidenews.com/feed/",
     "https://wrestlingheadlines.com/feed/"

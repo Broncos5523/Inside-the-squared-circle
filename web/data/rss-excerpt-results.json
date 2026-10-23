@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "mode": "POST_BROADCAST_RSS_SYNDICATED_EXCERPT_FACTS_UNVERIFIED",
-  "generated_at": "2026-10-23T12:39:46.747624-04:00",
+  "generated_at": "2026-10-23T12:57:27.045173-04:00",
   "policy": "Short factual winner/loser statements only from approved publisher-syndicated RSS descriptions after broadcast. Excerpt not published. Zero is acceptable; no website scraping, source quotes, title changes or storyline inference.",
   "programs": [
     {
@@ -42,7 +42,7 @@
     }
   ],
   "total_reported_results": 0,
-  "working_rss_feeds": 9,
+  "working_rss_feeds": 10,
   "source_diagnostics": {
     "https://www.f4wonline.com/rss.xml": {
       "items": 50,
@@ -95,8 +95,14 @@
       "status": "ok"
     },
     "https://www.fightful.com/wrestling/rss": {
-      "status": "unavailable",
-      "reason": "TimeoutError"
+      "items": 10,
+      "with_description": 10,
+      "with_defeated_word": 0,
+      "with_explicit_outcome_sentence": 0,
+      "dated_broadcast_headlines": 0,
+      "dated_descriptions_with_outcome": 0,
+      "dated_descriptions_with_victory_word": 0,
+      "status": "ok"
     },
     "https://gerweck.net/category/results/feed/": {
       "items": 50,
