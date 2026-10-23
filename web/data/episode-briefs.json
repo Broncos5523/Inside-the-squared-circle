@@ -1,0 +1,69 @@
+{
+  "schema_version": 1,
+  "mode": "TVMAZE_FINISHED_EPISODE_GUIDE_SYNOPSIS_ONLY",
+  "generated_at": "2026-10-22T22:40:00-04:00",
+  "policy": "Licensed TVmaze episode summaries, never outcomes.",
+  "programs": [
+    {
+      "show_id": "raw",
+      "airdate": null,
+      "synopsis": null,
+      "episode_id": null,
+      "evidence_url": null,
+      "source_name": "TVmaze",
+      "license": "CC BY-SA",
+      "status": "awaiting_first_collection"
+    },
+    {
+      "show_id": "smackdown",
+      "airdate": null,
+      "synopsis": null,
+      "episode_id": null,
+      "evidence_url": null,
+      "source_name": "TVmaze",
+      "license": "CC BY-SA",
+      "status": "awaiting_first_collection"
+    },
+    {
+      "show_id": "nxt",
+      "airdate": null,
+      "synopsis": null,
+      "episode_id": null,
+      "evidence_url": null,
+      "source_name": "TVmaze",
+      "license": "CC BY-SA",
+      "status": "awaiting_first_collection"
+    },
+    {
+      "show_id": "aaa",
+      "airdate": null,
+      "synopsis": null,
+      "episode_id": null,
+      "evidence_url": null,
+      "source_name": "TVmaze",
+      "license": "CC BY-SA",
+      "status": "awaiting_first_collection"
+    },
+    {
+      "show_id": "tna",
+      "airdate": null,
+      "synopsis": null,
+      "episode_id": null,
+      "evidence_url": null,
+      "source_name": "TVmaze",
+      "license": "CC BY-SA",
+      "status": "awaiting_first_collection"
+    },
+    {
+      "show_id": "evolve",
+      "airdate": null,
+      "synopsis": null,
+      "episode_id": null,
+      "evidence_url": null,
+      "source_name": "TVmaze",
+      "license": "CC BY-SA",
+      "status": "awaiting_first_collection"
+    }
+  ],
+  "synopses_available": 0
+}

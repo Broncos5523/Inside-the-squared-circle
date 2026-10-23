@@ -379,6 +379,31 @@ jobs:
           assert 'results' not in e and 'winner' not in e
           print('EVOLVE LICENSE / EPISODE SAFETY PASS')
           PY
+      - name: Collect licensed past-episode TVmaze synopsis context
+        run: python -m proof.episode_briefs --snapshot web/data/snapshot.json --previous web/data/episode-briefs.json --out web/data/episode-briefs.json
+      - name: Verify licensed episode synopsis attribution and exact airdate
+        run: |
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          from datetime import datetime
+          from zoneinfo import ZoneInfo
+          from proof.episode_briefs import most_recent_completed
+          data=json.loads(Path('web/data/episode-briefs.json').read_text())
+          snap=json.loads(Path('web/data/snapshot.json').read_text())
+          assert data['mode']=='TVMAZE_FINISHED_EPISODE_GUIDE_SYNOPSIS_ONLY'
+          assert len(data['programs'])==6
+          now=datetime.now(ZoneInfo('America/New_York'))
+          for row in data['programs']:
+              program=next(s for s in snap['shows'] if s['id']==row['show_id'])
+              if row['synopsis']:
+                  assert row['airdate']==most_recent_completed(program,now)
+                  assert row['license']=='CC BY-SA' and row['source_name']=='TVmaze'
+                  assert row['evidence_url']==f"https://api.tvmaze.com/episodes/{row['episode_id']}"
+                  assert len(row['synopsis'])<=240
+              assert 'results' not in row and 'winner' not in row
+          print('EPISODE SYNOPSIS CONTENT AND LICENSE AUDIT PASSED')
+          PY
       - name: Collect publisher-syndicated post-show article links
         run: python -m proof.recap_links --snapshot web/data/snapshot.json --out web/data/recap-links.json
       - name: Audit publisher headline-only feed
@@ -508,6 +533,7 @@ jobs:
           cp web/data/evolve-synopsis.json /tmp/itsc-new-evolve-synopsis.json
           cp web/data/recap-links.json /tmp/itsc-new-recap-links.json
           cp web/data/rss-facts.json /tmp/itsc-new-rss-facts.json
+          cp web/data/episode-briefs.json /tmp/itsc-new-episode-briefs.json
           for attempt in 1 2 3; do
             git fetch origin main
             git reset --hard origin/main
@@ -520,7 +546,8 @@ jobs:
             cp /tmp/itsc-new-evolve-synopsis.json web/data/evolve-synopsis.json
             cp /tmp/itsc-new-recap-links.json web/data/recap-links.json
             cp /tmp/itsc-new-rss-facts.json web/data/rss-facts.json
-            git add web/data/snapshot.json web/data/candidates.json web/data/reported.json web/data/tvmaze-reported.json web/data/known-events.json web/data/results.json web/data/evolve-synopsis.json web/data/recap-links.json web/data/rss-facts.json
+            cp /tmp/itsc-new-episode-briefs.json web/data/episode-briefs.json
+            git add web/data/snapshot.json web/data/candidates.json web/data/reported.json web/data/tvmaze-reported.json web/data/known-events.json web/data/results.json web/data/evolve-synopsis.json web/data/recap-links.json web/data/rss-facts.json web/data/episode-briefs.json
             if git diff --cached --quiet; then
               echo "No schedule changes to commit"
               break
@@ -560,6 +587,7 @@ jobs:
           expected_evolve = json.loads(Path('web/data/evolve-synopsis.json').read_text(encoding='utf-8'))
           expected_links = json.loads(Path('web/data/recap-links.json').read_text(encoding='utf-8'))
           expected_rss_facts = json.loads(Path('web/data/rss-facts.json').read_text(encoding='utf-8'))
+          expected_episode_briefs = json.loads(Path('web/data/episode-briefs.json').read_text(encoding='utf-8'))
           checks = [
               (f'{base}/preview-v4-6.html?show=smackdown&probe={nonce}', 'smackdown'),
               (f'{base}/preview-v4-6.html?show=tna&probe={nonce}', 'tna'),
@@ -620,6 +648,7 @@ jobs:
               (f'{base}/preview-v4-24.html?show=raw&view=recap&probe={nonce}', 'v424'),
               (f'{base}/preview-v4-24.html?show=tna&view=results&probe={nonce}', 'v424'),
               (f'{base}/preview-v4-24.html?show=evolve&probe={nonce}', 'v424'),
+              (f'{base}/data/episode-briefs.json?probe={nonce}', 'episode-briefs'),
               (f'{base}/data/research-20261022.json?probe={nonce}', 'research'),
               (f'{base}/data/tvmaze-reported.json?probe={nonce}', 'tvmaze'),
           ]
@@ -633,7 +662,12 @@ jobs:
                       with urlopen(request, timeout=18) as response:
                           assert response.status == 200
                           body = response.read()
-                      if kind == 'rss-facts':
+                      if kind == 'episode-briefs':
+                          payload=json.loads(body)
+                          assert payload['mode']=='TVMAZE_FINISHED_EPISODE_GUIDE_SYNOPSIS_ONLY'
+                          assert payload['generated_at']==expected_episode_briefs['generated_at']
+                          assert len(payload['programs'])==6
+                      elif kind == 'rss-facts':
                           factfeed=json.loads(body)
                           assert factfeed['mode']=='POST_BROADCAST_RSS_EXPLICIT_FACTS_UNVERIFIED'
                           assert factfeed['generated_at']==expected_rss_facts['generated_at']
