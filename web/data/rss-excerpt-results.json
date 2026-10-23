@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "mode": "POST_BROADCAST_RSS_SYNDICATED_EXCERPT_FACTS_UNVERIFIED",
-  "generated_at": "2026-10-22T23:16:08.997032-04:00",
+  "generated_at": "2026-10-22T23:17:36.979036-04:00",
   "policy": "Short factual winner/loser statements only from approved publisher-syndicated RSS descriptions after broadcast. Excerpt not published. Zero is acceptable; no website scraping, source quotes, title changes or storyline inference.",
   "programs": [
     {
@@ -42,5 +42,97 @@
     }
   ],
   "total_reported_results": 0,
-  "working_rss_feeds": 10
+  "working_rss_feeds": 10,
+  "source_diagnostics": {
+    "https://www.f4wonline.com/rss.xml": {
+      "items": 50,
+      "with_description": 50,
+      "with_defeated_word": 4,
+      "with_explicit_outcome_sentence": 0,
+      "dated_broadcast_headlines": 0,
+      "dated_descriptions_with_outcome": 0,
+      "status": "ok"
+    },
+    "https://www.f4wonline.com/category/news/wwe/results/feed/": {
+      "items": 50,
+      "with_description": 50,
+      "with_defeated_word": 4,
+      "with_explicit_outcome_sentence": 0,
+      "dated_broadcast_headlines": 0,
+      "dated_descriptions_with_outcome": 0,
+      "status": "ok"
+    },
+    "https://www.f4wonline.com/category/news/nxt/nxt-results/feed/": {
+      "items": 50,
+      "with_description": 50,
+      "with_defeated_word": 3,
+      "with_explicit_outcome_sentence": 0,
+      "dated_broadcast_headlines": 0,
+      "dated_descriptions_with_outcome": 0,
+      "status": "ok"
+    },
+    "https://411mania.com/wrestling/feed/": {
+      "items": 10,
+      "with_description": 10,
+      "with_defeated_word": 0,
+      "with_explicit_outcome_sentence": 0,
+      "dated_broadcast_headlines": 0,
+      "dated_descriptions_with_outcome": 0,
+      "status": "ok"
+    },
+    "https://411mania.com/wrestling/category/tv-report/feed/": {
+      "items": 10,
+      "with_description": 10,
+      "with_defeated_word": 0,
+      "with_explicit_outcome_sentence": 0,
+      "dated_broadcast_headlines": 6,
+      "dated_descriptions_with_outcome": 0,
+      "status": "ok"
+    },
+    "https://www.fightful.com/wrestling/rss": {
+      "items": 10,
+      "with_description": 10,
+      "with_defeated_word": 0,
+      "with_explicit_outcome_sentence": 0,
+      "dated_broadcast_headlines": 0,
+      "dated_descriptions_with_outcome": 0,
+      "status": "ok"
+    },
+    "https://gerweck.net/category/results/feed/": {
+      "items": 50,
+      "with_description": 50,
+      "with_defeated_word": 10,
+      "with_explicit_outcome_sentence": 0,
+      "dated_broadcast_headlines": 4,
+      "dated_descriptions_with_outcome": 0,
+      "status": "ok"
+    },
+    "https://www.tpww.net/feed/": {
+      "items": 50,
+      "with_description": 50,
+      "with_defeated_word": 4,
+      "with_explicit_outcome_sentence": 0,
+      "dated_broadcast_headlines": 1,
+      "dated_descriptions_with_outcome": 0,
+      "status": "ok"
+    },
+    "https://www.ringsidenews.com/feed/": {
+      "items": 15,
+      "with_description": 15,
+      "with_defeated_word": 0,
+      "with_explicit_outcome_sentence": 0,
+      "dated_broadcast_headlines": 0,
+      "dated_descriptions_with_outcome": 0,
+      "status": "ok"
+    },
+    "https://wrestlingheadlines.com/feed/": {
+      "items": 50,
+      "with_description": 50,
+      "with_defeated_word": 0,
+      "with_explicit_outcome_sentence": 0,
+      "dated_broadcast_headlines": 1,
+      "dated_descriptions_with_outcome": 0,
+      "status": "ok"
+    }
+  }
 }
