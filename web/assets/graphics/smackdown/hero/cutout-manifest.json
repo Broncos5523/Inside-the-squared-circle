@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "mode": "REAL_PHOTO_BACKGROUND_REMOVAL_DRAFTS",
-  "generated_at": "2026-10-23T16:14:34.779427+00:00",
+  "generated_at": "2026-10-23T16:39:04.073960+00:00",
   "is_final_gold_master": false,
   "no_roman_reigns_in_smackdown_hero": true,
   "method": "rembg human foreground segmentation; no image generation",
