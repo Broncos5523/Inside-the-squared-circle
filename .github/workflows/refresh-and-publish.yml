@@ -101,6 +101,8 @@ jobs:
           PY
       - name: Research-only documented open wrestling API schema probe
         run: python -m proof.owdb_probe
+      - name: Audit public MIT weekly WWE match data coverage (research only)
+        run: python -m proof.wvez_audit
       - name: Test research intake safeguards
         run: python -m unittest discover -s tests -v
       - name: Validate preview JavaScript and portrait card pagination
