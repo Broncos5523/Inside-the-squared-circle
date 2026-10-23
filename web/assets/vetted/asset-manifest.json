@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "mode": "COMMONS_REVIEWED_WRESTLING_VISUAL_ASSETS",
-  "collected_at": "2026-10-23T06:47:40.212188+00:00",
+  "collected_at": "2026-10-23T06:49:47.528091+00:00",
   "usage": "attributed_wrestling_broadcast_identification",
   "assets": [
     {
@@ -13,7 +13,8 @@
       "artist": "AJKelley / WWE logo design",
       "credit": "SmackDown identifying mark (trademark of WWE)",
       "source": "https://commons.wikimedia.org/wiki/File:WWE_SmackDown_(2024)_Logo.svg",
-      "status": "unavailable"
+      "path": "./assets/vetted/smackdown-mark.png",
+      "status": "ready"
     },
     {
       "id": "chelsea green",
@@ -24,7 +25,8 @@
       "artist": "Diego Serrano",
       "credit": "Diego Serrano / CC BY 2.0",
       "source": "https://commons.wikimedia.org/wiki/File:Chelsea_Green_RR25_(2).jpg",
-      "status": "unavailable"
+      "path": "./assets/vetted/chelsea-green.jpg",
+      "status": "ready"
     },
     {
       "id": "roxanne perez",
@@ -35,7 +37,8 @@
       "artist": "Diego Serrano",
       "credit": "Diego Serrano / CC BY 2.0",
       "source": "https://commons.wikimedia.org/wiki/File:Roxanne_Perez_RR25.jpg",
-      "status": "unavailable"
+      "path": "./assets/vetted/roxanne-perez.jpg",
+      "status": "ready"
     },
     {
       "id": "giulia",
@@ -46,7 +49,8 @@
       "artist": "Diego Serrano",
       "credit": "Diego Serrano / CC BY 2.0",
       "source": "https://commons.wikimedia.org/wiki/File:Giulia_RR25.jpg",
-      "status": "unavailable"
+      "path": "./assets/vetted/giulia.jpg",
+      "status": "ready"
     },
     {
       "id": "alexa bliss",
@@ -57,34 +61,9 @@
       "artist": "Diego Serrano",
       "credit": "Diego Serrano / CC BY 2.0",
       "source": "https://commons.wikimedia.org/wiki/File:Alexa_Bliss_RR25_(1).jpg",
-      "status": "unavailable"
+      "path": "./assets/vetted/alexa-bliss.jpg",
+      "status": "ready"
     }
   ],
-  "issues": [
-    {
-      "id": "smackdown",
-      "reason": "ValueError",
-      "detail": "Missing trusted Wikimedia thumbnail for smackdown"
-    },
-    {
-      "id": "chelsea green",
-      "reason": "ValueError",
-      "detail": "Missing trusted Wikimedia thumbnail for chelsea green"
-    },
-    {
-      "id": "roxanne perez",
-      "reason": "ValueError",
-      "detail": "Missing trusted Wikimedia thumbnail for roxanne perez"
-    },
-    {
-      "id": "giulia",
-      "reason": "ValueError",
-      "detail": "Missing trusted Wikimedia thumbnail for giulia"
-    },
-    {
-      "id": "alexa bliss",
-      "reason": "ValueError",
-      "detail": "Missing trusted Wikimedia thumbnail for alexa bliss"
-    }
-  ]
+  "issues": []
 }
