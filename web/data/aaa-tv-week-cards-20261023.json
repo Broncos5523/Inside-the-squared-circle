@@ -1,0 +1,75 @@
+{
+  "schema_version": 1,
+  "mode": "DATED_AAA_TV_WEEK_CARD_REVIEW_UNVERIFIED",
+  "reviewed_at_et": "2026-10-23",
+  "policy": "Manually reviewed episode-week assignment from Oct 17 AAA TV reports. Distinguish multi-week event-level card from individual broadcast weeks. Short facts only; no copied text, no results, no predictions. Exact next aired show/date enforced at display; stale matches expire.",
+  "programs": [
+    {
+      "show_id": "aaa",
+      "airdate": "2026-10-24",
+      "episode_label": "Héroes Inmortales — Week 1",
+      "matches": [
+        {
+          "text": "El Grande Americano (c) vs. Dominik Mysterio",
+          "stipulation": "AAA Mega Championship",
+          "source_name": "411Mania",
+          "evidence_url": "https://411mania.com/wrestling/aaa-heroes-inmortales-2026-full-lineup/",
+          "status": "REPORTED_UNVERIFIED"
+        },
+        {
+          "text": "La Catalina (c) vs. Flammer vs. La Hiedra",
+          "stipulation": "AAA Reina de Reinas Championship Triple Threat",
+          "source_name": "411Mania",
+          "evidence_url": "https://411mania.com/wrestling/aaa-heroes-inmortales-2026-full-lineup/",
+          "status": "REPORTED_UNVERIFIED"
+        },
+        {
+          "text": "Los Perros del Mal (Daga, Angel & Berto) (c) vs. La Parka, Mr. Iguana & Niño Hamburguesa",
+          "stipulation": "AAA World Trios Championship",
+          "source_name": "TPWW",
+          "evidence_url": "https://www.tpww.net/2026/10/10-17-aaa-tv-notes-quick-match-results-el-fiscal-vs-abismo-negro-and-flammer-vs-la-hiedra-vs-la-catalina-for-aaa-reina-de-reinas-title-set-for-aaa-heroes-inmortales-2026/",
+          "status": "REPORTED_UNVERIFIED"
+        }
+      ],
+      "appearances": [
+        {
+          "text": "Marisela Peña — AAA Hall of Fame induction",
+          "type": "Hall of Fame ceremony",
+          "source_name": "411Mania",
+          "evidence_url": "https://411mania.com/wrestling/aaa-heroes-inmortales-2026-full-lineup/",
+          "status": "REPORTED_UNVERIFIED"
+        }
+      ]
+    },
+    {
+      "show_id": "aaa",
+      "airdate": "2026-10-31",
+      "episode_label": "Héroes Inmortales — Week 2",
+      "matches": [
+        {
+          "text": "Rey Fenix (c) vs. Mini Vikingo",
+          "stipulation": "AAA World Cruiserweight Championship",
+          "source_name": "411Mania",
+          "evidence_url": "https://411mania.com/wrestling/aaa-heroes-inmortales-2026-full-lineup/",
+          "status": "REPORTED_UNVERIFIED"
+        }
+      ],
+      "appearances": []
+    },
+    {
+      "show_id": "aaa",
+      "airdate": "2026-11-07",
+      "episode_label": "Héroes Inmortales — Week 3",
+      "matches": [
+        {
+          "text": "El Fiscal vs. Abismo Negro Jr.",
+          "stipulation": "Singles Match",
+          "source_name": "TPWW",
+          "evidence_url": "https://www.tpww.net/2026/10/10-17-aaa-tv-notes-quick-match-results-el-fiscal-vs-abismo-negro-and-flammer-vs-la-hiedra-vs-la-catalina-for-aaa-reina-de-reinas-title-set-for-aaa-heroes-inmortales-2026/",
+          "status": "REPORTED_UNVERIFIED"
+        }
+      ],
+      "appearances": []
+    }
+  ]
+}
