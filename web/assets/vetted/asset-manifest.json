@@ -1,0 +1,85 @@
+{
+  "schema_version": 1,
+  "mode": "COMMONS_REVIEWED_WRESTLING_VISUAL_ASSETS",
+  "collected_at": "2026-10-23T06:41:50.971723+00:00",
+  "usage": "attributed_wrestling_broadcast_identification",
+  "assets": [
+    {
+      "id": "smackdown",
+      "type": "logo",
+      "title": "WWE SmackDown (2024) Logo.svg",
+      "file": "smackdown-mark.png",
+      "license": "Public domain",
+      "artist": "AJKelley / WWE logo design",
+      "credit": "SmackDown identifying mark (trademark of WWE)",
+      "source": "https://commons.wikimedia.org/wiki/File:WWE_SmackDown_(2024)_Logo.svg",
+      "status": "unavailable"
+    },
+    {
+      "id": "chelsea green",
+      "type": "portrait",
+      "title": "Chelsea Green RR25 (2).jpg",
+      "file": "chelsea-green.jpg",
+      "license": "CC BY 2.0",
+      "artist": "Diego Serrano",
+      "credit": "Diego Serrano / CC BY 2.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Chelsea_Green_RR25_(2).jpg",
+      "status": "unavailable"
+    },
+    {
+      "id": "roxanne perez",
+      "type": "portrait",
+      "title": "Roxanne Perez RR25.jpg",
+      "file": "roxanne-perez.jpg",
+      "license": "CC BY 2.0",
+      "artist": "Diego Serrano",
+      "credit": "Diego Serrano / CC BY 2.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Roxanne_Perez_RR25.jpg",
+      "status": "unavailable"
+    },
+    {
+      "id": "giulia",
+      "type": "portrait",
+      "title": "Giulia RR25.jpg",
+      "file": "giulia.jpg",
+      "license": "CC BY 2.0",
+      "artist": "Diego Serrano",
+      "credit": "Diego Serrano / CC BY 2.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Giulia_RR25.jpg",
+      "status": "unavailable"
+    },
+    {
+      "id": "alexa bliss",
+      "type": "portrait",
+      "title": "Alexa Bliss RR25 (1).jpg",
+      "file": "alexa-bliss.jpg",
+      "license": "CC BY 2.0",
+      "artist": "Diego Serrano",
+      "credit": "Diego Serrano / CC BY 2.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Alexa_Bliss_RR25_(1).jpg",
+      "status": "unavailable"
+    }
+  ],
+  "issues": [
+    {
+      "id": "smackdown",
+      "reason": "ValueError"
+    },
+    {
+      "id": "chelsea green",
+      "reason": "ValueError"
+    },
+    {
+      "id": "roxanne perez",
+      "reason": "ValueError"
+    },
+    {
+      "id": "giulia",
+      "reason": "ValueError"
+    },
+    {
+      "id": "alexa bliss",
+      "reason": "ValueError"
+    }
+  ]
+}
