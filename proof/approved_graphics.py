@@ -43,12 +43,12 @@ LIMIT_BYTES=2_100_000
 
 def fetch(url):
  p=urlsplit(url)
- if p.scheme!="https" or p.hostname not in {"commons.wikimedia.org","upload.wikimedia.org"}:
+ if p.scheme!="https" or p.hostname not in {"commons.wikimedia.org","upload.wikimedia.org","thumb.wikimedia.org"}:
   raise ValueError("Host outside the Wikimedia Commons / upload allowlist")
  req=Request(url,headers={"User-Agent":USER_AGENT,"Accept":"application/json,image/*"})
  with urlopen(req,timeout=22) as response:
   final=urlsplit(response.geturl())
-  if final.scheme!="https" or final.hostname not in {"commons.wikimedia.org","upload.wikimedia.org"}:
+  if final.scheme!="https" or final.hostname not in {"commons.wikimedia.org","upload.wikimedia.org","thumb.wikimedia.org"}:
    raise ValueError("Wikimedia redirect outside host allowlist")
   b=response.read(LIMIT_BYTES+1)
  if len(b)>LIMIT_BYTES:raise ValueError("Image exceeds 2.1 MB download cap")
@@ -70,7 +70,7 @@ def image_info(asset,fetcher=fetch):
  if license_name.casefold()!=asset["license"].casefold():
   raise ValueError("Wikimedia license mismatch for "+asset["id"]+": "+license_name)
  url=info.get("thumburl","")
- if urlsplit(url).hostname!="upload.wikimedia.org" or urlsplit(url).scheme!="https":
+ if urlsplit(url).hostname not in {"upload.wikimedia.org","thumb.wikimedia.org"} or urlsplit(url).scheme!="https":
   raise ValueError("Missing trusted Wikimedia thumbnail for "+asset["id"])
  suffix=urlsplit(url).path.lower()
  expected=".png" if asset["type"]=="logo" else ".jpg"

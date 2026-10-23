@@ -1,0 +1,71 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Inside the Squared Circle — Authentic Asset Approval</title>
+<style>
+:root{color-scheme:dark}*{box-sizing:border-box}
+body{margin:0;background:radial-gradient(ellipse at 50% 0%,#162f56,#08101e 56%);color:#eaf5ff;font:15px/1.5 system-ui,-apple-system,Arial,sans-serif}
+main{max-width:1020px;margin:auto;padding:28px 16px 70px}
+.topline{font-weight:800;font-size:12px;letter-spacing:.19em;color:#d7b980;text-transform:uppercase}
+h1{font-size:clamp(28px,5vw,45px);line-height:1.04;margin:10px 0 14px;letter-spacing:-.035em}
+h2{font-size:21px;margin:27px 0 12px;color:#f1d69c}
+p{color:#b7c9db;max-width:760px}
+.notice{padding:12px 15px;background:#0d2037;border-left:3px solid #4eaeff;margin:18px 0 25px;border-radius:4px;color:#cadff7}
+.cards{display:grid;grid-template-columns:repeat(auto-fill,minmax(210px,1fr));gap:13px}
+.card{background:#101e32;border:1px solid #345575;border-radius:11px;overflow:hidden;box-shadow:0 8px 22px #0004}
+.art{height:220px;display:grid;place-items:center;background:radial-gradient(ellipse at center,#12345e,#07101f);overflow:hidden;position:relative}
+.art img{display:block;width:100%;height:100%;object-fit:contain}
+.art.portrait img{object-fit:cover;object-position:center 24%}
+.art span{font-size:13px;color:#8cacca;letter-spacing:.04em;padding:15px;text-align:center}
+.caption{padding:12px 13px 14px}
+.caption strong{display:block;font-size:17px}
+.caption small{color:#9ec0dd;display:block;margin-top:4px}
+.status{font-weight:800;color:#d6b976;font-size:12px;margin-top:8px;letter-spacing:.06em;text-transform:uppercase}
+.sources{display:grid;grid-template-columns:repeat(auto-fill,minmax(235px,1fr));gap:10px;margin-top:16px}
+.source{border:1px solid #2d4861;border-radius:7px;background:#0b1a2b;padding:11px 13px}
+.source strong{display:block;margin-bottom:4px}
+.source em{font-style:normal;color:#aac0d2;font-size:12px}
+footer{margin-top:30px;padding-top:16px;border-top:1px solid #3d536c;font-size:12px;color:#a3b6cb}
+</style>
+</head>
+<body><main>
+<div class="topline">Man Cave Sports Book Presents · Graphics Production</div>
+<h1>Authentic Asset Review</h1>
+<p>Real show-logo source, named wrestler photographs and original credits. This is a research/approval page, not the television board. Unavailable images are never silently replaced by another person.</p>
+<div class="notice">The earlier standalone checkerboard master emblem was rejected. It is NOT used here. Full-board reference art guides our future master branding treatment, but is not used as factual wrestling coverage.</div>
+<h2>SmackDown official show mark</h2>
+<div class="cards"><article class="card">
+ <div class="art"><img src="./assets/vetted/smackdown-mark.png" alt="2024 and later WWE SmackDown logo"></div>
+ <div class="caption"><strong>SmackDown (2024+)</strong><small>Wikimedia Commons — simple text logo; WWE trademark</small><div class="status" id="smackdown-status">Checking cached image</div></div>
+</article></div>
+<h2>Real photographed wrestlers</h2>
+<div class="cards" id="people">
+ <article class="card"><div class="art portrait"><img src="./assets/vetted/chelsea-green.jpg" alt="Chelsea Green, WWE Royal Rumble 2025"></div><div class="caption"><strong>Chelsea Green</strong><small>Diego Serrano · 2025 Royal Rumble · CC BY 2.0</small><div class="status">Exact identity match only</div></div></article>
+ <article class="card"><div class="art portrait"><img src="./assets/vetted/roxanne-perez.jpg" alt="Roxanne Perez, WWE Royal Rumble 2025"></div><div class="caption"><strong>Roxanne Perez</strong><small>Diego Serrano · 2025 Royal Rumble · CC BY 2.0</small><div class="status">Exact identity match only</div></div></article>
+ <article class="card"><div class="art portrait"><img src="./assets/vetted/giulia.jpg" alt="Giulia, WWE Royal Rumble 2025"></div><div class="caption"><strong>Giulia</strong><small>Diego Serrano · 2025 Royal Rumble · CC BY 2.0</small><div class="status">Exact identity match only</div></div></article>
+ <article class="card"><div class="art portrait"><img src="./assets/vetted/alexa-bliss.jpg" alt="Alexa Bliss, WWE Royal Rumble 2025"></div><div class="caption"><strong>Alexa Bliss</strong><small>Diego Serrano · 2025 Royal Rumble · CC BY 2.0</small><div class="status">Exact identity match only</div></div></article>
+</div>
+<h2>Six-show logo sourcing status</h2>
+<div class="sources">
+ <div class="source"><strong>SmackDown</strong><em>Source checked; first real logo integrated into V4.36</em></div>
+ <div class="source"><strong>RAW</strong><em>2025 Commons text-logo source identified; not installed</em></div>
+ <div class="source"><strong>NXT</strong><em>2024 Commons text-logo source identified; not installed</em></div>
+ <div class="source"><strong>TNA iMPACT!</strong><em>2024 TNA company logo found; current iMPACT identity pending</em></div>
+ <div class="source"><strong>AAA</strong><em>Source available; 2026 broadcast logo revision must be verified</em></div>
+ <div class="source"><strong>Evolve</strong><em>Real current logo source still requires clearance</em></div>
+</div>
+<footer>Photo credit: Diego Serrano / Creative Commons Attribution 2.0 (https://creativecommons.org/licenses/by/2.0/). Source records and individual file titles documented in VISUAL_BRANDING_ASSET_AUDIT.md. Logo identification does not imply WWE endorsement.</footer>
+</main>
+<script>
+document.querySelectorAll('.art img').forEach(img=>{
+  const art=img.parentElement;
+  img.onerror=()=>{img.hidden=true;const msg=document.createElement('span');msg.textContent='Source image not cached yet';art.append(msg);
+    if(img.src.endsWith('smackdown-mark.png'))document.getElementById('smackdown-status').textContent='Pending asset download';
+  };
+  img.onload=()=>{
+    if(img.src.endsWith('smackdown-mark.png'))document.getElementById('smackdown-status').textContent='Image available · awaiting visual approval';
+  };
+});
+</script></body></html>

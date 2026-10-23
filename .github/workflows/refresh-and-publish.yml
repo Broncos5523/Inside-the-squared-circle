@@ -968,6 +968,7 @@ jobs:
               (f'{base}/preview-v4-36-authentic-smackdown.html?show=smackdown&probe={nonce}', 'v436'),
               (f'{base}/preview-v4-36-authentic-smackdown.html?show=smackdown&view=recap&probe={nonce}', 'v436'),
               (f'{base}/data/visual-source-registry.json?probe={nonce}', 'visual-registry'),
+              (f'{base}/asset-review.html?probe={nonce}', 'asset-review'),
               (f'{base}/assets/vetted/asset-manifest.json?probe={nonce}', 'asset-registry'),
               (f'{base}/art/smackdown-arena-v1.svg?probe={nonce}', 'smackdown-art'),
               (f'{base}/preview-v4-31.html?show=tna&view=recap&probe={nonce}', 'v431'),
@@ -1023,6 +1024,9 @@ jobs:
                           assert b'DISPLAY BUILD 4.36' in body
                           assert b'sd-show-logo' in body
                           assert b'sdApprovedPhoto' in body
+                      elif kind == 'asset-review':
+                          assert b'Authentic Asset Review' in body
+                          assert b'chelsea-green.jpg' in body
                       elif kind == 'visual-registry':
                           reg=json.loads(body)
                           assert len(reg['shows'])==6
