@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "mode": "PUBLISHER_RSS_POST_SHOW_LINKS_ONLY",
-  "generated_at": "2026-10-22T23:22:11.783671-04:00",
+  "generated_at": "2026-10-22T23:28:50.508304-04:00",
   "source_name": "Multiple publisher RSS feeds",
   "source_url": "https://www.f4wonline.com/rss.xml",
   "approved_publishers": [
@@ -132,6 +132,13 @@
       "airdate": "2026-10-22",
       "links": [
         {
+          "headline": "Ciocco’s TNA Impact Review 10.22.26",
+          "url": "https://411mania.com/wrestling/cioccos-tna-impact-review-10-22-26/",
+          "published_at": "2026-10-23T03:11:06+00:00",
+          "source_name": "411Mania",
+          "status": "PUBLISHER_HEADLINE_LINK_ONLY"
+        },
+        {
           "headline": "TNA iMPACT! Results (10/22): Mustafa Ali vs. Jason Hotch",
           "url": "https://www.fightful.com/wrestling-news/tna-impact-results-10-22-mustafa-ali-vs-jason-hotch",
           "published_at": "2026-10-23T00:05:53+00:00",
@@ -186,7 +193,7 @@
       "status": "publisher_coverage_links"
     }
   ],
-  "total_links": 18,
+  "total_links": 19,
   "retained_link_count": 1,
   "collection_status": "ok",
   "successful_feed_urls": [

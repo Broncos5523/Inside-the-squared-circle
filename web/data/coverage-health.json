@@ -1,19 +1,133 @@
 {
   "schema_version": 1,
   "mode": "WRESTLING_CONTENT_COVERAGE_COUNTS_ONLY",
-  "generated_at": "2026-10-22T23:30:00-04:00",
-  "source_health": {},
-  "programs": [],
+  "generated_at": "2026-10-22T23:29:10.550938-04:00",
+  "source_health": {
+    "reported": {
+      "fresh": true,
+      "generated_at": "2026-10-22T23:28:17.965274-04:00"
+    },
+    "results": {
+      "fresh": true,
+      "generated_at": "2026-10-22T23:28:24.853632-04:00"
+    },
+    "rss_facts": {
+      "fresh": true,
+      "generated_at": "2026-10-22T23:28:50.683266-04:00"
+    },
+    "rss_excerpts": {
+      "fresh": true,
+      "generated_at": "2026-10-22T23:28:59.966501-04:00"
+    },
+    "fallout": {
+      "fresh": true,
+      "generated_at": "2026-10-22T23:29:08.501857-04:00"
+    },
+    "recap_links": {
+      "fresh": true,
+      "generated_at": "2026-10-22T23:28:50.508304-04:00"
+    },
+    "episode_briefs": {
+      "fresh": true,
+      "generated_at": "2026-10-22T23:28:36.216500-04:00"
+    }
+  },
   "totals": {
+    "upcoming_reported_matches": 3,
+    "upcoming_reported_appearances": 0,
     "automatic_match_outcomes": 0,
     "automatic_storylines": 0,
-    "manually_reviewed_outcomes": 0,
-    "manually_reviewed_storylines": 0,
-    "publisher_headline_links": 0,
-    "upcoming_reported_matches": 0,
-    "upcoming_reported_appearances": 0,
+    "manually_reviewed_outcomes": 14,
+    "manually_reviewed_storylines": 10,
+    "publisher_headline_links": 19,
     "rss_descriptions_with_defeated_word": 0,
     "rss_explicit_winner_sentences": 0
   },
-  "interpretation": "Awaiting collector"
+  "programs": [
+    {
+      "show_id": "raw",
+      "last_completed": "2026-10-19",
+      "next_airdate": "2026-10-26",
+      "upcoming_reported_matches": 0,
+      "upcoming_reported_appearances": 0,
+      "automatic_match_outcomes": 0,
+      "automatic_storylines": 0,
+      "manually_reviewed_outcomes": 5,
+      "manually_reviewed_storylines": 3,
+      "episode_synopsis_available": true,
+      "publisher_headline_links": 5,
+      "results_data_status": "manual_review_available"
+    },
+    {
+      "show_id": "smackdown",
+      "last_completed": "2026-10-16",
+      "next_airdate": "2026-10-23",
+      "upcoming_reported_matches": 3,
+      "upcoming_reported_appearances": 0,
+      "automatic_match_outcomes": 0,
+      "automatic_storylines": 0,
+      "manually_reviewed_outcomes": 5,
+      "manually_reviewed_storylines": 3,
+      "episode_synopsis_available": true,
+      "publisher_headline_links": 2,
+      "results_data_status": "manual_review_available"
+    },
+    {
+      "show_id": "nxt",
+      "last_completed": "2026-10-20",
+      "next_airdate": "2026-10-27",
+      "upcoming_reported_matches": 0,
+      "upcoming_reported_appearances": 0,
+      "automatic_match_outcomes": 0,
+      "automatic_storylines": 0,
+      "manually_reviewed_outcomes": 4,
+      "manually_reviewed_storylines": 4,
+      "episode_synopsis_available": false,
+      "publisher_headline_links": 5,
+      "results_data_status": "manual_review_available"
+    },
+    {
+      "show_id": "aaa",
+      "last_completed": "2026-10-17",
+      "next_airdate": "2026-10-24",
+      "upcoming_reported_matches": 0,
+      "upcoming_reported_appearances": 0,
+      "automatic_match_outcomes": 0,
+      "automatic_storylines": 0,
+      "manually_reviewed_outcomes": 0,
+      "manually_reviewed_storylines": 0,
+      "episode_synopsis_available": false,
+      "publisher_headline_links": 0,
+      "results_data_status": "no_usable_result_facts"
+    },
+    {
+      "show_id": "tna",
+      "last_completed": "2026-10-22",
+      "next_airdate": "2026-10-29",
+      "upcoming_reported_matches": 0,
+      "upcoming_reported_appearances": 0,
+      "automatic_match_outcomes": 0,
+      "automatic_storylines": 0,
+      "manually_reviewed_outcomes": 0,
+      "manually_reviewed_storylines": 0,
+      "episode_synopsis_available": false,
+      "publisher_headline_links": 4,
+      "results_data_status": "no_usable_result_facts"
+    },
+    {
+      "show_id": "evolve",
+      "last_completed": "2026-10-21",
+      "next_airdate": "2026-10-28",
+      "upcoming_reported_matches": 0,
+      "upcoming_reported_appearances": 0,
+      "automatic_match_outcomes": 0,
+      "automatic_storylines": 0,
+      "manually_reviewed_outcomes": 0,
+      "manually_reviewed_storylines": 0,
+      "episode_synopsis_available": true,
+      "publisher_headline_links": 3,
+      "results_data_status": "no_usable_result_facts"
+    }
+  ],
+  "interpretation": "Counts of data availability, not match counts in the real world. Headline links and TVmaze episode synopses are not results. Automated source counts can duplicate the same match."
 }
