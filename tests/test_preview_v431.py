@@ -40,7 +40,7 @@ class AAAWeeks(unittest.TestCase):
         self.assertNotIn("createElement('a')",NEW)
         self.assertIn("#board{width:min(100vw,56.25dvh)",NEW)
     def test_strict_airdate_and_publisher_gate(self):
-        self.assertIn("record.airdate===show?.next?.date",NEW)
+        self.assertIn("x.airdate===show?.next?.date",NEW)
         self.assertIn("record.airdate<easternToday()",NEW)
         self.assertIn("provider.episode_withdrawn",NEW)
         self.assertIn("reviewedAaaFeed.reviewed_at_et>easternToday()",NEW)
