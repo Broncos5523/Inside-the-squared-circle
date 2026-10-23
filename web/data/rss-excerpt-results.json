@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "mode": "POST_BROADCAST_RSS_SYNDICATED_EXCERPT_FACTS_UNVERIFIED",
-  "generated_at": "2026-10-23T09:06:05.484274-04:00",
+  "generated_at": "2026-10-23T09:30:30.189038-04:00",
   "policy": "Short factual winner/loser statements only from approved publisher-syndicated RSS descriptions after broadcast. Excerpt not published. Zero is acceptable; no website scraping, source quotes, title changes or storyline inference.",
   "programs": [
     {
@@ -135,8 +135,8 @@
       "status": "ok"
     },
     "https://wrestlingheadlines.com/feed/": {
-      "items": 49,
-      "with_description": 49,
+      "items": 50,
+      "with_description": 50,
       "with_defeated_word": 1,
       "with_explicit_outcome_sentence": 0,
       "dated_broadcast_headlines": 1,
