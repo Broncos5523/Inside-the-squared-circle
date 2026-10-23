@@ -38,7 +38,7 @@ NAME=r"[A-Z][A-Za-zÀ-ÿ0-9.'\-\s&]{1,66}"
 MATCH=re.compile(r"^\s*("+NAME+r")\s+(?:defeats?|defeated|def\.)\s+("+NAME+r")\s*$",re.I)
 # Only source-headline claims about a completed episode; no preview claims.
 REJECT=re.compile(r"\b(?:preview|spoilers?|rumou?r|prediction|taping|"
-                  r"possible|could|might|expected|tonight|will|"
+                  r"possible|could|might|may|would|likely|expected|tonight|will|"
                   r"to\s+face|to\s+return|upcoming|next\s+week|"
                   r"live\s+results|simulation|fantasy)\b",re.I)
 LABEL=re.compile(r"\b(?:results?|recap|review|fallout)\b",re.I)
