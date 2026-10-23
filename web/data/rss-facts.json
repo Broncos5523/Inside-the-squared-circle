@@ -1,0 +1,51 @@
+{
+  "schema_version": 1,
+  "mode": "POST_BROADCAST_RSS_EXPLICIT_FACTS_UNVERIFIED",
+  "generated_at": "2026-10-22T22:10:00-04:00",
+  "policy": "Unverified explicit date-matched results in post-broadcast publisher RSS headlines only; no article bodies or inferred winners.",
+  "programs": [
+    {
+      "show_id": "raw",
+      "airdate": null,
+      "results": [],
+      "developments": [],
+      "status": "awaiting_first_collection"
+    },
+    {
+      "show_id": "smackdown",
+      "airdate": null,
+      "results": [],
+      "developments": [],
+      "status": "awaiting_first_collection"
+    },
+    {
+      "show_id": "nxt",
+      "airdate": null,
+      "results": [],
+      "developments": [],
+      "status": "awaiting_first_collection"
+    },
+    {
+      "show_id": "aaa",
+      "airdate": null,
+      "results": [],
+      "developments": [],
+      "status": "awaiting_first_collection"
+    },
+    {
+      "show_id": "tna",
+      "airdate": null,
+      "results": [],
+      "developments": [],
+      "status": "awaiting_first_collection"
+    },
+    {
+      "show_id": "evolve",
+      "airdate": null,
+      "results": [],
+      "developments": [],
+      "status": "awaiting_first_collection"
+    }
+  ],
+  "total_reported_results": 0
+}
