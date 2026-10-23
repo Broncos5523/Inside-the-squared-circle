@@ -1,0 +1,46 @@
+{
+  "schema_version": 1,
+  "mode": "POST_BROADCAST_RSS_SYNDICATED_EXCERPT_FACTS_UNVERIFIED",
+  "generated_at": "2026-10-22T22:43:00-04:00",
+  "policy": "Publisher-syndicated excerpt factual outcomes only; not copied to TV, no website scraping.",
+  "programs": [
+    {
+      "show_id": "raw",
+      "airdate": null,
+      "results": [],
+      "status": "awaiting_first_collection"
+    },
+    {
+      "show_id": "smackdown",
+      "airdate": null,
+      "results": [],
+      "status": "awaiting_first_collection"
+    },
+    {
+      "show_id": "nxt",
+      "airdate": null,
+      "results": [],
+      "status": "awaiting_first_collection"
+    },
+    {
+      "show_id": "aaa",
+      "airdate": null,
+      "results": [],
+      "status": "awaiting_first_collection"
+    },
+    {
+      "show_id": "tna",
+      "airdate": null,
+      "results": [],
+      "status": "awaiting_first_collection"
+    },
+    {
+      "show_id": "evolve",
+      "airdate": null,
+      "results": [],
+      "status": "awaiting_first_collection"
+    }
+  ],
+  "total_reported_results": 0,
+  "working_rss_feeds": 0
+}
