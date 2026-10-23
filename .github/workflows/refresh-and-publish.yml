@@ -529,6 +529,22 @@ jobs:
           PY
           node --check /tmp/squared-circle-v437.js
           node tests/test_graphics_roster_v437.js
+      - name: Validate V4.38 screenshot layout and runtime build label
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          old=Path('web/preview-v4-37-smackdown-photo-showcase.html').read_text()
+          new=Path('web/preview-v4-38-smackdown-broadcast-review.html').read_text()
+          assert 'DISPLAY BUILD 4.38' in new
+          assert "put('timestamp',`DISPLAY BUILD 4.38 ·" in new
+          assert "put('timestamp',`DISPLAY BUILD 4.31 ·" not in new
+          assert new.split('<style>',1)[1].split('</style>',1)[0].startswith(old.split('<style>',1)[1].split('</style>',1)[0])
+          assert 'height:21cqh;left:1.8cqw;right:1.8cqw' in new
+          assert "createElement('a')" not in new
+          Path('/tmp/itsc-v438.js').write_text(new.split('<script>',1)[1].split('</script>',1)[0])
+          PY
+          node --check /tmp/itsc-v438.js
+          node tests/test_graphics_roster_v437.js
       - name: Collect unverified match-card research leads
         run: python proof/card_intake.py --snapshot web/data/snapshot.json --out web/data/candidates.json --also-next-league
       - name: Build opt-in reported match descriptions (never confirmed)
@@ -983,6 +999,7 @@ jobs:
               (f'{base}/preview-v4-36-authentic-smackdown.html?show=smackdown&probe={nonce}', 'v436'),
               (f'{base}/preview-v4-36-authentic-smackdown.html?show=smackdown&view=recap&probe={nonce}', 'v436'),
               (f'{base}/preview-v4-37-smackdown-photo-showcase.html?show=smackdown&view=showcase&probe={nonce}', 'v437'),
+              (f'{base}/preview-v4-38-smackdown-broadcast-review.html?show=smackdown&view=showcase&probe={nonce}', 'v438'),
               (f'{base}/data/visual-source-registry.json?probe={nonce}', 'visual-registry'),
               (f'{base}/asset-review.html?probe={nonce}', 'asset-review'),
               (f'{base}/assets/vetted/asset-manifest.json?probe={nonce}', 'asset-registry'),
@@ -1036,6 +1053,10 @@ jobs:
                       elif kind == 'smackdown-art':
                           assert b'viewBox="0 0 720 1280"' in body
                           assert b'SMACK' in body and b'DOWN' in body
+                      elif kind == 'v438':
+                          assert b'DISPLAY BUILD 4.38' in body
+                          assert b'smackdown-showcase' in body
+                          assert b'height:21cqh' in body
                       elif kind == 'v437':
                           assert b'DISPLAY BUILD 4.37' in body
                           assert b'sdNamedCompetitors' in body
