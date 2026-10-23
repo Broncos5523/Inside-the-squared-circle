@@ -1167,7 +1167,7 @@ jobs:
                       elif kind == 'asset-registry':
                           reg=json.loads(body)
                           assert reg['mode']=='COMMONS_REVIEWED_WRESTLING_VISUAL_ASSETS'
-                          assert len(reg['assets'])==5
+                          assert len(reg['assets'])==8
                       elif kind == 'visual-png':
                           assert body.startswith(b'\x89PNG\r\n\x1a\n')
                       elif kind == 'visual-jpg':
