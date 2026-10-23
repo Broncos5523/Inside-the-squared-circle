@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "mode": "PROVIDER_REPORTED_POST_BROADCAST_RESULTS_UNVERIFIED",
-  "generated_at": "2026-10-23T16:16:36.161241-04:00",
+  "generated_at": "2026-10-23T16:53:23.688580-04:00",
   "policy": "Post-broadcast TheSportsDB result lines only, labelled REPORTED / UNVERIFIED. No inferred title changes, rivalries or storylines; not official announcements.",
   "programs": [
     {
@@ -38,29 +38,10 @@
     },
     {
       "show_id": "tna",
-      "airdate": "2026-10-22",
-      "results": [
-        {
-          "text": "Avery Styles defeats Joe Alonzo",
-          "match_type": "Singles Match",
-          "status": "REPORTED_UNVERIFIED",
-          "source_name": "TheSportsDB",
-          "evidence_url": "https://www.thesportsdb.com/api/v1/json/123/lookupevent.php?id=2618956",
-          "provider_event_id": "2618956",
-          "provider_field": "strResult"
-        },
-        {
-          "text": "Cedric Alexander defeats Fabian Aichner and KC Navarro and Rich Swann",
-          "match_type": "TNA X-Division Title Four Way #1 Contendership Match",
-          "status": "REPORTED_UNVERIFIED",
-          "source_name": "TheSportsDB",
-          "evidence_url": "https://www.thesportsdb.com/api/v1/json/123/lookupevent.php?id=2618956",
-          "provider_event_id": "2618956",
-          "provider_field": "strResult"
-        }
-      ],
+      "airdate": null,
+      "results": [],
       "source_name": "TheSportsDB",
-      "status": "reported_outcomes",
+      "status": "no_parseable_source_results",
       "partial_source_error": true
     },
     {
@@ -72,5 +53,5 @@
       "partial_source_error": false
     }
   ],
-  "total_reported_results": 2
+  "total_reported_results": 0
 }
