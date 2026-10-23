@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "mode": "COMMONS_REVIEWED_WRESTLING_VISUAL_ASSETS",
-  "collected_at": "2026-10-23T15:54:21.708719+00:00",
+  "collected_at": "2026-10-23T16:10:02.895628+00:00",
   "usage": "attributed_wrestling_broadcast_identification",
   "assets": [
     {
@@ -98,6 +98,30 @@
       "credit": "Diego Serrano / CC BY 2.0",
       "source": "https://commons.wikimedia.org/wiki/File:Cody_Rhodes_RR25.jpg",
       "path": "./assets/vetted/cody-rhodes.jpg",
+      "status": "ready"
+    },
+    {
+      "id": "sami zayn",
+      "type": "portrait",
+      "title": "Sami Zayn, April 2024 (cropped).jpg",
+      "file": "sami-zayn.jpg",
+      "license": "CC BY 2.0",
+      "artist": "Diego Serrano",
+      "credit": "Diego Serrano / CC BY 2.0 (cropped Wikimedia version)",
+      "source": "https://commons.wikimedia.org/wiki/File:Sami_Zayn,_April_2024_(cropped).jpg",
+      "path": "./assets/vetted/sami-zayn.jpg",
+      "status": "ready"
+    },
+    {
+      "id": "trick williams",
+      "type": "portrait",
+      "title": "Trick Williams FOS 2026 version 3 (cropped).png",
+      "file": "trick-williams.png",
+      "license": "CC BY 4.0",
+      "artist": "Front Office Sports",
+      "credit": "Front Office Sports / CC BY 4.0 (cropped Wikimedia version)",
+      "source": "https://commons.wikimedia.org/wiki/File:Trick_Williams_FOS_2026_version_3_(cropped).png",
+      "path": "./assets/vetted/trick-williams.png",
       "status": "ready"
     }
   ],
