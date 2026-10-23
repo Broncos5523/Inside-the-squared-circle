@@ -1,50 +1,50 @@
 {
   "schema_version": 1,
   "mode": "POST_BROADCAST_RSS_EXPLICIT_FACTS_UNVERIFIED",
-  "generated_at": "2026-10-22T22:10:00-04:00",
-  "policy": "Unverified explicit date-matched results in post-broadcast publisher RSS headlines only; no article bodies or inferred winners.",
+  "generated_at": "2026-10-22T22:18:27.100537-04:00",
+  "policy": "Extremely strict direct winner-vs-loser statements only from dated post-broadcast public RSS headlines. No full articles read; no title changes or storylines inferred. Source-attributed and unverified. Zero results is an expected safe outcome.",
   "programs": [
     {
       "show_id": "raw",
-      "airdate": null,
+      "airdate": "2026-10-19",
       "results": [],
       "developments": [],
-      "status": "awaiting_first_collection"
+      "status": "no_post_broadcast_explicit_outcomes"
     },
     {
       "show_id": "smackdown",
-      "airdate": null,
+      "airdate": "2026-10-16",
       "results": [],
       "developments": [],
-      "status": "awaiting_first_collection"
+      "status": "no_post_broadcast_explicit_outcomes"
     },
     {
       "show_id": "nxt",
-      "airdate": null,
+      "airdate": "2026-10-20",
       "results": [],
       "developments": [],
-      "status": "awaiting_first_collection"
+      "status": "no_post_broadcast_explicit_outcomes"
     },
     {
       "show_id": "aaa",
       "airdate": null,
       "results": [],
       "developments": [],
-      "status": "awaiting_first_collection"
+      "status": "no_completed_episode"
     },
     {
       "show_id": "tna",
       "airdate": null,
       "results": [],
       "developments": [],
-      "status": "awaiting_first_collection"
+      "status": "no_completed_episode"
     },
     {
       "show_id": "evolve",
-      "airdate": null,
+      "airdate": "2026-10-21",
       "results": [],
       "developments": [],
-      "status": "awaiting_first_collection"
+      "status": "no_post_broadcast_explicit_outcomes"
     }
   ],
   "total_reported_results": 0
