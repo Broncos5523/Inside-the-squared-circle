@@ -22,7 +22,8 @@ class Fallout(unittest.TestCase):
         self.assertEqual(a["developments"][0]["type"],"POST-MATCH FALLOUT")
         self.assertEqual(a["developments"][1]["text"],"Bayley challenged Lyra Valkyria")
         self.assertEqual(a["developments"][1]["evidence_type"],"RSS_SYNDICATED_FALLOUT_FACT")
-        self.assertNotIn("excerpt",str(r))
+        self.assertFalse(any("excerpt" in fact or "description" in fact
+                             for row in r["programs"] for fact in row["developments"]))
         self.assertEqual(r["total_developments"],2)
     def test_return_and_speculation(self):
         self.assertEqual(parse_developments("<p>Roman Reigns returned to WWE Raw.</p>")[0]["type"],"RETURN")
