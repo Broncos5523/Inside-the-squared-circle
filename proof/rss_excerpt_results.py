@@ -157,6 +157,34 @@ def build_results(snapshot,entries,now=None):
       "policy":"Short factual winner/loser statements only from approved publisher-syndicated RSS descriptions after broadcast. Excerpt not published. Zero is acceptable; no website scraping, source quotes, title changes or storyline inference.",
       "programs":rows,"total_reported_results":sum(len(x["results"]) for x in rows)}
 
+def diagnose_syndicated_feed(entries:list[dict],snapshot:dict,now:datetime)->dict:
+    """Count why public RSS content does/does not yield match results.
+    Returns counts only. Never ships descriptions, copied content or text.
+    """
+    out={"items":len(entries),"with_description":0,"with_defeated_word":0,
+         "with_explicit_outcome_sentence":0,"dated_broadcast_headlines":0,
+         "dated_descriptions_with_outcome":0}
+    dates={}
+    for show in snapshot.get("shows",[]):
+        sid=show.get("id")
+        if sid in SHOWS and sid!="aaa":
+            dates[sid]=current_completed_airdate(show,sid,now)
+    for item in entries:
+        description=item.get("excerpt")
+        if isinstance(description,str) and description.strip():
+            out["with_description"]+=1
+        if isinstance(description,str) and re.search(r"\b(?:defeats?|defeated|def\.)\b",description,re.I):
+            out["with_defeated_word"]+=1
+        outcome=bool(parse_excerpt_sentences(description))
+        if outcome:out["with_explicit_outcome_sentence"]+=1
+        for sid,air in dates.items():
+            if air and filter_title(item.get("title"),sid,air) and explicitly_dated(item["title"],air):
+                out["dated_broadcast_headlines"]+=1
+                if outcome:out["dated_descriptions_with_outcome"]+=1
+                break
+    return out
+
+
 def main():
     p=argparse.ArgumentParser()
     p.add_argument("--snapshot",default="web/data/snapshot.json")
@@ -167,14 +195,22 @@ def main():
         raise SystemExit("Schedule invalid, no replacement")
     items=[]
     successful=0
+    diagnostics={}
     for url in FEED_URLS:
         try:
-            items.extend(parse_syndicated_feed(request_rss(url=url)))
+            fetched=parse_syndicated_feed(request_rss(url=url))
+            items.extend(fetched)
+            diagnostics[url]=diagnose_syndicated_feed(fetched,snapshot,datetime.now(ET))
+            diagnostics[url]["status"]="ok"
             successful+=1
         except Exception as exc:
+            diagnostics[url]={"status":"unavailable","reason":type(exc).__name__}
             print("RSS excerpt provider unavailable:",type(exc).__name__,url)
     feed=build_results(snapshot,items)
     feed["working_rss_feeds"]=successful
+    feed["source_diagnostics"]=diagnostics
+    print("RSS content coverage (counts only; no publisher text):",
+          json.dumps(diagnostics,sort_keys=True))
     path=Path(args.out)
     tmp=path.with_suffix(".tmp")
     tmp.write_text(json.dumps(feed,ensure_ascii=False,indent=2)+"\n",encoding="utf-8")

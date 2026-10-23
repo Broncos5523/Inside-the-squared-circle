@@ -1,7 +1,7 @@
 import unittest
 from datetime import datetime
 from zoneinfo import ZoneInfo
-from proof.rss_excerpt_results import build_results,parse_syndicated_feed,parse_excerpt_sentences
+from proof.rss_excerpt_results import build_results,parse_syndicated_feed,parse_excerpt_sentences,diagnose_syndicated_feed
 ET=ZoneInfo("America/New_York")
 NOW=datetime(2026,10,23,8,0,tzinfo=ET)
 SNAP={"shows":[
@@ -65,6 +65,21 @@ class SyndicatedFacts(unittest.TestCase):
         self.assertEqual(len(rows),1)
         self.assertNotIn("Unwanted full article",str(rows))
         self.assertEqual(build_results(SNAP,rows,NOW)["total_reported_results"],1)
+    def test_safe_diagnostics_report_counts_never_syndicated_excerpts(self):
+        entries=[
+            entry("TNA iMPACT! Results 10/22/2026",
+                  "<p>Avery Styles defeated Joe Alonzo.</p>"),
+            entry("RAW results 10/19/2026",
+                  "<p>See complete results on publisher website.</p>"),
+        ]
+        result=diagnose_syndicated_feed(entries,SNAP,NOW)
+        self.assertEqual(result["items"],2)
+        self.assertEqual(result["with_description"],2)
+        self.assertEqual(result["with_defeated_word"],1)
+        self.assertEqual(result["with_explicit_outcome_sentence"],1)
+        self.assertEqual(result["dated_descriptions_with_outcome"],1)
+        self.assertNotIn("Avery Styles",str(result))
+        self.assertNotIn("excerpt",result)
     def test_future_show_and_aaa_never_fabricated(self):
         d=build_results(SNAP,[entry("AAA Results 10/24/2026","<p>Avery Styles defeated Joe Alonzo.</p>")],NOW)
         self.assertEqual(d["total_reported_results"],0)
