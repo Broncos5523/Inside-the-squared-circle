@@ -57,7 +57,7 @@ class SyndicatedFacts(unittest.TestCase):
     def test_diagnostic_identifies_winner_language_in_same_show_same_date(self):
         articles=[entry("TNA iMPACT! Results 10/22/2026",
                          "<p>Avery Styles defeated Joe Alonzo.</p>"),
-                  entry("WWE RAW Results 10/19/2026",
+                  entry("WWE RAW Results 10/12/2026",
                          "<p>Chelsea Green defeated Roxanne Perez.</p>"),
                   entry("TNA iMPACT! Results 10/15/2026",
                          "<p>Avery Styles defeated Joe Alonzo.</p>")]
