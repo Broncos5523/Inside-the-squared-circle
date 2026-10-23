@@ -1357,10 +1357,10 @@ footer a{color:#dfbd7f}
       side.append(wrap);
     }
     if(!developments.length)side.append(bdNode('div','bd-side-note','No source-reviewed storyline notes for this episode.'));
-    for(let i=1;i<Math.min(4,results.length);i++){
+    for(let i=1;i<Math.min(2,results.length);i++){
       other.append(bdNode('div','bd-secondary-item',results[(n+i)%results.length].text));
     }
-    for(const note of [...developments.slice(start),...developments.slice(0,start)].slice(0,3)){
+    for(const note of [...developments.slice(start),...developments.slice(0,start)].slice(0,1)){
       const item=bdNode('div','bd-secondary-item');
       item.append(bdNode('b','', '◆'),bdNode('span','',note.type+': '+note.text));
       notes.append(item);
@@ -1383,7 +1383,7 @@ footer a{color:#dfbd7f}
       typeof x.type==='string'&&x.type.length<=100):[];
     const talent=forceAfterBell?sdReviewedRecapTalent(verifiedResults,developments):sdNamedCompetitors(show,key);
     const hero=bd('hero');hero.replaceChildren();
-    if(talent.length>=2){
+    if(talent.length>=(forceAfterBell?1:2)){
       const first=position%talent.length;
       const chosen=[...talent.slice(first),...talent.slice(0,first)].slice(0,3);
       for(let i=0;i<chosen.length;i++){
@@ -1440,7 +1440,8 @@ footer a{color:#dfbd7f}
         side.append(note);
       }
       const otherRows=rows.filter((_,i)=>i!==selected);
-      for(const item of otherRows.slice(0,3)){
+      const limited=otherRows.some(x=>x.text.length>65)?2:3;
+      for(const item of otherRows.slice(0,limited)){
         other.append(bdNode('div','bd-secondary-item',item.text));
       }
     }
@@ -1458,7 +1459,7 @@ footer a{color:#dfbd7f}
       // A second match-card category from the SAME source-gated future show,
       // not invented appearances or previously aired storylines.
       bd('notes-title').textContent='MORE ON THE CARD';
-      for(const item of rows.slice(0,3)){
+      for(const item of rows.slice(0,2)){
         const div=bdNode('div','bd-secondary-item');
         div.append(bdNode('b','', '◆'),bdNode('span','',item.text));
         notes.append(div);
