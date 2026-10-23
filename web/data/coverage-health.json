@@ -1,0 +1,19 @@
+{
+  "schema_version": 1,
+  "mode": "WRESTLING_CONTENT_COVERAGE_COUNTS_ONLY",
+  "generated_at": "2026-10-22T23:30:00-04:00",
+  "source_health": {},
+  "programs": [],
+  "totals": {
+    "automatic_match_outcomes": 0,
+    "automatic_storylines": 0,
+    "manually_reviewed_outcomes": 0,
+    "manually_reviewed_storylines": 0,
+    "publisher_headline_links": 0,
+    "upcoming_reported_matches": 0,
+    "upcoming_reported_appearances": 0,
+    "rss_descriptions_with_defeated_word": 0,
+    "rss_explicit_winner_sentences": 0
+  },
+  "interpretation": "Awaiting collector"
+}

@@ -102,6 +102,7 @@ jobs:
       - name: Research-only documented open wrestling API schema probe
         run: python -m proof.owdb_probe
       - name: Audit recent MIT GitHub wrestling result coverage (read-only)
+        if: github.event_name == 'workflow_dispatch'
         run: python -m proof.wvez_audit
       - name: Test research intake safeguards
         run: python -m unittest discover -s tests -v
@@ -644,6 +645,21 @@ jobs:
           assert all(p['verified_match_count']==0 and p['verified_appearance_count']==0 for p in report['programs'])
           print('AUDIT PASS: research mentions are never treated as verified')
           PY
+      - name: Publish diagnostic counts for actual usable wrestling content
+        run: python -m proof.coverage_health --data-dir web/data --out web/data/coverage-health.json
+      - name: Verify coverage is a count report, not fabricated wrestling outcomes
+        run: |
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          d=json.loads(Path('web/data/coverage-health.json').read_text())
+          assert d['mode']=='WRESTLING_CONTENT_COVERAGE_COUNTS_ONLY'
+          assert len(d['programs'])==6
+          assert d['totals']['automatic_match_outcomes']>=0
+          assert d['totals']['publisher_headline_links']>=0
+          assert 'results' not in d['programs'][0]
+          print('SOURCE COVERAGE AUDIT PASS')
+          PY
       - name: Save last-known schedule cache
         run: |
           git config user.name "github-actions[bot]"
@@ -660,6 +676,7 @@ jobs:
           cp web/data/episode-briefs.json /tmp/itsc-new-episode-briefs.json
           cp web/data/rss-excerpt-results.json /tmp/itsc-new-rss-excerpt-results.json
           cp web/data/rss-fallout.json /tmp/itsc-new-rss-fallout.json
+          cp web/data/coverage-health.json /tmp/itsc-new-coverage-health.json
           for attempt in 1 2 3; do
             git fetch origin main
             git reset --hard origin/main
@@ -675,7 +692,8 @@ jobs:
             cp /tmp/itsc-new-episode-briefs.json web/data/episode-briefs.json
             cp /tmp/itsc-new-rss-excerpt-results.json web/data/rss-excerpt-results.json
             cp /tmp/itsc-new-rss-fallout.json web/data/rss-fallout.json
-            git add web/data/snapshot.json web/data/candidates.json web/data/reported.json web/data/tvmaze-reported.json web/data/known-events.json web/data/results.json web/data/evolve-synopsis.json web/data/recap-links.json web/data/rss-facts.json web/data/episode-briefs.json web/data/rss-excerpt-results.json web/data/rss-fallout.json
+            cp /tmp/itsc-new-coverage-health.json web/data/coverage-health.json
+            git add web/data/snapshot.json web/data/candidates.json web/data/reported.json web/data/tvmaze-reported.json web/data/known-events.json web/data/results.json web/data/evolve-synopsis.json web/data/recap-links.json web/data/rss-facts.json web/data/episode-briefs.json web/data/rss-excerpt-results.json web/data/rss-fallout.json web/data/coverage-health.json
             if git diff --cached --quiet; then
               echo "No schedule changes to commit"
               break
@@ -718,6 +736,7 @@ jobs:
           expected_episode_briefs = json.loads(Path('web/data/episode-briefs.json').read_text(encoding='utf-8'))
           expected_excerpts = json.loads(Path('web/data/rss-excerpt-results.json').read_text(encoding='utf-8'))
           expected_fallout = json.loads(Path('web/data/rss-fallout.json').read_text(encoding='utf-8'))
+          expected_coverage = json.loads(Path('web/data/coverage-health.json').read_text(encoding='utf-8'))
           checks = [
               (f'{base}/preview-v4-6.html?show=smackdown&probe={nonce}', 'smackdown'),
               (f'{base}/preview-v4-6.html?show=tna&probe={nonce}', 'tna'),
@@ -792,6 +811,8 @@ jobs:
               (f'{base}/preview-v4-28.html?show=evolve&probe={nonce}', 'v428'),
               (f'{base}/data/rss-excerpt-results.json?probe={nonce}', 'rss-excerpt'),
               (f'{base}/data/rss-fallout.json?probe={nonce}', 'rss-fallout'),
+              (f'{base}/data/coverage-health.json?probe={nonce}', 'coverage-health'),
+              (f'{base}/coverage-health.html?probe={nonce}', 'coverage-page'),
               (f'{base}/preview-v4-29.html?show=raw&view=results&probe={nonce}', 'v429'),
               (f'{base}/preview-v4-29.html?show=nxt&view=results&probe={nonce}', 'v429'),
               (f'{base}/data/episode-briefs.json?probe={nonce}', 'episode-briefs'),
@@ -808,7 +829,15 @@ jobs:
                       with urlopen(request, timeout=18) as response:
                           assert response.status == 200
                           body = response.read()
-                      if kind == 'rss-fallout':
+                      if kind == 'coverage-health':
+                          source=json.loads(body)
+                          assert source['mode']=='WRESTLING_CONTENT_COVERAGE_COUNTS_ONLY'
+                          assert source['generated_at']==expected_coverage['generated_at']
+                          assert len(source['programs'])==6
+                      elif kind == 'coverage-page':
+                          assert b'Wrestling Content Coverage' in body
+                          assert b'coverage-health.json' in body
+                      elif kind == 'rss-fallout':
                           payload=json.loads(body)
                           assert payload['mode']=='POST_BROADCAST_RSS_FALLOUT_FACTS_UNVERIFIED'
                           assert payload['generated_at']==expected_fallout['generated_at']
