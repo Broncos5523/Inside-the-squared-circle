@@ -25,6 +25,13 @@ ET=ZoneInfo("America/New_York")
 MODE="POST_BROADCAST_RSS_SYNDICATED_EXCERPT_FACTS_UNVERIFIED"
 SHOWS=("raw","smackdown","nxt","aaa","tna","evolve")
 MAX_EXCERPT=3000
+# A subset of syndicated recap summaries begin with an explicit in-show
+# context phrase. Accept only these narrow intros, never arbitrary prose.
+CONTEXT_PREFIX=re.compile(
+    r"^(?:In the opening contest,?\s*|In the main event,?\s*|"
+    r"In the opener,?\s*|In the opening match,?\s*)",re.I)
+CONTEXT_SUFFIX=re.compile(r"\s+in (?:a|an|the) (?:great|hard-fought|competitive|back-and-forth|"
+                           r"exciting|entertaining|singles|tag(?: team)?)?[\s-]*(?:match|encounter)\.?$",re.I)
 WIN=re.compile(
     r"^\s*([A-Z][A-Za-zÀ-ÿ0-9'’.,()\-& ]{2,80}?)\s+"
     r"(?:defeated|defeats|def\.|beat)\s+"
@@ -73,7 +80,9 @@ def parse_excerpt_sentences(raw):
             item=item.strip(" \t-•")
             if len(item)<5 or len(item)>195:continue
             if BLOCK.search(item):continue
-            match=WIN.fullmatch(item)
+            candidate=CONTEXT_PREFIX.sub('',item)
+            candidate=CONTEXT_SUFFIX.sub('.',candidate)
+            match=WIN.fullmatch(candidate)
             if not match:continue
             left,right=(re.sub(r"\s+"," ",v).strip(" .,") for v in match.groups())
             if left.lower()==right.lower() or len(left)<3 or len(right)<3:continue

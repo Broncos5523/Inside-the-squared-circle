@@ -26,6 +26,21 @@ class SyndicatedFacts(unittest.TestCase):
         self.assertEqual(t["results"][1]["evidence_type"],"RSS_SYNDICATED_EXCERPT_FACT")
         self.assertNotIn("excerpt",str(d))
         self.assertEqual(d["total_reported_results"],2)
+    def test_recaps_with_narrow_explicit_context_phrases(self):
+        rss=entry("10/21/26 WWE Evolve Recap",
+                  "<p>In the opening contest, Chazz Starboy Hall and Cappuccino Jones "
+                  "defeated Jacari Ball and Santi Rivera in a great match.</p>",
+                  "2026-10-22T10:10:00-04:00")
+        rss["url"]="https://gerweck.net/2026/10/22/10-21-26-wwe-evolve-recap/"
+        rss["source_name"]="Gerweck.net"
+        data=build_results(SNAP,[rss],NOW)
+        row=next(x for x in data["programs"] if x["show_id"]=="evolve")
+        self.assertEqual(len(row["results"]),1)
+        self.assertEqual(row["results"][0]["text"],
+                         "Chazz Starboy Hall and Cappuccino Jones defeated Jacari Ball and Santi Rivera")
+        self.assertEqual(row["results"][0]["source_name"],"Gerweck.net")
+        self.assertEqual(build_results(SNAP,[dict(rss,title="10/14/26 WWE Evolve Recap")],NOW)["total_reported_results"],0)
+        self.assertEqual(parse_excerpt_sentences("<p>Last week Chazz Starboy Hall defeated Santi Rivera.</p>"),[])
     def test_rejects_prebroadcast_and_wrong_date_claims(self):
         good="TNA iMPACT! Results 10/22/2026"
         a=entry(good,"<p>Avery Styles defeated Joe Alonzo.</p>","2026-10-22T20:15:00-04:00")

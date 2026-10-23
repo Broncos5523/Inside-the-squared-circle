@@ -24,6 +24,8 @@ APPROVED={
     "411Mania":{"411mania.com","www.411mania.com"},
     "Fightful":{"fightful.com","www.fightful.com"},
     "F4W / Wrestling Observer":{"f4wonline.com","www.f4wonline.com"},
+    "Gerweck.net":{"gerweck.net","www.gerweck.net"},
+    "TPWW":{"tpww.net","www.tpww.net"},
 }
 SHOW={
   "raw":re.compile(r"\b(?:wwe\s+)?raw\b",re.I),
@@ -60,21 +62,41 @@ def current_completed_airdate(show:dict, sid:str, now:datetime)->str|None:
     return max(dates) if dates else None
 
 
+WRITTEN_DATE_TOKEN=re.compile(
+    r"(?<![A-Za-z])(?:January|February|March|April|May|June|July|August|September|October|November|December|"
+    r"Jan|Feb|Mar|Apr|Jun|Jul|Aug|Sep|Sept|Oct|Nov|Dec)\.?\s+"
+    r"(\d{1,2})(?:st|nd|rd|th)?(?:,\s*(\d{4}))?",re.I)
+MONTH_MAP={name.lower():i for i,names in enumerate((
+    ("January","Jan"),("February","Feb"),("March","Mar"),("April","Apr"),
+    ("May",),("June","Jun"),("July","Jul"),("August","Aug"),
+    ("September","Sep","Sept"),("October","Oct"),("November","Nov"),
+    ("December","Dec")),1) for name in names}
+WRITTEN_DATE_TOKEN=re.compile(
+    r"(?<![A-Za-z])("+"|".join(sorted(map(re.escape,MONTH_MAP),key=len,reverse=True))+
+    r")\.?\s+(\d{1,2})(?:st|nd|rd|th)?(?:,\s*(\d{4}))?",re.I)
+
 def explicitly_dated(headline:str, airdate:str)->bool:
-    """Deny generic coverage claims without an explicit episode date."""
+    """Require at least one explicit episode date, and reject conflicts."""
+    if not isinstance(headline,str):return False
     expected=date.fromisoformat(airdate)
-    for m in DATE_TOKEN.finditer(headline):
-        token=m.group(1)
+    matched=[]
+    for token in DATE_TOKEN.finditer(headline):
+        parsed=None
         for fmt in DATE_FORMATS:
             try:
-                if datetime.strptime(token,fmt).date()==expected:
-                    return True
-            except ValueError:
-                continue
-    # Accept same-date URL dates only in the collector if headline undated?
-    # No: the broadcast should not transform a generic headline into an
-    # episode-specific match result just because publication time is close.
-    return False
+                parsed=datetime.strptime(token.group(1),fmt).date()
+                break
+            except ValueError:pass
+        if parsed is not None:matched.append(parsed==expected)
+    for m in WRITTEN_DATE_TOKEN.finditer(headline):
+        month=MONTH_MAP[m.group(1).lower()]
+        try:
+            candidate=date(int(m.group(3) or expected.year),month,int(m.group(2)))
+        except ValueError:
+            matched.append(False)
+            continue
+        matched.append(candidate==expected)
+    return bool(matched) and all(matched)
 
 
 def explicit_outcome_from_headline(headline:str, sid:str, day:str)->dict|None:

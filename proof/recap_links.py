@@ -31,6 +31,8 @@ FEED_URLS = (
     "https://411mania.com/wrestling/feed/",
     "https://411mania.com/wrestling/category/tv-report/feed/",
     "https://www.fightful.com/wrestling/rss",
+    "https://gerweck.net/category/results/feed/",
+    "https://www.tpww.net/feed/",
 )
 PUBLISHERS={
     "www.f4wonline.com":"F4W / Wrestling Observer",
@@ -39,6 +41,10 @@ PUBLISHERS={
     "www.411mania.com":"411Mania",
     "www.fightful.com":"Fightful",
     "fightful.com":"Fightful",
+    "gerweck.net":"Gerweck.net",
+    "www.gerweck.net":"Gerweck.net",
+    "tpww.net":"TPWW",
+    "www.tpww.net":"TPWW",
 }
 ALLOWED_HOSTS = frozenset(PUBLISHERS)
 RESULT_WORDS = re.compile(r"\b(?:results?|recap|fallout|reviews?|highlights)\b", re.I)

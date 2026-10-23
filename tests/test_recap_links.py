@@ -55,9 +55,17 @@ class RecapLinksTests(unittest.TestCase):
         self.assertEqual(len(row["links"]),1)
         self.assertEqual(row["airdate"],"2026-10-22")
     def test_extended_feeds_and_dotted_dates(self):
-        self.assertEqual(len(FEED_URLS),6)
+        self.assertEqual(len(FEED_URLS),8)
         self.assertEqual(PUBLISHERS["411mania.com"],"411Mania")
         self.assertEqual(PUBLISHERS["www.fightful.com"],"Fightful")
+        self.assertEqual(PUBLISHERS["gerweck.net"],"Gerweck.net")
+        self.assertEqual(PUBLISHERS["www.tpww.net"],"TPWW")
+        self.assertIn("https://gerweck.net/category/results/feed/",FEED_URLS)
+        self.assertIn("https://www.tpww.net/feed/",FEED_URLS)
+        self.assertEqual(filter_title("10/21/26 WWE Evolve Recap",
+                                      "evolve","2026-10-21"),"10/21/26 WWE Evolve Recap")
+        self.assertIsNone(filter_title("NXT live Results 10/21/26",
+                                      "nxt","2026-10-20"))
         self.assertEqual(filter_title("Hall’s WWE Smackdown Review 10.16.26",
                             "smackdown","2026-10-16"),
                          "Hall’s WWE Smackdown Review 10.16.26")

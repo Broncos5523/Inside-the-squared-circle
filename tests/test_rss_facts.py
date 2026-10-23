@@ -42,6 +42,20 @@ class StrictRssOutcomeTests(unittest.TestCase):
             "TNA Impact Results 10/22/2026: Joe Alonzo expected to defeat Avery Styles",
         ]:
             self.assertIsNone(explicit_outcome_from_headline(h,"tna","2026-10-22"),h)
+    def test_month_names_short_date_and_conflicts(self):
+        from proof.rss_facts import explicitly_dated
+        self.assertTrue(explicitly_dated("WWE NXT Results – Oct. 20, 2026",
+                                        "2026-10-20"))
+        self.assertTrue(explicitly_dated("WWE Raw Results October 19",
+                                        "2026-10-19"))
+        self.assertTrue(explicitly_dated("TNA Impact Results 10/22/26",
+                                        "2026-10-22"))
+        self.assertFalse(explicitly_dated("WWE NXT Results – Oct. 19, 2026",
+                                         "2026-10-20"))
+        self.assertFalse(explicitly_dated("WWE NXT Results Oct 20, 2025",
+                                         "2026-10-20"))
+        self.assertFalse(explicitly_dated("WWE NXT Results Oct 20, 2026 and October 13, 2026",
+                                         "2026-10-20"))
     def test_pre_air_time_never_qualifies_even_if_suggestive(self):
         claims=feed([link("TNA Impact Results 10/22/2026: Avery Styles defeated Joe Alonzo",
                           published="2026-10-22T20:50:00-04:00")])
