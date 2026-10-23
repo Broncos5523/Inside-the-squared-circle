@@ -38,7 +38,7 @@ def find(feed,sid,day):
              and x.get("show_id")==sid and x.get("airdate")==day),{})
 def tally(row,key):
  return len(row.get(key,[])) if isinstance(row.get(key),list) else 0
-def build(snapshot,feeds,editorial,now=None):
+def build(snapshot,feeds,editorial,now=None,evolve=None):
  now=now or datetime.now(ET)
  if snapshot.get("schema_version")!=1 or len(snapshot.get("shows",[]))!=6:
   raise ValueError("Invalid schedule")
@@ -62,6 +62,11 @@ def build(snapshot,feeds,editorial,now=None):
   manual=find(editorial,sid,last)
   manual_count=tally(manual,"results") if last else 0
   manual_stories=tally(manual,"developments") if manual_count else 0
+  if (sid=="evolve" and isinstance(evolve,dict) and
+      evolve.get("mode")=="DATED_EDITORIAL_EVOLVE_RECAP_UNVERIFIED" and
+      evolve.get("show_id")=="evolve" and evolve.get("airdate")==last):
+   manual_count=tally(evolve,"results")
+   manual_stories=tally(evolve,"developments")
   synopsis=find(live["episode_briefs"],sid,last)
   notes=(isinstance(synopsis.get("synopsis"),str)
          and synopsis.get("source_name")=="TVmaze" and synopsis.get("license")=="CC BY-SA")
@@ -83,7 +88,7 @@ def build(snapshot,feeds,editorial,now=None):
          "manually_reviewed_outcomes","manually_reviewed_storylines",
          "publisher_headline_links")
  totals={k:sum(x[k] for x in programs) for k in counts}
- diagnostics=feeds.get("rss_excerpts",{}).get("feed_diagnostics",{})
+ diagnostics=feeds.get("rss_excerpts",{}).get("source_diagnostics",{})
  if not isinstance(diagnostics,dict):diagnostics={}
  totals["rss_descriptions_with_defeated_word"]=sum(
    int(v.get("with_defeated_word",0)) for v in diagnostics.values() if isinstance(v,dict))
@@ -105,7 +110,7 @@ def main():
   try:return json.loads((root/path).read_text(encoding="utf-8"))
   except (ValueError,OSError):return {}
  feeds={k:get(path) for k,(_,path) in SOURCES.items()}
- report=build(get("snapshot.json"),feeds,get("editorial-recaps-20261022.json"))
+ report=build(get("snapshot.json"),feeds,get("editorial-recaps-20261022.json"),evolve=get("evolve-recap-20261021.json"))
  out=Path(args.out);tmp=out.with_suffix(".tmp")
  tmp.write_text(json.dumps(report,ensure_ascii=False,indent=2)+"\n",encoding="utf-8")
  tmp.replace(out)
