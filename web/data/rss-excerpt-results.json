@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "mode": "POST_BROADCAST_RSS_SYNDICATED_EXCERPT_FACTS_UNVERIFIED",
-  "generated_at": "2026-10-22T23:35:54.665590-04:00",
+  "generated_at": "2026-10-22T23:39:11.569090-04:00",
   "policy": "Short factual winner/loser statements only from approved publisher-syndicated RSS descriptions after broadcast. Excerpt not published. Zero is acceptable; no website scraping, source quotes, title changes or storyline inference.",
   "programs": [
     {
@@ -51,6 +51,7 @@
       "with_explicit_outcome_sentence": 0,
       "dated_broadcast_headlines": 0,
       "dated_descriptions_with_outcome": 0,
+      "dated_descriptions_with_victory_word": 0,
       "status": "ok"
     },
     "https://www.f4wonline.com/category/news/wwe/results/feed/": {
@@ -60,6 +61,7 @@
       "with_explicit_outcome_sentence": 0,
       "dated_broadcast_headlines": 0,
       "dated_descriptions_with_outcome": 0,
+      "dated_descriptions_with_victory_word": 0,
       "status": "ok"
     },
     "https://www.f4wonline.com/category/news/nxt/nxt-results/feed/": {
@@ -69,6 +71,7 @@
       "with_explicit_outcome_sentence": 0,
       "dated_broadcast_headlines": 0,
       "dated_descriptions_with_outcome": 0,
+      "dated_descriptions_with_victory_word": 0,
       "status": "ok"
     },
     "https://411mania.com/wrestling/feed/": {
@@ -78,6 +81,7 @@
       "with_explicit_outcome_sentence": 0,
       "dated_broadcast_headlines": 0,
       "dated_descriptions_with_outcome": 0,
+      "dated_descriptions_with_victory_word": 0,
       "status": "ok"
     },
     "https://411mania.com/wrestling/category/tv-report/feed/": {
@@ -87,6 +91,7 @@
       "with_explicit_outcome_sentence": 0,
       "dated_broadcast_headlines": 6,
       "dated_descriptions_with_outcome": 0,
+      "dated_descriptions_with_victory_word": 0,
       "status": "ok"
     },
     "https://www.fightful.com/wrestling/rss": {
@@ -96,6 +101,7 @@
       "with_explicit_outcome_sentence": 0,
       "dated_broadcast_headlines": 0,
       "dated_descriptions_with_outcome": 0,
+      "dated_descriptions_with_victory_word": 0,
       "status": "ok"
     },
     "https://gerweck.net/category/results/feed/": {
@@ -105,6 +111,7 @@
       "with_explicit_outcome_sentence": 0,
       "dated_broadcast_headlines": 4,
       "dated_descriptions_with_outcome": 0,
+      "dated_descriptions_with_victory_word": 0,
       "status": "ok"
     },
     "https://www.tpww.net/feed/": {
@@ -114,6 +121,7 @@
       "with_explicit_outcome_sentence": 0,
       "dated_broadcast_headlines": 1,
       "dated_descriptions_with_outcome": 0,
+      "dated_descriptions_with_victory_word": 1,
       "status": "ok"
     },
     "https://www.ringsidenews.com/feed/": {
@@ -123,6 +131,7 @@
       "with_explicit_outcome_sentence": 0,
       "dated_broadcast_headlines": 0,
       "dated_descriptions_with_outcome": 0,
+      "dated_descriptions_with_victory_word": 0,
       "status": "ok"
     },
     "https://wrestlingheadlines.com/feed/": {
@@ -132,6 +141,7 @@
       "with_explicit_outcome_sentence": 0,
       "dated_broadcast_headlines": 1,
       "dated_descriptions_with_outcome": 0,
+      "dated_descriptions_with_victory_word": 0,
       "status": "ok"
     }
   }
