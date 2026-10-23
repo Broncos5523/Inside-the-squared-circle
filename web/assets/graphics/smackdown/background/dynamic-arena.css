@@ -1,0 +1,94 @@
+/* SmackDown championship asset-stage LIGHTING, not a generated image.
+   Native layered CSS: sweeping LEDs, spotlights, hazy crowd glow and motion.
+   This asset may be reused only after 720x1280 Fire TV performance QA. */
+:root{--sd-blue:#258efb;--sd-ice:#b8e8ff;--sd-navy:#061633;--sd-gold:#ecbc64}
+*{box-sizing:border-box}
+body{background:#030712;color:#fff;margin:0;font:14px/1.38 Arial,Helvetica,sans-serif}
+.scene-shell{width:min(100vw,56.25dvh,760px);aspect-ratio:9/16;margin:0 auto;
+ overflow:hidden;position:relative;isolation:isolate;background:#02091d;container-type:inline-size;
+ border:1px solid #559de7}
+.arena{position:absolute;inset:0;z-index:-1;overflow:hidden;
+ background:
+ radial-gradient(ellipse 73% 31% at 50% 46%,#0b84d5b3,transparent 80%),
+ radial-gradient(ellipse 80% 45% at 50% 76%,#2157be73,transparent 78%),
+ radial-gradient(ellipse 90% 95% at 50% 8%,#133b8aa3,transparent 75%),
+ linear-gradient(180deg,#030713,#041333 35%,#0a2963 57%,#02050c 100%);
+}
+.arena::before{content:"";position:absolute;inset:0;opacity:.7;
+ background:repeating-radial-gradient(ellipse at 50% 64%,transparent 0 27px,#9bd7ff0e 29px 30px,transparent 31px 51px);
+ transform:perspective(310px) rotateX(11deg) scaleX(1.28)}
+.arena::after{content:"";position:absolute;left:-7%;right:-7%;top:26%;height:17%;
+ border-block:.9cqw solid #60bfff8f;
+ box-shadow:0 0 8px #3cbdff,0 9px 20px #08295d8c,inset 0 0 24px #61e1ff7d;
+ background:repeating-linear-gradient(90deg,#021637bb 0 8%,#4aafff88 8.2% 9.4%,#021637aa 9.5% 16%)}
+.truss{position:absolute;left:-8%;right:-8%;top:0;height:31%;border-bottom:1.1cqw double #8fbdff7a;
+ background:repeating-linear-gradient(63deg,transparent 0 30px,#b0d9ff3b 31px 33px,transparent 34px 60px);
+ clip-path:polygon(0 0,100% 0,100% 40%,0 85%);
+ filter:drop-shadow(0 0 3px #69b9ff)}
+.spot{position:absolute;top:11%;left:50%;width:50%;height:57%;opacity:.42;
+ background:linear-gradient(180deg,#98d8ffbc 0,transparent 95%);
+ clip-path:polygon(47% 0,53% 0,100% 100%,0 100%);
+ transform-origin:50% 0;mix-blend-mode:screen;filter:blur(7px)}
+.spot:nth-child(3){transform:translateX(-78%) rotate(24deg);animation:sweep-left 11s ease-in-out infinite alternate}
+.spot:nth-child(4){transform:translateX(-14%) rotate(-23deg);animation:sweep-right 12s ease-in-out infinite alternate}
+.spot:nth-child(5){transform:translateX(-50%) rotate(4deg);opacity:.32;animation:pulse 6s ease-in-out infinite}
+.crowd{position:absolute;top:48%;height:36%;left:0;right:0;opacity:.95;
+ background:radial-gradient(ellipse at 50% 48%,#2d8ded66,transparent 68%),
+ repeating-linear-gradient(90deg,#031526ed 0 4px,#428de27a 5px 7px,#06142ac2 8px 15px);
+ -webkit-mask-image:linear-gradient(180deg,transparent 0%,#000 28%,#000 62%,transparent 98%);
+ mask-image:linear-gradient(180deg,transparent 0%,#000 28%,#000 62%,transparent 98%)}
+.smoke{position:absolute;bottom:18%;width:85%;height:29%;left:7%;opacity:.7;
+ background:radial-gradient(ellipse at 48% 62%,#8cbfff61,transparent 73%);
+ filter:blur(22px);animation:smoke 17s ease-in-out infinite alternate}
+.led{position:absolute;top:40%;left:0;right:0;height:2.5%;background:
+ repeating-linear-gradient(90deg,#0074ff,#b6f5ff 3%,#0b65c3 4%,#001b4b 8%);
+ box-shadow:0 0 11px #27bdffb3;animation:led 6s ease-in-out infinite}
+.mast{position:absolute;z-index:7;top:1.5%;left:13%;right:13%;text-align:center;
+ text-shadow:0 3px 3px #000,0 0 12px #18498e;filter:drop-shadow(0 4px 4px #000)}
+.mast .intro{display:inline-block;font-weight:1000;letter-spacing:.23em;font-size:2.05cqw;
+ background:#101a28ed;border:1px solid #bd9157;padding:.8cqw 2cqw}
+.mast h1{font-weight:1000;line-height:.91;letter-spacing:-.05em;margin:1.5cqw 0 0;font-size:8.3cqw}
+.mast h1 span{display:block;color:#e2ecff;
+ background:linear-gradient(#fff,#8094b8 48%,#eff6ff 60%,#6c83a8);
+ -webkit-background-clip:text;-webkit-text-fill-color:transparent}
+.mast h1 em{display:block;font-style:normal;color:#e7bc68;font-size:8.5cqw;
+ background:linear-gradient(#fff0c4,#d9b26b 43%,#855314 70%,#ebdba5);
+ -webkit-background-clip:text;-webkit-text-fill-color:transparent}
+.mast p{font-style:italic;font:italic 2.65cqw Georgia,serif;color:#ffe5a7;margin:1.3cqw 0 0;
+ text-shadow:0 1px 4px #000}
+.side-logo{position:absolute;top:5%;width:19%;height:16%;z-index:7;object-fit:contain;
+ filter:drop-shadow(0 0 14px #52b4ff)}
+.side-logo.left{left:-1%}.side-logo.right{right:-1%}
+.hero-layer{position:absolute;top:24%;height:44%;left:0;right:0;z-index:5;overflow:hidden}
+.wrestler{position:absolute;bottom:-1.4%;height:99%;width:43%;
+ display:flex;align-items:end;justify-content:center;isolation:isolate;
+ filter:drop-shadow(0 0 13px #489ffa)}
+.wrestler img{max-width:105%;max-height:100%;width:auto;height:auto;object-fit:contain;
+ display:block;filter:drop-shadow(0 2px 12px #000)}
+.wrestler.left{left:-4%;z-index:3;height:90%}
+.wrestler.center{left:26%;width:48%;z-index:5;height:112%;filter:drop-shadow(0 0 20px #7bd6ff9c)}
+.wrestler.right{right:-4%;z-index:4;height:90%}
+.wrestler strong{position:absolute;bottom:1%;left:0;right:0;font-size:3cqw;text-align:center;
+ text-transform:uppercase;line-height:1.1;color:#fff;text-shadow:0 2px 4px #000,0 0 9px #000;
+ border-bottom:1px solid #8edcffb8;padding:.55cqw;background:linear-gradient(180deg,transparent,#041631d6)}
+.hero-bottom{position:absolute;top:65%;width:100%;height:.8%;z-index:6;
+ background:linear-gradient(90deg,#167cf1,#8cdbff,#167cf1);box-shadow:0 0 15px #2bceff}
+.info{position:absolute;z-index:7;top:68%;height:27%;left:2%;right:2%;
+ display:flex;flex-direction:column;gap:.8cqw}
+.banner{display:flex;align-items:center;gap:1.2cqw;height:20%;min-height:0;border:1px solid #4caefa;
+ background:linear-gradient(90deg,#020b1b,#0d3272,#021226);padding:1.1cqw}
+.banner strong{font-size:3.5cqw}.banner img{max-width:35%;max-height:85%;object-fit:contain}
+.bands{display:grid;grid-template-columns:1.1fr .9fr;gap:.8cqw;flex:1;min-height:0}
+.band{border:1px solid #318cec;background:linear-gradient(165deg,#071c40e0,#020a1ae9);padding:1cqw;min-height:0}
+.band h2{font-size:2.8cqw;margin:0;border-bottom:1px solid #5dbdff;padding-bottom:1cqw;color:#eed09c}
+.band p{font-size:2.3cqw;line-height:1.25;margin-top:1cqw}
+.bottom{position:absolute;bottom:0;left:0;right:0;z-index:7;height:4.4%;
+ background:linear-gradient(90deg,#010a17,#0c3271,#010a17);border-top:1px solid #75c7ff;
+ font-size:1.9cqw;display:flex;align-items:center;justify-content:space-between;padding:1.8cqw}
+@keyframes sweep-left{to{transform:translateX(-78%) rotate(-19deg);opacity:.59}}
+@keyframes sweep-right{to{transform:translateX(-14%) rotate(20deg);opacity:.62}}
+@keyframes pulse{50%{opacity:.65}}
+@keyframes smoke{to{transform:translateX(15%) scale(1.18);opacity:.37}}
+@keyframes led{50%{filter:brightness(1.45)}}
+@media(prefers-reduced-motion:reduce){
+ .spot,.smoke,.led{animation:none!important}}
