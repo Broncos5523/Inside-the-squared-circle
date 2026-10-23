@@ -8,7 +8,7 @@ main{max-width:1000px;margin:auto;padding:28px 18px 65px}h1{font-size:clamp(28px
 p{color:#b9ccdd}a{color:#f4ca8b}.metrics{display:grid;grid-template-columns:repeat(auto-fit,minmax(155px,1fr));gap:10px}.metric,.show{background:#111e30;border:1px solid #34465e;border-radius:12px;padding:14px}.metric b{font-size:31px;display:block}.metric span{font-size:12px;color:#bed0e2}.shows{display:grid;grid-template-columns:repeat(auto-fit,minmax(275px,1fr));gap:12px;margin:20px 0}.show dl{display:grid;grid-template-columns:1fr auto;gap:4px 10px;margin:0}.show dt{color:#bdc9d9}.show dd{margin:0;font-weight:700}.small{font-size:13px;color:#aebed1}.note{border-left:3px solid #dcae74;padding:2px 14px;margin:22px 0;background:#162337}.error{color:#ffbcbc}.details{padding:12px 16px;background:#101c2d;border-radius:10px}
 </style></head>
 <body><main><div class="eyebrow">MAN CAVE SPORTS BOOK · RESEARCH DIAGNOSTICS</div>
-<h1>Wrestling Content Coverage</h1><p>Actual data available to the automated broadcast. Article links are not match results.</p>
+<h1>Wrestling Content Coverage</h1><p>Data actually available to the broadcast. Source-reviewed upcoming bouts are separate from API mentions and may overlap. Article links are not results.</p>
 <div id="state" role="status">Loading saved source coverage…</div>
 <div id="metrics" class="metrics"></div>
 <div class="note">This monitor distinguishes <b>automatically acquired outcomes</b>, previously reviewed recaps, upcoming reported cards and publisher article links. A zero means the feed lacks parseable data—not that no matches took place.</div>
@@ -35,6 +35,7 @@ p{color:#b9ccdd}a{color:#f4ca8b}.metrics{display:grid;grid-template-columns:repe
    ['automatic_storylines','Automatic storylines'],
    ['manually_reviewed_outcomes','Dated reviewed outcomes'],
    ['upcoming_reported_matches','Upcoming reported matches'],
+   ['upcoming_reviewed_matches','Date-matched reviewed upcoming bouts'],
    ['publisher_headline_links','Article links (not results)']
   ];
   for(const [key,label] of columns){const box=el('article','');box.className='metric';box.append(el('b',d.totals[key]??0),el('span',label));$('metrics').append(box)}
@@ -44,6 +45,8 @@ p{color:#b9ccdd}a{color:#f4ca8b}.metrics{display:grid;grid-template-columns:repe
    pair(dl,'Previous completed episode',row.last_completed||'Not determined');
    pair(dl,'Next listed episode',row.next_airdate||'Unknown');
    pair(dl,'Source-reported upcoming matches',row.upcoming_reported_matches);
+   pair(dl,'Independently reviewed upcoming bouts',row.upcoming_reviewed_matches);
+   pair(dl,'Reviewed upcoming appearances',row.upcoming_reviewed_appearances);
    pair(dl,'Automatic match outcomes',row.automatic_match_outcomes);
    pair(dl,'Dated reviewed outcomes',row.manually_reviewed_outcomes);
    pair(dl,'Automatic storyline developments',row.automatic_storylines);

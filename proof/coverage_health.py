@@ -2,6 +2,7 @@
 from __future__ import annotations
 import argparse,json
 from datetime import datetime,date
+from urllib.parse import urlsplit
 from pathlib import Path
 from zoneinfo import ZoneInfo
 from proof.results_intake import broadcast_complete
@@ -39,7 +40,39 @@ def find(feed,sid,day):
              and x.get("show_id")==sid and x.get("airdate")==day),{})
 def tally(row,key):
  return len(row.get(key,[])) if isinstance(row.get(key),list) else 0
-def build(snapshot,feeds,editorial,now=None,evolve=None,reviewed=None):
+def reviewed_upcoming_count(feed,mode,sid,day,now,hosts):
+ """Count date-matched, manually checked advance-card facts separately.
+
+ This is NOT automated publisher discovery or proof of event confirmation.
+ Source-reviewed rows can overlap API-reported rows. Dates expire locally.
+ """
+ if not day or not isinstance(feed,dict) or feed.get("mode")!=mode:
+  return (0,0)
+ today=now.astimezone(ET).date().isoformat()
+ stamp=feed.get("reviewed_at_et")
+ if not isinstance(stamp,str) or stamp>today or day<today:return (0,0)
+ rec=next((x for x in feed.get("programs",[]) if isinstance(x,dict)
+           and x.get("show_id")==sid and x.get("airdate")==day),{})
+ results=[]
+ for kind in ("matches","appearances"):
+  rows=rec.get(kind,[])
+  found=set()
+  if not isinstance(rows,list):results.append(0);continue
+  for row in rows[:10]:
+   if not isinstance(row,dict) or row.get("status")!="REPORTED_UNVERIFIED":continue
+   phrase=row.get("text")
+   url=row.get("evidence_url")
+   if not isinstance(phrase,str) or not 7<=len(phrase)<=210 or not isinstance(url,str):continue
+   if "<" in phrase or ">" in phrase or "\n" in phrase:continue
+   link=urlsplit(url)
+   if link.scheme!="https" or link.hostname not in hosts or link.username or link.password:continue
+   if kind=="matches" and " vs. " not in phrase:continue
+   if kind=="appearances" and not isinstance(row.get("type"),str):continue
+   found.add(" ".join(phrase.lower().split()))
+  results.append(len(found))
+ return tuple(results)
+
+def build(snapshot,feeds,editorial,now=None,evolve=None,reviewed=None,research=None,aaa_cards=None):
  now=now or datetime.now(ET)
  if snapshot.get("schema_version")!=1 or len(snapshot.get("shows",[]))!=6:
   raise ValueError("Invalid schedule")
@@ -66,6 +99,14 @@ def build(snapshot,feeds,editorial,now=None,evolve=None,reviewed=None):
   last=latest_finished(show,now)
   coming=(show.get("next") or {}).get("date")
   upcoming=find(live["reported"],sid,coming)
+  web_review=reviewed_upcoming_count(
+   research,"DATED_RESEARCH_SUPPLEMENT_UNVERIFIED",sid,coming,now,
+   {"wwe.com","www.wwe.com","f4wonline.com","www.f4wonline.com",
+    "tnawrestling.com","www.tnawrestling.com","thesportsdb.com","www.thesportsdb.com"})
+  aaa_review=reviewed_upcoming_count(
+   aaa_cards,"DATED_AAA_TV_WEEK_CARD_REVIEW_UNVERIFIED",sid,coming,now,
+   {"411mania.com","www.411mania.com","tpww.net","www.tpww.net"}) if sid=="aaa" else (0,0)
+
   auto=sum(tally(find(live[k],sid,last),"results") for k in ("results","rss_facts","rss_excerpts"))
   fallout=tally(find(live["fallout"],sid,last),"developments")
   manual=find(editorial,sid,last)
@@ -90,6 +131,8 @@ def build(snapshot,feeds,editorial,now=None,evolve=None,reviewed=None):
    "show_id":sid,"last_completed":last,"next_airdate":coming,
    "upcoming_reported_matches":tally(upcoming,"matches"),
    "upcoming_reported_appearances":tally(upcoming,"appearances"),
+   "upcoming_reviewed_matches":web_review[0]+aaa_review[0],
+   "upcoming_reviewed_appearances":web_review[1]+aaa_review[1],
    "automatic_match_outcomes":auto,"automatic_storylines":fallout,
    "manually_reviewed_outcomes":manual_count,
    "manually_reviewed_storylines":manual_stories,
@@ -99,6 +142,7 @@ def build(snapshot,feeds,editorial,now=None,evolve=None,reviewed=None):
      "manual_review_available" if manual_count or manual_stories else "no_usable_result_facts")
   })
  counts=("upcoming_reported_matches","upcoming_reported_appearances",
+         "upcoming_reviewed_matches","upcoming_reviewed_appearances",
          "automatic_match_outcomes","automatic_storylines",
          "manually_reviewed_outcomes","manually_reviewed_storylines",
          "publisher_headline_links")
@@ -127,7 +171,7 @@ def build(snapshot,feeds,editorial,now=None,evolve=None,reviewed=None):
    "no_dated_victory_language" if not totals["rss_dated_descriptions_with_victory_word"] else
    "no_explicit_winner_sentences" if not totals["rss_dated_headlines_with_explicit_winner"] else
    "results_available_to_evaluate"),
-  "interpretation":"Counts of data availability, not match counts in the real world. Headline links and TVmaze episode synopses are not results. Automated source counts can duplicate the same match."
+  "interpretation":"Availability counts, not a list of unique confirmed matches. Reviewed upcoming card entries are distinct from provider-reported rows and may overlap. Publisher links and synopses are not results."
  }
 def main():
  ap=argparse.ArgumentParser()
@@ -139,7 +183,7 @@ def main():
   try:return json.loads((root/path).read_text(encoding="utf-8"))
   except (ValueError,OSError):return {}
  feeds={k:get(path) for k,(_,path) in SOURCES.items()}
- report=build(get("snapshot.json"),feeds,get("editorial-recaps-20261022.json"),evolve=get("evolve-recap-20261021.json"),reviewed=get("reviewed-recaps.json"))
+ report=build(get("snapshot.json"),feeds,get("editorial-recaps-20261022.json"),evolve=get("evolve-recap-20261021.json"),reviewed=get("reviewed-recaps.json"),research=get("research-20261022.json"),aaa_cards=get("aaa-tv-week-cards-20261023.json"))
  out=Path(args.out);tmp=out.with_suffix(".tmp")
  tmp.write_text(json.dumps(report,ensure_ascii=False,indent=2)+"\n",encoding="utf-8")
  tmp.replace(out)

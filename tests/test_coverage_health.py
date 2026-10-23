@@ -104,4 +104,50 @@ class SourceCoverageTests(unittest.TestCase):
                 "status":"REPORTED_UNVERIFIED"}],"developments":[]}]}
   out=build(SNAP,{}, {},NOW,reviewed=reviewed)
   self.assertEqual(out["totals"]["manually_reviewed_outcomes"],0)
+ def test_reviewed_advance_cards_count_without_claiming_automation(self):
+  schedule={"schema_version":1,"shows":[
+   dict(s,next={"date":"2026-10-26" if s["id"]=="raw" else "2026-10-24" if s["id"]=="aaa" else "2026-10-29"})
+   for s in SNAP["shows"]]}
+  research={"mode":"DATED_RESEARCH_SUPPLEMENT_UNVERIFIED","reviewed_at_et":"2026-10-22",
+   "programs":[{"show_id":"raw","airdate":"2026-10-26",
+     "matches":[{"text":"Bayley vs. Lyra Valkyria","status":"REPORTED_UNVERIFIED",
+         "evidence_url":"https://www.f4wonline.com/news/wwe/bayley-no-dq/"}],
+     "appearances":[]}]}
+  aaa={"mode":"DATED_AAA_TV_WEEK_CARD_REVIEW_UNVERIFIED","reviewed_at_et":"2026-10-23",
+    "programs":[{"show_id":"aaa","airdate":"2026-10-24",
+       "matches":[{"text":"AAA Alpha vs. AAA Beta","status":"REPORTED_UNVERIFIED",
+         "evidence_url":"https://411mania.com/wrestling/test/"},
+        {"text":"AAA Gamma vs. AAA Delta","status":"REPORTED_UNVERIFIED",
+         "evidence_url":"https://www.tpww.net/2026/10/source/"}],
+       "appearances":[{"text":"Marisela Pena Hall of Fame ceremony",
+         "type":"Hall of Fame","status":"REPORTED_UNVERIFIED",
+         "evidence_url":"https://411mania.com/wrestling/test/"}]}]}
+  out=build(schedule,{}, {},NOW,research=research,aaa_cards=aaa)
+  self.assertEqual(out["totals"]["upcoming_reviewed_matches"],3)
+  self.assertEqual(out["totals"]["upcoming_reviewed_appearances"],1)
+  self.assertEqual(out["totals"]["upcoming_reported_matches"],0)
+  self.assertEqual(out["totals"]["automatic_match_outcomes"],0)
+  self.assertEqual(out["totals"]["automatic_storylines"],0)
+  row=next(p for p in out["programs"] if p["show_id"]=="aaa")
+  self.assertEqual(row["upcoming_reviewed_matches"],2)
+  self.assertEqual(row["upcoming_reviewed_appearances"],1)
+ def test_reviewed_advance_rejects_wrong_date_host_future_and_unattributed(self):
+  fake={"mode":"DATED_RESEARCH_SUPPLEMENT_UNVERIFIED","reviewed_at_et":"2026-10-23",
+   "programs":[{"show_id":"tna","airdate":"2026-10-29",
+     "matches":[{"text":"Alice vs. Betty","status":"REPORTED_UNVERIFIED",
+         "evidence_url":"https://malicious.invalid/match"},
+        {"text":"Carl vs. Dana","status":"REPORTED_UNVERIFIED",
+         "evidence_url":"https://www.wwe.com/shows/tna/"},
+        {"text":"Eli vs. Fred","status":"UNVERIFIED",
+         "evidence_url":"https://www.wwe.com/shows/tna/"},
+        {"text":"Carl vs. Dana","status":"REPORTED_UNVERIFIED",
+         "evidence_url":"https://www.wwe.com/shows/tna/"}],
+     "appearances":[]}]}
+  out=build(SNAP,{}, {},NOW,research=fake)
+  self.assertEqual(out["totals"]["upcoming_reviewed_matches"],1)
+  self.assertEqual(build(SNAP,{}, {},NOW,
+    research=dict(fake,reviewed_at_et="2026-10-24"))["totals"]["upcoming_reviewed_matches"],0)
+  wrongdate={"mode":fake["mode"],"reviewed_at_et":"2026-10-23","programs":[
+    dict(fake["programs"][0],airdate="2026-10-22")]}
+  self.assertEqual(build(SNAP,{}, {},NOW,research=wrongdate)["totals"]["upcoming_reviewed_matches"],0)
 if __name__=="__main__":unittest.main()
