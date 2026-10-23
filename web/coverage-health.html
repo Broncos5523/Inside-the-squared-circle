@@ -58,14 +58,16 @@ p{color:#b9ccdd}a{color:#f4ca8b}.metrics{display:grid;grid-template-columns:repe
   const rationale={
     'feed_unavailable':'No current RSS excerpt source response is available.',
     'no_dated_broadcast_coverage':'Current feeds have no dated articles matching the previous episodes.',
-    'no_explicit_winner_sentences':'Dated articles were found, but the syndicated summaries did not contain individual winner-vs-loser statements.',
+    'no_dated_victory_language':'Dated articles exist, but their short syndicated summaries do not mention match wins. Parsing more aggressively would risk inventing results.',
+    'no_explicit_winner_sentences':'Some relevant summaries mention victory language, but none give a parseable individual winner-vs-loser statement.',
     'results_available_to_evaluate':'Source-specific winner statements may be present. Only date-matched, post-broadcast facts can enter the boards.'
   };
   $('diagnostics').textContent=
     (diag.rss_feeds_responding??0)+' of '+(diag.rss_feeds_checked??0)+' syndicated feeds responded. '+
     (diag.rss_items_examined??0)+' feed items were examined, including '+
     (diag.rss_dated_episode_headlines??0)+' items with dates matching recently completed broadcasts. '+
-    (diag.rss_descriptions_with_defeated_word??0)+' descriptions mentioned a victory word; '+
+    (diag.rss_descriptions_with_defeated_word??0)+' total descriptions mentioned a victory word, but only '+
+    (diag.rss_dated_descriptions_with_victory_word??0)+' belonged to matching completed-episode headlines; '+
     (diag.rss_dated_headlines_with_explicit_winner??0)+' date-matched descriptions contained a parseable individual winner statement. '+
     (rationale[d.rss_bottleneck]||'Source coverage is incomplete.')+
     ' Counts are feed-item occurrences; the same article can be repeated across feeds.';

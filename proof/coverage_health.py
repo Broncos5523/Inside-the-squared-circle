@@ -98,6 +98,7 @@ def build(snapshot,feeds,editorial,now=None,evolve=None):
  totals["rss_items_examined"]=sum(int(v.get("items",0)) for v in diagnostics.values() if isinstance(v,dict))
  totals["rss_dated_episode_headlines"]=sum(int(v.get("dated_broadcast_headlines",0)) for v in diagnostics.values() if isinstance(v,dict))
  totals["rss_dated_headlines_with_explicit_winner"]=sum(int(v.get("dated_descriptions_with_outcome",0)) for v in diagnostics.values() if isinstance(v,dict))
+ totals["rss_dated_descriptions_with_victory_word"]=sum(int(v.get("dated_descriptions_with_victory_word",0)) for v in diagnostics.values() if isinstance(v,dict))
  totals["rss_descriptions_with_defeated_word"]=sum(
    int(v.get("with_defeated_word",0)) for v in diagnostics.values() if isinstance(v,dict))
  totals["rss_explicit_winner_sentences"]=sum(
@@ -108,6 +109,7 @@ def build(snapshot,feeds,editorial,now=None,evolve=None):
   "totals":totals,"programs":programs,
   "rss_bottleneck":("feed_unavailable" if not source_health["rss_excerpts"]["fresh"] or not totals["rss_feeds_responding"] else
    "no_dated_broadcast_coverage" if not totals["rss_dated_episode_headlines"] else
+   "no_dated_victory_language" if not totals["rss_dated_descriptions_with_victory_word"] else
    "no_explicit_winner_sentences" if not totals["rss_dated_headlines_with_explicit_winner"] else
    "results_available_to_evaluate"),
   "interpretation":"Counts of data availability, not match counts in the real world. Headline links and TVmaze episode synopses are not results. Automated source counts can duplicate the same match."

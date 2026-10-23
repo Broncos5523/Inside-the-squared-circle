@@ -163,7 +163,8 @@ def diagnose_syndicated_feed(entries:list[dict],snapshot:dict,now:datetime)->dic
     """
     out={"items":len(entries),"with_description":0,"with_defeated_word":0,
          "with_explicit_outcome_sentence":0,"dated_broadcast_headlines":0,
-         "dated_descriptions_with_outcome":0}
+         "dated_descriptions_with_outcome":0,
+         "dated_descriptions_with_victory_word":0}
     dates={}
     for show in snapshot.get("shows",[]):
         sid=show.get("id")
@@ -181,6 +182,8 @@ def diagnose_syndicated_feed(entries:list[dict],snapshot:dict,now:datetime)->dic
             if air and filter_title(item.get("title"),sid,air) and explicitly_dated(item["title"],air):
                 out["dated_broadcast_headlines"]+=1
                 if outcome:out["dated_descriptions_with_outcome"]+=1
+                if isinstance(description,str) and re.search(r"\b(?:defeated|defeats?|beat|won|victory)\b",description,re.I):
+                    out["dated_descriptions_with_victory_word"]+=1
                 break
     return out
 

@@ -1,7 +1,7 @@
 import unittest
 from datetime import datetime
 from zoneinfo import ZoneInfo
-from proof.rss_excerpt_results import build_results,parse_syndicated_feed,parse_excerpt_sentences,diagnose_syndicated_feed
+from proof.rss_excerpt_results import build_results,parse_syndicated_feed,parse_excerpt_sentences,diagnose_syndicated_feed,diagnose_syndicated_feed
 ET=ZoneInfo("America/New_York")
 NOW=datetime(2026,10,23,8,0,tzinfo=ET)
 SNAP={"shows":[
@@ -54,6 +54,17 @@ class SyndicatedFacts(unittest.TestCase):
         self.assertEqual(parse_excerpt_sentences("<p>Joe Alonzo vs. Avery Styles</p>"),[])
         self.assertEqual(parse_excerpt_sentences("<p>Joe Alonzo may defeat Avery Styles</p>"),[])
         self.assertEqual(parse_excerpt_sentences("<p>Joe Alonzo defeated Avery Styles last week</p>"),[])
+    def test_diagnostic_identifies_winner_language_in_same_show_same_date(self):
+        articles=[entry("TNA iMPACT! Results 10/22/2026",
+                         "<p>Avery Styles defeated Joe Alonzo.</p>"),
+                  entry("WWE RAW Results 10/19/2026",
+                         "<p>Chelsea Green defeated Roxanne Perez.</p>"),
+                  entry("TNA iMPACT! Results 10/15/2026",
+                         "<p>Avery Styles defeated Joe Alonzo.</p>")]
+        counts=diagnose_syndicated_feed(articles,SNAP,NOW)
+        self.assertEqual(counts["dated_broadcast_headlines"],1)
+        self.assertEqual(counts["dated_descriptions_with_victory_word"],1)
+        self.assertEqual(counts["dated_descriptions_with_outcome"],1)
     def test_approved_syndicated_description_not_full_content(self):
         rss=(b"<rss><channel><item><title>TNA iMPACT! Results 10/22/2026</title>"
           b"<link>https://411mania.com/wrestling/episode-review/</link>"
