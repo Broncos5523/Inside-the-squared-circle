@@ -12,9 +12,11 @@ events are listed at https://wrestlingcentralnews.com/upcoming/.
 
 The new collector (proof/wcn_private_cards.py) reads RSS metadata and
 the Card & preview section of WCN's **exact dated weekly event pages**.
-It extracts only short deterministic pairs ("X vs. Y"), without copying
-whole sentences, hallucinating additional matches, importing results,
-or mapping AAA's multiday event card to one television week. No other
+It extracts only explicit, short match pairings ("X vs. Y") and separately
+listed advertised talent, without copying whole sentences, assuming match
+participants are advertised for a separate segment, importing results, or
+mapping AAA's multiday event card to one television week. Generic storylines,
+postponed matches, historical winners, and other-event PPV cards fail closed. No other
 publishers are scraped. It refreshes no faster than 15 minutes from
 a cached file.
 
@@ -24,9 +26,10 @@ Run from the repository root:
 
     python -m proof.wcn_private_cards --snapshot web/data/snapshot.json --out web/data/wcn-match-cards-private.json
 
-On your own local server, the V4.32 private-WCN preview will read this
+On your own local server, the V4.34 private-WCN preview will read this
 ignored JSON file. It retains the existing approved look and adds WCN's
-short, date-matched card entries with the requested small source credit,
+short, date-matched card entries and explicitly advertised appearances with
+ the requested small source credit,
 no clickable links, and the usual spoiler/date safeguards.
 
 **Not published to public GitHub Pages.** The ordinary hosted V4.32 preview

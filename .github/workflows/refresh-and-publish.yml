@@ -113,6 +113,8 @@ jobs:
           c=json.loads(Path('/tmp/wcn-private-cards.json').read_text())
           assert c['mode']=='PERSONAL_WCN_REPORTED_CARD_FACTS_V1'
           assert len(c['programs'])==6
+          assert c['total_reported_matches']>=0
+          assert c['total_reported_appearances']>=0
           assert not Path('web/data/wcn-match-cards-private.json').exists()
           print('WCN cache remains private; no publishing of WCN facts')
           PY
@@ -464,6 +466,21 @@ jobs:
           Path('/tmp/squared-circle-v433.js').write_text(new.split('<script>',1)[1].split('</script>',1)[0])
           PY
           node --check /tmp/squared-circle-v433.js
+      - name: Verify v4.34 WCN advertised talent and complete rotations
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          html=Path('web/preview-v4-34-private-wcn.html').read_text()
+          prev=Path('web/preview-v4-33-private-wcn.html').read_text()
+          assert 'DISPLAY BUILD 4.34' in html
+          assert html.split('<style>',1)[1].split('</style>',1)[0]==prev.split('<style>',1)[1].split('</style>',1)[0]
+          for word in ("privateWcnRows","Advertised appearance","recapRotationPage(key,pages)"):
+              assert word in html
+          assert not Path('web/data/wcn-match-cards-private.json').exists()
+          assert "createElement('a')" not in html
+          Path('/tmp/v434.js').write_text(html.split('<script>',1)[1].split('</script>',1)[0])
+          PY
+          node --check /tmp/v434.js
       - name: Collect unverified match-card research leads
         run: python proof/card_intake.py --snapshot web/data/snapshot.json --out web/data/candidates.json --also-next-league
       - name: Build opt-in reported match descriptions (never confirmed)
@@ -897,6 +914,7 @@ jobs:
               (f'{base}/preview-v4-31.html?show=aaa&probe={nonce}', 'v431'),
               (f'{base}/preview-v4-32-private-wcn.html?show=smackdown&probe={nonce}', 'v432'),
               (f'{base}/preview-v4-33-private-wcn.html?show=smackdown&view=recap&probe={nonce}', 'v433'),
+              (f'{base}/preview-v4-34-private-wcn.html?show=smackdown&probe={nonce}', 'v434'),
               (f'{base}/preview-v4-31.html?show=tna&view=recap&probe={nonce}', 'v431'),
               (f'{base}/data/aaa-tv-week-cards-20261023.json?probe={nonce}', 'aaa-weeks'),
               (f'{base}/data/episode-briefs.json?probe={nonce}', 'episode-briefs'),
@@ -939,6 +957,9 @@ jobs:
                           weeks=json.loads(body)
                           assert weeks['mode']=='DATED_AAA_TV_WEEK_CARD_REVIEW_UNVERIFIED'
                           assert [x['airdate'] for x in weeks['programs']]==['2026-10-24','2026-10-31','2026-11-07']
+                      elif kind == 'v434':
+                          assert b'DISPLAY BUILD 4.34' in body
+                          assert b'Advertised appearance' in body
                       elif kind == 'v433':
                           assert b'DISPLAY BUILD 4.33' in body
                           assert b'notes.length?rows.map((_,i)=>[i])' in body

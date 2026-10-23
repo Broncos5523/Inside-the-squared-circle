@@ -20,13 +20,26 @@ FEED=BASE+"/feed.xml"
 MODE="PERSONAL_WCN_REPORTED_CARD_FACTS_V1"
 SOURCE="Wrestling Central News (wrestlingcentralnews.com)"
 WEEKLY={"raw":"wwe-raw","smackdown":"wwe-smackdown","nxt":"wwe-nxt","tna":"tna-impact"}
-NAME=r"[A-ZÀ-Ý][\wÀ-ÿ’'\-]*(?:\s+[A-ZÀ-Ý][\wÀ-ÿ’'\-]*){0,3}"
-SIDE=rf"(?:{NAME})(?:\s+and\s+{NAME})?"
-DIRECT=re.compile(rf"^(?P<a>{SIDE})\s+(?:will\s+)?(?:face|faces|take on|takes on|vs\.?|versus)\s+(?P<b>{SIDE})(?=\s|[.,;!?]|$)")
-PITTING=re.compile(rf"\b(?:pits?|pitting|featuring)\s+(?P<a>{SIDE})\s+(?:against|vs\.?|versus)\s+(?P<b>{SIDE})(?=\s|[.,;!?]|$)")
-DEFENSE=re.compile(rf"^(?P<a>{SIDE})\s+(?:will\s+)?(?:make|makes|defend|defends)\b.{{0,110}}?\s+against\s+(?P<b>{SIDE})(?=\s|[.,;!?]|$)")
-NO_SUBJECT=re.compile(r"\b(?:match|championship|title|episode|story|preview|card|tonight|last|next|another|bout|event)\b",re.I)
-SPOILERS=re.compile(r"\b(?:defeated|defeats|pinned|won|retained|winner|spoiler)\b",re.I)
+# Wrestling names must be capitalized, not generic prose. Each short
+# match pairing is extracted deterministically and remains unverified.
+WORD=r"[A-ZÀ-Ý][A-Za-zÀ-ÿ0-9’'\-]*"
+PERSON=rf"{WORD}(?:\s+{WORD}){{0,3}}"
+SIDE=rf"(?:The\s+)?{PERSON}(?:\s+(?:&|and)\s+{PERSON})?"
+BOUT=re.compile(rf"(?P<a>{SIDE})(?:\s*\([^)]{{1,85}}\))?\s+"
+    rf"(?:once\s+again\s+)?(?:faces?|facing|takes?\s+on|collide(?:s)?\s+with|"
+    rf"meet(?:s)?|challenge(?:s)?|vs\.?|versus)\s+(?P<b>{SIDE})(?=\s|[.;,!?]|$)")
+TITLE_DEFENSE=re.compile(rf"(?P<a>{SIDE})\s+(?:will\s+)?(?:defends?|put(?:s)?|make(?:s)?)\b"
+    rf"[^.;:]{{0,130}}?\s+against\s+(?P<b>{SIDE})(?=\s|[.;,!?]|$)")
+BETWEEN=re.compile(rf"\b(?:match|bout)\s+between\s+(?P<a>{PERSON})\s+and\s+(?P<b>{PERSON})"
+    rf"(?=\s|[.;,!?]|$)")
+NOT_THIS_EPISODE=re.compile(
+    r"\b(?:pay-per-view|PPV|Destination X|Crown Jewel|Survivor Series|"
+    r"next month's event|other promotion|separate event)\b",re.I)
+STOPPED=re.compile(r"\b(?:defeated|defeats|pinned|won|retained|winner|spoiler|"
+    r"cancelled|canceled|postponed|not medically cleared)\b",re.I)
+BAD_NAME=re.compile(r"\b(?:match|championship|title|episode|story|preview|"
+    r"card|tonight|last|next|another|bout|event|general manager)\b",re.I)
+ADVERTISED=re.compile(r"\bAlso advertised:\s*([^.]{6,260})",re.I)
 
 def approved(url):
     p=urlsplit(url)
@@ -64,27 +77,55 @@ class Preview(HTMLParser):
         if tag=="p" and self.section=="card & preview" and txt:self.paragraphs.append(txt[:1200])
         self.tag=None;self.parts=[]
 
+def normal_side(name):
+    # The role prefix is not part of the wrestler's name.
+    name=re.split(r"\bChampions?\s+",name)[-1]
+    name=re.sub(r"\s+and\s+"," & "," ".join(name.split()))
+    return name.strip()
+
 def pairs(paragraph):
+    """Use direct future card pairings only. Never infer winners/rumours."""
+    if NOT_THIS_EPISODE.search(paragraph):return []
     found=[]
-    for s in re.split(r"(?<=[.!?])\s+(?=[A-ZÀ-Ý])",paragraph):
-        if SPOILERS.search(s):continue
-        m=DIRECT.search(s) or PITTING.search(s) or DEFENSE.search(s)
-        if not m:continue
-        a,b=[re.sub(r"\s+and\s+"," & "," ".join(m.group(x).split())).strip()
-             for x in ("a","b")]
-        if a.casefold()==b.casefold() or NO_SUBJECT.search(a) or NO_SUBJECT.search(b):continue
-        if not(3<=len(a)<=70 and 3<=len(b)<=70) or "<" in a+b or ">" in a+b:continue
-        result=a+" vs. "+b
-        if result not in found:found.append(result)
+    for chunk in re.split(r"(?<=[.!?])\s+(?=[A-ZÀ-Ý])",paragraph):
+        # A sentence may list multiple matches separated by semicolons.
+        for segment in re.split(r";\s*",chunk):
+            if STOPPED.search(segment):continue
+            # Intro text ("WWE has announced ...:") is not a wrestler.
+            segment=segment.rsplit(":",1)[-1]
+            for regex in (BOUT,TITLE_DEFENSE,BETWEEN):
+                for match in regex.finditer(segment):
+                    a,b=(normal_side(match.group(k)) for k in ("a","b"))
+                    if a.casefold()==b.casefold() or BAD_NAME.search(a) or BAD_NAME.search(b):
+                        continue
+                    if not (3<=len(a)<=70 and 3<=len(b)<=70):continue
+                    if any(c in a+b for c in "<>{}[]\n"):continue
+                    text=a+" vs. "+b
+                    if text not in found:found.append(text)
     return found[:8]
 
+def advertised(paragraph):
+    """Explicitly advertised talent only; match competitors are not assumed."""
+    if NOT_THIS_EPISODE.search(paragraph) or STOPPED.search(paragraph):return []
+    mention=ADVERTISED.search(paragraph)
+    if not mention:return []
+    people=[]
+    for piece in mention.group(1).split(",")[:10]:
+        value=" ".join(piece.split())
+        if 3<=len(value)<=60 and re.fullmatch(rf"{PERSON}",value) and not BAD_NAME.search(value):
+            if value not in people:people.append(value)
+    return people[:8]
+
 def parse_page(raw):
-    page=Preview();page.feed(raw.decode("utf-8","replace")[:1_000_000])
-    items=[]
-    for p in page.paragraphs:
-        for pair in pairs(p):
-            if pair not in items:items.append(pair)
-    return items[:8]
+    page=Preview()
+    page.feed(raw.decode("utf-8","replace")[:1_000_000])
+    bouts=[];appearances=[]
+    for paragraph in page.paragraphs:
+        for bout in pairs(paragraph):
+            if bout not in bouts:bouts.append(bout)
+        for person in advertised(paragraph):
+            if person not in appearances:appearances.append(person)
+    return {"matches":bouts[:8],"appearances":appearances[:8]}
 
 def build(snapshot,requester=fetch,now=None):
     now=(now or datetime.now(ET_TZ)).astimezone(ET_TZ)
@@ -104,8 +145,12 @@ def build(snapshot,requester=fetch,now=None):
         except (ValueError,TypeError):out.append(row);continue
         url=BASE+"/events/"+air+"-"+WEEKLY[sid]+"/"
         try:
-            for result in parse_page(requester(url)):
+            parsed=parse_page(requester(url))
+            for result in parsed["matches"]:
                 row["matches"].append({"text":result,"stipulation":"MATCH",
+                   "status":"REPORTED_UNVERIFIED","source_name":SOURCE,"evidence_url":url})
+            for name in parsed["appearances"]:
+                row["appearances"].append({"text":name,"type":"Advertised appearance",
                    "status":"REPORTED_UNVERIFIED","source_name":SOURCE,"evidence_url":url})
         except Exception as exc:row["source_delayed"]=type(exc).__name__
         out.append(row)
@@ -113,7 +158,8 @@ def build(snapshot,requester=fetch,now=None):
             "usage":"PERSONAL_NONCOMMERCIAL_HOME_DISPLAY_ONLY",
             "display_attribution":SOURCE,"rss_status":rss_status,
             "rss_headlines_examined":count,"programs":out,
-            "total_reported_matches":sum(len(x["matches"]) for x in out)}
+            "total_reported_matches":sum(len(x["matches"]) for x in out),
+            "total_reported_appearances":sum(len(x["appearances"]) for x in out)}
 
 def main():
     p=argparse.ArgumentParser(description=__doc__)
@@ -136,6 +182,7 @@ def main():
     tmp.write_text(json.dumps(output,ensure_ascii=False,indent=2)+"\n",encoding="utf-8")
     tmp.replace(path)
     print("WCN PRIVATE audit: RSS",output["rss_status"],"headlines",output["rss_headlines_examined"],
-          "dated advance-card matchups",output["total_reported_matches"],"NOT PUBLISHED")
+          "dated advance-card matchups",output["total_reported_matches"],
+          "explicit advertised appearances",output["total_reported_appearances"],"NOT PUBLISHED")
 
 if __name__=="__main__":main()
