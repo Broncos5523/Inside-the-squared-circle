@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "mode": "RESEARCH_LEADS_ONLY",
-  "generated_at": "2026-10-24T08:53:08.567004+00:00",
+  "generated_at": "2026-10-24T13:00:35.929714+00:00",
   "policy": "Mentions are NOT confirmations. Do not put candidate matches on the public broadcast.",
   "source": "TheSportsDB (free API); attribution required; no artwork fetched.",
   "programs": [
@@ -50,7 +50,7 @@
     },
     {
       "show_id": "aaa",
-      "airdate": "2026-10-24",
+      "airdate": "2026-10-31",
       "intake_status": "unsupported_show",
       "candidate_count": 0,
       "verified_match_count": 0,
