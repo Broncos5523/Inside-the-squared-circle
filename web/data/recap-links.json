@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "mode": "PUBLISHER_RSS_POST_SHOW_LINKS_ONLY",
-  "generated_at": "2026-10-24T09:01:15.808831-04:00",
+  "generated_at": "2026-10-24T12:52:20.081976-04:00",
   "source_name": "Multiple publisher RSS feeds",
   "source_url": "https://www.f4wonline.com/rss.xml",
   "approved_publishers": [
@@ -124,7 +124,8 @@
           "url": "https://411mania.com/wrestling/cooks-wwe-nxt-review-10-20-26/",
           "published_at": "2026-10-21T02:10:48+00:00",
           "source_name": "411Mania",
-          "status": "PUBLISHER_HEADLINE_LINK_ONLY"
+          "status": "PUBLISHER_HEADLINE_LINK_ONLY",
+          "retained_from_previous": true
         },
         {
           "headline": "WWE NXT Results – Oct. 20, 2026 – Dusty Rhodes Tag Team Classic 2026 Matches, Kelani Jordan & Wren Sinclair NXT Women’s Title Match Contract Signing",
@@ -157,6 +158,13 @@
       "airdate": "2026-10-22",
       "links": [
         {
+          "headline": "Hall’s TNA Impact Review 10.22.26",
+          "url": "https://411mania.com/wrestling/halls-impact-wrestling-review-10-22-26/",
+          "published_at": "2026-10-24T14:45:43+00:00",
+          "source_name": "411Mania",
+          "status": "PUBLISHER_HEADLINE_LINK_ONLY"
+        },
+        {
           "headline": "Danhausen Stars In Halloween Snickers Ad, TNA iMPACT Highlights, More | Fight Size",
           "url": "https://www.fightful.com/wrestling-news/danhausen-stars-in-halloween-snickers-ad-tna-impact-highlights-more-fight-size",
           "published_at": "2026-10-23T18:00:00+00:00",
@@ -183,14 +191,6 @@
           "url": "https://www.fightful.com/wrestling-news/tna-impact-results-10-22-mustafa-ali-vs-jason-hotch",
           "published_at": "2026-10-23T00:05:53+00:00",
           "source_name": "Fightful",
-          "status": "PUBLISHER_HEADLINE_LINK_ONLY",
-          "retained_from_previous": true
-        },
-        {
-          "headline": "TNA Impact live results: Jason Hotch vs. Mustafa Ali, Avery Styles vs. Joe Alonzo",
-          "url": "https://www.f4wonline.com/news/tna-wrestling/tna-results/tna-impact-preview-october-22-2026-jason-hotch-mustafa-ali/",
-          "published_at": "2026-10-22T23:15:00+00:00",
-          "source_name": "F4W / Wrestling Observer",
           "status": "PUBLISHER_HEADLINE_LINK_ONLY",
           "retained_from_previous": true
         }
