@@ -1,35 +1,35 @@
 {
   "schema_version": 1,
   "mode": "WRESTLING_CONTENT_COVERAGE_COUNTS_ONLY",
-  "generated_at": "2026-10-24T12:52:38.886733-04:00",
+  "generated_at": "2026-10-24T16:48:26.359264-04:00",
   "source_health": {
     "reported": {
       "fresh": true,
-      "generated_at": "2026-10-24T12:51:51.056315-04:00"
+      "generated_at": "2026-10-24T16:47:03.790767-04:00"
     },
     "results": {
       "fresh": true,
-      "generated_at": "2026-10-24T12:51:57.519348-04:00"
+      "generated_at": "2026-10-24T16:47:10.497698-04:00"
     },
     "rss_facts": {
       "fresh": true,
-      "generated_at": "2026-10-24T12:52:20.287005-04:00"
+      "generated_at": "2026-10-24T16:47:45.725163-04:00"
     },
     "rss_excerpts": {
       "fresh": true,
-      "generated_at": "2026-10-24T12:52:28.543121-04:00"
+      "generated_at": "2026-10-24T16:48:05.067570-04:00"
     },
     "fallout": {
       "fresh": true,
-      "generated_at": "2026-10-24T12:52:37.297814-04:00"
+      "generated_at": "2026-10-24T16:48:24.300749-04:00"
     },
     "recap_links": {
       "fresh": true,
-      "generated_at": "2026-10-24T12:52:20.081976-04:00"
+      "generated_at": "2026-10-24T16:47:45.556437-04:00"
     },
     "episode_briefs": {
       "fresh": true,
-      "generated_at": "2026-10-24T12:52:08.382367-04:00"
+      "generated_at": "2026-10-24T16:47:21.749700-04:00"
     }
   },
   "totals": {
@@ -43,13 +43,13 @@
     "manually_reviewed_storylines": 16,
     "publisher_headline_links": 23,
     "rss_feeds_checked": 10,
-    "rss_feeds_responding": 10,
-    "rss_items_examined": 345,
-    "rss_dated_episode_headlines": 14,
+    "rss_feeds_responding": 9,
+    "rss_items_examined": 294,
+    "rss_dated_episode_headlines": 9,
     "rss_dated_headlines_with_explicit_winner": 0,
-    "rss_dated_descriptions_with_victory_word": 2,
-    "rss_descriptions_with_defeated_word": 27,
-    "rss_explicit_winner_sentences": 1
+    "rss_dated_descriptions_with_victory_word": 1,
+    "rss_descriptions_with_defeated_word": 19,
+    "rss_explicit_winner_sentences": 2
   },
   "programs": [
     {
