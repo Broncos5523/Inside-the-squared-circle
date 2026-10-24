@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "mode": "TVMAZE_FINISHED_EPISODE_GUIDE_SYNOPSIS_ONLY",
-  "generated_at": "2026-10-23T18:31:29.841380-04:00",
+  "generated_at": "2026-10-23T21:12:41.225120-04:00",
   "policy": "TVmaze CC BY-SA episode synopses only; these may have been written before broadcast. No match winners, title changes, storylines or confirmed appearances may be inferred.",
   "programs": [
     {
@@ -16,13 +16,13 @@
     },
     {
       "show_id": "smackdown",
-      "airdate": "2026-10-16",
-      "synopsis": "In the latest chapter of his volatile rivalry with Randy Orton, Cody Rhodes has demanded that SmackDown General Manager Nick Aldis produce The Viper. The American Nightmare will come face-to-face with Orton. After Nikki Bella used the ro…",
-      "episode_id": 3680016,
-      "evidence_url": "https://api.tvmaze.com/episodes/3680016",
+      "airdate": null,
+      "synopsis": null,
+      "episode_id": null,
+      "evidence_url": null,
       "source_name": "TVmaze",
       "license": "CC BY-SA",
-      "status": "episode_synopsis"
+      "status": "no_completed_episode"
     },
     {
       "show_id": "nxt",
@@ -65,5 +65,5 @@
       "status": "episode_synopsis"
     }
   ],
-  "synopses_available": 3
+  "synopses_available": 2
 }

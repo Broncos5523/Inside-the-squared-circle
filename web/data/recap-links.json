@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "mode": "PUBLISHER_RSS_POST_SHOW_LINKS_ONLY",
-  "generated_at": "2026-10-23T18:31:43.120593-04:00",
+  "generated_at": "2026-10-23T21:13:08.449131-04:00",
   "source_name": "Multiple publisher RSS feeds",
   "source_url": "https://www.f4wonline.com/rss.xml",
   "approved_publishers": [
@@ -57,25 +57,10 @@
     },
     {
       "show_id": "smackdown",
-      "airdate": "2026-10-16",
-      "links": [
-        {
-          "headline": "WWE SmackDown Results 10/16/26",
-          "url": "https://gerweck.net/2026/10/16/wwe-smackdown-results-10-16-26/",
-          "published_at": "2026-10-16T23:38:40+00:00",
-          "source_name": "Gerweck.net",
-          "status": "PUBLISHER_HEADLINE_LINK_ONLY"
-        },
-        {
-          "headline": "WWE SmackDown live results: Cody Rhodes & Randy Orton face-to-face",
-          "url": "https://www.f4wonline.com/news/wwe/results/wwe-smackdown-live-results-cody-rhodes-randy-orton-face-to-face/",
-          "published_at": "2026-10-16T23:15:00+00:00",
-          "source_name": "F4W / Wrestling Observer",
-          "status": "PUBLISHER_HEADLINE_LINK_ONLY"
-        }
-      ],
+      "airdate": null,
+      "links": [],
       "source_name": "Multiple publisher RSS feeds",
-      "status": "publisher_coverage_links"
+      "status": "no_matching_published_coverage"
     },
     {
       "show_id": "nxt",
@@ -107,7 +92,8 @@
           "url": "https://www.tpww.net/2026/10/wwe-nxt-results-oct-20-2026-dusty-rhodes-tag-team-classic-2026-matches-kelani-jordan-wren-sinclair-nxt-womens-title-match-contract-signing/",
           "published_at": "2026-10-20T23:56:48+00:00",
           "source_name": "TPWW",
-          "status": "PUBLISHER_HEADLINE_LINK_ONLY"
+          "status": "PUBLISHER_HEADLINE_LINK_ONLY",
+          "retained_from_previous": true
         },
         {
           "headline": "WWE NXT live results: Cruz Montana vs. Dion Lennox, Dusty Rhodes Tag Team Classic continues",
@@ -202,8 +188,8 @@
       "status": "publisher_coverage_links"
     }
   ],
-  "total_links": 20,
-  "retained_link_count": 3,
+  "total_links": 18,
+  "retained_link_count": 4,
   "collection_status": "ok",
   "successful_feed_urls": [
     "https://www.f4wonline.com/rss.xml",
@@ -214,7 +200,6 @@
     "https://www.fightful.com/wrestling/rss",
     "https://gerweck.net/category/results/feed/",
     "https://www.tpww.net/feed/",
-    "https://www.ringsidenews.com/feed/",
-    "https://wrestlingheadlines.com/feed/"
+    "https://www.ringsidenews.com/feed/"
   ]
 }

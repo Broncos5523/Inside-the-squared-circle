@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "mode": "REPORTED_MATCHES_UNVERIFIED",
-  "generated_at": "2026-10-23T18:31:11.111664-04:00",
+  "generated_at": "2026-10-23T21:12:25.174097-04:00",
   "valid_as_of_et": "2026-10-23",
   "policy": "Opt-in UNVERIFIED match and explicit segment mentions only. May be stale, speculative, misassigned, dark matches, taped show results or subject to change. Not announcements from WWE, AAA or TNA. Taped/early results never withdraw advance cards before scheduled U.S. broadcast completion.",
   "programs": [
@@ -19,34 +19,9 @@
     },
     {
       "show_id": "smackdown",
-      "airdate": "2026-10-23",
+      "airdate": "2026-10-30",
       "display_label": "REPORTED · UNVERIFIED",
-      "matches": [
-        {
-          "text": "Giulia vs. Blake Monroe",
-          "stipulation": "Street Fight",
-          "evidence_url": "https://www.thesportsdb.com/api/v1/json/123/lookupevent.php?id=2599790",
-          "provider_event_id": "2599790",
-          "status": "REPORTED_UNVERIFIED",
-          "source_name": "TheSportsDB"
-        },
-        {
-          "text": "Alexa Bliss & Tatum Paxley (c) vs. B-Fab & Michin (w/Jade Cargill)",
-          "stipulation": "WWE Women's Tag Team Title Match",
-          "evidence_url": "https://www.thesportsdb.com/api/v1/json/123/lookupevent.php?id=2599790",
-          "provider_event_id": "2599790",
-          "status": "REPORTED_UNVERIFIED",
-          "source_name": "TheSportsDB"
-        },
-        {
-          "text": "MFTs (Talla Tonga & Tama Tonga) (w/Haku) vs. Bakusai (Kyoki & Shinsuke Nakamura)",
-          "stipulation": "Non Title Tag Team Match",
-          "evidence_url": "https://www.thesportsdb.com/api/v1/json/123/lookupevent.php?id=2599790",
-          "provider_event_id": "2599790",
-          "status": "REPORTED_UNVERIFIED",
-          "source_name": "TheSportsDB"
-        }
-      ],
+      "matches": [],
       "appearances": [],
       "error": null,
       "episode_outcome_detected": false,
@@ -103,6 +78,6 @@
       "source_name": "TheSportsDB"
     }
   ],
-  "total_reported_matches": 3,
+  "total_reported_matches": 0,
   "total_reported_appearances": 0
 }
