@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "mode": "POST_BROADCAST_RSS_FALLOUT_FACTS_UNVERIFIED",
-  "generated_at": "2026-10-24T00:53:07.224546-04:00",
+  "generated_at": "2026-10-24T04:53:55.466424-04:00",
   "policy": "Post-broadcast exact-date subject/verb/object factual developments only. Original RSS excerpts not republished; no title-change or match-winner inference. Unverified provenance retained in JSON, not presented as official.",
   "programs": [
     {
@@ -12,9 +12,9 @@
     },
     {
       "show_id": "smackdown",
-      "airdate": null,
+      "airdate": "2026-10-23",
       "developments": [],
-      "status": "no_recent_broadcast"
+      "status": "no_explicit_fallout"
     },
     {
       "show_id": "nxt",

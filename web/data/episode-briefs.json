@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "mode": "TVMAZE_FINISHED_EPISODE_GUIDE_SYNOPSIS_ONLY",
-  "generated_at": "2026-10-24T00:52:35.859781-04:00",
+  "generated_at": "2026-10-24T04:53:26.510658-04:00",
   "policy": "TVmaze CC BY-SA episode synopses only; these may have been written before broadcast. No match winners, title changes, storylines or confirmed appearances may be inferred.",
   "programs": [
     {
@@ -16,13 +16,13 @@
     },
     {
       "show_id": "smackdown",
-      "airdate": null,
-      "synopsis": null,
-      "episode_id": null,
-      "evidence_url": null,
+      "airdate": "2026-10-23",
+      "synopsis": "Chelsea Green is set to put her WWE Women's Championship on the line against The Judgment Day's Roxanne Perez this Friday on SmackDown, even as her potential Champion vs. Champion Match against Women's World Champion Liv Morgan at WWE Cr…",
+      "episode_id": 3680017,
+      "evidence_url": "https://api.tvmaze.com/episodes/3680017",
       "source_name": "TVmaze",
       "license": "CC BY-SA",
-      "status": "no_completed_episode"
+      "status": "episode_synopsis"
     },
     {
       "show_id": "nxt",
@@ -65,5 +65,5 @@
       "status": "episode_synopsis"
     }
   ],
-  "synopses_available": 2
+  "synopses_available": 3
 }
