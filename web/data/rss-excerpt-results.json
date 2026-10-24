@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "mode": "POST_BROADCAST_RSS_SYNDICATED_EXCERPT_FACTS_UNVERIFIED",
-  "generated_at": "2026-10-23T21:13:32.521790-04:00",
+  "generated_at": "2026-10-24T00:52:57.851799-04:00",
   "policy": "Short factual winner/loser statements only from approved publisher-syndicated RSS descriptions after broadcast. Excerpt not published. Zero is acceptable; no website scraping, source quotes, title changes or storyline inference.",
   "programs": [
     {
@@ -42,13 +42,13 @@
     }
   ],
   "total_reported_results": 0,
-  "working_rss_feeds": 9,
+  "working_rss_feeds": 10,
   "source_diagnostics": {
     "https://www.f4wonline.com/rss.xml": {
       "items": 50,
       "with_description": 50,
       "with_defeated_word": 1,
-      "with_explicit_outcome_sentence": 0,
+      "with_explicit_outcome_sentence": 1,
       "dated_broadcast_headlines": 0,
       "dated_descriptions_with_outcome": 0,
       "dated_descriptions_with_victory_word": 0,
@@ -89,7 +89,7 @@
       "with_description": 10,
       "with_defeated_word": 0,
       "with_explicit_outcome_sentence": 0,
-      "dated_broadcast_headlines": 7,
+      "dated_broadcast_headlines": 6,
       "dated_descriptions_with_outcome": 0,
       "dated_descriptions_with_victory_word": 0,
       "status": "ok"
@@ -117,7 +117,7 @@
     "https://www.tpww.net/feed/": {
       "items": 50,
       "with_description": 50,
-      "with_defeated_word": 3,
+      "with_defeated_word": 4,
       "with_explicit_outcome_sentence": 0,
       "dated_broadcast_headlines": 0,
       "dated_descriptions_with_outcome": 0,
@@ -135,8 +135,14 @@
       "status": "ok"
     },
     "https://wrestlingheadlines.com/feed/": {
-      "status": "unavailable",
-      "reason": "URLError"
+      "items": 50,
+      "with_description": 50,
+      "with_defeated_word": 1,
+      "with_explicit_outcome_sentence": 0,
+      "dated_broadcast_headlines": 0,
+      "dated_descriptions_with_outcome": 0,
+      "dated_descriptions_with_victory_word": 0,
+      "status": "ok"
     }
   }
 }

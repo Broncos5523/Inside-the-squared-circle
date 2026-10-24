@@ -1,35 +1,35 @@
 {
   "schema_version": 1,
   "mode": "WRESTLING_CONTENT_COVERAGE_COUNTS_ONLY",
-  "generated_at": "2026-10-23T21:14:01.649932-04:00",
+  "generated_at": "2026-10-24T00:53:09.294931-04:00",
   "source_health": {
     "reported": {
       "fresh": true,
-      "generated_at": "2026-10-23T21:12:25.174097-04:00"
+      "generated_at": "2026-10-24T00:52:19.914267-04:00"
     },
     "results": {
       "fresh": true,
-      "generated_at": "2026-10-23T21:12:31.992115-04:00"
+      "generated_at": "2026-10-24T00:52:26.661705-04:00"
     },
     "rss_facts": {
       "fresh": true,
-      "generated_at": "2026-10-23T21:13:08.643941-04:00"
+      "generated_at": "2026-10-24T00:52:49.231281-04:00"
     },
     "rss_excerpts": {
       "fresh": true,
-      "generated_at": "2026-10-23T21:13:32.521790-04:00"
+      "generated_at": "2026-10-24T00:52:57.851799-04:00"
     },
     "fallout": {
       "fresh": true,
-      "generated_at": "2026-10-23T21:13:59.717704-04:00"
+      "generated_at": "2026-10-24T00:53:07.224546-04:00"
     },
     "recap_links": {
       "fresh": true,
-      "generated_at": "2026-10-23T21:13:08.449131-04:00"
+      "generated_at": "2026-10-24T00:52:49.065129-04:00"
     },
     "episode_briefs": {
       "fresh": true,
-      "generated_at": "2026-10-23T21:12:41.225120-04:00"
+      "generated_at": "2026-10-24T00:52:35.859781-04:00"
     }
   },
   "totals": {
@@ -43,13 +43,13 @@
     "manually_reviewed_storylines": 22,
     "publisher_headline_links": 18,
     "rss_feeds_checked": 10,
-    "rss_feeds_responding": 9,
-    "rss_items_examined": 295,
-    "rss_dated_episode_headlines": 11,
+    "rss_feeds_responding": 10,
+    "rss_items_examined": 345,
+    "rss_dated_episode_headlines": 10,
     "rss_dated_headlines_with_explicit_winner": 0,
     "rss_dated_descriptions_with_victory_word": 1,
-    "rss_descriptions_with_defeated_word": 22,
-    "rss_explicit_winner_sentences": 0
+    "rss_descriptions_with_defeated_word": 24,
+    "rss_explicit_winner_sentences": 1
   },
   "programs": [
     {
