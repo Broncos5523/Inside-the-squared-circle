@@ -1,35 +1,35 @@
 {
   "schema_version": 1,
   "mode": "WRESTLING_CONTENT_COVERAGE_COUNTS_ONLY",
-  "generated_at": "2026-10-24T16:48:26.359264-04:00",
+  "generated_at": "2026-10-24T21:02:34.413151-04:00",
   "source_health": {
     "reported": {
       "fresh": true,
-      "generated_at": "2026-10-24T16:47:03.790767-04:00"
+      "generated_at": "2026-10-24T21:01:42.448171-04:00"
     },
     "results": {
       "fresh": true,
-      "generated_at": "2026-10-24T16:47:10.497698-04:00"
+      "generated_at": "2026-10-24T21:01:48.905154-04:00"
     },
     "rss_facts": {
       "fresh": true,
-      "generated_at": "2026-10-24T16:47:45.725163-04:00"
+      "generated_at": "2026-10-24T21:02:12.427917-04:00"
     },
     "rss_excerpts": {
       "fresh": true,
-      "generated_at": "2026-10-24T16:48:05.067570-04:00"
+      "generated_at": "2026-10-24T21:02:22.354550-04:00"
     },
     "fallout": {
       "fresh": true,
-      "generated_at": "2026-10-24T16:48:24.300749-04:00"
+      "generated_at": "2026-10-24T21:02:32.800993-04:00"
     },
     "recap_links": {
       "fresh": true,
-      "generated_at": "2026-10-24T16:47:45.556437-04:00"
+      "generated_at": "2026-10-24T21:02:12.218980-04:00"
     },
     "episode_briefs": {
       "fresh": true,
-      "generated_at": "2026-10-24T16:47:21.749700-04:00"
+      "generated_at": "2026-10-24T21:01:59.787338-04:00"
     }
   },
   "totals": {
@@ -43,12 +43,12 @@
     "manually_reviewed_storylines": 16,
     "publisher_headline_links": 23,
     "rss_feeds_checked": 10,
-    "rss_feeds_responding": 9,
-    "rss_items_examined": 294,
-    "rss_dated_episode_headlines": 9,
+    "rss_feeds_responding": 10,
+    "rss_items_examined": 345,
+    "rss_dated_episode_headlines": 13,
     "rss_dated_headlines_with_explicit_winner": 0,
-    "rss_dated_descriptions_with_victory_word": 1,
-    "rss_descriptions_with_defeated_word": 19,
+    "rss_dated_descriptions_with_victory_word": 2,
+    "rss_descriptions_with_defeated_word": 27,
     "rss_explicit_winner_sentences": 2
   },
   "programs": [
