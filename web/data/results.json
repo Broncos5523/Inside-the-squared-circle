@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "mode": "PROVIDER_REPORTED_POST_BROADCAST_RESULTS_UNVERIFIED",
-  "generated_at": "2026-10-25T09:01:18.798163-04:00",
+  "generated_at": "2026-10-25T12:52:08.813597-04:00",
   "policy": "Post-broadcast TheSportsDB result lines only, labelled REPORTED / UNVERIFIED. No inferred title changes, rivalries or storylines; not official announcements.",
   "programs": [
     {
