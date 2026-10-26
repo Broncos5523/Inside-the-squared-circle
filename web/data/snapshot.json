@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "mode": "LIVE_SCHEDULES_ONLY",
-  "generated_at": "2026-10-26T09:05:50.390856+00:00",
+  "generated_at": "2026-10-26T15:00:16.129858+00:00",
   "fresh_shows": 6,
   "shows": [
     {
@@ -10,14 +10,14 @@
       "color": "#EC354C",
       "category": "primary",
       "next": {
+        "date": "2026-11-02",
+        "time": null,
+        "title": "#1744 - Barclays Center in Brooklyn, NY"
+      },
+      "previous": {
         "date": "2026-10-26",
         "time": null,
         "title": "#1743 - Save Mart Center in Fresno, CA"
-      },
-      "previous": {
-        "date": "2026-10-19",
-        "time": null,
-        "title": "#1742 - Pechanga Arena in San Diego, CA"
       },
       "schedule_status": "fresh",
       "confirmed_matches": [],

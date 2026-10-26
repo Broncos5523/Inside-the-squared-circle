@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "mode": "PUBLISHER_RSS_POST_SHOW_LINKS_ONLY",
-  "generated_at": "2026-10-26T05:06:24.720069-04:00",
+  "generated_at": "2026-10-26T11:00:53.505674-04:00",
   "source_name": "Multiple publisher RSS feeds",
   "source_url": "https://www.f4wonline.com/rss.xml",
   "approved_publishers": [
@@ -13,49 +13,10 @@
   "programs": [
     {
       "show_id": "raw",
-      "airdate": "2026-10-19",
-      "links": [
-        {
-          "headline": "Cook’s WWE Raw Review 10.19.26",
-          "url": "https://411mania.com/wrestling/cooks-wwe-raw-review-10-19-26/",
-          "published_at": "2026-10-20T02:44:03+00:00",
-          "source_name": "411Mania",
-          "status": "PUBLISHER_HEADLINE_LINK_ONLY",
-          "retained_from_previous": true
-        },
-        {
-          "headline": "Hall’s WWE Raw Review 10.19.26",
-          "url": "https://411mania.com/wrestling/halls-wwe-raw-review-10-19-26/",
-          "published_at": "2026-10-20T02:35:27+00:00",
-          "source_name": "411Mania",
-          "status": "PUBLISHER_HEADLINE_LINK_ONLY",
-          "retained_from_previous": true
-        },
-        {
-          "headline": "WWE RAW Results – Oct. 19, 2026 – WWE World Heavyweight Champion Roman Reigns Appears, Penta vs. Bron Breakker",
-          "url": "https://www.tpww.net/2026/10/wwe-raw-results-oct-19-2026-wwe-world-heavyweight-champion-roman-reigns-appears-penta-vs-bron-breakker/",
-          "published_at": "2026-10-20T00:33:36+00:00",
-          "source_name": "TPWW",
-          "status": "PUBLISHER_HEADLINE_LINK_ONLY",
-          "retained_from_previous": true
-        },
-        {
-          "headline": "WWE Raw live results: Road to Crown Jewel, Roman Reigns returns",
-          "url": "https://www.f4wonline.com/news/wwe/results/wwe-raw-live-results-road-to-crown-jewel-roman-reigns/",
-          "published_at": "2026-10-19T23:15:00+00:00",
-          "source_name": "F4W / Wrestling Observer",
-          "status": "PUBLISHER_HEADLINE_LINK_ONLY"
-        },
-        {
-          "headline": "WWE Raw Results 10/19/26",
-          "url": "https://gerweck.net/2026/10/19/wwe-raw-results-10-19-26/",
-          "published_at": "2026-10-19T23:00:51+00:00",
-          "source_name": "Gerweck.net",
-          "status": "PUBLISHER_HEADLINE_LINK_ONLY"
-        }
-      ],
+      "airdate": null,
+      "links": [],
       "source_name": "Multiple publisher RSS feeds",
-      "status": "publisher_coverage_links"
+      "status": "no_matching_published_coverage"
     },
     {
       "show_id": "smackdown",
@@ -229,8 +190,8 @@
       "status": "publisher_coverage_links"
     }
   ],
-  "total_links": 23,
-  "retained_link_count": 9,
+  "total_links": 18,
+  "retained_link_count": 6,
   "collection_status": "ok",
   "successful_feed_urls": [
     "https://www.f4wonline.com/rss.xml",

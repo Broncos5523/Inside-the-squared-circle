@@ -1,18 +1,18 @@
 {
   "schema_version": 1,
   "mode": "TVMAZE_FINISHED_EPISODE_GUIDE_SYNOPSIS_ONLY",
-  "generated_at": "2026-10-26T05:06:12.884592-04:00",
+  "generated_at": "2026-10-26T11:00:41.094137-04:00",
   "policy": "TVmaze CC BY-SA episode synopses only; these may have been written before broadcast. No match winners, title changes, storylines or confirmed appearances may be inferred.",
   "programs": [
     {
       "show_id": "raw",
-      "airdate": "2026-10-19",
-      "synopsis": "For the first time since his hard-fought title defense against LA Knight at WWE Money in the Bank, World Heavyweight Champion Roman Reigns returns to Monday Night Raw. Last week, The 946 became an even bigger threat to The Bloodline afte…",
-      "episode_id": 3680023,
-      "evidence_url": "https://api.tvmaze.com/episodes/3680023",
+      "airdate": null,
+      "synopsis": null,
+      "episode_id": null,
+      "evidence_url": null,
       "source_name": "TVmaze",
       "license": "CC BY-SA",
-      "status": "episode_synopsis"
+      "status": "no_completed_episode"
     },
     {
       "show_id": "smackdown",
@@ -65,5 +65,5 @@
       "status": "episode_synopsis"
     }
   ],
-  "synopses_available": 3
+  "synopses_available": 2
 }
