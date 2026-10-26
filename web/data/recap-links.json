@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "mode": "PUBLISHER_RSS_POST_SHOW_LINKS_ONLY",
-  "generated_at": "2026-10-26T11:00:53.505674-04:00",
+  "generated_at": "2026-10-26T13:05:05.512893-04:00",
   "source_name": "Multiple publisher RSS feeds",
   "source_url": "https://www.f4wonline.com/rss.xml",
   "approved_publishers": [
@@ -183,7 +183,8 @@
           "url": "https://411mania.com/wrestling/leightys-wwe-evolve-review-10-21-26/",
           "published_at": "2026-10-22T04:36:54+00:00",
           "source_name": "411Mania",
-          "status": "PUBLISHER_HEADLINE_LINK_ONLY"
+          "status": "PUBLISHER_HEADLINE_LINK_ONLY",
+          "retained_from_previous": true
         }
       ],
       "source_name": "Multiple publisher RSS feeds",
@@ -191,7 +192,7 @@
     }
   ],
   "total_links": 18,
-  "retained_link_count": 6,
+  "retained_link_count": 7,
   "collection_status": "ok",
   "successful_feed_urls": [
     "https://www.f4wonline.com/rss.xml",

@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "mode": "PROVIDER_REPORTED_POST_BROADCAST_RESULTS_UNVERIFIED",
-  "generated_at": "2026-10-26T11:00:31.753267-04:00",
+  "generated_at": "2026-10-26T13:04:41.734747-04:00",
   "policy": "Post-broadcast TheSportsDB result lines only, labelled REPORTED / UNVERIFIED. No inferred title changes, rivalries or storylines; not official announcements.",
   "programs": [
     {
@@ -38,10 +38,65 @@
     },
     {
       "show_id": "tna",
-      "airdate": null,
-      "results": [],
+      "airdate": "2026-10-22",
+      "results": [
+        {
+          "text": "Indi Hartwell (c) defeats Xia Brookside (6:20)",
+          "match_type": "TNA Knockouts World Title Match",
+          "status": "REPORTED_UNVERIFIED",
+          "source_name": "TheSportsDB",
+          "evidence_url": "https://www.thesportsdb.com/api/v1/json/123/lookupevent.php?id=2620567",
+          "provider_event_id": "2620567",
+          "provider_field": "strResult"
+        },
+        {
+          "text": "Cedric Alexander defeats Fabian Aichner and KC Navarro and Rich Swann (9:40)",
+          "match_type": "TNA X-Division Title #1 Contendership Four Way Match",
+          "status": "REPORTED_UNVERIFIED",
+          "source_name": "TheSportsDB",
+          "evidence_url": "https://www.thesportsdb.com/api/v1/json/123/lookupevent.php?id=2620567",
+          "provider_event_id": "2620567",
+          "provider_field": "strResult"
+        },
+        {
+          "text": "Avery Styles (w/Frankie Kazarian) defeats Joe Alonzo (6:00)",
+          "match_type": "Singles Match",
+          "status": "REPORTED_UNVERIFIED",
+          "source_name": "TheSportsDB",
+          "evidence_url": "https://www.thesportsdb.com/api/v1/json/123/lookupevent.php?id=2620567",
+          "provider_event_id": "2620567",
+          "provider_field": "strResult"
+        },
+        {
+          "text": "Jason Hotch (c) defeats Mustafa Ali (18:45)",
+          "match_type": "TNA International Title Best Two Out Of Three Falls Match",
+          "status": "REPORTED_UNVERIFIED",
+          "source_name": "TheSportsDB",
+          "evidence_url": "https://www.thesportsdb.com/api/v1/json/123/lookupevent.php?id=2620567",
+          "provider_event_id": "2620567",
+          "provider_field": "strResult"
+        },
+        {
+          "text": "Avery Styles defeats Joe Alonzo",
+          "match_type": "Singles Match",
+          "status": "REPORTED_UNVERIFIED",
+          "source_name": "TheSportsDB",
+          "evidence_url": "https://www.thesportsdb.com/api/v1/json/123/lookupevent.php?id=2618956",
+          "provider_event_id": "2618956",
+          "provider_field": "strResult"
+        },
+        {
+          "text": "Cedric Alexander defeats Fabian Aichner and KC Navarro and Rich Swann",
+          "match_type": "TNA X-Division Title Four Way #1 Contendership Match",
+          "status": "REPORTED_UNVERIFIED",
+          "source_name": "TheSportsDB",
+          "evidence_url": "https://www.thesportsdb.com/api/v1/json/123/lookupevent.php?id=2618956",
+          "provider_event_id": "2618956",
+          "provider_field": "strResult"
+        }
+      ],
       "source_name": "TheSportsDB",
-      "status": "no_parseable_source_results",
+      "status": "reported_outcomes",
       "partial_source_error": true
     },
     {
@@ -53,5 +108,5 @@
       "partial_source_error": false
     }
   ],
-  "total_reported_results": 0
+  "total_reported_results": 6
 }
