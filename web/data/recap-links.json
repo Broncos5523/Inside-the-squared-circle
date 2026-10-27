@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "mode": "PUBLISHER_RSS_POST_SHOW_LINKS_ONLY",
-  "generated_at": "2026-10-27T13:05:26.034024-04:00",
+  "generated_at": "2026-10-27T16:56:35.618504-04:00",
   "source_name": "Multiple publisher RSS feeds",
   "source_url": "https://www.f4wonline.com/rss.xml",
   "approved_publishers": [
@@ -78,7 +78,8 @@
           "url": "https://www.tpww.net/2026/10/wwe-smackdown-results-oct-23-2026-alexa-bliss-tatum-paxley-vs-b-fab-michin-chelsea-green-vs-roxanne-perez/",
           "published_at": "2026-10-24T00:00:04+00:00",
           "source_name": "TPWW",
-          "status": "PUBLISHER_HEADLINE_LINK_ONLY"
+          "status": "PUBLISHER_HEADLINE_LINK_ONLY",
+          "retained_from_previous": true
         },
         {
           "headline": "WWE SmackDown Results, Highlights and Key Moments for October 23, 2026",
@@ -230,7 +231,7 @@
     }
   ],
   "total_links": 23,
-  "retained_link_count": 9,
+  "retained_link_count": 10,
   "collection_status": "ok",
   "successful_feed_urls": [
     "https://www.f4wonline.com/rss.xml",
