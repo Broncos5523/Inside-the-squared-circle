@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "mode": "POST_BROADCAST_RSS_SYNDICATED_EXCERPT_FACTS_UNVERIFIED",
-  "generated_at": "2026-10-27T05:03:35.936411-04:00",
+  "generated_at": "2026-10-27T09:12:56.466841-04:00",
   "policy": "Short factual winner/loser statements only from approved publisher-syndicated RSS descriptions after broadcast. Excerpt not published. Zero is acceptable; no website scraping, source quotes, title changes or storyline inference.",
   "programs": [
     {
@@ -42,7 +42,7 @@
     }
   ],
   "total_reported_results": 0,
-  "working_rss_feeds": 10,
+  "working_rss_feeds": 8,
   "source_diagnostics": {
     "https://www.f4wonline.com/rss.xml": {
       "items": 50,
@@ -75,24 +75,12 @@
       "status": "ok"
     },
     "https://411mania.com/wrestling/feed/": {
-      "items": 10,
-      "with_description": 10,
-      "with_defeated_word": 0,
-      "with_explicit_outcome_sentence": 0,
-      "dated_broadcast_headlines": 1,
-      "dated_descriptions_with_outcome": 0,
-      "dated_descriptions_with_victory_word": 0,
-      "status": "ok"
+      "status": "unavailable",
+      "reason": "HTTPError"
     },
     "https://411mania.com/wrestling/category/tv-report/feed/": {
-      "items": 10,
-      "with_description": 10,
-      "with_defeated_word": 0,
-      "with_explicit_outcome_sentence": 0,
-      "dated_broadcast_headlines": 5,
-      "dated_descriptions_with_outcome": 0,
-      "dated_descriptions_with_victory_word": 0,
-      "status": "ok"
+      "status": "unavailable",
+      "reason": "HTTPError"
     },
     "https://www.fightful.com/wrestling/rss": {
       "items": 10,
@@ -117,7 +105,7 @@
     "https://www.tpww.net/feed/": {
       "items": 50,
       "with_description": 50,
-      "with_defeated_word": 7,
+      "with_defeated_word": 8,
       "with_explicit_outcome_sentence": 0,
       "dated_broadcast_headlines": 2,
       "dated_descriptions_with_outcome": 0,
