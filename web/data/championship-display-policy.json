@@ -1,0 +1,34 @@
+{
+  "schema_version": 1,
+  "policy_id": "champion-belt-under-name-v1",
+  "scope": "ALL_WEEKLY_SHOWS_ALL_PLES_ALL_CHAMPIONSHIP_PREVIEW_RESULTS_FALLOUT_BOARDS",
+  "rules": {
+    "champion_indicator": {
+      "placement": "directly_below_wrestler_name",
+      "size": "small",
+      "asset": "verified_actual_championship_belt_image",
+      "show_in_non_title_matches": true,
+      "show_in_storyline_segments": true,
+      "show_in_title_matches": true,
+      "requires_verified_current_champion": true,
+      "allow_generic_icon": false,
+      "avoid_overlaps": true
+    },
+    "title_match": {
+      "full_size_belt": "retain_existing_approved_placement",
+      "title_on_line": "match_result_right_side",
+      "retain_line": "below_full_size_belt"
+    },
+    "non_champion": {
+      "show_belt": false
+    },
+    "draw_or_no_winner": {
+      "headshots": "all_contestants"
+    },
+    "decisive_winner": {
+      "headshots": "winner_only"
+    }
+  },
+  "status": "APPROVED_DESIGN_REQUIREMENT_NOT_YET_IMPLEMENTED",
+  "notes": "Do not modify existing approved artwork. Implement via verified champion registry and asset map; never guess championship ownership."
+}
