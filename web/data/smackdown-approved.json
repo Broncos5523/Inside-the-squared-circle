@@ -3,8 +3,112 @@
   "show_id": "smackdown",
   "publication_scope": "public_approved",
   "next_airdate": "2026-10-30",
-  "matches": [],
-  "developments": [],
-  "results": [],
-  "policy": "Only explicitly approved, source-backed public facts. WCN personal-use data excluded."
+  "previous_airdate": "2026-10-23",
+  "verified_at": "2026-10-27",
+  "policy": "Brief original fact summaries checked against WWE official October 23 results and October 26 announced-card reporting. No WCN personal-use material.",
+  "matches": [
+    {
+      "event_date": "2026-10-30",
+      "text": "Sami Zayn vs. Trick Williams — Undisputed WWE Championship",
+      "source_url": "https://prowrestling.net/site/2026/10/26/wwe-smackdown-preview-three-championship-matches-set-for-next-weeks-show/",
+      "review_status": "approved"
+    },
+    {
+      "event_date": "2026-10-30",
+      "text": "Chelsea Green vs. Nikki Bella — WWE Women's Championship",
+      "source_url": "https://prowrestling.net/site/2026/10/26/wwe-smackdown-preview-three-championship-matches-set-for-next-weeks-show/",
+      "review_status": "approved"
+    },
+    {
+      "event_date": "2026-10-30",
+      "text": "Rey Fenix vs. Ricky Saints — AAA Cruiserweight Championship",
+      "source_url": "https://prowrestling.net/site/2026/10/26/wwe-smackdown-preview-three-championship-matches-set-for-next-weeks-show/",
+      "review_status": "approved"
+    }
+  ],
+  "appearances": [
+    {
+      "event_date": "2026-10-30",
+      "text": "Danhausen hosts a special Halloween SmackDown.",
+      "source_url": "https://prowrestling.net/site/2026/10/26/wwe-smackdown-preview-three-championship-matches-set-for-next-weeks-show/",
+      "review_status": "approved"
+    }
+  ],
+  "results": [
+    {
+      "event_date": "2026-10-23",
+      "text": "Chelsea Green defeated Roxanne Perez and retained the WWE Women's Championship.",
+      "source_url": "https://www.wwe.com/shows/smackdown/2026-10-23/results",
+      "review_status": "approved",
+      "winner": "Chelsea Green",
+      "finish": "pinfall",
+      "championship": "WWE Women's Championship"
+    },
+    {
+      "event_date": "2026-10-23",
+      "text": "Blake Monroe defeated Giulia in a Street Fight.",
+      "source_url": "https://www.wwe.com/shows/smackdown/2026-10-23/results",
+      "review_status": "approved",
+      "winner": "Blake Monroe"
+    },
+    {
+      "event_date": "2026-10-23",
+      "text": "Michin and B-Fab defeated Alexa Bliss and Tatum Paxley to win the WWE Women's Tag Team Championship.",
+      "source_url": "https://www.wwe.com/shows/smackdown/2026-10-23/results",
+      "review_status": "approved",
+      "winners": [
+        "Michin",
+        "B-Fab"
+      ],
+      "championship": "WWE Women's Tag Team Championship"
+    },
+    {
+      "event_date": "2026-10-23",
+      "text": "Trick Williams and Rey Fenix defeated Sami Zayn and Johnny Gargano by disqualification.",
+      "source_url": "https://www.wwe.com/shows/smackdown/2026-10-23/results",
+      "review_status": "approved",
+      "winners": [
+        "Trick Williams",
+        "Rey Fenix"
+      ],
+      "finish": "disqualification"
+    },
+    {
+      "event_date": "2026-10-23",
+      "text": "Penta, Trick Williams and Rey Fenix defeated Sami Zayn, Johnny Gargano and Ricky Saints.",
+      "source_url": "https://www.wwe.com/shows/smackdown/2026-10-23/results",
+      "review_status": "approved",
+      "winners": [
+        "Penta",
+        "Trick Williams",
+        "Rey Fenix"
+      ]
+    }
+  ],
+  "developments": [
+    {
+      "event_date": "2026-10-23",
+      "text": "Liv Morgan, Roxanne Perez and Raquel Rodriguez attacked Chelsea Green and IYO SKY; Tiffany Stratton intervened.",
+      "source_url": "https://www.wwe.com/shows/smackdown/2026-10-23/results",
+      "review_status": "approved"
+    },
+    {
+      "event_date": "2026-10-23",
+      "text": "Cody Rhodes proposed a Last Man Standing stipulation for his Crown Jewel match against Randy Orton.",
+      "source_url": "https://www.wwe.com/shows/smackdown/2026-10-23/results",
+      "review_status": "approved"
+    },
+    {
+      "event_date": "2026-10-23",
+      "text": "Trick Williams pinned Ricky Saints in the six-man main event ahead of his title challenge against Sami Zayn.",
+      "source_url": "https://www.wwe.com/shows/smackdown/2026-10-23/results",
+      "review_status": "approved"
+    },
+    {
+      "event_date": "2026-10-23",
+      "text": "Michin and B-Fab became WWE Women's Tag Team Champions after Jade Cargill interfered.",
+      "source_url": "https://www.wwe.com/shows/smackdown/2026-10-23/results",
+      "review_status": "approved"
+    }
+  ]
 }
