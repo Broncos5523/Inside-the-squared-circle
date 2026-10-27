@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "mode": "PUBLISHER_RSS_POST_SHOW_LINKS_ONLY",
-  "generated_at": "2026-10-27T09:12:46.761351-04:00",
+  "generated_at": "2026-10-27T13:05:26.034024-04:00",
   "source_name": "Multiple publisher RSS feeds",
   "source_url": "https://www.f4wonline.com/rss.xml",
   "approved_publishers": [
@@ -27,8 +27,7 @@
           "url": "https://411mania.com/wrestling/cooks-wwe-raw-review-10-26-26/",
           "published_at": "2026-10-27T02:37:34+00:00",
           "source_name": "411Mania",
-          "status": "PUBLISHER_HEADLINE_LINK_ONLY",
-          "retained_from_previous": true
+          "status": "PUBLISHER_HEADLINE_LINK_ONLY"
         },
         {
           "headline": "WWE RAW Results – Oct. 26, 2026 – Chad Gable & Dragon Lee vs. Big Cass & “All Ego” Ethan Page, Bayley vs. Lyra Valkyria in No DQ Match",
@@ -42,7 +41,8 @@
           "url": "https://www.ringsidenews.com/wwe-raw-results-highlights-key-moments-october-26-2026/",
           "published_at": "2026-10-26T23:31:00+00:00",
           "source_name": "Ringside News",
-          "status": "PUBLISHER_HEADLINE_LINK_ONLY"
+          "status": "PUBLISHER_HEADLINE_LINK_ONLY",
+          "retained_from_previous": true
         },
         {
           "headline": "WWE Raw Results 10/26/26",
@@ -64,16 +64,14 @@
           "url": "https://411mania.com/wrestling/halls-smackdown-review-10-23-26/",
           "published_at": "2026-10-24T21:13:18+00:00",
           "source_name": "411Mania",
-          "status": "PUBLISHER_HEADLINE_LINK_ONLY",
-          "retained_from_previous": true
+          "status": "PUBLISHER_HEADLINE_LINK_ONLY"
         },
         {
           "headline": "Winfree’s WWE Smackdown Review 10.23.26",
           "url": "https://411mania.com/wrestling/winfrees-wwe-smackdown-review-10-23-26/",
           "published_at": "2026-10-24T02:16:08+00:00",
           "source_name": "411Mania",
-          "status": "PUBLISHER_HEADLINE_LINK_ONLY",
-          "retained_from_previous": true
+          "status": "PUBLISHER_HEADLINE_LINK_ONLY"
         },
         {
           "headline": "WWE SmackDown Results – Oct. 23, 2026 – Alexa Bliss & Tatum Paxley vs. B-Fab & Michin, Chelsea Green vs. Roxanne Perez",
@@ -163,8 +161,7 @@
           "url": "https://411mania.com/wrestling/halls-impact-wrestling-review-10-22-26/",
           "published_at": "2026-10-24T14:45:43+00:00",
           "source_name": "411Mania",
-          "status": "PUBLISHER_HEADLINE_LINK_ONLY",
-          "retained_from_previous": true
+          "status": "PUBLISHER_HEADLINE_LINK_ONLY"
         },
         {
           "headline": "Danhausen Stars In Halloween Snickers Ad, TNA iMPACT Highlights, More | Fight Size",
@@ -186,8 +183,7 @@
           "url": "https://411mania.com/wrestling/cioccos-tna-impact-review-10-22-26/",
           "published_at": "2026-10-23T03:11:06+00:00",
           "source_name": "411Mania",
-          "status": "PUBLISHER_HEADLINE_LINK_ONLY",
-          "retained_from_previous": true
+          "status": "PUBLISHER_HEADLINE_LINK_ONLY"
         },
         {
           "headline": "TNA iMPACT! Results (10/22): Mustafa Ali vs. Jason Hotch",
@@ -234,12 +230,14 @@
     }
   ],
   "total_links": 23,
-  "retained_link_count": 13,
+  "retained_link_count": 9,
   "collection_status": "ok",
   "successful_feed_urls": [
     "https://www.f4wonline.com/rss.xml",
     "https://www.f4wonline.com/category/news/wwe/results/feed/",
     "https://www.f4wonline.com/category/news/nxt/nxt-results/feed/",
+    "https://411mania.com/wrestling/feed/",
+    "https://411mania.com/wrestling/category/tv-report/feed/",
     "https://www.fightful.com/wrestling/rss",
     "https://gerweck.net/category/results/feed/",
     "https://www.tpww.net/feed/",
