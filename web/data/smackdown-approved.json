@@ -64,14 +64,11 @@
     },
     {
       "event_date": "2026-10-23",
-      "text": "Trick Williams and Rey Fenix defeated Sami Zayn and Johnny Gargano by disqualification.",
+      "text": "Trick Williams and Rey Fenix vs. Sami Zayn and Johnny Gargano ended in a disqualification after Ricky Saints attacked Rey Fenix.",
       "source_url": "https://www.wwe.com/shows/smackdown/2026-10-23/results",
       "review_status": "approved",
-      "winners": [
-        "Trick Williams",
-        "Rey Fenix"
-      ],
-      "finish": "disqualification"
+      "finish": "disqualification",
+      "outcome_type": "no_decisive_winner"
     },
     {
       "event_date": "2026-10-23",
