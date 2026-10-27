@@ -1,0 +1,133 @@
+{
+  "schema_version": 1,
+  "description": "Recovered references from user Library; never treat referenced names as recovered image bytes or current champion verification.",
+  "belt_placement": "small image directly below champion name across all show and PLE boards",
+  "entries": [
+    {
+      "promotion": "NXT",
+      "title": "NXT Championship",
+      "reference_filename": "nxt_championship.png",
+      "reference_origin": "OPEN_NXT_CHAMPIONS_REVIEW.html",
+      "asset_verified_present": false,
+      "champion_current_verified": false,
+      "display_allowed": false
+    },
+    {
+      "promotion": "NXT",
+      "title": "NXT Women's Championship",
+      "reference_filename": "nxt_womens_championship.png",
+      "reference_origin": "OPEN_NXT_CHAMPIONS_REVIEW.html",
+      "asset_verified_present": false,
+      "champion_current_verified": false,
+      "display_allowed": false
+    },
+    {
+      "promotion": "NXT",
+      "title": "NXT North American Championship",
+      "reference_filename": "nxt_north_american.png",
+      "reference_origin": "OPEN_NXT_CHAMPIONS_REVIEW.html",
+      "asset_verified_present": false,
+      "champion_current_verified": false,
+      "display_allowed": false
+    },
+    {
+      "promotion": "NXT",
+      "title": "NXT Women's North American Championship",
+      "reference_filename": "nxt_womens_north_american.png",
+      "reference_origin": "OPEN_NXT_CHAMPIONS_REVIEW.html",
+      "asset_verified_present": false,
+      "champion_current_verified": false,
+      "display_allowed": false
+    },
+    {
+      "promotion": "NXT",
+      "title": "NXT Tag Team Championship",
+      "reference_filename": null,
+      "reference_origin": "OPEN_NXT_CHAMPIONS_REVIEW.html",
+      "asset_verified_present": false,
+      "champion_current_verified": false,
+      "display_allowed": false
+    },
+    {
+      "promotion": "TNA",
+      "title": "TNA World Championship",
+      "reference_filename": "tna_world.png",
+      "reference_origin": "OPEN_TNA_CHAMPIONS_REVIEW.html",
+      "asset_verified_present": false,
+      "champion_current_verified": false,
+      "display_allowed": false
+    },
+    {
+      "promotion": "TNA",
+      "title": "Knockouts World Championship",
+      "reference_filename": "tna_knockouts_world.png",
+      "reference_origin": "OPEN_TNA_CHAMPIONS_REVIEW.html",
+      "asset_verified_present": false,
+      "champion_current_verified": false,
+      "display_allowed": false
+    },
+    {
+      "promotion": "TNA",
+      "title": "X-Division Championship",
+      "reference_filename": "tna_x_division.png",
+      "reference_origin": "OPEN_TNA_CHAMPIONS_REVIEW.html",
+      "asset_verified_present": false,
+      "champion_current_verified": false,
+      "display_allowed": false
+    },
+    {
+      "promotion": "TNA",
+      "title": "International Championship",
+      "reference_filename": "tna_international.png",
+      "reference_origin": "OPEN_TNA_CHAMPIONS_REVIEW.html",
+      "asset_verified_present": false,
+      "champion_current_verified": false,
+      "display_allowed": false
+    },
+    {
+      "promotion": "TNA",
+      "title": "World Tag Team Championship",
+      "reference_filename": "tna_world_tag.png",
+      "reference_origin": "OPEN_TNA_CHAMPIONS_REVIEW.html",
+      "asset_verified_present": false,
+      "champion_current_verified": false,
+      "display_allowed": false
+    },
+    {
+      "promotion": "TNA",
+      "title": "Knockouts World Tag Team Championship",
+      "reference_filename": "tna_knockouts_world_tag.png",
+      "reference_origin": "OPEN_TNA_CHAMPIONS_REVIEW.html",
+      "asset_verified_present": false,
+      "champion_current_verified": false,
+      "display_allowed": false
+    },
+    {
+      "promotion": "TNA",
+      "title": "Knockouts Television Championship",
+      "reference_filename": null,
+      "reference_origin": "OPEN_TNA_CHAMPIONS_REVIEW.html",
+      "asset_verified_present": false,
+      "champion_current_verified": false,
+      "display_allowed": false
+    },
+    {
+      "promotion": "Evolve",
+      "title": "Evolve Men's Championship",
+      "reference_filename": null,
+      "reference_origin": "OFFICIAL_ROSTER_WORK_QUEUE.xlsx",
+      "asset_verified_present": false,
+      "champion_current_verified": false,
+      "display_allowed": false
+    },
+    {
+      "promotion": "Evolve",
+      "title": "Evolve Women's Championship",
+      "reference_filename": null,
+      "reference_origin": "OFFICIAL_ROSTER_WORK_QUEUE.xlsx",
+      "asset_verified_present": false,
+      "champion_current_verified": false,
+      "display_allowed": false
+    }
+  ]
+}
