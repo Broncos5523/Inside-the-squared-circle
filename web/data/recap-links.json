@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "mode": "PUBLISHER_RSS_POST_SHOW_LINKS_ONLY",
-  "generated_at": "2026-10-27T00:56:02.866954-04:00",
+  "generated_at": "2026-10-27T05:03:26.573527-04:00",
   "source_name": "Multiple publisher RSS feeds",
   "source_url": "https://www.f4wonline.com/rss.xml",
   "approved_publishers": [
@@ -13,10 +13,46 @@
   "programs": [
     {
       "show_id": "raw",
-      "airdate": null,
-      "links": [],
+      "airdate": "2026-10-26",
+      "links": [
+        {
+          "headline": "Result of Women’s World Championship match on WWE Raw",
+          "url": "https://www.f4wonline.com/news/wwe/result-of-womens-world-championship-match-on-wwe-raw/",
+          "published_at": "2026-10-27T02:54:00+00:00",
+          "source_name": "F4W / Wrestling Observer",
+          "status": "PUBLISHER_HEADLINE_LINK_ONLY"
+        },
+        {
+          "headline": "Cook’s WWE Raw Review 10.26.26",
+          "url": "https://411mania.com/wrestling/cooks-wwe-raw-review-10-26-26/",
+          "published_at": "2026-10-27T02:37:34+00:00",
+          "source_name": "411Mania",
+          "status": "PUBLISHER_HEADLINE_LINK_ONLY"
+        },
+        {
+          "headline": "WWE RAW Results – Oct. 26, 2026 – Chad Gable & Dragon Lee vs. Big Cass & “All Ego” Ethan Page, Bayley vs. Lyra Valkyria in No DQ Match",
+          "url": "https://www.tpww.net/2026/10/wwe-raw-results-oct-26-2026-chad-gable-dragon-lee-vs-big-cass-all-ego-ethan-page-bayley-vs-lyra-valkyria-in-no-dq-match/",
+          "published_at": "2026-10-27T00:23:58+00:00",
+          "source_name": "TPWW",
+          "status": "PUBLISHER_HEADLINE_LINK_ONLY"
+        },
+        {
+          "headline": "WWE RAW Results, Highlights and Key Moments for October 26, 2026",
+          "url": "https://www.ringsidenews.com/wwe-raw-results-highlights-key-moments-october-26-2026/",
+          "published_at": "2026-10-26T23:31:00+00:00",
+          "source_name": "Ringside News",
+          "status": "PUBLISHER_HEADLINE_LINK_ONLY"
+        },
+        {
+          "headline": "WWE Raw Results 10/26/26",
+          "url": "https://gerweck.net/2026/10/26/wwe-raw-results-10-26-26/",
+          "published_at": "2026-10-26T23:28:06+00:00",
+          "source_name": "Gerweck.net",
+          "status": "PUBLISHER_HEADLINE_LINK_ONLY"
+        }
+      ],
       "source_name": "Multiple publisher RSS feeds",
-      "status": "no_matching_published_coverage"
+      "status": "publisher_coverage_links"
     },
     {
       "show_id": "smackdown",
@@ -192,7 +228,7 @@
       "status": "publisher_coverage_links"
     }
   ],
-  "total_links": 18,
+  "total_links": 23,
   "retained_link_count": 8,
   "collection_status": "ok",
   "successful_feed_urls": [

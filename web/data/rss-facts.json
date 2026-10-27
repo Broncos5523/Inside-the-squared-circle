@@ -1,15 +1,15 @@
 {
   "schema_version": 1,
   "mode": "POST_BROADCAST_RSS_EXPLICIT_FACTS_UNVERIFIED",
-  "generated_at": "2026-10-27T00:56:03.033315-04:00",
+  "generated_at": "2026-10-27T05:03:26.791761-04:00",
   "policy": "Extremely strict direct winner-vs-loser statements only from dated post-broadcast public RSS headlines. No full articles read; no title changes or storylines inferred. Source-attributed and unverified. Zero results is an expected safe outcome.",
   "programs": [
     {
       "show_id": "raw",
-      "airdate": null,
+      "airdate": "2026-10-26",
       "results": [],
       "developments": [],
-      "status": "no_completed_episode"
+      "status": "no_post_broadcast_explicit_outcomes"
     },
     {
       "show_id": "smackdown",
