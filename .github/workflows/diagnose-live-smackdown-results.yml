@@ -10,6 +10,9 @@ jobs:
     runs-on: ubuntu-latest
     timeout-minutes: 5
     steps:
+      - uses: actions/checkout@v4
+      - name: Inspect live WWE storyline evidence
+        run: python diagnostics/storylines/extract_wwe_storylines.py
       - name: Extract structured official WWE results
         shell: python
         run: |
