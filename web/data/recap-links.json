@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "mode": "PUBLISHER_RSS_POST_SHOW_LINKS_ONLY",
-  "generated_at": "2026-10-28T01:05:16.504317-04:00",
+  "generated_at": "2026-10-28T05:11:22.627089-04:00",
   "source_name": "Multiple publisher RSS feeds",
   "source_url": "https://www.f4wonline.com/rss.xml",
   "approved_publishers": [
@@ -103,10 +103,46 @@
     },
     {
       "show_id": "nxt",
-      "airdate": null,
-      "links": [],
+      "airdate": "2026-10-27",
+      "links": [
+        {
+          "headline": "10/27/26 NXT Recap",
+          "url": "https://gerweck.net/2026/10/27/10-27-26-nxt-recap/",
+          "published_at": "2026-10-28T03:04:21+00:00",
+          "source_name": "Gerweck.net",
+          "status": "PUBLISHER_HEADLINE_LINK_ONLY"
+        },
+        {
+          "headline": "Cook’s WWE NXT Review 10.27.26",
+          "url": "https://411mania.com/wrestling/cooks-wwe-nxt-review-10-27-26/",
+          "published_at": "2026-10-28T02:18:12+00:00",
+          "source_name": "411Mania",
+          "status": "PUBLISHER_HEADLINE_LINK_ONLY"
+        },
+        {
+          "headline": "WWE NXT Results – Oct. 27, 2026 – Dusty Rhodes Tag Team Classic 2026 Matches, Jackson Drake vs. EK Prosper",
+          "url": "https://www.tpww.net/2026/10/wwe-nxt-results-oct-27-2026-dusty-rhodes-tag-team-classic-2026-matches-jackson-drake-vs-ek-prosper/",
+          "published_at": "2026-10-28T00:02:04+00:00",
+          "source_name": "TPWW",
+          "status": "PUBLISHER_HEADLINE_LINK_ONLY"
+        },
+        {
+          "headline": "WWE NXT live results: Halloween Havoc go-home show",
+          "url": "https://www.f4wonline.com/news/nxt/nxt-results/wwe-nxt-live-results-halloween-havoc-go-home-show-4/",
+          "published_at": "2026-10-27T23:15:00+00:00",
+          "source_name": "F4W / Wrestling Observer",
+          "status": "PUBLISHER_HEADLINE_LINK_ONLY"
+        },
+        {
+          "headline": "WWE NXT Results 10/27/26",
+          "url": "https://wrestlingheadlines.com/wwe-nxt-results-10-27-26/",
+          "published_at": "2026-10-27T22:00:46+00:00",
+          "source_name": "Wrestling Headlines",
+          "status": "PUBLISHER_HEADLINE_LINK_ONLY"
+        }
+      ],
       "source_name": "Multiple publisher RSS feeds",
-      "status": "no_matching_published_coverage"
+      "status": "publisher_coverage_links"
     },
     {
       "show_id": "aaa",
@@ -193,7 +229,7 @@
       "status": "publisher_coverage_links"
     }
   ],
-  "total_links": 18,
+  "total_links": 23,
   "retained_link_count": 9,
   "collection_status": "ok",
   "successful_feed_urls": [
@@ -205,7 +241,6 @@
     "https://www.fightful.com/wrestling/rss",
     "https://gerweck.net/category/results/feed/",
     "https://www.tpww.net/feed/",
-    "https://www.ringsidenews.com/feed/",
     "https://wrestlingheadlines.com/feed/"
   ]
 }
