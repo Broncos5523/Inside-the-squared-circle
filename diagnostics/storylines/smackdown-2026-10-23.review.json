@@ -1,0 +1,81 @@
+{
+  "schema_version": 1,
+  "show": "smackdown",
+  "episode_date": "2026-10-23",
+  "source": {
+    "publisher": "WWE",
+    "url": "https://www.wwe.com/shows/smackdown/2026-10-23/results"
+  },
+  "editorial_status": "SOURCE_REVIEWED_NOT_AUTOMATED",
+  "storylines": [
+    {
+      "id": "smackdown-2026-10-23-tag-to-sixman",
+      "kind": "match_escalation",
+      "participants": [
+        "Sami Zayn",
+        "Trick Williams",
+        "Rey Fenix",
+        "Johnny Gargano",
+        "Ricky Saints",
+        "Penta"
+      ],
+      "sequence": [
+        {
+          "type": "disqualification",
+          "detail": "Ricky Saints attacked during the tag match, causing a disqualification"
+        },
+        {
+          "type": "intervention",
+          "detail": "Penta emerged and requested a six-man tag team match"
+        },
+        {
+          "type": "result",
+          "detail": "Penta, Trick Williams and Rey Fenix defeated Sami Zayn, Johnny Gargano and Ricky Saints"
+        }
+      ],
+      "consequence": "Trick Williams gains momentum ahead of his Undisputed WWE Title match against Sami Zayn"
+    },
+    {
+      "id": "smackdown-2026-10-23-rhodes-orton",
+      "kind": "rivalry_and_match_announcement",
+      "participants": [
+        "Cody Rhodes",
+        "Randy Orton",
+        "Nick Aldis"
+      ],
+      "development": "Aldis announced Rhodes versus Orton at Crown Jewel; Rhodes requested a Last Man Standing Match",
+      "consequence": "Crown Jewel match set with Last Man Standing stipulation"
+    },
+    {
+      "id": "smackdown-2026-10-23-punk-owens",
+      "kind": "confrontation_and_match_announcement",
+      "participants": [
+        "CM Punk",
+        "Kevin Owens"
+      ],
+      "development": "The two traded insults during a sit-down interview",
+      "consequence": "Their Brooklyn showdown was promoted for two weeks later"
+    },
+    {
+      "id": "smackdown-2026-10-23-womens-title-fallout",
+      "kind": "post_match_interference",
+      "participants": [
+        "Chelsea Green",
+        "Roxanne Perez",
+        "IYO SKY",
+        "Raquel Rodriguez",
+        "Liv Morgan",
+        "Tiffany Stratton"
+      ],
+      "development": "After Chelsea Green retained, Judgment Day attacked; Tiffany Stratton made the save and nearly cashed in Money in the Bank",
+      "consequence": "Women's title and Money in the Bank tensions escalated"
+    }
+  ],
+  "display_rules": {
+    "hide_source_urls": true,
+    "hide_internal_verification_labels": true,
+    "only_verified_events": true,
+    "never_treat_interference_as_completed_match": true,
+    "original_design_locked": true
+  }
+}
