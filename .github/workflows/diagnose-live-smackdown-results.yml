@@ -32,13 +32,13 @@ jobs:
           for line in reader.parts:
             if " def. " not in line.lower():continue
             if len(line)>250:continue
-            match=re.match(r"^(.+?)\\s+def\\.\\s+(.+)$",line,re.I)
+            match=re.match(r"^(.+?)\s+def\\.\s+(.+)$",line,re.I)
             if not match:continue
             winner,loser=match.groups()
-            finish="disqualification" if re.search(r"\\bdisqualification\\b",loser,re.I) else "pinfall_or_submission_unspecified"
-            loser=re.sub(r"\\s+by disqualification\\s*$","",loser,flags=re.I)
-            title_change=bool(re.search(r"\\bto capture\\b|\\bto win\\b",loser,re.I))
-            loser=re.split(r"\\s+to capture\\b|\\s+to win\\b",loser,maxsplit=1,flags=re.I)[0]
+            finish="disqualification" if re.search(r"\bdisqualification\b",loser,re.I) else "pinfall_or_submission_unspecified"
+            loser=re.sub(r"\s+by disqualification\s*$","",loser,flags=re.I)
+            title_change=bool(re.search(r"\bto capture\b|\bto win\b",loser,re.I))
+            loser=re.split(r"\s+to capture\b|\s+to win\b",loser,maxsplit=1,flags=re.I)[0]
             records.append({"winner":winner,"loser":loser,"finish":finish,"title_change":title_change})
           unique=list({(x["winner"],x["loser"]):x for x in records}.values())
           print("WWE_STRUCTURED|"+json.dumps({"source":"WWE","date":"2026-10-23","show":"smackdown","count":len(unique),"results":unique},ensure_ascii=False))
