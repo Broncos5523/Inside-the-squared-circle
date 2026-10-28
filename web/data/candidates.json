@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "mode": "RESEARCH_LEADS_ONLY",
-  "generated_at": "2026-10-28T09:10:31.063369+00:00",
+  "generated_at": "2026-10-28T13:22:27.243397+00:00",
   "policy": "Mentions are NOT confirmations. Do not put candidate matches on the public broadcast.",
   "source": "TheSportsDB (free API); attribution required; no artwork fetched.",
   "programs": [
@@ -60,7 +60,7 @@
     },
     {
       "show_id": "evolve",
-      "airdate": "2026-10-28",
+      "airdate": null,
       "intake_status": "unsupported_show",
       "candidate_count": 0,
       "verified_match_count": 0,

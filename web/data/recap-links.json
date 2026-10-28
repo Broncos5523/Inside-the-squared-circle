@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "mode": "PUBLISHER_RSS_POST_SHOW_LINKS_ONLY",
-  "generated_at": "2026-10-28T05:11:22.627089-04:00",
+  "generated_at": "2026-10-28T09:22:59.130994-04:00",
   "source_name": "Multiple publisher RSS feeds",
   "source_url": "https://www.f4wonline.com/rss.xml",
   "approved_publishers": [
@@ -127,17 +127,17 @@
           "status": "PUBLISHER_HEADLINE_LINK_ONLY"
         },
         {
+          "headline": "WWE NXT Results, Highlights and Key Moments for October 27, 2026",
+          "url": "https://www.ringsidenews.com/wwe-nxt-results-highlights-key-moments-october-27-2026/",
+          "published_at": "2026-10-27T23:31:00+00:00",
+          "source_name": "Ringside News",
+          "status": "PUBLISHER_HEADLINE_LINK_ONLY"
+        },
+        {
           "headline": "WWE NXT live results: Halloween Havoc go-home show",
           "url": "https://www.f4wonline.com/news/nxt/nxt-results/wwe-nxt-live-results-halloween-havoc-go-home-show-4/",
           "published_at": "2026-10-27T23:15:00+00:00",
           "source_name": "F4W / Wrestling Observer",
-          "status": "PUBLISHER_HEADLINE_LINK_ONLY"
-        },
-        {
-          "headline": "WWE NXT Results 10/27/26",
-          "url": "https://wrestlingheadlines.com/wwe-nxt-results-10-27-26/",
-          "published_at": "2026-10-27T22:00:46+00:00",
-          "source_name": "Wrestling Headlines",
           "status": "PUBLISHER_HEADLINE_LINK_ONLY"
         }
       ],
@@ -199,38 +199,14 @@
     },
     {
       "show_id": "evolve",
-      "airdate": "2026-10-21",
-      "links": [
-        {
-          "headline": "Hall’s WWE Evolve Review 10.21.26",
-          "url": "https://411mania.com/wrestling/halls-wwe-evolve-review-10-21-26/",
-          "published_at": "2026-10-22T14:48:11+00:00",
-          "source_name": "411Mania",
-          "status": "PUBLISHER_HEADLINE_LINK_ONLY",
-          "retained_from_previous": true
-        },
-        {
-          "headline": "10/21/26 WWE Evolve Recap",
-          "url": "https://gerweck.net/2026/10/22/10-21-26-wwe-evolve-recap/",
-          "published_at": "2026-10-22T14:02:54+00:00",
-          "source_name": "Gerweck.net",
-          "status": "PUBLISHER_HEADLINE_LINK_ONLY"
-        },
-        {
-          "headline": "Leighty’s WWE Evolve Review: 10.21.26",
-          "url": "https://411mania.com/wrestling/leightys-wwe-evolve-review-10-21-26/",
-          "published_at": "2026-10-22T04:36:54+00:00",
-          "source_name": "411Mania",
-          "status": "PUBLISHER_HEADLINE_LINK_ONLY",
-          "retained_from_previous": true
-        }
-      ],
+      "airdate": null,
+      "links": [],
       "source_name": "Multiple publisher RSS feeds",
-      "status": "publisher_coverage_links"
+      "status": "no_matching_published_coverage"
     }
   ],
-  "total_links": 23,
-  "retained_link_count": 9,
+  "total_links": 20,
+  "retained_link_count": 7,
   "collection_status": "ok",
   "successful_feed_urls": [
     "https://www.f4wonline.com/rss.xml",
@@ -241,6 +217,7 @@
     "https://www.fightful.com/wrestling/rss",
     "https://gerweck.net/category/results/feed/",
     "https://www.tpww.net/feed/",
+    "https://www.ringsidenews.com/feed/",
     "https://wrestlingheadlines.com/feed/"
   ]
 }

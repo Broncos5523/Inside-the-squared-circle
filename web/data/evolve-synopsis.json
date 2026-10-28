@@ -1,14 +1,14 @@
 {
   "schema_version": 1,
   "mode": "TVMAZE_EVOLVE_EPISODE_SYNOPSIS_ONLY",
-  "generated_at": "2026-10-28T05:10:48.887972-04:00",
+  "generated_at": "2026-10-28T09:22:45.842047-04:00",
   "show_id": "evolve",
-  "airdate": "2026-10-21",
-  "episode_id": 3716724,
-  "synopsis": "Aaron Rourke gets a rematch against Kale Dixon and looks for payback after Dixon's recent steel chair attack.",
-  "evidence_url": "https://api.tvmaze.com/episodes/3716724",
+  "airdate": null,
+  "episode_id": null,
+  "synopsis": null,
+  "evidence_url": null,
   "source_name": "TVmaze",
   "license": "CC BY-SA",
-  "status": "episode_synopsis_available",
+  "status": "no_episode_synopsis",
   "policy": "Episode synopsis only: no outcomes or title changes implied. Source TVmaze (CC BY-SA)."
 }
