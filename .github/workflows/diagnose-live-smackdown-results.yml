@@ -11,6 +11,10 @@ jobs:
     timeout-minutes: 5
     steps:
       - uses: actions/checkout@v4
+      - name: Validate integrated private-feed candidate
+        run: |
+          python diagnostics/storylines/build_private_feed_candidate.py
+          rm -f private-feed-preview.json
       - name: Inspect live WWE storyline evidence
         run: python diagnostics/storylines/extract_wwe_storylines.py
       - name: Extract structured official WWE results
