@@ -32,7 +32,7 @@ jobs:
           for line in reader.parts:
             if " def. " not in line.lower():continue
             if len(line)>250:continue
-            match=re.match(r"^(.+?)\s+def\\.\s+(.+)$",line,re.I)
+            match=re.match(r"^(.+?)\s+def[.]\s+(.+)$",line,re.I)
             if not match:continue
             winner,loser=match.groups()
             finish="disqualification" if re.search(r"\bdisqualification\b",loser,re.I) else "pinfall_or_submission_unspecified"
