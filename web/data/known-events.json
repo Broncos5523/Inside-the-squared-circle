@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "mode": "KNOWN_PROVIDER_EVENT_IDENTIFIERS",
-  "generated_at": "2026-10-28T13:10:12.774000-04:00",
+  "generated_at": "2026-10-28T17:02:06.307461-04:00",
   "policy": "Identifiers only, retained 14 days after airdate to permit post-show lookup. Always re-fetch source event and recheck league/show/local day; never copy historic match claims.",
   "entries": [
     {
@@ -9,6 +9,13 @@
       "airdate": "2026-10-23",
       "event_ids": [
         "2599790"
+      ]
+    },
+    {
+      "show_id": "smackdown",
+      "airdate": "2026-10-30",
+      "event_ids": [
+        "2624413"
       ]
     },
     {

@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "mode": "PROVIDER_REPORTED_POST_BROADCAST_RESULTS_UNVERIFIED",
-  "generated_at": "2026-10-28T13:10:12.851547-04:00",
+  "generated_at": "2026-10-28T17:02:06.401296-04:00",
   "policy": "Post-broadcast TheSportsDB result lines only, labelled REPORTED / UNVERIFIED. No inferred title changes, rivalries or storylines; not official announcements.",
   "programs": [
     {
@@ -68,10 +68,65 @@
     },
     {
       "show_id": "nxt",
-      "airdate": null,
-      "results": [],
+      "airdate": "2026-10-27",
+      "results": [
+        {
+          "text": "Thea Hail defeats Nikkita Lyons",
+          "match_type": "Dark Non Title Match",
+          "status": "REPORTED_UNVERIFIED",
+          "source_name": "TheSportsDB",
+          "evidence_url": "https://www.thesportsdb.com/api/v1/json/123/lookupevent.php?id=2624406",
+          "provider_event_id": "2624406",
+          "provider_field": "strResult"
+        },
+        {
+          "text": "Noam Dar & Romeo Moreno defeats The Vanity Project (Brad Baylor & Ricky Smokes) (w/Myka Lockwood) (14:11)",
+          "match_type": "Non Title Dusty Rhodes Tag Team Classic 2026 Semi Final Match",
+          "status": "REPORTED_UNVERIFIED",
+          "source_name": "TheSportsDB",
+          "evidence_url": "https://www.thesportsdb.com/api/v1/json/123/lookupevent.php?id=2624406",
+          "provider_event_id": "2624406",
+          "provider_field": "strResult"
+        },
+        {
+          "text": "Chantel Monroe defeats Lizzy Rain (9:31)",
+          "match_type": "Singles Match",
+          "status": "REPORTED_UNVERIFIED",
+          "source_name": "TheSportsDB",
+          "evidence_url": "https://www.thesportsdb.com/api/v1/json/123/lookupevent.php?id=2624406",
+          "provider_event_id": "2624406",
+          "provider_field": "strResult"
+        },
+        {
+          "text": "Sean Legacy defeats Saquon Shugars (10:23)",
+          "match_type": "Singles Match",
+          "status": "REPORTED_UNVERIFIED",
+          "source_name": "TheSportsDB",
+          "evidence_url": "https://www.thesportsdb.com/api/v1/json/123/lookupevent.php?id=2624406",
+          "provider_event_id": "2624406",
+          "provider_field": "strResult"
+        },
+        {
+          "text": "Hank And Tank (Hank Walker & Tank Ledger) defeats The Wagner Brothers (El Hijo de Dr. Wagner Jr. & Galeno) (10:54)",
+          "match_type": "Dusty Rhodes Tag Team Classic 2026 Semi Final Match",
+          "status": "REPORTED_UNVERIFIED",
+          "source_name": "TheSportsDB",
+          "evidence_url": "https://www.thesportsdb.com/api/v1/json/123/lookupevent.php?id=2624406",
+          "provider_event_id": "2624406",
+          "provider_field": "strResult"
+        },
+        {
+          "text": "Jackson Drake (w/Brad Baylor, Myka Lockwood & Ricky Smokes) (c) defeats EK Prosper (12:37)",
+          "match_type": "WWE NXT North American Title Match",
+          "status": "REPORTED_UNVERIFIED",
+          "source_name": "TheSportsDB",
+          "evidence_url": "https://www.thesportsdb.com/api/v1/json/123/lookupevent.php?id=2624406",
+          "provider_event_id": "2624406",
+          "provider_field": "strResult"
+        }
+      ],
       "source_name": "TheSportsDB",
-      "status": "no_parseable_source_results",
+      "status": "reported_outcomes",
       "partial_source_error": false
     },
     {
@@ -154,5 +209,5 @@
       "partial_source_error": false
     }
   ],
-  "total_reported_results": 11
+  "total_reported_results": 17
 }
