@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "mode": "PUBLISHER_RSS_POST_SHOW_LINKS_ONLY",
-  "generated_at": "2026-10-28T09:22:59.130994-04:00",
+  "generated_at": "2026-10-28T13:10:30.417506-04:00",
   "source_name": "Multiple publisher RSS feeds",
   "source_url": "https://www.f4wonline.com/rss.xml",
   "approved_publishers": [
@@ -131,7 +131,8 @@
           "url": "https://www.ringsidenews.com/wwe-nxt-results-highlights-key-moments-october-27-2026/",
           "published_at": "2026-10-27T23:31:00+00:00",
           "source_name": "Ringside News",
-          "status": "PUBLISHER_HEADLINE_LINK_ONLY"
+          "status": "PUBLISHER_HEADLINE_LINK_ONLY",
+          "retained_from_previous": true
         },
         {
           "headline": "WWE NXT live results: Halloween Havoc go-home show",
@@ -206,7 +207,7 @@
     }
   ],
   "total_links": 20,
-  "retained_link_count": 7,
+  "retained_link_count": 8,
   "collection_status": "ok",
   "successful_feed_urls": [
     "https://www.f4wonline.com/rss.xml",
