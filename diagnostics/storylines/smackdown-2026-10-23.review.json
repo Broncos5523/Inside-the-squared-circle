@@ -22,7 +22,7 @@
       "sequence": [
         {
           "type": "disqualification",
-          "detail": "Ricky Saints attacked during the tag match, causing a disqualification"
+          "detail": "Ricky Saints attacked Trick Williams and Rey Fenix during the original tag match, causing the disqualification"
         },
         {
           "type": "intervention",
@@ -43,7 +43,7 @@
         "Randy Orton",
         "Nick Aldis"
       ],
-      "development": "Aldis announced Rhodes versus Orton at Crown Jewel; Rhodes requested a Last Man Standing Match",
+      "development": "After the prior week's punt to Baron Corbin, Rhodes and Orton confronted each other; Nick Aldis booked Crown Jewel and Rhodes proposed a Last Man Standing stipulation",
       "consequence": "Crown Jewel match set with Last Man Standing stipulation"
     },
     {
@@ -53,8 +53,8 @@
         "CM Punk",
         "Kevin Owens"
       ],
-      "development": "The two traded insults during a sit-down interview",
-      "consequence": "Their Brooklyn showdown was promoted for two weeks later"
+      "development": "During a sit-down interview with Nick Aldis, CM Punk and Kevin Owens exchanged accusations over prior championship opportunities",
+      "consequence": "Their match was announced for Brooklyn in two weeks"
     },
     {
       "id": "smackdown-2026-10-23-womens-title-fallout",
@@ -67,8 +67,21 @@
         "Liv Morgan",
         "Tiffany Stratton"
       ],
-      "development": "After Chelsea Green retained, Judgment Day attacked; Tiffany Stratton made the save and nearly cashed in Money in the Bank",
+      "development": "IYO SKY countered Raquel Rodriguez's interference during Chelsea Green's defense; after the match, Liv Morgan, Roxanne Perez and Rodriguez attacked Green and SKY, Tiffany Stratton intervened and nearly cashed in on Morgan before Judgment Day pulled Morgan away",
       "consequence": "Women's title and Money in the Bank tensions escalated"
+    },
+    {
+      "id": "smackdown-2026-10-23-womens-tag-title",
+      "kind": "title_change_with_interference",
+      "participants": [
+        "Michin",
+        "B-Fab",
+        "Alexa Bliss",
+        "Tatum Paxley",
+        "Jade Cargill"
+      ],
+      "development": "With the official distracted, Jade Cargill struck Tatum Paxley from ringside, allowing Michin to score the pin",
+      "consequence": "Michin and B-Fab won the WWE Women's Tag Team Championship"
     }
   ],
   "display_rules": {
