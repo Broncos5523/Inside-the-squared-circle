@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "mode": "PUBLISHER_RSS_POST_SHOW_LINKS_ONLY",
-  "generated_at": "2026-10-27T21:25:00.751490-04:00",
+  "generated_at": "2026-10-28T01:05:16.504317-04:00",
   "source_name": "Multiple publisher RSS feeds",
   "source_url": "https://www.f4wonline.com/rss.xml",
   "approved_publishers": [
@@ -27,7 +27,8 @@
           "url": "https://www.fightful.com/wrestling-news/aew-to-stream-on-twitch-before-blood-guts-wwe-raw-highlights-more-fight-size",
           "published_at": "2026-10-27T22:00:00+00:00",
           "source_name": "Fightful",
-          "status": "PUBLISHER_HEADLINE_LINK_ONLY"
+          "status": "PUBLISHER_HEADLINE_LINK_ONLY",
+          "retained_from_previous": true
         },
         {
           "headline": "Result of Women’s World Championship match on WWE Raw",
@@ -94,8 +95,7 @@
           "url": "https://www.f4wonline.com/news/wwe/results/wwe-smackdown-live-results-two-womens-title-defenses-giulia-vs-blake-monroe-street-fight/",
           "published_at": "2026-10-23T23:30:00+00:00",
           "source_name": "F4W / Wrestling Observer",
-          "status": "PUBLISHER_HEADLINE_LINK_ONLY",
-          "retained_from_previous": true
+          "status": "PUBLISHER_HEADLINE_LINK_ONLY"
         }
       ],
       "source_name": "Multiple publisher RSS feeds",
@@ -146,7 +146,8 @@
           "url": "https://411mania.com/wrestling/cioccos-tna-impact-review-10-22-26/",
           "published_at": "2026-10-23T03:11:06+00:00",
           "source_name": "411Mania",
-          "status": "PUBLISHER_HEADLINE_LINK_ONLY"
+          "status": "PUBLISHER_HEADLINE_LINK_ONLY",
+          "retained_from_previous": true
         },
         {
           "headline": "TNA iMPACT! Results (10/22): Mustafa Ali vs. Jason Hotch",
@@ -193,9 +194,12 @@
     }
   ],
   "total_links": 18,
-  "retained_link_count": 8,
+  "retained_link_count": 9,
   "collection_status": "ok",
   "successful_feed_urls": [
+    "https://www.f4wonline.com/rss.xml",
+    "https://www.f4wonline.com/category/news/wwe/results/feed/",
+    "https://www.f4wonline.com/category/news/nxt/nxt-results/feed/",
     "https://411mania.com/wrestling/feed/",
     "https://411mania.com/wrestling/category/tv-report/feed/",
     "https://www.fightful.com/wrestling/rss",

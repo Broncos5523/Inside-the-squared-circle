@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "mode": "LIVE_SCHEDULES_ONLY",
-  "generated_at": "2026-10-28T01:24:26.569449+00:00",
+  "generated_at": "2026-10-28T05:04:38.120962+00:00",
   "fresh_shows": 6,
   "shows": [
     {
@@ -55,7 +55,7 @@
       "previous": {
         "date": "2026-10-27",
         "time": "20:00",
-        "title": "43"
+        "title": "Grayson Waller and Tony D'Angelo brawl in the parking lot"
       },
       "schedule_status": "fresh",
       "confirmed_matches": [],

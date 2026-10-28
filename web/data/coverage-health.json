@@ -1,35 +1,35 @@
 {
   "schema_version": 1,
   "mode": "WRESTLING_CONTENT_COVERAGE_COUNTS_ONLY",
-  "generated_at": "2026-10-27T21:25:14.446228-04:00",
+  "generated_at": "2026-10-28T01:05:37.797996-04:00",
   "source_health": {
     "reported": {
       "fresh": true,
-      "generated_at": "2026-10-27T21:24:33.927203-04:00"
+      "generated_at": "2026-10-28T01:04:45.153705-04:00"
     },
     "results": {
       "fresh": true,
-      "generated_at": "2026-10-27T21:24:40.529425-04:00"
+      "generated_at": "2026-10-28T01:04:52.003836-04:00"
     },
     "rss_facts": {
       "fresh": true,
-      "generated_at": "2026-10-27T21:25:00.958294-04:00"
+      "generated_at": "2026-10-28T01:05:16.677933-04:00"
     },
     "rss_excerpts": {
       "fresh": true,
-      "generated_at": "2026-10-27T21:25:07.389468-04:00"
+      "generated_at": "2026-10-28T01:05:26.841875-04:00"
     },
     "fallout": {
       "fresh": true,
-      "generated_at": "2026-10-27T21:25:12.790470-04:00"
+      "generated_at": "2026-10-28T01:05:35.686252-04:00"
     },
     "recap_links": {
       "fresh": true,
-      "generated_at": "2026-10-27T21:25:00.751490-04:00"
+      "generated_at": "2026-10-28T01:05:16.504317-04:00"
     },
     "episode_briefs": {
       "fresh": true,
-      "generated_at": "2026-10-27T21:24:49.425358-04:00"
+      "generated_at": "2026-10-28T01:05:01.412697-04:00"
     }
   },
   "totals": {
@@ -43,12 +43,12 @@
     "manually_reviewed_storylines": 9,
     "publisher_headline_links": 18,
     "rss_feeds_checked": 10,
-    "rss_feeds_responding": 7,
-    "rss_items_examined": 195,
-    "rss_dated_episode_headlines": 13,
+    "rss_feeds_responding": 10,
+    "rss_items_examined": 345,
+    "rss_dated_episode_headlines": 10,
     "rss_dated_headlines_with_explicit_winner": 0,
     "rss_dated_descriptions_with_victory_word": 2,
-    "rss_descriptions_with_defeated_word": 19,
+    "rss_descriptions_with_defeated_word": 26,
     "rss_explicit_winner_sentences": 0
   },
   "programs": [
