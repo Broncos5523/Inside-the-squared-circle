@@ -8,25 +8,38 @@ permissions:
 jobs:
   live-results:
     runs-on: ubuntu-latest
+    timeout-minutes: 5
     steps:
-      - name: Count WWE result text nodes
+      - name: Extract structured official WWE results
         shell: python
         run: |
-          import json, urllib.request
+          import json, re, urllib.request
           from html.parser import HTMLParser
           class Reader(HTMLParser):
             def __init__(self):
               super().__init__()
               self.parts=[]
-            def handle_data(self, value):
+            def handle_data(self,value):
               value=" ".join(value.split())
-              if value:
-                self.parts.append(value)
+              if value:self.parts.append(value)
           url="https://www.wwe.com/shows/smackdown/2026-10-23/results"
           req=urllib.request.Request(url,headers={"User-Agent":"Mozilla/5.0"})
           with urllib.request.urlopen(req,timeout=20) as response:
             page=response.read().decode("utf-8","replace")
           reader=Reader()
           reader.feed(page)
-          matches=[x for x in reader.parts if " def. " in x.lower()]
-          print("LIVE_WWE_COUNTS "+json.dumps({"matches":len(matches),"lengths":[len(x) for x in matches],"source":"WWE SmackDown 2026-10-23"}))
+          records=[]
+          for line in reader.parts:
+            if " def. " not in line.lower():continue
+            if len(line)>250:continue
+            match=re.match(r"^(.+?)\\s+def\\.\\s+(.+)$",line,re.I)
+            if not match:continue
+            winner,loser=match.groups()
+            finish="disqualification" if re.search(r"\\bdisqualification\\b",loser,re.I) else "pinfall_or_submission_unspecified"
+            loser=re.sub(r"\\s+by disqualification\\s*$","",loser,flags=re.I)
+            title_change=bool(re.search(r"\\bto capture\\b|\\bto win\\b",loser,re.I))
+            loser=re.split(r"\\s+to capture\\b|\\s+to win\\b",loser,maxsplit=1,flags=re.I)[0]
+            records.append({"winner":winner,"loser":loser,"finish":finish,"title_change":title_change})
+          unique=list({(x["winner"],x["loser"]):x for x in records}.values())
+          print("WWE_STRUCTURED|"+json.dumps({"source":"WWE","date":"2026-10-23","show":"smackdown","count":len(unique),"results":unique},ensure_ascii=False))
+          if len(unique)!=5:raise SystemExit("Expected five WWE completed match result statements")
