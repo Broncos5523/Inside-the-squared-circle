@@ -1,54 +1,54 @@
 {
   "schema_version": 1,
   "mode": "WRESTLING_CONTENT_COVERAGE_COUNTS_ONLY",
-  "generated_at": "2026-10-27T16:56:56.321963-04:00",
+  "generated_at": "2026-10-27T21:25:14.446228-04:00",
   "source_health": {
     "reported": {
       "fresh": true,
-      "generated_at": "2026-10-27T16:56:05.992737-04:00"
+      "generated_at": "2026-10-27T21:24:33.927203-04:00"
     },
     "results": {
       "fresh": true,
-      "generated_at": "2026-10-27T16:56:10.609592-04:00"
+      "generated_at": "2026-10-27T21:24:40.529425-04:00"
     },
     "rss_facts": {
       "fresh": true,
-      "generated_at": "2026-10-27T16:56:35.811630-04:00"
+      "generated_at": "2026-10-27T21:25:00.958294-04:00"
     },
     "rss_excerpts": {
       "fresh": true,
-      "generated_at": "2026-10-27T16:56:44.020623-04:00"
+      "generated_at": "2026-10-27T21:25:07.389468-04:00"
     },
     "fallout": {
       "fresh": true,
-      "generated_at": "2026-10-27T16:56:54.761275-04:00"
+      "generated_at": "2026-10-27T21:25:12.790470-04:00"
     },
     "recap_links": {
       "fresh": true,
-      "generated_at": "2026-10-27T16:56:35.618504-04:00"
+      "generated_at": "2026-10-27T21:25:00.751490-04:00"
     },
     "episode_briefs": {
       "fresh": true,
-      "generated_at": "2026-10-27T16:56:21.779075-04:00"
+      "generated_at": "2026-10-27T21:24:49.425358-04:00"
     }
   },
   "totals": {
     "upcoming_reported_matches": 0,
     "upcoming_reported_appearances": 0,
-    "upcoming_reviewed_matches": 6,
+    "upcoming_reviewed_matches": 1,
     "upcoming_reviewed_appearances": 0,
-    "automatic_match_outcomes": 2,
+    "automatic_match_outcomes": 0,
     "automatic_storylines": 0,
-    "manually_reviewed_outcomes": 11,
-    "manually_reviewed_storylines": 13,
-    "publisher_headline_links": 23,
+    "manually_reviewed_outcomes": 7,
+    "manually_reviewed_storylines": 9,
+    "publisher_headline_links": 18,
     "rss_feeds_checked": 10,
-    "rss_feeds_responding": 10,
-    "rss_items_examined": 345,
-    "rss_dated_episode_headlines": 12,
+    "rss_feeds_responding": 7,
+    "rss_items_examined": 195,
+    "rss_dated_episode_headlines": 13,
     "rss_dated_headlines_with_explicit_winner": 0,
     "rss_dated_descriptions_with_victory_word": 2,
-    "rss_descriptions_with_defeated_word": 27,
+    "rss_descriptions_with_defeated_word": 19,
     "rss_explicit_winner_sentences": 0
   },
   "programs": [
@@ -86,19 +86,19 @@
     },
     {
       "show_id": "nxt",
-      "last_completed": "2026-10-20",
-      "next_airdate": "2026-10-27",
+      "last_completed": null,
+      "next_airdate": "2026-11-04",
       "upcoming_reported_matches": 0,
       "upcoming_reported_appearances": 0,
-      "upcoming_reviewed_matches": 5,
+      "upcoming_reviewed_matches": 0,
       "upcoming_reviewed_appearances": 0,
       "automatic_match_outcomes": 0,
       "automatic_storylines": 0,
-      "manually_reviewed_outcomes": 4,
-      "manually_reviewed_storylines": 4,
+      "manually_reviewed_outcomes": 0,
+      "manually_reviewed_storylines": 0,
       "episode_synopsis_available": false,
-      "publisher_headline_links": 5,
-      "results_data_status": "manual_review_available"
+      "publisher_headline_links": 0,
+      "results_data_status": "no_usable_result_facts"
     },
     {
       "show_id": "aaa",
@@ -124,13 +124,13 @@
       "upcoming_reported_appearances": 0,
       "upcoming_reviewed_matches": 0,
       "upcoming_reviewed_appearances": 0,
-      "automatic_match_outcomes": 2,
+      "automatic_match_outcomes": 0,
       "automatic_storylines": 0,
       "manually_reviewed_outcomes": 4,
       "manually_reviewed_storylines": 6,
       "episode_synopsis_available": false,
       "publisher_headline_links": 5,
-      "results_data_status": "automatic_results_present"
+      "results_data_status": "manual_review_available"
     },
     {
       "show_id": "evolve",

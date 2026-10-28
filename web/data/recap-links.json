@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "mode": "PUBLISHER_RSS_POST_SHOW_LINKS_ONLY",
-  "generated_at": "2026-10-27T16:56:35.618504-04:00",
+  "generated_at": "2026-10-27T21:25:00.751490-04:00",
   "source_name": "Multiple publisher RSS feeds",
   "source_url": "https://www.f4wonline.com/rss.xml",
   "approved_publishers": [
@@ -16,11 +16,26 @@
       "airdate": "2026-10-26",
       "links": [
         {
+          "headline": "Hall’s WWE Raw Review 10.26.26",
+          "url": "https://411mania.com/wrestling/halls-wwe-raw-review-10-26-26/",
+          "published_at": "2026-10-27T22:15:20+00:00",
+          "source_name": "411Mania",
+          "status": "PUBLISHER_HEADLINE_LINK_ONLY"
+        },
+        {
+          "headline": "AEW To Stream On Twitch Before Blood & Guts, WWE Raw Highlights, More | Fight Size",
+          "url": "https://www.fightful.com/wrestling-news/aew-to-stream-on-twitch-before-blood-guts-wwe-raw-highlights-more-fight-size",
+          "published_at": "2026-10-27T22:00:00+00:00",
+          "source_name": "Fightful",
+          "status": "PUBLISHER_HEADLINE_LINK_ONLY"
+        },
+        {
           "headline": "Result of Women’s World Championship match on WWE Raw",
           "url": "https://www.f4wonline.com/news/wwe/result-of-womens-world-championship-match-on-wwe-raw/",
           "published_at": "2026-10-27T02:54:00+00:00",
           "source_name": "F4W / Wrestling Observer",
-          "status": "PUBLISHER_HEADLINE_LINK_ONLY"
+          "status": "PUBLISHER_HEADLINE_LINK_ONLY",
+          "retained_from_previous": true
         },
         {
           "headline": "Cook’s WWE Raw Review 10.26.26",
@@ -34,21 +49,6 @@
           "url": "https://www.tpww.net/2026/10/wwe-raw-results-oct-26-2026-chad-gable-dragon-lee-vs-big-cass-all-ego-ethan-page-bayley-vs-lyra-valkyria-in-no-dq-match/",
           "published_at": "2026-10-27T00:23:58+00:00",
           "source_name": "TPWW",
-          "status": "PUBLISHER_HEADLINE_LINK_ONLY"
-        },
-        {
-          "headline": "WWE RAW Results, Highlights and Key Moments for October 26, 2026",
-          "url": "https://www.ringsidenews.com/wwe-raw-results-highlights-key-moments-october-26-2026/",
-          "published_at": "2026-10-26T23:31:00+00:00",
-          "source_name": "Ringside News",
-          "status": "PUBLISHER_HEADLINE_LINK_ONLY",
-          "retained_from_previous": true
-        },
-        {
-          "headline": "WWE Raw Results 10/26/26",
-          "url": "https://gerweck.net/2026/10/26/wwe-raw-results-10-26-26/",
-          "published_at": "2026-10-26T23:28:06+00:00",
-          "source_name": "Gerweck.net",
           "status": "PUBLISHER_HEADLINE_LINK_ONLY"
         }
       ],
@@ -94,7 +94,8 @@
           "url": "https://www.f4wonline.com/news/wwe/results/wwe-smackdown-live-results-two-womens-title-defenses-giulia-vs-blake-monroe-street-fight/",
           "published_at": "2026-10-23T23:30:00+00:00",
           "source_name": "F4W / Wrestling Observer",
-          "status": "PUBLISHER_HEADLINE_LINK_ONLY"
+          "status": "PUBLISHER_HEADLINE_LINK_ONLY",
+          "retained_from_previous": true
         }
       ],
       "source_name": "Multiple publisher RSS feeds",
@@ -102,49 +103,10 @@
     },
     {
       "show_id": "nxt",
-      "airdate": "2026-10-20",
-      "links": [
-        {
-          "headline": "Hall’s WWE NXT Review 10.20.26",
-          "url": "https://411mania.com/wrestling/halls-wwe-nxt-review-10-20-26/",
-          "published_at": "2026-10-22T01:39:57+00:00",
-          "source_name": "411Mania",
-          "status": "PUBLISHER_HEADLINE_LINK_ONLY",
-          "retained_from_previous": true
-        },
-        {
-          "headline": "10/20/26 NXT Recap",
-          "url": "https://gerweck.net/2026/10/20/10-20-26-nxt-recap/",
-          "published_at": "2026-10-21T03:15:10+00:00",
-          "source_name": "Gerweck.net",
-          "status": "PUBLISHER_HEADLINE_LINK_ONLY"
-        },
-        {
-          "headline": "Cook’s WWE NXT Review 10.20.26",
-          "url": "https://411mania.com/wrestling/cooks-wwe-nxt-review-10-20-26/",
-          "published_at": "2026-10-21T02:10:48+00:00",
-          "source_name": "411Mania",
-          "status": "PUBLISHER_HEADLINE_LINK_ONLY",
-          "retained_from_previous": true
-        },
-        {
-          "headline": "WWE NXT Results – Oct. 20, 2026 – Dusty Rhodes Tag Team Classic 2026 Matches, Kelani Jordan & Wren Sinclair NXT Women’s Title Match Contract Signing",
-          "url": "https://www.tpww.net/2026/10/wwe-nxt-results-oct-20-2026-dusty-rhodes-tag-team-classic-2026-matches-kelani-jordan-wren-sinclair-nxt-womens-title-match-contract-signing/",
-          "published_at": "2026-10-20T23:56:48+00:00",
-          "source_name": "TPWW",
-          "status": "PUBLISHER_HEADLINE_LINK_ONLY",
-          "retained_from_previous": true
-        },
-        {
-          "headline": "WWE NXT live results: Cruz Montana vs. Dion Lennox, Dusty Rhodes Tag Team Classic continues",
-          "url": "https://www.f4wonline.com/news/nxt/nxt-results/wwe-nxt-live-results-october-20-2026/",
-          "published_at": "2026-10-20T23:15:00+00:00",
-          "source_name": "F4W / Wrestling Observer",
-          "status": "PUBLISHER_HEADLINE_LINK_ONLY"
-        }
-      ],
+      "airdate": null,
+      "links": [],
       "source_name": "Multiple publisher RSS feeds",
-      "status": "publisher_coverage_links"
+      "status": "no_matching_published_coverage"
     },
     {
       "show_id": "aaa",
@@ -230,13 +192,10 @@
       "status": "publisher_coverage_links"
     }
   ],
-  "total_links": 23,
-  "retained_link_count": 10,
+  "total_links": 18,
+  "retained_link_count": 8,
   "collection_status": "ok",
   "successful_feed_urls": [
-    "https://www.f4wonline.com/rss.xml",
-    "https://www.f4wonline.com/category/news/wwe/results/feed/",
-    "https://www.f4wonline.com/category/news/nxt/nxt-results/feed/",
     "https://411mania.com/wrestling/feed/",
     "https://411mania.com/wrestling/category/tv-report/feed/",
     "https://www.fightful.com/wrestling/rss",

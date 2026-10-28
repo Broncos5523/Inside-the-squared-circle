@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "mode": "RESEARCH_LEADS_ONLY",
-  "generated_at": "2026-10-27T20:56:05.057924+00:00",
+  "generated_at": "2026-10-28T01:24:33.180021+00:00",
   "policy": "Mentions are NOT confirmations. Do not put candidate matches on the public broadcast.",
   "source": "TheSportsDB (free API); attribution required; no artwork fetched.",
   "programs": [
@@ -33,7 +33,7 @@
     },
     {
       "show_id": "nxt",
-      "airdate": "2026-10-27",
+      "airdate": "2026-11-04",
       "intake_status": "no_parseable_leads",
       "candidate_count": 0,
       "verified_match_count": 0,

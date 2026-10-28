@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "mode": "LIVE_SCHEDULES_ONLY",
-  "generated_at": "2026-10-27T20:55:58.651536+00:00",
+  "generated_at": "2026-10-28T01:24:26.569449+00:00",
   "fresh_shows": 6,
   "shows": [
     {
@@ -48,14 +48,14 @@
       "color": "#E5BD50",
       "category": "primary",
       "next": {
+        "date": "2026-11-04",
+        "time": "20:00",
+        "title": "44"
+      },
+      "previous": {
         "date": "2026-10-27",
         "time": "20:00",
         "title": "43"
-      },
-      "previous": {
-        "date": "2026-10-20",
-        "time": "20:00",
-        "title": "Main Event: Dion Lennox vs. Cruz Montana"
       },
       "schedule_status": "fresh",
       "confirmed_matches": [],
