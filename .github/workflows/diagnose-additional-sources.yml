@@ -1,0 +1,55 @@
+name: Diagnostic - WrestleTalk & Sportskeeda access (read-only)
+# Test feed accessibility only. Branch isolated; no data publication or main changes.
+on:
+  push:
+    branches: [diag/wcn-probe]
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  check-source-access:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - name: Probe permitted public endpoints (statuses and counts only)
+        shell: python
+        run: |
+          import json, re, time
+          from urllib.request import Request, urlopen
+          from urllib.parse import urlparse
+          from urllib.error import HTTPError
+          import xml.etree.ElementTree as ET
+
+          urls = [
+            ("wrestletalk_feed","https://wrestletalk.com/feed"),
+            ("wrestletalk_news","https://wrestletalk.com/news/"),
+            ("wrestletalk_article","https://wrestletalk.com/news/major-wwe-departure-bruce-prichard-wrestlemania-43/"),
+            ("sportskeeda_feed","https://www.sportskeeda.com/feed"),
+            ("sportskeeda_wwe_feed","https://www.sportskeeda.com/wwe/feed"),
+            ("sportskeeda_wwe","https://www.sportskeeda.com/wwe"),
+          ]
+          for label,url in urls:
+            status=None; media=""; nbytes=0; count=None; wwe_count=None; title_class=None; error=None
+            try:
+              req=Request(url,headers={"User-Agent":"InsideSquaredCircleSourceCompatibilityTest/1.0 (personal noncommercial research; contact owner for content use)","Accept":"application/rss+xml, application/atom+xml, text/xml, text/html"})
+              with urlopen(req,timeout=12) as res:
+                status=res.status
+                media=res.headers.get("Content-Type","").split(";")[0].strip()
+                raw=res.read(600001)
+                nbytes=len(raw)
+              if nbytes<=600000 and (b"<rss" in raw[:1000] or b"<feed" in raw[:1000]):
+                root=ET.fromstring(raw)
+                items=root.findall("./channel/item") or root.findall("{http://www.w3.org/2005/Atom}entry")
+                count=len(items)
+                titles=[(i.findtext("title") or i.findtext("{http://www.w3.org/2005/Atom}title") or "") for i in items]
+                wwe_count=sum(bool(re.search(r"\b(?:WWE|RAW|SMACKDOWN|NXT|WRESTLEMANIA)\b",t,re.I)) for t in titles)
+                title_class="rss_or_atom"
+              elif nbytes>0:
+                title_class="html_or_other"
+            except HTTPError as e:
+              status=e.code; error="HTTPError"
+            except Exception as e:
+              error=type(e).__name__
+            print("SOURCESAFE|"+json.dumps({"source":label,"path":urlparse(url).path,"http":status,"mime":media,"bytes":nbytes,"feed_items":count,"titles_mentioning_wwe":wwe_count,"type":title_class,"error":error},sort_keys=True),flush=True)
+            time.sleep(1.0)
+          print("SOURCESAFE|"+json.dumps({"done":True,"text_copied":False,"uses":"technical-access-only","not":"content-republication-approval"}),flush=True)
