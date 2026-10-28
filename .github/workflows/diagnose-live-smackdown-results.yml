@@ -8,33 +8,25 @@ permissions:
 jobs:
   live-results:
     runs-on: ubuntu-latest
-    timeout-minutes: 5
     steps:
-      - name: Fetch official results and count eligible match headings
+      - name: Count WWE result text nodes
         shell: python
         run: |
-          import re,json,urllib.request
+          import json, urllib.request
           from html.parser import HTMLParser
-          URL='https://www.wwe.com/shows/smackdown/2026-10-23/results'
-          class H(HTMLParser):
+          class Reader(HTMLParser):
             def __init__(self):
-              super().__init__();self.depth=0;self.current=[];self.headings=[]
-            def handle_starttag(self,t,a):
-              if t in ('h2','h3','h4') and not self.depth:self.depth=1;self.current=[]
-              elif self.depth:self.depth+=1
-            def handle_endtag(self,t):
-              if self.depth:
-                self.depth-=1
-                if self.depth==0:self.headings.append(' '.join(self.current))
-            def handle_data(self,d):
-              if self.depth:self.current.append(d)
-          try:
-            req=urllib.request.Request(URL,headers={'User-Agent':'Mozilla/5.0 (compatible; personal noncommercial source compatibility diagnostic)'})
-            with urllib.request.urlopen(req,timeout=20) as r:
-              status=r.status;raw=r.read(1500000)
-            p=H();p.feed(raw.decode('utf-8','replace'))
-            matches=[x for x in p.headings if re.search(r'\\b(?:def\\.|defeated|defeats)\\b',x,re.I)]
-            print('LIVERESULTS|'+json.dumps({'http':status,'bytes':len(raw),'heading_count':len(p.headings),'match_result_heading_count':len(matches),'source':'WWE official','show':'smackdown','date':'2026-10-23','text_published':False}))
-          except Exception as e:
-            print('LIVERESULTS|'+json.dumps({'error':type(e).__name__,'show':'smackdown','text_published':False}))
-            raise
+              super().__init__()
+              self.parts=[]
+            def handle_data(self, value):
+              value=" ".join(value.split())
+              if value:
+                self.parts.append(value)
+          url="https://www.wwe.com/shows/smackdown/2026-10-23/results"
+          req=urllib.request.Request(url,headers={"User-Agent":"Mozilla/5.0"})
+          with urllib.request.urlopen(req,timeout=20) as response:
+            page=response.read().decode("utf-8","replace")
+          reader=Reader()
+          reader.feed(page)
+          matches=[x for x in reader.parts if " def. " in x.lower()]
+          print("LIVE_WWE_COUNTS "+json.dumps({"matches":len(matches),"lengths":[len(x) for x in matches],"source":"WWE SmackDown 2026-10-23"}))
