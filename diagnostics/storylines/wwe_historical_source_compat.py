@@ -211,15 +211,37 @@ def extract(html, expected_date, source_url):
             elif events and value:
                 if re.match(r"(?:Seconds after the bell|After the match)\b", value, re.I):
                     if events[-1]["kind"] == "match":
+                        previous_id = events[-1]["order"]
                         events.append({
                             "order": len(events) + 1,
                             "kind": "storyline", "source_headline": "POST-MATCH FALLOUT",
                             "winners": [], "losers": [], "finish": None,
                             "title_change": False, "details": [],
                             "portrait_rule": "review", "requires_editorial_review": True,
+                            "follows": previous_id,
                         })
                 if len(events[-1]["details"]) < 6:
                     events[-1]["details"].append(value[:420])
+    # Keep officially announced next-week title stakes after their causal
+    # final match, without misclassifying them as a second finished match.
+    if events and events[-1]["kind"] == "match":
+        final = events[-1]
+        evidence = next((
+            line for line in final["details"]
+            if re.search(r"\bnext week\b", line, re.I)
+            and re.search(r"\b(?:title|championship) match\b", line, re.I)
+        ), None)
+        if evidence:
+            final["causes_next"] = True
+            events.append({
+                "order": len(events) + 1,
+                "kind": "storyline",
+                "source_headline": "WHAT COMES NEXT: TITLE MATCH ANNOUNCEMENT",
+                "winners": [], "losers": [], "finish": None,
+                "title_change": False, "details": [evidence],
+                "portrait_rule": "review", "requires_editorial_review": True,
+                "follows": final["order"],
+            })
     if not events or sum(e["kind"] == "match" for e in events) < 1:
         raise SourceIntegrityError("No official completed match headings")
     summary = "\n".join(
