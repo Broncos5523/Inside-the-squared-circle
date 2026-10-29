@@ -31,6 +31,7 @@ BODY = """
 <p>There were chairs.<br><strong>Cody Rhodes confronted Randy Orton at Crown Jewel.</strong></p>
 <p><strong>Michin &amp; B-Fab def. Alexa Bliss &amp; Tatum Paxley to capture the title</strong></p>
 <p>Jade Cargill interfered.</p>
+<p><strong>Before their match, Bakusai brawled with The MFTs.</strong></p>
 <p><strong>CM Punk and Kevin Owens traded words.</strong></p>
 <p><strong>Trick Williams &amp; Rey Fenix def. Sami Zayn &amp; Johnny Gargano by disqualification</strong></p>
 <p>Ricky Saints interfered and Penta demanded a six-man tag.</p>
