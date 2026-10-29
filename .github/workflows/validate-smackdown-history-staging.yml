@@ -1,0 +1,52 @@
+name: Staging QA - WWE historical results article compatibility
+
+# Never touches main, GitHub Pages, private live-feed data, or graphics.
+on:
+  push:
+    branches: [work/smackdown-history-collector]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: smackdown-history-\${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  source-compatibility:
+    runs-on: ubuntu-latest
+    timeout-minutes: 8
+    steps:
+      - uses: actions/checkout@v4
+      - name: Offline safety and results parser regression tests
+        run: python -m unittest discover -s tests -p 'test_wwe_historical_source_compat.py' -v
+      - name: Read-only live official page compatibility audit
+        shell: python
+        run: |
+          import json
+          from urllib.request import Request, urlopen
+          from diagnostics.storylines.wwe_historical_source_compat import extract
+          dates = ['2026-10-23','2026-10-16','2026-10-09','2026-10-02']
+          failures = 0
+          for d in dates:
+              url = f'https://www.wwe.com/shows/smackdown/{d}/results'
+              try:
+                  with urlopen(Request(url,headers={'User-Agent':'Mozilla/5.0','Accept':'text/html'}),timeout=18) as r:
+                      html = r.read(2_000_001)
+                  if len(html)>2_000_000: raise ValueError('Source too large')
+                  info = extract(html.decode('utf-8','replace'),d,url)
+                  if info['match_count'] < 1: raise ValueError('No matches extracted')
+                  print('WWE_STAGING_SOURCE|' + json.dumps({
+                    'episode_date': d, 'matches': info['match_count'],
+                    'events': len(info['events']),
+                    'date_evidence': info['date_evidence'],
+                    'status': info['review_status'],
+                    'safe_for_live_board': info['safe_for_live_board']
+                  },sort_keys=True))
+              except Exception as e:
+                  failures += 1
+                  print('WWE_STAGING_SOURCE|'+json.dumps({
+                    'episode_date':d,'status':'fail_closed','error_type':type(e).__name__
+                  },sort_keys=True))
+          if failures: raise SystemExit(f'{failures} historical source(s) require parser review')
