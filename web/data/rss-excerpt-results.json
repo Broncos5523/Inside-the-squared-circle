@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "mode": "POST_BROADCAST_RSS_SYNDICATED_EXCERPT_FACTS_UNVERIFIED",
-  "generated_at": "2026-10-28T21:24:17.126074-04:00",
+  "generated_at": "2026-10-29T01:06:33.933725-04:00",
   "policy": "Short factual winner/loser statements only from approved publisher-syndicated RSS descriptions after broadcast. Excerpt not published. Zero is acceptable; no website scraping, source quotes, title changes or storyline inference.",
   "programs": [
     {
@@ -47,7 +47,7 @@
     "https://www.f4wonline.com/rss.xml": {
       "items": 50,
       "with_description": 50,
-      "with_defeated_word": 0,
+      "with_defeated_word": 2,
       "with_explicit_outcome_sentence": 0,
       "dated_broadcast_headlines": 0,
       "dated_descriptions_with_outcome": 0,
@@ -79,7 +79,7 @@
       "with_description": 10,
       "with_defeated_word": 0,
       "with_explicit_outcome_sentence": 0,
-      "dated_broadcast_headlines": 1,
+      "dated_broadcast_headlines": 0,
       "dated_descriptions_with_outcome": 0,
       "dated_descriptions_with_victory_word": 0,
       "status": "ok"
@@ -89,7 +89,7 @@
       "with_description": 10,
       "with_defeated_word": 0,
       "with_explicit_outcome_sentence": 0,
-      "dated_broadcast_headlines": 6,
+      "dated_broadcast_headlines": 4,
       "dated_descriptions_with_outcome": 0,
       "dated_descriptions_with_victory_word": 0,
       "status": "ok"
@@ -117,7 +117,7 @@
     "https://www.tpww.net/feed/": {
       "items": 50,
       "with_description": 50,
-      "with_defeated_word": 4,
+      "with_defeated_word": 5,
       "with_explicit_outcome_sentence": 0,
       "dated_broadcast_headlines": 2,
       "dated_descriptions_with_outcome": 0,
@@ -127,8 +127,8 @@
     "https://www.ringsidenews.com/feed/": {
       "items": 15,
       "with_description": 15,
-      "with_defeated_word": 0,
-      "with_explicit_outcome_sentence": 0,
+      "with_defeated_word": 1,
+      "with_explicit_outcome_sentence": 1,
       "dated_broadcast_headlines": 0,
       "dated_descriptions_with_outcome": 0,
       "dated_descriptions_with_victory_word": 0,

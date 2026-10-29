@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "mode": "PUBLISHER_RSS_POST_SHOW_LINKS_ONLY",
-  "generated_at": "2026-10-28T21:24:06.049952-04:00",
+  "generated_at": "2026-10-29T01:06:24.082509-04:00",
   "source_name": "Multiple publisher RSS feeds",
   "source_url": "https://www.f4wonline.com/rss.xml",
   "approved_publishers": [
@@ -72,7 +72,8 @@
           "url": "https://411mania.com/wrestling/winfrees-wwe-smackdown-review-10-23-26/",
           "published_at": "2026-10-24T02:16:08+00:00",
           "source_name": "411Mania",
-          "status": "PUBLISHER_HEADLINE_LINK_ONLY"
+          "status": "PUBLISHER_HEADLINE_LINK_ONLY",
+          "retained_from_previous": true
         },
         {
           "headline": "WWE SmackDown Results – Oct. 23, 2026 – Alexa Bliss & Tatum Paxley vs. B-Fab & Michin, Chelsea Green vs. Roxanne Perez",
@@ -110,14 +111,16 @@
           "url": "https://411mania.com/wrestling/halls-wwe-nxt-review-10-27-26/",
           "published_at": "2026-10-28T23:52:54+00:00",
           "source_name": "411Mania",
-          "status": "PUBLISHER_HEADLINE_LINK_ONLY"
+          "status": "PUBLISHER_HEADLINE_LINK_ONLY",
+          "retained_from_previous": true
         },
         {
           "headline": "Maple Leaf Pro Title Match Set For PRODUCE Event, WWE NXT Highlights, More | Fight Size",
           "url": "https://www.fightful.com/wrestling-news/336332-maple-leaf-pro-produce",
           "published_at": "2026-10-28T22:00:00+00:00",
           "source_name": "Fightful",
-          "status": "PUBLISHER_HEADLINE_LINK_ONLY"
+          "status": "PUBLISHER_HEADLINE_LINK_ONLY",
+          "retained_from_previous": true
         },
         {
           "headline": "10/27/26 NXT Recap",
@@ -160,7 +163,8 @@
           "url": "https://411mania.com/wrestling/halls-impact-wrestling-review-10-22-26/",
           "published_at": "2026-10-24T14:45:43+00:00",
           "source_name": "411Mania",
-          "status": "PUBLISHER_HEADLINE_LINK_ONLY"
+          "status": "PUBLISHER_HEADLINE_LINK_ONLY",
+          "retained_from_previous": true
         },
         {
           "headline": "Danhausen Stars In Halloween Snickers Ad, TNA iMPACT Highlights, More | Fight Size",
@@ -206,7 +210,7 @@
     }
   ],
   "total_links": 20,
-  "retained_link_count": 7,
+  "retained_link_count": 11,
   "collection_status": "ok",
   "successful_feed_urls": [
     "https://www.f4wonline.com/rss.xml",
