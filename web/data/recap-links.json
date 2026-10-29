@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "mode": "PUBLISHER_RSS_POST_SHOW_LINKS_ONLY",
-  "generated_at": "2026-10-28T17:02:27.092292-04:00",
+  "generated_at": "2026-10-28T21:24:06.049952-04:00",
   "source_name": "Multiple publisher RSS feeds",
   "source_url": "https://www.f4wonline.com/rss.xml",
   "approved_publishers": [
@@ -106,6 +106,20 @@
       "airdate": "2026-10-27",
       "links": [
         {
+          "headline": "Hall’s WWE NXT Review 10.27.26",
+          "url": "https://411mania.com/wrestling/halls-wwe-nxt-review-10-27-26/",
+          "published_at": "2026-10-28T23:52:54+00:00",
+          "source_name": "411Mania",
+          "status": "PUBLISHER_HEADLINE_LINK_ONLY"
+        },
+        {
+          "headline": "Maple Leaf Pro Title Match Set For PRODUCE Event, WWE NXT Highlights, More | Fight Size",
+          "url": "https://www.fightful.com/wrestling-news/336332-maple-leaf-pro-produce",
+          "published_at": "2026-10-28T22:00:00+00:00",
+          "source_name": "Fightful",
+          "status": "PUBLISHER_HEADLINE_LINK_ONLY"
+        },
+        {
           "headline": "10/27/26 NXT Recap",
           "url": "https://gerweck.net/2026/10/27/10-27-26-nxt-recap/",
           "published_at": "2026-10-28T03:04:21+00:00",
@@ -124,21 +138,6 @@
           "url": "https://www.tpww.net/2026/10/wwe-nxt-results-oct-27-2026-dusty-rhodes-tag-team-classic-2026-matches-jackson-drake-vs-ek-prosper/",
           "published_at": "2026-10-28T00:02:04+00:00",
           "source_name": "TPWW",
-          "status": "PUBLISHER_HEADLINE_LINK_ONLY"
-        },
-        {
-          "headline": "WWE NXT Results, Highlights and Key Moments for October 27, 2026",
-          "url": "https://www.ringsidenews.com/wwe-nxt-results-highlights-key-moments-october-27-2026/",
-          "published_at": "2026-10-27T23:31:00+00:00",
-          "source_name": "Ringside News",
-          "status": "PUBLISHER_HEADLINE_LINK_ONLY",
-          "retained_from_previous": true
-        },
-        {
-          "headline": "WWE NXT live results: Halloween Havoc go-home show",
-          "url": "https://www.f4wonline.com/news/nxt/nxt-results/wwe-nxt-live-results-halloween-havoc-go-home-show-4/",
-          "published_at": "2026-10-27T23:15:00+00:00",
-          "source_name": "F4W / Wrestling Observer",
           "status": "PUBLISHER_HEADLINE_LINK_ONLY"
         }
       ],
@@ -207,7 +206,7 @@
     }
   ],
   "total_links": 20,
-  "retained_link_count": 8,
+  "retained_link_count": 7,
   "collection_status": "ok",
   "successful_feed_urls": [
     "https://www.f4wonline.com/rss.xml",
