@@ -10,7 +10,7 @@ permissions:
   contents: read
 
 concurrency:
-  group: smackdown-history-\${{ github.ref }}
+  group: smackdown-history-${{ github.ref }}
   cancel-in-progress: true
 
 jobs:
@@ -25,6 +25,8 @@ jobs:
         shell: python
         run: |
           import json
+          import os, sys
+          sys.path.insert(0, os.environ['GITHUB_WORKSPACE'])
           from urllib.request import Request, urlopen
           from diagnostics.storylines.wwe_historical_source_compat import extract
           dates = ['2026-10-23','2026-10-16','2026-10-09','2026-10-02']
