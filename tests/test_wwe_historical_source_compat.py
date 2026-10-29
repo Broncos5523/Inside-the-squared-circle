@@ -35,7 +35,7 @@ BODY = """
 <p><strong>Trick Williams &amp; Rey Fenix def. Sami Zayn &amp; Johnny Gargano by disqualification</strong></p>
 <p>Ricky Saints interfered and Penta demanded a six-man tag.</p>
 <p><strong>Penta, Trick Williams &amp; Rey Fenix def. Sami Zayn, Johnny Gargano &amp; Ricky Saints</strong></p>
-<p>Trick pinned Saints.</p>
+<p>Trick pinned Saints just one week before his WWE Title Match against Sami Zayn next week.</p>
 """
 
 
@@ -44,6 +44,9 @@ class SourceCompatibilityTests(unittest.TestCase):
         doc = source.extract(page(BODY), "2026-10-23",
                              "https://www.wwe.com/shows/smackdown/2026-10-23/results")
         self.assertEqual(doc["match_count"], 5)
+        self.assertEqual(len(doc["events"]), 11)
+        self.assertEqual(doc["events"][-1]["follows"], doc["events"][-2]["order"])
+        self.assertTrue(doc["events"][-2]["causes_next"])
         self.assertFalse(doc["safe_for_live_board"])
         self.assertEqual(doc["review_status"], "draft")
         self.assertEqual(doc["date_evidence"], "publication_and_title")
