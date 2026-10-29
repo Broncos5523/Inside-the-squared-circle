@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "mode": "PUBLISHER_RSS_POST_SHOW_LINKS_ONLY",
-  "generated_at": "2026-10-29T01:06:24.082509-04:00",
+  "generated_at": "2026-10-29T05:12:52.926943-04:00",
   "source_name": "Multiple publisher RSS feeds",
   "source_url": "https://www.f4wonline.com/rss.xml",
   "approved_publishers": [
@@ -65,7 +65,8 @@
           "url": "https://411mania.com/wrestling/halls-smackdown-review-10-23-26/",
           "published_at": "2026-10-24T21:13:18+00:00",
           "source_name": "411Mania",
-          "status": "PUBLISHER_HEADLINE_LINK_ONLY"
+          "status": "PUBLISHER_HEADLINE_LINK_ONLY",
+          "retained_from_previous": true
         },
         {
           "headline": "Winfree’s WWE Smackdown Review 10.23.26",
@@ -111,8 +112,7 @@
           "url": "https://411mania.com/wrestling/halls-wwe-nxt-review-10-27-26/",
           "published_at": "2026-10-28T23:52:54+00:00",
           "source_name": "411Mania",
-          "status": "PUBLISHER_HEADLINE_LINK_ONLY",
-          "retained_from_previous": true
+          "status": "PUBLISHER_HEADLINE_LINK_ONLY"
         },
         {
           "headline": "Maple Leaf Pro Title Match Set For PRODUCE Event, WWE NXT Highlights, More | Fight Size",
@@ -203,13 +203,21 @@
     },
     {
       "show_id": "evolve",
-      "airdate": null,
-      "links": [],
+      "airdate": "2026-10-28",
+      "links": [
+        {
+          "headline": "Leighty’s WWE Evolve Review 10.28.26",
+          "url": "https://411mania.com/wrestling/leightys-wwe-evolve-review-10-28-26/",
+          "published_at": "2026-10-29T03:40:50+00:00",
+          "source_name": "411Mania",
+          "status": "PUBLISHER_HEADLINE_LINK_ONLY"
+        }
+      ],
       "source_name": "Multiple publisher RSS feeds",
-      "status": "no_matching_published_coverage"
+      "status": "publisher_coverage_links"
     }
   ],
-  "total_links": 20,
+  "total_links": 21,
   "retained_link_count": 11,
   "collection_status": "ok",
   "successful_feed_urls": [

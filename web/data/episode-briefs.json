@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "mode": "TVMAZE_FINISHED_EPISODE_GUIDE_SYNOPSIS_ONLY",
-  "generated_at": "2026-10-29T01:06:09.427050-04:00",
+  "generated_at": "2026-10-29T05:12:40.224726-04:00",
   "policy": "TVmaze CC BY-SA episode synopses only; these may have been written before broadcast. No match winners, title changes, storylines or confirmed appearances may be inferred.",
   "programs": [
     {
@@ -56,14 +56,14 @@
     },
     {
       "show_id": "evolve",
-      "airdate": null,
-      "synopsis": null,
-      "episode_id": null,
-      "evidence_url": null,
+      "airdate": "2026-10-28",
+      "synopsis": "Sloane Jacobs hosts the inaugural Nationwide Admiration Ceremony to celebrate WWE Evolve Women's Champion Nikkita Lyons.",
+      "episode_id": 3716725,
+      "evidence_url": "https://api.tvmaze.com/episodes/3716725",
       "source_name": "TVmaze",
       "license": "CC BY-SA",
-      "status": "no_completed_episode"
+      "status": "episode_synopsis"
     }
   ],
-  "synopses_available": 2
+  "synopses_available": 3
 }
