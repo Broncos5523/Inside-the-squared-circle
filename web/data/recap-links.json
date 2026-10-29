@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "mode": "PUBLISHER_RSS_POST_SHOW_LINKS_ONLY",
-  "generated_at": "2026-10-29T05:12:52.926943-04:00",
+  "generated_at": "2026-10-29T09:25:08.612424-04:00",
   "source_name": "Multiple publisher RSS feeds",
   "source_url": "https://www.f4wonline.com/rss.xml",
   "approved_publishers": [
@@ -108,6 +108,13 @@
       "airdate": "2026-10-27",
       "links": [
         {
+          "headline": "WOR: Latest on WWE in Riyadh, WBD sports cuts, Bruce Prichard retiring, Dynamite & NXT reviews",
+          "url": "https://www.f4wonline.com/podcasts/wrestling-observer-radio/wor-latest-on-riyadh-wbd-sports-cuts-prichard-retiring-dynamite-and-nxt-more/",
+          "published_at": "2026-10-29T08:40:20+00:00",
+          "source_name": "F4W / Wrestling Observer",
+          "status": "PUBLISHER_HEADLINE_LINK_ONLY"
+        },
+        {
           "headline": "Hall’s WWE NXT Review 10.27.26",
           "url": "https://411mania.com/wrestling/halls-wwe-nxt-review-10-27-26/",
           "published_at": "2026-10-28T23:52:54+00:00",
@@ -134,13 +141,6 @@
           "url": "https://411mania.com/wrestling/cooks-wwe-nxt-review-10-27-26/",
           "published_at": "2026-10-28T02:18:12+00:00",
           "source_name": "411Mania",
-          "status": "PUBLISHER_HEADLINE_LINK_ONLY"
-        },
-        {
-          "headline": "WWE NXT Results – Oct. 27, 2026 – Dusty Rhodes Tag Team Classic 2026 Matches, Jackson Drake vs. EK Prosper",
-          "url": "https://www.tpww.net/2026/10/wwe-nxt-results-oct-27-2026-dusty-rhodes-tag-team-classic-2026-matches-jackson-drake-vs-ek-prosper/",
-          "published_at": "2026-10-28T00:02:04+00:00",
-          "source_name": "TPWW",
           "status": "PUBLISHER_HEADLINE_LINK_ONLY"
         }
       ],
@@ -211,13 +211,20 @@
           "published_at": "2026-10-29T03:40:50+00:00",
           "source_name": "411Mania",
           "status": "PUBLISHER_HEADLINE_LINK_ONLY"
+        },
+        {
+          "headline": "WWE EVOLVE Results (10/28)",
+          "url": "https://www.fightful.com/wrestling-news/wwe-evolve-results-10-28",
+          "published_at": "2026-10-29T03:30:00+00:00",
+          "source_name": "Fightful",
+          "status": "PUBLISHER_HEADLINE_LINK_ONLY"
         }
       ],
       "source_name": "Multiple publisher RSS feeds",
       "status": "publisher_coverage_links"
     }
   ],
-  "total_links": 21,
+  "total_links": 22,
   "retained_link_count": 11,
   "collection_status": "ok",
   "successful_feed_urls": [

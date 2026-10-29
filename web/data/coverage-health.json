@@ -1,35 +1,35 @@
 {
   "schema_version": 1,
   "mode": "WRESTLING_CONTENT_COVERAGE_COUNTS_ONLY",
-  "generated_at": "2026-10-29T05:13:11.784807-04:00",
+  "generated_at": "2026-10-29T09:25:29.780887-04:00",
   "source_health": {
     "reported": {
       "fresh": true,
-      "generated_at": "2026-10-29T05:12:22.585001-04:00"
+      "generated_at": "2026-10-29T09:24:35.793322-04:00"
     },
     "results": {
       "fresh": true,
-      "generated_at": "2026-10-29T05:12:29.167467-04:00"
+      "generated_at": "2026-10-29T09:24:42.377683-04:00"
     },
     "rss_facts": {
       "fresh": true,
-      "generated_at": "2026-10-29T05:12:53.118067-04:00"
+      "generated_at": "2026-10-29T09:25:08.903558-04:00"
     },
     "rss_excerpts": {
       "fresh": true,
-      "generated_at": "2026-10-29T05:13:01.347017-04:00"
+      "generated_at": "2026-10-29T09:25:18.189148-04:00"
     },
     "fallout": {
       "fresh": true,
-      "generated_at": "2026-10-29T05:13:09.842628-04:00"
+      "generated_at": "2026-10-29T09:25:27.517794-04:00"
     },
     "recap_links": {
       "fresh": true,
-      "generated_at": "2026-10-29T05:12:52.926943-04:00"
+      "generated_at": "2026-10-29T09:25:08.612424-04:00"
     },
     "episode_briefs": {
       "fresh": true,
-      "generated_at": "2026-10-29T05:12:40.224726-04:00"
+      "generated_at": "2026-10-29T09:24:53.520087-04:00"
     }
   },
   "totals": {
@@ -41,14 +41,14 @@
     "automatic_storylines": 0,
     "manually_reviewed_outcomes": 4,
     "manually_reviewed_storylines": 6,
-    "publisher_headline_links": 21,
+    "publisher_headline_links": 22,
     "rss_feeds_checked": 10,
     "rss_feeds_responding": 10,
     "rss_items_examined": 345,
     "rss_dated_episode_headlines": 12,
     "rss_dated_headlines_with_explicit_winner": 0,
     "rss_dated_descriptions_with_victory_word": 3,
-    "rss_descriptions_with_defeated_word": 27,
+    "rss_descriptions_with_defeated_word": 26,
     "rss_explicit_winner_sentences": 1
   },
   "programs": [
@@ -145,7 +145,7 @@
       "manually_reviewed_outcomes": 0,
       "manually_reviewed_storylines": 0,
       "episode_synopsis_available": true,
-      "publisher_headline_links": 1,
+      "publisher_headline_links": 2,
       "results_data_status": "no_usable_result_facts"
     }
   ],
