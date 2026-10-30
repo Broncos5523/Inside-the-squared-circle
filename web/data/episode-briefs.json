@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "mode": "TVMAZE_FINISHED_EPISODE_GUIDE_SYNOPSIS_ONLY",
-  "generated_at": "2026-10-29T21:26:53.043024-04:00",
+  "generated_at": "2026-10-30T01:06:27.526040-04:00",
   "policy": "TVmaze CC BY-SA episode synopses only; these may have been written before broadcast. No match winners, title changes, storylines or confirmed appearances may be inferred.",
   "programs": [
     {
@@ -46,13 +46,13 @@
     },
     {
       "show_id": "tna",
-      "airdate": null,
+      "airdate": "2026-10-29",
       "synopsis": null,
       "episode_id": null,
       "evidence_url": null,
       "source_name": "TVmaze",
       "license": "CC BY-SA",
-      "status": "no_completed_episode"
+      "status": "no_synopsis"
     },
     {
       "show_id": "evolve",

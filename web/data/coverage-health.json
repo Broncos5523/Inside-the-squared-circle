@@ -1,35 +1,35 @@
 {
   "schema_version": 1,
   "mode": "WRESTLING_CONTENT_COVERAGE_COUNTS_ONLY",
-  "generated_at": "2026-10-29T21:27:27.591967-04:00",
+  "generated_at": "2026-10-30T01:07:02.562328-04:00",
   "source_health": {
     "reported": {
       "fresh": true,
-      "generated_at": "2026-10-29T21:26:47.150026-04:00"
+      "generated_at": "2026-10-30T01:06:20.971375-04:00"
     },
     "results": {
       "fresh": true,
-      "generated_at": "2026-10-29T21:26:47.831151-04:00"
+      "generated_at": "2026-10-30T01:06:21.747113-04:00"
     },
     "rss_facts": {
       "fresh": true,
-      "generated_at": "2026-10-29T21:27:05.627105-04:00"
+      "generated_at": "2026-10-30T01:06:42.794376-04:00"
     },
     "rss_excerpts": {
       "fresh": true,
-      "generated_at": "2026-10-29T21:27:15.064448-04:00"
+      "generated_at": "2026-10-30T01:06:52.118332-04:00"
     },
     "fallout": {
       "fresh": true,
-      "generated_at": "2026-10-29T21:27:26.168388-04:00"
+      "generated_at": "2026-10-30T01:07:00.912654-04:00"
     },
     "recap_links": {
       "fresh": true,
-      "generated_at": "2026-10-29T21:27:05.499356-04:00"
+      "generated_at": "2026-10-30T01:06:42.589166-04:00"
     },
     "episode_briefs": {
       "fresh": true,
-      "generated_at": "2026-10-29T21:26:53.043024-04:00"
+      "generated_at": "2026-10-30T01:06:27.526040-04:00"
     }
   },
   "totals": {
@@ -41,14 +41,14 @@
     "automatic_storylines": 0,
     "manually_reviewed_outcomes": 0,
     "manually_reviewed_storylines": 0,
-    "publisher_headline_links": 20,
+    "publisher_headline_links": 25,
     "rss_feeds_checked": 10,
     "rss_feeds_responding": 10,
     "rss_items_examined": 345,
-    "rss_dated_episode_headlines": 12,
+    "rss_dated_episode_headlines": 16,
     "rss_dated_headlines_with_explicit_winner": 0,
-    "rss_dated_descriptions_with_victory_word": 1,
-    "rss_descriptions_with_defeated_word": 27,
+    "rss_dated_descriptions_with_victory_word": 2,
+    "rss_descriptions_with_defeated_word": 28,
     "rss_explicit_winner_sentences": 0
   },
   "programs": [
@@ -118,7 +118,7 @@
     },
     {
       "show_id": "tna",
-      "last_completed": null,
+      "last_completed": "2026-10-29",
       "next_airdate": null,
       "upcoming_reported_matches": 0,
       "upcoming_reported_appearances": 0,
@@ -129,7 +129,7 @@
       "manually_reviewed_outcomes": 0,
       "manually_reviewed_storylines": 0,
       "episode_synopsis_available": false,
-      "publisher_headline_links": 0,
+      "publisher_headline_links": 5,
       "results_data_status": "no_usable_result_facts"
     },
     {

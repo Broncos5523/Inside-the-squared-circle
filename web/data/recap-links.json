@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "mode": "PUBLISHER_RSS_POST_SHOW_LINKS_ONLY",
-  "generated_at": "2026-10-29T21:27:05.499356-04:00",
+  "generated_at": "2026-10-30T01:06:42.589166-04:00",
   "source_name": "Multiple publisher RSS feeds",
   "source_url": "https://www.f4wonline.com/rss.xml",
   "approved_publishers": [
@@ -157,10 +157,46 @@
     },
     {
       "show_id": "tna",
-      "airdate": null,
-      "links": [],
+      "airdate": "2026-10-29",
+      "links": [
+        {
+          "headline": "10/29/26 TNA Impact Recap",
+          "url": "https://gerweck.net/2026/10/30/10-29-26-tna-impact-recap/",
+          "published_at": "2026-10-30T04:07:57+00:00",
+          "source_name": "Gerweck.net",
+          "status": "PUBLISHER_HEADLINE_LINK_ONLY"
+        },
+        {
+          "headline": "Ciocco’s TNA Impact Review 10.29.26",
+          "url": "https://411mania.com/wrestling/cioccos-tna-impact-review-10-29-26/",
+          "published_at": "2026-10-30T03:11:16+00:00",
+          "source_name": "411Mania",
+          "status": "PUBLISHER_HEADLINE_LINK_ONLY"
+        },
+        {
+          "headline": "TNA Impact! Results – Oct. 29, 2026 – The Hardys vs. syX in Slaughterhouse syX Match, M By Elegance vs. Jada Stone, Amazing Red vs. Cedric Alexander",
+          "url": "https://www.tpww.net/2026/10/tna-impact-results-oct-29-2026-the-hardys-vs-syx-in-slaughterhouse-syx-match-m-by-elegance-vs-jada-stone-amazing-red-vs-cedric-alexander/",
+          "published_at": "2026-10-30T00:52:57+00:00",
+          "source_name": "TPWW",
+          "status": "PUBLISHER_HEADLINE_LINK_ONLY"
+        },
+        {
+          "headline": "TNA iMPACT! Results (10/29): Slaughterhouse Syx, Amazing Red vs. Cedric Alexander",
+          "url": "https://www.fightful.com/wrestling-news/tna-impact-results-10-29-slaughterhouse-syx-amazing-red-vs-cedric-alexander",
+          "published_at": "2026-10-30T00:35:16+00:00",
+          "source_name": "Fightful",
+          "status": "PUBLISHER_HEADLINE_LINK_ONLY"
+        },
+        {
+          "headline": "TNA Impact live results: The Hardys vs. syX in a Slaughterhouse syX match",
+          "url": "https://www.f4wonline.com/news/tna-wrestling/tna-results/tna-impact-live-results-october-29-2026/",
+          "published_at": "2026-10-30T00:15:00+00:00",
+          "source_name": "F4W / Wrestling Observer",
+          "status": "PUBLISHER_HEADLINE_LINK_ONLY"
+        }
+      ],
       "source_name": "Multiple publisher RSS feeds",
-      "status": "no_matching_published_coverage"
+      "status": "publisher_coverage_links"
     },
     {
       "show_id": "evolve",
@@ -208,7 +244,7 @@
       "status": "publisher_coverage_links"
     }
   ],
-  "total_links": 20,
+  "total_links": 25,
   "retained_link_count": 10,
   "collection_status": "ok",
   "successful_feed_urls": [
