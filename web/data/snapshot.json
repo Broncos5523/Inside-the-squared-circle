@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "mode": "LIVE_SCHEDULES_ONLY",
-  "generated_at": "2026-10-29T21:04:23.733389+00:00",
+  "generated_at": "2026-10-30T01:26:40.906518+00:00",
   "fresh_shows": 6,
   "shows": [
     {
@@ -85,15 +85,11 @@
       "name": "TNA iMPACT!",
       "color": "#FC493F",
       "category": "primary",
-      "next": {
+      "next": null,
+      "previous": {
         "date": "2026-10-29",
         "time": "21:00",
         "title": "Episode 44"
-      },
-      "previous": {
-        "date": "2026-10-22",
-        "time": "21:00",
-        "title": "Episode 43"
       },
       "schedule_status": "fresh",
       "confirmed_matches": [],

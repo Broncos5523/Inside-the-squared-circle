@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "mode": "PUBLISHER_RSS_POST_SHOW_LINKS_ONLY",
-  "generated_at": "2026-10-29T17:04:58.221516-04:00",
+  "generated_at": "2026-10-29T21:27:05.499356-04:00",
   "source_name": "Multiple publisher RSS feeds",
   "source_url": "https://www.f4wonline.com/rss.xml",
   "approved_publishers": [
@@ -50,7 +50,8 @@
           "url": "https://www.tpww.net/2026/10/wwe-raw-results-oct-26-2026-chad-gable-dragon-lee-vs-big-cass-all-ego-ethan-page-bayley-vs-lyra-valkyria-in-no-dq-match/",
           "published_at": "2026-10-27T00:23:58+00:00",
           "source_name": "TPWW",
-          "status": "PUBLISHER_HEADLINE_LINK_ONLY"
+          "status": "PUBLISHER_HEADLINE_LINK_ONLY",
+          "retained_from_previous": true
         }
       ],
       "source_name": "Multiple publisher RSS feeds",
@@ -156,55 +157,22 @@
     },
     {
       "show_id": "tna",
-      "airdate": "2026-10-22",
-      "links": [
-        {
-          "headline": "Hall’s TNA Impact Review 10.22.26",
-          "url": "https://411mania.com/wrestling/halls-impact-wrestling-review-10-22-26/",
-          "published_at": "2026-10-24T14:45:43+00:00",
-          "source_name": "411Mania",
-          "status": "PUBLISHER_HEADLINE_LINK_ONLY",
-          "retained_from_previous": true
-        },
-        {
-          "headline": "Danhausen Stars In Halloween Snickers Ad, TNA iMPACT Highlights, More | Fight Size",
-          "url": "https://www.fightful.com/wrestling-news/danhausen-stars-in-halloween-snickers-ad-tna-impact-highlights-more-fight-size",
-          "published_at": "2026-10-23T18:00:00+00:00",
-          "source_name": "Fightful",
-          "status": "PUBLISHER_HEADLINE_LINK_ONLY",
-          "retained_from_previous": true
-        },
-        {
-          "headline": "10/22/26 TNA Impact Recap",
-          "url": "https://gerweck.net/2026/10/23/10-22-26-tna-impact-recap/",
-          "published_at": "2026-10-23T04:27:15+00:00",
-          "source_name": "Gerweck.net",
-          "status": "PUBLISHER_HEADLINE_LINK_ONLY"
-        },
-        {
-          "headline": "Ciocco’s TNA Impact Review 10.22.26",
-          "url": "https://411mania.com/wrestling/cioccos-tna-impact-review-10-22-26/",
-          "published_at": "2026-10-23T03:11:06+00:00",
-          "source_name": "411Mania",
-          "status": "PUBLISHER_HEADLINE_LINK_ONLY",
-          "retained_from_previous": true
-        },
-        {
-          "headline": "TNA iMPACT! Results (10/22): Mustafa Ali vs. Jason Hotch",
-          "url": "https://www.fightful.com/wrestling-news/tna-impact-results-10-22-mustafa-ali-vs-jason-hotch",
-          "published_at": "2026-10-23T00:05:53+00:00",
-          "source_name": "Fightful",
-          "status": "PUBLISHER_HEADLINE_LINK_ONLY",
-          "retained_from_previous": true
-        }
-      ],
+      "airdate": null,
+      "links": [],
       "source_name": "Multiple publisher RSS feeds",
-      "status": "publisher_coverage_links"
+      "status": "no_matching_published_coverage"
     },
     {
       "show_id": "evolve",
       "airdate": "2026-10-28",
       "links": [
+        {
+          "headline": "Hall’s WWE Evolve Review 10.28.26",
+          "url": "https://411mania.com/wrestling/halls-wwe-evolve-review-10-28-26/",
+          "published_at": "2026-10-29T21:07:55+00:00",
+          "source_name": "411Mania",
+          "status": "PUBLISHER_HEADLINE_LINK_ONLY"
+        },
         {
           "headline": "10/28/26 WWE Evolve Recap",
           "url": "https://gerweck.net/2026/10/29/10-28-26-wwe-evolve-recap/",
@@ -240,8 +208,8 @@
       "status": "publisher_coverage_links"
     }
   ],
-  "total_links": 24,
-  "retained_link_count": 13,
+  "total_links": 20,
+  "retained_link_count": 10,
   "collection_status": "ok",
   "successful_feed_urls": [
     "https://www.f4wonline.com/rss.xml",
