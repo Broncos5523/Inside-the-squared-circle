@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "mode": "LIVE_SCHEDULES_ONLY",
-  "generated_at": "2026-10-30T05:06:13.893028+00:00",
+  "generated_at": "2026-10-30T09:12:32.463216+00:00",
   "fresh_shows": 6,
   "shows": [
     {
@@ -85,7 +85,11 @@
       "name": "TNA iMPACT!",
       "color": "#FC493F",
       "category": "primary",
-      "next": null,
+      "next": {
+        "date": "2026-11-05",
+        "time": "21:00",
+        "title": "Episode 45"
+      },
       "previous": {
         "date": "2026-10-29",
         "time": "21:00",

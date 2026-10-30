@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "mode": "REPORTED_MATCHES_UNVERIFIED",
-  "generated_at": "2026-10-30T01:06:20.971375-04:00",
+  "generated_at": "2026-10-30T05:12:38.994994-04:00",
   "valid_as_of_et": "2026-10-30",
   "policy": "Opt-in UNVERIFIED match and explicit segment mentions only. May be stale, speculative, misassigned, dark matches, taped show results or subject to change. Not announcements from WWE, AAA or TNA. Taped/early results never withdraw advance cards before scheduled U.S. broadcast completion.",
   "programs": [
@@ -21,34 +21,9 @@
       "show_id": "smackdown",
       "airdate": "2026-10-30",
       "display_label": "REPORTED · UNVERIFIED",
-      "matches": [
-        {
-          "text": "Rey Fenix (c) vs. Ricky Saints",
-          "stipulation": "AAA World Cruiserweight Title Match",
-          "evidence_url": "https://www.thesportsdb.com/api/v1/json/123/lookupevent.php?id=2624413",
-          "provider_event_id": "2624413",
-          "status": "REPORTED_UNVERIFIED",
-          "source_name": "TheSportsDB"
-        },
-        {
-          "text": "Chelsea Green (c) vs. Nikki Bella",
-          "stipulation": "WWE Women's Title Match",
-          "evidence_url": "https://www.thesportsdb.com/api/v1/json/123/lookupevent.php?id=2624413",
-          "provider_event_id": "2624413",
-          "status": "REPORTED_UNVERIFIED",
-          "source_name": "TheSportsDB"
-        },
-        {
-          "text": "Sami Zayn (c) vs. Trick Williams",
-          "stipulation": "Undisputed WWE Title Match",
-          "evidence_url": "https://www.thesportsdb.com/api/v1/json/123/lookupevent.php?id=2624413",
-          "provider_event_id": "2624413",
-          "status": "REPORTED_UNVERIFIED",
-          "source_name": "TheSportsDB"
-        }
-      ],
+      "matches": [],
       "appearances": [],
-      "error": null,
+      "error": "PROVIDER_PARTIAL_OR_UNAVAILABLE",
       "episode_outcome_detected": false,
       "episode_withdrawn": false,
       "episode_outcome_evidence_url": null,
@@ -58,26 +33,9 @@
       "show_id": "nxt",
       "airdate": "2026-11-04",
       "display_label": "REPORTED · UNVERIFIED",
-      "matches": [
-        {
-          "text": "Noam Dar & Romeo Moreno vs. Hank And Tank (Hank Walker & Tank Ledger)",
-          "stipulation": "Dusty Rhodes Tag Team Classic 2026 Final Match",
-          "evidence_url": "https://www.thesportsdb.com/api/v1/json/123/lookupevent.php?id=2624415",
-          "provider_event_id": "2624415",
-          "status": "REPORTED_UNVERIFIED",
-          "source_name": "TheSportsDB"
-        },
-        {
-          "text": "Cruz Montana vs. Dion Lennox",
-          "stipulation": "Unsanctioned Match",
-          "evidence_url": "https://www.thesportsdb.com/api/v1/json/123/lookupevent.php?id=2624415",
-          "provider_event_id": "2624415",
-          "status": "REPORTED_UNVERIFIED",
-          "source_name": "TheSportsDB"
-        }
-      ],
+      "matches": [],
       "appearances": [],
-      "error": null,
+      "error": "PROVIDER_PARTIAL_OR_UNAVAILABLE",
       "episode_outcome_detected": false,
       "episode_withdrawn": false,
       "episode_outcome_evidence_url": null,
@@ -97,11 +55,11 @@
     },
     {
       "show_id": "tna",
-      "airdate": null,
+      "airdate": "2026-11-05",
       "display_label": "REPORTED · UNVERIFIED",
       "matches": [],
       "appearances": [],
-      "error": null,
+      "error": "PROVIDER_PARTIAL_OR_UNAVAILABLE",
       "episode_outcome_detected": false,
       "episode_withdrawn": false,
       "episode_outcome_evidence_url": null,
@@ -120,6 +78,6 @@
       "source_name": "TheSportsDB"
     }
   ],
-  "total_reported_matches": 5,
+  "total_reported_matches": 0,
   "total_reported_appearances": 0
 }

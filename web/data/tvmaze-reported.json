@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "mode": "TVMAZE_EPISODE_SUMMARY_REPORTED_UNVERIFIED",
-  "generated_at": "2026-10-30T01:07:01.112498-04:00",
+  "generated_at": "2026-10-30T05:13:26.529423-04:00",
   "policy": "CC BY-SA TVmaze attributed episode-summary leads, not official advertised cards. Exact local airdate only; no spoilers or claims of completeness.",
   "programs": [
     {
@@ -38,11 +38,11 @@
     },
     {
       "show_id": "tna",
-      "airdate": null,
+      "airdate": "2026-11-05",
       "source_name": "TVmaze",
       "matches": [],
       "appearances": [],
-      "collection_status": "no_upcoming_episode_summary"
+      "collection_status": "no_parseable_match_mentions"
     },
     {
       "show_id": "evolve",

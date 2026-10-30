@@ -1,39 +1,39 @@
 {
   "schema_version": 1,
   "mode": "WRESTLING_CONTENT_COVERAGE_COUNTS_ONLY",
-  "generated_at": "2026-10-30T01:07:02.562328-04:00",
+  "generated_at": "2026-10-30T05:13:28.402272-04:00",
   "source_health": {
     "reported": {
       "fresh": true,
-      "generated_at": "2026-10-30T01:06:20.971375-04:00"
+      "generated_at": "2026-10-30T05:12:38.994994-04:00"
     },
     "results": {
       "fresh": true,
-      "generated_at": "2026-10-30T01:06:21.747113-04:00"
+      "generated_at": "2026-10-30T05:12:45.789355-04:00"
     },
     "rss_facts": {
       "fresh": true,
-      "generated_at": "2026-10-30T01:06:42.794376-04:00"
+      "generated_at": "2026-10-30T05:13:10.075734-04:00"
     },
     "rss_excerpts": {
       "fresh": true,
-      "generated_at": "2026-10-30T01:06:52.118332-04:00"
+      "generated_at": "2026-10-30T05:13:18.290565-04:00"
     },
     "fallout": {
       "fresh": true,
-      "generated_at": "2026-10-30T01:07:00.912654-04:00"
+      "generated_at": "2026-10-30T05:13:26.385400-04:00"
     },
     "recap_links": {
       "fresh": true,
-      "generated_at": "2026-10-30T01:06:42.589166-04:00"
+      "generated_at": "2026-10-30T05:13:09.926557-04:00"
     },
     "episode_briefs": {
       "fresh": true,
-      "generated_at": "2026-10-30T01:06:27.526040-04:00"
+      "generated_at": "2026-10-30T05:12:56.992711-04:00"
     }
   },
   "totals": {
-    "upcoming_reported_matches": 5,
+    "upcoming_reported_matches": 0,
     "upcoming_reported_appearances": 0,
     "upcoming_reviewed_matches": 1,
     "upcoming_reviewed_appearances": 0,
@@ -72,7 +72,7 @@
       "show_id": "smackdown",
       "last_completed": "2026-10-23",
       "next_airdate": "2026-10-30",
-      "upcoming_reported_matches": 3,
+      "upcoming_reported_matches": 0,
       "upcoming_reported_appearances": 0,
       "upcoming_reviewed_matches": 0,
       "upcoming_reviewed_appearances": 0,
@@ -88,7 +88,7 @@
       "show_id": "nxt",
       "last_completed": "2026-10-27",
       "next_airdate": "2026-11-04",
-      "upcoming_reported_matches": 2,
+      "upcoming_reported_matches": 0,
       "upcoming_reported_appearances": 0,
       "upcoming_reviewed_matches": 0,
       "upcoming_reviewed_appearances": 0,
@@ -119,7 +119,7 @@
     {
       "show_id": "tna",
       "last_completed": "2026-10-29",
-      "next_airdate": null,
+      "next_airdate": "2026-11-05",
       "upcoming_reported_matches": 0,
       "upcoming_reported_appearances": 0,
       "upcoming_reviewed_matches": 0,
