@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "mode": "POST_BROADCAST_RSS_EXPLICIT_FACTS_UNVERIFIED",
-  "generated_at": "2026-10-30T09:21:13.288245-04:00",
+  "generated_at": "2026-10-30T13:03:58.877262-04:00",
   "policy": "Extremely strict direct winner-vs-loser statements only from dated post-broadcast public RSS headlines. No full articles read; no title changes or storylines inferred. Source-attributed and unverified. Zero results is an expected safe outcome.",
   "programs": [
     {

@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "mode": "PUBLISHER_RSS_POST_SHOW_LINKS_ONLY",
-  "generated_at": "2026-10-30T09:21:13.085675-04:00",
+  "generated_at": "2026-10-30T13:03:58.676631-04:00",
   "source_name": "Multiple publisher RSS feeds",
   "source_url": "https://www.f4wonline.com/rss.xml",
   "approved_publishers": [
@@ -113,7 +113,8 @@
           "url": "https://www.f4wonline.com/podcasts/wrestling-observer-radio/wor-latest-on-riyadh-wbd-sports-cuts-prichard-retiring-dynamite-and-nxt-more/",
           "published_at": "2026-10-29T08:40:20+00:00",
           "source_name": "F4W / Wrestling Observer",
-          "status": "PUBLISHER_HEADLINE_LINK_ONLY"
+          "status": "PUBLISHER_HEADLINE_LINK_ONLY",
+          "retained_from_previous": true
         },
         {
           "headline": "Hall’s WWE NXT Review 10.27.26",
@@ -246,7 +247,7 @@
     }
   ],
   "total_links": 25,
-  "retained_link_count": 11,
+  "retained_link_count": 12,
   "collection_status": "ok",
   "successful_feed_urls": [
     "https://www.f4wonline.com/rss.xml",
