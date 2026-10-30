@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "mode": "PUBLISHER_RSS_POST_SHOW_LINKS_ONLY",
-  "generated_at": "2026-10-30T05:13:09.926557-04:00",
+  "generated_at": "2026-10-30T09:21:13.085675-04:00",
   "source_name": "Multiple publisher RSS feeds",
   "source_url": "https://www.f4wonline.com/rss.xml",
   "approved_publishers": [
@@ -185,7 +185,8 @@
           "url": "https://www.fightful.com/wrestling-news/tna-impact-results-10-29-slaughterhouse-syx-amazing-red-vs-cedric-alexander",
           "published_at": "2026-10-30T00:35:16+00:00",
           "source_name": "Fightful",
-          "status": "PUBLISHER_HEADLINE_LINK_ONLY"
+          "status": "PUBLISHER_HEADLINE_LINK_ONLY",
+          "retained_from_previous": true
         },
         {
           "headline": "TNA Impact live results: The Hardys vs. syX in a Slaughterhouse syX match",
@@ -245,7 +246,7 @@
     }
   ],
   "total_links": 25,
-  "retained_link_count": 10,
+  "retained_link_count": 11,
   "collection_status": "ok",
   "successful_feed_urls": [
     "https://www.f4wonline.com/rss.xml",
