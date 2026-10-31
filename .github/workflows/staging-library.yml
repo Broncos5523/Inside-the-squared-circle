@@ -19,7 +19,8 @@ concurrency:
   cancel-in-progress: false
 jobs:
   validate-and-collect:
-    if: github.event_name != 'push' || !startsWith(github.event.head_commit.message, 'chore(staging): refresh')
+    if: >-
+      github.event_name != 'push' || !startsWith(github.event.head_commit.message, 'chore(staging): refresh')
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
