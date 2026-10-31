@@ -34,8 +34,12 @@
    if(config.mode==='active'){
     var venue=document.getElementById('wb-venue'),city=document.getElementById('wb-city');
     var oldLocation=[venue&&venue.textContent,city&&city.textContent].filter(Boolean);
-    if(venue)venue.textContent=config.current_location&&config.current_location.arena||'';
-    if(city)city.textContent=config.current_location&&config.current_location.city||'';
+    if(config.live_preview){
+     var locationNodes=[venue,city,document.getElementById('wb-tile-top'),document.getElementById('wb-tile-bottom')];
+     var locationText=config.current_location?[config.current_location.arena||'',config.current_location.city||'','LIVE FROM','']:['','','',''];
+     var repairLocation=function(){locationNodes.forEach(function(node,i){if(node&&node.textContent!==locationText[i])node.textContent=locationText[i];});};
+     repairLocation();locationNodes.forEach(function(node){if(node)new MutationObserver(repairLocation).observe(node,{childList:true,subtree:true,characterData:true});});
+    }
     var ticker=document.getElementById('ticker-content');
     if(ticker&&config.source_credit){var repair=function(){var before=ticker.textContent;var parts=before.split(/◆|\u25c6/).map(function(part){return part.trim();}).filter(function(part){return part&&!oldLocation.some(function(value){return value.length>3&&part.toLowerCase().indexOf(value.toLowerCase())>=0;});});var text=parts.join(' ◆ '),credit='SOURCE: '+config.source_credit.toUpperCase();if(text.indexOf(credit)<0)text+=' ◆ '+credit;if(text!==before)ticker.textContent=text;};repair();new MutationObserver(repair).observe(ticker,{childList:true,subtree:true});}
    }
@@ -60,7 +64,7 @@
   var night=/summerslam.*preview/i.test(record.id)?(/night_two/i.test(record.id)?2:1):null;
   var query=(record.href.split('?')[1]||'')+(mode==='archive'?'&demo=1':'&live=1')+(night?'&card='+night:'');
   html=html.replace(/new URLSearchParams\(location\.search\)/g,'new URLSearchParams('+JSON.stringify(query)+')');
-  var config={id:record.id,logical:logical,base:assetBase,routes:boardMap,mode:mode,feeds:feeds||{},night:night,source_credit:record.source_credit||null,current_location:record.current_location||null};
+  var config={id:record.id,logical:logical,base:assetBase,routes:boardMap,mode:mode,feeds:feeds||{},night:night,source_credit:record.source_credit||null,current_location:record.current_location||null,live_preview:record.category==='Weekly Upcoming'};
   var injected='<base href="'+new URL('originals'+prefix,base).href+'"><script>('+shim.toString()+')('+JSON.stringify(config).replace(/</g,'\\u003c')+');<\/script>';
   return html.replace(/<head(?:\s[^>]*)?>/i,function(head){return head+injected;});
  }
