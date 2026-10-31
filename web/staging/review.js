@@ -6,7 +6,16 @@
  function label(record){if(record.id.indexOf('results-summerslam_night_one_')===0)return 'SummerSlam — Night One — Results & Fallout';if(record.id.indexOf('results-summerslam_night_two_')===0)return 'SummerSlam — Night Two — Results & Fallout';return record.label;}
  function scale(){var p=byId('preview'),screen=p.querySelector('.screen');p.style.height=(document.body.classList.contains('tv')?window.innerHeight:p.clientWidth*1280/720)+'px';var h=p.clientHeight,w=p.clientWidth,s=Math.min(w/720,h/1280);screen.style.transform='translateX(-50%) scale('+s+')';}
  function setTv(enabled){document.body.classList.toggle('tv',enabled);byId('review-panel').dataset.mode=mode==='archive'?'ARCHIVE DESIGN REVIEW':'';scale();}
- function candidates(){return mode==='active'?active.map(function(e){return library.records.find(function(r){return r.id===e.id;});}).filter(Boolean):visible.filter(function(r){return r.source_available;});}
+ function waitingForVerified(){
+  // Never fall back to the 67-board archive carousel in production playback.
+  stop();current=null;
+  byId('review-panel').hidden=false;byId('active-panel').hidden=true;
+  byId('board').classList.remove('ready');byId('board').srcdoc='';
+  byId('loading').textContent='Waiting for fresh, verified wrestling programming…';
+  byId('loading').style.display='grid';byId('status').textContent='Current broadcast feed pending';
+  setTv(true);
+ }
+ function candidates(){return mode==='active'?active.map(function(e){return library.records.find(function(r){return r.id===e.id;});}).filter(function(r){return r&&r.source_available&&r.design_approved;}):visible.filter(function(r){return r.source_available;});}
  function stop(){if(timer)clearTimeout(timer);timer=null;byId('rotate').textContent='Play review';}
  function schedule(){if(timer)clearTimeout(timer);var ms=Number(byId('duration').value)*1000;timer=setTimeout(function(){step(1,true);},ms);byId('rotate').textContent=mode==='active'?'Pause playback':'Pause review';}
  function step(delta,keepPlaying){var list=candidates();if(!list.length)return;var pos=list.findIndex(function(r){return current&&r.id===current.id;});choose(list[(Math.max(pos,0)+delta+list.length)%list.length],keepPlaying);}
@@ -48,7 +57,7 @@
   // Fail closed when the collector output is old; archive review remains available.
   active=feedFresh?ISCPlaylist.select(programming.entries,new Date()):[];
   byId('watch-active').disabled=!active.length;
-  byId('active-summary').textContent=active.length?active.length+' current board'+(active.length===1?'':'s')+' selected from source-backed programming.': 'No current boards have cleared their source and data checks yet. The recovered designs are available in the design library.';
+  byId('active-summary').textContent=active.length?active.length+' current board'+(active.length===1?'':'s')+' selected: latest weekly results, next weekly preview, event previews within 14 days and event results within 7 days.': 'No current boards have cleared their source and data checks yet. The recovered designs are available in the design library.';
   var list=byId('active-list');list.replaceChildren();active.forEach(function(x){var d=document.createElement('div'),strong=document.createElement('strong'),small=document.createElement('small');strong.textContent=x.title;small.textContent=(x.airdate||x.event_date)+' · '+x.source_name;d.append(strong,small);list.append(d);});
   byId('feed-stamp').textContent=programming.generated_at?(feedFresh?'Collector last ran ':'STALE DATA — collector last ran ')+new Date(programming.generated_at).toLocaleString()+'. Browser checks for published updates every five minutes; this does not run the collector.':'Current-content collection is pending; archive examples are held outside the TV playlist.';
   if(!feedFresh)byId('active-summary').textContent='Live-data collection is stale or unavailable. Archived demonstrations remain in the design library and are not presented as live programming.';
@@ -56,7 +65,7 @@
    var next=candidates()[0];
    if(current&&!active.some(function(x){return x.id===current.id;})){
     stop();current=null;
-    if(next)choose(next,true);else{switchPanel(true);mode='active';if(new URLSearchParams(location.search).get('view')==='tv'){setTv(true);byId('loading').textContent='Waiting for fresh wrestling programming…';byId('loading').style.display='grid';}}
+    if(next)choose(next,true);else if(params.get('view')==='tv')waitingForVerified();else switchPanel(true);
    }else if(!current&&next&&new URLSearchParams(location.search).get('view')==='tv'){
     switchPanel(false);mode='active';setTv(true);choose(next,true);
    }
@@ -80,7 +89,7 @@
   mode=params.get('mode')==='archive'?'archive':'active';
   await refreshed;
   var first=mode==='active'?candidates()[0]:library.records.find(function(r){return r.id===params.get('id');})||library.records.find(function(r){return r.id==='weekly-results-smackdown';})||visible[0];
-  if(!first){switchPanel(true);mode='active';if(params.get('view')==='tv'){setTv(true);byId('loading').textContent='Waiting for fresh wrestling programming…';byId('loading').style.display='grid';byId('active-summary').textContent='Live programming is temporarily unavailable. Waiting for a fresh verified collection; archive demonstrations are not being broadcast.';}setInterval(refresh,300000);return;}
+  if(!first){mode='active';if(params.get('view')==='tv')waitingForVerified();else switchPanel(true);byId('active-summary').textContent='Live programming is temporarily unavailable. Waiting for a fresh verified collection; archive demonstrations are not being broadcast.';setInterval(refresh,300000);return;}
   if(mode==='active'){switchPanel(true);mode='active';if(params.get('view')==='tv'){switchPanel(false);mode='active';setTv(true);await choose(first,true);}}
   else{setTv(params.get('view')==='tv');await choose(first,params.get('play')==='1');}
   scale();setInterval(refresh,300000);
