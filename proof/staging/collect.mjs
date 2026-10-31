@@ -25,7 +25,8 @@ let collected=null;
 const cache={async get(){return null;},async put(key,value){collected=JSON.parse(value);}};
 const stats=await collectWcn({WCN_CACHE:cache},now,requester);
 const snapshot=responses.get('snapshot.json');
-const snapshotFresh=snapshot&&Number.isFinite(Date.parse(snapshot.generated_at))&&now.getTime()-Date.parse(snapshot.generated_at)<=48*3600000;
+const snapshotAge=now.getTime()-Date.parse(snapshot?.generated_at||'');
+const snapshotFresh=!!snapshot&&Number.isFinite(snapshotAge)&&snapshotAge>=-300000&&snapshotAge<=48*3600000&&Array.isArray(snapshot.shows);
 const programs=(collected?.programs||[]).filter(p=>p.matches?.length||p.appearances?.length);
 // Never promote an event whose advertised airdate is already in the past.
 // Use New York local calendar dates for the US-based weekly broadcast schedule.
