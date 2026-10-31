@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "mode": "SOURCE_GATED_STAGING",
-  "generated_at": "2026-10-31T02:58:47.642Z",
+  "generated_at": "2026-10-31T16:04:57.342Z",
   "entries": [
     {
       "id": "weekly-upcoming-tna",
@@ -14,7 +14,7 @@
       "content_status": "current",
       "verification": "SOURCE_REPORTED",
       "has_content": true,
-      "checked_at": "2026-10-31T02:58:47.642Z",
+      "checked_at": "2026-10-31T16:04:57.342Z",
       "source_name": "Wrestling Central News",
       "source_url": "https://wrestlingcentralnews.com/events/2026-11-05-tna-impact/",
       "venue": null
@@ -24,7 +24,7 @@
     "snapshot.json": {
       "schema_version": 1,
       "mode": "LIVE_SCHEDULES_ONLY",
-      "generated_at": "2026-10-31T01:25:32.661450+00:00",
+      "generated_at": "2026-10-31T13:13:44.376672+00:00",
       "fresh_shows": 6,
       "shows": [
         {
@@ -90,14 +90,14 @@
           "color": "#21C6AE",
           "category": "primary",
           "next": {
+            "date": "2026-11-07",
+            "time": null,
+            "title": "#42 - Héroes Inmortales (Week 3)"
+          },
+          "previous": {
             "date": "2026-10-31",
             "time": null,
             "title": "#41 - Héroes Inmortales (Week 2)"
-          },
-          "previous": {
-            "date": "2026-10-24",
-            "time": null,
-            "title": "#40 - Héroes Inmortales (Week 1)"
           },
           "schedule_status": "fresh",
           "confirmed_matches": [],
@@ -146,7 +146,7 @@
     "reported.json": {
       "schema_version": 1,
       "mode": "REPORTED_MATCHES_UNVERIFIED",
-      "generated_at": "2026-10-31T02:58:47.642Z",
+      "generated_at": "2026-10-31T16:04:57.342Z",
       "display_attribution": "Wrestling Central News (wrestlingcentralnews.com)",
       "programs": [
         {
