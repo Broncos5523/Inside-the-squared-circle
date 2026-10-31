@@ -2,6 +2,7 @@ import {writeFile,readFile} from 'node:fs/promises';
 import {collectWcn} from './wcn-collector.mjs';
 import {collectOfficialEvents} from './official-events.mjs';
 import {collectReviewedArchiveFallback} from './reviewed-archive-fallback.mjs';
+import {collectOfficialWeeklyResults} from './official-weekly-results.mjs';
 const now=new Date();
 const root=new URL('../../web/staging/',import.meta.url);
 try{
@@ -13,6 +14,7 @@ try{
  }
 }catch{}
 const library=JSON.parse(await readFile(new URL('library.json',root),'utf8'));
+const assetRoutes=JSON.parse(await readFile(new URL('asset-routes.json',root),'utf8'));
 const sourceRoot='https://broncos5523.github.io/Inside-the-squared-circle/data/';
 const responses=new Map();
 async function requester(url,options={}){
@@ -97,9 +99,18 @@ for(const candidate of reviewed.entries){
  const showing=feeds['snapshot.json']?.shows?.find(s=>s.id===candidate.show);
  if(showing)showing.previous={date:candidate.airdate,time:null,title:reviewed.feeds[key]?.programs?.[0]?.source_name||'Latest officially reviewed episode'};
 }
+// Deterministically extract explicit winners from the matching dated official
+// result article. These facts are source-verified, NOT claimed to be editorially
+// reviewed. Keep any independently reviewed feed at the same episode date.
+const officialWeekly=snapshotFresh?await collectOfficialWeeklyResults({library,routes:assetRoutes,snapshot,now,requester}):{entries:[],feeds:{},warnings:[]};
+for(const candidate of officialWeekly.entries){
+ if(entries.some(e=>e.show===candidate.show&&(e.kind==='results'||e.kind==='evolve')&&e.airdate===candidate.airdate))continue;
+ entries.push(candidate);
+ feeds[candidate.show+'-verified-results.json']=officialWeekly.feeds[candidate.show+'-verified-results.json'];
+}
 const events=await collectOfficialEvents({library,now,requester});
 entries.push(...events.entries);
 feeds['official-events.json']=events.feed;
-const result={schema_version:1,mode:'SOURCE_GATED_STAGING',generated_at:now.toISOString(),entries,feeds,collection:{...stats,snapshot_fresh:!!snapshotFresh,official_event_count:events.entries.length,official_event_warnings:events.errors,approved_result_count:reviewed.entries.length,approved_result_warnings:reviewed.warnings},notes:['Archived examples remain excluded from current programming. Event matches must clear official-source and approved-portrait checks. Weekly results and Evolve remain held until the exact episode facts are verified and renderable.','Source credits retained privately; public hosting clearance confirmed by owner 2026-10-30.']};
+const result={schema_version:1,mode:'SOURCE_GATED_STAGING',generated_at:now.toISOString(),entries,feeds,collection:{...stats,snapshot_fresh:!!snapshotFresh,official_event_count:events.entries.length,official_event_warnings:events.errors,approved_result_count:reviewed.entries.length,approved_result_warnings:reviewed.warnings,official_weekly_result_count:officialWeekly.entries.length,official_weekly_warnings:officialWeekly.warnings},notes:['Archived examples remain excluded from current programming. Event matches must clear official-source and approved-portrait checks. Only explicit winners from dated official sources are promoted. Evolve remains held until the exact approved source and episode facts are integrated.','Source credits retained privately; public hosting clearance confirmed by owner 2026-10-30.']};
 await writeFile(new URL('data/programming.json',root),JSON.stringify(result,null,2)+'\n');
 console.log(JSON.stringify({generated_at:result.generated_at,source_programs:programs.length,active_candidates:entries.length,collection:result.collection}));
