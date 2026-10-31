@@ -47,8 +47,13 @@ if(snapshotFresh){
  for(const show of scoped.shows){
   if(!['raw','smackdown','nxt','aaa','tna'].includes(show.id))continue;
   const board=library.records.find(r=>r.id==='weekly-upcoming-'+show.id);
-  const date=show.next?.date;
+  // Some schedule spines roll a same-day broadcast into "previous" before
+  // it has aired. Keep today's announced show eligible until a verified
+  // finished-episode record supersedes it, instead of skipping to next week.
+  const previousIsToday=show.previous?.date===easternDate&&show.next?.date>easternDate;
+  const date=previousIsToday?show.previous.date:show.next?.date;
   if(show.schedule_status!=='fresh'||!board?.source_available||!board.design_approved||!isCurrentOrFuture(date))continue;
+  if(previousIsToday)show.next={...show.previous};
   const reported=programs.find(p=>p.show_id===show.id&&p.airdate===date);
   entries.push({
    id:board.id,title:board.label,show:show.id,kind:'upcoming',airdate:date,
