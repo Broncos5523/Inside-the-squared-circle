@@ -19,8 +19,8 @@
   usable.filter(function(x){return x.kind==='ple-results'&&verified(x)&&x.completed===true&&x.event_date<=today&&days(today,x.event_date)<=14;}).forEach(add);
   add(latest(results.filter(function(x){return x.kind==='evolve';})));
   // The previous preview can bridge a results delay; it never displaces results.
-  // Only the next dated preview may be used as a fallback when no show is on tonight.
-  if(!out.length)add(previews.filter(function(x){return x.airdate>today;}).sort(function(a,b){return a.airdate.localeCompare(b.airdate);})[0]);
+  // Include the nearest future advertised show alongside verified recent results.
+  add(previews.filter(function(x){return x.airdate>today;}).sort(function(a,b){return a.airdate.localeCompare(b.airdate);})[0]);
   return out;
  }
  return {select:select,etDay:etDay};
