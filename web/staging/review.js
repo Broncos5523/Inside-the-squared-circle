@@ -66,9 +66,16 @@
  Promise.all([getJSON('library.json'),getJSON('asset-routes.json')]).then(async function(values){
   library=values[0];routes=values[1];byId('stats').innerHTML='<span><b>'+library.source_slots+'</b> source-backed slots</span><span>·</span><span><b>1</b> recovery hold</span><span>·</span><span><b>68</b> library slots</span>';
   ['All designs','Weekly Upcoming','Weekly Results','Championships','PLE Preview','PLE Results'].forEach(function(category,i){var b=document.createElement('button');b.textContent=category;b.className=i===0?'selected':'';b.onclick=function(){document.querySelectorAll('#filters button').forEach(function(x){x.classList.toggle('selected',x===b);});gallery(category);};byId('filters').append(b);});
-  gallery('All designs');var refreshed=refresh();mode=params.get('mode')==='active'?'active':'archive';if(mode==='active')await refreshed;
+  gallery('All designs');var refreshed=refresh();
+  // The default landing page must never masquerade an archived example as live.
+  // Explicit archive URLs still support the original design-review workflow.
+  mode=params.get('mode')==='archive'?'archive':'active';
+  await refreshed;
   var first=mode==='active'?candidates()[0]:library.records.find(function(r){return r.id===params.get('id');})||library.records.find(function(r){return r.id==='weekly-results-smackdown';})||visible[0];
-  if(!first){switchPanel(true);return;}setTv(params.get('view')==='tv');await choose(first,params.get('play')==='1'||mode==='active');scale();setInterval(refresh,300000);
+  if(!first){switchPanel(true);setInterval(refresh,300000);return;}
+  if(mode==='active'){switchPanel(true);mode='active';if(params.get('view')==='tv'){switchPanel(false);mode='active';setTv(true);await choose(first,true);}}
+  else{setTv(params.get('view')==='tv');await choose(first,params.get('play')==='1');}
+  scale();setInterval(refresh,300000);
  }).catch(function(error){byId('loading').textContent='Library could not load: '+error.message;});
  window.__iscReview={select:function(id){var r=library.records.find(function(x){return x.id===id;});if(r)return choose(r,false);},getLibrary:function(){return library;},getActive:function(){return active;},getCurrent:function(){return current;},getRoutes:function(){return routes;}};
 })();
