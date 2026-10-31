@@ -30,7 +30,49 @@
   };
   if(config.night){var interval=window.setInterval.bind(window);window.setInterval=function(fn,ms){if(typeof fn==='function'&&/currentCard\+\+/.test(fn.toString()))return 0;return interval.apply(window,arguments);};}
   // Archive content never silently refreshes into a different episode.
+  // Populate approved event layouts with ONLY officially verified announcements.
+  // The original HTML, styling, belts and graphical assets remain untouched on disk.
+  function populateOfficialEvent(){
+   var event=config.officialEvent;
+   if(config.mode!=='active'||!event||!event.cards||event.cards.length!==3)return;
+   var halloween=event.event_id==='nxt-halloween-havoc-2026';
+   var crown=event.event_id==='wwe-crown-jewel-2026';
+   if(!halloween&&!crown)return;
+   var cards=Array.prototype.slice.call(document.querySelectorAll(halloween?'.panel section.match':'.matches section.match'));
+   if(cards.length!==event.cards.length)return;
+   event.cards.forEach(function(data,i){
+    var card=cards[i],title=card.querySelector(halloween?'header':'.heading');
+    if(title)title.textContent=data.heading;
+    var belt=card.querySelector('img.belt');
+    if(belt&&!data.belt)belt.style.visibility='hidden';
+    if(halloween){
+     var people=card.querySelectorAll('.competitor'),names=card.querySelectorAll('.competitor span');
+     if(people.length===2&&names.length===2){
+      names[0].textContent=data.left.toUpperCase();
+      names[1].textContent=data.right.toUpperCase();
+      var images=[people[0].querySelector('img'),people[1].querySelector('img')];
+      if(images[0]&&data.left_image)images[0].src=data.left_image;
+      if(images[1]&&data.right_image)images[1].src=data.right_image;
+     }
+     var foot=card.querySelector('footer');if(foot)foot.textContent=data.footer||'OFFICIAL WWE MATCH ANNOUNCEMENT';
+    }else{
+     var left=card.querySelector('.fighter.left'),right=card.querySelector('.fighter.right');
+     if(left&&data.left_image)left.src=data.left_image;
+     if(right&&data.right_image)right.src=data.right_image;
+     var namesEl=card.querySelector('.names');
+     if(namesEl){
+      var vs=document.createElement('strong');vs.textContent='VS';
+      namesEl.replaceChildren(document.createTextNode(data.left.toUpperCase()+' '),vs,document.createTextNode(' '+data.right.toUpperCase()));
+     }
+    }
+   });
+   var note=document.querySelector(halloween?'.note':'.disclaimer');
+   if(note)note.textContent='OFFICIAL WWE MATCH CARD • SUBJECT TO CHANGE';
+   var notice=document.querySelector('.notice');
+   if(notice)notice.textContent='OFFICIAL WWE EVENT PREVIEW';
+  }
   window.addEventListener('load',function(){setTimeout(function(){
+   populateOfficialEvent();
    if(config.mode==='active'){
     var venue=document.getElementById('wb-venue'),city=document.getElementById('wb-city');
     var oldLocation=[venue&&venue.textContent,city&&city.textContent].filter(Boolean);
@@ -64,7 +106,33 @@
   var night=/summerslam.*preview/i.test(record.id)?(/night_two/i.test(record.id)?2:1):null;
   var query=(record.href.split('?')[1]||'')+(mode==='archive'?'&demo=1':'&live=1')+(night?'&card='+night:'');
   html=html.replace(/new URLSearchParams\(location\.search\)/g,'new URLSearchParams('+JSON.stringify(query)+')');
-  var config={id:record.id,logical:logical,base:assetBase,routes:boardMap,mode:mode,feeds:feeds||{},night:night,source_credit:record.source_credit||null,current_location:record.current_location||null,live_preview:record.category==='Weekly Upcoming'};
+  var officialEvent=null;
+  if(mode==='active'&&feeds&&feeds['official-events.json']&&
+    feeds['official-events.json'].mode==='OFFICIAL_WWE_EVENT_PREVIEWS'){
+   var available=(feeds['official-events.json'].programs||[]).find(function(e){
+    return e.board_id===record.id&&e.render_ready===true&&e.verification==='OFFICIAL_VERIFIED';
+   });
+   if(available){
+    var portrait=function(slug){
+     if(!/^[a-z0-9-]+$/.test(slug))return null;
+     var names=['NXT','RAW','SmackDown'];
+     for(var n=0;n<names.length;n++){
+      var target=routes['/boards/UPCOMING/'+names[n]+'/assets/portraits/'+slug+'.png'];
+      if(target)return new URL('originals'+target,assetBase).href;
+     }
+     return null;
+    };
+    var cards=(available.cards||[]).map(function(c){
+     return {heading:c.heading,left:c.left,right:c.right,
+      left_image:portrait(c.left_portrait),right_image:portrait(c.right_portrait),
+      belt:c.belt===true,footer:c.footer||null};
+    });
+    if(cards.length===3&&cards.every(function(c){return c.left_image&&c.right_image;})){
+     officialEvent={event_id:available.event_id,cards:cards};
+    }
+   }
+  }
+  var config={id:record.id,logical:logical,base:assetBase,routes:boardMap,mode:mode,feeds:feeds||{},night:night,source_credit:record.source_credit||null,current_location:record.current_location||null,live_preview:record.category==='Weekly Upcoming',officialEvent:officialEvent};
   var injected='<base href="'+new URL('originals'+prefix,base).href+'"><script>('+shim.toString()+')('+JSON.stringify(config).replace(/</g,'\\u003c')+');<\/script>';
   return html.replace(/<head(?:\s[^>]*)?>/i,function(head){return head+injected;});
  }
