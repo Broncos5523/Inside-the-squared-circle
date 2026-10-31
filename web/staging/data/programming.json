@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "mode": "SOURCE_GATED_STAGING",
-  "generated_at": "2026-10-31T16:39:19.698Z",
+  "generated_at": "2026-10-31T17:13:04.342Z",
   "entries": [
     {
       "id": "weekly-upcoming-raw",
@@ -15,7 +15,7 @@
       "verification": "SOURCE_REPORTED",
       "has_content": false,
       "schedule_confirmed": true,
-      "checked_at": "2026-10-31T16:39:19.698Z",
+      "checked_at": "2026-10-31T17:13:04.342Z",
       "source_name": "Published episode schedule",
       "source_url": "https://broncos5523.github.io/Inside-the-squared-circle/data/snapshot.json",
       "venue": null
@@ -32,7 +32,7 @@
       "verification": "SOURCE_REPORTED",
       "has_content": false,
       "schedule_confirmed": true,
-      "checked_at": "2026-10-31T16:39:19.698Z",
+      "checked_at": "2026-10-31T17:13:04.342Z",
       "source_name": "Published episode schedule",
       "source_url": "https://broncos5523.github.io/Inside-the-squared-circle/data/snapshot.json",
       "venue": null
@@ -49,7 +49,7 @@
       "verification": "SOURCE_REPORTED",
       "has_content": false,
       "schedule_confirmed": true,
-      "checked_at": "2026-10-31T16:39:19.698Z",
+      "checked_at": "2026-10-31T17:13:04.342Z",
       "source_name": "Published episode schedule",
       "source_url": "https://broncos5523.github.io/Inside-the-squared-circle/data/snapshot.json",
       "venue": null
@@ -66,7 +66,7 @@
       "verification": "SOURCE_REPORTED",
       "has_content": false,
       "schedule_confirmed": true,
-      "checked_at": "2026-10-31T16:39:19.698Z",
+      "checked_at": "2026-10-31T17:13:04.342Z",
       "source_name": "Published episode schedule",
       "source_url": "https://broncos5523.github.io/Inside-the-squared-circle/data/snapshot.json",
       "venue": null
@@ -83,7 +83,7 @@
       "verification": "SOURCE_REPORTED",
       "has_content": true,
       "schedule_confirmed": true,
-      "checked_at": "2026-10-31T16:39:19.698Z",
+      "checked_at": "2026-10-31T17:13:04.342Z",
       "source_name": "Wrestling Central News",
       "source_url": "https://wrestlingcentralnews.com/events/2026-11-05-tna-impact/",
       "venue": null
@@ -99,7 +99,7 @@
       "content_status": "current",
       "verification": "EDITORIALLY_VERIFIED",
       "completed": true,
-      "checked_at": "2026-10-31T16:39:19.698Z",
+      "checked_at": "2026-10-31T17:13:04.342Z",
       "source_name": "WWE AAA Héroes Inmortales | Week 1 results, October 24, 2026",
       "source_url": "https://www.wwe.com/shows/aaa/aaa-h-roes-inmortales-week-1-results"
     },
@@ -117,7 +117,7 @@
       "date_confirmed": true,
       "has_content": true,
       "schedule_confirmed": true,
-      "checked_at": "2026-10-31T16:39:19.698Z",
+      "checked_at": "2026-10-31T17:13:04.342Z",
       "source_name": "WWE",
       "source_url": "https://www.wwe.com/shows/nxtple/nxt-halloween-havoc-2026"
     },
@@ -135,7 +135,7 @@
       "date_confirmed": true,
       "has_content": true,
       "schedule_confirmed": true,
-      "checked_at": "2026-10-31T16:39:19.698Z",
+      "checked_at": "2026-10-31T17:13:04.342Z",
       "source_name": "WWE",
       "source_url": "https://www.wwe.com/shows/wwe-crown-jewel/crown-jewel-2026"
     }
@@ -144,7 +144,7 @@
     "snapshot.json": {
       "schema_version": 1,
       "mode": "LIVE_SCHEDULES_ONLY",
-      "generated_at": "2026-10-31T13:13:44.376672+00:00",
+      "generated_at": "2026-10-31T16:56:33.403265+00:00",
       "fresh_shows": 6,
       "shows": [
         {
@@ -266,7 +266,7 @@
     "reported.json": {
       "schema_version": 1,
       "mode": "REPORTED_MATCHES_UNVERIFIED",
-      "generated_at": "2026-10-31T16:39:19.698Z",
+      "generated_at": "2026-10-31T17:13:04.342Z",
       "display_attribution": "Wrestling Central News (wrestlingcentralnews.com)",
       "programs": [
         {
@@ -419,7 +419,7 @@
     },
     "official-events.json": {
       "mode": "OFFICIAL_WWE_EVENT_PREVIEWS",
-      "generated_at": "2026-10-31T16:39:19.698Z",
+      "generated_at": "2026-10-31T17:13:04.342Z",
       "programs": [
         {
           "event_id": "nxt-halloween-havoc-2026",
@@ -428,7 +428,7 @@
           "show": "nxt",
           "event_date": "2026-10-31",
           "source_url": "https://www.wwe.com/shows/nxtple/nxt-halloween-havoc-2026",
-          "checked_at": "2026-10-31T16:39:19.698Z",
+          "checked_at": "2026-10-31T17:13:04.342Z",
           "verification": "OFFICIAL_VERIFIED",
           "cards": [
             {
@@ -483,7 +483,7 @@
           "show": "wwe",
           "event_date": "2026-11-07",
           "source_url": "https://www.wwe.com/shows/wwe-crown-jewel/crown-jewel-2026",
-          "checked_at": "2026-10-31T16:39:19.698Z",
+          "checked_at": "2026-10-31T17:13:04.342Z",
           "verification": "OFFICIAL_VERIFIED",
           "cards": [
             {
