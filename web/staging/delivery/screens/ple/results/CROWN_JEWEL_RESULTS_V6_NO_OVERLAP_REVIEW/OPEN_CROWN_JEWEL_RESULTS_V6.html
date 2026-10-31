@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+
+<html><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1" name="viewport"/><title>Crown Jewel Results V3 — King of the Ring Format Review</title><style>
+*{box-sizing:border-box}html,body{margin:0;background:#030303;color:#fff;font-family:Arial,sans-serif}#board{width:720px;height:1280px;position:relative;overflow:hidden;background:#050403}.arena{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}.wash{position:absolute;inset:0;background:linear-gradient(to bottom,#0006 0%,#0004 20%,#090705e8 32%,#080705f7 100%)}.brand{position:absolute;top:10px;left:90px;width:540px;height:142px;object-fit:contain}.event{position:absolute;top:154px;left:70px;right:70px;text-align:center;font:900 47px/1 Impact,'Arial Black',sans-serif;letter-spacing:1px;color:#ffe3a0;text-shadow:0 4px 8px #000}.event small{display:block;font-size:26px;letter-spacing:4px;color:#fff}.resultbar{position:absolute;top:248px;left:65px;width:590px;height:75px;text-align:center;padding:8px;background:linear-gradient(90deg,#261903,#9c6d18,#261903);border-block:2px solid #f3cc72}.resultbar b{font:900 32px Impact,'Arial Black';letter-spacing:2px}.resultbar small{display:block;margin-top:5px;font-size:12px;letter-spacing:1.5px;color:#ffe7b1}.frame{position:absolute;left:20px;top:339px;width:680px;height:851px;padding:11px;border:4px solid #d4a348;border-radius:10px;background:linear-gradient(135deg,#2d2009ed,#0b0908f6 50%,#211707f2);box-shadow:0 0 22px #d9a6474d}.strip{height:34px;background:#765117;display:flex;justify-content:space-between;align-items:center;padding:0 12px;font-weight:900;font-size:13px;letter-spacing:1px}.section{height:43px;display:flex;justify-content:space-between;align-items:center}.section h2{margin:0;font:900 23px Impact,'Arial Black'}.section small{color:#e3c37f;font-size:11px}.hero{position:relative;height:303px;border:2px solid #d7aa53;background:linear-gradient(100deg,#362509,#07090e 73%);overflow:hidden}.copy{position:absolute;top:17px;left:17px;width:380px;z-index:2}.eyebrow{color:#e5b65a;font-weight:900;font-size:14px;letter-spacing:1px}.name{font:900 43px/1.03 Impact,'Arial Black';margin:12px 0 10px}.detail{font-size:15px;font-weight:800;color:#f2e7ce}.belt{position:absolute;top:151px;left:12px;width:307px;height:110px;object-fit:contain;filter:drop-shadow(0 4px 7px #000)}.portrait{position:absolute;right:4px;bottom:0;width:250px;height:272px;object-fit:contain;object-position:bottom;filter:drop-shadow(0 5px 8px #000)}.demo{position:absolute;right:8px;top:8px;border:1px solid #9c7b43;background:#241a0c;padding:5px;font-size:9px;color:#e9ce9d;z-index:3}.second{height:194px;border:2px solid #b28a42;background:linear-gradient(100deg,#2a1d0b,#08090d 70%);position:relative;overflow:hidden}.second .copy{top:12px}.second .name{font-size:31px;margin:9px 0}.second .belt{top:89px;width:230px;height:83px}.second .portrait{width:205px;height:185px}.fallout{height:120px;background:#261c0c;border-left:4px solid #d6a750;padding:12px;font-size:14px;line-height:1.45;color:#f3e2c1}.ticker{position:absolute;bottom:0;left:0;width:720px;height:65px;border-top:3px solid #cba04d;background:#100d07;display:flex}.tickerlogo{width:190px;flex:none;background:#281b08;border-right:2px solid #cba04d;padding:5px}.tickerlogo img{width:100%;height:51px;object-fit:contain}.tickertext{display:flex;align-items:center;overflow:hidden;white-space:nowrap;font-size:17px;font-weight:900}.tickertext span{animation:move 27s linear infinite}@keyframes move{to{transform:translateX(-50%)}}.notice{position:absolute;bottom:69px;left:0;right:0;text-align:center;color:#dec38b;font-size:10px;letter-spacing:1px}
+
+/* V2: user-supplied arena and event logo; preserve winner panel structure */
+.wash{background:linear-gradient(to bottom,#0009 0%,#0009 23%,#030c20ee 32%,#040816f8 100%)}
+.brand{top:6px;height:119px}
+.eventlogo{position:absolute;top:124px;left:155px;width:410px;height:103px;object-fit:contain;filter:drop-shadow(0 3px 7px #000)}
+.resultbar{top:239px;background:linear-gradient(90deg,#05112a,#17468d,#05112a);border-color:#83bfff}
+.frame{top:331px;border-color:#428df1;background:linear-gradient(135deg,#091c3aef,#060c19f7 50%,#101e39f3);box-shadow:0 0 24px #2778e35c}
+.strip{background:#1a4688}.section small{color:#99c5ff}
+.hero{border-color:#5da5ff;background:linear-gradient(100deg,#132e55,#050c1a 73%)}
+.second{border-color:#447bbd;background:linear-gradient(100deg,#122b50,#060d1a 70%)}
+.eyebrow{color:#a4caff}.fallout{background:#101f3c;border-color:#5ca1ff;color:#e0eaff}
+.ticker{border-color:#5da1ff;background:#071124}.tickerlogo{background:#10264a;border-color:#5da1ff}.notice{color:#b8d4fa}
+.demo{border-color:#4e84ca;background:#102343;color:#c7dfff}
+
+/* V3: user-directed black/chrome, logo prominence, belt visibility, event ticker logo */
+.wash{background:linear-gradient(to bottom,rgba(0,0,0,.62) 0%,rgba(0,0,0,.80) 18%,rgba(0,0,0,.91) 32%,rgba(4,5,9,.97) 100%)}
+.brand{top:3px;left:110px;width:500px;height:103px}
+.eventlogo{top:100px;left:103px;width:514px;height:139px;object-fit:contain;filter:drop-shadow(0 0 4px #fff9) drop-shadow(0 4px 9px #000)}
+.resultbar{top:247px;height:74px;background:linear-gradient(90deg,#08090c,#30343a 28%,#555a61 50%,#292d33 72%,#08090c);border-color:#dfe6ee;box-shadow:0 0 12px #b7c6d166}
+.resultbar small{color:#e1e5eb}
+.frame{top:335px;border-color:#bfc8d3;background:linear-gradient(135deg,#1c1f25f5,#050609f8 53%,#1b1e24f7);box-shadow:0 0 20px #aeb8c44f}
+.strip{background:linear-gradient(90deg,#2b3038,#6b727b,#252932);color:white}
+.section small{color:#bfc6cf}
+.hero{border-color:#c6cbd3;background:linear-gradient(100deg,#22272f,#07080d 73%)}
+.second{border-color:#a9b2bd;background:linear-gradient(100deg,#1d222a,#06070c 70%)}
+.eyebrow{color:#d5dce5}.detail{color:#e8edf2}
+.belt{filter:brightness(1.8) contrast(1.14) saturate(1.05) drop-shadow(0 2px 9px #b9c7d877);width:320px;height:124px;top:146px;left:9px}
+.second .belt{width:245px;height:92px;top:85px}
+.fallout{background:#161a21;border-color:#c0c8d2;color:#e6ebf1}
+.ticker{border-color:#d6dde6;background:#080a0f}
+.tickerlogo{background:#20252d;border-color:#aeb8c5;padding:2px;width:190px}
+.tickerlogo img{width:100%;height:55px;object-fit:contain;filter:drop-shadow(0 1px 2px #000)}
+.notice{color:#cbd1da}
+.demo{border-color:#9ca6b5;background:#242a33;color:#e5e8ed}
+/* V5 — corrected OTHER MATCH RESULTS belt only: proportional, clearly lit, beneath result text */
+.hero .belt{left:17px;top:124px;width:280px;height:83px;object-fit:contain;object-position:center;filter:brightness(1.3) contrast(1.2) drop-shadow(0 0 5px rgba(255,210,110,.5));z-index:2}
+.hero .copy{z-index:3}
+/* V6: belt entirely below result text; never overlap copy */
+.hero .belt{top:151px!important;left:55px!important;width:210px!important;height:60px!important;object-fit:contain!important;z-index:1!important;filter:brightness(1.55) contrast(1.14) drop-shadow(0 2px 6px rgba(255,209,102,.65))!important}
+.hero .copy{z-index:3!important}
+</style><style>
+#board{background:radial-gradient(ellipse at 50% 16%,#674c17 0%,#211a0b 35%,#070707 76%)}
+#board:before{content:"";position:absolute;inset:0;background:repeating-linear-gradient(105deg,transparent 0 85px,#d8a83b10 86px 90px,transparent 91px 140px);pointer-events:none}
+.wash{background:linear-gradient(to bottom,#0005 0%,#0008 24%,#050402f2 38%,#080705fb 100%)}
+.eventlogo{top:112px;left:100px;width:520px;height:125px;filter:drop-shadow(0 3px 12px #cba64c8a)}
+.resultbar{top:247px;background:linear-gradient(90deg,#100c05,#6c5019,#b68c31,#6c5019,#100c05);border-color:#e8c96a}
+.frame{border-color:#caa851;background:linear-gradient(135deg,#251e0ff4,#090807f8 55%,#20170af5)}
+.strip{background:linear-gradient(90deg,#4e3911,#a27a2c,#4e3911)}
+.hero,.second{border-color:#d1ad57;background:linear-gradient(100deg,#2c2111,#090807 76%)}
+.fallout{background:#1d170d;border-color:#b99549}
+.ticker{border-color:#c5a65a;background:#100c05}.tickerlogo{border-color:#c5a65a;background:#1c1509}
+.eyebrow,.section small{color:#e6ca85}
+.belt-pending{position:absolute;left:22px;bottom:17px;color:#d6c18d;font-size:14px;font-weight:bold;letter-spacing:.8px;opacity:.8}
+#board{background:#050607}#board:before{display:none}.arena{object-fit:cover;object-position:center center}.wash{background:linear-gradient(to bottom,rgba(0,0,0,.38) 0%,rgba(0,0,0,.54) 18%,rgba(1,5,16,.90) 29%,rgba(4,6,13,.97) 45%,rgba(5,5,8,.98) 100%)}.eventlogo{top:109px;left:115px;width:490px;height:115px}.brand{top:5px}.resultbar{top:242px}.frame{top:332px} .belt-pending{font-size:12px;opacity:.8}
+/* V5 — corrected OTHER MATCH RESULTS belt only: proportional, clearly lit, beneath result text */
+.hero .belt{left:17px;top:124px;width:280px;height:83px;object-fit:contain;object-position:center;filter:brightness(1.3) contrast(1.2) drop-shadow(0 0 5px rgba(255,210,110,.5));z-index:2}
+.hero .copy{z-index:3}
+/* V6: belt entirely below result text; never overlap copy */
+.hero .belt{top:151px!important;left:55px!important;width:210px!important;height:60px!important;object-fit:contain!important;z-index:1!important;filter:brightness(1.55) contrast(1.14) drop-shadow(0 2px 6px rgba(255,209,102,.65))!important}
+.hero .copy{z-index:3!important}
+</style><style>
+/* Crown Jewel V3 — KOTR dual-winner layout and user-supplied belts */
+.frame{height:851px}.duo{height:328px;display:grid;grid-template-columns:1fr 1fr;gap:8px}.winnerbox{position:relative;overflow:hidden;border:2px solid #e2b95e;background:linear-gradient(145deg,#243c6a,#090e1b 67%,#191409)}.winnerbox .eyebrow{position:absolute;top:10px;left:4px;right:4px;text-align:center;font-size:11px;z-index:3;letter-spacing:.4px;color:#fbe5a3}.winnerportrait{position:absolute;top:38px;left:50%;transform:translateX(-50%);width:92%;height:193px;object-fit:contain;object-position:bottom;filter:drop-shadow(0 5px 8px #000)}.winnername{position:absolute;top:221px;left:3px;right:3px;text-align:center;background:#080b15dc;border-block:1px solid #cba34d;padding:5px 1px;font:900 18px Impact,'Arial Black',sans-serif;z-index:3}.specialbelt{position:absolute;bottom:7px;left:9%;width:82%;height:65px;object-fit:contain;filter:brightness(1.38) contrast(1.12) drop-shadow(0 2px 6px #000)}.duo+.section{height:37px}.hero{height:219px}.hero .copy{top:12px}.hero .name{font-size:37px;margin:9px 0}.hero .belt{top:117px;left:13px;width:230px;height:85px;filter:brightness(1.6) contrast(1.12) drop-shadow(0 2px 6px #000)}.hero .portrait{height:205px;width:200px}.hero+.section{height:37px}.fallout{height:107px;font-size:13px}.frame .section h2{font-size:20px}.frame .section small{font-size:10px}.frame .strip{font-size:12px}
+
+/* V4: ensure the other-match title belt reads clearly on dark panel */
+.hero .belt{width:275px;height:108px;top:106px;left:10px;filter:brightness(1.8) contrast(1.18) drop-shadow(0 0 8px rgba(255,215,120,.6));}
+/* V5 — corrected OTHER MATCH RESULTS belt only: proportional, clearly lit, beneath result text */
+.hero .belt{left:17px;top:124px;width:280px;height:83px;object-fit:contain;object-position:center;filter:brightness(1.3) contrast(1.2) drop-shadow(0 0 5px rgba(255,210,110,.5));z-index:2}
+.hero .copy{z-index:3}
+/* V6: belt entirely below result text; never overlap copy */
+.hero .belt{top:151px!important;left:55px!important;width:210px!important;height:60px!important;object-fit:contain!important;z-index:1!important;filter:brightness(1.55) contrast(1.14) drop-shadow(0 2px 6px rgba(255,209,102,.65))!important}
+.hero .copy{z-index:3!important}
+</style></head><body><div id="board"><img alt="User-supplied Crown Jewel arena" class="arena" src="assets/crown-jewel-user-arena.jpg"/><div class="wash"></div><img class="brand" src="assets/man-cave-logo.png"/><img alt="Crown Jewel" class="eventlogo" src="assets/crown-jewel-user-logo.png"/><div class="resultbar"><b>RESULTS &amp; FALLOUT</b><small>CHAMPIONSHIP WINNERS · CROWN JEWEL AFTERMATH</small></div><div class="frame"><div class="strip"><span>CROWN JEWEL · RESULTS</span><span>WINNERS ONLY</span></div><div class="section"><h2>MEN’S &amp; WOMEN’S CROWN JEWEL CHAMPIONS</h2><small>WINNER SPOTLIGHTS</small></div><div class="duo"><div class="winnerbox"><div class="eyebrow">MEN’S CROWN JEWEL CHAMPIONSHIP</div><img class="winnerportrait" src="assets/demo-man.png"/><div class="winnername">WINNER PENDING</div><img class="specialbelt" src="assets/mens-crown-jewel-belt.png"/></div><div class="winnerbox"><div class="eyebrow">WOMEN’S CROWN JEWEL CHAMPIONSHIP</div><img class="winnerportrait" src="assets/demo-woman.png"/><div class="winnername">WINNER PENDING</div><img class="specialbelt" src="assets/womens-crown-jewel-belt.png"/></div></div><div class="section"><h2>OTHER MATCH RESULTS</h2><small>ROTATING SPOTLIGHT</small></div><div class="hero"><div class="copy"><div class="eyebrow">OTHER MATCH · WINNER SPOTLIGHT</div><div class="name">WINNER<br/>PENDING</div><div class="detail">Opponent TBD · Finish TBD</div></div><img class="belt" src="assets/wwe-undisputed-championship.png"/><img class="portrait" src="assets/demo-man.png"/><div class="demo">DESIGN DEMO · NOT A REAL RESULT</div></div><div class="section"><h2>FALLOUT &amp; WHAT’S NEXT</h2><small>EVENT STORYLINES</small></div><div class="fallout">Verified championship results, Crown Jewel winners and developing rivalries appear here after the event. Wrestler portraits are placeholders, not confirmed winners.</div></div><div class="notice">DESIGN PREVIEW ONLY · RESULTS NOT YET VERIFIED</div><div class="ticker"><div class="tickerlogo"><img alt="Crown Jewel" src="assets/crown-jewel-user-logo.png"/></div><div class="tickertext"><span>CROWN JEWEL RESULTS　◆　OTHER MATCH RESULTS　◆　FALLOUT &amp; WHAT’S NEXT　◆　INSIDE THE SQUARED CIRCLE　◆　CROWN JEWEL RESULTS　◆　CHAMPIONSHIP WINNERS　◆　</span></div></div></div></body></html>
