@@ -81,7 +81,7 @@
  byId('watch-active').onclick=function(){mode='active';switchPanel(false);mode='active';setTv(true);choose(candidates()[0],true);};
  window.addEventListener('popstate',function(){setTv(new URLSearchParams(location.search).get('view')==='tv');});
  Promise.all([getJSON('library.json'),getJSON('asset-routes.json')]).then(async function(values){
-  library=values[0];routes=values[1];byId('stats').innerHTML='<span><b>'+library.source_slots+'</b> source-backed slots</span><span>·</span><span><b>1</b> recovery hold</span><span>·</span><span><b>68</b> library slots</span>';
+  library=values[0];routes=values[1];byId('stats').innerHTML='<span><b>'+library.source_slots+'</b> source-backed slots</span><span>·</span><span><b>0</b> recovery holds</span><span>·</span><span><b>68</b> library slots</span>';
   ['All designs','Weekly Upcoming','Weekly Results','Championships','PLE Preview','PLE Results'].forEach(function(category,i){var b=document.createElement('button');b.textContent=category;b.className=i===0?'selected':'';b.onclick=function(){document.querySelectorAll('#filters button').forEach(function(x){x.classList.toggle('selected',x===b);});gallery(category);};byId('filters').append(b);});
   gallery('All designs');var refreshed=refresh();
   // The default landing page must never masquerade an archived example as live.
