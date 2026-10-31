@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "mode": "TVMAZE_FINISHED_EPISODE_GUIDE_SYNOPSIS_ONLY",
-  "generated_at": "2026-10-31T01:02:16.310395-04:00",
+  "generated_at": "2026-10-31T04:59:57.046953-04:00",
   "policy": "TVmaze CC BY-SA episode synopses only; these may have been written before broadcast. No match winners, title changes, storylines or confirmed appearances may be inferred.",
   "programs": [
     {
@@ -16,13 +16,13 @@
     },
     {
       "show_id": "smackdown",
-      "airdate": null,
-      "synopsis": null,
-      "episode_id": null,
-      "evidence_url": null,
+      "airdate": "2026-10-30",
+      "synopsis": "Halloween is in the air, and the best show on Friday night is embracing the scary. Danhausen presents \"Danhausen's Very Nice, Very Evil SmackDown.\" Expect the unexpected with the unsettling special edition of SmackDown. After barely esca…",
+      "episode_id": 3680018,
+      "evidence_url": "https://api.tvmaze.com/episodes/3680018",
       "source_name": "TVmaze",
       "license": "CC BY-SA",
-      "status": "no_completed_episode"
+      "status": "episode_synopsis"
     },
     {
       "show_id": "nxt",
@@ -65,5 +65,5 @@
       "status": "episode_synopsis"
     }
   ],
-  "synopses_available": 2
+  "synopses_available": 3
 }
