@@ -1,0 +1,81 @@
+name: Import verified original board library into staging
+on:
+  push:
+    branches: [work/all-boards-github-pages]
+    paths: ['.github/workflows/import-source-library.yml']
+  workflow_dispatch:
+permissions:
+  contents: write
+concurrency:
+  group: isc-original-source-import
+  cancel-in-progress: false
+jobs:
+  import:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: work/all-boards-github-pages
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Import and hash-check the exact staged source files
+        env:
+          ISC_TRANSFER_ORIGIN: https://isc-original-board-review.bigaz5523.chatgpt.site/
+          ISC_MANIFEST_SHA256: 9b13cf9179805eb5894dcca173f40caefa0c6a458ffd50493c8ea9744e1f3271
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          from urllib.request import Request,urlopen
+          from concurrent.futures import ThreadPoolExecutor,as_completed
+          import hashlib,json,os,time
+          base=os.environ['ISC_TRANSFER_ORIGIN']
+          def get(asset):
+              assert not asset.startswith('/') and '..' not in Path(asset).parts
+              req=Request(base+asset,headers={'User-Agent':'ISC-Verified-Staging-Import/1.0'})
+              with urlopen(req,timeout=90) as r:return r.read()
+          for attempt in range(18):
+              try:raw=get('transfer-manifest.json');break
+              except Exception:
+                  if attempt==17:raise
+                  print('Waiting for the verified staging source to become available')
+                  time.sleep(10)
+          assert hashlib.sha256(raw).hexdigest()==os.environ['ISC_MANIFEST_SHA256'],'Transfer manifest changed'
+          manifest=json.loads(raw)
+          assert len(manifest['files'])==750,'Source file inventory changed'
+          def copy(row):
+              name=row['path']
+              assert name.startswith(('web/staging/','proof/staging/')) or name in ('proof/stage_library.py','tests/staging-playlist.cjs','.github/workflows/staging-library.yml')
+              assert '..' not in Path(name).parts
+              # The connected GitHub account installs workflow files separately.
+              # The runner token imports the source/artwork, with no workflow change.
+              if name=='.github/workflows/staging-library.yml':return 0
+              data=get(row['asset'])
+              assert len(data)==row['size'],name
+              assert hashlib.sha256(data).hexdigest()==row['sha256'],name
+              target=Path(name);target.parent.mkdir(parents=True,exist_ok=True)
+              target.write_bytes(data)
+              return 1
+          count=0
+          with ThreadPoolExecutor(max_workers=6) as pool:
+              futures=[pool.submit(copy,row) for row in manifest['files']]
+              for f in as_completed(futures):count+=f.result()
+          assert count==749,count
+          print('Imported and hash-verified',count,'source files; production main untouched')
+          PY
+      - name: Verify all original board and artwork hashes
+        run: node proof/staging/verify.mjs
+      - name: Verify active playlist rules
+        run: node --test tests/staging-playlist.cjs
+      - name: Collect source-backed current staging content
+        run: node proof/staging/collect.mjs
+      - name: Commit only to the integration branch
+        run: |
+          git config user.name github-actions[bot]
+          git config user.email github-actions[bot]@users.noreply.github.com
+          git add web/staging proof/staging proof/stage_library.py tests/staging-playlist.cjs
+          if ! git diff --cached --quiet; then
+            git commit -m "feat(staging): import verified original boards and cached artwork"
+            git push origin HEAD:work/all-boards-github-pages
+          fi
+      # This workflow never deploys GitHub Pages and never updates main.
