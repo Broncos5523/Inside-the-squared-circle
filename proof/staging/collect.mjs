@@ -40,10 +40,23 @@ if(snapshotFresh){
  for(const p of programs){const s=scoped.shows.find(s=>s.id===p.show_id);if(s)s.next={...s.next,date:p.airdate};}
  feeds['snapshot.json']=scoped;
  feeds['reported.json']={schema_version:1,mode:'REPORTED_MATCHES_UNVERIFIED',generated_at:now.toISOString(),display_attribution:'Wrestling Central News (wrestlingcentralnews.com)',programs,total_reported_matches:programs.reduce((n,p)=>n+p.matches.length,0),total_reported_appearances:programs.reduce((n,p)=>n+p.appearances.length,0)};
- for(const p of programs){
-  const board=library.records.find(r=>r.id==='weekly-upcoming-'+p.show_id);
-  if(!board?.source_available||!board.design_approved||!isCurrentOrFuture(p.airdate))continue;
-  entries.push({id:board.id,title:board.label,show:p.show_id,kind:'upcoming',airdate:p.airdate,source_available:true,design_approved:true,content_status:'current',verification:'SOURCE_REPORTED',has_content:true,checked_at:now.toISOString(),source_name:'Wrestling Central News',source_url:p.source_url,venue:null});
+ // Supply ONE source-confirmed next-broadcast candidate for each weekly show.
+ // A schedule-only preview is valid even if no matches/appearances have been
+ // announced; do not invent any. The live playlist selects only the nearest
+ // show from these choices. Evolve remains a recap, never an upcoming card.
+ for(const show of scoped.shows){
+  if(!['raw','smackdown','nxt','aaa','tna'].includes(show.id))continue;
+  const board=library.records.find(r=>r.id==='weekly-upcoming-'+show.id);
+  const date=show.next?.date;
+  if(show.schedule_status!=='fresh'||!board?.source_available||!board.design_approved||!isCurrentOrFuture(date))continue;
+  const reported=programs.find(p=>p.show_id===show.id&&p.airdate===date);
+  entries.push({
+   id:board.id,title:board.label,show:show.id,kind:'upcoming',airdate:date,
+   source_available:true,design_approved:true,content_status:'current',
+   verification:'SOURCE_REPORTED',has_content:!!reported,schedule_confirmed:true,
+   checked_at:now.toISOString(),source_name:reported?'Wrestling Central News':'Published episode schedule',
+   source_url:reported?.source_url||sourceRoot+'snapshot.json',venue:null
+  });
  }
 }
 // Existing reviewed results can be reused only when their exact current episode
