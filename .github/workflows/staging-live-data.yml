@@ -9,8 +9,10 @@ on:
       - 'tests/staging-playlist.cjs'
       - 'tests/staging-official-events.mjs'
       - 'tests/staging-reviewed-archive.mjs'
-      - 'tests/staging-official-weekly-results.mjs tests/staging-evolve.cjs'
+      - 'tests/staging-official-weekly-results.mjs'
       - 'tests/staging-adapter-live.cjs'
+      - 'tests/staging-portrait-resolution.cjs'
+      - 'tests/staging-player-lifecycle.cjs'
       - 'tests/staging-evolve.cjs'
       - '.github/workflows/staging-live-data.yml'
   workflow_dispatch:
@@ -36,7 +38,7 @@ jobs:
           node --check web/staging/playlist-engine.js
           node --check web/staging/review.js
       - name: Run staging playlist tests
-        run: node --test tests/staging-adapter-live.cjs tests/staging-playlist.cjs tests/staging-official-events.mjs tests/staging-reviewed-archive.mjs tests/staging-official-weekly-results.mjs
+        run: node --test tests/staging-adapter-live.cjs tests/staging-playlist.cjs tests/staging-official-events.mjs tests/staging-reviewed-archive.mjs tests/staging-official-weekly-results.mjs tests/staging-evolve.cjs tests/staging-portrait-resolution.cjs tests/staging-player-lifecycle.cjs
       - name: Collect staging facts (scheduled runs only)
         if: github.event_name == 'schedule' || github.event_name == 'workflow_dispatch'
         run: node proof/staging/collect.mjs

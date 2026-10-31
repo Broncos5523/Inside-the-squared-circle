@@ -1,11 +1,11 @@
 (function(){
  'use strict';
- var base=new URL('./',location.href).href,library,routes,feeds={},programming={entries:[]},active=[],visible=[],current=null,timer=null,token=0,mode='archive';
+ var base=new URL('./',location.href).href,library,routes,feeds={},programming={entries:[]},active=[],visible=[],current=null,timer=null,token=0,mode='archive',refreshing=null,initialized=false;
  var params=new URLSearchParams(location.search),byId=function(id){return document.getElementById(id);};
  function getJSON(path){return fetch(new URL(path,base),{cache:'no-store'}).then(function(r){if(!r.ok)throw Error(path+' unavailable');return r.json();});}
  function label(record){if(record.id.indexOf('results-summerslam_night_one_')===0)return 'SummerSlam — Night One — Results & Fallout';if(record.id.indexOf('results-summerslam_night_two_')===0)return 'SummerSlam — Night Two — Results & Fallout';return record.label;}
  function scale(){var p=byId('preview'),screen=p.querySelector('.screen');p.style.height=(document.body.classList.contains('tv')?window.innerHeight:p.clientWidth*1280/720)+'px';var h=p.clientHeight,w=p.clientWidth,s=Math.min(w/720,h/1280);screen.style.transform='translateX(-50%) scale('+s+')';}
- function setTv(enabled){document.body.classList.toggle('tv',enabled);byId('review-panel').dataset.mode=mode==='archive'?'ARCHIVE DESIGN REVIEW':'';scale();}
+ function setTv(enabled){document.body.classList.toggle('tv',enabled);if(enabled)byId('gallery').replaceChildren();else if(mode==='archive'&&library&&!byId('gallery').childNodes.length)gallery('All designs');byId('review-panel').dataset.mode=mode==='archive'?'ARCHIVE DESIGN REVIEW':'';scale();}
  function waitingForVerified(){
   // Never fall back to the 67-board archive carousel in production playback.
   stop();current=null;
@@ -20,7 +20,7 @@
  function schedule(){if(timer)clearTimeout(timer);var ms=Number(byId('duration').value)*1000;if(mode==='active'&&current){var entry=active.find(function(x){return x.id===current.id;});if(entry&&ISCPlaylist.dwellMs)ms=ISCPlaylist.dwellMs(entry,feeds,ms);}timer=setTimeout(function(){step(1,true);},ms);byId('rotate').textContent=mode==='active'?'Pause playback':'Pause review';}
  function step(delta,keepPlaying){var list=candidates();if(!list.length)return;var pos=list.findIndex(function(r){return current&&r.id===current.id;});choose(list[(Math.max(pos,0)+delta+list.length)%list.length],keepPlaying);}
  async function choose(record,keepPlaying){
-  if(!keepPlaying)stop();current=record;var mine=++token;var frame=byId('board');frame.classList.remove('ready');byId('loading').hidden=false;byId('loading').style.display='grid';
+  if(!keepPlaying)stop();current=record;var mine=++token;var previousFrame=byId('board'),frame=previousFrame.cloneNode(false);frame.removeAttribute('srcdoc');frame.removeAttribute('src');previousFrame.replaceWith(frame);frame.classList.remove('ready');byId('loading').hidden=false;byId('loading').style.display='grid';
   byId('board-title').textContent=label(record);var list=candidates();byId('board-count').textContent=Math.max(0,list.findIndex(function(r){return r.id===record.id;}))+1+' / '+list.length;
   document.querySelectorAll('.card').forEach(function(el){el.classList.toggle('selected',el.dataset.id===record.id);});
   if(!record.source_available){frame.srcdoc='';byId('loading').textContent='Final Evolve board awaiting recovery. The approved design has not been substituted.';return;}
@@ -43,8 +43,10 @@
    var title=document.createElement('strong');title.textContent=label(r);b.append(title);grid.append(b);
   });
  }
- function switchPanel(activePanel){stop();byId('review-panel').hidden=activePanel;byId('active-panel').hidden=!activePanel;byId('library-tab').classList.toggle('selected',!activePanel);byId('active-tab').classList.toggle('selected',activePanel);if(!activePanel){mode='archive';setTv(false);}}
- async function refresh(){
+ function switchPanel(activePanel){stop();if(activePanel)byId('gallery').replaceChildren();byId('review-panel').hidden=activePanel;byId('active-panel').hidden=!activePanel;byId('library-tab').classList.toggle('selected',!activePanel);byId('active-tab').classList.toggle('selected',activePanel);if(!activePanel){mode='archive';setTv(false);}}
+ function refresh(){if(refreshing)return refreshing;refreshing=refreshNow().finally(function(){refreshing=null;});return refreshing;}
+ function showActive(){stop();byId('review-panel').hidden=false;byId('active-panel').hidden=true;mode='active';setTv(true);}
+ async function refreshNow(){
   try{
    var external=location.hostname!=='broncos5523.github.io'&&location.hostname!=='terminal.local'&&location.hostname!=='127.0.0.1';
    if(external){try{var controller=new AbortController(),timeout=setTimeout(()=>controller.abort(),4500);var result=await fetch('https://raw.githubusercontent.com/Broncos5523/Inside-the-squared-circle/work/all-boards-github-pages/web/staging/data/programming.json?t='+Math.floor(Date.now()/300000),{cache:'no-store',signal:controller.signal});clearTimeout(timeout);if(!result.ok)throw Error('Branch facts pending');programming=await result.json();}catch(_){programming=await getJSON('data/programming.json');}}
@@ -61,13 +63,13 @@
   var list=byId('active-list');list.replaceChildren();active.forEach(function(x){var d=document.createElement('div'),strong=document.createElement('strong'),small=document.createElement('small');strong.textContent=x.title;small.textContent=(x.airdate||x.event_date)+' · '+x.source_name;d.append(strong,small);list.append(d);});
   byId('feed-stamp').textContent=programming.generated_at?(feedFresh?'Collector last ran ':'STALE DATA — collector last ran ')+new Date(programming.generated_at).toLocaleString()+'. Browser checks for published updates every five minutes; this does not run the collector.':'Current-content collection is pending; archive examples are held outside the TV playlist.';
   if(!feedFresh)byId('active-summary').textContent='Live-data collection is stale or unavailable. Archived demonstrations remain in the design library and are not presented as live programming.';
-  if(mode==='active'){
+  if(mode==='active'&&initialized){
    var next=candidates()[0];
    if(current&&!active.some(function(x){return x.id===current.id;})){
     stop();current=null;
     if(next)choose(next,true);else if(params.get('view')==='tv')waitingForVerified();else switchPanel(true);
    }else if(!current&&next&&new URLSearchParams(location.search).get('view')==='tv'){
-    switchPanel(false);mode='active';setTv(true);choose(next,true);
+    showActive();choose(next,true);
    }
   }
  }
@@ -78,21 +80,21 @@
  byId('previous').onclick=function(){step(-1,false);};byId('next').onclick=function(){step(1,false);};byId('rotate').onclick=function(){if(timer)stop();else schedule();};
  byId('fullscreen').onclick=function(){setTv(true);var u=new URL(location.href);u.searchParams.set('view','tv');u.searchParams.set('mode',mode);if(current)u.searchParams.set('id',current.id);history.pushState({},'',u);};
  byId('library-tab').onclick=function(){switchPanel(false);if(current)choose(current,false);};byId('active-tab').onclick=function(){switchPanel(true);};
- byId('watch-active').onclick=function(){mode='active';switchPanel(false);mode='active';setTv(true);choose(candidates()[0],true);};
+ byId('watch-active').onclick=function(){mode='active';showActive();choose(candidates()[0],true);};
  window.addEventListener('popstate',function(){setTv(new URLSearchParams(location.search).get('view')==='tv');});
  Promise.all([getJSON('library.json'),getJSON('asset-routes.json')]).then(async function(values){
   library=values[0];routes=values[1];byId('stats').innerHTML='<span><b>'+library.source_slots+'</b> source-backed slots</span><span>·</span><span><b>0</b> recovery holds</span><span>·</span><span><b>68</b> library slots</span>';
   ['All designs','Weekly Upcoming','Weekly Results','Championships','PLE Preview','PLE Results'].forEach(function(category,i){var b=document.createElement('button');b.textContent=category;b.className=i===0?'selected':'';b.onclick=function(){document.querySelectorAll('#filters button').forEach(function(x){x.classList.toggle('selected',x===b);});gallery(category);};byId('filters').append(b);});
-  gallery('All designs');var refreshed=refresh();
+  visible=library.records.slice();mode=params.get('mode')==='archive'?'archive':'active';if(params.get('view')==='tv')setTv(true);else if(mode==='archive')gallery('All designs');var refreshed=refresh();
   // The default landing page must never masquerade an archived example as live.
   // Explicit archive URLs still support the original design-review workflow.
   mode=params.get('mode')==='archive'?'archive':'active';
   await refreshed;
   var first=mode==='active'?candidates()[0]:library.records.find(function(r){return r.id===params.get('id');})||library.records.find(function(r){return r.id==='weekly-results-smackdown';})||visible[0];
-  if(!first){mode='active';if(params.get('view')==='tv')waitingForVerified();else switchPanel(true);byId('active-summary').textContent='Live programming is temporarily unavailable. Waiting for a fresh verified collection; archive demonstrations are not being broadcast.';setInterval(refresh,300000);return;}
-  if(mode==='active'){switchPanel(true);mode='active';if(params.get('view')==='tv'){switchPanel(false);mode='active';setTv(true);await choose(first,true);}}
+  if(!first){initialized=true;mode='active';if(params.get('view')==='tv')waitingForVerified();else switchPanel(true);byId('active-summary').textContent='Live programming is temporarily unavailable. Waiting for a fresh verified collection; archive demonstrations are not being broadcast.';setInterval(refresh,300000);return;}
+  if(mode==='active'){switchPanel(true);mode='active';if(params.get('view')==='tv'){showActive();await choose(first,true);}}
   else{setTv(params.get('view')==='tv');await choose(first,params.get('play')==='1');}
-  scale();setInterval(refresh,300000);
+  initialized=true;scale();setInterval(refresh,300000);
  }).catch(function(error){byId('loading').textContent='Library could not load: '+error.message;});
  window.__iscReview={select:function(id){var r=library.records.find(function(x){return x.id===id;});if(r)return choose(r,false);},getLibrary:function(){return library;},getActive:function(){return active;},getCurrent:function(){return current;},getRoutes:function(){return routes;}};
 })();
