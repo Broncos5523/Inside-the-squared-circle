@@ -52,7 +52,15 @@
   var list=byId('active-list');list.replaceChildren();active.forEach(function(x){var d=document.createElement('div'),strong=document.createElement('strong'),small=document.createElement('small');strong.textContent=x.title;small.textContent=(x.airdate||x.event_date)+' · '+x.source_name;d.append(strong,small);list.append(d);});
   byId('feed-stamp').textContent=programming.generated_at?(feedFresh?'Collector last ran ':'STALE DATA — collector last ran ')+new Date(programming.generated_at).toLocaleString()+'. Browser checks for published updates every five minutes; this does not run the collector.':'Current-content collection is pending; archive examples are held outside the TV playlist.';
   if(!feedFresh)byId('active-summary').textContent='Live-data collection is stale or unavailable. Archived demonstrations remain in the design library and are not presented as live programming.';
-  if(mode==='active'&&current&&!active.some(function(x){return x.id===current.id;})){var next=candidates()[0];if(next)choose(next,true);else{stop();setTv(false);switchPanel(true);}}
+  if(mode==='active'){
+   var next=candidates()[0];
+   if(current&&!active.some(function(x){return x.id===current.id;})){
+    stop();current=null;
+    if(next)choose(next,true);else{setTv(false);switchPanel(true);}
+   }else if(!current&&next&&new URLSearchParams(location.search).get('view')==='tv'){
+    switchPanel(false);mode='active';setTv(true);choose(next,true);
+   }
+  }
  }
  window.addEventListener('message',function(event){if(event.source!==byId('board').contentWindow||!event.data||event.data.type!=='isc-board-ready'||!current||event.data.id!==current.id)return;byId('board').classList.add('ready');byId('loading').style.display='none';byId('status').textContent=mode==='archive'?'Archive design · Original source verified':'Source-backed active playback';});
  window.addEventListener('resize',scale);window.addEventListener('orientationchange',scale);
