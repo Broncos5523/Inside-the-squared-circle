@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "mode": "SOURCE_GATED_STAGING",
-  "generated_at": "2026-10-31T16:12:36.410Z",
+  "generated_at": "2026-10-31T16:29:39.606Z",
   "entries": [
     {
       "id": "weekly-upcoming-raw",
@@ -15,7 +15,7 @@
       "verification": "SOURCE_REPORTED",
       "has_content": false,
       "schedule_confirmed": true,
-      "checked_at": "2026-10-31T16:12:36.410Z",
+      "checked_at": "2026-10-31T16:29:39.606Z",
       "source_name": "Published episode schedule",
       "source_url": "https://broncos5523.github.io/Inside-the-squared-circle/data/snapshot.json",
       "venue": null
@@ -32,7 +32,7 @@
       "verification": "SOURCE_REPORTED",
       "has_content": false,
       "schedule_confirmed": true,
-      "checked_at": "2026-10-31T16:12:36.410Z",
+      "checked_at": "2026-10-31T16:29:39.606Z",
       "source_name": "Published episode schedule",
       "source_url": "https://broncos5523.github.io/Inside-the-squared-circle/data/snapshot.json",
       "venue": null
@@ -49,7 +49,7 @@
       "verification": "SOURCE_REPORTED",
       "has_content": false,
       "schedule_confirmed": true,
-      "checked_at": "2026-10-31T16:12:36.410Z",
+      "checked_at": "2026-10-31T16:29:39.606Z",
       "source_name": "Published episode schedule",
       "source_url": "https://broncos5523.github.io/Inside-the-squared-circle/data/snapshot.json",
       "venue": null
@@ -66,7 +66,7 @@
       "verification": "SOURCE_REPORTED",
       "has_content": false,
       "schedule_confirmed": true,
-      "checked_at": "2026-10-31T16:12:36.410Z",
+      "checked_at": "2026-10-31T16:29:39.606Z",
       "source_name": "Published episode schedule",
       "source_url": "https://broncos5523.github.io/Inside-the-squared-circle/data/snapshot.json",
       "venue": null
@@ -83,7 +83,7 @@
       "verification": "SOURCE_REPORTED",
       "has_content": true,
       "schedule_confirmed": true,
-      "checked_at": "2026-10-31T16:12:36.410Z",
+      "checked_at": "2026-10-31T16:29:39.606Z",
       "source_name": "Wrestling Central News",
       "source_url": "https://wrestlingcentralnews.com/events/2026-11-05-tna-impact/",
       "venue": null
@@ -215,7 +215,7 @@
     "reported.json": {
       "schema_version": 1,
       "mode": "REPORTED_MATCHES_UNVERIFIED",
-      "generated_at": "2026-10-31T16:12:36.410Z",
+      "generated_at": "2026-10-31T16:29:39.606Z",
       "display_attribution": "Wrestling Central News (wrestlingcentralnews.com)",
       "programs": [
         {
@@ -250,6 +250,11 @@
       ],
       "total_reported_matches": 3,
       "total_reported_appearances": 0
+    },
+    "official-events.json": {
+      "mode": "OFFICIAL_WWE_EVENT_PREVIEWS",
+      "generated_at": "2026-10-31T16:29:39.606Z",
+      "programs": []
     }
   },
   "collection": {
@@ -257,10 +262,15 @@
     "show_count": 4,
     "programs_with_data": 1,
     "errors": 0,
-    "snapshot_fresh": true
+    "snapshot_fresh": true,
+    "official_event_count": 0,
+    "official_event_warnings": [
+      "nxt-halloween-havoc-2026:approved source missing",
+      "wwe-crown-jewel-2026:approved source missing"
+    ]
   },
   "notes": [
-    "Examples remain excluded. Championships, PLEs and Evolve require complete verified data plus their exact approved source.",
-    "Source credits retained. Public hosting clearance confirmed by owner 2026-10-30."
+    "Archived examples remain excluded from current programming. Event matches must clear official-source and approved-portrait checks. Weekly results and Evolve remain held until the exact episode facts are verified and renderable.",
+    "Source credits retained privately; public hosting clearance confirmed by owner 2026-10-30."
   ]
 }
