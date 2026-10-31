@@ -1,6 +1,6 @@
 (function(){
  'use strict';
- var base=new URL('./',location.href).href,library,routes,feeds={},programming={entries:[]},active=[],visible=[],current=null,timer=null,token=0,mode='archive',refreshing=null,initialized=false;
+ var base=new URL('./',location.href).href,library,routes,feeds={},programming={entries:[]},active=[],visible=[],current=null,timer=null,token=0,mode='archive',refreshing=null,initialized=false,playing=false,advanceAt=0,minimumEnd=0,boardReady=false;
  var params=new URLSearchParams(location.search),byId=function(id){return document.getElementById(id);};
  function getJSON(path){return fetch(new URL(path,base),{cache:'no-store'}).then(function(r){if(!r.ok)throw Error(path+' unavailable');return r.json();});}
  function label(record){if(record.id.indexOf('results-summerslam_night_one_')===0)return 'SummerSlam — Night One — Results & Fallout';if(record.id.indexOf('results-summerslam_night_two_')===0)return 'SummerSlam — Night Two — Results & Fallout';return record.label;}
@@ -16,11 +16,13 @@
   setTv(true);
  }
  function candidates(){return mode==='active'?active.map(function(e){return library.records.find(function(r){return r.id===e.id;});}).filter(function(r){return r&&r.source_available&&r.design_approved;}):visible.filter(function(r){return r.source_available;});}
- function stop(){if(timer)clearTimeout(timer);timer=null;byId('rotate').textContent='Play review';}
- function schedule(){if(timer)clearTimeout(timer);var ms=Number(byId('duration').value)*1000;if(mode==='active'&&current){var entry=active.find(function(x){return x.id===current.id;});if(entry&&ISCPlaylist.dwellMs)ms=ISCPlaylist.dwellMs(entry,feeds,ms);}timer=setTimeout(function(){step(1,true);},ms);byId('rotate').textContent=mode==='active'?'Pause playback':'Pause review';}
+ function stop(){if(timer)clearTimeout(timer);timer=null;playing=false;advanceAt=0;byId('rotate').textContent='Play review';}
+ function armAdvance(ms){if(timer)clearTimeout(timer);playing=true;advanceAt=Date.now()+ms;timer=setTimeout(function(){step(1,true);},ms);byId('rotate').textContent=mode==='active'?'Pause playback':'Pause review';}
+ function schedule(){var ms=Number(byId('duration').value)*1000;minimumEnd=Date.now()+Math.max(20000,ms);if(mode==='active'&&current){var entry=active.find(function(x){return x.id===current.id;});if(entry&&ISCPlaylist.dwellMs)ms=ISCPlaylist.dwellMs(entry,feeds,ms);}armAdvance(ms);}
+ function checkAdvance(){if(playing&&current&&!document.hidden&&advanceAt&&Date.now()>=advanceAt)step(1,true);}
  function step(delta,keepPlaying){var list=candidates();if(!list.length)return;var pos=list.findIndex(function(r){return current&&r.id===current.id;});choose(list[(Math.max(pos,0)+delta+list.length)%list.length],keepPlaying);}
  async function choose(record,keepPlaying){
-  if(!keepPlaying)stop();current=record;var mine=++token;var previousFrame=byId('board'),frame=previousFrame.cloneNode(false);frame.removeAttribute('srcdoc');frame.removeAttribute('src');previousFrame.replaceWith(frame);frame.classList.remove('ready');byId('loading').hidden=false;byId('loading').style.display='grid';
+  if(timer)clearTimeout(timer);timer=null;advanceAt=0;boardReady=false;if(!keepPlaying)stop();else playing=true;current=record;var mine=++token;var previousFrame=byId('board'),frame=previousFrame.cloneNode(false);frame.removeAttribute('srcdoc');frame.removeAttribute('src');previousFrame.replaceWith(frame);frame.classList.remove('ready');byId('loading').hidden=false;byId('loading').style.display='grid';
   byId('board-title').textContent=label(record);var list=candidates();byId('board-count').textContent=Math.max(0,list.findIndex(function(r){return r.id===record.id;}))+1+' / '+list.length;
   document.querySelectorAll('.card').forEach(function(el){el.classList.toggle('selected',el.dataset.id===record.id);});
   if(!record.source_available){frame.srcdoc='';byId('loading').textContent='Final Evolve board awaiting recovery. The approved design has not been substituted.';return;}
@@ -73,9 +75,22 @@
    }
   }
  }
- window.addEventListener('message',function(event){if(event.source!==byId('board').contentWindow||!event.data||event.data.type!=='isc-board-ready'||!current||event.data.id!==current.id)return;byId('board').classList.add('ready');byId('loading').style.display='none';byId('status').textContent=mode==='archive'?'Archive design · Original source verified':'Source-backed active playback';});
+ window.addEventListener('message',function(event){
+  var data=event.data;
+  if(event.source!==byId('board').contentWindow||!data||!current||data.id!==current.id)return;
+  if(data.type==='isc-board-cycle'){
+   if(!playing||mode!=='active'||current.category!=='Weekly Results'||!Number.isInteger(data.index)||!Number.isInteger(data.total)||data.index<1||data.index>data.total||data.total>100)return;
+   if(data.complete===true&&data.index===1&&Date.now()>=minimumEnd){step(1,true);return;}
+   if(data.index===data.total)armAdvance(Math.max(14000,minimumEnd-Date.now()));
+   return;
+  }
+  if(data.type!=='isc-board-ready')return;
+  byId('board').classList.add('ready');byId('loading').style.display='none';byId('status').textContent=mode==='archive'?'Archive design · Original source verified':'Source-backed active playback';
+  if(!boardReady){boardReady=true;if(playing)schedule();}
+ });
+ setInterval(checkAdvance,1000);window.addEventListener('pageshow',checkAdvance);
  window.addEventListener('resize',scale);window.addEventListener('orientationchange',scale);
- document.addEventListener('visibilitychange',function(){if(!document.hidden){refresh();scale();}});
+ document.addEventListener('visibilitychange',function(){if(!document.hidden){checkAdvance();refresh();scale();}});
  document.addEventListener('keydown',function(e){if(e.key==='ArrowRight')step(1,!!timer);if(e.key==='ArrowLeft')step(-1,!!timer);if(e.key==='Escape'){setTv(false);stop();}});
  byId('previous').onclick=function(){step(-1,false);};byId('next').onclick=function(){step(1,false);};byId('rotate').onclick=function(){if(timer)stop();else schedule();};
  byId('fullscreen').onclick=function(){setTv(true);var u=new URL(location.href);u.searchParams.set('view','tv');u.searchParams.set('mode',mode);if(current)u.searchParams.set('id',current.id);history.pushState({},'',u);};
