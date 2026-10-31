@@ -19,55 +19,69 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: '22'
-      - name: Import and hash-check the exact staged source files
+      - name: Import a hash-verified source part
+        id: transfer
         env:
           ISC_TRANSFER_ORIGIN: https://isc-original-board-review.bigaz5523.chatgpt.site/
-          ISC_MANIFEST_SHA256: 9b13cf9179805eb5894dcca173f40caefa0c6a458ffd50493c8ea9744e1f3271
+          ISC_MANIFEST_SHA256: 02cd2cd3ef094fa090641016442cf498ed8ad434b15d41af1b32e8fdf7926981
         run: |
           python - <<'PY'
           from pathlib import Path
           from urllib.request import Request,urlopen
           from concurrent.futures import ThreadPoolExecutor,as_completed
-          import hashlib,json,os,time
+          import hashlib,json,os,base64
           base=os.environ['ISC_TRANSFER_ORIGIN']
           def get(asset):
               assert not asset.startswith('/') and '..' not in Path(asset).parts
-              req=Request(base+asset,headers={'User-Agent':'ISC-Verified-Staging-Import/1.0'})
+              req=Request(base+asset,headers={'User-Agent':'ISC-Verified-Staging-Import/2.0'})
               with urlopen(req,timeout=90) as r:return r.read()
-          for attempt in range(18):
-              try:raw=get('transfer-manifest.json');break
-              except Exception:
-                  if attempt==17:raise
-                  print('Waiting for the verified staging source to become available')
-                  time.sleep(10)
+          raw=get('transfer-manifest.json')
           assert hashlib.sha256(raw).hexdigest()==os.environ['ISC_MANIFEST_SHA256'],'Transfer manifest changed'
           manifest=json.loads(raw)
-          assert len(manifest['files'])==750,'Source file inventory changed'
+          assert manifest['phase'] in [1,2] and manifest['parts']==2
           def copy(row):
               name=row['path']
               assert name.startswith(('web/staging/','proof/staging/')) or name in ('proof/stage_library.py','tests/staging-playlist.cjs','.github/workflows/staging-library.yml')
               assert '..' not in Path(name).parts
-              # The connected GitHub account installs workflow files separately.
-              # The runner token imports the source/artwork, with no workflow change.
               if name=='.github/workflows/staging-library.yml':return 0
+              target=Path(name)
+              if target.is_file() and hashlib.sha256(target.read_bytes()).hexdigest()==row['sha256']:return 0
               data=get(row['asset'])
               assert len(data)==row['size'],name
               assert hashlib.sha256(data).hexdigest()==row['sha256'],name
-              target=Path(name);target.parent.mkdir(parents=True,exist_ok=True)
-              target.write_bytes(data)
+              target.parent.mkdir(parents=True,exist_ok=True);target.write_bytes(data)
               return 1
           count=0
           with ThreadPoolExecutor(max_workers=6) as pool:
-              futures=[pool.submit(copy,row) for row in manifest['files']]
-              for f in as_completed(futures):count+=f.result()
-          assert count==749,count
-          print('Imported and hash-verified',count,'source files; production main untouched')
+              for f in as_completed([pool.submit(copy,row) for row in manifest['files']]):count+=f.result()
+          if manifest['reconstruct']:
+              embedded=json.loads(Path('web/staging/delivery-assets.json').read_text())['assets']
+              restored=0
+              for row in manifest['reconstruct']:
+                  assert row['path'].startswith('web/staging/originals/') and '..' not in Path(row['path']).parts
+                  text=Path(row['delivery']).read_bytes().decode('utf8')
+                  for item in embedded:
+                      marker='__ISC_BASE__'+item['path']
+                      if marker in text:
+                          data=Path('web/staging')/item['path']
+                          image=data.read_bytes()
+                          assert hashlib.sha256(image).hexdigest()==item['sha256']
+                          text=text.replace(marker,'data:'+item['mime_type']+';base64,'+base64.b64encode(image).decode('ascii'))
+                  output=text.encode('utf8')
+                  assert hashlib.sha256(output).hexdigest()==row['sha256'],row['path']
+                  p=Path(row['path']);p.parent.mkdir(parents=True,exist_ok=True);p.write_bytes(output);restored+=1
+              assert restored==66
+              print('Restored 66 unique original HTML files with exact approved source hashes (67 slots).')
+          with open(os.environ['GITHUB_OUTPUT'],'a') as f:f.write('phase='+str(manifest['phase'])+'\n')
+          print('Source part',manifest['phase'],'imported:',count,'files; production main untouched.')
           PY
       - name: Verify all original board and artwork hashes
+        if: steps.transfer.outputs.phase == '2'
         run: node proof/staging/verify.mjs
       - name: Verify active playlist rules
         run: node --test tests/staging-playlist.cjs
       - name: Collect source-backed current staging content
+        if: steps.transfer.outputs.phase == '2'
         run: node proof/staging/collect.mjs
       - name: Commit only to the integration branch
         run: |
@@ -75,7 +89,8 @@ jobs:
           git config user.email github-actions[bot]@users.noreply.github.com
           git add web/staging proof/staging proof/stage_library.py tests/staging-playlist.cjs
           if ! git diff --cached --quiet; then
-            git commit -m "feat(staging): import verified original boards and cached artwork"
+            git commit -m "feat(staging): import verified source part ${{ steps.transfer.outputs.phase }}"
             git push origin HEAD:work/all-boards-github-pages
           fi
+      # The connected account installs the separate refresh workflow afterwards.
       # This workflow never deploys GitHub Pages and never updates main.
