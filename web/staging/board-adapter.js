@@ -183,7 +183,7 @@
     });
    }
   }
-  var config={id:record.id,logical:logical,base:assetBase,routes:boardMap,mode:mode,feeds:feeds||{},night:night,source_credit:record.source_credit||null,current_location:record.current_location||null,live_preview:record.category==='Weekly Upcoming',officialEvent:officialEvent,resultPortraits:resultPortraits,resultBelts:resultBelts};
+  var config={id:record.id,logical:logical,base:assetBase,routes:boardMap,mode:mode,feeds:mode==='active'?(feeds||{}):{},night:night,source_credit:record.source_credit||null,current_location:record.current_location||null,live_preview:record.category==='Weekly Upcoming',officialEvent:officialEvent,resultPortraits:resultPortraits,resultBelts:resultBelts};
   var injected='<base href="'+new URL('originals'+prefix,base).href+'"><script>('+shim.toString()+')('+JSON.stringify(config).replace(/</g,'\\u003c')+');<\/script>';
   return html.replace(/<head(?:\s[^>]*)?>/i,function(head){return head+injected;});
  }
