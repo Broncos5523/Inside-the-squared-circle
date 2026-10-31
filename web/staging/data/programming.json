@@ -1,8 +1,76 @@
 {
   "schema_version": 1,
   "mode": "SOURCE_GATED_STAGING",
-  "generated_at": "2026-10-31T16:04:57.342Z",
+  "generated_at": "2026-10-31T16:12:36.410Z",
   "entries": [
+    {
+      "id": "weekly-upcoming-raw",
+      "title": "RAW — Upcoming Show",
+      "show": "raw",
+      "kind": "upcoming",
+      "airdate": "2026-11-02",
+      "source_available": true,
+      "design_approved": true,
+      "content_status": "current",
+      "verification": "SOURCE_REPORTED",
+      "has_content": false,
+      "schedule_confirmed": true,
+      "checked_at": "2026-10-31T16:12:36.410Z",
+      "source_name": "Published episode schedule",
+      "source_url": "https://broncos5523.github.io/Inside-the-squared-circle/data/snapshot.json",
+      "venue": null
+    },
+    {
+      "id": "weekly-upcoming-smackdown",
+      "title": "SmackDown — Upcoming Show",
+      "show": "smackdown",
+      "kind": "upcoming",
+      "airdate": "2026-11-06",
+      "source_available": true,
+      "design_approved": true,
+      "content_status": "current",
+      "verification": "SOURCE_REPORTED",
+      "has_content": false,
+      "schedule_confirmed": true,
+      "checked_at": "2026-10-31T16:12:36.410Z",
+      "source_name": "Published episode schedule",
+      "source_url": "https://broncos5523.github.io/Inside-the-squared-circle/data/snapshot.json",
+      "venue": null
+    },
+    {
+      "id": "weekly-upcoming-nxt",
+      "title": "NXT — Upcoming Show",
+      "show": "nxt",
+      "kind": "upcoming",
+      "airdate": "2026-11-04",
+      "source_available": true,
+      "design_approved": true,
+      "content_status": "current",
+      "verification": "SOURCE_REPORTED",
+      "has_content": false,
+      "schedule_confirmed": true,
+      "checked_at": "2026-10-31T16:12:36.410Z",
+      "source_name": "Published episode schedule",
+      "source_url": "https://broncos5523.github.io/Inside-the-squared-circle/data/snapshot.json",
+      "venue": null
+    },
+    {
+      "id": "weekly-upcoming-aaa",
+      "title": "AAA — Upcoming Show",
+      "show": "aaa",
+      "kind": "upcoming",
+      "airdate": "2026-10-31",
+      "source_available": true,
+      "design_approved": true,
+      "content_status": "current",
+      "verification": "SOURCE_REPORTED",
+      "has_content": false,
+      "schedule_confirmed": true,
+      "checked_at": "2026-10-31T16:12:36.410Z",
+      "source_name": "Published episode schedule",
+      "source_url": "https://broncos5523.github.io/Inside-the-squared-circle/data/snapshot.json",
+      "venue": null
+    },
     {
       "id": "weekly-upcoming-tna",
       "title": "TNA — Upcoming Show",
@@ -14,7 +82,8 @@
       "content_status": "current",
       "verification": "SOURCE_REPORTED",
       "has_content": true,
-      "checked_at": "2026-10-31T16:04:57.342Z",
+      "schedule_confirmed": true,
+      "checked_at": "2026-10-31T16:12:36.410Z",
       "source_name": "Wrestling Central News",
       "source_url": "https://wrestlingcentralnews.com/events/2026-11-05-tna-impact/",
       "venue": null
@@ -90,9 +159,9 @@
           "color": "#21C6AE",
           "category": "primary",
           "next": {
-            "date": "2026-11-07",
+            "date": "2026-10-31",
             "time": null,
-            "title": "#42 - Héroes Inmortales (Week 3)"
+            "title": "#41 - Héroes Inmortales (Week 2)"
           },
           "previous": {
             "date": "2026-10-31",
@@ -146,7 +215,7 @@
     "reported.json": {
       "schema_version": 1,
       "mode": "REPORTED_MATCHES_UNVERIFIED",
-      "generated_at": "2026-10-31T16:04:57.342Z",
+      "generated_at": "2026-10-31T16:12:36.410Z",
       "display_attribution": "Wrestling Central News (wrestlingcentralnews.com)",
       "programs": [
         {
