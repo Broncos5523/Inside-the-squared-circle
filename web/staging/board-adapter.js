@@ -6,6 +6,12 @@
    if(typeof value!=='string'||!value||/^(?:data:|blob:|#)/i.test(value))return value;
    try{var url=new URL(value,logical),key=decodeURI(url.pathname),mapped=map[key];
     if(!mapped&&key.indexOf('/assets/')===0)mapped=map[logical.pathname.slice(0,logical.pathname.lastIndexOf('/')+1)+key.slice(1)];
+    if(!mapped&&config.mode==='active'){
+     var photo=/\/assets\/portrait-display\/([a-z0-9-]+)\.png$/.exec(key);
+     if(photo&&config.resultPortraits&&config.resultPortraits[photo[1]])return config.resultPortraits[photo[1]];
+     var belt=/\/assets\/belts-display\/([a-z0-9_-]+)\.png$/.exec(key);
+     if(belt&&config.resultBelts&&config.resultBelts[belt[1]+'.png'])return config.resultBelts[belt[1]+'.png'];
+    }
     return mapped?new URL('originals'+mapped,config.base).href:value;
    }catch(_){return value;}
   }
@@ -21,6 +27,14 @@
   new MutationObserver(function(ms){ms.forEach(function(m){if(m.type==='attributes')patch(m.target);else Array.prototype.forEach.call(m.addedNodes,function(n){patch(n);if(n.querySelectorAll)Array.prototype.forEach.call(n.querySelectorAll('[src],[href],[style]'),patch);});});}).observe(document,{childList:true,subtree:true,attributes:true,attributeFilter:['src','href','style']});
   window.fetch=function(input,options){
    var url=typeof input==='string'?input:input.url;
+   // Approved results HTML fetches ./data/show-verified-results.json. In
+   // about:srcdoc those paths are not hosted by GitHub, so serve ONLY this
+   // source-validated player feed in memory rather than stale local review data.
+   if(config.mode==='active'){
+    var resultName=/(?:^|\/)data\/([a-z0-9-]+-verified-results\.json)(?:\?|$)/i.exec(String(url));
+    if(resultName&&Object.prototype.hasOwnProperty.call(config.feeds,resultName[1]))
+     return Promise.resolve(new Response(JSON.stringify(config.feeds[resultName[1]]),{status:200,headers:{'Content-Type':'application/json'}}));
+   }
    if(/broncos5523\.github\.io\/Inside-the-squared-circle\/data\//i.test(url)){
     var name=new URL(url).pathname.split('/').pop();
     if(config.mode==='active'&&Object.prototype.hasOwnProperty.call(config.feeds,name))return Promise.resolve(new Response(JSON.stringify(config.feeds[name]),{status:200,headers:{'Content-Type':'application/json'}}));
@@ -103,6 +117,14 @@
   // Rewrite only delivery URLs in memory; the committed original HTML is unchanged.
   html=html.replace(/(["'])([^"'<>\r\n]{1,500})\1/g,function(all,q,v){var mapped=resolve(v);return mapped===v?all:q+mapped+q;});
   html=html.replace(/url\(\s*(['"]?)([^)'"\r\n]+)\1\s*\)/g,function(all,q,v){var mapped=resolve(v);return mapped===v?all:'url("'+mapped+'")';});
+  // All original approved results HTML remains byte-for-byte untouched.
+  // Extend its accepted source contract only in ACTIVE in-memory playback.
+  if(mode==='active'&&record.category==='Weekly Results'){
+   html=html.replace(/data\?\.mode!=='EDITORIALLY_VERIFIED_OFFICIAL_RESULTS'/g,
+    "(data?.mode!=='EDITORIALLY_VERIFIED_OFFICIAL_RESULTS'&&data?.mode!=='OFFICIAL_EXTRACTED_RESULTS')");
+   html=html.replace(/p\.verification==='OFFICIAL_RESULTS_REVIEWED'/g,
+    "(p.verification==='OFFICIAL_RESULTS_REVIEWED'||p.verification==='OFFICIAL_SOURCE_EXTRACTED')");
+  }
   var night=/summerslam.*preview/i.test(record.id)?(/night_two/i.test(record.id)?2:1):null;
   var query=(record.href.split('?')[1]||'')+(mode==='archive'?'&demo=1':'&live=1')+(night?'&card='+night:'');
   html=html.replace(/new URLSearchParams\(location\.search\)/g,'new URLSearchParams('+JSON.stringify(query)+')');
@@ -132,7 +154,36 @@
     }
    }
   }
-  var config={id:record.id,logical:logical,base:assetBase,routes:boardMap,mode:mode,feeds:feeds||{},night:night,source_credit:record.source_credit||null,current_location:record.current_location||null,live_preview:record.category==='Weekly Upcoming',officialEvent:officialEvent};
+  var resultPortraits={},resultBelts={};
+  if(mode==='active'&&record.category==='Weekly Results'){
+   var show=record.id.slice('weekly-results-'.length),resultFeed=feeds&&feeds[show+'-verified-results.json'];
+   var program=resultFeed&&Array.isArray(resultFeed.programs)?resultFeed.programs.find(function(p){return p.show_id===show&&Array.isArray(p.segments);}):null;
+   function existingAsset(kind,name){
+    if(!/^[a-z0-9_-]+\.png$/.test(name))return null;
+    var shows=[show==='raw'?'RAW':show==='nxt'?'NXT':show==='smackdown'?'SmackDown':show==='tna'?'TNA':'AAA','RAW','NXT','SmackDown','AAA','TNA'];
+    for(var i=0;i<shows.length;i++){
+     for(var j=0;j<2;j++){
+      var key='/boards/'+(j?'UPCOMING':'RESULTS')+'/'+shows[i]+'/assets/'+kind+'/'+name;
+      if(routes[key])return new URL('originals'+routes[key],assetBase).href;
+     }
+    }
+    return null;
+   }
+   if(program){
+    program.segments.forEach(function(seg){
+     (seg.portraits||[]).forEach(function(slug){
+      if(typeof slug!=='string'||!/^[a-z0-9-]+$/.test(slug))return;
+      var found=existingAsset('portraits',slug+'.png')||existingAsset('portrait-display',slug+'.png');
+      if(found)resultPortraits[slug]=found;
+     });
+     if(typeof seg.belt==='string'){
+      var belt=existingAsset('belts',seg.belt)||existingAsset('belts-display',seg.belt);
+      if(belt)resultBelts[seg.belt]=belt;
+     }
+    });
+   }
+  }
+  var config={id:record.id,logical:logical,base:assetBase,routes:boardMap,mode:mode,feeds:feeds||{},night:night,source_credit:record.source_credit||null,current_location:record.current_location||null,live_preview:record.category==='Weekly Upcoming',officialEvent:officialEvent,resultPortraits:resultPortraits,resultBelts:resultBelts};
   var injected='<base href="'+new URL('originals'+prefix,base).href+'"><script>('+shim.toString()+')('+JSON.stringify(config).replace(/</g,'\\u003c')+');<\/script>';
   return html.replace(/<head(?:\s[^>]*)?>/i,function(head){return head+injected;});
  }
