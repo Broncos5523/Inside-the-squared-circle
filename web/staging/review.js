@@ -42,10 +42,16 @@
    else programming=await getJSON('data/programming.json');
    feeds=programming.feeds||{};
   }catch(_){programming={entries:[],generated_at:null};feeds={};}
-  active=ISCPlaylist.select(programming.entries,new Date());byId('watch-active').disabled=!active.length;
+  var feedAge=Date.now()-Date.parse(programming.generated_at||'');
+  var feedFresh=Number.isFinite(feedAge)&&feedAge>=-300000&&feedAge<=6*3600000;
+  // A browser reload is not evidence of a successful upstream collection.
+  // Fail closed when the collector output is old; archive review remains available.
+  active=feedFresh?ISCPlaylist.select(programming.entries,new Date()):[];
+  byId('watch-active').disabled=!active.length;
   byId('active-summary').textContent=active.length?active.length+' current board'+(active.length===1?'':'s')+' selected from source-backed programming.': 'No current boards have cleared their source and data checks yet. The recovered designs are available in the design library.';
   var list=byId('active-list');list.replaceChildren();active.forEach(function(x){var d=document.createElement('div'),strong=document.createElement('strong'),small=document.createElement('small');strong.textContent=x.title;small.textContent=(x.airdate||x.event_date)+' · '+x.source_name;d.append(strong,small);list.append(d);});
-  byId('feed-stamp').textContent=programming.generated_at?'Content checked '+new Date(programming.generated_at).toLocaleString()+'. Playback refreshes every five minutes.':'Current-content collection is pending; archive examples are held outside the TV playlist.';
+  byId('feed-stamp').textContent=programming.generated_at?(feedFresh?'Collector last ran ':'STALE DATA — collector last ran ')+new Date(programming.generated_at).toLocaleString()+'. Browser checks for published updates every five minutes; this does not run the collector.':'Current-content collection is pending; archive examples are held outside the TV playlist.';
+  if(!feedFresh)byId('active-summary').textContent='Live-data collection is stale or unavailable. Archived demonstrations remain in the design library and are not presented as live programming.';
   if(mode==='active'&&current&&!active.some(function(x){return x.id===current.id;})){var next=candidates()[0];if(next)choose(next,true);else{stop();setTv(false);switchPanel(true);}}
  }
  window.addEventListener('message',function(event){if(event.source!==byId('board').contentWindow||!event.data||event.data.type!=='isc-board-ready'||!current||event.data.id!==current.id)return;byId('board').classList.add('ready');byId('loading').style.display='none';byId('status').textContent=mode==='archive'?'Archive design · Original source verified':'Source-backed active playback';});
