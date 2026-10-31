@@ -1,8 +1,236 @@
 {
   "schema_version": 1,
-  "generated_at": null,
   "mode": "SOURCE_GATED_STAGING",
-  "entries": [],
-  "feeds": {},
-  "notes": ["Archived examples are not active programming.", "Final Evolve HTML, verified championship data and complete results coverage remain release gates."]
+  "generated_at": "2026-10-31T00:40:46.179Z",
+  "entries": [
+    {
+      "id": "weekly-upcoming-smackdown",
+      "title": "SmackDown — Upcoming Show",
+      "show": "smackdown",
+      "kind": "upcoming",
+      "airdate": "2026-10-30",
+      "source_available": true,
+      "design_approved": true,
+      "content_status": "current",
+      "verification": "SOURCE_REPORTED",
+      "has_content": true,
+      "checked_at": "2026-10-31T00:40:46.179Z",
+      "source_name": "Wrestling Central News",
+      "source_url": "https://wrestlingcentralnews.com/events/2026-10-30-wwe-smackdown/",
+      "venue": null
+    },
+    {
+      "id": "weekly-upcoming-tna",
+      "title": "TNA — Upcoming Show",
+      "show": "tna",
+      "kind": "upcoming",
+      "airdate": "2026-11-05",
+      "source_available": true,
+      "design_approved": true,
+      "content_status": "current",
+      "verification": "SOURCE_REPORTED",
+      "has_content": true,
+      "checked_at": "2026-10-31T00:40:46.179Z",
+      "source_name": "Wrestling Central News",
+      "source_url": "https://wrestlingcentralnews.com/events/2026-11-05-tna-impact/",
+      "venue": null
+    }
+  ],
+  "feeds": {
+    "snapshot.json": {
+      "schema_version": 1,
+      "mode": "LIVE_SCHEDULES_ONLY",
+      "generated_at": "2026-10-30T20:59:05.249016+00:00",
+      "fresh_shows": 6,
+      "shows": [
+        {
+          "id": "raw",
+          "name": "MONDAY NIGHT RAW",
+          "color": "#EC354C",
+          "category": "primary",
+          "next": {
+            "date": "2026-11-02",
+            "time": null,
+            "title": "#1744 - Barclays Center in Brooklyn, NY"
+          },
+          "previous": {
+            "date": "2026-10-26",
+            "time": null,
+            "title": "#1743 - Save Mart Center in Fresno, CA"
+          },
+          "schedule_status": "fresh",
+          "confirmed_matches": [],
+          "confirmed_appearances": []
+        },
+        {
+          "id": "smackdown",
+          "name": "FRIDAY NIGHT SMACKDOWN",
+          "color": "#2385FF",
+          "category": "primary",
+          "next": {
+            "date": "2026-10-30",
+            "time": "20:00",
+            "title": "#1417 - Charleston Coliseum in Charleston, WV"
+          },
+          "previous": {
+            "date": "2026-10-23",
+            "time": "20:00",
+            "title": "#1416 - Toyota Arena in Ontario, CA"
+          },
+          "schedule_status": "fresh",
+          "confirmed_matches": [],
+          "confirmed_appearances": []
+        },
+        {
+          "id": "nxt",
+          "name": "WWE NXT",
+          "color": "#E5BD50",
+          "category": "primary",
+          "next": {
+            "date": "2026-11-04",
+            "time": "20:00",
+            "title": "44"
+          },
+          "previous": {
+            "date": "2026-10-27",
+            "time": "20:00",
+            "title": "Grayson Waller and Tony D'Angelo brawl in the parking lot"
+          },
+          "schedule_status": "fresh",
+          "confirmed_matches": [],
+          "confirmed_appearances": []
+        },
+        {
+          "id": "aaa",
+          "name": "LUCHA LIBRE AAA",
+          "color": "#21C6AE",
+          "category": "primary",
+          "next": {
+            "date": "2026-10-31",
+            "time": null,
+            "title": "#41 - Héroes Inmortales (Week 2)"
+          },
+          "previous": {
+            "date": "2026-10-24",
+            "time": null,
+            "title": "#40 - Héroes Inmortales (Week 1)"
+          },
+          "schedule_status": "fresh",
+          "confirmed_matches": [],
+          "confirmed_appearances": []
+        },
+        {
+          "id": "tna",
+          "name": "TNA iMPACT!",
+          "color": "#FC493F",
+          "category": "primary",
+          "next": {
+            "date": "2026-11-05",
+            "time": "21:00",
+            "title": "Episode 45"
+          },
+          "previous": {
+            "date": "2026-10-29",
+            "time": "21:00",
+            "title": "Episode 44"
+          },
+          "schedule_status": "fresh",
+          "confirmed_matches": [],
+          "confirmed_appearances": []
+        },
+        {
+          "id": "evolve",
+          "name": "LAST WEEK ON EVOLVE",
+          "color": "#BA80F7",
+          "category": "recap",
+          "next": {
+            "date": "2026-11-04",
+            "time": null,
+            "title": "Episode 36"
+          },
+          "previous": {
+            "date": "2026-10-28",
+            "time": null,
+            "title": "Episode 35"
+          },
+          "schedule_status": "fresh",
+          "confirmed_matches": [],
+          "confirmed_appearances": []
+        }
+      ]
+    },
+    "reported.json": {
+      "schema_version": 1,
+      "mode": "REPORTED_MATCHES_UNVERIFIED",
+      "generated_at": "2026-10-31T00:40:46.179Z",
+      "display_attribution": "Wrestling Central News (wrestlingcentralnews.com)",
+      "programs": [
+        {
+          "show_id": "smackdown",
+          "airdate": "2026-10-30",
+          "matches": [
+            {
+              "text": "Trick Williams vs. Sami Zayn",
+              "source_name": "Wrestling Central News (wrestlingcentralnews.com)",
+              "status": "REPORTED_UNVERIFIED",
+              "evidence_url": "https://wrestlingcentralnews.com/events/2026-10-30-wwe-smackdown/"
+            },
+            {
+              "text": "Chelsea Green vs. Nikki Bella",
+              "source_name": "Wrestling Central News (wrestlingcentralnews.com)",
+              "status": "REPORTED_UNVERIFIED",
+              "evidence_url": "https://wrestlingcentralnews.com/events/2026-10-30-wwe-smackdown/"
+            }
+          ],
+          "appearances": [],
+          "source_name": "Wrestling Central News (wrestlingcentralnews.com)",
+          "source_url": "https://wrestlingcentralnews.com/events/2026-10-30-wwe-smackdown/",
+          "collection_status": "event_page_matches",
+          "schedule_source": "wcn_upcoming_listing"
+        },
+        {
+          "show_id": "tna",
+          "airdate": "2026-11-05",
+          "matches": [
+            {
+              "text": "Eddie Edwards vs. Bear Bronson",
+              "source_name": "Wrestling Central News (wrestlingcentralnews.com)",
+              "status": "REPORTED_UNVERIFIED",
+              "evidence_url": "https://wrestlingcentralnews.com/events/2026-11-05-tna-impact/"
+            },
+            {
+              "text": "N Flava vs. Allie and Shotzi Blackheart",
+              "source_name": "Wrestling Central News (wrestlingcentralnews.com)",
+              "status": "REPORTED_UNVERIFIED",
+              "evidence_url": "https://wrestlingcentralnews.com/events/2026-11-05-tna-impact/"
+            },
+            {
+              "text": "Ryan and Nic Nemeth vs. Amazing Red and Leon Slater",
+              "source_name": "Wrestling Central News (wrestlingcentralnews.com)",
+              "status": "REPORTED_UNVERIFIED",
+              "evidence_url": "https://wrestlingcentralnews.com/events/2026-11-05-tna-impact/"
+            }
+          ],
+          "appearances": [],
+          "source_name": "Wrestling Central News (wrestlingcentralnews.com)",
+          "source_url": "https://wrestlingcentralnews.com/events/2026-11-05-tna-impact/",
+          "collection_status": "event_page_matches",
+          "schedule_source": "wcn_upcoming_listing"
+        }
+      ],
+      "total_reported_matches": 5,
+      "total_reported_appearances": 0
+    }
+  },
+  "collection": {
+    "skipped": false,
+    "show_count": 4,
+    "programs_with_data": 2,
+    "errors": 0,
+    "snapshot_fresh": true
+  },
+  "notes": [
+    "Examples remain excluded. Championships, PLEs and Evolve require complete verified data plus their exact approved source.",
+    "Source credits retained. Public hosting clearance confirmed by owner 2026-10-30."
+  ]
 }

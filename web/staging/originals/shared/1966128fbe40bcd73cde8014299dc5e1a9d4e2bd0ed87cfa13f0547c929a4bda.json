@@ -1,0 +1,1627 @@
+{
+  "schema_version": 1,
+  "purpose": "USER_SUPPLIED_CUTOUTS_NAME_MATCHED_LOCAL_VISUAL_QA_NOT_AUTHORIZED_FOR_PUBLIC_RELEASE",
+  "portrait_count": 180,
+  "identities": [
+    {
+      "official_name": "Lady Shani",
+      "category": "individual",
+      "source": "IMG_3091.png",
+      "file": "assets/portraits/lady-shani.png",
+      "identity_match": "IDENTITY_MATCHED_USER_ROSTER_SCREENSHOT",
+      "photo_rights_clearance": "not established",
+      "alpha": "RGBA basic check"
+    },
+    {
+      "official_name": "Lainey Reid",
+      "category": "individual",
+      "source": "IMG_3092.png",
+      "file": "assets/portraits/lainey-reid.png",
+      "identity_match": "IDENTITY_MATCHED_USER_ROSTER_SCREENSHOT",
+      "photo_rights_clearance": "not established",
+      "alpha": "RGBA basic check"
+    },
+    {
+      "official_name": "Lash Legend",
+      "category": "individual",
+      "source": "IMG_3093.png",
+      "file": "assets/portraits/lash-legend.png",
+      "identity_match": "IDENTITY_MATCHED_USER_ROSTER_SCREENSHOT",
+      "photo_rights_clearance": "not established",
+      "alpha": "RGBA basic check"
+    },
+    {
+      "official_name": "Lexis King",
+      "category": "individual",
+      "source": "IMG_3094.png",
+      "file": "assets/portraits/lexis-king.png",
+      "identity_match": "IDENTITY_MATCHED_USER_ROSTER_SCREENSHOT",
+      "photo_rights_clearance": "not established",
+      "alpha": "RGBA basic check"
+    },
+    {
+      "official_name": "Liv Morgan",
+      "category": "individual",
+      "source": "IMG_3095.png",
+      "file": "assets/portraits/liv-morgan.png",
+      "identity_match": "IDENTITY_MATCHED_USER_ROSTER_SCREENSHOT",
+      "photo_rights_clearance": "not established",
+      "alpha": "RGBA basic check"
+    },
+    {
+      "official_name": "Lizzy Rain",
+      "category": "individual",
+      "source": "IMG_3096.png",
+      "file": "assets/portraits/lizzy-rain.png",
+      "identity_match": "IDENTITY_MATCHED_USER_ROSTER_SCREENSHOT",
+      "photo_rights_clearance": "not established",
+      "alpha": "RGBA basic check"
+    },
+    {
+      "official_name": "Logan Paul",
+      "category": "individual",
+      "source": "IMG_3097.png",
+      "file": "assets/portraits/logan-paul.png",
+      "identity_match": "IDENTITY_MATCHED_USER_ROSTER_SCREENSHOT",
+      "photo_rights_clearance": "not established",
+      "alpha": "RGBA basic check"
+    },
+    {
+      "official_name": "Lola Vice",
+      "category": "individual",
+      "source": "IMG_3098.png",
+      "file": "assets/portraits/lola-vice.png",
+      "identity_match": "IDENTITY_MATCHED_USER_ROSTER_SCREENSHOT",
+      "photo_rights_clearance": "not established",
+      "alpha": "RGBA basic check"
+    },
+    {
+      "official_name": "Lucien Price",
+      "category": "individual",
+      "source": "IMG_3099.png",
+      "file": "assets/portraits/lucien-price.png",
+      "identity_match": "IDENTITY_MATCHED_USER_ROSTER_SCREENSHOT",
+      "photo_rights_clearance": "not established",
+      "alpha": "RGBA basic check"
+    },
+    {
+      "official_name": "Ludwig Kaiser",
+      "category": "individual",
+      "source": "IMG_3100.png",
+      "file": "assets/portraits/ludwig-kaiser.png",
+      "identity_match": "IDENTITY_MATCHED_USER_ROSTER_SCREENSHOT",
+      "photo_rights_clearance": "not established",
+      "alpha": "RGBA basic check"
+    },
+    {
+      "official_name": "Lyra Valkyria",
+      "category": "individual",
+      "source": "IMG_3101.png",
+      "file": "assets/portraits/lyra-valkyria.png",
+      "identity_match": "IDENTITY_MATCHED_USER_ROSTER_SCREENSHOT",
+      "photo_rights_clearance": "not established",
+      "alpha": "RGBA basic check"
+    },
+    {
+      "official_name": "Mason Rook",
+      "category": "individual",
+      "source": "IMG_3102.png",
+      "file": "assets/portraits/mason-rook.png",
+      "identity_match": "IDENTITY_MATCHED_USER_ROSTER_SCREENSHOT",
+      "photo_rights_clearance": "not established",
+      "alpha": "RGBA basic check"
+    },
+    {
+      "official_name": "Matt Cardona",
+      "category": "individual",
+      "source": "IMG_3103.png",
+      "file": "assets/portraits/matt-cardona.png",
+      "identity_match": "IDENTITY_MATCHED_USER_ROSTER_SCREENSHOT",
+      "photo_rights_clearance": "not established",
+      "alpha": "RGBA basic check"
+    },
+    {
+      "official_name": "Maxxine Dupri",
+      "category": "individual",
+      "source": "IMG_3104.png",
+      "file": "assets/portraits/maxxine-dupri.png",
+      "identity_match": "IDENTITY_MATCHED_USER_ROSTER_SCREENSHOT",
+      "photo_rights_clearance": "not established",
+      "alpha": "RGBA basic check"
+    },
+    {
+      "official_name": "Mecha Wolf",
+      "category": "individual",
+      "source": "IMG_3105.png",
+      "file": "assets/portraits/mecha-wolf.png",
+      "identity_match": "IDENTITY_MATCHED_USER_ROSTER_SCREENSHOT",
+      "photo_rights_clearance": "not established",
+      "alpha": "RGBA basic check"
+    },
+    {
+      "official_name": "Megan Morant",
+      "category": "individual",
+      "source": "IMG_3106.png",
+      "file": "assets/portraits/megan-morant.png",
+      "identity_match": "IDENTITY_MATCHED_USER_ROSTER_SCREENSHOT",
+      "photo_rights_clearance": "not established",
+      "alpha": "RGBA basic check"
+    },
+    {
+      "official_name": "Michin",
+      "category": "individual",
+      "source": "IMG_3107.png",
+      "file": "assets/portraits/michin.png",
+      "identity_match": "IDENTITY_MATCHED_USER_ROSTER_SCREENSHOT",
+      "photo_rights_clearance": "not established",
+      "alpha": "RGBA basic check"
+    },
+    {
+      "official_name": "Montez Ford",
+      "category": "individual",
+      "source": "IMG_3108.png",
+      "file": "assets/portraits/montez-ford.png",
+      "identity_match": "IDENTITY_MATCHED_USER_ROSTER_SCREENSHOT",
+      "photo_rights_clearance": "not established",
+      "alpha": "RGBA basic check"
+    },
+    {
+      "official_name": "Myka Lockwood",
+      "category": "individual",
+      "source": "IMG_3109.png",
+      "file": "assets/portraits/myka-lockwood.png",
+      "identity_match": "IDENTITY_MATCHED_USER_ROSTER_SCREENSHOT",
+      "photo_rights_clearance": "not established",
+      "alpha": "RGBA basic check"
+    },
+    {
+      "official_name": "Myles Borne",
+      "category": "individual",
+      "source": "IMG_3110.png",
+      "file": "assets/portraits/myles-borne.png",
+      "identity_match": "IDENTITY_MATCHED_USER_ROSTER_SCREENSHOT",
+      "photo_rights_clearance": "not established",
+      "alpha": "RGBA basic check"
+    },
+    {
+      "official_name": "Naomi",
+      "category": "individual",
+      "source": "IMG_3111.png",
+      "file": "assets/portraits/naomi.png",
+      "identity_match": "IDENTITY_MATCHED_USER_ROSTER_SCREENSHOT",
+      "photo_rights_clearance": "not established",
+      "alpha": "RGBA basic check"
+    },
+    {
+      "official_name": "Naraku",
+      "category": "individual",
+      "source": "IMG_3112.png",
+      "file": "assets/portraits/naraku.png",
+      "identity_match": "IDENTITY_MATCHED_USER_ROSTER_SCREENSHOT",
+      "photo_rights_clearance": "not established",
+      "alpha": "RGBA basic check"
+    },
+    {
+      "official_name": "Nathan Frazer",
+      "category": "individual",
+      "source": "IMG_3113.png",
+      "file": "assets/portraits/nathan-frazer.png",
+      "identity_match": "IDENTITY_MATCHED_USER_ROSTER_SCREENSHOT",
+      "photo_rights_clearance": "not established",
+      "alpha": "RGBA basic check"
+    },
+    {
+      "official_name": "Nattie",
+      "category": "individual",
+      "source": "IMG_3114.png",
+      "file": "assets/portraits/nattie.png",
+      "identity_match": "IDENTITY_MATCHED_USER_ROSTER_SCREENSHOT",
+      "photo_rights_clearance": "not established",
+      "alpha": "RGBA basic check"
+    },
+    {
+      "official_name": "Nia Jax",
+      "category": "individual",
+      "source": "IMG_3115.png",
+      "file": "assets/portraits/nia-jax.png",
+      "identity_match": "IDENTITY_MATCHED_USER_ROSTER_SCREENSHOT",
+      "photo_rights_clearance": "not established",
+      "alpha": "RGBA basic check"
+    },
+    {
+      "official_name": "Nick Aldis",
+      "category": "individual",
+      "source": "IMG_3117.png",
+      "file": "assets/portraits/nick-aldis.png",
+      "identity_match": "IDENTITY_MATCHED_USER_ROSTER_SCREENSHOT",
+      "photo_rights_clearance": "not established",
+      "alpha": "RGBA basic check"
+    },
+    {
+      "official_name": "Nikki Bella",
+      "category": "individual",
+      "source": "IMG_3116.png",
+      "file": "assets/portraits/nikki-bella.png",
+      "identity_match": "IDENTITY_MATCHED_USER_ROSTER_SCREENSHOT",
+      "photo_rights_clearance": "not established",
+      "alpha": "RGBA basic check"
+    },
+    {
+      "official_name": "Nikkita Lyons",
+      "category": "individual",
+      "source": "IMG_3118.png",
+      "file": "assets/portraits/nikkita-lyons.png",
+      "identity_match": "IDENTITY_MATCHED_USER_ROSTER_SCREENSHOT",
+      "photo_rights_clearance": "not established",
+      "alpha": "RGBA basic check"
+    },
+    {
+      "official_name": "Niko Vance",
+      "category": "individual",
+      "source": "IMG_3119.png",
+      "file": "assets/portraits/niko-vance.png",
+      "identity_match": "IDENTITY_MATCHED_USER_ROSTER_SCREENSHOT",
+      "photo_rights_clearance": "not established",
+      "alpha": "RGBA basic check"
+    },
+    {
+      "official_name": "Noam Dar",
+      "category": "individual",
+      "source": "IMG_3120.png",
+      "file": "assets/portraits/noam-dar.png",
+      "identity_match": "IDENTITY_MATCHED_USER_ROSTER_SCREENSHOT",
+      "photo_rights_clearance": "not established",
+      "alpha": "RGBA basic check"
+    },
+    {
+      "official_name": "Omos",
+      "category": "individual",
+      "source": "IMG_3121.png",
+      "file": "assets/portraits/omos.png",
+      "identity_match": "IDENTITY_MATCHED_USER_ROSTER_SCREENSHOT",
+      "photo_rights_clearance": "not established",
+      "alpha": "RGBA basic check"
+    },
+    {
+      "official_name": "Osiris Griffin",
+      "category": "individual",
+      "source": "IMG_3122.png",
+      "file": "assets/portraits/osiris-griffin.png",
+      "identity_match": "IDENTITY_MATCHED_USER_ROSTER_SCREENSHOT",
+      "photo_rights_clearance": "not established",
+      "alpha": "RGBA basic check"
+    },
+    {
+      "official_name": "Otis",
+      "category": "individual",
+      "source": "IMG_3123.png",
+      "file": "assets/portraits/otis.png",
+      "identity_match": "IDENTITY_MATCHED_USER_ROSTER_SCREENSHOT",
+      "photo_rights_clearance": "not established",
+      "alpha": "RGBA basic check"
+    },
+    {
+      "official_name": "Paige",
+      "category": "individual",
+      "source": "IMG_3124.png",
+      "file": "assets/portraits/paige.png",
+      "identity_match": "IDENTITY_MATCHED_USER_ROSTER_SCREENSHOT",
+      "photo_rights_clearance": "not established",
+      "alpha": "RGBA basic check"
+    },
+    {
+      "official_name": "Penta",
+      "category": "individual",
+      "source": "IMG_3126.png",
+      "file": "assets/portraits/penta.png",
+      "identity_match": "IDENTITY_MATCHED_USER_ROSTER_SCREENSHOT",
+      "photo_rights_clearance": "not established",
+      "alpha": "RGBA basic check"
+    },
+    {
+      "official_name": "Pete Dunne",
+      "category": "individual",
+      "source": "IMG_3127.png",
+      "file": "assets/portraits/pete-dunne.png",
+      "identity_match": "IDENTITY_MATCHED_USER_ROSTER_SCREENSHOT",
+      "photo_rights_clearance": "not established",
+      "alpha": "RGBA basic check"
+    },
+    {
+      "official_name": "Piper Niven",
+      "category": "individual",
+      "source": "IMG_3128.png",
+      "file": "assets/portraits/piper-niven.png",
+      "identity_match": "IDENTITY_MATCHED_USER_ROSTER_SCREENSHOT",
+      "photo_rights_clearance": "not established",
+      "alpha": "RGBA basic check"
+    },
+    {
+      "official_name": "R-Truth",
+      "category": "individual",
+      "source": "IMG_3129.png",
+      "file": "assets/portraits/r-truth.png",
+      "identity_match": "IDENTITY_MATCHED_USER_ROSTER_SCREENSHOT",
+      "photo_rights_clearance": "not established",
+      "alpha": "RGBA basic check"
+    },
+    {
+      "official_name": "Randy Orton",
+      "category": "individual",
+      "source": "IMG_3130.png",
+      "file": "assets/portraits/randy-orton.png",
+      "identity_match": "IDENTITY_MATCHED_USER_ROSTER_SCREENSHOT",
+      "photo_rights_clearance": "not established",
+      "alpha": "RGBA basic check"
+    },
+    {
+      "official_name": "Raquel Rodriguez",
+      "category": "individual",
+      "source": "IMG_3131.png",
+      "file": "assets/portraits/raquel-rodriguez.png",
+      "identity_match": "IDENTITY_MATCHED_USER_ROSTER_SCREENSHOT",
+      "photo_rights_clearance": "not established",
+      "alpha": "RGBA basic check"
+    },
+    {
+      "official_name": "Rayo Americano",
+      "category": "individual",
+      "source": "IMG_3132.png",
+      "file": "assets/portraits/rayo-americano.png",
+      "identity_match": "IDENTITY_MATCHED_USER_ROSTER_SCREENSHOT",
+      "photo_rights_clearance": "not established",
+      "alpha": "RGBA basic check"
+    },
+    {
+      "official_name": "Rey Fenix",
+      "category": "individual",
+      "source": "IMG_3133.png",
+      "file": "assets/portraits/rey-fenix.png",
+      "identity_match": "IDENTITY_MATCHED_USER_ROSTER_SCREENSHOT",
+      "photo_rights_clearance": "not established",
+      "alpha": "RGBA basic check"
+    },
+    {
+      "official_name": "Rey Mysterio",
+      "category": "individual",
+      "source": "IMG_3134.png",
+      "file": "assets/portraits/rey-mysterio.png",
+      "identity_match": "IDENTITY_MATCHED_USER_ROSTER_SCREENSHOT",
+      "photo_rights_clearance": "not established",
+      "alpha": "RGBA basic check"
+    },
+    {
+      "official_name": "Rhea Ripley",
+      "category": "individual",
+      "source": "IMG_3135.png",
+      "file": "assets/portraits/rhea-ripley.png",
+      "identity_match": "IDENTITY_MATCHED_USER_ROSTER_SCREENSHOT",
+      "photo_rights_clearance": "not established",
+      "alpha": "RGBA basic check"
+    },
+    {
+      "official_name": "Ricky Saints",
+      "category": "individual",
+      "source": "IMG_3136.png",
+      "file": "assets/portraits/ricky-saints.png",
+      "identity_match": "IDENTITY_MATCHED_USER_ROSTER_SCREENSHOT",
+      "photo_rights_clearance": "not established",
+      "alpha": "RGBA basic check"
+    },
+    {
+      "official_name": "Ricky Smokes",
+      "category": "individual",
+      "source": "IMG_3137.png",
+      "file": "assets/portraits/ricky-smokes.png",
+      "identity_match": "IDENTITY_MATCHED_USER_ROSTER_SCREENSHOT",
+      "photo_rights_clearance": "not established",
+      "alpha": "RGBA basic check"
+    },
+    {
+      "official_name": "Robert Stone",
+      "category": "individual",
+      "source": "IMG_3138.png",
+      "file": "assets/portraits/robert-stone.png",
+      "identity_match": "IDENTITY_MATCHED_USER_ROSTER_SCREENSHOT",
+      "photo_rights_clearance": "not established",
+      "alpha": "RGBA basic check"
+    },
+    {
+      "official_name": "Roman Reigns",
+      "category": "individual",
+      "source": "IMG_3139.png",
+      "file": "assets/portraits/roman-reigns.png",
+      "identity_match": "IDENTITY_MATCHED_USER_ROSTER_SCREENSHOT",
+      "photo_rights_clearance": "not established",
+      "alpha": "RGBA basic check"
+    },
+    {
+      "official_name": "Romeo Moreno",
+      "category": "individual",
+      "source": "IMG_3140.png",
+      "file": "assets/portraits/romeo-moreno.png",
+      "identity_match": "IDENTITY_MATCHED_USER_ROSTER_SCREENSHOT",
+      "photo_rights_clearance": "not established",
+      "alpha": "RGBA basic check"
+    },
+    {
+      "official_name": "Roxanne Perez",
+      "category": "individual",
+      "source": "IMG_3141.png",
+      "file": "assets/portraits/roxanne-perez.png",
+      "identity_match": "IDENTITY_MATCHED_USER_ROSTER_SCREENSHOT",
+      "photo_rights_clearance": "not established",
+      "alpha": "RGBA basic check"
+    },
+    {
+      "official_name": "Royce Keys",
+      "category": "individual",
+      "source": "IMG_3142.png",
+      "file": "assets/portraits/royce-keys.png",
+      "identity_match": "IDENTITY_MATCHED_USER_ROSTER_SCREENSHOT",
+      "photo_rights_clearance": "not established",
+      "alpha": "RGBA basic check"
+    },
+    {
+      "official_name": "Rusev",
+      "category": "individual",
+      "source": "IMG_3143.png",
+      "file": "assets/portraits/rusev.png",
+      "identity_match": "IDENTITY_MATCHED_USER_ROSTER_SCREENSHOT",
+      "photo_rights_clearance": "not established",
+      "alpha": "RGBA basic check"
+    },
+    {
+      "official_name": "Sami Zayn",
+      "category": "individual",
+      "source": "IMG_3144.png",
+      "file": "assets/portraits/sami-zayn.png",
+      "identity_match": "IDENTITY_MATCHED_USER_ROSTER_SCREENSHOT",
+      "photo_rights_clearance": "not established",
+      "alpha": "RGBA basic check"
+    },
+    {
+      "official_name": "Saquon Shugars",
+      "category": "individual",
+      "source": "IMG_3145.png",
+      "file": "assets/portraits/saquon-shugars.png",
+      "identity_match": "IDENTITY_MATCHED_USER_ROSTER_SCREENSHOT",
+      "photo_rights_clearance": "not established",
+      "alpha": "RGBA basic check"
+    },
+    {
+      "official_name": "Sean Legacy",
+      "category": "individual",
+      "source": "IMG_3146.png",
+      "file": "assets/portraits/sean-legacy.png",
+      "identity_match": "IDENTITY_MATCHED_USER_ROSTER_SCREENSHOT",
+      "photo_rights_clearance": "not established",
+      "alpha": "RGBA basic check"
+    },
+    {
+      "official_name": "Seth Rollins",
+      "category": "individual",
+      "source": "IMG_3147.png",
+      "file": "assets/portraits/seth-rollins.png",
+      "identity_match": "IDENTITY_MATCHED_USER_ROSTER_SCREENSHOT",
+      "photo_rights_clearance": "not established",
+      "alpha": "RGBA basic check"
+    },
+    {
+      "official_name": "Shawn Spears",
+      "category": "individual",
+      "source": "IMG_3148.png",
+      "file": "assets/portraits/shawn-spears.png",
+      "identity_match": "IDENTITY_MATCHED_USER_ROSTER_SCREENSHOT",
+      "photo_rights_clearance": "not established",
+      "alpha": "RGBA basic check"
+    },
+    {
+      "official_name": "Shiloh Hill",
+      "category": "individual",
+      "source": "IMG_3149.png",
+      "file": "assets/portraits/shiloh-hill.png",
+      "identity_match": "IDENTITY_MATCHED_USER_ROSTER_SCREENSHOT",
+      "photo_rights_clearance": "not established",
+      "alpha": "RGBA basic check"
+    },
+    {
+      "official_name": "Skylar Raye",
+      "category": "individual",
+      "source": "IMG_3151.png",
+      "file": "assets/portraits/skylar-raye.png",
+      "identity_match": "IDENTITY_MATCHED_USER_ROSTER_SCREENSHOT",
+      "photo_rights_clearance": "not established",
+      "alpha": "RGBA basic check"
+    },
+    {
+      "official_name": "Sol Ruca",
+      "category": "individual",
+      "source": "IMG_3152.png",
+      "file": "assets/portraits/sol-ruca.png",
+      "identity_match": "IDENTITY_MATCHED_USER_ROSTER_SCREENSHOT",
+      "photo_rights_clearance": "not established",
+      "alpha": "RGBA basic check"
+    },
+    {
+      "official_name": "Solo Sikoa",
+      "category": "individual",
+      "source": "IMG_3153.png",
+      "file": "assets/portraits/solo-sikoa.png",
+      "identity_match": "IDENTITY_MATCHED_USER_ROSTER_SCREENSHOT",
+      "photo_rights_clearance": "not established",
+      "alpha": "RGBA basic check"
+    },
+    {
+      "official_name": "Stephanie Vaquer",
+      "category": "individual",
+      "source": "IMG_3154.png",
+      "file": "assets/portraits/stephanie-vaquer.png",
+      "identity_match": "IDENTITY_MATCHED_USER_ROSTER_SCREENSHOT",
+      "photo_rights_clearance": "not established",
+      "alpha": "RGBA basic check"
+    },
+    {
+      "official_name": "Talla Tonga",
+      "category": "individual",
+      "source": "IMG_3155.png",
+      "file": "assets/portraits/talla-tonga.png",
+      "identity_match": "IDENTITY_MATCHED_USER_ROSTER_SCREENSHOT",
+      "photo_rights_clearance": "not established",
+      "alpha": "RGBA basic check"
+    },
+    {
+      "official_name": "Tama Tonga",
+      "category": "individual",
+      "source": "IMG_3156.png",
+      "file": "assets/portraits/tama-tonga.png",
+      "identity_match": "IDENTITY_MATCHED_USER_ROSTER_SCREENSHOT",
+      "photo_rights_clearance": "not established",
+      "alpha": "RGBA basic check"
+    },
+    {
+      "official_name": "Tamina",
+      "category": "individual",
+      "source": "IMG_3157.png",
+      "file": "assets/portraits/tamina.png",
+      "identity_match": "IDENTITY_MATCHED_USER_ROSTER_SCREENSHOT",
+      "photo_rights_clearance": "not established",
+      "alpha": "RGBA basic check"
+    },
+    {
+      "official_name": "Tank Ledger",
+      "category": "individual",
+      "source": "IMG_3158.png",
+      "file": "assets/portraits/tank-ledger.png",
+      "identity_match": "IDENTITY_MATCHED_USER_ROSTER_SCREENSHOT",
+      "photo_rights_clearance": "not established",
+      "alpha": "RGBA basic check"
+    },
+    {
+      "official_name": "Tatum Paxley",
+      "category": "individual",
+      "source": "IMG_3159.png",
+      "file": "assets/portraits/tatum-paxley.png",
+      "identity_match": "IDENTITY_MATCHED_USER_ROSTER_SCREENSHOT",
+      "photo_rights_clearance": "not established",
+      "alpha": "RGBA basic check"
+    },
+    {
+      "official_name": "Tavion Heights",
+      "category": "individual",
+      "source": "IMG_3160.png",
+      "file": "assets/portraits/tavion-heights.png",
+      "identity_match": "IDENTITY_MATCHED_USER_ROSTER_SCREENSHOT",
+      "photo_rights_clearance": "not established",
+      "alpha": "RGBA basic check"
+    },
+    {
+      "official_name": "The Miz",
+      "category": "individual",
+      "source": "IMG_3161.png",
+      "file": "assets/portraits/the-miz.png",
+      "identity_match": "IDENTITY_MATCHED_USER_ROSTER_SCREENSHOT",
+      "photo_rights_clearance": "not established",
+      "alpha": "RGBA basic check"
+    },
+    {
+      "official_name": "Thea Hail",
+      "category": "individual",
+      "source": "IMG_3162.png",
+      "file": "assets/portraits/thea-hail.png",
+      "identity_match": "IDENTITY_MATCHED_USER_ROSTER_SCREENSHOT",
+      "photo_rights_clearance": "not established",
+      "alpha": "RGBA basic check"
+    },
+    {
+      "official_name": "Tiffany Stratton",
+      "category": "individual",
+      "source": "IMG_3163.png",
+      "file": "assets/portraits/tiffany-stratton.png",
+      "identity_match": "IDENTITY_MATCHED_USER_ROSTER_SCREENSHOT",
+      "photo_rights_clearance": "not established",
+      "alpha": "RGBA basic check"
+    },
+    {
+      "official_name": "Tony D'Angelo",
+      "category": "individual",
+      "source": "IMG_3164.png",
+      "file": "assets/portraits/tony-d-angelo.png",
+      "identity_match": "IDENTITY_MATCHED_USER_ROSTER_SCREENSHOT",
+      "photo_rights_clearance": "not established",
+      "alpha": "RGBA basic check"
+    },
+    {
+      "official_name": "Trick Williams",
+      "category": "individual",
+      "source": "IMG_3165.png",
+      "file": "assets/portraits/trick-williams.png",
+      "identity_match": "IDENTITY_MATCHED_USER_ROSTER_SCREENSHOT",
+      "photo_rights_clearance": "not established",
+      "alpha": "RGBA basic check"
+    },
+    {
+      "official_name": "Triple H",
+      "category": "individual",
+      "source": "IMG_3166.png",
+      "file": "assets/portraits/triple-h.png",
+      "identity_match": "IDENTITY_MATCHED_USER_ROSTER_SCREENSHOT",
+      "photo_rights_clearance": "not established",
+      "alpha": "RGBA basic check"
+    },
+    {
+      "official_name": "Tristan Angels",
+      "category": "individual",
+      "source": "IMG_3167.png",
+      "file": "assets/portraits/tristan-angels.png",
+      "identity_match": "IDENTITY_MATCHED_USER_ROSTER_SCREENSHOT",
+      "photo_rights_clearance": "not established",
+      "alpha": "RGBA basic check"
+    },
+    {
+      "official_name": "Tyler Bate",
+      "category": "individual",
+      "source": "IMG_3168.png",
+      "file": "assets/portraits/tyler-bate.png",
+      "identity_match": "IDENTITY_MATCHED_USER_ROSTER_SCREENSHOT",
+      "photo_rights_clearance": "not established",
+      "alpha": "RGBA basic check"
+    },
+    {
+      "official_name": "Uriah Connors",
+      "category": "individual",
+      "source": "IMG_3169.png",
+      "file": "assets/portraits/uriah-connors.png",
+      "identity_match": "IDENTITY_MATCHED_USER_ROSTER_SCREENSHOT",
+      "photo_rights_clearance": "not established",
+      "alpha": "RGBA basic check"
+    },
+    {
+      "official_name": "Wren Sinclair",
+      "category": "individual",
+      "source": "IMG_3171.png",
+      "file": "assets/portraits/wren-sinclair.png",
+      "identity_match": "IDENTITY_MATCHED_USER_ROSTER_SCREENSHOT",
+      "photo_rights_clearance": "not established",
+      "alpha": "RGBA basic check"
+    },
+    {
+      "official_name": "Zaria",
+      "category": "individual",
+      "source": "IMG_3170.png",
+      "file": "assets/portraits/zaria.png",
+      "identity_match": "IDENTITY_MATCHED_USER_ROSTER_SCREENSHOT",
+      "photo_rights_clearance": "not established",
+      "alpha": "RGBA basic check"
+    },
+    {
+      "official_name": "Zilla Fatu",
+      "category": "individual",
+      "source": "IMG_3172.png",
+      "file": "assets/portraits/zilla-fatu.png",
+      "identity_match": "IDENTITY_MATCHED_USER_ROSTER_SCREENSHOT",
+      "photo_rights_clearance": "not established",
+      "alpha": "RGBA basic check"
+    },
+    {
+      "official_name": "Abismo Negro Jr.",
+      "category": "individual",
+      "source": "IMG_2990(1).png",
+      "file": "assets/portraits/abismo-negro-jr.png",
+      "identity_match": "IDENTITY_MATCHED_USER_ROSTER_SCREENSHOT",
+      "photo_rights_clearance": "not established",
+      "alpha": "RGBA basic check"
+    },
+    {
+      "official_name": "Adam Pearce",
+      "category": "individual",
+      "source": "IMG_2991(1).png",
+      "file": "assets/portraits/adam-pearce.png",
+      "identity_match": "IDENTITY_MATCHED_USER_ROSTER_SCREENSHOT",
+      "photo_rights_clearance": "not established",
+      "alpha": "RGBA basic check"
+    },
+    {
+      "official_name": "AJ Lee",
+      "category": "individual",
+      "source": "IMG_2992(1).png",
+      "file": "assets/portraits/aj-lee.png",
+      "identity_match": "IDENTITY_MATCHED_USER_ROSTER_SCREENSHOT",
+      "photo_rights_clearance": "not established",
+      "alpha": "RGBA basic check"
+    },
+    {
+      "official_name": "Akira Tozawa",
+      "category": "individual",
+      "source": "IMG_2993(1).png",
+      "file": "assets/portraits/akira-tozawa.png",
+      "identity_match": "IDENTITY_MATCHED_USER_ROSTER_SCREENSHOT",
+      "photo_rights_clearance": "not established",
+      "alpha": "RGBA basic check"
+    },
+    {
+      "official_name": "Alexa Bliss",
+      "category": "individual",
+      "source": "IMG_2994.png",
+      "file": "assets/portraits/alexa-bliss.png",
+      "identity_match": "IDENTITY_MATCHED_USER_ROSTER_SCREENSHOT",
+      "photo_rights_clearance": "not established",
+      "alpha": "RGBA basic check"
+    },
+    {
+      "official_name": "Angel",
+      "category": "individual",
+      "source": "IMG_2995.png",
+      "file": "assets/portraits/angel.png",
+      "identity_match": "IDENTITY_MATCHED_USER_ROSTER_SCREENSHOT",
+      "photo_rights_clearance": "not established",
+      "alpha": "RGBA basic check"
+    },
+    {
+      "official_name": "Angelo Dawkins",
+      "category": "individual",
+      "source": "IMG_2996.png",
+      "file": "assets/portraits/angelo-dawkins.png",
+      "identity_match": "IDENTITY_MATCHED_USER_ROSTER_SCREENSHOT",
+      "photo_rights_clearance": "not established",
+      "alpha": "RGBA basic check"
+    },
+    {
+      "official_name": "Arianna Grace",
+      "category": "individual",
+      "source": "IMG_2997.png",
+      "file": "assets/portraits/arianna-grace.png",
+      "identity_match": "IDENTITY_MATCHED_USER_ROSTER_SCREENSHOT",
+      "photo_rights_clearance": "not established",
+      "alpha": "RGBA basic check"
+    },
+    {
+      "official_name": "Asuka",
+      "category": "individual",
+      "source": "IMG_2998.png",
+      "file": "assets/portraits/asuka.png",
+      "identity_match": "IDENTITY_MATCHED_USER_ROSTER_SCREENSHOT",
+      "photo_rights_clearance": "not established",
+      "alpha": "RGBA basic check"
+    },
+    {
+      "official_name": "Austin Theory",
+      "category": "individual",
+      "source": "IMG_2999.png",
+      "file": "assets/portraits/austin-theory.png",
+      "identity_match": "IDENTITY_MATCHED_USER_ROSTER_SCREENSHOT",
+      "photo_rights_clearance": "not established",
+      "alpha": "RGBA basic check"
+    },
+    {
+      "official_name": "Axiom",
+      "category": "individual",
+      "source": "IMG_3001.png",
+      "file": "assets/portraits/axiom.png",
+      "identity_match": "IDENTITY_MATCHED_USER_ROSTER_SCREENSHOT",
+      "photo_rights_clearance": "not established",
+      "alpha": "RGBA basic check"
+    },
+    {
+      "official_name": "B-Fab",
+      "category": "individual",
+      "source": "IMG_3002.png",
+      "file": "assets/portraits/b-fab.png",
+      "identity_match": "IDENTITY_MATCHED_USER_ROSTER_SCREENSHOT",
+      "photo_rights_clearance": "not established",
+      "alpha": "RGBA basic check"
+    },
+    {
+      "official_name": "Baron Corbin",
+      "category": "individual",
+      "source": "IMG_3003.png",
+      "file": "assets/portraits/baron-corbin.png",
+      "identity_match": "IDENTITY_MATCHED_USER_ROSTER_SCREENSHOT",
+      "photo_rights_clearance": "not established",
+      "alpha": "RGBA basic check"
+    },
+    {
+      "official_name": "Bayley",
+      "category": "individual",
+      "source": "IMG_3004.png",
+      "file": "assets/portraits/bayley.png",
+      "identity_match": "IDENTITY_MATCHED_USER_ROSTER_SCREENSHOT",
+      "photo_rights_clearance": "not established",
+      "alpha": "RGBA basic check"
+    },
+    {
+      "official_name": "Becky Lynch",
+      "category": "individual",
+      "source": "IMG_3005.png",
+      "file": "assets/portraits/becky-lynch.png",
+      "identity_match": "IDENTITY_MATCHED_USER_ROSTER_SCREENSHOT",
+      "photo_rights_clearance": "not established",
+      "alpha": "RGBA basic check"
+    },
+    {
+      "official_name": "Berto",
+      "category": "individual",
+      "source": "IMG_3006.png",
+      "file": "assets/portraits/berto.png",
+      "identity_match": "IDENTITY_MATCHED_USER_ROSTER_SCREENSHOT",
+      "photo_rights_clearance": "not established",
+      "alpha": "RGBA basic check"
+    },
+    {
+      "official_name": "Bianca Belair",
+      "category": "individual",
+      "source": "IMG_3007.png",
+      "file": "assets/portraits/bianca-belair.png",
+      "identity_match": "IDENTITY_MATCHED_USER_ROSTER_SCREENSHOT",
+      "photo_rights_clearance": "not established",
+      "alpha": "RGBA basic check"
+    },
+    {
+      "official_name": "Big Cass",
+      "category": "individual",
+      "source": "IMG_3008.png",
+      "file": "assets/portraits/big-cass.png",
+      "identity_match": "IDENTITY_MATCHED_USER_ROSTER_SCREENSHOT",
+      "photo_rights_clearance": "not established",
+      "alpha": "RGBA basic check"
+    },
+    {
+      "official_name": "Big E",
+      "category": "individual",
+      "source": "IMG_3009.png",
+      "file": "assets/portraits/big-e.png",
+      "identity_match": "IDENTITY_MATCHED_USER_ROSTER_SCREENSHOT",
+      "photo_rights_clearance": "not established",
+      "alpha": "RGBA basic check"
+    },
+    {
+      "official_name": "Blake Monroe",
+      "category": "individual",
+      "source": "IMG_3010.png",
+      "file": "assets/portraits/blake-monroe.png",
+      "identity_match": "IDENTITY_MATCHED_USER_ROSTER_SCREENSHOT",
+      "photo_rights_clearance": "not established",
+      "alpha": "RGBA basic check"
+    },
+    {
+      "official_name": "Brad Baylor",
+      "category": "individual",
+      "source": "IMG_3011.png",
+      "file": "assets/portraits/brad-baylor.png",
+      "identity_match": "IDENTITY_MATCHED_USER_ROSTER_SCREENSHOT",
+      "photo_rights_clearance": "not established",
+      "alpha": "RGBA basic check"
+    },
+    {
+      "official_name": "Bravo Americano",
+      "category": "individual",
+      "source": "IMG_3012.png",
+      "file": "assets/portraits/bravo-americano.png",
+      "identity_match": "IDENTITY_MATCHED_USER_ROSTER_SCREENSHOT",
+      "photo_rights_clearance": "not established",
+      "alpha": "RGBA basic check"
+    },
+    {
+      "official_name": "Brie Bella",
+      "category": "individual",
+      "source": "IMG_3013.png",
+      "file": "assets/portraits/brie-bella.png",
+      "identity_match": "IDENTITY_MATCHED_USER_ROSTER_SCREENSHOT",
+      "photo_rights_clearance": "not established",
+      "alpha": "RGBA basic check"
+    },
+    {
+      "official_name": "Bron Breakker",
+      "category": "individual",
+      "source": "IMG_3014.png",
+      "file": "assets/portraits/bron-breakker.png",
+      "identity_match": "IDENTITY_MATCHED_USER_ROSTER_SCREENSHOT",
+      "photo_rights_clearance": "not established",
+      "alpha": "RGBA basic check"
+    },
+    {
+      "official_name": "Bronco Nima",
+      "category": "individual",
+      "source": "IMG_3016.png",
+      "file": "assets/portraits/bronco-nima.png",
+      "identity_match": "IDENTITY_MATCHED_USER_ROSTER_SCREENSHOT",
+      "photo_rights_clearance": "not established",
+      "alpha": "RGBA basic check"
+    },
+    {
+      "official_name": "Bronson Reed",
+      "category": "individual",
+      "source": "IMG_3017.png",
+      "file": "assets/portraits/bronson-reed.png",
+      "identity_match": "IDENTITY_MATCHED_USER_ROSTER_SCREENSHOT",
+      "photo_rights_clearance": "not established",
+      "alpha": "RGBA basic check"
+    },
+    {
+      "official_name": "Brooks Jensen",
+      "category": "individual",
+      "source": "IMG_3018.png",
+      "file": "assets/portraits/brooks-jensen.png",
+      "identity_match": "IDENTITY_MATCHED_USER_ROSTER_SCREENSHOT",
+      "photo_rights_clearance": "not established",
+      "alpha": "RGBA basic check"
+    },
+    {
+      "official_name": "Brutus Creed",
+      "category": "individual",
+      "source": "IMG_3019.png",
+      "file": "assets/portraits/brutus-creed.png",
+      "identity_match": "IDENTITY_MATCHED_USER_ROSTER_SCREENSHOT",
+      "photo_rights_clearance": "not established",
+      "alpha": "RGBA basic check"
+    },
+    {
+      "official_name": "Candice LeRae",
+      "category": "individual",
+      "source": "IMG_3020.png",
+      "file": "assets/portraits/candice-lerae.png",
+      "identity_match": "IDENTITY_MATCHED_USER_ROSTER_SCREENSHOT",
+      "photo_rights_clearance": "not established",
+      "alpha": "RGBA basic check"
+    },
+    {
+      "official_name": "Carmelo Hayes",
+      "category": "individual",
+      "source": "IMG_3022.png",
+      "file": "assets/portraits/carmelo-hayes.png",
+      "identity_match": "IDENTITY_MATCHED_USER_ROSTER_SCREENSHOT",
+      "photo_rights_clearance": "not established",
+      "alpha": "RGBA basic check"
+    },
+    {
+      "official_name": "Chad Gable",
+      "category": "individual",
+      "source": "IMG_3023.png",
+      "file": "assets/portraits/chad-gable.png",
+      "identity_match": "IDENTITY_MATCHED_USER_ROSTER_SCREENSHOT",
+      "photo_rights_clearance": "not established",
+      "alpha": "RGBA basic check"
+    },
+    {
+      "official_name": "Channing \"Stacks\" Lorenzo",
+      "category": "individual",
+      "source": "IMG_3024.png",
+      "file": "assets/portraits/channing-stacks-lorenzo.png",
+      "identity_match": "IDENTITY_MATCHED_USER_ROSTER_SCREENSHOT",
+      "photo_rights_clearance": "not established",
+      "alpha": "RGBA basic check"
+    },
+    {
+      "official_name": "Charlie Dempsey",
+      "category": "individual",
+      "source": "IMG_3025.png",
+      "file": "assets/portraits/charlie-dempsey.png",
+      "identity_match": "IDENTITY_MATCHED_USER_ROSTER_SCREENSHOT",
+      "photo_rights_clearance": "not established",
+      "alpha": "RGBA basic check"
+    },
+    {
+      "official_name": "Charlotte Flair",
+      "category": "individual",
+      "source": "IMG_3026.png",
+      "file": "assets/portraits/charlotte-flair.png",
+      "identity_match": "IDENTITY_MATCHED_USER_ROSTER_SCREENSHOT",
+      "photo_rights_clearance": "not established",
+      "alpha": "RGBA basic check"
+    },
+    {
+      "official_name": "Chelsea Green",
+      "category": "individual",
+      "source": "IMG_3027.png",
+      "file": "assets/portraits/chelsea-green.png",
+      "identity_match": "IDENTITY_MATCHED_USER_ROSTER_SCREENSHOT",
+      "photo_rights_clearance": "not established",
+      "alpha": "RGBA basic check"
+    },
+    {
+      "official_name": "CM Punk",
+      "category": "individual",
+      "source": "IMG_3028.png",
+      "file": "assets/portraits/cm-punk.png",
+      "identity_match": "IDENTITY_MATCHED_USER_ROSTER_SCREENSHOT",
+      "photo_rights_clearance": "not established",
+      "alpha": "RGBA basic check"
+    },
+    {
+      "official_name": "Cody Rhodes",
+      "category": "individual",
+      "source": "IMG_3029.png",
+      "file": "assets/portraits/cody-rhodes.png",
+      "identity_match": "IDENTITY_MATCHED_USER_ROSTER_SCREENSHOT",
+      "photo_rights_clearance": "not established",
+      "alpha": "RGBA basic check"
+    },
+    {
+      "official_name": "Corey Graves",
+      "category": "individual",
+      "source": "IMG_3030.png",
+      "file": "assets/portraits/corey-graves.png",
+      "identity_match": "IDENTITY_MATCHED_USER_ROSTER_SCREENSHOT",
+      "photo_rights_clearance": "not established",
+      "alpha": "RGBA basic check"
+    },
+    {
+      "official_name": "Cruz Del Toro",
+      "category": "individual",
+      "source": "IMG_3031.png",
+      "file": "assets/portraits/cruz-del-toro.png",
+      "identity_match": "IDENTITY_MATCHED_USER_ROSTER_SCREENSHOT",
+      "photo_rights_clearance": "not established",
+      "alpha": "RGBA basic check"
+    },
+    {
+      "official_name": "Cruz Montana",
+      "category": "individual",
+      "source": "IMG_3033.png",
+      "file": "assets/portraits/cruz-montana.png",
+      "identity_match": "IDENTITY_MATCHED_USER_ROSTER_SCREENSHOT",
+      "photo_rights_clearance": "not established",
+      "alpha": "RGBA basic check"
+    },
+    {
+      "official_name": "Cutler James",
+      "category": "individual",
+      "source": "IMG_3034.png",
+      "file": "assets/portraits/cutler-james.png",
+      "identity_match": "IDENTITY_MATCHED_USER_ROSTER_SCREENSHOT",
+      "photo_rights_clearance": "not established",
+      "alpha": "RGBA basic check"
+    },
+    {
+      "official_name": "Daga",
+      "category": "individual",
+      "source": "IMG_3035.png",
+      "file": "assets/portraits/daga.png",
+      "identity_match": "IDENTITY_MATCHED_USER_ROSTER_SCREENSHOT",
+      "photo_rights_clearance": "not established",
+      "alpha": "RGBA basic check"
+    },
+    {
+      "official_name": "Damian Priest",
+      "category": "individual",
+      "source": "IMG_3036.png",
+      "file": "assets/portraits/damian-priest.png",
+      "identity_match": "IDENTITY_MATCHED_USER_ROSTER_SCREENSHOT",
+      "photo_rights_clearance": "not established",
+      "alpha": "RGBA basic check"
+    },
+    {
+      "official_name": "Danhausen",
+      "category": "individual",
+      "source": "IMG_3037.png",
+      "file": "assets/portraits/danhausen.png",
+      "identity_match": "IDENTITY_MATCHED_USER_ROSTER_SCREENSHOT",
+      "photo_rights_clearance": "not established",
+      "alpha": "RGBA basic check"
+    },
+    {
+      "official_name": "Dion Lennox",
+      "category": "individual",
+      "source": "IMG_3038.png",
+      "file": "assets/portraits/dion-lennox.png",
+      "identity_match": "IDENTITY_MATCHED_USER_ROSTER_SCREENSHOT",
+      "photo_rights_clearance": "not established",
+      "alpha": "RGBA basic check"
+    },
+    {
+      "official_name": "Dominik Mysterio",
+      "category": "individual",
+      "source": "IMG_3039.png",
+      "file": "assets/portraits/dominik-mysterio.png",
+      "identity_match": "IDENTITY_MATCHED_USER_ROSTER_SCREENSHOT",
+      "photo_rights_clearance": "not established",
+      "alpha": "RGBA basic check"
+    },
+    {
+      "official_name": "Dorian Van Dux",
+      "category": "individual",
+      "source": "IMG_3040.png",
+      "file": "assets/portraits/dorian-van-dux.png",
+      "identity_match": "IDENTITY_MATCHED_USER_ROSTER_SCREENSHOT",
+      "photo_rights_clearance": "not established",
+      "alpha": "RGBA basic check"
+    },
+    {
+      "official_name": "Dragon Lee",
+      "category": "individual",
+      "source": "IMG_3041.png",
+      "file": "assets/portraits/dragon-lee.png",
+      "identity_match": "IDENTITY_MATCHED_USER_ROSTER_SCREENSHOT",
+      "photo_rights_clearance": "not established",
+      "alpha": "RGBA basic check"
+    },
+    {
+      "official_name": "Drew McIntyre",
+      "category": "individual",
+      "source": "IMG_3042.png",
+      "file": "assets/portraits/drew-mcintyre.png",
+      "identity_match": "IDENTITY_MATCHED_USER_ROSTER_SCREENSHOT",
+      "photo_rights_clearance": "not established",
+      "alpha": "RGBA basic check"
+    },
+    {
+      "official_name": "EK Prosper",
+      "category": "individual",
+      "source": "IMG_3043.png",
+      "file": "assets/portraits/ek-prosper.png",
+      "identity_match": "IDENTITY_MATCHED_USER_ROSTER_SCREENSHOT",
+      "photo_rights_clearance": "not established",
+      "alpha": "RGBA basic check"
+    },
+    {
+      "official_name": "El Carnicero",
+      "category": "individual",
+      "source": "IMG_3044.png",
+      "file": "assets/portraits/el-carnicero.png",
+      "identity_match": "IDENTITY_MATCHED_USER_ROSTER_SCREENSHOT",
+      "photo_rights_clearance": "not established",
+      "alpha": "RGBA basic check"
+    },
+    {
+      "official_name": "El Fiscal",
+      "category": "individual",
+      "source": "IMG_3045.png",
+      "file": "assets/portraits/el-fiscal.png",
+      "identity_match": "IDENTITY_MATCHED_USER_ROSTER_SCREENSHOT",
+      "photo_rights_clearance": "not established",
+      "alpha": "RGBA basic check"
+    },
+    {
+      "official_name": "El Grande Americano",
+      "category": "individual",
+      "source": "IMG_3046.png",
+      "file": "assets/portraits/el-grande-americano.png",
+      "identity_match": "IDENTITY_MATCHED_USER_ROSTER_SCREENSHOT",
+      "photo_rights_clearance": "not established",
+      "alpha": "RGBA basic check"
+    },
+    {
+      "official_name": "Elio LeFleur",
+      "category": "individual",
+      "source": "IMG_3047.png",
+      "file": "assets/portraits/elio-lefleur.png",
+      "identity_match": "IDENTITY_MATCHED_USER_ROSTER_SCREENSHOT",
+      "photo_rights_clearance": "not established",
+      "alpha": "RGBA basic check"
+    },
+    {
+      "official_name": "Elton Prince",
+      "category": "individual",
+      "source": "IMG_3048.png",
+      "file": "assets/portraits/elton-prince.png",
+      "identity_match": "IDENTITY_MATCHED_USER_ROSTER_SCREENSHOT",
+      "photo_rights_clearance": "not established",
+      "alpha": "RGBA basic check"
+    },
+    {
+      "official_name": "Erik",
+      "category": "individual",
+      "source": "IMG_3049.png",
+      "file": "assets/portraits/erik.png",
+      "identity_match": "IDENTITY_MATCHED_USER_ROSTER_SCREENSHOT",
+      "photo_rights_clearance": "not established",
+      "alpha": "RGBA basic check"
+    },
+    {
+      "official_name": "Ethan Page",
+      "category": "individual",
+      "source": "IMG_3050.png",
+      "file": "assets/portraits/ethan-page.png",
+      "identity_match": "IDENTITY_MATCHED_USER_ROSTER_SCREENSHOT",
+      "photo_rights_clearance": "not established",
+      "alpha": "RGBA basic check"
+    },
+    {
+      "official_name": "Fallon Henley",
+      "category": "individual",
+      "source": "IMG_3052.png",
+      "file": "assets/portraits/fallon-henley.png",
+      "identity_match": "IDENTITY_MATCHED_USER_ROSTER_SCREENSHOT",
+      "photo_rights_clearance": "not established",
+      "alpha": "RGBA basic check"
+    },
+    {
+      "official_name": "Finn Bálor",
+      "category": "individual",
+      "source": "IMG_3053.png",
+      "file": "assets/portraits/finn-balor.png",
+      "identity_match": "IDENTITY_MATCHED_USER_ROSTER_SCREENSHOT",
+      "photo_rights_clearance": "not established",
+      "alpha": "RGBA basic check"
+    },
+    {
+      "official_name": "Galeno",
+      "category": "individual",
+      "source": "IMG_3054.png",
+      "file": "assets/portraits/galeno.png",
+      "identity_match": "IDENTITY_MATCHED_USER_ROSTER_SCREENSHOT",
+      "photo_rights_clearance": "not established",
+      "alpha": "RGBA basic check"
+    },
+    {
+      "official_name": "Giulia",
+      "category": "individual",
+      "source": "IMG_3055.png",
+      "file": "assets/portraits/giulia.png",
+      "identity_match": "IDENTITY_MATCHED_USER_ROSTER_SCREENSHOT",
+      "photo_rights_clearance": "not established",
+      "alpha": "RGBA basic check"
+    },
+    {
+      "official_name": "Grayson Waller",
+      "category": "individual",
+      "source": "IMG_2983.png",
+      "file": "assets/portraits/grayson-waller.png",
+      "identity_match": "IDENTITY_MATCHED_USER_ROSTER_SCREENSHOT",
+      "photo_rights_clearance": "not established",
+      "alpha": "RGBA basic check"
+    },
+    {
+      "official_name": "Gunther",
+      "category": "individual",
+      "source": "IMG_3056.png",
+      "file": "assets/portraits/gunther.png",
+      "identity_match": "IDENTITY_MATCHED_USER_ROSTER_SCREENSHOT",
+      "photo_rights_clearance": "not established",
+      "alpha": "RGBA basic check"
+    },
+    {
+      "official_name": "Hank Walker",
+      "category": "individual",
+      "source": "IMG_3057.png",
+      "file": "assets/portraits/hank-walker.png",
+      "identity_match": "IDENTITY_MATCHED_USER_ROSTER_SCREENSHOT",
+      "photo_rights_clearance": "not established",
+      "alpha": "RGBA basic check"
+    },
+    {
+      "official_name": "Harlem Lewis",
+      "category": "individual",
+      "source": "IMG_3058.png",
+      "file": "assets/portraits/harlem-lewis.png",
+      "identity_match": "IDENTITY_MATCHED_USER_ROSTER_SCREENSHOT",
+      "photo_rights_clearance": "not established",
+      "alpha": "RGBA basic check"
+    },
+    {
+      "official_name": "Ivar",
+      "category": "individual",
+      "source": "IMG_3060.png",
+      "file": "assets/portraits/ivar.png",
+      "identity_match": "IDENTITY_MATCHED_USER_ROSTER_SCREENSHOT",
+      "photo_rights_clearance": "not established",
+      "alpha": "RGBA basic check"
+    },
+    {
+      "official_name": "Ivy Nile",
+      "category": "individual",
+      "source": "IMG_3061.png",
+      "file": "assets/portraits/ivy-nile.png",
+      "identity_match": "IDENTITY_MATCHED_USER_ROSTER_SCREENSHOT",
+      "photo_rights_clearance": "not established",
+      "alpha": "RGBA basic check"
+    },
+    {
+      "official_name": "IYO SKY",
+      "category": "individual",
+      "source": "IMG_3062.png",
+      "file": "assets/portraits/iyo-sky.png",
+      "identity_match": "IDENTITY_MATCHED_USER_ROSTER_SCREENSHOT",
+      "photo_rights_clearance": "not established",
+      "alpha": "RGBA basic check"
+    },
+    {
+      "official_name": "Izzi Dame",
+      "category": "individual",
+      "source": "IMG_3063.png",
+      "file": "assets/portraits/izzi-dame.png",
+      "identity_match": "IDENTITY_MATCHED_USER_ROSTER_SCREENSHOT",
+      "photo_rights_clearance": "not established",
+      "alpha": "RGBA basic check"
+    },
+    {
+      "official_name": "Jackson Drake",
+      "category": "individual",
+      "source": "IMG_3064.png",
+      "file": "assets/portraits/jackson-drake.png",
+      "identity_match": "IDENTITY_MATCHED_USER_ROSTER_SCREENSHOT",
+      "photo_rights_clearance": "not established",
+      "alpha": "RGBA basic check"
+    },
+    {
+      "official_name": "Jacob Fatu",
+      "category": "individual",
+      "source": "IMG_3065(1).png",
+      "file": "assets/portraits/jacob-fatu.png",
+      "identity_match": "IDENTITY_MATCHED_USER_ROSTER_SCREENSHOT",
+      "photo_rights_clearance": "not established",
+      "alpha": "RGBA basic check"
+    },
+    {
+      "official_name": "Jacy Jayne",
+      "category": "individual",
+      "source": "IMG_3066(1).png",
+      "file": "assets/portraits/jacy-jayne.png",
+      "identity_match": "IDENTITY_MATCHED_USER_ROSTER_SCREENSHOT",
+      "photo_rights_clearance": "not established",
+      "alpha": "RGBA basic check"
+    },
+    {
+      "official_name": "Jade Cargill",
+      "category": "individual",
+      "source": "IMG_3067(1).png",
+      "file": "assets/portraits/jade-cargill.png",
+      "identity_match": "IDENTITY_MATCHED_USER_ROSTER_SCREENSHOT",
+      "photo_rights_clearance": "not established",
+      "alpha": "RGBA basic check"
+    },
+    {
+      "official_name": "Jaida Parker",
+      "category": "individual",
+      "source": "IMG_3068(1).png",
+      "file": "assets/portraits/jaida-parker.png",
+      "identity_match": "IDENTITY_MATCHED_USER_ROSTER_SCREENSHOT",
+      "photo_rights_clearance": "not established",
+      "alpha": "RGBA basic check"
+    },
+    {
+      "official_name": "JD McDonagh",
+      "category": "individual",
+      "source": "IMG_3069(1).png",
+      "file": "assets/portraits/jd-mcdonagh.png",
+      "identity_match": "IDENTITY_MATCHED_USER_ROSTER_SCREENSHOT",
+      "photo_rights_clearance": "not established",
+      "alpha": "RGBA basic check"
+    },
+    {
+      "official_name": "Je'Von Evans",
+      "category": "individual",
+      "source": "IMG_3070(1).png",
+      "file": "assets/portraits/je-von-evans.png",
+      "identity_match": "IDENTITY_MATCHED_USER_ROSTER_SCREENSHOT",
+      "photo_rights_clearance": "not established",
+      "alpha": "RGBA basic check"
+    },
+    {
+      "official_name": "Jey Uso",
+      "category": "individual",
+      "source": "IMG_3071(1).png",
+      "file": "assets/portraits/jey-uso.png",
+      "identity_match": "IDENTITY_MATCHED_USER_ROSTER_SCREENSHOT",
+      "photo_rights_clearance": "not established",
+      "alpha": "RGBA basic check"
+    },
+    {
+      "official_name": "Jimmy Uso",
+      "category": "individual",
+      "source": "IMG_3072(1).png",
+      "file": "assets/portraits/jimmy-uso.png",
+      "identity_match": "IDENTITY_MATCHED_USER_ROSTER_SCREENSHOT",
+      "photo_rights_clearance": "not established",
+      "alpha": "RGBA basic check"
+    },
+    {
+      "official_name": "Joaquin Wilde",
+      "category": "individual",
+      "source": "IMG_3073(1).png",
+      "file": "assets/portraits/joaquin-wilde.png",
+      "identity_match": "IDENTITY_MATCHED_USER_ROSTER_SCREENSHOT",
+      "photo_rights_clearance": "not established",
+      "alpha": "RGBA basic check"
+    },
+    {
+      "official_name": "Joe Hendry",
+      "category": "individual",
+      "source": "IMG_3074(1).png",
+      "file": "assets/portraits/joe-hendry.png",
+      "identity_match": "IDENTITY_MATCHED_USER_ROSTER_SCREENSHOT",
+      "photo_rights_clearance": "not established",
+      "alpha": "RGBA basic check"
+    },
+    {
+      "official_name": "Johnny Gargano",
+      "category": "individual",
+      "source": "IMG_3075.png",
+      "file": "assets/portraits/johnny-gargano.png",
+      "identity_match": "IDENTITY_MATCHED_USER_ROSTER_SCREENSHOT",
+      "photo_rights_clearance": "not established",
+      "alpha": "RGBA basic check"
+    },
+    {
+      "official_name": "Jordynne Grace",
+      "category": "individual",
+      "source": "IMG_3076.png",
+      "file": "assets/portraits/jordynne-grace.png",
+      "identity_match": "IDENTITY_MATCHED_USER_ROSTER_SCREENSHOT",
+      "photo_rights_clearance": "not established",
+      "alpha": "RGBA basic check"
+    },
+    {
+      "official_name": "Josh Briggs",
+      "category": "individual",
+      "source": "IMG_3077.png",
+      "file": "assets/portraits/josh-briggs.png",
+      "identity_match": "IDENTITY_MATCHED_USER_ROSTER_SCREENSHOT",
+      "photo_rights_clearance": "not established",
+      "alpha": "RGBA basic check"
+    },
+    {
+      "official_name": "Julius Creed",
+      "category": "individual",
+      "source": "IMG_3078.png",
+      "file": "assets/portraits/julius-creed.png",
+      "identity_match": "IDENTITY_MATCHED_USER_ROSTER_SCREENSHOT",
+      "photo_rights_clearance": "not established",
+      "alpha": "RGBA basic check"
+    },
+    {
+      "official_name": "Kale Dixon",
+      "category": "individual",
+      "source": "IMG_3079.png",
+      "file": "assets/portraits/kale-dixon.png",
+      "identity_match": "IDENTITY_MATCHED_USER_ROSTER_SCREENSHOT",
+      "photo_rights_clearance": "not established",
+      "alpha": "RGBA basic check"
+    },
+    {
+      "official_name": "Kali Armstrong",
+      "category": "individual",
+      "source": "IMG_3080.png",
+      "file": "assets/portraits/kali-armstrong.png",
+      "identity_match": "IDENTITY_MATCHED_USER_ROSTER_SCREENSHOT",
+      "photo_rights_clearance": "not established",
+      "alpha": "RGBA basic check"
+    },
+    {
+      "official_name": "Kam Hendrix",
+      "category": "individual",
+      "source": "IMG_3081.png",
+      "file": "assets/portraits/kam-hendrix.png",
+      "identity_match": "IDENTITY_MATCHED_USER_ROSTER_SCREENSHOT",
+      "photo_rights_clearance": "not established",
+      "alpha": "RGBA basic check"
+    },
+    {
+      "official_name": "Karmen Petrovic",
+      "category": "individual",
+      "source": "IMG_3082.png",
+      "file": "assets/portraits/karmen-petrovic.png",
+      "identity_match": "IDENTITY_MATCHED_USER_ROSTER_SCREENSHOT",
+      "photo_rights_clearance": "not established",
+      "alpha": "RGBA basic check"
+    },
+    {
+      "official_name": "Keanu Carver",
+      "category": "individual",
+      "source": "IMG_3083.png",
+      "file": "assets/portraits/keanu-carver.png",
+      "identity_match": "IDENTITY_MATCHED_USER_ROSTER_SCREENSHOT",
+      "photo_rights_clearance": "not established",
+      "alpha": "RGBA basic check"
+    },
+    {
+      "official_name": "Kelani Jordan",
+      "category": "individual",
+      "source": "IMG_3084.png",
+      "file": "assets/portraits/kelani-jordan.png",
+      "identity_match": "IDENTITY_MATCHED_USER_ROSTER_SCREENSHOT",
+      "photo_rights_clearance": "not established",
+      "alpha": "RGBA basic check"
+    },
+    {
+      "official_name": "Kendal Grey",
+      "category": "individual",
+      "source": "IMG_3085.png",
+      "file": "assets/portraits/kendal-grey.png",
+      "identity_match": "IDENTITY_MATCHED_USER_ROSTER_SCREENSHOT",
+      "photo_rights_clearance": "not established",
+      "alpha": "RGBA basic check"
+    },
+    {
+      "official_name": "Kevin Owens",
+      "category": "individual",
+      "source": "IMG_3086.png",
+      "file": "assets/portraits/kevin-owens.png",
+      "identity_match": "IDENTITY_MATCHED_USER_ROSTER_SCREENSHOT",
+      "photo_rights_clearance": "not established",
+      "alpha": "RGBA basic check"
+    },
+    {
+      "official_name": "Kiana James",
+      "category": "individual",
+      "source": "IMG_3087.png",
+      "file": "assets/portraits/kiana-james.png",
+      "identity_match": "IDENTITY_MATCHED_USER_ROSTER_SCREENSHOT",
+      "photo_rights_clearance": "not established",
+      "alpha": "RGBA basic check"
+    },
+    {
+      "official_name": "Kit Wilson",
+      "category": "individual",
+      "source": "IMG_3088.png",
+      "file": "assets/portraits/kit-wilson.png",
+      "identity_match": "IDENTITY_MATCHED_USER_ROSTER_SCREENSHOT",
+      "photo_rights_clearance": "not established",
+      "alpha": "RGBA basic check"
+    },
+    {
+      "official_name": "La Catalina",
+      "category": "individual",
+      "source": "IMG_3089.png",
+      "file": "assets/portraits/la-catalina.png",
+      "identity_match": "IDENTITY_MATCHED_USER_ROSTER_SCREENSHOT",
+      "photo_rights_clearance": "not established",
+      "alpha": "RGBA basic check"
+    },
+    {
+      "official_name": "LA Knight",
+      "category": "individual",
+      "source": "IMG_3090.png",
+      "file": "assets/portraits/la-knight.png",
+      "identity_match": "IDENTITY_MATCHED_USER_ROSTER_SCREENSHOT",
+      "photo_rights_clearance": "not established",
+      "alpha": "RGBA basic check"
+    },
+    {
+      "official_name": "The Vision",
+      "category": "team_faction",
+      "source": "IMG_3173.png",
+      "file": "assets/portraits/the-vision.png",
+      "identity_match": "IDENTITY_MATCHED_USER_SCREENSHOT",
+      "photo_rights_clearance": "not established",
+      "alpha": "RGBA basic check"
+    },
+    {
+      "official_name": "The MFTs",
+      "category": "team_faction",
+      "source": "IMG_3174.png",
+      "file": "assets/portraits/the-mfts.png",
+      "identity_match": "IDENTITY_MATCHED_USER_SCREENSHOT",
+      "photo_rights_clearance": "not established",
+      "alpha": "RGBA basic check"
+    },
+    {
+      "official_name": "Michin & B-Fab",
+      "category": "team_faction",
+      "source": "IMG_3175.png",
+      "file": "assets/portraits/michin-b-fab.png",
+      "identity_match": "IDENTITY_MATCHED_USER_SCREENSHOT",
+      "photo_rights_clearance": "not established",
+      "alpha": "RGBA basic check"
+    },
+    {
+      "official_name": "The Vanity Project",
+      "category": "team_faction",
+      "source": "IMG_2987(1).png",
+      "file": "assets/portraits/the-vanity-project.png",
+      "identity_match": "IDENTITY_MATCHED_USER_SCREENSHOT",
+      "photo_rights_clearance": "not established",
+      "alpha": "RGBA basic check"
+    }
+  ]
+}
