@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "mode": "PUBLISHER_RSS_POST_SHOW_LINKS_ONLY",
-  "generated_at": "2026-10-30T21:26:09.625556-04:00",
+  "generated_at": "2026-10-30T23:30:53.809750-04:00",
   "source_name": "Multiple publisher RSS feeds",
   "source_url": "https://www.f4wonline.com/rss.xml",
   "approved_publishers": [
@@ -43,7 +43,8 @@
           "url": "https://411mania.com/wrestling/cooks-wwe-raw-review-10-26-26/",
           "published_at": "2026-10-27T02:37:34+00:00",
           "source_name": "411Mania",
-          "status": "PUBLISHER_HEADLINE_LINK_ONLY"
+          "status": "PUBLISHER_HEADLINE_LINK_ONLY",
+          "retained_from_previous": true
         },
         {
           "headline": "WWE RAW Results – Oct. 26, 2026 – Chad Gable & Dragon Lee vs. Big Cass & “All Ego” Ethan Page, Bayley vs. Lyra Valkyria in No DQ Match",
@@ -207,7 +208,7 @@
     }
   ],
   "total_links": 20,
-  "retained_link_count": 8,
+  "retained_link_count": 9,
   "collection_status": "ok",
   "successful_feed_urls": [
     "https://www.f4wonline.com/rss.xml",
