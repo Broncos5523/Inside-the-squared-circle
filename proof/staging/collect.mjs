@@ -27,6 +27,10 @@ const stats=await collectWcn({WCN_CACHE:cache},now,requester);
 const snapshot=responses.get('snapshot.json');
 const snapshotFresh=snapshot&&Number.isFinite(Date.parse(snapshot.generated_at))&&now.getTime()-Date.parse(snapshot.generated_at)<=48*3600000;
 const programs=(collected?.programs||[]).filter(p=>p.matches?.length||p.appearances?.length);
+// Never promote an event whose advertised airdate is already in the past.
+// Use New York local calendar dates for the US-based weekly broadcast schedule.
+const easternDate=new Intl.DateTimeFormat('en-CA',{timeZone:'America/New_York',year:'numeric',month:'2-digit',day:'2-digit'}).format(now);
+const isCurrentOrFuture=(date)=>/^\d{4}-\d{2}-\d{2}$/.test(date)&&date>=easternDate;
 const entries=[];
 const feeds={};
 if(snapshotFresh){
@@ -36,7 +40,7 @@ if(snapshotFresh){
  feeds['reported.json']={schema_version:1,mode:'REPORTED_MATCHES_UNVERIFIED',generated_at:now.toISOString(),display_attribution:'Wrestling Central News (wrestlingcentralnews.com)',programs,total_reported_matches:programs.reduce((n,p)=>n+p.matches.length,0),total_reported_appearances:programs.reduce((n,p)=>n+p.appearances.length,0)};
  for(const p of programs){
   const board=library.records.find(r=>r.id==='weekly-upcoming-'+p.show_id);
-  if(!board?.source_available||!board.design_approved||!/^\d{4}-\d{2}-\d{2}$/.test(p.airdate))continue;
+  if(!board?.source_available||!board.design_approved||!isCurrentOrFuture(p.airdate))continue;
   entries.push({id:board.id,title:board.label,show:p.show_id,kind:'upcoming',airdate:p.airdate,source_available:true,design_approved:true,content_status:'current',verification:'SOURCE_REPORTED',has_content:true,checked_at:now.toISOString(),source_name:'Wrestling Central News',source_url:p.source_url,venue:null});
  }
 }
