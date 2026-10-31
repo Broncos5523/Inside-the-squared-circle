@@ -62,8 +62,19 @@ test('the five-result plus AAA next and two-event lineup is exactly ordered',()=
   'preview-crown_jewel_preview_v1_approved_locked_20261027-night_one'
  ]);
 });
-test('the only missing 2026-10-31 requested episode is Oct28 Evolve, not a silently substituted archived board',()=>{
- const missing=library.records.find(x=>x.id==='weekly-results-evolve');
- assert.equal(missing?.source_available,false);
- assert.equal(programming.entries.some(x=>x.id==='weekly-results-evolve'),false);
+test('Evolve active playback uses October 28 data while original source remains October 21',()=>{
+ const rowE=library.records.find(x=>x.id==='weekly-results-evolve');
+ const original=fs.readFileSync(path.join(root,rowE.delivery),'utf8');
+ const episode=JSON.parse(fs.readFileSync(path.resolve(__dirname,'../proof/staging/evolve-oct28-source-payload.json'),'utf8'));episode.verification='EDITORIALLY_VERIFIED';
+ const player=host.ISCBoardAdapter.build(original,rowE,routes,base,'active',{'evolve-verified-results.json':{mode:'EDITORIALLY_VERIFIED_EVOLVE_EPISODE',episode_date:episode.episode_date,episode}});
+ const embedded=text=>JSON.parse(text.match(/<script id="verified-episode" type="application\/json">([\s\S]*?)<\/script>/)[1]);
+ assert.equal(embedded(original).episode_date,'2026-10-21');
+ assert.equal(embedded(player).episode_date,'2026-10-28');
+ assert.equal(embedded(player).segments.length,6);
+ assert.match(player,/OCT 28, 2026/);
+ assert.doesNotMatch(player,/STARBOY & CAPPUCCINO WIN/);
+ const row=library.records.find(x=>x.id==='weekly-results-evolve');
+ assert.throws(()=>host.ISCBoardAdapter.build(original,row,routes,base,'active',{}),/Reviewed Evolve/);
+ const archive=host.ISCBoardAdapter.build(original,row,routes,base,'archive',programming.feeds);
+ assert.equal(embedded(archive).episode_date,'2026-10-21');
 });
