@@ -7,7 +7,7 @@
   "episode_timezone": "America/New_York",
   "venue": "WWE PERFORMANCE CENTER",
   "locality": "ORLANDO, FLORIDA",
-  "release_status": "SOURCE_VERIFIED_STAGING_ASSETS_PENDING",
+  "release_status": "EXACT_APPROVED_SOURCE_DEPLOYED_TO_ISOLATED_STAGING",
   "provenance": [
     {
       "title": "Fightful — WWE Evolve Results (10/28)",
@@ -21,7 +21,7 @@
     }
   ],
   "portraits_policy": "Only verified winner portraits on match results, only subject-relevant approved user portraits for storylines; omit missing assets rather than substitute.",
-  "asset_status": "BLOCKED: exact final approved Evolve board and artwork ZIP are preserved in Google Drive but not deployed to this GitHub staging branch.",
+  "asset_status": "Exact 14 original image assets and the SHA256-verified final HTML are deployed in isolated GitHub staging. The approved artwork is not modified; current episode content is injected only at runtime.",
   "segments": [
     {
       "id": "riggins",
@@ -105,5 +105,6 @@
       "tag": "RIVALRY DEVELOPMENT",
       "belt": null
     }
-  ]
+  ],
+  "source_review": "Cross-checked 2026-10-31 against Fightful Oct28 results and Pro Wrestling Dot Net 10/29 recap. Three match winners plus three storyline segments; winner-only photos on results."
 }
