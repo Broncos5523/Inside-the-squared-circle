@@ -9,7 +9,7 @@
   function add(x){if(x&&!seen[x.id]){seen[x.id]=1;out.push(x);}}
   function latest(rows){return rows.sort(function(a,b){return (b.airdate||b.event_date).localeCompare(a.airdate||a.event_date);})[0];}
   function verified(x){return x.verification==='OFFICIAL_VERIFIED'||x.verification==='EDITORIALLY_VERIFIED';}
-  var results=usable.filter(function(x){return (x.kind==='results'||x.kind==='evolve')&&verified(x)&&x.completed===true&&days(x.airdate,today)>=-1&&days(x.airdate,today)<=74;});
+  var results=usable.filter(function(x){return (x.kind==='results'||x.kind==='evolve')&&verified(x)&&x.completed===true&&days(x.airdate,today)>=0&&days(x.airdate,today)<=74;});
   var previews=usable.filter(function(x){return x.kind==='upcoming'&&x.verification==='SOURCE_REPORTED'&&x.has_content===true&&x.airdate<=today&&days(today,x.airdate)<=1&&!results.some(function(r){return r.show===x.show&&r.airdate===x.airdate;});});
   // Multiple programs can air on one night. No weekday or event date is invented.
   previews.filter(function(x){return x.airdate===today;}).forEach(add);
@@ -18,7 +18,7 @@
   usable.filter(function(x){return x.kind==='ple-preview'&&x.date_confirmed===true&&x.has_content===true&&['SOURCE_REPORTED','OFFICIAL_VERIFIED','EDITORIALLY_VERIFIED'].indexOf(x.verification)>=0&&days(x.event_date,today)>=-1&&days(x.event_date,today)<=45&&!usable.some(function(r){return r.kind==='ple-results'&&r.event_id===x.event_id&&verified(r)&&r.completed===true;});}).sort(function(a,b){return a.event_date.localeCompare(b.event_date);}).forEach(add);
   usable.filter(function(x){return x.kind==='ple-results'&&verified(x)&&x.completed===true&&x.event_date<=today&&days(today,x.event_date)<=14;}).forEach(add);
   add(latest(results.filter(function(x){return x.kind==='evolve';})));
-  // The previous preview can bridge a results delay; it never displaces results.
+  // Expired previews cannot bridge results delays.
   // Include the nearest future advertised show alongside verified recent results.
   add(previews.filter(function(x){return x.airdate>today;}).sort(function(a,b){return a.airdate.localeCompare(b.airdate);})[0]);
   return out;
