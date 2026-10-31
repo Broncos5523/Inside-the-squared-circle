@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "mode": "SOURCE_GATED_STAGING",
-  "generated_at": "2026-10-31T16:29:39.606Z",
+  "generated_at": "2026-10-31T16:34:26.551Z",
   "entries": [
     {
       "id": "weekly-upcoming-raw",
@@ -15,7 +15,7 @@
       "verification": "SOURCE_REPORTED",
       "has_content": false,
       "schedule_confirmed": true,
-      "checked_at": "2026-10-31T16:29:39.606Z",
+      "checked_at": "2026-10-31T16:34:26.551Z",
       "source_name": "Published episode schedule",
       "source_url": "https://broncos5523.github.io/Inside-the-squared-circle/data/snapshot.json",
       "venue": null
@@ -32,7 +32,7 @@
       "verification": "SOURCE_REPORTED",
       "has_content": false,
       "schedule_confirmed": true,
-      "checked_at": "2026-10-31T16:29:39.606Z",
+      "checked_at": "2026-10-31T16:34:26.551Z",
       "source_name": "Published episode schedule",
       "source_url": "https://broncos5523.github.io/Inside-the-squared-circle/data/snapshot.json",
       "venue": null
@@ -49,7 +49,7 @@
       "verification": "SOURCE_REPORTED",
       "has_content": false,
       "schedule_confirmed": true,
-      "checked_at": "2026-10-31T16:29:39.606Z",
+      "checked_at": "2026-10-31T16:34:26.551Z",
       "source_name": "Published episode schedule",
       "source_url": "https://broncos5523.github.io/Inside-the-squared-circle/data/snapshot.json",
       "venue": null
@@ -66,7 +66,7 @@
       "verification": "SOURCE_REPORTED",
       "has_content": false,
       "schedule_confirmed": true,
-      "checked_at": "2026-10-31T16:29:39.606Z",
+      "checked_at": "2026-10-31T16:34:26.551Z",
       "source_name": "Published episode schedule",
       "source_url": "https://broncos5523.github.io/Inside-the-squared-circle/data/snapshot.json",
       "venue": null
@@ -83,10 +83,46 @@
       "verification": "SOURCE_REPORTED",
       "has_content": true,
       "schedule_confirmed": true,
-      "checked_at": "2026-10-31T16:29:39.606Z",
+      "checked_at": "2026-10-31T16:34:26.551Z",
       "source_name": "Wrestling Central News",
       "source_url": "https://wrestlingcentralnews.com/events/2026-11-05-tna-impact/",
       "venue": null
+    },
+    {
+      "id": "preview-nxt_halloween_havoc_preview_v4_approved_locked_20261027-night_one",
+      "title": "NXT Halloween Havoc — Preview",
+      "show": "nxt",
+      "kind": "ple-preview",
+      "event_id": "nxt-halloween-havoc-2026",
+      "event_date": "2026-10-31",
+      "source_available": true,
+      "design_approved": true,
+      "content_status": "current",
+      "verification": "OFFICIAL_VERIFIED",
+      "date_confirmed": true,
+      "has_content": true,
+      "schedule_confirmed": true,
+      "checked_at": "2026-10-31T16:34:26.551Z",
+      "source_name": "WWE",
+      "source_url": "https://www.wwe.com/shows/nxtple/nxt-halloween-havoc-2026"
+    },
+    {
+      "id": "preview-crown_jewel_preview_v1_approved_locked_20261027-night_one",
+      "title": "Crown Jewel — Preview",
+      "show": "wwe",
+      "kind": "ple-preview",
+      "event_id": "wwe-crown-jewel-2026",
+      "event_date": "2026-11-07",
+      "source_available": true,
+      "design_approved": true,
+      "content_status": "current",
+      "verification": "OFFICIAL_VERIFIED",
+      "date_confirmed": true,
+      "has_content": true,
+      "schedule_confirmed": true,
+      "checked_at": "2026-10-31T16:34:26.551Z",
+      "source_name": "WWE",
+      "source_url": "https://www.wwe.com/shows/wwe-crown-jewel/crown-jewel-2026"
     }
   ],
   "feeds": {
@@ -215,7 +251,7 @@
     "reported.json": {
       "schema_version": 1,
       "mode": "REPORTED_MATCHES_UNVERIFIED",
-      "generated_at": "2026-10-31T16:29:39.606Z",
+      "generated_at": "2026-10-31T16:34:26.551Z",
       "display_attribution": "Wrestling Central News (wrestlingcentralnews.com)",
       "programs": [
         {
@@ -253,8 +289,116 @@
     },
     "official-events.json": {
       "mode": "OFFICIAL_WWE_EVENT_PREVIEWS",
-      "generated_at": "2026-10-31T16:29:39.606Z",
-      "programs": []
+      "generated_at": "2026-10-31T16:34:26.551Z",
+      "programs": [
+        {
+          "event_id": "nxt-halloween-havoc-2026",
+          "board_id": "preview-nxt_halloween_havoc_preview_v4_approved_locked_20261027-night_one",
+          "title": "NXT Halloween Havoc",
+          "show": "nxt",
+          "event_date": "2026-10-31",
+          "source_url": "https://www.wwe.com/shows/nxtple/nxt-halloween-havoc-2026",
+          "checked_at": "2026-10-31T16:34:26.551Z",
+          "verification": "OFFICIAL_VERIFIED",
+          "cards": [
+            {
+              "heading": "NXT CHAMPIONSHIP",
+              "left": "Tony D’Angelo",
+              "left_portrait": "tony-d-angelo",
+              "right": "Grayson Waller",
+              "right_portrait": "grayson-waller",
+              "source_names": [
+                "Grayson Waller",
+                "Tony D'Angelo"
+              ],
+              "footer": "NXT CHAMPIONSHIP • TITLE MATCH",
+              "belt": true,
+              "verified_heading": "Grayson Waller defends the NXT Championship against Tony D'Angelo"
+            },
+            {
+              "heading": "NXT WOMEN’S CHAMPIONSHIP",
+              "left": "Wren Sinclair",
+              "left_portrait": "wren-sinclair",
+              "right": "Kelani Jordan",
+              "right_portrait": "kelani-jordan",
+              "source_names": [
+                "Kelani Jordan",
+                "Wren Sinclair"
+              ],
+              "footer": "NXT WOMEN’S CHAMPIONSHIP • TITLE MATCH",
+              "belt": true,
+              "verified_heading": "Kelani Jordan defends the NXT Women's Championship against Wren Sinclair"
+            },
+            {
+              "heading": "NXT NORTH AMERICAN CHAMPION • NON-TITLE",
+              "left": "Izzi Dame",
+              "left_portrait": "izzi-dame",
+              "right": "Zaria",
+              "right_portrait": "zaria",
+              "source_names": [
+                "Zaria",
+                "Izzi Dame"
+              ],
+              "footer": "ZARIA VS. IZZI DAME • NON-TITLE MATCH",
+              "belt": false,
+              "verified_heading": "NXT Women’s North American Champion Zaria vs. Izzi Dame | Non-Title Match"
+            }
+          ],
+          "render_ready": true
+        },
+        {
+          "event_id": "wwe-crown-jewel-2026",
+          "board_id": "preview-crown_jewel_preview_v1_approved_locked_20261027-night_one",
+          "title": "WWE Crown Jewel",
+          "show": "wwe",
+          "event_date": "2026-11-07",
+          "source_url": "https://www.wwe.com/shows/wwe-crown-jewel/crown-jewel-2026",
+          "checked_at": "2026-10-31T16:34:26.551Z",
+          "verification": "OFFICIAL_VERIFIED",
+          "cards": [
+            {
+              "heading": "MEN’S CROWN JEWEL CHAMPIONSHIP",
+              "left": "Roman Reigns",
+              "left_portrait": "roman-reigns",
+              "right": "Sami Zayn",
+              "right_portrait": "sami-zayn",
+              "source_names": [
+                "Roman Reigns",
+                "Sami Zayn"
+              ],
+              "belt": true,
+              "verified_heading": "World Heavyweight Champion Roman Reigns vs. Undisputed WWE Champion Sami Zayn"
+            },
+            {
+              "heading": "WOMEN’S CROWN JEWEL CHAMPIONSHIP",
+              "left": "Chelsea Green",
+              "left_portrait": "chelsea-green",
+              "right": "Liv Morgan",
+              "right_portrait": "liv-morgan",
+              "source_names": [
+                "Chelsea Green",
+                "Liv Morgan"
+              ],
+              "belt": true,
+              "verified_heading": "WWE Women's Champion Chelsea Green vs. Women's World Champion Liv Morgan"
+            },
+            {
+              "heading": "LAST MAN STANDING MATCH",
+              "left": "Cody Rhodes",
+              "left_portrait": "cody-rhodes",
+              "right": "Randy Orton",
+              "right_portrait": "randy-orton",
+              "source_names": [
+                "Cody Rhodes",
+                "Randy Orton"
+              ],
+              "belt": false,
+              "verified_heading": "Cody Rhodes to battle Randy Orton in a Last Man Standing Match"
+            }
+          ],
+          "render_ready": true
+        }
+      ]
     }
   },
   "collection": {
@@ -263,11 +407,8 @@
     "programs_with_data": 1,
     "errors": 0,
     "snapshot_fresh": true,
-    "official_event_count": 0,
-    "official_event_warnings": [
-      "nxt-halloween-havoc-2026:approved source missing",
-      "wwe-crown-jewel-2026:approved source missing"
-    ]
+    "official_event_count": 2,
+    "official_event_warnings": []
   },
   "notes": [
     "Archived examples remain excluded from current programming. Event matches must clear official-source and approved-portrait checks. Weekly results and Evolve remain held until the exact episode facts are verified and renderable.",
