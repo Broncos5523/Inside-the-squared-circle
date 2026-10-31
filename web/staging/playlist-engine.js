@@ -9,7 +9,7 @@
  var weekly=['aaa','raw','nxt','evolve','tna','smackdown'],shows=['aaa','raw','nxt','tna','smackdown'];
  function etDay(now){var p=new Intl.DateTimeFormat('en-US',{timeZone:'America/New_York',year:'numeric',month:'2-digit',day:'2-digit'}).formatToParts(now),v={};p.forEach(function(x){v[x.type]=x.value;});return v.year+'-'+v.month+'-'+v.day;}
  function days(a,b){return (Date.parse(a+'T12:00:00Z')-Date.parse(b+'T12:00:00Z'))/86400000;}
- function stamp(x){return x.airdate||x.event_date||'';}
+ function stamp(x){return /^(?:ple|special)-/.test(x.kind||'')?(x.event_date||''):(x.airdate||x.event_date||'');}
  function verified(x){return x.verification==='OFFICIAL_VERIFIED'||x.verification==='EDITORIALLY_VERIFIED';}
  function select(entries,now){
   now=now||new Date();
