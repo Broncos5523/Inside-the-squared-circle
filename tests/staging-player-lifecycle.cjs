@@ -7,11 +7,12 @@ const playlist=require('../web/staging/playlist-engine.js');
 const root=path.resolve(__dirname,'../web/staging');
 const programming=JSON.parse(fs.readFileSync(path.join(root,'data/programming.json')));
 const actualDate=Date;
-class Clock extends actualDate {constructor(...args){super(...(args.length?args:[programming.generated_at]));}static now(){return actualDate.parse(programming.generated_at);}}
+class Clock extends actualDate {constructor(...args){super(...(args.length?args:[Clock.now()]));}static now(){return actualDate.parse(programming.generated_at)+(Clock.offset||0);}}
 function harness(search){
+ Clock.offset=0;
  const elements={},timers=new Map(),listeners={},stats={replacements:0,thumbnailNodes:0};let serial=0;
  class Node {
-  constructor(id=''){this.id=id;this.childNodes=[];this.dataset={};this.style={};this.hidden=false;this.connected=true;this.srcdoc='';this.clientWidth=390;this.clientHeight=694;this.classes=new Set();this.classList={toggle:(k,enabled)=>{if(enabled===undefined)enabled=!this.classes.has(k);enabled?this.classes.add(k):this.classes.delete(k);},add:k=>this.classes.add(k),remove:k=>this.classes.delete(k),contains:k=>this.classes.has(k)};}
+  constructor(id=''){this.id=id;this.contentWindow={};this.childNodes=[];this.dataset={};this.style={};this.hidden=false;this.connected=true;this.srcdoc='';this.clientWidth=390;this.clientHeight=694;this.classes=new Set();this.classList={toggle:(k,enabled)=>{if(enabled===undefined)enabled=!this.classes.has(k);enabled?this.classes.add(k):this.classes.delete(k);},add:k=>this.classes.add(k),remove:k=>this.classes.delete(k),contains:k=>this.classes.has(k)};}
   append(...nodes){this.childNodes.push(...nodes);}
   replaceChildren(...nodes){this.childNodes=nodes;}
   cloneNode(){return new Node(this.id);}
@@ -33,7 +34,7 @@ function harness(search){
  vm.runInNewContext(fs.readFileSync(path.join(root,'board-adapter.js'),'utf8'),context);
  context.ISCBoardAdapter=window.ISCBoardAdapter;
  vm.runInNewContext(fs.readFileSync(path.join(root,'review.js'),'utf8'),context);
- return {window,elements,timers,stats};
+ return {window,elements,timers,stats,advanceTime:ms=>{Clock.offset+=ms;},message:data=>listeners.message({source:elements.board.contentWindow,data})};
 }
 async function settle(check){for(let i=0;i<100;i++){if(check())return;await new Promise(setImmediate);}throw Error('Player did not settle');}
 function advance(h){const [id,timer]=h.timers.entries().next().value||[];assert.ok(timer,'rotation timer absent');h.timers.delete(id);timer.fn();}
@@ -64,4 +65,28 @@ test('starting TV playback from the playlist menu also avoids thumbnail construc
  h.elements['watch-active'].onclick();await settle(()=>h.elements.board.srcdoc&&h.timers.size);
  assert.equal(h.stats.thumbnailNodes,0);
  assert.equal(h.elements['review-panel'].hidden,false);
+});
+
+test('AAA cycle completion advances to RAW even when the long parent timeout never fires',async()=>{
+ const h=harness('?view=tv');await settle(()=>h.elements.board.srcdoc&&h.timers.size);
+ h.timers.clear();h.advanceTime(98000);
+ const old=h.elements.board;
+ h.message({type:'isc-board-cycle',id:'weekly-results-aaa',index:1,total:7,complete:true});
+ await settle(()=>h.elements.board!==old&&h.elements.board.srcdoc);
+ assert.equal(h.window.__iscReview.getCurrent().id,'weekly-results-raw');
+});
+test('the final AAA card arms a short switch instead of restarting all seven cards',async()=>{
+ const h=harness('?view=tv');await settle(()=>h.elements.board.srcdoc&&h.timers.size);
+ h.advanceTime(84000);
+ h.message({type:'isc-board-cycle',id:'weekly-results-aaa',index:7,total:7,complete:false});
+ assert.equal(h.timers.size,1);
+ assert.equal([...h.timers.values()][0].ms,14000);
+ advance(h);await settle(()=>h.window.__iscReview.getCurrent().id==='weekly-results-raw');
+});
+test('manual pause ignores the embedded card-cycle completion signal',async()=>{
+ const h=harness('?view=tv');await settle(()=>h.elements.board.srcdoc&&h.timers.size);
+ h.elements.rotate.onclick();h.advanceTime(98000);
+ h.message({type:'isc-board-cycle',id:'weekly-results-aaa',index:1,total:7,complete:true});
+ assert.equal(h.window.__iscReview.getCurrent().id,'weekly-results-aaa');
+ assert.equal(h.timers.size,0);
 });

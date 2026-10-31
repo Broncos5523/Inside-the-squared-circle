@@ -43,6 +43,30 @@
    var remapped=resolve(url);return nativeFetch(remapped!==url?remapped:input,options);
   };
   if(config.night){var interval=window.setInterval.bind(window);window.setInterval=function(fn,ms){if(typeof fn==='function'&&/currentCard\+\+/.test(fn.toString()))return 0;return interval.apply(window,arguments);};}
+  // A results board reports its own card progress. This gives the host an
+  // independent completion signal if a long parent timeout is delayed.
+  var cycleReporterInstalled=false;
+  function installCycleReporter(){
+   if(cycleReporterInstalled||config.mode!=='active'||!config.weeklyResults)return;
+   var counter=document.getElementById('result-slidecount')||document.getElementById('counter');
+   if(!counter)return;
+   cycleReporterInstalled=true;
+   var lastIndex=0,lastTotal=0;
+   function report(){
+    var match=/^\s*(\d+)\s*\/\s*(\d+)\s*$/.exec(counter.textContent||'');
+    if(!match)return;
+    var index=Number(match[1]),total=Number(match[2]);
+    if(index<1||index>total||total>100)return;
+    if(total!==lastTotal){lastIndex=0;lastTotal=total;}
+    if(index===lastIndex)return;
+    var complete=lastIndex===total&&index===1;
+    lastIndex=index;
+    window.parent.postMessage({type:'isc-board-cycle',id:config.id,index:index,total:total,complete:complete},'*');
+   }
+   new MutationObserver(report).observe(counter,{childList:true,subtree:true,characterData:true});
+   report();
+  }
+  window.addEventListener('DOMContentLoaded',installCycleReporter,{once:true});
   // Archive content never silently refreshes into a different episode.
   // Populate approved event layouts with ONLY officially verified announcements.
   // The original HTML, styling, belts and graphical assets remain untouched on disk.
@@ -86,6 +110,7 @@
    if(notice)notice.textContent='OFFICIAL WWE EVENT PREVIEW';
   }
   window.addEventListener('load',function(){setTimeout(function(){
+   installCycleReporter();
    populateOfficialEvent();
    if(config.mode==='active'){
     var venue=document.getElementById('wb-venue'),city=document.getElementById('wb-city');
@@ -136,6 +161,21 @@ function evolveApplyVerifiedEpisode(html,payload){
   }
 
   if(mode==='archive'&&record.id==='weekly-results-evolve')html=html.replace('function safeEpisode(){return data.episode_date===currentLatestCompleted()}', 'function safeEpisode(){return true}');
+  // This user-supplied addition changes visual identity only, in memory.
+  // The locked source retains its original example data and bytes on disk.
+  function addApprovedAaaPortrait(data){
+   if(routes['/boards/RESULTS/AAA/assets/portraits/big-mami.png']!=='/shared/26189e3adbcb40f6296f03fca6098606fc931f6e907308d53e6fd3f79d5a3b13.png')return data;
+   (data.programs||[]).forEach(function(program){
+    if(program.show_id!=='aaa')return;
+    (program.segments||[]).forEach(function(segment){
+     if(segment.id==='big-mami-return'&&segment.headline==='BIG MAMI RETURNS'&&segment.kind==='storyline'&&Array.isArray(segment.portraits)&&!segment.portraits.length)segment.portraits=['big-mami'];
+    });
+   });
+   return data;
+  }
+  if(record.id==='weekly-results-aaa'){
+   html=html.replace(/(<script id="review-verified-results" type="application\/json">)([\s\S]*?)(<\/script>)/,function(_,a,json,b){return a+JSON.stringify(addApprovedAaaPortrait(JSON.parse(json))).replace(/</g,'\\u003c')+b;});
+  }
   var assetBase=/\.chatgpt\.site$/i.test(new URL(base).hostname)?'https://raw.githubusercontent.com/Broncos5523/Inside-the-squared-circle/work/all-boards-github-pages/web/staging/':base;
   html=html.replace(/__ISC_BASE__/g,assetBase);
   var logical=record.href.split('?')[0],page=new URL(logical,'https://isc.invalid'),boardMap={};
@@ -215,8 +255,9 @@ function evolveApplyVerifiedEpisode(html,payload){
   if(mode==='active'&&feeds){
    var ownShow=record.id.replace(/^weekly-(?:results|upcoming)-/,'');
    ['snapshot.json','reported.json',ownShow+'-verified-results.json'].forEach(function(name){if(feeds[name])boardFeeds[name]=feeds[name];});
+   if(ownShow==='aaa'&&boardFeeds['aaa-verified-results.json'])boardFeeds['aaa-verified-results.json']=addApprovedAaaPortrait(JSON.parse(JSON.stringify(boardFeeds['aaa-verified-results.json'])));
   }
-  var config={id:record.id,logical:logical,base:assetBase,routes:boardMap,mode:mode,feeds:boardFeeds,night:night,source_credit:record.source_credit||null,current_location:record.current_location||null,live_preview:record.category==='Weekly Upcoming',officialEvent:officialEvent,resultPortraits:resultPortraits,resultBelts:resultBelts};
+  var config={weeklyResults:record.category==='Weekly Results',id:record.id,logical:logical,base:assetBase,routes:boardMap,mode:mode,feeds:boardFeeds,night:night,source_credit:record.source_credit||null,current_location:record.current_location||null,live_preview:record.category==='Weekly Upcoming',officialEvent:officialEvent,resultPortraits:resultPortraits,resultBelts:resultBelts};
   var injected='<base href="'+new URL('originals'+prefix,base).href+'"><script>('+shim.toString()+')('+JSON.stringify(config).replace(/</g,'\\u003c')+');<\/script>';
   return html.replace(/<head(?:\s[^>]*)?>/i,function(head){return head+injected;});
  }

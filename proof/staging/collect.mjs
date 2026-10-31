@@ -1,3 +1,4 @@
+import {addApprovedPortraits} from './approved-portrait-additions.mjs';
 import {writeFile,readFile} from 'node:fs/promises';
 import {collectWcn} from './wcn-collector.mjs';
 import {collectOfficialEvents} from './official-events.mjs';
@@ -118,6 +119,7 @@ Object.assign(feeds,evolve.feeds);
 const events=await collectOfficialEvents({library,now,requester});
 entries.push(...events.entries);
 feeds['official-events.json']=events.feed;
+for(const feed of Object.values(feeds))for(const program of feed.programs||[])addApprovedPortraits(program);
 const result={schema_version:1,mode:'SOURCE_GATED_STAGING',generated_at:now.toISOString(),entries,feeds,collection:{...stats,snapshot_fresh:!!snapshotFresh,official_event_count:events.entries.length,official_event_warnings:events.errors,approved_result_count:reviewed.entries.length,approved_result_warnings:reviewed.warnings,official_weekly_result_count:officialWeekly.entries.length,official_weekly_warnings:officialWeekly.warnings,evolve_verified_count:evolve.entries.length,evolve_warnings:evolve.warnings},notes:['Archived examples remain excluded from current programming. Event matches must clear official-source and approved-portrait checks. Only explicit winners from dated official sources are promoted. Evolve is admitted only when the byte-identical approved artwork and the latest source-verified episode pass all checks; stale episodes are held.','Source credits retained privately; public hosting clearance confirmed by owner 2026-10-30.']};
 await writeFile(new URL('data/programming.json',root),JSON.stringify(result,null,2)+'\n');
 console.log(JSON.stringify({generated_at:result.generated_at,source_programs:programs.length,active_candidates:entries.length,collection:result.collection}));

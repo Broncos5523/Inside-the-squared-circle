@@ -20,5 +20,5 @@ for(const path of new Set(Object.values(routes))){
  if(createHash('sha256').update(bytes).digest('hex')!==expected)throw Error('Original artwork hash mismatch: '+path);
  assets++;
 }
-if(library.records.length!==68||html!==68||assets!==540||Object.keys(routes).length!==1599)throw Error('Source inventory changed unexpectedly');
+if(library.records.length!==68||html!==68||assets!==541||Object.keys(routes).length!==1601)throw Error('Source inventory changed unexpectedly');
 console.log(JSON.stringify({planned_slots:68,source_backed_slots:html,unchanged_shared_files:assets,asset_routes:Object.keys(routes).length,final_evolve_held:false}));

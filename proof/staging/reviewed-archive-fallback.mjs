@@ -3,6 +3,7 @@
 // the preserved source registry, and the primary results article must remain
 // available and date-identifiable at the claimed official URL.
 import {readFile} from 'node:fs/promises';
+import {addApprovedPortraits} from './approved-portrait-additions.mjs';
 import {createHash} from 'node:crypto';
 function easternDay(now){const p=new Intl.DateTimeFormat('en-US',{timeZone:'America/New_York',year:'numeric',month:'2-digit',day:'2-digit'}).formatToParts(now);
  const x=Object.fromEntries(p.map(e=>[e.type,e.value]));return x.year+'-'+x.month+'-'+x.day;}
@@ -44,7 +45,7 @@ export async function collectReviewedArchiveFallback({library,now,root,snapshot,
    if(!response.ok)throw Error('official result link not available');
    const article=await response.text();
    if(article.length<1000||!dateTitleMatches(article,program.airdate))throw Error('official date/title does not match reviewed episode');
-   const full={...archive,programs:[program]};
+   const full={...archive,programs:[addApprovedPortraits(program)]};
    feeds[show+'-verified-results.json']=full;
    entries.push({
     id:record.id,title:record.label,show,kind:'results',airdate:program.airdate,

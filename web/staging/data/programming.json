@@ -432,7 +432,9 @@
               "headline": "BIG MAMI RETURNS",
               "subhead": "Returns after the trios title match",
               "detail": "Big Mami charged in after Los Perros del Mal attacked their opponents, confronting Karmen Petrovic.",
-              "portraits": [],
+              "portraits": [
+                "big-mami"
+              ],
               "ticker": "BIG MAMI RETURNS TO CONFRONT KARMEN PETROVIC"
             },
             {
