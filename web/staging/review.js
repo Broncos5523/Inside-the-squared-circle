@@ -17,7 +17,7 @@
  }
  function candidates(){return mode==='active'?active.map(function(e){return library.records.find(function(r){return r.id===e.id;});}).filter(function(r){return r&&r.source_available&&r.design_approved;}):visible.filter(function(r){return r.source_available;});}
  function stop(){if(timer)clearTimeout(timer);timer=null;byId('rotate').textContent='Play review';}
- function schedule(){if(timer)clearTimeout(timer);var ms=Number(byId('duration').value)*1000;timer=setTimeout(function(){step(1,true);},ms);byId('rotate').textContent=mode==='active'?'Pause playback':'Pause review';}
+ function schedule(){if(timer)clearTimeout(timer);var ms=Number(byId('duration').value)*1000;if(mode==='active'&&current){var entry=active.find(function(x){return x.id===current.id;});if(entry&&ISCPlaylist.dwellMs)ms=ISCPlaylist.dwellMs(entry,feeds,ms);}timer=setTimeout(function(){step(1,true);},ms);byId('rotate').textContent=mode==='active'?'Pause playback':'Pause review';}
  function step(delta,keepPlaying){var list=candidates();if(!list.length)return;var pos=list.findIndex(function(r){return current&&r.id===current.id;});choose(list[(Math.max(pos,0)+delta+list.length)%list.length],keepPlaying);}
  async function choose(record,keepPlaying){
   if(!keepPlaying)stop();current=record;var mine=++token;var frame=byId('board');frame.classList.remove('ready');byId('loading').hidden=false;byId('loading').style.display='grid';
