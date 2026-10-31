@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "mode": "SOURCE_GATED_STAGING",
-  "generated_at": "2026-10-31T17:13:04.342Z",
+  "generated_at": "2026-10-31T17:30:59.358Z",
   "entries": [
     {
       "id": "weekly-upcoming-raw",
@@ -138,6 +138,66 @@
       "checked_at": "2026-10-31T17:13:04.342Z",
       "source_name": "WWE",
       "source_url": "https://www.wwe.com/shows/wwe-crown-jewel/crown-jewel-2026"
+    },
+    {
+      "id": "weekly-results-raw",
+      "title": "RAW — Results & Fallout",
+      "show": "raw",
+      "kind": "results",
+      "airdate": "2026-10-26",
+      "source_available": true,
+      "design_approved": true,
+      "content_status": "current",
+      "verification": "OFFICIAL_VERIFIED",
+      "completed": true,
+      "checked_at": "2026-10-31T17:30:59.358Z",
+      "source_name": "WWE",
+      "source_url": "https://www.wwe.com/shows/raw/2026-10-26/results"
+    },
+    {
+      "id": "weekly-results-nxt",
+      "title": "NXT — Results & Fallout",
+      "show": "nxt",
+      "kind": "results",
+      "airdate": "2026-10-27",
+      "source_available": true,
+      "design_approved": true,
+      "content_status": "current",
+      "verification": "OFFICIAL_VERIFIED",
+      "completed": true,
+      "checked_at": "2026-10-31T17:30:59.358Z",
+      "source_name": "WWE",
+      "source_url": "https://www.wwe.com/shows/wwenxt/2026-10-27/results"
+    },
+    {
+      "id": "weekly-results-smackdown",
+      "title": "SmackDown — Results & Fallout",
+      "show": "smackdown",
+      "kind": "results",
+      "airdate": "2026-10-30",
+      "source_available": true,
+      "design_approved": true,
+      "content_status": "current",
+      "verification": "OFFICIAL_VERIFIED",
+      "completed": true,
+      "checked_at": "2026-10-31T17:30:59.358Z",
+      "source_name": "WWE",
+      "source_url": "https://www.wwe.com/shows/smackdown/2026-10-30/results"
+    },
+    {
+      "id": "weekly-results-tna",
+      "title": "TNA — Results & Fallout",
+      "show": "tna",
+      "kind": "results",
+      "airdate": "2026-10-29",
+      "source_available": true,
+      "design_approved": true,
+      "content_status": "current",
+      "verification": "OFFICIAL_VERIFIED",
+      "completed": true,
+      "checked_at": "2026-10-31T17:30:59.358Z",
+      "source_name": "TNA Wrestling",
+      "source_url": "https://tnawrestling.com/news/tna-thursday-night-impact-on-amc-results-october-29-2026"
     }
   ],
   "feeds": {
@@ -529,6 +589,348 @@
           "render_ready": true
         }
       ]
+    },
+    "raw-verified-results.json": {
+      "schema_version": 1,
+      "mode": "OFFICIAL_EXTRACTED_RESULTS",
+      "source_policy": "Only explicit match winners directly extracted from dated official source; not human editorial review. Winners-only original approved portraits; never invent matches or champions.",
+      "programs": [
+        {
+          "show_id": "raw",
+          "airdate": "2026-10-26",
+          "venue": null,
+          "location": null,
+          "source_name": "WWE official Raw results, 2026-10-26",
+          "source_url": "https://www.wwe.com/shows/raw/2026-10-26/results",
+          "verification": "OFFICIAL_SOURCE_EXTRACTED",
+          "segments": [
+            {
+              "id": "official-raw-2026-10-26-1",
+              "kind": "result",
+              "category": "MATCH RESULT",
+              "strap": "OFFICIAL MATCH RESULT",
+              "headline": "SAMI ZAYN",
+              "subhead": "def. Je’Von Evans",
+              "detail": "OFFICIAL RESULTS • October 26, 2026",
+              "portraits": [
+                "sami-zayn"
+              ],
+              "portrait_rule": "winners_only",
+              "ticker": "SAMI ZAYN DEFEATS JE’VON EVANS"
+            },
+            {
+              "id": "official-raw-2026-10-26-2",
+              "kind": "result",
+              "category": "NO DISQUALIFICATION",
+              "strap": "OFFICIAL MATCH RESULT",
+              "headline": "BAYLEY",
+              "subhead": "def. Lyra Valkyria",
+              "detail": "NO DISQUALIFICATION • October 26, 2026",
+              "portraits": [
+                "bayley"
+              ],
+              "portrait_rule": "winners_only",
+              "ticker": "BAYLEY DEFEATS LYRA VALKYRIA"
+            },
+            {
+              "id": "official-raw-2026-10-26-3",
+              "kind": "result",
+              "category": "MATCH RESULT",
+              "strap": "OFFICIAL MATCH RESULT",
+              "headline": "IYO SKY",
+              "subhead": "def. Raquel Rodriguez",
+              "detail": "OFFICIAL RESULTS • October 26, 2026",
+              "portraits": [
+                "iyo-sky"
+              ],
+              "portrait_rule": "winners_only",
+              "ticker": "IYO SKY DEFEATS RAQUEL RODRIGUEZ"
+            },
+            {
+              "id": "official-raw-2026-10-26-4",
+              "kind": "result",
+              "category": "MATCH RESULT",
+              "strap": "OFFICIAL MATCH RESULT",
+              "headline": "ETHAN PAGE & BIG CASS",
+              "subhead": "def. Chad Gable & Dragon Lee",
+              "detail": "OFFICIAL RESULTS • October 26, 2026",
+              "portraits": [
+                "ethan-page",
+                "big-cass"
+              ],
+              "portrait_rule": "winners_only",
+              "ticker": "ETHAN PAGE & BIG CASS DEFEATS CHAD GABLE & DRAGON LEE"
+            },
+            {
+              "id": "official-raw-2026-10-26-5",
+              "kind": "result",
+              "category": "DISQUALIFICATION",
+              "strap": "OFFICIAL MATCH RESULT",
+              "headline": "BECKY LYNCH",
+              "subhead": "def. Liv Morgan",
+              "detail": "DISQUALIFICATION • October 26, 2026",
+              "portraits": [
+                "becky-lynch"
+              ],
+              "portrait_rule": "winners_only",
+              "ticker": "BECKY LYNCH DEFEATS LIV MORGAN"
+            }
+          ]
+        }
+      ]
+    },
+    "nxt-verified-results.json": {
+      "schema_version": 1,
+      "mode": "OFFICIAL_EXTRACTED_RESULTS",
+      "source_policy": "Only explicit match winners directly extracted from dated official source; not human editorial review. Winners-only original approved portraits; never invent matches or champions.",
+      "programs": [
+        {
+          "show_id": "nxt",
+          "airdate": "2026-10-27",
+          "venue": null,
+          "location": null,
+          "source_name": "WWE official NXT results, 2026-10-27",
+          "source_url": "https://www.wwe.com/shows/wwenxt/2026-10-27/results",
+          "verification": "OFFICIAL_SOURCE_EXTRACTED",
+          "segments": [
+            {
+              "id": "official-nxt-2026-10-27-1",
+              "kind": "result",
+              "category": "DUSTY RHODES TAG TEAM CLASSIC",
+              "strap": "OFFICIAL MATCH RESULT",
+              "headline": "ROMEO MORENO & NOAM DAR",
+              "subhead": "def. The Vanity Project",
+              "detail": "DUSTY RHODES TAG TEAM CLASSIC • October 27, 2026",
+              "portraits": [
+                "romeo-moreno",
+                "noam-dar"
+              ],
+              "portrait_rule": "winners_only",
+              "ticker": "ROMEO MORENO & NOAM DAR DEFEATS THE VANITY PROJECT"
+            },
+            {
+              "id": "official-nxt-2026-10-27-2",
+              "kind": "result",
+              "category": "MATCH RESULT",
+              "strap": "OFFICIAL MATCH RESULT",
+              "headline": "CHANTEL MONROE",
+              "subhead": "def. Lizzy Rain",
+              "detail": "OFFICIAL RESULTS • October 27, 2026",
+              "portraits": [],
+              "portrait_rule": "winners_only",
+              "ticker": "CHANTEL MONROE DEFEATS LIZZY RAIN"
+            },
+            {
+              "id": "official-nxt-2026-10-27-3",
+              "kind": "result",
+              "category": "MATCH RESULT",
+              "strap": "OFFICIAL MATCH RESULT",
+              "headline": "SEAN LEGACY",
+              "subhead": "def. Saquon Shugars",
+              "detail": "OFFICIAL RESULTS • October 27, 2026",
+              "portraits": [
+                "sean-legacy"
+              ],
+              "portrait_rule": "winners_only",
+              "ticker": "SEAN LEGACY DEFEATS SAQUON SHUGARS"
+            },
+            {
+              "id": "official-nxt-2026-10-27-4",
+              "kind": "result",
+              "category": "DUSTY RHODES TAG TEAM CLASSIC",
+              "strap": "OFFICIAL MATCH RESULT",
+              "headline": "HANK & TANK",
+              "subhead": "def. El Hijo de Dr. Wagner Jr. & Galeno",
+              "detail": "DUSTY RHODES TAG TEAM CLASSIC • October 27, 2026",
+              "portraits": [
+                "hank-walker",
+                "tank-ledger"
+              ],
+              "portrait_rule": "winners_only",
+              "ticker": "HANK & TANK DEFEATS EL HIJO DE DR. WAGNER JR. & GALENO"
+            },
+            {
+              "id": "official-nxt-2026-10-27-5",
+              "kind": "result",
+              "category": "MATCH RESULT",
+              "strap": "CHAMPIONSHIP RESULT",
+              "headline": "JACKSON DRAKE",
+              "subhead": "def. EK Prosper",
+              "detail": "OFFICIAL RESULTS • October 27, 2026",
+              "portraits": [
+                "jackson-drake"
+              ],
+              "portrait_rule": "winners_only",
+              "belt": "nxt_north_american.png",
+              "ticker": "JACKSON DRAKE DEFEATS EK PROSPER"
+            }
+          ]
+        }
+      ]
+    },
+    "smackdown-verified-results.json": {
+      "schema_version": 1,
+      "mode": "OFFICIAL_EXTRACTED_RESULTS",
+      "source_policy": "Only explicit match winners directly extracted from dated official source; not human editorial review. Winners-only original approved portraits; never invent matches or champions.",
+      "programs": [
+        {
+          "show_id": "smackdown",
+          "airdate": "2026-10-30",
+          "venue": null,
+          "location": null,
+          "source_name": "WWE official SmackDown results, 2026-10-30",
+          "source_url": "https://www.wwe.com/shows/smackdown/2026-10-30/results",
+          "verification": "OFFICIAL_SOURCE_EXTRACTED",
+          "segments": [
+            {
+              "id": "official-smackdown-2026-10-30-1",
+              "kind": "result",
+              "category": "CHAMPIONSHIP MATCH",
+              "strap": "CHAMPIONSHIP RESULT",
+              "headline": "CHELSEA GREEN",
+              "subhead": "def. Nikki Bella in a WWE Women’s Championship Match",
+              "detail": "CHAMPIONSHIP MATCH • October 30, 2026",
+              "portraits": [
+                "chelsea-green"
+              ],
+              "portrait_rule": "winners_only",
+              "belt": "wwe_wwe-womens-championship.png",
+              "ticker": "CHELSEA GREEN DEFEATS NIKKI BELLA IN A WWE WOMEN’S CHAMPIONSHIP MATCH"
+            },
+            {
+              "id": "official-smackdown-2026-10-30-2",
+              "kind": "result",
+              "category": "CHAMPIONSHIP MATCH",
+              "strap": "CHAMPIONSHIP RESULT",
+              "headline": "REY FENIX",
+              "subhead": "def. Ricky Saints",
+              "detail": "CHAMPIONSHIP MATCH • October 30, 2026",
+              "portraits": [
+                "rey-fenix"
+              ],
+              "portrait_rule": "winners_only",
+              "belt": "cruiserweight.png",
+              "ticker": "REY FENIX DEFEATS RICKY SAINTS"
+            },
+            {
+              "id": "official-smackdown-2026-10-30-3",
+              "kind": "result",
+              "category": "MATCH RESULT",
+              "strap": "OFFICIAL MATCH RESULT",
+              "headline": "JADE CARGILL",
+              "subhead": "def. Tatum Paxley",
+              "detail": "OFFICIAL RESULTS • October 30, 2026",
+              "portraits": [
+                "jade-cargill"
+              ],
+              "portrait_rule": "winners_only",
+              "ticker": "JADE CARGILL DEFEATS TATUM PAXLEY"
+            },
+            {
+              "id": "official-smackdown-2026-10-30-4",
+              "kind": "result",
+              "category": "TITLE MATCH",
+              "strap": "CHAMPIONSHIP RESULT",
+              "headline": "SAMI ZAYN",
+              "subhead": "def. Trick Williams",
+              "detail": "TITLE MATCH • October 30, 2026",
+              "portraits": [
+                "sami-zayn"
+              ],
+              "portrait_rule": "winners_only",
+              "belt": "wwe_undisputed-wwe-championship.png",
+              "ticker": "SAMI ZAYN DEFEATS TRICK WILLIAMS"
+            }
+          ]
+        }
+      ]
+    },
+    "tna-verified-results.json": {
+      "schema_version": 1,
+      "mode": "OFFICIAL_EXTRACTED_RESULTS",
+      "source_policy": "Only explicit match winners directly extracted from dated official source; not human editorial review. Winners-only original approved portraits; never invent matches or champions.",
+      "programs": [
+        {
+          "show_id": "tna",
+          "airdate": "2026-10-29",
+          "venue": null,
+          "location": null,
+          "source_name": "TNA Wrestling official TNA results, 2026-10-29",
+          "source_url": "https://tnawrestling.com/news/tna-thursday-night-impact-on-amc-results-october-29-2026",
+          "verification": "OFFICIAL_SOURCE_EXTRACTED",
+          "segments": [
+            {
+              "id": "official-tna-2026-10-29-1",
+              "kind": "result",
+              "category": "MATCH RESULT",
+              "strap": "OFFICIAL MATCH RESULT",
+              "headline": "M BY ELEGANCE",
+              "subhead": "def. Jada Stone",
+              "detail": "OFFICIAL RESULTS • October 29, 2026",
+              "portraits": [
+                "m-by-elegance"
+              ],
+              "portrait_rule": "winners_only",
+              "ticker": "M BY ELEGANCE DEFEATS JADA STONE"
+            },
+            {
+              "id": "official-tna-2026-10-29-2",
+              "kind": "result",
+              "category": "SINGLES MATCH",
+              "strap": "OFFICIAL MATCH RESULT",
+              "headline": "ZER0",
+              "subhead": "def. BDE",
+              "detail": "SINGLES MATCH • October 29, 2026",
+              "portraits": [],
+              "portrait_rule": "winners_only",
+              "ticker": "ZER0 DEFEATS BDE"
+            },
+            {
+              "id": "official-tna-2026-10-29-3",
+              "kind": "result",
+              "category": "MATCH RESULT",
+              "strap": "CHAMPIONSHIP RESULT",
+              "headline": "AMAZING RED",
+              "subhead": "def. Cedric Alexander",
+              "detail": "OFFICIAL RESULTS • October 29, 2026",
+              "portraits": [
+                "amazing-red"
+              ],
+              "portrait_rule": "winners_only",
+              "belt": "tna_x_division.png",
+              "ticker": "AMAZING RED DEFEATS CEDRIC ALEXANDER"
+            },
+            {
+              "id": "official-tna-2026-10-29-4",
+              "kind": "result",
+              "category": "SINGLES MATCH",
+              "strap": "OFFICIAL MATCH RESULT",
+              "headline": "AJ FRANCIS",
+              "subhead": "def. John Skyler",
+              "detail": "SINGLES MATCH • October 29, 2026",
+              "portraits": [
+                "aj-francis"
+              ],
+              "portrait_rule": "winners_only",
+              "ticker": "AJ FRANCIS DEFEATS JOHN SKYLER"
+            },
+            {
+              "id": "official-tna-2026-10-29-5",
+              "kind": "result",
+              "category": "SINGLES MATCH",
+              "strap": "OFFICIAL MATCH RESULT",
+              "headline": "ELIJAH",
+              "subhead": "def. TNA World Tag Team Champion Ryan Nemeth",
+              "detail": "SINGLES MATCH • October 29, 2026",
+              "portraits": [
+                "elijah"
+              ],
+              "portrait_rule": "winners_only",
+              "ticker": "ELIJAH DEFEATS TNA WORLD TAG TEAM CHAMPION RYAN NEMETH"
+            }
+          ]
+        }
+      ]
     }
   },
   "collection": {
@@ -540,10 +942,15 @@
     "official_event_count": 2,
     "official_event_warnings": [],
     "approved_result_count": 1,
-    "approved_result_warnings": []
+    "approved_result_warnings": [],
+    "official_weekly_result_count": 4,
+    "official_weekly_warnings": [],
+    "weekly_source_refresh_at": "2026-10-31T17:30:59.358Z",
+    "prior_schedule_collection_at": "2026-10-31T17:13:04.342Z"
   },
   "notes": [
     "Archived examples remain excluded from current programming. Event matches must clear official-source and approved-portrait checks. Weekly results and Evolve remain held until the exact episode facts are verified and renderable.",
-    "Source credits retained privately; public hosting clearance confirmed by owner 2026-10-30."
+    "Source credits retained privately; public hosting clearance confirmed by owner 2026-10-30.",
+    "Current WWE/TNA result facts were separately source-checked at the weekly result timestamps; source extracted, not manually editorially reviewed."
   ]
 }
