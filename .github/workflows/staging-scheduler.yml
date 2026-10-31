@@ -24,9 +24,12 @@ jobs:
       - name: Verify staging source and playlist tests
         run: |
           node --check proof/staging/collect.mjs
+          node --check proof/staging/official-events.mjs
+          node --check proof/staging/reviewed-archive-fallback.mjs
+          node --check web/staging/board-adapter.js
           node --check web/staging/playlist-engine.js
           node --check web/staging/review.js
-          node --test tests/staging-playlist.cjs
+          node --test tests/staging-playlist.cjs tests/staging-official-events.mjs
       - name: Collect only source-gated staging facts
         run: node proof/staging/collect.mjs
       - name: Commit only staging programming data
