@@ -1,64 +1,18 @@
 <!doctype html>
 <html lang="en">
 <head>
-<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
-<title>Inside the Squared Circle | Data Lab</title>
-<style>
-:root{color-scheme:dark;font:clamp(11px,1.3vw,20px) Arial,Helvetica,sans-serif;background:#05070b;color:#f8fafc}*{box-sizing:border-box}
-html,body{margin:0;width:100%;height:100%;overflow:hidden}
-body{display:grid;place-items:center;background:radial-gradient(circle at 50% 22%,#25334a,#090b12 65%,#05060a)}
-#board{width:min(100vw,56.25dvh);height:min(100dvh,177.778vw);aspect-ratio:9/16;overflow:hidden;display:flex;flex-direction:column;padding:4.3%;background:linear-gradient(160deg,#1a2536,#0d1221 48%,#090c16);border:1px solid #34425a;container-type:size;box-shadow:0 8px 65px #000}
-header{text-align:center;margin-bottom:4%}header .present{font-size:2cqw;letter-spacing:.26em;color:#d9e2eb;font-weight:900}h1{margin:3% 0 2%;font-size:8cqw;line-height:.92;letter-spacing:-.045em}h1 em{font-style:normal;color:#f0c177}.tag{font-size:1.8cqw;font-weight:bold;letter-spacing:.1em;color:#cbb390}.demo{margin-top:5%;font-size:1.6cqw;letter-spacing:.1em;color:#8fa7be}
-#status{border-block:1px solid #394b5e;background:#182332;padding:3%;font-size:2cqw;min-height:7%;font-weight:900;display:flex;align-items:center;gap:3%}
-.dot{width:2cqw;height:2cqw;flex:none;border-radius:50%;background:#45e0ae}
-section{--accent:#e3ad57;flex:1;display:flex;flex-direction:column;min-height:0;margin-top:5%;padding:5%;border-radius:3cqw;border:1px solid var(--accent);background:radial-gradient(ellipse at 95% 0%,color-mix(in srgb,var(--accent) 17%,transparent),transparent 55%),#101827}
-.kicker{color:var(--accent);font-size:1.8cqw;font-weight:bold;letter-spacing:.17em}
-#name{margin:4% 0;font-size:6.6cqw;line-height:.98;letter-spacing:-.045em}
-#date{margin-top:3%;padding:2.7% 3%;background:var(--accent);color:#0b1521;border-radius:1cqw;font-size:3.1cqw;font-weight:900}
-#episode{margin-top:3%;font-size:2.3cqw;color:#c4d0dd}
-hr{border:0;height:1px;background:var(--accent);margin:7% 0}
-h2{font-size:3.1cqw;margin:0 0 4%;letter-spacing:.06em}
-#card{font-size:2.6cqw;line-height:1.45;padding:4%;background:#0a1222;border-left:3px solid var(--accent);border-radius:1cqw;color:#d6e0ed}
-#appearances{margin-top:6%;font-size:2.25cqw;color:#bac8da}
-#source{margin-top:auto;border-top:1px solid #3c4959;padding-top:4%;font-size:2.1cqw;color:#93a9bf;line-height:1.5}
-footer{margin-top:4%;font-size:1.9cqw;line-height:1.5;color:#aec0d2}
-footer a{color:#b4daff}
-</style>
-</head><body><div id="board">
-<header><div class="present">MAN CAVE SPORTS BOOK PRESENTS</div><h1>INSIDE THE<br><em>SQUARED CIRCLE</em></h1><div class="tag">WHEN THE BELL RINGS, IT GETS REAL.</div><div class="demo">AUTOMATED SCHEDULE PROOF · NOT FINAL GRAPHICS</div></header>
-<div id="status"><span class="dot"></span><span id="statusText">CONNECTING TO SCHEDULE DATA</span></div>
-<section id="panel"><div class="kicker" id="category">WRESTLING BROADCAST</div><h2 id="name">LOADING…</h2><div id="date">NEXT EPISODE · PENDING</div><div id="episode">Waiting for verified schedule</div><hr><h2 id="heading">ANNOUNCED SO FAR</h2><div id="card">Only source-verified announcements will appear here.</div><div id="appearances">Appearances: not yet connected</div><div id="source">TVmaze schedule source · Waiting for update</div></section>
-<footer><div id="bottom">Match cards, champions and results deliberately withheld until verified.</div><div>Schedules: <a href="https://www.tvmaze.com/api">TVmaze (CC BY-SA)</a> · RESEARCH DISPLAY V4.3</div></footer>
-</div><script>
-(()=>{'use strict';
-const keys=['raw','smackdown','nxt','aaa','tna','raw','smackdown','nxt','aaa','tna','evolve'];
-const byId=x=>document.getElementById(x);
-let snap=null,index=0,error=false;
-const put=(id,s)=>byId(id).textContent=s;
-const day=s=>{if(!/^\d{4}-\d{2}-\d{2}$/.test(s||''))return 'DATE UNAVAILABLE';const d=new Date(s+'T12:00:00Z');return new Intl.DateTimeFormat('en-US',{timeZone:'UTC',weekday:'long',month:'short',day:'numeric',year:'numeric'}).format(d).toUpperCase()};
-function display(){
-if(!snap||!Array.isArray(snap.shows))return;
-const key=keys[index%keys.length],s=snap.shows.find(x=>x.id===key);if(!s)return;
-byId('panel').style.setProperty('--accent',/^#[0-9a-f]{6}$/i.test(s.color||'')?s.color:'#e3ad57');
-const recap=key==='evolve',episode=recap?s.previous:s.next;
-put('category',recap?'DEVELOPMENTAL WRESTLING · WEEKLY RECAP':'WEEKLY WRESTLING PROGRAMMING');
-put('name',s.name||key.toUpperCase());
-put('date',(recap?'LAST EPISODE · ':'NEXT EPISODE · ')+day(episode?.date));
-put('episode',(episode?.title||'Episode details unavailable')+(episode?.time?' · '+episode.time+' (provider local)':' · Airtime not verified'));
-put('heading',recap?'LAST WEEK ON EVOLVE':'ANNOUNCED SO FAR');
-put('card',recap?'Verified results and storyline developments require an authorized recap source.':'No authorized match-card provider connected yet. This does not mean that no matches have been announced.');
-put('appearances','Confirmed appearances: awaiting verified announcement data');
-const generated=Date.parse(snap.generated_at||''),age=Number.isFinite(generated)?Math.round((Date.now()-generated)/3600000):null;
-const delayed=s.schedule_status!=='fresh'||age===null||age>6;
-put('statusText',error?'NETWORK DELAYED · LAST KNOWN DATA':snap.mode==='LIVE_SCHEDULES_ONLY'?'SCHEDULES LIVE · MATCH CARDS NOT CONNECTED':'RESEARCH SNAPSHOT · NOT VERIFIED LIVE');
-put('source',(delayed?'SOURCE DELAYED / UNVERIFIED FRESHNESS':'TVmaze schedule received')+(age!==null?' · Collected '+Math.max(0,age)+'h ago':''));
-put('bottom',recap?'Evolve results pending · No invented outcomes':'No speculation, fabricated matches or unverified appearances');
-}
-async function refresh(){
-try{const r=await fetch('./data/snapshot.json?v='+Math.floor(Date.now()/120000),{cache:'no-store'});if(!r.ok)throw Error('http');
-const j=await r.json();if(j.schema_version!==1||!Array.isArray(j.shows)||j.shows.length!==6)throw Error('schema');snap=j;error=false;display();
-}catch(e){error=true;if(!snap)put('statusText','SCHEDULE UNAVAILABLE · CHECK DATA SOURCE');else display();}
-}
-setInterval(()=>{index++;display()},14000);setInterval(refresh,120000);refresh();
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Inside the Squared Circle</title>
+<style>html,body{margin:0;min-height:100%;background:#000;color:#eee;font-family:Arial,sans-serif}main{padding:2rem}a{color:#e4bd59}</style>
+</head>
+<body><main><p>Opening Inside the Squared Circle…</p><a href="staging/?view=tv&amp;mode=active">Open the live display</a></main>
+<script>
+(function(){
+ var target=new URL('staging/',location.href);
+ target.searchParams.set('view','tv');target.searchParams.set('mode','active');
+ var id=new URLSearchParams(location.search).get('id');
+ if(id&&/^[a-z0-9_-]+$/.test(id))target.searchParams.set('id',id);
+ location.replace(target.href);
 })();
 </script></body></html>

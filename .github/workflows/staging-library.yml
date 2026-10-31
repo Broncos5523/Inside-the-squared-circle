@@ -1,0 +1,41 @@
+name: Validate original library and refresh staging facts
+on:
+  push:
+    branches: [work/all-boards-github-pages]
+    paths:
+      - 'web/staging/**'
+      - 'proof/staging/**'
+      - 'tests/staging-playlist.cjs'
+      - '.github/workflows/staging-library.yml'
+  workflow_dispatch:
+permissions:
+  contents: write
+concurrency:
+  group: isc-staging-facts-${{ github.ref }}
+  cancel-in-progress: false
+jobs:
+  validate-and-collect:
+    if: >-
+      github.event_name != 'push' || !startsWith(github.event.head_commit.message, 'chore(staging): refresh')
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Check original HTML and artwork integrity
+        run: node proof/staging/verify.mjs
+      - name: Check source-gated programming rules
+        run: node --test tests/staging-playlist.cjs
+      - name: Collect source-backed current cards and existing reviewed results
+        run: node proof/staging/collect.mjs
+      - name: Save staging facts to the same branch
+        run: |
+          git config user.name github-actions[bot]
+          git config user.email github-actions[bot]@users.noreply.github.com
+          git add web/staging/data/programming.json
+          if ! git diff --cached --quiet; then
+            git commit -m "chore(staging): refresh source-backed programming"
+            git push origin HEAD:${GITHUB_REF_NAME}
+          fi
+      # No production Pages deployment, repository settings change or Floot upload.
