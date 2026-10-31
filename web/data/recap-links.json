@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "mode": "PUBLISHER_RSS_POST_SHOW_LINKS_ONLY",
-  "generated_at": "2026-10-31T05:00:11.024261-04:00",
+  "generated_at": "2026-10-31T09:14:27.505430-04:00",
   "source_name": "Multiple publisher RSS feeds",
   "source_url": "https://www.f4wonline.com/rss.xml",
   "approved_publishers": [
@@ -81,7 +81,8 @@
           "url": "https://www.ringsidenews.com/wwe-danhausens-very-nice-very-evil-smackdown-results-highlights-key-moments-october-30-2026/",
           "published_at": "2026-10-30T23:31:00+00:00",
           "source_name": "Ringside News",
-          "status": "PUBLISHER_HEADLINE_LINK_ONLY"
+          "status": "PUBLISHER_HEADLINE_LINK_ONLY",
+          "retained_from_previous": true
         },
         {
           "headline": "WWE SmackDown live results: Three championship matches, Danhausen Halloween special",
@@ -95,7 +96,8 @@
           "url": "https://www.fightful.com/wrestling-news/wwe-smackdown-results-10-30-2026-sami-zayn-vs-trick-williams-nikki-bella-vs-chelsea-green-more",
           "published_at": "2026-10-30T23:15:00+00:00",
           "source_name": "Fightful",
-          "status": "PUBLISHER_HEADLINE_LINK_ONLY"
+          "status": "PUBLISHER_HEADLINE_LINK_ONLY",
+          "retained_from_previous": true
         }
       ],
       "source_name": "Multiple publisher RSS feeds",
@@ -245,7 +247,7 @@
     }
   ],
   "total_links": 25,
-  "retained_link_count": 10,
+  "retained_link_count": 12,
   "collection_status": "ok",
   "successful_feed_urls": [
     "https://www.f4wonline.com/rss.xml",

@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "mode": "LIVE_SCHEDULES_ONLY",
-  "generated_at": "2026-10-31T08:59:28.889021+00:00",
+  "generated_at": "2026-10-31T13:13:44.376672+00:00",
   "fresh_shows": 6,
   "shows": [
     {
@@ -67,14 +67,14 @@
       "color": "#21C6AE",
       "category": "primary",
       "next": {
+        "date": "2026-11-07",
+        "time": null,
+        "title": "#42 - Héroes Inmortales (Week 3)"
+      },
+      "previous": {
         "date": "2026-10-31",
         "time": null,
         "title": "#41 - Héroes Inmortales (Week 2)"
-      },
-      "previous": {
-        "date": "2026-10-24",
-        "time": null,
-        "title": "#40 - Héroes Inmortales (Week 1)"
       },
       "schedule_status": "fresh",
       "confirmed_matches": [],
