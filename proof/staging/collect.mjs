@@ -1,5 +1,6 @@
 import {writeFile,readFile} from 'node:fs/promises';
 import {collectWcn} from './wcn-collector.mjs';
+import {collectOfficialEvents} from './official-events.mjs';
 const now=new Date();
 const root=new URL('../../web/staging/',import.meta.url);
 try{
@@ -83,6 +84,9 @@ for(const show of resultFeeds){
   entries.push({id:board.id,title:board.label,show,kind:'results',airdate:program.airdate,source_available:true,design_approved:true,content_status:'current',verification:'EDITORIALLY_VERIFIED',completed:true,checked_at:now.toISOString(),source_name:program.source_name||'Official results',source_url:program.source_url});
  }catch(error){console.log(show+' reviewed result feed unavailable: '+error.name);}
 }
-const result={schema_version:1,mode:'SOURCE_GATED_STAGING',generated_at:now.toISOString(),entries,feeds,collection:{...stats,snapshot_fresh:!!snapshotFresh},notes:['Examples remain excluded. Championships, PLEs and Evolve require complete verified data plus their exact approved source.','Source credits retained. Public hosting clearance confirmed by owner 2026-10-30.']};
+const events=await collectOfficialEvents({library,now,requester});
+entries.push(...events.entries);
+feeds['official-events.json']=events.feed;
+const result={schema_version:1,mode:'SOURCE_GATED_STAGING',generated_at:now.toISOString(),entries,feeds,collection:{...stats,snapshot_fresh:!!snapshotFresh,official_event_count:events.entries.length,official_event_warnings:events.errors},notes:['Archived examples remain excluded from current programming. Event matches must clear official-source and approved-portrait checks. Weekly results and Evolve remain held until the exact episode facts are verified and renderable.','Source credits retained privately; public hosting clearance confirmed by owner 2026-10-30.']};
 await writeFile(new URL('data/programming.json',root),JSON.stringify(result,null,2)+'\n');
 console.log(JSON.stringify({generated_at:result.generated_at,source_programs:programs.length,active_candidates:entries.length,collection:result.collection}));
