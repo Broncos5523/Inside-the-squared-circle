@@ -31,7 +31,7 @@ function splitOutcome(line){
  let winner=bits[0].trim();
  winner=winner.replace(/^(?:(?:TNA )?(?:Knockouts TV|X-Division|North American|World Tag Team|NXT North American)\s+Champion\s+)/i,'')
   .replace(/\s+acc\.\s+by\s+.*$/i,'').trim();
- let loser=bits[1].split(/\s+(?:by\s+Disqualification|in\s+(?:a|an|the)\s+)|\s*\|\s*|\s+-\s+(?:Singles Match|TNA|No Disqualification)|\s+–\s+/i)[0].trim();
+ let loser=bits[1].split(/\s+(?:by\s+Disqualification|in\s+(?:(?:a|an|the)\s+)?(?:No\s+Disqualification|WWE\s+Women's?|AAA\s+World|Undisputed\s+WWE|Dusty\s+Rhodes))|\s*\|\s*|\s+-\s+(?:Singles Match|TNA|No Disqualification)|\s+–\s+/i)[0].trim();
  loser=loser.replace(/\s+acc\.\s+by\s+.*$/i,'').trim();
  if(!winner||!loser||winner.length>88||loser.length>95)return null;
  return {winner,loser};
@@ -77,7 +77,7 @@ function beltFor(show,line,routes){
 function segment(line,show,index,routes,day){
  const outcome=splitOutcome(line);if(!outcome)return null;
  const photos=slugsFor(outcome.winner).filter(slug=>portraitExists(routes,slug));
- const suffix=line.slice(line.toLowerCase().indexOf('def.')+4).trim();
+
  const stipulation=/(?:Disqualification|No Disqualification|Title Match|Championship Match|Dusty Rhodes Tag Team Classic|Singles Match)/i.exec(line);
  const date=day.split('-'),d=LONG[Number(date[1])]+' '+Number(date[2])+', '+date[0];
  const detail=stipulation?stipulation[0].toUpperCase()+' • '+d:'OFFICIAL RESULTS • '+d;
@@ -114,7 +114,7 @@ export async function collectOfficialWeeklyResults({library,routes,snapshot,now=
     source_name:spec.source+' official '+spec.label+' results, '+last,
     source_url:url,verification:'OFFICIAL_SOURCE_EXTRACTED',segments};
    feeds[show+'-verified-results.json']={
-    schema_version:1,mode:'EDITORIALLY_VERIFIED_OFFICIAL_RESULTS',
+    schema_version:1,mode:'OFFICIAL_EXTRACTED_RESULTS',
     source_policy:'Only explicit match winners directly extracted from dated official source; not human editorial review. Winners-only original approved portraits; never invent matches or champions.',
     programs:[program]};
    entries.push({id:board.id,title:board.label,show,kind:'results',airdate:last,
