@@ -82,3 +82,21 @@ test('unverified, incomplete, future, stale, unsourced and expired programming n
  row('unsourced',{source_url:''}),preview('yesterday','aaa','2026-10-30')];
  assert.deepEqual(engine.select(entries,now),[]);
 });
+
+test('segment-aware duration shows every verified result card once before switching boards',()=>{
+ const entry=row('weekly-results-aaa',{show:'aaa',airdate:'2026-10-24'});
+ const feeds={'aaa-verified-results.json':{programs:[{show_id:'aaa',airdate:'2026-10-24',segments:Array(7).fill({id:'result'})}]}};
+ assert.equal(engine.dwellMs(entry,feeds,45000),104500);
+ assert.equal(engine.dwellMs(entry,feeds,120000),120000);
+});
+test('shorter result boards do not get prematurely cut off at 45 seconds',()=>{
+ const entry=row('weekly-results-smackdown',{show:'smackdown',airdate:'2026-10-30'});
+ const feeds={'smackdown-verified-results.json':{programs:[{show_id:'smackdown',airdate:'2026-10-30',segments:Array(4).fill({id:'result'})}]}};
+ assert.equal(engine.dwellMs(entry,feeds,45000),62500);
+});
+test('special-event preview and unverified feed do not invent additional dwell or segments',()=>{
+ const preview=row('halloween',{show:'nxt',kind:'ple-preview',event_date:'2026-10-31'});
+ assert.equal(engine.dwellMs(preview,{},45000),45000);
+ const result=row('raw',{show:'raw',airdate:'2026-10-26'});
+ assert.equal(engine.dwellMs(result,{},45000),45000);
+});
