@@ -95,7 +95,7 @@ for(const candidate of reviewed.entries){
  // Board runtime must see the latest *verified* episode's identity, not the
  // premature source-spine rollover date.
  const showing=feeds['snapshot.json']?.shows?.find(s=>s.id===candidate.show);
- if(showing)showing.previous={...(showing.previous||{}),date:candidate.airdate};
+ if(showing)showing.previous={date:candidate.airdate,time:null,title:reviewed.feeds[key]?.programs?.[0]?.source_name||'Latest officially reviewed episode'};
 }
 const events=await collectOfficialEvents({library,now,requester});
 entries.push(...events.entries);
