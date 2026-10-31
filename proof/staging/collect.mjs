@@ -48,6 +48,8 @@ if(snapshotFresh){
 // Existing reviewed results can be reused only when their exact current episode
 // and original board contract are already independently verified. A draft from
 // the recovered Floot parser is never automatically promoted to reviewed fallout.
+const officialHosts={raw:['www.wwe.com','wwe.com'],smackdown:['www.wwe.com','wwe.com'],nxt:['www.wwe.com','wwe.com'],aaa:['www.wwe.com','wwe.com','luchalibreaaa.com'],tna:['tnawrestling.com','www.tnawrestling.com']};
+function isOfficialResultsSource(show,value){try{const url=new URL(value);return url.protocol==='https:'&&(officialHosts[show]||[]).includes(url.hostname);}catch{return false;}}
 const resultFeeds=['raw','smackdown','nxt','aaa','tna'];
 for(const show of resultFeeds){
  try{
@@ -57,7 +59,7 @@ for(const show of resultFeeds){
   const expected=snapshot?.shows?.find(s=>s.id===show)?.previous?.date;
   const program=data.programs.find(p=>p.show_id===show&&p.airdate===expected&&p.verification==='OFFICIAL_RESULTS_REVIEWED'&&Array.isArray(p.segments)&&p.segments.length);
   const board=library.records.find(b=>b.id==='weekly-results-'+show);
-  if(!snapshotFresh||!program||!board?.source_available||!board.design_approved||!String(program.source_url).startsWith('https://www.wwe.com/'))continue;
+  if(!snapshotFresh||!program||!board?.source_available||!board.design_approved||!isOfficialResultsSource(show,program.source_url))continue;
   feeds[show+'-verified-results.json']=data;
   entries.push({id:board.id,title:board.label,show,kind:'results',airdate:program.airdate,source_available:true,design_approved:true,content_status:'current',verification:'EDITORIALLY_VERIFIED',completed:true,checked_at:now.toISOString(),source_name:program.source_name||'Official results',source_url:program.source_url});
  }catch(error){console.log(show+' reviewed result feed unavailable: '+error.name);}
