@@ -605,7 +605,9 @@
               "headline": "CHANTEL MONROE",
               "subhead": "def. Lizzy Rain",
               "detail": "OFFICIAL RESULTS • October 27, 2026",
-              "portraits": [],
+              "portraits": [
+                "chantel-monroe"
+              ],
               "portrait_rule": "winners_only",
               "ticker": "CHANTEL MONROE DEFEATS LIZZY RAIN"
             },
@@ -770,7 +772,9 @@
               "headline": "ZER0",
               "subhead": "def. BDE",
               "detail": "SINGLES MATCH • October 29, 2026",
-              "portraits": [],
+              "portraits": [
+                "agent-zero"
+              ],
               "portrait_rule": "winners_only",
               "ticker": "ZER0 DEFEATS BDE"
             },

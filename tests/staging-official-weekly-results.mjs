@@ -28,7 +28,7 @@ const specs=[
 ];
 const lib={records:specs.map(x=>({id:'weekly-results-'+x.show,label:x.show.toUpperCase()+' — Results & Fallout',source_available:true,design_approved:true}))};
 const routes={};
-for(const s of ['sami-zayn','bayley','iyo-sky','ethan-page','big-cass','becky-lynch','romeo-moreno','noam-dar','sean-legacy','hank-walker','tank-ledger','jackson-drake','chelsea-green','rey-fenix','jade-cargill','m-by-elegance','amazing-red','aj-francis','elijah'])
+for(const s of ['sami-zayn','bayley','iyo-sky','ethan-page','big-cass','becky-lynch','romeo-moreno','noam-dar','sean-legacy','hank-walker','tank-ledger','jackson-drake','chelsea-green','rey-fenix','jade-cargill','m-by-elegance','amazing-red','aj-francis','elijah','chantel-monroe','agent-zero'])
  routes['/boards/UPCOMING/NXT/assets/portraits/'+s+'.png']='/shared/'+s+'.png';
 for(const x of ['nxt_north_american','wwe_wwe-womens-championship','cruiserweight','wwe_undisputed-wwe-championship','tna_x_division'])
  routes['/boards/UPCOMING/NXT/assets/belts/'+x+'.png']='/shared/'+x+'.png';
@@ -56,13 +56,28 @@ test('winners-only portraits, no losers and no invented headshots or belts',asyn
  assert.equal(raw[4].subhead,'def. Liv Morgan');
  assert.equal(raw[4].belt,undefined);
  const nxt=got.feeds['nxt-verified-results.json'].programs[0].segments;
- assert.deepEqual(nxt[1].portraits,[]); // missing Chantel portrait must not be substituted
+ assert.deepEqual(nxt[1].portraits,['chantel-monroe']);
  assert.deepEqual(nxt[3].portraits,['hank-walker','tank-ledger']);
  assert.equal(nxt[4].belt,'nxt_north_american.png');
  const tna=got.feeds['tna-verified-results.json'].programs[0].segments;
  assert.equal(tna[0].headline,'M BY ELEGANCE');
- assert.deepEqual(tna[1].portraits,[]);
+ assert.deepEqual(tna[1].portraits,['agent-zero']);
  assert.equal(tna[2].belt,'tna_x_division.png');
+});
+test('Zero, Zer0 and Agent Zero use one approved portrait and preserve the source name',async()=>{
+ for(const name of ['Zero','Zer0','Agent Zero']){
+  const got=await collectOfficialWeeklyResults({library:lib,routes,snapshot,now,requester:async url=>{
+   const response=await requester(url);
+   const text=await response.text();
+   return {...response,text:async()=>text.replace('Zer0 Def.',name+' Def.')};
+  }});
+  const segment=got.feeds['tna-verified-results.json'].programs[0].segments[1];
+  assert.equal(segment.headline,name.toUpperCase());
+  assert.deepEqual(segment.portraits,['agent-zero']);
+ }
+ const missing={...routes};delete missing['/boards/UPCOMING/NXT/assets/portraits/agent-zero.png'];
+ const got=await collectOfficialWeeklyResults({library:lib,routes:missing,snapshot,now,requester});
+ assert.deepEqual(got.feeds['tna-verified-results.json'].programs[0].segments[1].portraits,[]);
 });
 test('wrong official date or only two match finishes never enters rotation',async()=>{
  const bad=await collectOfficialWeeklyResults({library:lib,routes,snapshot,now,requester:async url=>{

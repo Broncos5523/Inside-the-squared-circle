@@ -44,7 +44,8 @@ const KNOWN_TEAMS={
 const NAMES={
  'iyo sky':'iyo-sky','rey fenix':'rey-fenix','m by elegance':'m-by-elegance',
  'aj francis':'aj-francis','big cass':'big-cass','noam dar':'noam-dar',
- 'tony d’angelo':'tony-d-angelo','tna x-division champion amazing red':'amazing-red'
+ 'tony d’angelo':'tony-d-angelo','tna x-division champion amazing red':'amazing-red',
+ 'zer0':'agent-zero','zero':'agent-zero','agent zero':'agent-zero'
 };
 function slugsFor(winner){
  const simple=winner.toLowerCase().trim().replace(/[’‘]/g,"'");
