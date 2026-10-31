@@ -1599,5 +1599,21 @@
   "/screens/ple/results/WWE_PAYBACK_RESULTS_V1_REVIEW/assets/wrestlepalooza-perth-logo.png": "/shared/800e5394cd74f18b3952f3001e07f416e6588055c24b0ee7ff661a696f53db08.png",
   "/screens/ple/results/WWE_PAYBACK_RESULTS_V1_REVIEW/assets/wwe-undisputed-championship.png": "/shared/431e75dc64d6e5575857b5b9068b1beb5db2cad989296036b472492713a6171c.png",
   "/boards/RESULTS/AAA/assets/portraits/big-mami.png": "/shared/26189e3adbcb40f6296f03fca6098606fc931f6e907308d53e6fd3f79d5a3b13.png",
-  "/boards/RESULTS/AAA/assets/portrait-display/big-mami.png": "/shared/26189e3adbcb40f6296f03fca6098606fc931f6e907308d53e6fd3f79d5a3b13.png"
+  "/boards/RESULTS/AAA/assets/portrait-display/big-mami.png": "/shared/26189e3adbcb40f6296f03fca6098606fc931f6e907308d53e6fd3f79d5a3b13.png",
+  "/boards/RESULTS/NXT/assets/portrait-display/chantel-monroe.png": "/shared/38d20c88e02da1204f899dfed6d311dff8a7579d9e6f830127dfca6ce089f4ad.webp",
+  "/boards/RESULTS/NXT/assets/portraits/chantel-monroe.png": "/shared/38d20c88e02da1204f899dfed6d311dff8a7579d9e6f830127dfca6ce089f4ad.webp",
+  "/boards/RESULTS/TNA/assets/portrait-display/agent-zero.png": "/shared/a85eafc5364a482e2e18e3681f6910f157c3c9d3a3073baae37c96e279102186.png",
+  "/boards/RESULTS/TNA/assets/portrait-display/zer0.png": "/shared/a85eafc5364a482e2e18e3681f6910f157c3c9d3a3073baae37c96e279102186.png",
+  "/boards/RESULTS/TNA/assets/portrait-display/zero.png": "/shared/a85eafc5364a482e2e18e3681f6910f157c3c9d3a3073baae37c96e279102186.png",
+  "/boards/RESULTS/TNA/assets/portraits/agent-zero.png": "/shared/a85eafc5364a482e2e18e3681f6910f157c3c9d3a3073baae37c96e279102186.png",
+  "/boards/RESULTS/TNA/assets/portraits/zer0.png": "/shared/a85eafc5364a482e2e18e3681f6910f157c3c9d3a3073baae37c96e279102186.png",
+  "/boards/RESULTS/TNA/assets/portraits/zero.png": "/shared/a85eafc5364a482e2e18e3681f6910f157c3c9d3a3073baae37c96e279102186.png",
+  "/boards/UPCOMING/NXT/assets/portrait-display/chantel-monroe.png": "/shared/38d20c88e02da1204f899dfed6d311dff8a7579d9e6f830127dfca6ce089f4ad.webp",
+  "/boards/UPCOMING/NXT/assets/portraits/chantel-monroe.png": "/shared/38d20c88e02da1204f899dfed6d311dff8a7579d9e6f830127dfca6ce089f4ad.webp",
+  "/boards/UPCOMING/TNA/assets/portrait-display/agent-zero.png": "/shared/a85eafc5364a482e2e18e3681f6910f157c3c9d3a3073baae37c96e279102186.png",
+  "/boards/UPCOMING/TNA/assets/portrait-display/zer0.png": "/shared/a85eafc5364a482e2e18e3681f6910f157c3c9d3a3073baae37c96e279102186.png",
+  "/boards/UPCOMING/TNA/assets/portrait-display/zero.png": "/shared/a85eafc5364a482e2e18e3681f6910f157c3c9d3a3073baae37c96e279102186.png",
+  "/boards/UPCOMING/TNA/assets/portraits/agent-zero.png": "/shared/a85eafc5364a482e2e18e3681f6910f157c3c9d3a3073baae37c96e279102186.png",
+  "/boards/UPCOMING/TNA/assets/portraits/zer0.png": "/shared/a85eafc5364a482e2e18e3681f6910f157c3c9d3a3073baae37c96e279102186.png",
+  "/boards/UPCOMING/TNA/assets/portraits/zero.png": "/shared/a85eafc5364a482e2e18e3681f6910f157c3c9d3a3073baae37c96e279102186.png"
 }

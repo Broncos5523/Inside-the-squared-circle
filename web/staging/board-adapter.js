@@ -161,20 +161,25 @@ function evolveApplyVerifiedEpisode(html,payload){
   }
 
   if(mode==='archive'&&record.id==='weekly-results-evolve')html=html.replace('function safeEpisode(){return data.episode_date===currentLatestCompleted()}', 'function safeEpisode(){return true}');
-  // This user-supplied addition changes visual identity only, in memory.
+  // These user-supplied additions change visual identity only, in memory.
   // The locked source retains its original example data and bytes on disk.
-  function addApprovedAaaPortrait(data){
-   if(routes['/boards/RESULTS/AAA/assets/portraits/big-mami.png']!=='/shared/26189e3adbcb40f6296f03fca6098606fc931f6e907308d53e6fd3f79d5a3b13.png')return data;
+  var approvedPortraits=[
+   {show:'aaa',folder:'AAA',id:'big-mami-return',headline:'BIG MAMI RETURNS',kind:'storyline',portrait:'big-mami',file:'26189e3adbcb40f6296f03fca6098606fc931f6e907308d53e6fd3f79d5a3b13.png'},
+   {show:'nxt',folder:'NXT',id:'official-nxt-2026-10-27-2',headline:'CHANTEL MONROE',kind:'result',portrait:'chantel-monroe',file:'38d20c88e02da1204f899dfed6d311dff8a7579d9e6f830127dfca6ce089f4ad.webp'},
+   {show:'tna',folder:'TNA',id:'official-tna-2026-10-29-2',headline:'ZER0',kind:'result',portrait:'agent-zero',file:'a85eafc5364a482e2e18e3681f6910f157c3c9d3a3073baae37c96e279102186.png'}
+  ];
+  function addApprovedPortraits(data){
    (data.programs||[]).forEach(function(program){
-    if(program.show_id!=='aaa')return;
     (program.segments||[]).forEach(function(segment){
-     if(segment.id==='big-mami-return'&&segment.headline==='BIG MAMI RETURNS'&&segment.kind==='storyline'&&Array.isArray(segment.portraits)&&!segment.portraits.length)segment.portraits=['big-mami'];
+     if(!Array.isArray(segment.portraits)||segment.portraits.length)return;
+     var approved=approvedPortraits.find(function(a){return a.show===program.show_id&&a.id===segment.id&&a.headline===segment.headline&&a.kind===segment.kind;});
+     if(approved&&routes['/boards/RESULTS/'+approved.folder+'/assets/portraits/'+approved.portrait+'.png']==='/shared/'+approved.file)segment.portraits=[approved.portrait];
     });
    });
    return data;
   }
-  if(record.id==='weekly-results-aaa'){
-   html=html.replace(/(<script id="review-verified-results" type="application\/json">)([\s\S]*?)(<\/script>)/,function(_,a,json,b){return a+JSON.stringify(addApprovedAaaPortrait(JSON.parse(json))).replace(/</g,'\\u003c')+b;});
+  if(/^weekly-results-(aaa|nxt|tna)$/.test(record.id)){
+   html=html.replace(/(<script id="review-verified-results" type="application\/json">)([\s\S]*?)(<\/script>)/,function(_,a,json,b){return a+JSON.stringify(addApprovedPortraits(JSON.parse(json))).replace(/</g,'\\u003c')+b;});
   }
   var assetBase=/\.chatgpt\.site$/i.test(new URL(base).hostname)?'https://raw.githubusercontent.com/Broncos5523/Inside-the-squared-circle/work/all-boards-github-pages/web/staging/':base;
   html=html.replace(/__ISC_BASE__/g,assetBase);
@@ -255,7 +260,8 @@ function evolveApplyVerifiedEpisode(html,payload){
   if(mode==='active'&&feeds){
    var ownShow=record.id.replace(/^weekly-(?:results|upcoming)-/,'');
    ['snapshot.json','reported.json',ownShow+'-verified-results.json'].forEach(function(name){if(feeds[name])boardFeeds[name]=feeds[name];});
-   if(ownShow==='aaa'&&boardFeeds['aaa-verified-results.json'])boardFeeds['aaa-verified-results.json']=addApprovedAaaPortrait(JSON.parse(JSON.stringify(boardFeeds['aaa-verified-results.json'])));
+   var ownFeed=ownShow+'-verified-results.json';
+   if(/^(aaa|nxt|tna)$/.test(ownShow)&&boardFeeds[ownFeed])boardFeeds[ownFeed]=addApprovedPortraits(JSON.parse(JSON.stringify(boardFeeds[ownFeed])));
   }
   var config={weeklyResults:record.category==='Weekly Results',id:record.id,logical:logical,base:assetBase,routes:boardMap,mode:mode,feeds:boardFeeds,night:night,source_credit:record.source_credit||null,current_location:record.current_location||null,live_preview:record.category==='Weekly Upcoming',officialEvent:officialEvent,resultPortraits:resultPortraits,resultBelts:resultBelts};
   var injected='<base href="'+new URL('originals'+prefix,base).href+'"><script>('+shim.toString()+')('+JSON.stringify(config).replace(/</g,'\\u003c')+');<\/script>';

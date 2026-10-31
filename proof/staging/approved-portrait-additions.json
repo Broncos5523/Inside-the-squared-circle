@@ -8,5 +8,25 @@
       "filename": "IMG_3448.png",
       "approval": "User identified and supplied this Big Mami portrait on October 31, 2026."
     }
+  },
+  "nxt": {
+    "official-nxt-2026-10-27-2": {
+      "headline": "CHANTEL MONROE",
+      "kind": "result",
+      "portrait": "chantel-monroe",
+      "sha256": "38d20c88e02da1204f899dfed6d311dff8a7579d9e6f830127dfca6ce089f4ad",
+      "filename": "02-IMG_3604.webp",
+      "approval": "User identified and supplied this portrait on October 31, 2026."
+    }
+  },
+  "tna": {
+    "official-tna-2026-10-29-2": {
+      "headline": "ZER0",
+      "kind": "result",
+      "portrait": "agent-zero",
+      "sha256": "a85eafc5364a482e2e18e3681f6910f157c3c9d3a3073baae37c96e279102186",
+      "filename": "01-IMG_3606.png",
+      "approval": "User identified and supplied this portrait on October 31, 2026."
+    }
   }
 }
