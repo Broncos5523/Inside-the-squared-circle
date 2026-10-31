@@ -59,7 +59,7 @@ test('current Evolve preview injects only Oct28 data and ticker; archive retains
  const feed=await collect();
  const html=adapterWindow.ISCBoardAdapter.build(original,row,routes,base,'active',feed.feeds);
  assert.match(html,/"episode_date":"2026-10-28"/);
- assert.match(html,/evolveTicker.*OCT 28, 2026/);
+ assert.match(html.match(/function ticker\(\)\{[^\n]*\}/)[0],/OCT 28, 2026/);
  assert.match(html,/assets\/user-evolve-three-wrestler-transparent-display\.png/);
  assert.match(html,/EvolveReview=/);
  const archive=adapterWindow.ISCBoardAdapter.build(original,row,routes,base,'archive',feed.feeds);

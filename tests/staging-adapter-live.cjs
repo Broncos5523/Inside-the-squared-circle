@@ -37,7 +37,7 @@ test('all four officially source-extracted weekly results compile against exact 
 test('source-backed SmackDown winner portraits never include opposing wrestlers',()=>{
  const {player,feed}=prepared('smackdown');
  const p=feed.programs[0];
- assert.ok(/^\\d{4}-\\d{2}-\\d{2}$/.test(p.airdate));
+ assert.ok(/^\d{4}-\d{2}-\d{2}$/.test(p.airdate));
  assert.ok(p.segments.length>=3);
  assert.ok(p.segments.every(seg=>seg.portrait_rule==='winners_only'||p.verification==='OFFICIAL_RESULTS_REVIEWED'));
  assert.ok(p.segments.every(seg=>Array.isArray(seg.portraits)));
