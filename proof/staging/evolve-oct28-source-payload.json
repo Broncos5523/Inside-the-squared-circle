@@ -1,0 +1,109 @@
+{
+  "schema_version": 2,
+  "show_id": "evolve",
+  "edition": "2026-10-28",
+  "episode_label": "SEASON 2 • EPISODE 35",
+  "episode_date": "2026-10-28",
+  "episode_timezone": "America/New_York",
+  "venue": "WWE PERFORMANCE CENTER",
+  "locality": "ORLANDO, FLORIDA",
+  "release_status": "SOURCE_VERIFIED_STAGING_ASSETS_PENDING",
+  "provenance": [
+    {
+      "title": "Fightful — WWE Evolve Results (10/28)",
+      "url": "https://www.fightful.com/wrestling/wwe-evolve-results-10-28/",
+      "verified_matches": true
+    },
+    {
+      "title": "Pro Wrestling Dot Net — WWE Evolve October 28 Episode 35 review",
+      "url": "https://prowrestling.net/site/2026/10/29/wwe-evolve-results-10-28-vetters-review-of-elijah-holyfield-vs-braxton-cole-vs-marcus-mathers-in-a-triple-threat-jasper-troy-vs-jax-presley-harley-riggins-vs-milosh-jovic/",
+      "verified_matches": true
+    }
+  ],
+  "portraits_policy": "Only verified winner portraits on match results, only subject-relevant approved user portraits for storylines; omit missing assets rather than substitute.",
+  "asset_status": "BLOCKED: exact final approved Evolve board and artwork ZIP are preserved in Google Drive but not deployed to this GitHub staging branch.",
+  "segments": [
+    {
+      "id": "riggins",
+      "kind": "result",
+      "eyebrow": "SINGLES • MATCH RESULT",
+      "strap": "RIGGINS TAKES THE WIN",
+      "headline": "HARLEY\nRIGGINS",
+      "subline": "def. Milosh Jovic",
+      "detail": "Riggins won by pinfall, then attacked Jovic after the match.",
+      "portraits": [],
+      "tag": "MATCH RESULT",
+      "belt": null
+    },
+    {
+      "id": "presley",
+      "kind": "result",
+      "eyebrow": "SINGLES • MATCH RESULT",
+      "strap": "PRESLEY ANSWERS THE CHALLENGE",
+      "headline": "JAX PRESLEY",
+      "subline": "def. Jasper Troy",
+      "detail": "Presley answered Troy’s open challenge and scored the pin.",
+      "portraits": [],
+      "tag": "WINNER",
+      "belt": null
+    },
+    {
+      "id": "holyfield",
+      "kind": "result",
+      "eyebrow": "TRIPLE THREAT • MATCH RESULT",
+      "strap": "HOLYFIELD CLAIMS THE WIN",
+      "headline": "ELIJAH\nHOLYFIELD",
+      "subline": "def. Braxton Cole & Marcus Mathers",
+      "detail": "Holyfield won the Triple Threat after pinning Braxton Cole.",
+      "portraits": [
+        "elijah-holyfield"
+      ],
+      "tag": "WINNER",
+      "belt": null
+    },
+    {
+      "id": "admiration",
+      "kind": "fallout",
+      "eyebrow": "WOMEN’S TITLE • STORYLINE FALLOUT",
+      "strap": "THE CELEBRATION IS INTERRUPTED",
+      "headline": "NIKKITA\nLYONS",
+      "subline": "Anya Rune wants a title opportunity",
+      "detail": "Rune confronted Lyons and Sloane Jacobs. Timothy Thatcher booked a contenders’ match.",
+      "portraits": [
+        "nikkita-lyons"
+      ],
+      "tag": "CHAMPIONSHIP PATH",
+      "belt": null
+    },
+    {
+      "id": "four-way",
+      "kind": "fallout",
+      "eyebrow": "WOMEN’S TITLE • NEXT WEEK",
+      "strap": "FOUR-WAY DEFENSE ANNOUNCED",
+      "headline": "LYONS FACES\nTHREE",
+      "subline": "Thea Hail • Skylar Raye • Wendy Choo",
+      "detail": "Lyons is scheduled to defend the Evolve Women’s Championship in a four-way match.",
+      "portraits": [
+        "nikkita-lyons",
+        "skylar-raye"
+      ],
+      "tag": "TITLE DEFENSE",
+      "belt": null
+    },
+    {
+      "id": "alliance",
+      "kind": "fallout",
+      "eyebrow": "RIVALRY • STORYLINE FALLOUT",
+      "strap": "THE FEUD ESCALATES",
+      "headline": "DIXON &\nALIX BROOKS",
+      "subline": "Aaron Rourke and Laynie Luck unite",
+      "detail": "Rourke and Luck agreed to join forces against Kale Dixon and Alix Brooks.",
+      "portraits": [
+        "kale-dixon",
+        "alix-brooks"
+      ],
+      "tag": "RIVALRY DEVELOPMENT",
+      "belt": null
+    }
+  ]
+}
