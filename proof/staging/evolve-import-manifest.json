@@ -1,0 +1,128 @@
+{
+  "manifest_version": 1,
+  "project": "MAN CAVE SPORTS BOOK PRESENTS: INSIDE THE SQUARED CIRCLE",
+  "purpose": "Exact ORIGINAL source + hash-named media overlay for the 68th Evolve slot, not a redesign",
+  "authoritative_original_html": {
+    "sha256": "8ae868647a715faf96ad91dda6d5771e0246ae3a587f345252aafe3957a02089",
+    "bytes": 14603,
+    "logical_url": "/boards/RESULTS/Evolve/Evolve_Results_Fallout_Review.html",
+    "git_destination": "web/staging/delivery/boards/RESULTS/Evolve/Evolve_Results_Fallout_Review.html",
+    "episode_date": "2026-10-21"
+  },
+  "latest_verified_review_data": {
+    "episode_date": "2026-10-28",
+    "segment_count": 6,
+    "source_asset_status": "HELD UNTIL EXACT BINARIES PUBLICLY INSTALLED",
+    "data_file": "proof/staging/evolve-20261028-review-data.json"
+  },
+  "asset_count": 14,
+  "total_exact_original_bytes": 9552632,
+  "assets": {
+    "assets/portraits/alix-brooks.png": {
+      "sha256": "d86b63f0d89f8f2cdddd46e1183732e0fb1f3b688cb02f858e7e72060eb06fee",
+      "bytes": 368039,
+      "git_destination": "web/staging/originals/shared/d86b63f0d89f8f2cdddd46e1183732e0fb1f3b688cb02f858e7e72060eb06fee.png"
+    },
+    "assets/portraits/cappuccino-jones.png": {
+      "sha256": "0808eadd9db01104e9ff83b803c79e44cd81b596c29e6e57058fbd7f56e67d6c",
+      "bytes": 286233,
+      "git_destination": "web/staging/originals/shared/0808eadd9db01104e9ff83b803c79e44cd81b596c29e6e57058fbd7f56e67d6c.png"
+    },
+    "assets/portraits/chazz-hall.png": {
+      "sha256": "fb27ac2e9eb65e46eb6f5913c0cc68c4edb5d931813bfec47f0c323218d1f1bd",
+      "bytes": 343433,
+      "git_destination": "web/staging/originals/shared/fb27ac2e9eb65e46eb6f5913c0cc68c4edb5d931813bfec47f0c323218d1f1bd.png"
+    },
+    "assets/portraits/elijah-holyfield.png": {
+      "sha256": "b63170c99061a8c74eb9edfb1895e7b2d7a8f3f7eb9a1b41c7d166783da4917a",
+      "bytes": 316047,
+      "git_destination": "web/staging/originals/shared/b63170c99061a8c74eb9edfb1895e7b2d7a8f3f7eb9a1b41c7d166783da4917a.png"
+    },
+    "assets/portraits/kale-dixon.png": {
+      "sha256": "fa2d158857ad07a1da021344b94daf1d8ee2b0f3ad9a07dcd64ac584d6608c7c",
+      "bytes": 417191,
+      "git_destination": "web/staging/originals/shared/fa2d158857ad07a1da021344b94daf1d8ee2b0f3ad9a07dcd64ac584d6608c7c.png"
+    },
+    "assets/portraits/nikkita-lyons.png": {
+      "sha256": "affe6fffb56ce0089e4363791aa6fe55c1b09beed32d4c19f8a876ed5c606165",
+      "bytes": 510070,
+      "git_destination": "web/staging/originals/shared/affe6fffb56ce0089e4363791aa6fe55c1b09beed32d4c19f8a876ed5c606165.png"
+    },
+    "assets/portraits/skylar-raye.png": {
+      "sha256": "dd99850b3416a9198d63ff9628aa44cf4d201f62e26160c066032679d17258f8",
+      "bytes": 345227,
+      "git_destination": "web/staging/originals/shared/dd99850b3416a9198d63ff9628aa44cf4d201f62e26160c066032679d17258f8.png"
+    },
+    "assets/user-approved-evolve-arena.png": {
+      "sha256": "08d83d604b640d9b047fa1fc9342d53637c86c26a18203ca8f27b851eaa5751a",
+      "bytes": 2720757,
+      "git_destination": "web/staging/originals/shared/08d83d604b640d9b047fa1fc9342d53637c86c26a18203ca8f27b851eaa5751a.png"
+    },
+    "assets/user-approved-evolve-logo-crop.png": {
+      "sha256": "f9aca119caabdc552b4bc07202ebdfdc03baef80b9f0d13c0d82c924698ce8b6",
+      "bytes": 80793,
+      "git_destination": "web/staging/originals/shared/f9aca119caabdc552b4bc07202ebdfdc03baef80b9f0d13c0d82c924698ce8b6.png"
+    },
+    "assets/user-approved-mancave-master-logo-transparent.png": {
+      "sha256": "6b8d91042edf7d48598c32f1b46d6451dfc9cc0c2d49eeb0e1a0be7b38d8fc13",
+      "bytes": 1572656,
+      "git_destination": "web/staging/originals/shared/6b8d91042edf7d48598c32f1b46d6451dfc9cc0c2d49eeb0e1a0be7b38d8fc13.png"
+    },
+    "assets/user-evolve-three-wrestler-transparent-display.png": {
+      "sha256": "baf51a238bb6988f96e5a715668a0f993678d89dab8d3a2fa8206f852ca52931",
+      "bytes": 1785845,
+      "git_destination": "web/staging/originals/shared/baf51a238bb6988f96e5a715668a0f993678d89dab8d3a2fa8206f852ca52931.png"
+    },
+    "assets/user-supplied-evolve-three-wrestler-master.jpeg": {
+      "sha256": "c780389aae1ba5357f56a188c0701b8754251c7056ffd83aedf63300c61312b9",
+      "bytes": 462211,
+      "git_destination": "web/staging/originals/shared/c780389aae1ba5357f56a188c0701b8754251c7056ffd83aedf63300c61312b9.jpeg"
+    },
+    "assets/user-supplied-mancave-logo-reference.jpeg": {
+      "sha256": "d6cba399bd50c0153d2e872e24baaa6c39df7bb6c1e68acdef774b35c1aeed97",
+      "bytes": 106681,
+      "git_destination": "web/staging/originals/shared/d6cba399bd50c0153d2e872e24baaa6c39df7bb6c1e68acdef774b35c1aeed97.jpeg"
+    },
+    "assets/user_originals/IMG_3479_Cappuccino_Jones_user_original.jpeg": {
+      "sha256": "3f22243ac83ab67ff0fb6879859da3f35a7fe422777b1aacf597902443515e76",
+      "bytes": 237449,
+      "git_destination": "web/staging/originals/shared/3f22243ac83ab67ff0fb6879859da3f35a7fe422777b1aacf597902443515e76.jpeg"
+    }
+  },
+  "route_entries": {
+    "/boards/RESULTS/Evolve/assets/portraits/alix-brooks.png": "/shared/d86b63f0d89f8f2cdddd46e1183732e0fb1f3b688cb02f858e7e72060eb06fee.png",
+    "/boards/RESULTS/Evolve/assets/portraits/cappuccino-jones.png": "/shared/0808eadd9db01104e9ff83b803c79e44cd81b596c29e6e57058fbd7f56e67d6c.png",
+    "/boards/RESULTS/Evolve/assets/portraits/chazz-hall.png": "/shared/fb27ac2e9eb65e46eb6f5913c0cc68c4edb5d931813bfec47f0c323218d1f1bd.png",
+    "/boards/RESULTS/Evolve/assets/portraits/elijah-holyfield.png": "/shared/b63170c99061a8c74eb9edfb1895e7b2d7a8f3f7eb9a1b41c7d166783da4917a.png",
+    "/boards/RESULTS/Evolve/assets/portraits/kale-dixon.png": "/shared/fa2d158857ad07a1da021344b94daf1d8ee2b0f3ad9a07dcd64ac584d6608c7c.png",
+    "/boards/RESULTS/Evolve/assets/portraits/nikkita-lyons.png": "/shared/affe6fffb56ce0089e4363791aa6fe55c1b09beed32d4c19f8a876ed5c606165.png",
+    "/boards/RESULTS/Evolve/assets/portraits/skylar-raye.png": "/shared/dd99850b3416a9198d63ff9628aa44cf4d201f62e26160c066032679d17258f8.png",
+    "/boards/RESULTS/Evolve/assets/user-approved-evolve-arena.png": "/shared/08d83d604b640d9b047fa1fc9342d53637c86c26a18203ca8f27b851eaa5751a.png",
+    "/boards/RESULTS/Evolve/assets/user-approved-evolve-logo-crop.png": "/shared/f9aca119caabdc552b4bc07202ebdfdc03baef80b9f0d13c0d82c924698ce8b6.png",
+    "/boards/RESULTS/Evolve/assets/user-approved-mancave-master-logo-transparent.png": "/shared/6b8d91042edf7d48598c32f1b46d6451dfc9cc0c2d49eeb0e1a0be7b38d8fc13.png",
+    "/boards/RESULTS/Evolve/assets/user-evolve-three-wrestler-transparent-display.png": "/shared/baf51a238bb6988f96e5a715668a0f993678d89dab8d3a2fa8206f852ca52931.png",
+    "/boards/RESULTS/Evolve/assets/user-supplied-evolve-three-wrestler-master.jpeg": "/shared/c780389aae1ba5357f56a188c0701b8754251c7056ffd83aedf63300c61312b9.jpeg",
+    "/boards/RESULTS/Evolve/assets/user-supplied-mancave-logo-reference.jpeg": "/shared/d6cba399bd50c0153d2e872e24baaa6c39df7bb6c1e68acdef774b35c1aeed97.jpeg",
+    "/boards/RESULTS/Evolve/assets/user_originals/IMG_3479_Cappuccino_Jones_user_original.jpeg": "/shared/3f22243ac83ab67ff0fb6879859da3f35a7fe422777b1aacf597902443515e76.jpeg"
+  },
+  "proposed_registry_patch": {
+    "id": "weekly-results-evolve",
+    "source_available": true,
+    "design_approved": true,
+    "status": "SOURCE_PUBLISHED_VERIFIED",
+    "readiness": "LIVE_DATA_RENDERABLE",
+    "href": "/boards/RESULTS/Evolve/Evolve_Results_Fallout_Review.html",
+    "delivery": "web/staging/delivery/boards/RESULTS/Evolve/Evolve_Results_Fallout_Review.html",
+    "original_sha256": "8ae868647a715faf96ad91dda6d5771e0246ae3a587f345252aafe3957a02089",
+    "delivery_sha256": "8ae868647a715faf96ad91dda6d5771e0246ae3a587f345252aafe3957a02089",
+    "notes": "Must first complete all binary and route uploads; original approved 10/21 review HTML is unchanged. Render current 10/28 facts in memory ONLY."
+  },
+  "activation_policy": "Do not set source_available:true or insert 2026-10-28 live Evolve entry until every binary and original HTML is published, source hashes match, and the 2026-10-28 adapter feed has been tested in the public staging player.",
+  "must_not_modify": [
+    "approved original Evolve HTML on disk",
+    "artwork/hero/logos",
+    "other 67 approved boards",
+    "GitHub main production",
+    "separate 28-board sports project"
+  ]
+}

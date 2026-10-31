@@ -107,7 +107,35 @@
    window.parent.postMessage({type:'isc-board-ready',id:config.id,mode:config.mode},'*');
   },650);});
  }
+/** Preserve original HTML bytes and update ONLY the episode facts and ticker in memory.
+ * Caller must enforce source hash and current verified feed checks BEFORE calling.
+ * Never used in archive design review.
+ */
+function evolveApplyVerifiedEpisode(html,payload){
+  if(typeof html!=='string'||!payload||payload.show_id!=='evolve')throw Error('Invalid Evolve source or episode');
+  if(!/^\d{4}-\d{2}-\d{2}$/.test(payload.episode_date)||!Array.isArray(payload.segments)||!payload.segments.length)throw Error('Invalid episode content');
+  const rx=/(<script id="verified-episode" type="application\/json">)[\s\S]*?(<\/script>)/;
+  if(!rx.test(html))throw Error('Evolve source contract changed');
+  const sanitized=JSON.stringify(payload).replace(/</g,'\\u003c');
+  let updated=html.replace(rx,(_,a,b)=>a+sanitized+b);
+  const tickerRx=/function ticker\(\)\{[^\n]*\}/;
+  if(!tickerRx.test(updated))throw Error('Evolve ticker source contract changed');
+  const monthNames=['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
+  const [year,month,day]=payload.episode_date.split('-').map(Number);
+  const tickerText='WWE EVOLVE ◆ '+monthNames[month-1].toUpperCase()+' '+day+', '+year+' ◆ '+payload.segments.map(x=>x.kind==='result'?(x.headline.replace(/\n/g,' ')+' '+x.subline):x.strap).join(' ◆ ')+' ◆ ';
+  const code='function ticker(){ document.getElementById("ticker-text").textContent=('+JSON.stringify(tickerText)+').repeat(3); }';
+  return updated.replace(tickerRx,code);
+}
+
  function build(html,record,routes,base,mode,feeds){
+  if(mode==='active'&&record.id==='weekly-results-evolve'){
+   var evolveFeed=feeds&&feeds['evolve-verified-results.json'];
+   var episode=evolveFeed&&evolveFeed.mode==='EDITORIALLY_VERIFIED_EVOLVE_EPISODE'&&evolveFeed.episode;
+   if(!episode||episode.show_id!=='evolve'||episode.verification!=='EDITORIALLY_VERIFIED')throw Error('Reviewed Evolve episode unavailable');
+   html=evolveApplyVerifiedEpisode(html,episode);
+  }
+
+  if(mode==='archive'&&record.id==='weekly-results-evolve')html=html.replace('function safeEpisode(){return data.episode_date===currentLatestCompleted()}', 'function safeEpisode(){return true}');
   var assetBase=/\.chatgpt\.site$/i.test(new URL(base).hostname)?'https://raw.githubusercontent.com/Broncos5523/Inside-the-squared-circle/work/all-boards-github-pages/web/staging/':base;
   html=html.replace(/__ISC_BASE__/g,assetBase);
   var logical=record.href.split('?')[0],page=new URL(logical,'https://isc.invalid'),boardMap={};
