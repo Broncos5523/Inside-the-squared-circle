@@ -1,6 +1,7 @@
 import {writeFile,readFile} from 'node:fs/promises';
 import {collectWcn} from './wcn-collector.mjs';
 import {collectOfficialEvents} from './official-events.mjs';
+import {collectReviewedArchiveFallback} from './reviewed-archive-fallback.mjs';
 const now=new Date();
 const root=new URL('../../web/staging/',import.meta.url);
 try{
@@ -84,9 +85,21 @@ for(const show of resultFeeds){
   entries.push({id:board.id,title:board.label,show,kind:'results',airdate:program.airdate,source_available:true,design_approved:true,content_status:'current',verification:'EDITORIALLY_VERIFIED',completed:true,checked_at:now.toISOString(),source_name:program.source_name||'Official results',source_url:program.source_url});
  }catch(error){console.log(show+' reviewed result feed unavailable: '+error.name);}
 }
+const reviewed=await collectReviewedArchiveFallback({library,now,root,snapshot,requester});
+for(const candidate of reviewed.entries){
+ if(entries.some(e=>e.show===candidate.show&&(e.kind==='results'||e.kind==='evolve')))continue;
+ entries.push(candidate);
+ const key=candidate.show+'-verified-results.json';
+ feeds[key]=reviewed.feeds[key];
+ // A schedule may label the unaired current show as the most recent episode.
+ // Board runtime must see the latest *verified* episode's identity, not the
+ // premature source-spine rollover date.
+ const showing=feeds['snapshot.json']?.shows?.find(s=>s.id===candidate.show);
+ if(showing)showing.previous={...(showing.previous||{}),date:candidate.airdate};
+}
 const events=await collectOfficialEvents({library,now,requester});
 entries.push(...events.entries);
 feeds['official-events.json']=events.feed;
-const result={schema_version:1,mode:'SOURCE_GATED_STAGING',generated_at:now.toISOString(),entries,feeds,collection:{...stats,snapshot_fresh:!!snapshotFresh,official_event_count:events.entries.length,official_event_warnings:events.errors},notes:['Archived examples remain excluded from current programming. Event matches must clear official-source and approved-portrait checks. Weekly results and Evolve remain held until the exact episode facts are verified and renderable.','Source credits retained privately; public hosting clearance confirmed by owner 2026-10-30.']};
+const result={schema_version:1,mode:'SOURCE_GATED_STAGING',generated_at:now.toISOString(),entries,feeds,collection:{...stats,snapshot_fresh:!!snapshotFresh,official_event_count:events.entries.length,official_event_warnings:events.errors,approved_result_count:reviewed.entries.length,approved_result_warnings:reviewed.warnings},notes:['Archived examples remain excluded from current programming. Event matches must clear official-source and approved-portrait checks. Weekly results and Evolve remain held until the exact episode facts are verified and renderable.','Source credits retained privately; public hosting clearance confirmed by owner 2026-10-30.']};
 await writeFile(new URL('data/programming.json',root),JSON.stringify(result,null,2)+'\n');
 console.log(JSON.stringify({generated_at:result.generated_at,source_programs:programs.length,active_candidates:entries.length,collection:result.collection}));
