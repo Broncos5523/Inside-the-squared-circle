@@ -80,7 +80,7 @@
   mode=params.get('mode')==='archive'?'archive':'active';
   await refreshed;
   var first=mode==='active'?candidates()[0]:library.records.find(function(r){return r.id===params.get('id');})||library.records.find(function(r){return r.id==='weekly-results-smackdown';})||visible[0];
-  if(!first){switchPanel(true);if(params.get('view')==='tv'){document.body.classList.add('tv');byId('active-summary').textContent='Live programming is temporarily unavailable. Waiting for a fresh verified collection; archive demonstrations are not being broadcast.';}setInterval(refresh,300000);return;}
+  if(!first){switchPanel(true);mode='active';if(params.get('view')==='tv'){setTv(true);byId('loading').textContent='Waiting for fresh wrestling programming…';byId('loading').style.display='grid';byId('active-summary').textContent='Live programming is temporarily unavailable. Waiting for a fresh verified collection; archive demonstrations are not being broadcast.';}setInterval(refresh,300000);return;}
   if(mode==='active'){switchPanel(true);mode='active';if(params.get('view')==='tv'){switchPanel(false);mode='active';setTv(true);await choose(first,true);}}
   else{setTv(params.get('view')==='tv');await choose(first,params.get('play')==='1');}
   scale();setInterval(refresh,300000);
