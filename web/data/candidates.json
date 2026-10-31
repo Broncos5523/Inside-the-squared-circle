@@ -1,22 +1,30 @@
 {
   "schema_version": 1,
   "mode": "RESEARCH_LEADS_ONLY",
-  "generated_at": "2026-10-30T20:59:12.086485+00:00",
+  "generated_at": "2026-10-31T01:25:39.318065+00:00",
   "policy": "Mentions are NOT confirmations. Do not put candidate matches on the public broadcast.",
   "source": "TheSportsDB (free API); attribution required; no artwork fetched.",
   "programs": [
     {
       "show_id": "raw",
       "airdate": "2026-11-02",
-      "intake_status": "no_parseable_leads",
-      "candidate_count": 0,
+      "intake_status": "unverified_leads_found",
+      "candidate_count": 1,
       "verified_match_count": 0,
       "verified_appearance_count": 0,
-      "events_considered": []
+      "events_considered": [
+        {
+          "event_id": "2599794",
+          "event_title": "RAW #1745",
+          "source_url": "https://www.thesportsdb.com/api/v1/json/123/lookupevent.php?id=2599794",
+          "possible_match_mentions": 1,
+          "verification": "NOT_CONFIRMED"
+        }
+      ]
     },
     {
       "show_id": "smackdown",
-      "airdate": "2026-10-30",
+      "airdate": "2026-11-06",
       "intake_status": "no_parseable_leads",
       "candidate_count": 0,
       "verified_match_count": 0,
@@ -70,5 +78,5 @@
   ],
   "verified_matches": [],
   "verified_appearances": [],
-  "total_unverified_possible_match_mentions": 2
+  "total_unverified_possible_match_mentions": 3
 }

@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "mode": "LIVE_SCHEDULES_ONLY",
-  "generated_at": "2026-10-30T20:59:05.249016+00:00",
+  "generated_at": "2026-10-31T01:25:32.661450+00:00",
   "fresh_shows": 6,
   "shows": [
     {
@@ -29,14 +29,14 @@
       "color": "#2385FF",
       "category": "primary",
       "next": {
+        "date": "2026-11-06",
+        "time": "20:00",
+        "title": "#1418 - Barclays Center in Brooklyn, NY"
+      },
+      "previous": {
         "date": "2026-10-30",
         "time": "20:00",
         "title": "#1417 - Charleston Coliseum in Charleston, WV"
-      },
-      "previous": {
-        "date": "2026-10-23",
-        "time": "20:00",
-        "title": "#1416 - Toyota Arena in Ontario, CA"
       },
       "schedule_status": "fresh",
       "confirmed_matches": [],

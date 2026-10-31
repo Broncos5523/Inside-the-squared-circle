@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "mode": "PUBLISHER_RSS_POST_SHOW_LINKS_ONLY",
-  "generated_at": "2026-10-30T16:59:42.576029-04:00",
+  "generated_at": "2026-10-30T21:26:09.625556-04:00",
   "source_name": "Multiple publisher RSS feeds",
   "source_url": "https://www.f4wonline.com/rss.xml",
   "approved_publishers": [
@@ -59,50 +59,10 @@
     },
     {
       "show_id": "smackdown",
-      "airdate": "2026-10-23",
-      "links": [
-        {
-          "headline": "Hall’s WWE Smackdown Review 10.23.26",
-          "url": "https://411mania.com/wrestling/halls-smackdown-review-10-23-26/",
-          "published_at": "2026-10-24T21:13:18+00:00",
-          "source_name": "411Mania",
-          "status": "PUBLISHER_HEADLINE_LINK_ONLY",
-          "retained_from_previous": true
-        },
-        {
-          "headline": "Winfree’s WWE Smackdown Review 10.23.26",
-          "url": "https://411mania.com/wrestling/winfrees-wwe-smackdown-review-10-23-26/",
-          "published_at": "2026-10-24T02:16:08+00:00",
-          "source_name": "411Mania",
-          "status": "PUBLISHER_HEADLINE_LINK_ONLY",
-          "retained_from_previous": true
-        },
-        {
-          "headline": "WWE SmackDown Results – Oct. 23, 2026 – Alexa Bliss & Tatum Paxley vs. B-Fab & Michin, Chelsea Green vs. Roxanne Perez",
-          "url": "https://www.tpww.net/2026/10/wwe-smackdown-results-oct-23-2026-alexa-bliss-tatum-paxley-vs-b-fab-michin-chelsea-green-vs-roxanne-perez/",
-          "published_at": "2026-10-24T00:00:04+00:00",
-          "source_name": "TPWW",
-          "status": "PUBLISHER_HEADLINE_LINK_ONLY",
-          "retained_from_previous": true
-        },
-        {
-          "headline": "WWE SmackDown Results, Highlights and Key Moments for October 23, 2026",
-          "url": "https://www.ringsidenews.com/wwe-smackdown-results-highlights-key-moments-october-23-2026/",
-          "published_at": "2026-10-23T23:31:00+00:00",
-          "source_name": "Ringside News",
-          "status": "PUBLISHER_HEADLINE_LINK_ONLY",
-          "retained_from_previous": true
-        },
-        {
-          "headline": "WWE SmackDown live results: Two Women’s title defenses, Giulia vs. Blake Monroe street fight",
-          "url": "https://www.f4wonline.com/news/wwe/results/wwe-smackdown-live-results-two-womens-title-defenses-giulia-vs-blake-monroe-street-fight/",
-          "published_at": "2026-10-23T23:30:00+00:00",
-          "source_name": "F4W / Wrestling Observer",
-          "status": "PUBLISHER_HEADLINE_LINK_ONLY"
-        }
-      ],
+      "airdate": null,
+      "links": [],
       "source_name": "Multiple publisher RSS feeds",
-      "status": "publisher_coverage_links"
+      "status": "no_matching_published_coverage"
     },
     {
       "show_id": "nxt",
@@ -246,8 +206,8 @@
       "status": "publisher_coverage_links"
     }
   ],
-  "total_links": 25,
-  "retained_link_count": 12,
+  "total_links": 20,
+  "retained_link_count": 8,
   "collection_status": "ok",
   "successful_feed_urls": [
     "https://www.f4wonline.com/rss.xml",

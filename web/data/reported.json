@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "mode": "REPORTED_MATCHES_UNVERIFIED",
-  "generated_at": "2026-10-30T16:59:13.217700-04:00",
+  "generated_at": "2026-10-30T21:25:40.414714-04:00",
   "valid_as_of_et": "2026-10-30",
   "policy": "Opt-in UNVERIFIED match and explicit segment mentions only. May be stale, speculative, misassigned, dark matches, taped show results or subject to change. Not announcements from WWE, AAA or TNA. Taped/early results never withdraw advance cards before scheduled U.S. broadcast completion.",
   "programs": [
@@ -9,7 +9,16 @@
       "show_id": "raw",
       "airdate": "2026-11-02",
       "display_label": "REPORTED · UNVERIFIED",
-      "matches": [],
+      "matches": [
+        {
+          "text": "Royce Keys vs. Solo Sikoa",
+          "stipulation": "Singles Match",
+          "evidence_url": "https://www.thesportsdb.com/api/v1/json/123/lookupevent.php?id=2599794",
+          "provider_event_id": "2599794",
+          "status": "REPORTED_UNVERIFIED",
+          "source_name": "TheSportsDB"
+        }
+      ],
       "appearances": [],
       "error": null,
       "episode_outcome_detected": false,
@@ -19,11 +28,11 @@
     },
     {
       "show_id": "smackdown",
-      "airdate": "2026-10-30",
+      "airdate": "2026-11-06",
       "display_label": "REPORTED · UNVERIFIED",
       "matches": [],
       "appearances": [],
-      "error": "PROVIDER_PARTIAL_OR_UNAVAILABLE",
+      "error": null,
       "episode_outcome_detected": false,
       "episode_withdrawn": false,
       "episode_outcome_evidence_url": null,
@@ -78,6 +87,6 @@
       "source_name": "TheSportsDB"
     }
   ],
-  "total_reported_matches": 0,
+  "total_reported_matches": 1,
   "total_reported_appearances": 0
 }
