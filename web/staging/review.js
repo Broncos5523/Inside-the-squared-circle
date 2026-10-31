@@ -56,7 +56,7 @@
    var next=candidates()[0];
    if(current&&!active.some(function(x){return x.id===current.id;})){
     stop();current=null;
-    if(next)choose(next,true);else{setTv(false);switchPanel(true);}
+    if(next)choose(next,true);else{switchPanel(true);mode='active';if(new URLSearchParams(location.search).get('view')==='tv'){setTv(true);byId('loading').textContent='Waiting for fresh wrestling programming…';byId('loading').style.display='grid';}}
    }else if(!current&&next&&new URLSearchParams(location.search).get('view')==='tv'){
     switchPanel(false);mode='active';setTv(true);choose(next,true);
    }
