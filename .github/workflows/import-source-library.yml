@@ -23,7 +23,7 @@ jobs:
         id: transfer
         env:
           ISC_TRANSFER_ORIGIN: https://isc-original-board-review.bigaz5523.chatgpt.site/
-          ISC_MANIFEST_SHA256: 02cd2cd3ef094fa090641016442cf498ed8ad434b15d41af1b32e8fdf7926981
+          ISC_MANIFEST_SHA256: 46acd171507407ec58aee66d5eb2584a1caa31307fe092aac18a89405062de47
         run: |
           python - <<'PY'
           from pathlib import Path
