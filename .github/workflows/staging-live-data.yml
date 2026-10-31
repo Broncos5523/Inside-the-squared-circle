@@ -1,0 +1,29 @@
+name: Validate staging live-data pipeline
+on:
+  push:
+    branches:
+      - work/all-boards-github-pages
+    paths:
+      - 'proof/staging/**'
+      - 'web/staging/**'
+      - 'tests/staging-playlist.cjs'
+      - '.github/workflows/staging-live-data.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    timeout-minutes: 8
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Validate JavaScript syntax
+        run: |
+          node --check proof/staging/collect.mjs
+          node --check web/staging/playlist-engine.js
+          node --check web/staging/review.js
+      - name: Run staging playlist tests
+        run: node --test tests/staging-playlist.cjs
