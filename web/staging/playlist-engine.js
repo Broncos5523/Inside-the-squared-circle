@@ -69,5 +69,18 @@
    .forEach(add);
   return out;
  }
- return {select:select,etDay:etDay,days:days};
+ // Give every verified match/result card enough time to display once.
+ // Source result boards advance internally about every 14 seconds; cutting a
+ // result board off at 45 seconds would hide most of a 5-7-segment episode.
+ function dwellMs(entry,feeds,selectedMs){
+  var base=Math.max(20000,Number(selectedMs)||45000);
+  if(!entry||(entry.kind!=='results'&&entry.kind!=='evolve'))return base;
+  var feed=feeds&&feeds[entry.show+'-verified-results.json'];
+  var programs=feed&&feed.programs;
+  if(!Array.isArray(programs))return base;
+  var program=programs.find(function(x){return x.show_id===entry.show&&x.airdate===entry.airdate;});
+  var n=program&&Array.isArray(program.segments)?program.segments.length:0;
+  return n>0?Math.max(base,n*14000+6500):base;
+ }
+ return {select:select,etDay:etDay,days:days,dwellMs:dwellMs};
 });
