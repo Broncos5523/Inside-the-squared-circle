@@ -3,6 +3,8 @@
  var base=new URL('./',location.href).href,library,routes,feeds={},programming={entries:[]},active=[],visible=[],current=null,timer=null,token=0,mode='archive',refreshing=null,initialized=false,playing=false,advanceAt=0,minimumEnd=0,boardReady=false;
  var params=new URLSearchParams(location.search),byId=function(id){return document.getElementById(id);};
  function getJSON(path){return fetch(new URL(path,base),{cache:'no-store'}).then(function(r){if(!r.ok)throw Error(path+' unavailable');return r.json();});}
+ function playbackUrl(id){var u=new URL(location.href);u.searchParams.set('view','tv');u.searchParams.set('mode','active');u.searchParams.set('id',id);u.searchParams.set('v','20261031-direct-start-3');return u.href;}
+ function rememberPosition(record){if(mode!=='active')return;try{history.replaceState({},'',playbackUrl(record.id));}catch(_){}}
  function label(record){if(record.id.indexOf('results-summerslam_night_one_')===0)return 'SummerSlam — Night One — Results & Fallout';if(record.id.indexOf('results-summerslam_night_two_')===0)return 'SummerSlam — Night Two — Results & Fallout';return record.label;}
  function scale(){var p=byId('preview'),screen=p.querySelector('.screen');p.style.height=(document.body.classList.contains('tv')?window.innerHeight:p.clientWidth*1280/720)+'px';var h=p.clientHeight,w=p.clientWidth,s=Math.min(w/720,h/1280);screen.style.transform='translateX(-50%) scale('+s+')';}
  function setTv(enabled){document.body.classList.toggle('tv',enabled);if(enabled)byId('gallery').replaceChildren();else if(mode==='archive'&&library&&!byId('gallery').childNodes.length)gallery('All designs');byId('review-panel').dataset.mode=mode==='archive'?'ARCHIVE DESIGN REVIEW':'';scale();}
@@ -23,7 +25,7 @@
  function step(delta,keepPlaying){var list=candidates();if(!list.length)return;var pos=list.findIndex(function(r){return current&&r.id===current.id;});choose(list[(Math.max(pos,0)+delta+list.length)%list.length],keepPlaying);}
  async function choose(record,keepPlaying){
   if(timer)clearTimeout(timer);timer=null;advanceAt=0;boardReady=false;if(!keepPlaying)stop();else playing=true;current=record;var mine=++token;var previousFrame=byId('board'),frame=previousFrame.cloneNode(false);frame.removeAttribute('srcdoc');frame.removeAttribute('src');previousFrame.replaceWith(frame);frame.classList.remove('ready');byId('loading').hidden=false;byId('loading').style.display='grid';
-  byId('board-title').textContent=label(record);var list=candidates();byId('board-count').textContent=Math.max(0,list.findIndex(function(r){return r.id===record.id;}))+1+' / '+list.length;
+  rememberPosition(record);byId('board-title').textContent=label(record);var list=candidates();byId('board-count').textContent=Math.max(0,list.findIndex(function(r){return r.id===record.id;}))+1+' / '+list.length;
   document.querySelectorAll('.card').forEach(function(el){el.classList.toggle('selected',el.dataset.id===record.id);});
   if(!record.source_available){frame.srcdoc='';byId('loading').textContent='Final Evolve board awaiting recovery. The approved design has not been substituted.';return;}
   byId('loading').textContent='Loading original source…';
@@ -61,8 +63,8 @@
   // Fail closed when the collector output is old; archive review remains available.
   active=feedFresh?ISCPlaylist.select(programming.entries,new Date()):[];
   byId('watch-active').disabled=!active.length;
-  byId('active-summary').textContent=active.length?active.length+' current board'+(active.length===1?'':'s')+' selected: latest weekly results, next weekly preview, event previews within 14 days and event results within 7 days.': 'No current boards have cleared their source and data checks yet. The recovered designs are available in the design library.';
-  var list=byId('active-list');list.replaceChildren();active.forEach(function(x){var d=document.createElement('div'),strong=document.createElement('strong'),small=document.createElement('small');strong.textContent=x.title;small.textContent=(x.airdate||x.event_date)+' · '+x.source_name;d.append(strong,small);list.append(d);});
+  byId('active-summary').textContent=active.length?active.length+' current board'+(active.length===1?'':'s')+' selected. Choose a board below to start there. Included: latest weekly results, next weekly preview, event previews within 14 days and event results within 7 days.': 'No current boards have cleared their source and data checks yet. The recovered designs are available in the design library.';
+  var list=byId('active-list');list.replaceChildren();active.forEach(function(x){var d=document.createElement('a'),strong=document.createElement('strong'),small=document.createElement('small');d.href=playbackUrl(x.id);d.addEventListener('click',function(event){event.preventDefault();var record=library.records.find(function(r){return r.id===x.id&&r.source_available&&r.design_approved;});if(!record)return;showActive();choose(record,true);});strong.textContent=x.title;small.textContent=(x.airdate||x.event_date)+' · '+x.source_name;d.append(strong,small);list.append(d);});
   byId('feed-stamp').textContent=programming.generated_at?(feedFresh?'Collector last ran ':'STALE DATA — collector last ran ')+new Date(programming.generated_at).toLocaleString()+'. Browser checks for published updates every five minutes; this does not run the collector.':'Current-content collection is pending; archive examples are held outside the TV playlist.';
   if(!feedFresh)byId('active-summary').textContent='Live-data collection is stale or unavailable. Archived demonstrations remain in the design library and are not presented as live programming.';
   if(mode==='active'&&initialized){
@@ -105,7 +107,7 @@
   // Explicit archive URLs still support the original design-review workflow.
   mode=params.get('mode')==='archive'?'archive':'active';
   await refreshed;
-  var first=mode==='active'?candidates()[0]:library.records.find(function(r){return r.id===params.get('id');})||library.records.find(function(r){return r.id==='weekly-results-smackdown';})||visible[0];
+  var first=mode==='active'?(candidates().find(function(r){return r.id===params.get('id');})||candidates()[0]):library.records.find(function(r){return r.id===params.get('id');})||library.records.find(function(r){return r.id==='weekly-results-smackdown';})||visible[0];
   if(!first){initialized=true;mode='active';if(params.get('view')==='tv')waitingForVerified();else switchPanel(true);byId('active-summary').textContent='Live programming is temporarily unavailable. Waiting for a fresh verified collection; archive demonstrations are not being broadcast.';setInterval(refresh,300000);return;}
   if(mode==='active'){switchPanel(true);mode='active';if(params.get('view')==='tv'){showActive();await choose(first,true);}}
   else{setTv(params.get('view')==='tv');await choose(first,params.get('play')==='1');}

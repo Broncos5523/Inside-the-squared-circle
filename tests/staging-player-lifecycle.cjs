@@ -10,7 +10,7 @@ const actualDate=Date;
 class Clock extends actualDate {constructor(...args){super(...(args.length?args:[Clock.now()]));}static now(){return actualDate.parse(programming.generated_at)+(Clock.offset||0);}}
 function harness(search){
  Clock.offset=0;
- const elements={},timers=new Map(),listeners={},stats={replacements:0,thumbnailNodes:0};let serial=0;
+ let rememberedUrl='';const elements={},timers=new Map(),listeners={},stats={replacements:0,thumbnailNodes:0};let serial=0;
  class Node {
   constructor(id=''){this.id=id;this.contentWindow={};this.childNodes=[];this.dataset={};this.style={};this.hidden=false;this.connected=true;this.srcdoc='';this.clientWidth=390;this.clientHeight=694;this.classes=new Set();this.classList={toggle:(k,enabled)=>{if(enabled===undefined)enabled=!this.classes.has(k);enabled?this.classes.add(k):this.classes.delete(k);},add:k=>this.classes.add(k),remove:k=>this.classes.delete(k),contains:k=>this.classes.has(k)};}
   append(...nodes){this.childNodes.push(...nodes);}
@@ -28,13 +28,13 @@ function harness(search){
  const document={body,getElementById:id=>elements[id],querySelectorAll:()=>[],addEventListener:(name,fn)=>{listeners['document:'+name]=fn;},createElement:tag=>{if(tag==='img')stats.thumbnailNodes++;return new Node();}};
  const window={innerHeight:694,addEventListener:(name,fn)=>{listeners[name]=fn;}};
  const location={href:'https://broncos5523.github.io/Inside-the-squared-circle/staging/'+search,hostname:'broncos5523.github.io',search};
- const context={window,document,location,URL,URLSearchParams,TextDecoder,Date:Clock,Intl,ISCPlaylist:playlist,history:{pushState(){}},
+ const context={window,document,location,URL,URLSearchParams,TextDecoder,Date:Clock,Intl,ISCPlaylist:playlist,history:{pushState(){},replaceState(state,title,url){rememberedUrl=String(url);}},
   setTimeout:(fn,ms)=>{const id=++serial;timers.set(id,{fn,ms});return id;},clearTimeout:id=>timers.delete(id),setInterval:()=>++serial,
   fetch:async value=>{const name=decodeURI(new URL(String(value),location.href).pathname).replace('/Inside-the-squared-circle/staging/','');const file=path.join(root,name);return {ok:fs.existsSync(file),json:async()=>JSON.parse(fs.readFileSync(file)),arrayBuffer:async()=>{const b=fs.readFileSync(file);return b.buffer.slice(b.byteOffset,b.byteOffset+b.byteLength);}};}};
  vm.runInNewContext(fs.readFileSync(path.join(root,'board-adapter.js'),'utf8'),context);
  context.ISCBoardAdapter=window.ISCBoardAdapter;
  vm.runInNewContext(fs.readFileSync(path.join(root,'review.js'),'utf8'),context);
- return {window,elements,timers,stats,advanceTime:ms=>{Clock.offset+=ms;},message:data=>listeners.message({source:elements.board.contentWindow,data})};
+ return {window,elements,timers,stats,getUrl:()=>rememberedUrl,advanceTime:ms=>{Clock.offset+=ms;},message:data=>listeners.message({source:elements.board.contentWindow,data})};
 }
 async function settle(check){for(let i=0;i<100;i++){if(check())return;await new Promise(setImmediate);}throw Error('Player did not settle');}
 function advance(h){const [id,timer]=h.timers.entries().next().value||[];assert.ok(timer,'rotation timer absent');h.timers.delete(id);timer.fn();}
@@ -89,4 +89,20 @@ test('manual pause ignores the embedded card-cycle completion signal',async()=>{
  h.message({type:'isc-board-cycle',id:'weekly-results-aaa',index:1,total:7,complete:true});
  assert.equal(h.window.__iscReview.getCurrent().id,'weekly-results-aaa');
  assert.equal(h.timers.size,0);
+});
+
+test('TNA, Halloween Havoc and Crown Jewel can each start active playback directly',async()=>{
+ const ids=['weekly-results-tna','preview-nxt_halloween_havoc_preview_v4_approved_locked_20261027-night_one','preview-crown_jewel_preview_v1_approved_locked_20261027-night_one'];
+ for(const id of ids){
+  const h=harness('?view=tv&mode=active&id='+id);await settle(()=>h.elements.board.srcdoc&&h.timers.size);
+  assert.equal(h.window.__iscReview.getCurrent().id,id);
+  assert.equal(new URL(h.getUrl()).searchParams.get('id'),id);
+  assert.equal(h.timers.size,1,'direct start paused automatic rotation');
+  const before=h.elements.board;advance(h);await settle(()=>h.elements.board!==before&&h.elements.board.srcdoc);
+  assert.notEqual(h.window.__iscReview.getCurrent().id,id);
+ }
+});
+test('active deep links cannot bypass source gates to play an unrelated archived design',async()=>{
+ const h=harness('?view=tv&mode=active&id=champions-raw');await settle(()=>h.elements.board.srcdoc&&h.timers.size);
+ assert.equal(h.window.__iscReview.getCurrent().id,'weekly-results-aaa');
 });
