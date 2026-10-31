@@ -2,6 +2,14 @@ import {writeFile,readFile} from 'node:fs/promises';
 import {collectWcn} from './wcn-collector.mjs';
 const now=new Date();
 const root=new URL('../../web/staging/',import.meta.url);
+try{
+ const prior=JSON.parse(await readFile(new URL('data/programming.json',root),'utf8'));
+ const age=now.getTime()-Date.parse(prior.generated_at);
+ if(prior.mode==='SOURCE_GATED_STAGING'&&Number.isFinite(age)&&age>=0&&age<15*60000&&prior.collection?.snapshot_fresh){
+  console.log('Reusing current checked staging facts within the 15-minute collection window.');
+  process.exit(0);
+ }
+}catch{}
 const library=JSON.parse(await readFile(new URL('library.json',root),'utf8'));
 const sourceRoot='https://broncos5523.github.io/Inside-the-squared-circle/data/';
 const responses=new Map();
