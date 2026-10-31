@@ -3,7 +3,8 @@
  var base=new URL('./',location.href).href,library,routes,feeds={},programming={entries:[]},active=[],visible=[],current=null,timer=null,token=0,mode='archive';
  var params=new URLSearchParams(location.search),byId=function(id){return document.getElementById(id);};
  function getJSON(path){return fetch(new URL(path,base),{cache:'no-store'}).then(function(r){if(!r.ok)throw Error(path+' unavailable');return r.json();});}
- function scale(){var p=byId('preview'),screen=p.querySelector('.screen');var h=p.clientHeight,w=p.clientWidth,s=Math.min(w/720,h/1280);screen.style.transform='translateX(-50%) scale('+s+')';}
+ function label(record){if(record.id.indexOf('results-summerslam_night_one_')===0)return 'SummerSlam — Night One — Results & Fallout';if(record.id.indexOf('results-summerslam_night_two_')===0)return 'SummerSlam — Night Two — Results & Fallout';return record.label;}
+ function scale(){var p=byId('preview'),screen=p.querySelector('.screen');p.style.height=(document.body.classList.contains('tv')?window.innerHeight:p.clientWidth*1280/720)+'px';var h=p.clientHeight,w=p.clientWidth,s=Math.min(w/720,h/1280);screen.style.transform='translateX(-50%) scale('+s+')';}
  function setTv(enabled){document.body.classList.toggle('tv',enabled);byId('review-panel').dataset.mode=mode==='archive'?'ARCHIVE DESIGN REVIEW':'';scale();}
  function candidates(){return mode==='active'?active.map(function(e){return library.records.find(function(r){return r.id===e.id;});}).filter(Boolean):visible.filter(function(r){return r.source_available;});}
  function stop(){if(timer)clearTimeout(timer);timer=null;byId('rotate').textContent='Play review';}
@@ -11,7 +12,7 @@
  function step(delta,keepPlaying){var list=candidates();if(!list.length)return;var pos=list.findIndex(function(r){return current&&r.id===current.id;});choose(list[(Math.max(pos,0)+delta+list.length)%list.length],keepPlaying);}
  async function choose(record,keepPlaying){
   if(!keepPlaying)stop();current=record;var mine=++token;var frame=byId('board');frame.classList.remove('ready');byId('loading').hidden=false;byId('loading').style.display='grid';
-  byId('board-title').textContent=record.label;var list=candidates();byId('board-count').textContent=Math.max(0,list.findIndex(function(r){return r.id===record.id;}))+1+' / '+list.length;
+  byId('board-title').textContent=label(record);var list=candidates();byId('board-count').textContent=Math.max(0,list.findIndex(function(r){return r.id===record.id;}))+1+' / '+list.length;
   document.querySelectorAll('.card').forEach(function(el){el.classList.toggle('selected',el.dataset.id===record.id);});
   if(!record.source_available){frame.srcdoc='';byId('loading').textContent='Final Evolve board awaiting recovery. The approved design has not been substituted.';return;}
   byId('loading').textContent='Loading original source…';
@@ -28,9 +29,9 @@
  }
  function gallery(category){
   visible=library.records.filter(function(r){return category==='All designs'||r.category===category;});var grid=byId('gallery');grid.replaceChildren();
-  visible.forEach(function(r){var b=document.createElement('button');b.className='card';b.dataset.id=r.id;b.title=r.label;b.addEventListener('click',function(){mode='archive';choose(r,false);byId('preview').scrollIntoView({behavior:'smooth',block:'start'});});
-   if(r.thumbnail){var img=document.createElement('img');img.src=new URL(r.thumbnail.replace(/^\//,''),base);img.alt=r.label+' archive design';img.loading='lazy';b.append(img);}else{var hold=document.createElement('div');hold.className='hold';hold.textContent='EVOLVE\nFinal approved source\nawaiting recovery';b.append(hold);}
-   var title=document.createElement('strong');title.textContent=r.label;b.append(title);grid.append(b);
+  visible.forEach(function(r){var b=document.createElement('button');b.className='card';b.dataset.id=r.id;b.title=label(r);b.addEventListener('click',function(){mode='archive';choose(r,false);byId('preview').scrollIntoView({behavior:'smooth',block:'start'});});
+   if(r.thumbnail){var img=document.createElement('img');img.src=new URL(r.thumbnail.replace(/^\//,''),base);img.alt=label(r)+' archive design';img.loading='lazy';b.append(img);}else{var hold=document.createElement('div');hold.className='hold';hold.textContent='EVOLVE\nFinal approved source\nawaiting recovery';b.append(hold);}
+   var title=document.createElement('strong');title.textContent=label(r);b.append(title);grid.append(b);
   });
  }
  function switchPanel(activePanel){stop();byId('review-panel').hidden=activePanel;byId('active-panel').hidden=!activePanel;byId('library-tab').classList.toggle('selected',!activePanel);byId('active-tab').classList.toggle('selected',activePanel);if(!activePanel){mode='archive';setTv(false);}}
