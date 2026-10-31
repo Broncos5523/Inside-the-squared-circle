@@ -9,7 +9,7 @@
   function add(x){if(x&&!seen[x.id]){seen[x.id]=1;out.push(x);}}
   function latest(rows){return rows.sort(function(a,b){return (b.airdate||b.event_date).localeCompare(a.airdate||a.event_date);})[0];}
   function verified(x){return x.verification==='OFFICIAL_VERIFIED'||x.verification==='EDITORIALLY_VERIFIED';}
-  var results=usable.filter(function(x){return (x.kind==='results'||x.kind==='evolve')&&verified(x)&&x.completed===true&&days(x.airdate,today)>=0&&days(x.airdate,today)<=74;});
+  var results=usable.filter(function(x){return (x.kind==='results'||x.kind==='evolve')&&verified(x)&&x.completed===true&&x.airdate<=today&&days(today,x.airdate)<=14;});
   var previews=usable.filter(function(x){return x.kind==='upcoming'&&x.verification==='SOURCE_REPORTED'&&x.has_content===true&&x.airdate<=today&&days(today,x.airdate)<=1&&!results.some(function(r){return r.show===x.show&&r.airdate===x.airdate;});});
   // Multiple programs can air on one night. No weekday or event date is invented.
   previews.filter(function(x){return x.airdate===today;}).forEach(add);
