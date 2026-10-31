@@ -29,7 +29,8 @@ const snapshotFresh=snapshot&&Number.isFinite(Date.parse(snapshot.generated_at))
 const programs=(collected?.programs||[]).filter(p=>p.matches?.length||p.appearances?.length);
 // Never promote an event whose advertised airdate is already in the past.
 // Use New York local calendar dates for the US-based weekly broadcast schedule.
-const easternDate=new Intl.DateTimeFormat('en-CA',{timeZone:'America/New_York',year:'numeric',month:'2-digit',day:'2-digit'}).format(now);
+const easternParts=Object.fromEntries(new Intl.DateTimeFormat('en-US',{timeZone:'America/New_York',year:'numeric',month:'2-digit',day:'2-digit'}).formatToParts(now).filter(p=>p.type!=='literal').map(p=>[p.type,p.value]));
+const easternDate=`${easternParts.year}-${easternParts.month}-${easternParts.day}`;
 const isCurrentOrFuture=(date)=>/^\d{4}-\d{2}-\d{2}$/.test(date)&&date>=easternDate;
 const entries=[];
 const feeds={};
