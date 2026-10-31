@@ -36,7 +36,7 @@ const CATALOG=[
 function dayDifference(a,b){return (Date.parse(a+'T12:00:00Z')-Date.parse(b+'T12:00:00Z'))/86400000;}
 function dateEastern(now){const p=new Intl.DateTimeFormat('en-US',{timeZone:'America/New_York',year:'numeric',month:'2-digit',day:'2-digit'}).formatToParts(now);
  const d=Object.fromEntries(p.map(x=>[x.type,x.value]));return d.year+'-'+d.month+'-'+d.day;}
-function clean(x){return String(x||'').replace(/<[^>]*>/g,' ').replace(/&(?:amp|#38);/gi,'&').replace(/&#(?:39|x27);|&apos;|&rsquo;/gi,"'").replace(/&(?:nbsp|#160);/gi,' ').replace(/\s+/g,' ').trim();}
+function clean(x){return String(x||'').replace(/<[^>]*>/g,' ').replace(/&(?:amp|#38);/gi,'&').replace(/&#(?:0*39|x0*27);|&apos;|&rsquo;/gi,"'").replace(/&(?:nbsp|#160);/gi,' ').replace(/\s+/g,' ').trim();}
 function headings(html){return [...html.matchAll(/<h3\b[^>]*>([\s\S]*?)<\/h3>/gi)].map(x=>clean(x[1]));}
 function matchHeading(heading,needles){const norm=s=>s.toLowerCase().replace(/[’‘]/g,"'");return needles.every(needle=>norm(heading).includes(norm(needle)));}
 export async function collectOfficialEvents({library,now=new Date(),requester=fetch}){
