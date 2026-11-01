@@ -24,3 +24,7 @@ The production Pages workflow performs a further byte-for-byte published-artifac
 Before merging, record the production main SHA. If the new root entry needs reverting, restore `web/index.html` from `web/previous-display.html` and rerun the Pages workflow. For a full rollback, revert the production handoff merge through a reviewed change. Do not reset or rewrite main history.
 
 This document describes prepared behavior. It is not a claim that main has already been changed or that a physical Fire TV test has been completed.
+
+## Device-test delivery repair
+
+The owner reported an integrity error after AAA during device testing. The revised player fetches immutable SHA-256-named binary payloads with browser caching disabled, verifies the exact approved bytes, and retries a failed transfer once. The package verifier checks every payload. The original delivery HTML, layouts, and artwork remain unchanged. The production switch remains on hold for a device retest of this revision.

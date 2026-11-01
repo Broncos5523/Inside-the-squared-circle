@@ -3,20 +3,21 @@ const assert=require('node:assert/strict');
 const fs=require('node:fs');
 const path=require('node:path');
 const vm=require('node:vm');
+const {webcrypto}=require('node:crypto');
 const playlist=require('../web/staging/playlist-engine.js');
 const root=path.resolve(__dirname,'../web/staging');
 const programming=JSON.parse(fs.readFileSync(path.join(root,'data/programming.json')));
 const actualDate=Date;
 class Clock extends actualDate {constructor(...args){super(...(args.length?args:[Clock.now()]));}static now(){return actualDate.parse(programming.generated_at)+(Clock.offset||0);}}
-function harness(search){
+function harness(search,options={}){
  Clock.offset=0;
- let rememberedUrl='';const elements={},timers=new Map(),listeners={},stats={replacements:0,thumbnailNodes:0};let serial=0;
+ let rememberedUrl='';const elements={},timers=new Map(),listeners={},stats={replacements:0,thumbnailNodes:0,sourceRequests:[]};let serial=0;
  class Node {
   constructor(id=''){this.id=id;this.contentWindow={};this.childNodes=[];this.dataset={};this.style={};this.hidden=false;this.connected=true;this.srcdoc='';this.clientWidth=390;this.clientHeight=694;this.classes=new Set();this.classList={toggle:(k,enabled)=>{if(enabled===undefined)enabled=!this.classes.has(k);enabled?this.classes.add(k):this.classes.delete(k);},add:k=>this.classes.add(k),remove:k=>this.classes.delete(k),contains:k=>this.classes.has(k)};}
   append(...nodes){this.childNodes.push(...nodes);}
   replaceChildren(...nodes){this.childNodes=nodes;}
   cloneNode(){return new Node(this.id);}
-  removeAttribute(name){delete this[name];}
+  removeAttribute(name){if(name==='srcdoc')this.srcdoc='';else delete this[name];}
   replaceWith(node){this.connected=false;elements[this.id]=node;stats.replacements++;}
   addEventListener(){}
   querySelector(selector){if(selector==='.screen')return elements.screen;return null;}
@@ -26,17 +27,17 @@ function harness(search){
  elements.duration.value='45';
  const body=new Node();
  const document={body,getElementById:id=>elements[id],querySelectorAll:()=>[],addEventListener:(name,fn)=>{listeners['document:'+name]=fn;},createElement:tag=>{if(tag==='img')stats.thumbnailNodes++;return new Node();}};
- const window={innerHeight:694,addEventListener:(name,fn)=>{listeners[name]=fn;}};
+ const window={crypto:webcrypto,innerHeight:694,addEventListener:(name,fn)=>{listeners[name]=fn;}};
  const location={href:'https://broncos5523.github.io/Inside-the-squared-circle/staging/'+search,hostname:'broncos5523.github.io',search};
- const context={window,document,location,URL,URLSearchParams,TextDecoder,Date:Clock,Intl,ISCPlaylist:playlist,history:{pushState(){},replaceState(state,title,url){rememberedUrl=String(url);}},
+ const context={window,document,location,URL,URLSearchParams,TextDecoder,crypto:webcrypto,Date:Clock,Intl,ISCPlaylist:playlist,history:{pushState(){},replaceState(state,title,url){rememberedUrl=String(url);}},
   setTimeout:(fn,ms)=>{const id=++serial;timers.set(id,{fn,ms});return id;},clearTimeout:id=>timers.delete(id),setInterval:()=>++serial,
-  fetch:async value=>{const name=decodeURI(new URL(String(value),location.href).pathname).replace('/Inside-the-squared-circle/staging/','');const file=path.join(root,name);return {ok:fs.existsSync(file),json:async()=>JSON.parse(fs.readFileSync(file)),arrayBuffer:async()=>{const b=fs.readFileSync(file);return b.buffer.slice(b.byteOffset,b.byteOffset+b.byteLength);}};}};
+  fetch:async (value,init)=>{const url=new URL(String(value),location.href),name=decodeURI(url.pathname).replace('/Inside-the-squared-circle/staging/','');const file=path.join(root,name);const source=name.startsWith('delivery/');let corrupt=false;if(source){stats.sourceRequests.push({url:url.href,cache:init?.cache});corrupt=options.corruptSource?.(name,stats.sourceRequests.length)===true;}return {ok:fs.existsSync(file),json:async()=>JSON.parse(fs.readFileSync(file)),arrayBuffer:async()=>{const b=corrupt?Buffer.from('<html>older cached board</html>'):fs.readFileSync(file);return b.buffer.slice(b.byteOffset,b.byteOffset+b.byteLength);}};}};
  vm.runInNewContext(fs.readFileSync(path.join(root,'board-adapter.js'),'utf8'),context);
  context.ISCBoardAdapter=window.ISCBoardAdapter;
  vm.runInNewContext(fs.readFileSync(path.join(root,'review.js'),'utf8'),context);
  return {window,elements,timers,stats,getUrl:()=>rememberedUrl,advanceTime:ms=>{Clock.offset+=ms;},message:data=>listeners.message({source:elements.board.contentWindow,data})};
 }
-async function settle(check){for(let i=0;i<100;i++){if(check())return;await new Promise(setImmediate);}throw Error('Player did not settle');}
+async function settle(check){for(let i=0;i<2000;i++){if(check())return;await new Promise(setImmediate);}throw Error('Player did not settle');}
 function advance(h){const [id,timer]=h.timers.entries().next().value||[];assert.ok(timer,'rotation timer absent');h.timers.delete(id);timer.fn();}
 test('iPhone TV entry starts one board and never constructs the 68-image design gallery',async()=>{
  const h=harness('?view=tv');
@@ -105,4 +106,39 @@ test('TNA, Halloween Havoc and Crown Jewel can each start active playback direct
 test('active deep links cannot bypass source gates to play an unrelated archived design',async()=>{
  const h=harness('?view=tv&mode=active&id=champions-raw');await settle(()=>h.elements.board.srcdoc&&h.timers.size);
  assert.equal(h.window.__iscReview.getCurrent().id,'weekly-results-aaa');
+});
+
+test('a mismatched RAW transfer after AAA retries an immutable source without using the browser cache',async()=>{
+ const library=JSON.parse(fs.readFileSync(path.join(root,'library.json')));
+ const raw=library.records.find(r=>r.id==='weekly-results-raw');
+ let rawRequests=0;
+ const h=harness('?view=tv',{corruptSource:name=>name.includes(raw.delivery_sha256)&&++rawRequests===1});
+ await settle(()=>h.elements.board.srcdoc&&h.timers.size);
+ advance(h);
+ await settle(()=>h.window.__iscReview.getCurrent().id==='weekly-results-raw'&&h.elements.board.srcdoc&&h.timers.size);
+ const requests=h.stats.sourceRequests.filter(r=>r.url.includes(raw.delivery_sha256));
+ assert.equal(requests.length,2);
+ assert.ok(requests.every(r=>r.cache==='no-store'));
+ assert.ok(new URL(requests[0].url).pathname.endsWith('/delivery/payloads/'+raw.delivery_sha256+'.bin'));
+ assert.ok(new URL(requests[1].url).searchParams.has('retry'));
+ assert.ok(h.elements.board.srcdoc.includes('RAW Results'));
+ assert.ok(!h.elements.board.srcdoc.includes('older cached board'));
+});
+
+test('a persistently mismatched source never renders and does not prevent the next valid board',async()=>{
+ const library=JSON.parse(fs.readFileSync(path.join(root,'library.json')));
+ const raw=library.records.find(r=>r.id==='weekly-results-raw');
+ const h=harness('?view=tv&id=weekly-results-raw',{corruptSource:name=>name.includes(raw.delivery_sha256)});
+ await settle(()=>h.elements.loading.textContent?.includes('integrity check failed')&&h.timers.size);
+ assert.equal(h.elements.board.srcdoc,'');
+ assert.equal(h.stats.sourceRequests.length,2,'retry must remain bounded');
+ advance(h);
+ await settle(()=>h.window.__iscReview.getCurrent().id==='weekly-results-nxt'&&h.elements.board.srcdoc);
+});
+
+test('a browser without SHA-256 support cannot silently skip source verification',async()=>{
+ const h=harness('?view=tv');h.window.crypto=null;
+ await settle(()=>h.elements.loading.textContent?.includes('cannot verify the approved board'));
+ assert.equal(h.elements.board.srcdoc,'');
+ assert.equal(h.stats.sourceRequests.length,0);
 });

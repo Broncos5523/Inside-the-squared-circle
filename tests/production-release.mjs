@@ -52,6 +52,11 @@ test('the Pages artifact contains all approved delivery boards and exact artwork
   const release=await buildRelease({output:join(temporary,'.pages-output'),now:new Date(data.generated_at)});
   assert.equal(release.boards,68);
   assert.equal(release.shared_assets,543);
+  const library=JSON.parse(await readFile(new URL('../web/staging/library.json',import.meta.url),'utf8'));
+  for(const record of library.records){
+   const payload=await readFile(join(release.output,'staging/delivery/payloads',record.delivery_sha256+'.bin'));
+   assert.deepEqual(payload,await readFile(join(release.output,'staging',record.delivery)));
+  }
   assert.ok(release.active_boards.includes('weekly-results-tna'));
   for(const dir of ['boards','screens'])await assert.rejects(stat(join(release.output,'staging/originals',dir)),{code:'ENOENT'});
   assert.deepEqual(await readFile(join(release.output,'previous-display.html')),await readFile(new URL('../web/previous-display.html',import.meta.url)));

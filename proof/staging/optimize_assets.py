@@ -1,6 +1,6 @@
 """Decode embedded asset bytes for cached delivery; preserve locked source HTML."""
 from pathlib import Path
-import base64, hashlib, json, re
+import base64, hashlib, json, re, subprocess
 
 root=Path(__file__).resolve().parents[2]/'web/staging'
 library=json.loads((root/'library.json').read_text())
@@ -35,4 +35,5 @@ library['delivery_policy']='Only embedded asset URL delivery changes. Every deco
 (root/'library.json').write_text(json.dumps(library,indent=2)+'\n')
 manifest={'original_unique_html_bytes':original_bytes,'delivery_html_bytes':delivery_bytes,'assets':list(assets.values())}
 (root/'delivery-assets.json').write_text(json.dumps(manifest,indent=2)+'\n')
+subprocess.run(['node',str(Path(__file__).with_name('prepare-delivery-payloads.mjs'))],check=True)
 print(json.dumps({'original_html_bytes':original_bytes,'delivery_html_bytes':delivery_bytes,'unique_embedded_assets':len(assets),'asset_bytes':sum(x['size'] for x in assets.values()),'new_asset_bytes':sum(x['size'] for x in assets.values() if '/embedded/' in x['path'])}))

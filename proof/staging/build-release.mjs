@@ -29,6 +29,8 @@ export async function buildRelease({output=join(project,'.pages-output'),now=new
   if(!record.delivery)throw Error('Missing delivery source: '+record.id);
   const bytes=await readFile(join(output,'staging',record.delivery));
   if(hash(bytes)!==record.delivery_sha256)throw Error('Packaged board changed: '+record.id);
+  const payload=await readFile(join(output,'staging/delivery/payloads',record.delivery_sha256+'.bin'));
+  if(!payload.equals(bytes))throw Error('Packaged delivery payload changed: '+record.id);
  }
  for(const path of new Set(Object.values(routes))){
   const bytes=await readFile(join(output,'staging/originals'+path));
