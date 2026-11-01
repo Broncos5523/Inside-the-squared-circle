@@ -6,7 +6,7 @@ const vm=require('node:vm');
 const {webcrypto}=require('node:crypto');
 const playlist=require('../web/staging/playlist-engine.js');
 const root=path.resolve(__dirname,'../web/staging');
-const programming=JSON.parse(fs.readFileSync(path.join(root,'data/programming.json')));
+const programming=JSON.parse(fs.readFileSync(path.join(__dirname,'fixtures/staging-programming-20261031.json')));
 const actualDate=Date;
 class Clock extends actualDate {constructor(...args){super(...(args.length?args:[Clock.now()]));}static now(){return actualDate.parse(programming.generated_at)+(Clock.offset||0);}}
 function harness(search,options={}){
@@ -25,17 +25,18 @@ function harness(search,options={}){
  }
  for(const id of ['preview','screen','review-panel','active-panel','gallery','rotate','board','loading','status','duration','board-title','board-count','library-tab','active-tab','watch-active','active-summary','active-list','feed-stamp','previous','next','fullscreen','stats','filters'])elements[id]=new Node(id);
  elements.duration.value='45';
+ elements.preview.clientWidth=options.width||390;elements.preview.clientHeight=options.height||694;
  const body=new Node();
  const document={body,getElementById:id=>elements[id],querySelectorAll:()=>[],addEventListener:(name,fn)=>{listeners['document:'+name]=fn;},createElement:tag=>{if(tag==='img')stats.thumbnailNodes++;return new Node();}};
- const window={crypto:webcrypto,innerHeight:694,addEventListener:(name,fn)=>{listeners[name]=fn;}};
+ const window={crypto:webcrypto,innerHeight:options.height||694,addEventListener:(name,fn)=>{listeners[name]=fn;}};
  const location={href:'https://broncos5523.github.io/Inside-the-squared-circle/staging/'+search,hostname:'broncos5523.github.io',search};
  const context={window,document,location,URL,URLSearchParams,TextDecoder,crypto:webcrypto,Date:Clock,Intl,ISCPlaylist:playlist,history:{pushState(){},replaceState(state,title,url){rememberedUrl=String(url);}},
   setTimeout:(fn,ms)=>{const id=++serial;timers.set(id,{fn,ms});return id;},clearTimeout:id=>timers.delete(id),setInterval:()=>++serial,
-  fetch:async (value,init)=>{const url=new URL(String(value),location.href),name=decodeURI(url.pathname).replace('/Inside-the-squared-circle/staging/','');const file=path.join(root,name);const source=name.startsWith('delivery/');let corrupt=false;if(source){stats.sourceRequests.push({url:url.href,cache:init?.cache});corrupt=options.corruptSource?.(name,stats.sourceRequests.length)===true;}return {ok:fs.existsSync(file),json:async()=>JSON.parse(fs.readFileSync(file)),arrayBuffer:async()=>{const b=corrupt?Buffer.from('<html>older cached board</html>'):fs.readFileSync(file);return b.buffer.slice(b.byteOffset,b.byteOffset+b.byteLength);}};}};
+  fetch:async (value,init)=>{const url=new URL(String(value),location.href),name=decodeURI(url.pathname).replace('/Inside-the-squared-circle/staging/','');const file=path.join(root,name);const source=name.startsWith('delivery/');let corrupt=false;if(source){stats.sourceRequests.push({url:url.href,cache:init?.cache});corrupt=options.corruptSource?.(name,stats.sourceRequests.length)===true;}return {ok:fs.existsSync(file),json:async()=>name==='data/programming.json'?JSON.parse(JSON.stringify(programming)):JSON.parse(fs.readFileSync(file)),arrayBuffer:async()=>{const b=corrupt?Buffer.from('<html>older cached board</html>'):fs.readFileSync(file);return b.buffer.slice(b.byteOffset,b.byteOffset+b.byteLength);}};}};
  vm.runInNewContext(fs.readFileSync(path.join(root,'board-adapter.js'),'utf8'),context);
  context.ISCBoardAdapter=window.ISCBoardAdapter;
  vm.runInNewContext(fs.readFileSync(path.join(root,'review.js'),'utf8'),context);
- return {window,elements,timers,stats,getUrl:()=>rememberedUrl,advanceTime:ms=>{Clock.offset+=ms;},message:data=>listeners.message({source:elements.board.contentWindow,data})};
+ return {window,elements,timers,stats,getUrl:()=>rememberedUrl,resize:(width,height)=>{elements.preview.clientWidth=width;elements.preview.clientHeight=height;window.innerHeight=height;listeners.resize();},advanceTime:ms=>{Clock.offset+=ms;},message:data=>listeners.message({source:elements.board.contentWindow,data})};
 }
 async function settle(check){for(let i=0;i<2000;i++){if(check())return;await new Promise(setImmediate);}throw Error('Player did not settle');}
 function advance(h){const [id,timer]=h.timers.entries().next().value||[];assert.ok(timer,'rotation timer absent');h.timers.delete(id);timer.fn();}
@@ -141,4 +142,35 @@ test('a browser without SHA-256 support cannot silently skip source verification
  await settle(()=>h.elements.loading.textContent?.includes('cannot verify the approved board'));
  assert.equal(h.elements.board.srcdoc,'');
  assert.equal(h.stats.sourceRequests.length,0);
+});
+
+test('ONN landscape TV output rotates the approved portrait surface to fill a physically upright TV',async()=>{
+ const h=harness('?view=tv',{width:1280,height:720});
+ await settle(()=>h.elements.board.srcdoc&&h.timers.size);
+ assert.equal(h.elements.screen.dataset.rotation,'left');
+ assert.equal(h.elements.screen.style.top,'50%');
+ assert.match(h.elements.screen.style.transform,/rotate\(-90deg\) scale\(1\)/);
+ const frame=h.elements.board,requests=h.stats.sourceRequests.length;
+ h.resize(720,1280);
+ assert.equal(h.elements.screen.dataset.rotation,'none');
+ assert.equal(h.elements.screen.style.top,'0');
+ assert.equal(h.elements.screen.style.transform,'translateX(-50%) scale(1)');
+ assert.equal(h.elements.board,frame,'orientation changes must not rebuild or restart the board');
+ assert.equal(h.stats.sourceRequests.length,requests);
+});
+
+test('rotation overrides and review mode preserve normal landscape and phone playback',async()=>{
+ for(const [search,turn,pattern] of [
+  ['?view=tv&rotate=none','none',/translateX/],
+  ['?view=tv&rotate=right','right',/rotate\(90deg\)/],
+  ['','none',/translateX/]
+ ]){
+  const h=harness(search,{width:1280,height:720});
+  await settle(()=>h.window.__iscReview?.getActive().length);
+  assert.equal(h.elements.screen.dataset.rotation,turn);
+  assert.match(h.elements.screen.style.transform,pattern);
+ }
+ const phone=harness('?view=tv',{width:390,height:844});
+ await settle(()=>phone.elements.board.srcdoc);
+ assert.equal(phone.elements.screen.dataset.rotation,'none');
 });
