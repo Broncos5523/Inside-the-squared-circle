@@ -1,0 +1,79 @@
+{
+  "brand": "AAA",
+  "items": [
+    {
+      "promotion": "AAA",
+      "championship": "AAA World Mixed Tag Team Championship",
+      "filename": "AAA_World_Mixed_Tag_Team_Championship_Red_Blue.jpeg",
+      "relative_path": "assets/belts/AAA/AAA_World_Mixed_Tag_Team_Championship_Red_Blue.jpeg",
+      "source_upload": "IMG_3331.jpeg",
+      "notes": "Red and blue paired belts, both included as one image",
+      "sha256": "09ffff4f4b9f961c25006a217721fba185ae74991d26d697918e33fec83ef230"
+    },
+    {
+      "promotion": "AAA",
+      "championship": "AAA Reina de Reinas Championship",
+      "filename": "AAA_Reina_de_Reinas_Championship.jpeg",
+      "relative_path": "assets/belts/AAA/AAA_Reina_de_Reinas_Championship.jpeg",
+      "source_upload": "IMG_3327(1).jpeg",
+      "notes": "",
+      "sha256": "1caca7f99358a2e5ce19590a2804a29794b2f3632319bfc15369e6dc39061508"
+    },
+    {
+      "promotion": "AAA",
+      "championship": "AAA World Cruiserweight Championship",
+      "filename": "AAA_World_Cruiserweight_Championship.jpeg",
+      "relative_path": "assets/belts/AAA/AAA_World_Cruiserweight_Championship.jpeg",
+      "source_upload": "IMG_3325(1).jpeg",
+      "notes": "",
+      "sha256": "baa19d01f6ab2ca2ca2127fa7454b75ecef1c558d5ddcfdac717e8de3ff7b478"
+    },
+    {
+      "promotion": "AAA",
+      "championship": "AAA World Trios Championship",
+      "filename": "AAA_World_Trios_Championship.jpeg",
+      "relative_path": "assets/belts/AAA/AAA_World_Trios_Championship.jpeg",
+      "source_upload": "IMG_3324(1).jpeg",
+      "notes": "",
+      "sha256": "242e3233aa1b897a2e599e80e739174968362a9c503c7a896d573e8e1feacc4b"
+    },
+    {
+      "promotion": "AAA",
+      "championship": "AAA World Tag Team Championship",
+      "filename": "AAA_World_Tag_Team_Championship.png",
+      "relative_path": "assets/belts/AAA/AAA_World_Tag_Team_Championship.png",
+      "source_upload": "IMG_3323(1).png",
+      "notes": "",
+      "sha256": "3f92cb7ee91ee4b2e3a063e2194d4419e29f4881b61d92437152f5104c32c2e2"
+    },
+    {
+      "promotion": "AAA",
+      "championship": "AAA Latin American Championship",
+      "filename": "AAA_Latin_American_Championship.jpeg",
+      "relative_path": "assets/belts/AAA/AAA_Latin_American_Championship.jpeg",
+      "source_upload": "IMG_3322(1).jpeg",
+      "notes": "",
+      "sha256": "c37b4043493ddbf8394b3703a241bd9cf71bfa16ce7b11c8578e32695b65cbf1"
+    },
+    {
+      "promotion": "AAA",
+      "championship": "AAA Mega Championship",
+      "filename": "AAA_Mega_Championship_2026.webp",
+      "relative_path": "assets/belts/AAA/AAA_Mega_Championship_2026.webp",
+      "source_upload": "IMG_3321(1).webp",
+      "notes": "2026 design",
+      "sha256": "b47e9207d2ed5cc1493c95b1245387b53a4b4eff0bf7a9aba1ab6bd1a8838069"
+    }
+  ],
+  "mapped_paths": {
+    "mixed_tag": "./assets/belts/mixed_tag.png",
+    "reina_de_reinas": "./assets/belts/reina_de_reinas.png",
+    "cruiserweight": "./assets/belts/cruiserweight.png",
+    "world_trios": "./assets/belts/world_trios.png",
+    "world_tag": "./assets/belts/world_tag.png",
+    "latin_american": "./assets/belts/latin_american.png",
+    "mega": "./assets/belts/mega.png"
+  },
+  "champion_status_not_inferred": true,
+  "rights_not_verified": true
+}

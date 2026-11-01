@@ -1,0 +1,190 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><meta name="theme-color" content="#061b0d"><title>Man Cave Sports Book — SummerSlam Results &amp; Fallout — Review</title><style>
+*{box-sizing:border-box}html,body{margin:0;height:100%;width:100%;overflow:hidden;background:#060705;color:#fff}body{font-family:Arial,Helvetica,sans-serif;display:grid;place-items:center}#board{width:720px;height:1280px;position:relative;isolation:isolate;overflow:hidden;background:#06140a;transform-origin:center}
+.arena{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:0}.tint{position:absolute;inset:0;z-index:1;background:linear-gradient(180deg,#020301ce 0%,#061407d9 21%,#133817ac 38%,#040806e5 62%,#010302fc 100%)}.beam{position:absolute;z-index:2;top:205px;height:575px;width:100px;filter:blur(51px);opacity:.18;background:#e7c260}.beam.left{left:-72px;transform:rotate(-10deg)}.beam.right{right:-72px;transform:rotate(10deg)}
+.brand{position:absolute;z-index:6;top:0;left:48px;width:624px;height:187px;object-fit:contain;filter:drop-shadow(0 5px 7px #000e)}.brandkicker{position:absolute;z-index:5;top:179px;left:0;width:100%;text-align:center;color:#f4da99;letter-spacing:3px;font-size:13px;font-weight:900;text-shadow:0 2px 4px #000}
+.eventplate{position:absolute;z-index:5;top:205px;left:114px;width:492px;height:143px;display:grid;place-items:center}.eventplate:before{content:'';position:absolute;inset:4px;background:radial-gradient(ellipse,#fbd88745,transparent 73%);filter:blur(14px)}.eventplate img{position:relative;width:100%;height:100%;object-fit:contain;filter:drop-shadow(0 3px 4px #000e) drop-shadow(0 0 10px #f5c34f6a)}
+.barMask{position:absolute;z-index:4;left:0;right:0;top:310px;height:153px;pointer-events:none;background:linear-gradient(180deg,#06150900 0%,#061509dc 24%,#051109f6 53%,#030a05fe 100%)}
+.resultsbar{position:absolute;z-index:6;top:350px;left:84px;right:84px;height:90px;text-align:center;background:linear-gradient(90deg,transparent,#3e2b0ddc 16%,#0e2611eb 52%,#3e2b0ddc 85%,transparent);border-top:2px solid #c89c44;border-bottom:2px solid #c89c44;padding:9px 0 0}.resultsbar h1{margin:0;font:900 36px/1.04 Impact,'Arial Black',sans-serif;letter-spacing:2.9px;color:#ffefce;text-shadow:0 3px #000,0 0 12px #d8ab535e}.resultsbar p{margin:9px 0 0;font-weight:900;letter-spacing:2px;color:#e6cc8e;font-size:13px}
+.frame{position:absolute;z-index:7;top:461px;left:19px;right:19px;height:736px;padding:6px;background:linear-gradient(138deg,#ffedb0,#b88b42 4%,#1b2719 9%,#142118 92%,#9e762d 97%,#ffebac);clip-path:polygon(0 17px,17px 0,calc(100% - 17px) 0,100% 17px,100% calc(100% - 19px),calc(100% - 19px) 100%,19px 100%,0 calc(100% - 19px));box-shadow:0 0 30px #d9ae4250}.inner{height:100%;clip-path:inherit;background:linear-gradient(148deg,#122f1c,#080b0c 41%,#0b180d 72%,#040706);padding:10px 12px 9px;border:1px solid #6e773d}
+.topstrip{height:29px;display:flex;align-items:center;justify-content:space-between;gap:8px;padding:0 10px;background:linear-gradient(90deg,#386d2f,#0d2414 33%,#153518 72%,#58722d);border-left:3px solid #efcb75;border-right:3px solid #e7c373;color:#f9e8ba;font-size:11px;font-weight:900;letter-spacing:1px}.topstrip .nightlabel{font-size:13px;color:#fff4ce}
+.section{height:38px;display:flex;align-items:center;justify-content:space-between;padding:0 3px;gap:5px}.section h2{margin:0;font:900 23px Impact,'Arial Black',sans-serif;letter-spacing:1px;color:#fff4da;text-shadow:0 2px #000}.section small{font-size:10px;font-weight:900;color:#dabb75;text-align:right;letter-spacing:.65px}
+.mainResult{height:274px;position:relative;overflow:hidden;border:2px solid #ae8a48;background:radial-gradient(ellipse at 72% 55%,#5c7b344a,transparent 67%),linear-gradient(135deg,#274021,#080b0c 60%,#22351b);box-shadow:inset 0 0 23px #000c}.mainResult:before{content:'';position:absolute;top:5px;left:10px;right:10px;height:3px;background:linear-gradient(90deg,transparent,#ffe9af,transparent)}
+.mainLabel{position:absolute;z-index:5;top:17px;left:16px;max-width:414px;font-size:12px;color:#e0c688;letter-spacing:1.5px;font-weight:900;text-shadow:0 2px #000}.mainCopy{position:absolute;left:16px;top:48px;bottom:14px;width:389px;z-index:5;display:flex;flex-direction:column;justify-content:center;gap:9px;overflow:hidden}.mainName{font:900 51px/.99 Impact,'Arial Black',sans-serif;color:#fff4dc;letter-spacing:.45px;text-transform:uppercase;text-shadow:0 3px 2px #000,0 0 10px #000;max-height:154px;overflow:hidden;overflow-wrap:break-word}.mainName.long{font-size:40px}.mainDetail{font-size:18px;font-weight:900;color:#f7e7b9;text-shadow:0 2px 4px #000;max-height:65px;overflow:hidden}.mainDesc{font-size:12px;font-weight:800;color:#d3d8c0;max-height:36px;overflow:hidden}
+.mainPhoto{position:absolute;right:12px;top:68px;bottom:9px;width:219px;z-index:3;display:flex;align-items:end;justify-content:center;overflow:hidden;border-left:1px solid #eac06e33}.mainPhoto img{max-width:100%;width:100%;height:100%;object-fit:contain;object-position:center bottom;filter:drop-shadow(0 4px 5px #000)}.mainPhoto.two img{width:50%;height:100%}.mainResult.titleResult .mainPhoto{top:94px}.mainBelt{position:absolute;z-index:8;top:9px;right:22px;width:178px;height:72px;display:grid;place-items:center;background:radial-gradient(ellipse,#ead18a47,transparent 75%)}.mainBelt img{max-width:100%;max-height:69px;object-fit:contain;filter:brightness(1.6) contrast(1.11) drop-shadow(0 2px 4px #000)}
+.mainResult.multi .mainCopy{position:absolute;top:35px;left:16px;right:16px;bottom:auto;width:auto;height:45px;align-items:center;justify-content:center}.mainResult.multi .mainName{font-size:29px;max-height:32px}.mainResult.multi .mainDetail,.mainResult.multi .mainDesc{display:none}.mainResult.multi .mainPhoto{left:14px;right:14px;width:auto;top:91px;bottom:15px;border:none;display:grid;grid-template-columns:repeat(3,1fr);grid-template-rows:repeat(2,1fr);gap:7px;align-items:stretch}.mainResult.multi .mainPhoto .tile{min-width:0;min-height:0;border:1px solid #b29a5c;position:relative;overflow:hidden;background:#153520}.mainResult.multi .mainPhoto .tile img{position:absolute;width:100%;height:100%;object-fit:contain;object-position:center bottom}.mainResult.multi .mainPhoto .tile span{position:absolute;bottom:0;left:0;right:0;background:#020603df;padding:3px 1px;text-align:center;font:900 10px Arial,sans-serif;color:#fff3db}
+.fallback{border:1px solid #92743c;background:#1d321dd9;color:#eddfbd;font:900 15px Impact,'Arial Black',sans-serif;letter-spacing:1px;text-align:center;display:grid;place-items:center;width:85%;height:58%;align-self:center}
+.resultsHeading{height:36px;margin-top:7px;display:flex;align-items:center;justify-content:space-between;padding:0 3px}.resultsHeading h2{margin:0;font:900 23px Impact,'Arial Black',sans-serif;color:#fff4d9;letter-spacing:1px}.resultsHeading small{font-size:10px;font-weight:900;color:#d5be80}
+.additional{height:142px;border:2px solid #8e713b;overflow:hidden;position:relative;background:radial-gradient(ellipse at 80% 50%,#456b314d,transparent 64%),linear-gradient(135deg,#1f391f,#050706 59%,#182b13)}.otherCopy{position:absolute;z-index:5;left:13px;top:8px;bottom:7px;width:437px;display:flex;flex-direction:column;gap:4px;justify-content:center;overflow:hidden}.otherLabel{color:#ddc484;font-size:11px;font-weight:900;letter-spacing:1px}.otherName{font:900 29px/.99 Impact,'Arial Black',sans-serif;color:#fff3dc;text-shadow:0 3px 3px #000;max-height:63px;overflow:hidden;overflow-wrap:break-word;text-transform:uppercase}.otherName.long{font-size:23px}.otherDetail{font-size:13px;font-weight:900;color:#f6e8c6;max-height:28px;overflow:hidden}.otherDesc{font-size:11px;font-weight:800;color:#cad4b9;max-height:25px;overflow:hidden}.otherPhotos{position:absolute;z-index:2;right:8px;top:31px;bottom:5px;width:150px;display:flex;justify-content:center;align-items:end;overflow:hidden;border-left:1px solid #d9c17933}.otherPhotos img{height:100%;width:100%;object-fit:contain;object-position:center bottom}.otherPhotos.two img{width:50%}.otherBelt{position:absolute;z-index:8;top:4px;right:11px;width:137px;height:39px;display:grid;place-items:center;background:radial-gradient(ellipse,#ffeba244,transparent 75%)}.otherBelt img{max-width:135px;max-height:38px;object-fit:contain;filter:brightness(1.6) drop-shadow(0 2px 3px #000)}
+.falloutHeading{height:32px;margin-top:7px;display:flex;align-items:center;justify-content:space-between;padding:0 4px}.falloutHeading h2{font:900 21px Impact,'Arial Black',sans-serif;color:#f7dea7;letter-spacing:1px;margin:0}.falloutHeading small{font-size:10px;font-weight:900;color:#cfb77b}
+.fallout{height:77px;padding:8px 12px;border-left:4px solid #e5b956;border-right:2px solid #ba974a;overflow:hidden;background:linear-gradient(90deg,#2d3d1f,#0b100d 56%,#203317)}.fallout h3{font:900 20px/1.04 Impact,'Arial Black',sans-serif;color:#fff2ce;margin:0 0 5px}.fallout p{font-size:12px;font-weight:800;color:#e1dfc6;line-height:1.2;margin:0;max-height:44px;overflow:hidden}
+.venue{height:35px;margin-top:8px;display:grid;place-items:center;text-align:center;padding:0 8px;font-size:13px;font-weight:900;letter-spacing:.8px;color:#fff1c6;text-shadow:0 2px #000;border-left:3px solid #e7cb77;border-right:3px solid #e7cb77;background:linear-gradient(90deg,#5a7429,#1b3d20 24%,#162f18 75%,#666d26)}
+.reviewNotice{position:absolute;bottom:70px;left:0;right:0;z-index:6;text-align:center;color:#f2e1a6;font-weight:900;letter-spacing:.7px;font-size:10px;text-shadow:0 2px #000}.ticker{position:absolute;z-index:9;bottom:0;left:0;right:0;height:70px;border-top:3px solid #e7bd60;display:flex;overflow:hidden;background:linear-gradient(90deg,#1b4b20,#98702a 18%,#101b0d 43%,#040504)}.tickerLogo{width:140px;flex:0 0 140px;display:grid;place-items:center;padding:4px 6px;border-right:2px solid #c9ab5d;background:linear-gradient(90deg,#2a5827,#386f33)}.tickerLogo img{height:55px;max-width:112px;object-fit:contain;filter:drop-shadow(0 2px 4px #000)}.tickerTrack{flex:1;overflow:hidden;display:flex;align-items:center;white-space:nowrap}.tickerTrack span{padding-left:18px;font-size:18px;font-weight:900;color:#f2e3bb;display:inline-block;animation:move 42s linear infinite}@keyframes move{to{transform:translateX(-50%)}}.sampleFlag{display:none;position:absolute;z-index:11;top:440px;left:128px;right:128px;text-align:center;font-size:11px;letter-spacing:1px;font-weight:900;color:#30200a;background:#f7cc78;border:1px solid #fcebbf}.demo .sampleFlag{display:block}.demo .topstrip{box-shadow:inset 0 0 0 1px #c6a75577}#board:after{position:absolute;content:'';z-index:12;inset:0;pointer-events:none;box-shadow:inset 0 0 0 2px #aa7e38,inset 0 0 24px #000}
+@media(prefers-reduced-motion:reduce){.tickerTrack span{animation:none}}
+
+/* REVIEW ONLY — SUMMERSLAM HEADER LOGO CLEARANCE — SINGLE-SCOPE FIX.
+   Preserve source art, results panels, frame/ticker, logic and approved assets. */
+.brand{top:-1px;height:170px}
+.brandkicker{top:166px}
+.barMask{top:183px;height:278px;background:linear-gradient(180deg,#061509d6 0%,#061509db 33%,#051109f4 71%,#030a05fe 100%)}
+.eventplate{display:block;top:184px;left:166px;width:388px;height:183px;z-index:6}
+.eventplate img{display:block;min-width:0;min-height:0;width:100%;height:100%;object-fit:contain}
+.resultsbar{top:373px;height:68px;z-index:7;padding:5px 0 0}
+.resultsbar h1{font-size:30px;line-height:1.1;letter-spacing:2.9px}
+.resultsbar p{margin:3px 0 0;font-size:11px}
+.sampleFlag{top:443px}
+
+/* SUMMERSLAM RESULTS V1 — two dedicated nights, matches the locked Preview V2 identity.
+   All existing wrestler/arena/brand/title graphics are reused without regeneration. */
+#board{background:#06111d}
+.tint{background:linear-gradient(180deg,#02101acc 0%,#020d1de3 19%,#09101df7 43%,#06090efb 93%,#070507f7 100%)}
+.beam.left{background:#ed5b2022}
+.beam.right{background:#2780fe22}
+.brand{top:0px;left:43px;width:634px;height:179px}
+.brandkicker{top:170px;font-size:11px;letter-spacing:2.9px;color:#ffe6ad}
+.barMask{display:none}
+.eventplate{display:block;top:187px;left:165px;width:390px;height:147px;border:1px solid #d4a35099;box-shadow:0 0 22px #e0752b3d,inset 0 0 9px #080808;background:#0a1019;overflow:hidden;border-radius:6px}
+.eventplate img{display:block;width:100%;height:100%;object-fit:fill}
+.resultsbar{top:345px;left:82px;right:82px;height:73px;padding:6px 0 0;background:linear-gradient(90deg,transparent,#301a17df 12%,#17273bfa 50%,#351514dd 88%,transparent);border-top:2px solid #ffc974;border-bottom:2px solid #ffc974}
+.resultsbar h1{font-size:35px;line-height:1.08;letter-spacing:1.9px;color:#fff2dc;text-shadow:0 2px 0 #02060c,0 0 14px #f56e34a8}
+.resultsbar p{font-size:12px;letter-spacing:1.5px;margin:7px 0 0;color:#ffd29b}
+.frame{top:449px;height:741px;background:linear-gradient(143deg,#ffdf90,#da7a39 4%,#14293d 13%,#171b32 90%,#de7544 97%,#ffdb8c);box-shadow:0 0 22px #a8493150}
+.inner{background:linear-gradient(155deg,#0d2034,#090e1a 48%,#16111a 100%);border:1px solid #5e6988}
+.topstrip{background:linear-gradient(90deg,#9c371d,#253d54 36%,#131d2c 64%,#b45b28);border-color:#e8ad59;color:#ffeac1}
+.topstrip .nightlabel{color:#fff4d8}
+.section h2,.resultsHeading h2{color:#fff0d5}
+.mainResult{border-color:#de9e5d;background:linear-gradient(120deg,#1b3147 0%,#08111e 47%,#35201e 100%)}
+.mainLabel,.otherLabel{color:#ffc58b}
+.mainName,.otherName{color:#fff6ea}
+.mainDetail,.otherDetail{color:#ffdbac}
+.mainDesc,.otherDesc{color:#d5dbe9}
+.mainBelt,.otherBelt{background:radial-gradient(ellipse,#e7b26d42,transparent 75%)}
+.mainPhoto{border-color:#c99e7233}
+.mainResult.multi .mainPhoto .tile{background:#142337;border-color:#b87c53}
+.mainResult.multi .mainPhoto .tile span{background:#040c1be8}
+.fallback{background:#17283a;border-color:#b87b57;color:#d5ddea}
+.additional{border-color:#c78b55;background:linear-gradient(110deg,#203b50,#0c101c 65%,#3b2124)}
+.falloutHeading h2{color:#f9d6a5}
+.fallout{border-color:#c58b5d;background:linear-gradient(90deg,#243c56,#0b101a 55%,#462621)}
+.fallout h3{color:#ffe7c9}
+.fallout p{color:#d9e0ed}
+.venue{border-color:#d89a61;background:linear-gradient(90deg,#244967,#b14e29,#244b6e);color:#fff0d0}
+.reviewNotice{bottom:78px;color:#f2be91}
+.ticker{height:66px;border-top:2px solid #d48b5d;background:#07080e}
+.tickerLogo{width:170px;flex-basis:170px;padding:4px 8px;background:linear-gradient(90deg,#152d43,#76331e);border-right:2px solid #d98d58}
+.tickerLogo img{width:150px;max-width:150px;height:55px;object-fit:contain;filter:drop-shadow(0 1px 2px #000)}
+.tickerTrack span{font-size:15px;color:#ffe7c4}
+.sampleFlag{top:423px;left:138px;right:138px;height:19px;line-height:18px;font-size:10px;letter-spacing:1px;background:linear-gradient(90deg,#dc8537,#ffe2a3,#d07843);color:#291410;border:0}
+.demo .topstrip{box-shadow:inset 0 0 0 1px #ffcd9180}
+#board:after{box-shadow:inset 0 0 0 2px #bb7b51,inset 0 0 24px #000}
+
+/* V2: MITB approved championship placement; preserve SummerSlam branding */
+.mainResult.titleResult .mainCopy{top:35px;bottom:94px;justify-content:center;width:375px;gap:5px}
+.mainResult.titleResult .mainName{font-size:45px;line-height:1;max-height:100px}
+.mainResult.titleResult .mainDetail{font-size:15px;max-height:36px}
+.mainResult.titleResult .mainDesc{font-size:10px;max-height:22px}
+.mainResult.titleResult .mainBelt{top:auto;bottom:12px;left:24px;right:auto;width:252px;height:95px;background:none;filter:drop-shadow(0 0 8px #f9c75c77)}
+.mainResult.titleResult .mainBelt img{max-width:100%;max-height:94px;filter:brightness(1.85) contrast(1.13) saturate(1.15) drop-shadow(0 3px 5px #000)}
+.mainResult.titleResult .mainPhoto{top:48px;bottom:5px;right:10px;width:224px;border-left:none}
+.additional .otherCopy{top:7px;bottom:44px;justify-content:center;width:425px;gap:3px}
+.additional .otherName{font-size:25px;max-height:50px}
+.additional .otherBelt{top:auto;bottom:4px;left:17px;right:auto;width:165px;height:42px;background:none}
+.additional .otherBelt img{max-width:165px;max-height:42px;filter:brightness(1.85) contrast(1.15) drop-shadow(0 2px 4px #000)}
+.additional .otherPhotos{top:10px;bottom:3px;width:150px;border:0}
+</style></head><body><main id="board">
+<img class="arena" src="assets/user-summerslam-arena-original.png" alt="User-approved SummerSlam arena"><div class="tint"></div><div class="beam left"></div><div class="beam right"></div>
+<img class="brand" src="assets/user-approved-mancave-logo.png" alt="Man Cave Sports Book Presents Inside the Squared Circle"><div class="brandkicker">WWE PREMIUM LIVE EVENT · SUMMERSLAM</div><div class="eventplate"><img src="assets/user-summerslam-marquee-original-crop.png" alt="SummerSlam Riyadh 2027 logo"></div><div class="barMask"></div>
+<div class="resultsbar"><h1>RESULTS &amp; FALLOUT</h1><p id="dateBar">SUMMERSLAM · DATE TO BE ANNOUNCED</p></div><div class="sampleFlag">SAMPLE OUTCOMES · DESIGN DEMONSTRATION</div>
+<section class="frame"><div class="inner"><div class="topstrip"><span>SUMMERSLAM · RESULTS</span><span class="nightlabel" id="nightTop">NIGHT ONE</span></div>
+<div class="section"><h2 id="mainHeading">NIGHT ONE · MAIN EVENT RESULT</h2><small id="mainStatus">AWAITING VERIFIED RESULTS</small></div>
+<div class="mainResult" id="mainResult"><div class="mainLabel" id="mainLabel">RESULT PENDING</div><div class="mainCopy"><div class="mainName" id="mainName">MAIN EVENT</div><div class="mainDetail" id="mainDetail">Official result pending</div><div class="mainDesc" id="mainDesc">Night One results will appear after official confirmation.</div></div><div class="mainPhoto" id="mainPhoto"></div><div class="mainBelt" id="mainBelt"></div></div>
+<div class="resultsHeading"><h2>OTHER MATCH RESULTS</h2><small id="otherStatus">RESULTS AS CONFIRMED</small></div><div class="additional" id="additional"><div class="otherCopy"><div class="otherLabel" id="otherLabel">AWAITING OFFICIAL RESULTS</div><div class="otherName" id="otherName">MATCH RESULTS</div><div class="otherDetail" id="otherDetail">Verified outcomes only</div><div class="otherDesc" id="otherDesc">Matches rotate as results are confirmed.</div></div><div class="otherPhotos" id="otherPhotos"></div><div class="otherBelt" id="otherBelt"></div></div>
+<div class="falloutHeading"><h2>FALLOUT &amp; STORYLINES</h2><small id="falloutStatus">AFTER THE EVENT</small></div><div class="fallout"><h3 id="falloutTitle">THE AFTERMATH</h3><p id="falloutBody">Confirmed championship changes, rivalries and key developments from each night will appear here.</p></div><div class="venue" id="venue">DATE & LOCATION TO BE CONFIRMED</div></div></section>
+<div class="reviewNotice" id="reviewNotice">VISUAL REVIEW ONLY · LIVE RESULTS NOT CONNECTED</div><footer class="ticker"><div class="tickerLogo"><img src="assets/user-summerslam-bottom-left-logo.png" alt="User-supplied silver SummerSlam logo"></div><div class="tickerTrack"><span id="tickerText">SUMMERSLAM ◆ NIGHT ONE &amp; NIGHT TWO ◆ RESULTS &amp; FALLOUT ◆ VERIFIED WINNERS ◆ CHAMPIONSHIP DEVELOPMENTS ◆ SUMMERSLAM ◆ NIGHT ONE &amp; NIGHT TWO ◆ RESULTS &amp; FALLOUT ◆ VERIFIED WINNERS ◆ CHAMPIONSHIP DEVELOPMENTS ◆</span></div></footer>
+</main>
+<script>
+(()=>{'use strict';
+ const B=document.getElementById('board');function resize(){B.style.transform='scale('+Math.min(innerWidth/720,innerHeight/1280)+')'}addEventListener('resize',resize);resize();
+ const E=id=>document.getElementById(id);const p=new URLSearchParams(location.search);const demo=true;const FIXED_NIGHT=1;let active=FIXED_NIGHT-1,otherIndex=0,falloutIndex=0;
+ const demos=[
+ {number:1,main_event:{outcome:'decisive',type:'SAMPLE WORLD HEAVYWEIGHT TITLE RESULT',winner:{name:'Roman Reigns',portrait:'roman-reigns.png'},loser:'Sami Zayn',title:{name:'World Heavyweight Championship',belt:'wwe_world-heavyweight-championship-transparent.png'},description:'SAMPLE OUTCOME · DESIGN DEMONSTRATION'},results:[{outcome:'decisive',type:'SAMPLE WOMEN’S TITLE RESULT',winner:{name:'Chelsea Green',portrait:'chelsea-green.png'},loser:'Liv Morgan',title:{name:'WWE Women’s Championship',belt:'wwe_wwe-womens-championship-transparent.png'},description:'NOT AN ACTUAL MATCH RESULT'},{outcome:'no-contest',type:'SAMPLE NO-CONTEST FINISH',participants:[{name:'Sami Zayn',portrait:'sami-zayn.png'},{name:'Trick Williams',portrait:'trick-williams.png'}],description:'SAMPLE ONLY · NO WINNER'}],fallout:[{headline:'SAMPLE — SUMMERSLAM NIGHT ONE AFTERMATH',summary:'Illustrative storyline content. Confirmed developments will replace this demonstration after Night One.'}]},
+ {number:2,main_event:{outcome:'decisive',type:'SAMPLE WOMEN’S WORLD TITLE RESULT',winner:{name:'Raquel Rodriguez',portrait:'raquel-rodriguez.png'},loser:'Liv Morgan',title:{name:'Women’s World Championship',belt:'wwe_womens-world-championship-transparent.png'},description:'SAMPLE OUTCOME · DESIGN DEMONSTRATION'},results:[{outcome:'decisive',type:'SAMPLE TAG TEAM RESULT',winner:{name:'Bron Breakker & Austin Theory',portraits:['bron-breakker.png','austin-theory.png']},loser:'Grayson Waller & Jackson Drake',title:null,description:'SAMPLE TAG TEAM WINNERS'},{outcome:'decisive',type:'SAMPLE INTERCONTINENTAL RESULT',winner:{name:'Chad Gable',portrait:'chad-gable.png'},loser:'Trick Williams',title:{name:'Intercontinental Championship',belt:'wwe_intercontinental-championship-transparent.png'},description:'SAMPLE ONLY · NOT ACTUAL RESULTS'}],fallout:[{headline:'SAMPLE — SUMMERSLAM NIGHT TWO AFTERMATH',summary:'Illustrative storyline content. Confirmed developments will replace this demonstration after Night Two.'}]}
+ ];
+ const empty=[{number:1,main_event:null,results:[],fallout:[]},{number:2,main_event:null,results:[],fallout:[]}];
+ let nights=demo?demos:empty;
+ const PORTRAITS=new Set(["austin-theory.png", "b-fab.png", "brad-baylor.png", "bron-breakker.png", "chad-gable.png", "chelsea-green.png", "grayson-waller.png", "indi-hartwell.png", "jackson-drake.png", "kelani-jordan.png", "liv-morgan.png", "michin.png", "raquel-rodriguez.png", "ricky-smokes.png", "roman-reigns.png", "sami-zayn.png", "trick-williams.png", "zaria.png"]);
+ const BELTS=new Set(["nxt_championship-transparent.png", "nxt_north_american-transparent.png", "nxt_tag_team-transparent.png", "nxt_womens_championship-transparent.png", "nxt_womens_north_american-transparent.png", "wwe_intercontinental-championship-transparent.png", "wwe_undisputed-wwe-championship-transparent.png", "wwe_united-states-championship-transparent.png", "wwe_womens-intercontinental-championship-transparent.png", "wwe_womens-united-states-championship-transparent.png", "wwe_womens-world-championship-transparent.png", "wwe_world-heavyweight-championship-transparent.png", "wwe_world-tag-team-championship-transparent.png", "wwe_wwe-tag-team-championship-transparent.png", "wwe_wwe-womens-championship-transparent.png", "wwe_wwe-womens-tag-team-championship-transparent.png"]);
+ const picAllowed=/^[a-z0-9-]{2,80}\.png$/,beltAllowed=/^[a-z0-9_-]{2,100}-transparent\.png$/;
+ const picPath=n=>typeof n==='string'&&picAllowed.test(n)&&PORTRAITS.has(n)?'assets/approved-portraits/'+n:null;
+ const beltPath=n=>typeof n==='string'&&beltAllowed.test(n)&&BELTS.has(n)?'assets/approved-belts/'+n:null;
+ const mk=(tag,cl,content)=>{let e=document.createElement(tag);if(cl)e.className=cl;if(content!==undefined)e.textContent=String(content);return e};
+ const sourceOK=s=>{try{const u=new URL(s);return u.protocol==='https:'&&(u.hostname==='wwe.com'||u.hostname.endsWith('.wwe.com'))}catch{return false}};
+ const dateOK=s=>typeof s==='string'&&/^\d{4}-\d{2}-\d{2}$/.test(s)&&!Number.isNaN(Date.parse(s+'T12:00:00Z'));
+ const easternToday=()=>{const p=new Intl.DateTimeFormat('en-US',{timeZone:'America/New_York',year:'numeric',month:'2-digit',day:'2-digit'}).formatToParts(new Date());const f=Object.fromEntries(p.map(x=>[x.type,x.value]));return f.year+'-'+f.month+'-'+f.day};
+ const photoNameOK=x=>typeof x==='string'&&picAllowed.test(x)&&PORTRAITS.has(x);
+ function validResult(r,eventDate,now){
+  if(!r||r.verified!==true||!sourceOK(r.source_url)||!dateOK(r.source_date)||r.source_date<eventDate||r.source_date>now||!['decisive','draw','no-contest'].includes(r.outcome))return false;
+  if(typeof r.type!=='string'||!r.type||r.type.length>130)return false;
+  if(r.outcome==='decisive'){
+   if(typeof r.winner?.name!=='string'||r.winner.name.length<1||r.winner.name.length>110||typeof r.loser!=='string'||r.loser.length<1||r.loser.length>160)return false;
+   if(r.winner.portraits&&!Array.isArray(r.winner.portraits))return false;
+  }else{
+   if(!Array.isArray(r.participants)||r.participants.length<2||r.participants.length>20)return false;
+   if(!r.participants.every(x=>typeof x?.name==='string'&&x.name.length>0&&x.name.length<110))return false;
+  }
+  if(r.title&&(typeof r.title.name!=='string'||r.title.name.length>110))return false;
+  return true;
+ }
+ function validFallout(s,eventDate,now){return !!(s&&s.verified===true&&sourceOK(s.source_url)&&dateOK(s.source_date)&&s.source_date>=eventDate&&s.source_date<=now&&typeof s.headline==='string'&&s.headline.length>0&&s.headline.length<160&&typeof s.summary==='string'&&s.summary.length>0&&s.summary.length<360)}
+ function validate(data){
+  if(!data||data.schema_version!==1||data.event_id!=='summerslam'||!Array.isArray(data.nights)||data.nights.length!==2)return null;
+  const now=easternToday(),out=[];
+  for(let n of [1,2]){
+   const row=data.nights.find(x=>x&&x.number===n);
+   if(!row)return null;
+   const date=row.event_date;
+   if(date!==null&&!dateOK(date))return null;
+   const held=!!date&&date<=now;
+   out.push({number:n,event_date:date,venue:typeof row.venue==='string'&&row.venue.length<140?row.venue:null,
+    main_event:held&&validResult(row.main_event,date,now)?row.main_event:null,
+    results:held&&Array.isArray(row.results)?row.results.filter(r=>validResult(r,date,now)).slice(0,30):[],
+    fallout:held&&Array.isArray(row.fallout)?row.fallout.filter(r=>validFallout(r,date,now)).slice(0,25):[]});
+  }
+  return out;
+ }
+ function inject(holder,people,multi){
+  holder.replaceChildren();holder.className=holder.id==='mainPhoto'?'mainPhoto':'otherPhotos';
+  if(multi){for(const person of people.slice(0,6)){let tile=mk('div','tile');let path=picPath(person.portrait);if(path){let img=mk('img');img.src=path;img.alt=person.name;img.onerror=()=>img.remove();tile.append(img)}tile.append(mk('span','',person.name));holder.append(tile)}return}
+  let imgs=0;for(const person of people.slice(0,2)){
+   const path=picPath(person.portrait);if(!path)continue;
+   let img=mk('img');img.src=path;img.alt=person.name;img.onerror=()=>img.remove();holder.append(img);imgs++
+  }
+  if(imgs>1)holder.classList.add('two');if(!imgs)holder.append(mk('div','fallback','PORTRAIT PENDING'));
+ }
+ function renderBelt(holder,r){holder.replaceChildren();const path=beltPath(r?.title?.belt);if(!path)return;let img=mk('img');img.src=path;img.alt=String(r.title.name||'Championship')+' belt';img.onerror=()=>img.remove();holder.append(img)}
+ function renderMatch(r,isMain){
+  const prefix=isMain?'main':'other',el=id=>E(prefix+id);
+  let root=E(isMain?'mainResult':'additional'),name=el('Name'),detail=el('Detail'),desc=el('Desc'),label=el('Label'),photos=E(isMain?'mainPhoto':'otherPhotos'),belt=el('Belt');
+  root.classList.remove('titleResult','multi');belt.replaceChildren();
+  if(!r){label.textContent=isMain?'MAIN EVENT · RESULT PENDING':'AWAITING VERIFIED RESULTS';name.textContent=isMain?'MAIN EVENT':'MATCH RESULTS';detail.textContent='OFFICIAL RESULTS PENDING';desc.textContent=isMain?'Results appear after official verification.':'Additional verified results rotate here.';inject(photos,[],false);name.className=isMain?'mainName':'otherName';return}
+  label.textContent=String(r.type||'MATCH RESULT').toUpperCase();desc.textContent=r.description||'';
+  let people=[],isMulti=false;
+  if(r.outcome==='decisive'){
+   name.textContent=r.winner.name.toUpperCase();detail.textContent='def. '+r.loser;
+   people=Array.isArray(r.winner.portraits)?r.winner.portraits.map(v=>({name:r.winner.name,portrait:v})):[r.winner];
+  }else{
+   name.textContent=r.outcome==='draw'?'MATCH ENDS IN A DRAW':'NO CONTEST';detail.textContent=r.participants.map(x=>x.name).join(' · ');people=r.participants;
+   isMulti=isMain&&people.length>2;if(isMulti)root.classList.add('multi');
+  }
+  name.className=(isMain?'mainName':'otherName')+(name.textContent.length>(isMain?19:22)?' long':'');
+  inject(photos,people,isMulti);if(r.title&&!isMulti){root.classList.add('titleResult');renderBelt(belt,r)}
+ }
+ function renderOther(){const row=nights[active];renderMatch(row.results.length?row.results[otherIndex%row.results.length]:null,false);E('otherStatus').textContent=row.results.length?'RESULT '+(otherIndex%row.results.length+1)+' / '+row.results.length:'RESULTS AS CONFIRMED'}
+ function renderFallout(){const row=nights[active];let st=row.fallout.length?row.fallout[falloutIndex%row.fallout.length]:null;E('falloutStatus').textContent=row.fallout.length?'STORY '+(falloutIndex%row.fallout.length+1)+' / '+row.fallout.length:'AFTER THE EVENT';E('falloutTitle').textContent=st?st.headline:'THE AFTERMATH';E('falloutBody').textContent=st?st.summary:'Confirmed championship developments, rivalries and key moments from this night will appear here.'}
+ function render(){const row=nights[active],nn=active?'TWO':'ONE';E('nightTop').textContent='NIGHT '+nn;E('mainHeading').textContent='NIGHT '+nn+' · MAIN EVENT RESULT';E('mainStatus').textContent=row.main_event?(demo?'VISUAL DEMO':'SOURCE-VERIFIED RESULT'):'AWAITING VERIFIED RESULTS';E('dateBar').textContent=row.event_date?'SUMMERSLAM · '+row.event_date:'SUMMERSLAM · DATE TO BE ANNOUNCED';E('venue').textContent=(row.venue||'DATE & LOCATION TO BE CONFIRMED').toUpperCase();renderMatch(row.main_event,true);renderOther();renderFallout()}
+ if(demo){B.classList.add('demo');E('reviewNotice').textContent='SAMPLE RESULTS · NOT ACTUAL SUMMERSLAM OUTCOMES';E('tickerText').textContent='DESIGN DEMONSTRATION ONLY ◆ SUMMERSLAM NIGHT ONE & NIGHT TWO ◆ SAMPLE MATCH RESULTS ◆ NOT OFFICIAL ◆ DESIGN DEMONSTRATION ONLY ◆ '}
+ async function refresh(){if(demo||location.protocol==='file:')return;try{let r=await fetch('summerslam-results-data.json?ts='+Date.now(),{cache:'no-store'});if(!r.ok)throw Error('fetch');let next=validate(await r.json());if(!next)return;nights=next;otherIndex=0;falloutIndex=0;render()}catch{/* retain last validated results / otherwise safe empty */}}
+ render();refresh();setInterval(()=>{otherIndex++;renderOther()},10000);setInterval(()=>{falloutIndex++;renderFallout()},12000);setInterval(refresh,300000);
+ window.__summerslamResultsQA={state:()=>({demo,night:active+1,main:!!nights[active].main_event,other:nights[active].results.length,fallout:nights[active].fallout.length}),nextResult:()=>{otherIndex++;renderOther()},nextFallout:()=>{falloutIndex++;renderFallout()},validate,setResults:d=>{const next=validate(d);if(next){nights=next;render();return true}return false}};
+
+})();
+</script></body></html>

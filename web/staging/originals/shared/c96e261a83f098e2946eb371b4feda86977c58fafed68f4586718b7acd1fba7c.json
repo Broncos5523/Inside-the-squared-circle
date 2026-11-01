@@ -1,0 +1,192 @@
+[
+  {
+    "file": "SUMMERSLAM_PREVIEW_V1_SAMPLE_NIGHT_ONE_720x1280.png",
+    "kind": "demo",
+    "errors": [],
+    "broken_images": [],
+    "vals": {
+      "state": {
+        "demo": true,
+        "cards": 2,
+        "card": 0,
+        "other": 0,
+        "venue": null
+      },
+      "rect": {
+        "x": 0,
+        "y": 0,
+        "width": 720,
+        "height": 1280,
+        "top": 0,
+        "right": 720,
+        "bottom": 1280,
+        "left": 0
+      },
+      "images": [
+        {
+          "alt": "Original SummerSlam arena provided by the user",
+          "ok": true
+        },
+        {
+          "alt": "Approved Man Cave Sports Book Inside the Squared Circle logo",
+          "ok": true
+        },
+        {
+          "alt": "User supplied SummerSlam screen marquee",
+          "ok": true
+        },
+        {
+          "alt": "WORLD HEAVYWEIGHT CHAMPIONSHIP",
+          "ok": true
+        },
+        {
+          "alt": "Roman Reigns",
+          "ok": true
+        },
+        {
+          "alt": "Sami Zayn",
+          "ok": true
+        },
+        {
+          "alt": "Liv Morgan",
+          "ok": true
+        },
+        {
+          "alt": "WWE WOMEN\u2019S CHAMPIONSHIP",
+          "ok": true
+        },
+        {
+          "alt": "Chelsea Green",
+          "ok": true
+        },
+        {
+          "alt": "WWE mark",
+          "ok": true
+        }
+      ],
+      "title": "SAMPLE WORLD HEAVYWEIGHT CHAMPIONSHIP MATCH",
+      "other": "1 / 2",
+      "night": "NIGHT ONE \u00b7 EXAMPLE"
+    }
+  },
+  {
+    "file": "SUMMERSLAM_PREVIEW_V1_SAMPLE_NIGHT_TWO_720x1280.png",
+    "kind": "night2",
+    "errors": [],
+    "broken_images": [],
+    "vals": {
+      "state": {
+        "demo": true,
+        "cards": 2,
+        "card": 1,
+        "other": 0,
+        "venue": null
+      },
+      "rect": {
+        "x": 0,
+        "y": 0,
+        "width": 720,
+        "height": 1280,
+        "top": 0,
+        "right": 720,
+        "bottom": 1280,
+        "left": 0
+      },
+      "images": [
+        {
+          "alt": "Original SummerSlam arena provided by the user",
+          "ok": true
+        },
+        {
+          "alt": "Approved Man Cave Sports Book Inside the Squared Circle logo",
+          "ok": true
+        },
+        {
+          "alt": "User supplied SummerSlam screen marquee",
+          "ok": true
+        },
+        {
+          "alt": "WOMEN\u2019S WORLD CHAMPIONSHIP",
+          "ok": true
+        },
+        {
+          "alt": "Raquel Rodriguez",
+          "ok": true
+        },
+        {
+          "alt": "Liv Morgan",
+          "ok": true
+        },
+        {
+          "alt": "Bron Breakker",
+          "ok": true
+        },
+        {
+          "alt": "Austin Theory",
+          "ok": true
+        },
+        {
+          "alt": "Grayson Waller",
+          "ok": true
+        },
+        {
+          "alt": "Jackson Drake",
+          "ok": true
+        },
+        {
+          "alt": "WWE mark",
+          "ok": true
+        }
+      ],
+      "title": "SAMPLE WOMEN\u2019S WORLD CHAMPIONSHIP MATCH",
+      "other": "1 / 2",
+      "night": "NIGHT TWO \u00b7 EXAMPLE"
+    }
+  },
+  {
+    "file": "SUMMERSLAM_PREVIEW_V1_SAFE_EMPTY_720x1280.png",
+    "kind": "safe",
+    "errors": [],
+    "broken_images": [],
+    "vals": {
+      "state": {
+        "demo": false,
+        "cards": 0,
+        "card": 0,
+        "other": 0,
+        "venue": null
+      },
+      "rect": {
+        "x": 0,
+        "y": 0,
+        "width": 720,
+        "height": 1280,
+        "top": 0,
+        "right": 720,
+        "bottom": 1280,
+        "left": 0
+      },
+      "images": [
+        {
+          "alt": "Original SummerSlam arena provided by the user",
+          "ok": true
+        },
+        {
+          "alt": "Approved Man Cave Sports Book Inside the Squared Circle logo",
+          "ok": true
+        },
+        {
+          "alt": "User supplied SummerSlam screen marquee",
+          "ok": true
+        },
+        {
+          "alt": "WWE mark",
+          "ok": true
+        }
+      ],
+      "title": "MAIN EVENT ANNOUNCEMENT PENDING",
+      "other": "AS CONFIRMED",
+      "night": "EVENT MATCH CARD"
+    }
+  }
+]
