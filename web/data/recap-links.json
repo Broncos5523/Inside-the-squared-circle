@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "mode": "PUBLISHER_RSS_POST_SHOW_LINKS_ONLY",
-  "generated_at": "2026-11-01T08:15:15.372098-05:00",
+  "generated_at": "2026-11-01T11:56:45.874651-05:00",
   "source_name": "Multiple publisher RSS feeds",
   "source_url": "https://www.f4wonline.com/rss.xml",
   "approved_publishers": [
@@ -64,9 +64,9 @@
       "airdate": "2026-10-30",
       "links": [
         {
-          "headline": "Hall’s Smackdown Review – 10.30.26",
+          "headline": "Hall’s WWE Smackdown Review 10.30.26",
           "url": "https://411mania.com/wrestling/halls-smackdown-review-10-30-26/",
-          "published_at": "2026-11-01T04:31:33+00:00",
+          "published_at": "2026-11-01T15:35:33+00:00",
           "source_name": "411Mania",
           "status": "PUBLISHER_HEADLINE_LINK_ONLY"
         },
@@ -232,7 +232,8 @@
           "url": "https://411mania.com/wrestling/leightys-wwe-evolve-review-10-28-26/",
           "published_at": "2026-10-29T03:40:50+00:00",
           "source_name": "411Mania",
-          "status": "PUBLISHER_HEADLINE_LINK_ONLY"
+          "status": "PUBLISHER_HEADLINE_LINK_ONLY",
+          "retained_from_previous": true
         },
         {
           "headline": "WWE EVOLVE Results (10/28)",
@@ -248,7 +249,7 @@
     }
   ],
   "total_links": 25,
-  "retained_link_count": 13,
+  "retained_link_count": 14,
   "collection_status": "ok",
   "successful_feed_urls": [
     "https://www.f4wonline.com/rss.xml",
