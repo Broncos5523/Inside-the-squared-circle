@@ -3,7 +3,7 @@
  var base=new URL('./',location.href).href,library,routes,feeds={},programming={entries:[]},active=[],visible=[],current=null,timer=null,token=0,mode='archive',refreshing=null,initialized=false,playing=false,advanceAt=0,minimumEnd=0,boardReady=false;
  var params=new URLSearchParams(location.search),byId=function(id){return document.getElementById(id);};
  function getJSON(path){return fetch(new URL(path,base),{cache:'no-store'}).then(function(r){if(!r.ok)throw Error(path+' unavailable');return r.json();});}
- function playbackUrl(id){var u=new URL(location.href);u.searchParams.set('view','tv');u.searchParams.set('mode','active');u.searchParams.set('id',id);u.searchParams.set('v','20261101-onn-portrait-6');return u.href;}
+ function playbackUrl(id){var u=new URL(location.href);u.searchParams.set('view','tv');u.searchParams.set('mode','active');u.searchParams.set('id',id);u.searchParams.set('v','20261101-current-content-7');return u.href;}
  function rememberPosition(record){if(mode!=='active')return;try{history.replaceState({},'',playbackUrl(record.id));}catch(_){}}
  function label(record){if(record.id.indexOf('results-summerslam_night_one_')===0)return 'SummerSlam — Night One — Results & Fallout';if(record.id.indexOf('results-summerslam_night_two_')===0)return 'SummerSlam — Night Two — Results & Fallout';return record.label;}
  function scale(){

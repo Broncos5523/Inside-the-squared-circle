@@ -10,7 +10,7 @@
  function etDay(now){var p=new Intl.DateTimeFormat('en-US',{timeZone:'America/New_York',year:'numeric',month:'2-digit',day:'2-digit'}).formatToParts(now),v={};p.forEach(function(x){v[x.type]=x.value;});return v.year+'-'+v.month+'-'+v.day;}
  function days(a,b){return (Date.parse(a+'T12:00:00Z')-Date.parse(b+'T12:00:00Z'))/86400000;}
  function stamp(x){return /^(?:ple|special)-/.test(x.kind||'')?(x.event_date||''):(x.airdate||x.event_date||'');}
- function verified(x){return x.verification==='OFFICIAL_VERIFIED'||x.verification==='EDITORIALLY_VERIFIED';}
+ function verified(x){return x.verification==='OFFICIAL_VERIFIED'||x.verification==='EDITORIALLY_VERIFIED'||(x.verification==='SOURCE_CORROBORATED'&&Array.isArray(x.source_urls)&&new Set(x.source_urls.map(function(u){try{return new URL(u).hostname;}catch(_){return '';}}).filter(Boolean)).size>=2);}
  function select(entries,now){
   now=now||new Date();
   var today=etDay(now),out=[],seen={};
@@ -74,6 +74,10 @@
  // result board off at 45 seconds would hide most of a 5-7-segment episode.
  function dwellMs(entry,feeds,selectedMs){
   var base=Math.max(20000,Number(selectedMs)||45000);
+  if(entry&&entry.kind==='ple-results'){
+   var event=feeds&&feeds['official-event-results.json']?.programs?.find(function(p){return p.board_id===entry.id;});
+   if(event?.matches){var champions=event.matches.filter(function(m){return !!m.belt;}).length;return Math.max(base,Math.max(champions,event.matches.length-champions)*14000+6500);}
+  }
   if(!entry||(entry.kind!=='results'&&entry.kind!=='evolve'))return base;
   var feed=feeds&&feeds[entry.show+'-verified-results.json'];
   var programs=feed&&feed.programs;

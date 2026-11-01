@@ -5,11 +5,13 @@ import {collectOfficialEvents} from './official-events.mjs';
 import {collectReviewedArchiveFallback} from './reviewed-archive-fallback.mjs';
 import {collectOfficialWeeklyResults} from './official-weekly-results.mjs';
 import {collectEvolve} from './collect-evolve.mjs';
+import {collectOfficialEventResults} from './official-event-results.mjs';
+import {collectCorroboratedAaaResults} from './corroborated-aaa-results.mjs';
 import {localPublishedFeed,PUBLISHED_FEED_ROOT} from './local-published-feeds.mjs';
 const now=new Date();
 const root=new URL('../../web/staging/',import.meta.url);
 const localFeedDirectory=process.env.ISC_LOCAL_FEED_DIR;
-if(!localFeedDirectory)try{
+if(!localFeedDirectory&&process.env.ISC_FORCE_COLLECT!=='1')try{
  const prior=JSON.parse(await readFile(new URL('data/programming.json',root),'utf8'));
  const age=now.getTime()-Date.parse(prior.generated_at);
  if(prior.mode==='SOURCE_GATED_STAGING'&&Number.isFinite(age)&&age>=0&&age<15*60000&&prior.collection?.snapshot_fresh){
@@ -31,7 +33,7 @@ async function requester(url,options={}){
 }
 let collected=null;
 const cache={async get(){return null;},async put(key,value){collected=JSON.parse(value);}};
-const stats=await collectWcn({WCN_CACHE:cache},now,requester);
+const stats=await collectWcn({WCN_CACHE:cache},now,requester,assetRoutes);
 const snapshot=responses.get('snapshot.json');
 const snapshotAge=now.getTime()-Date.parse(snapshot?.generated_at||'');
 const snapshotFresh=!!snapshot&&Number.isFinite(snapshotAge)&&snapshotAge>=-300000&&snapshotAge<=48*3600000&&Array.isArray(snapshot.shows);
@@ -45,7 +47,7 @@ const entries=[];
 const feeds={};
 if(snapshotFresh){
  const scoped=structuredClone(snapshot);
- for(const p of programs){const s=scoped.shows.find(s=>s.id===p.show_id);if(s)s.next={...s.next,date:p.airdate};}
+ for(const p of programs){const s=scoped.shows.find(s=>s.id===p.show_id);if(s)s.next={...s.next,date:p.airdate,...(p.start_time?{time:p.start_time}:{})};}
  feeds['snapshot.json']=scoped;
  feeds['reported.json']={schema_version:1,mode:'REPORTED_MATCHES_UNVERIFIED',generated_at:now.toISOString(),display_attribution:'Wrestling Central News (wrestlingcentralnews.com)',programs,total_reported_matches:programs.reduce((n,p)=>n+p.matches.length,0),total_reported_appearances:programs.reduce((n,p)=>n+p.appearances.length,0)};
  // Supply ONE source-confirmed next-broadcast candidate for each weekly show.
@@ -68,7 +70,7 @@ if(snapshotFresh){
    source_available:true,design_approved:true,content_status:'current',
    verification:'SOURCE_REPORTED',has_content:!!reported,schedule_confirmed:true,
    checked_at:now.toISOString(),source_name:reported?'Wrestling Central News':'Published episode schedule',
-   source_url:reported?.source_url||sourceRoot+'snapshot.json',venue:null
+   source_url:reported?.source_url||sourceRoot+'snapshot.json',venue:(()=>{const m=String(show.next?.title||'').match(/^(?:#\d+\s*-\s*)?(.+?)\s+in\s+(.+)$/);return m?{arena:m[1],city:m[2]}:null;})()
   });
  }
 }
@@ -112,6 +114,15 @@ for(const candidate of officialWeekly.entries){
  entries.push(candidate);
  feeds[candidate.show+'-verified-results.json']=officialWeekly.feeds[candidate.show+'-verified-results.json'];
 }
+// Corroborated dated reports cover AAA while the official article is delayed.
+if(!entries.some(e=>e.show==='aaa'&&e.kind==='results'&&e.airdate===snapshot?.shows?.find(s=>s.id==='aaa')?.previous?.date)){
+ const aaa=await collectCorroboratedAaaResults({library,routes:assetRoutes,snapshot,now,requester});
+ for(const candidate of aaa.entries){entries.push(candidate);feeds['aaa-verified-results.json']=aaa.feeds['aaa-verified-results.json'];}
+}
+for(const show of feeds['snapshot.json']?.shows||[]){
+ const latest=entries.filter(e=>e.show===show.id&&e.kind==='results').sort((a,b)=>b.airdate.localeCompare(a.airdate))[0];
+ if(latest)show.previous={...show.previous,date:latest.airdate};
+}
 // Evolve uses the EXACT recovered final approved board and the most recently
 // completed Wednesday's source-reviewed episode, not a new archive mockup.
 const evolvePayload=JSON.parse(await readFile(new URL('../../proof/staging/evolve-oct28-source-payload.json',import.meta.url),'utf8'));
@@ -121,6 +132,8 @@ Object.assign(feeds,evolve.feeds);
 const events=await collectOfficialEvents({library,now,requester});
 entries.push(...events.entries);
 feeds['official-events.json']=events.feed;
+const eventResults=await collectOfficialEventResults({library,routes:assetRoutes,now,requester});
+entries.push(...eventResults.entries);feeds['official-event-results.json']=eventResults.feed;
 for(const feed of Object.values(feeds))for(const program of feed.programs||[])addApprovedPortraits(program);
 const result={schema_version:1,mode:'SOURCE_GATED_STAGING',generated_at:now.toISOString(),entries,feeds,collection:{...stats,snapshot_fresh:!!snapshotFresh,official_event_count:events.entries.length,official_event_warnings:events.errors,approved_result_count:reviewed.entries.length,approved_result_warnings:reviewed.warnings,official_weekly_result_count:officialWeekly.entries.length,official_weekly_warnings:officialWeekly.warnings,evolve_verified_count:evolve.entries.length,evolve_warnings:evolve.warnings},notes:['Archived examples remain excluded from current programming. Event matches must clear official-source and approved-portrait checks. Only explicit winners from dated official sources are promoted. Evolve is admitted only when the byte-identical approved artwork and the latest source-verified episode pass all checks; stale episodes are held.','Source credits retained privately; public hosting clearance confirmed by owner 2026-10-30.']};
 await writeFile(new URL('data/programming.json',root),JSON.stringify(result,null,2)+'\n');

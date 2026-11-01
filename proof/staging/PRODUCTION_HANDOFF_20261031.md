@@ -32,3 +32,7 @@ The owner reported an integrity error after AAA during device testing. The revis
 ## ONN portrait display
 
 The playback target is now an ONN streaming stick with TV Bro. Landscape TV playback automatically counter-rotates the outer surface to fill the physically upright TV. Portrait phone playback stays upright, and orientation changes preserve the current iframe and card position. The device check before production is now ONN/TV Bro.
+
+## Current content repairs
+
+RAW preview supports dated news cards, advertised appearances, special start times, and the sourced venue. AAA uses the latest dated, corroborated episode when WWE publication is delayed, without relabeling older episodes; disagreement holds the new result. Halloween Havoc V2 approval was recovered and its six source-verified results now populate the original panels. Result-slot duration covers all of its rotating cards. See CURRENT_CONTENT_REPAIR_20261101.md.

@@ -33,7 +33,7 @@ test('production result cards resolve the new artwork within the GitHub Pages su
  const root=new URL('../web/staging/',import.meta.url);
  const library=JSON.parse(await readFile(new URL('library.json',root),'utf8'));
  const routes=JSON.parse(await readFile(new URL('asset-routes.json',root),'utf8'));
- const data=JSON.parse(await readFile(new URL('data/programming.json',root),'utf8'));
+ const data=JSON.parse(await readFile(new URL('fixtures/staging-programming-20261031.json',import.meta.url),'utf8'));
  const host={};
  runInNewContext(await readFile(new URL('board-adapter.js',root),'utf8'),{window:host,URL});
  const base='https://broncos5523.github.io/Inside-the-squared-circle/staging/';
