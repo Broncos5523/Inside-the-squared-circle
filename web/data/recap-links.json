@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "mode": "PUBLISHER_RSS_POST_SHOW_LINKS_ONLY",
-  "generated_at": "2026-11-01T01:09:49.772345-04:00",
+  "generated_at": "2026-11-01T04:05:56.848396-05:00",
   "source_name": "Multiple publisher RSS feeds",
   "source_url": "https://www.f4wonline.com/rss.xml",
   "approved_publishers": [
@@ -64,6 +64,13 @@
       "airdate": "2026-10-30",
       "links": [
         {
+          "headline": "Hall’s Smackdown Review – 10.30.26",
+          "url": "https://411mania.com/wrestling/halls-smackdown-review-10-30-26/",
+          "published_at": "2026-11-01T04:31:33+00:00",
+          "source_name": "411Mania",
+          "status": "PUBLISHER_HEADLINE_LINK_ONLY"
+        },
+        {
           "headline": "Result of WWE Championship match on SmackDown",
           "url": "https://www.f4wonline.com/news/wwe/result-of-wwe-championship-match-on-smackdown/",
           "published_at": "2026-10-31T02:42:17+00:00",
@@ -91,14 +98,6 @@
           "published_at": "2026-10-30T23:15:00+00:00",
           "source_name": "F4W / Wrestling Observer",
           "status": "PUBLISHER_HEADLINE_LINK_ONLY"
-        },
-        {
-          "headline": "WWE SmackDown Results (10/30/2026): Sami Zayn vs. Trick Williams, Nikki Bella vs. Chelsea Green, More",
-          "url": "https://www.fightful.com/wrestling-news/wwe-smackdown-results-10-30-2026-sami-zayn-vs-trick-williams-nikki-bella-vs-chelsea-green-more",
-          "published_at": "2026-10-30T23:15:00+00:00",
-          "source_name": "Fightful",
-          "status": "PUBLISHER_HEADLINE_LINK_ONLY",
-          "retained_from_previous": true
         }
       ],
       "source_name": "Multiple publisher RSS feeds",
@@ -249,7 +248,7 @@
     }
   ],
   "total_links": 25,
-  "retained_link_count": 14,
+  "retained_link_count": 13,
   "collection_status": "ok",
   "successful_feed_urls": [
     "https://www.f4wonline.com/rss.xml",
