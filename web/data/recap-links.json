@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "mode": "PUBLISHER_RSS_POST_SHOW_LINKS_ONLY",
-  "generated_at": "2026-10-31T16:56:16.846138-04:00",
+  "generated_at": "2026-10-31T21:32:26.064604-04:00",
   "source_name": "Multiple publisher RSS feeds",
   "source_url": "https://www.f4wonline.com/rss.xml",
   "approved_publishers": [
@@ -20,7 +20,8 @@
           "url": "https://411mania.com/wrestling/halls-wwe-raw-review-10-26-26/",
           "published_at": "2026-10-27T22:15:20+00:00",
           "source_name": "411Mania",
-          "status": "PUBLISHER_HEADLINE_LINK_ONLY"
+          "status": "PUBLISHER_HEADLINE_LINK_ONLY",
+          "retained_from_previous": true
         },
         {
           "headline": "AEW To Stream On Twitch Before Blood & Guts, WWE Raw Highlights, More | Fight Size",
@@ -160,6 +161,13 @@
       "airdate": "2026-10-29",
       "links": [
         {
+          "headline": "Hall’s TNA Impact Wrestling Review – 10.29.26",
+          "url": "https://411mania.com/wrestling/halls-tna-impact-wrestling-review-10-29-26/",
+          "published_at": "2026-11-01T00:06:39+00:00",
+          "source_name": "411Mania",
+          "status": "PUBLISHER_HEADLINE_LINK_ONLY"
+        },
+        {
           "headline": "10/29/26 TNA Impact Recap",
           "url": "https://gerweck.net/2026/10/30/10-29-26-tna-impact-recap/",
           "published_at": "2026-10-30T04:07:57+00:00",
@@ -185,14 +193,6 @@
           "url": "https://www.fightful.com/wrestling-news/tna-impact-results-10-29-slaughterhouse-syx-amazing-red-vs-cedric-alexander",
           "published_at": "2026-10-30T00:35:16+00:00",
           "source_name": "Fightful",
-          "status": "PUBLISHER_HEADLINE_LINK_ONLY",
-          "retained_from_previous": true
-        },
-        {
-          "headline": "TNA Impact live results: The Hardys vs. syX in a Slaughterhouse syX match",
-          "url": "https://www.f4wonline.com/news/tna-wrestling/tna-results/tna-impact-live-results-october-29-2026/",
-          "published_at": "2026-10-30T00:15:00+00:00",
-          "source_name": "F4W / Wrestling Observer",
           "status": "PUBLISHER_HEADLINE_LINK_ONLY",
           "retained_from_previous": true
         }

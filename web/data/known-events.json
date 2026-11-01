@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "mode": "KNOWN_PROVIDER_EVENT_IDENTIFIERS",
-  "generated_at": "2026-10-31T16:55:54.968164-04:00",
+  "generated_at": "2026-10-31T21:31:58.530097-04:00",
   "policy": "Identifiers only, retained 14 days after airdate to permit post-show lookup. Always re-fetch source event and recheck league/show/local day; never copy historic match claims.",
   "entries": [
     {
