@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "mode": "SOURCE_GATED_STAGING",
-  "generated_at": "2026-11-01T01:41:40.773Z",
+  "generated_at": "2026-11-01T05:26:42.207Z",
   "entries": [
     {
       "id": "weekly-upcoming-raw",
@@ -15,7 +15,7 @@
       "verification": "SOURCE_REPORTED",
       "has_content": false,
       "schedule_confirmed": true,
-      "checked_at": "2026-11-01T01:41:40.773Z",
+      "checked_at": "2026-11-01T05:26:42.207Z",
       "source_name": "Published episode schedule",
       "source_url": "https://broncos5523.github.io/Inside-the-squared-circle/data/snapshot.json",
       "venue": null
@@ -32,7 +32,7 @@
       "verification": "SOURCE_REPORTED",
       "has_content": false,
       "schedule_confirmed": true,
-      "checked_at": "2026-11-01T01:41:40.773Z",
+      "checked_at": "2026-11-01T05:26:42.207Z",
       "source_name": "Published episode schedule",
       "source_url": "https://broncos5523.github.io/Inside-the-squared-circle/data/snapshot.json",
       "venue": null
@@ -49,7 +49,7 @@
       "verification": "SOURCE_REPORTED",
       "has_content": false,
       "schedule_confirmed": true,
-      "checked_at": "2026-11-01T01:41:40.773Z",
+      "checked_at": "2026-11-01T05:26:42.207Z",
       "source_name": "Published episode schedule",
       "source_url": "https://broncos5523.github.io/Inside-the-squared-circle/data/snapshot.json",
       "venue": null
@@ -59,14 +59,14 @@
       "title": "AAA — Upcoming Show",
       "show": "aaa",
       "kind": "upcoming",
-      "airdate": "2026-10-31",
+      "airdate": "2026-11-07",
       "source_available": true,
       "design_approved": true,
       "content_status": "current",
       "verification": "SOURCE_REPORTED",
       "has_content": false,
       "schedule_confirmed": true,
-      "checked_at": "2026-11-01T01:41:40.773Z",
+      "checked_at": "2026-11-01T05:26:42.207Z",
       "source_name": "Published episode schedule",
       "source_url": "https://broncos5523.github.io/Inside-the-squared-circle/data/snapshot.json",
       "venue": null
@@ -83,25 +83,10 @@
       "verification": "SOURCE_REPORTED",
       "has_content": true,
       "schedule_confirmed": true,
-      "checked_at": "2026-11-01T01:41:40.773Z",
+      "checked_at": "2026-11-01T05:26:42.207Z",
       "source_name": "Wrestling Central News",
       "source_url": "https://wrestlingcentralnews.com/events/2026-11-05-tna-impact/",
       "venue": null
-    },
-    {
-      "id": "weekly-results-aaa",
-      "title": "AAA — Results & Fallout",
-      "show": "aaa",
-      "kind": "results",
-      "airdate": "2026-10-24",
-      "source_available": true,
-      "design_approved": true,
-      "content_status": "current",
-      "verification": "EDITORIALLY_VERIFIED",
-      "completed": true,
-      "checked_at": "2026-11-01T01:41:40.773Z",
-      "source_name": "WWE AAA Héroes Inmortales | Week 1 results, October 24, 2026",
-      "source_url": "https://www.wwe.com/shows/aaa/aaa-h-roes-inmortales-week-1-results"
     },
     {
       "id": "weekly-results-raw",
@@ -114,7 +99,7 @@
       "content_status": "current",
       "verification": "OFFICIAL_VERIFIED",
       "completed": true,
-      "checked_at": "2026-11-01T01:41:40.773Z",
+      "checked_at": "2026-11-01T05:26:42.207Z",
       "source_name": "WWE",
       "source_url": "https://www.wwe.com/shows/raw/2026-10-26/results"
     },
@@ -129,7 +114,7 @@
       "content_status": "current",
       "verification": "OFFICIAL_VERIFIED",
       "completed": true,
-      "checked_at": "2026-11-01T01:41:40.773Z",
+      "checked_at": "2026-11-01T05:26:42.207Z",
       "source_name": "WWE",
       "source_url": "https://www.wwe.com/shows/wwenxt/2026-10-27/results"
     },
@@ -144,7 +129,7 @@
       "content_status": "current",
       "verification": "OFFICIAL_VERIFIED",
       "completed": true,
-      "checked_at": "2026-11-01T01:41:40.773Z",
+      "checked_at": "2026-11-01T05:26:42.207Z",
       "source_name": "WWE",
       "source_url": "https://www.wwe.com/shows/smackdown/2026-10-30/results"
     },
@@ -159,27 +144,9 @@
       "content_status": "current",
       "verification": "OFFICIAL_VERIFIED",
       "completed": true,
-      "checked_at": "2026-11-01T01:41:40.773Z",
+      "checked_at": "2026-11-01T05:26:42.207Z",
       "source_name": "TNA Wrestling",
       "source_url": "https://tnawrestling.com/news/tna-thursday-night-impact-on-amc-results-october-29-2026"
-    },
-    {
-      "id": "preview-nxt_halloween_havoc_preview_v4_approved_locked_20261027-night_one",
-      "title": "NXT Halloween Havoc — Preview",
-      "show": "nxt",
-      "kind": "ple-preview",
-      "event_id": "nxt-halloween-havoc-2026",
-      "event_date": "2026-10-31",
-      "source_available": true,
-      "design_approved": true,
-      "content_status": "current",
-      "verification": "OFFICIAL_VERIFIED",
-      "date_confirmed": true,
-      "has_content": true,
-      "schedule_confirmed": true,
-      "checked_at": "2026-11-01T01:41:40.773Z",
-      "source_name": "WWE",
-      "source_url": "https://www.wwe.com/shows/nxtple/nxt-halloween-havoc-2026"
     },
     {
       "id": "preview-crown_jewel_preview_v1_approved_locked_20261027-night_one",
@@ -195,7 +162,7 @@
       "date_confirmed": true,
       "has_content": true,
       "schedule_confirmed": true,
-      "checked_at": "2026-11-01T01:41:40.773Z",
+      "checked_at": "2026-11-01T05:26:42.207Z",
       "source_name": "WWE",
       "source_url": "https://www.wwe.com/shows/wwe-crown-jewel/crown-jewel-2026"
     }
@@ -204,7 +171,7 @@
     "snapshot.json": {
       "schema_version": 1,
       "mode": "LIVE_SCHEDULES_ONLY",
-      "generated_at": "2026-11-01T01:31:44.559452+00:00",
+      "generated_at": "2026-11-01T05:09:15.928724+00:00",
       "fresh_shows": 6,
       "shows": [
         {
@@ -270,14 +237,14 @@
           "color": "#21C6AE",
           "category": "primary",
           "next": {
+            "date": "2026-11-07",
+            "time": null,
+            "title": "#42 - Héroes Inmortales (Week 3)"
+          },
+          "previous": {
             "date": "2026-10-31",
             "time": null,
             "title": "#41 - Héroes Inmortales (Week 2)"
-          },
-          "previous": {
-            "date": "2026-10-24",
-            "time": null,
-            "title": "WWE AAA Héroes Inmortales | Week 1 results, October 24, 2026"
           },
           "schedule_status": "fresh",
           "confirmed_matches": [],
@@ -326,7 +293,7 @@
     "reported.json": {
       "schema_version": 1,
       "mode": "REPORTED_MATCHES_UNVERIFIED",
-      "generated_at": "2026-11-01T01:41:40.773Z",
+      "generated_at": "2026-11-01T05:26:42.207Z",
       "display_attribution": "Wrestling Central News (wrestlingcentralnews.com)",
       "programs": [
         {
@@ -361,123 +328,6 @@
       ],
       "total_reported_matches": 3,
       "total_reported_appearances": 0
-    },
-    "aaa-verified-results.json": {
-      "schema_version": 1,
-      "mode": "EDITORIALLY_VERIFIED_OFFICIAL_RESULTS",
-      "source_policy": "Official-results-only, exact date. Winners only in match-result portraits; all contestants when no winner. Championship belt for verified current champion and championship storyline; preserve locally approved imagery and NEVER substitute an unrelated headshot. Héroes Inmortales Week 1 is a televised AAA episode, NOT Week 2.",
-      "programs": [
-        {
-          "show_id": "aaa",
-          "airdate": "2026-10-24",
-          "venue": "GIMNASIO OLÍMPICO JUAN DE LA BARRERA",
-          "location": "MEXICO CITY, MEXICO",
-          "source_name": "WWE AAA Héroes Inmortales | Week 1 results, October 24, 2026",
-          "source_url": "https://www.wwe.com/shows/aaa/aaa-h-roes-inmortales-week-1-results",
-          "secondary_url": "https://www.tpww.net/2026/10/aaa-heroes-inmortales-2026-week-1-results-oct-24-2026-el-grande-americano-vs-dominik-mysterio/",
-          "verification": "OFFICIAL_RESULTS_REVIEWED",
-          "segments": [
-            {
-              "id": "trios-title",
-              "kind": "result",
-              "category": "AAA WORLD TRIOS CHAMPIONSHIP",
-              "strap": "LOS PERROS DEL MAL RETAIN",
-              "headline": "LOS PERROS DEL MAL",
-              "subhead": "def. La Parka, Mr. Iguana & Niño Hamburguesa",
-              "detail": "Daga, Angel and Berto retained their titles after Daga pinned La Parka.",
-              "portraits": [
-                "daga",
-                "angel",
-                "berto"
-              ],
-              "portrait_rule": "winners_only",
-              "belt": "world_trios.png",
-              "ticker": "LOS PERROS DEL MAL RETAIN THE AAA WORLD TRIOS TITLES"
-            },
-            {
-              "id": "reina-retains",
-              "kind": "result",
-              "category": "REINA DE REINAS CHAMPIONSHIP",
-              "strap": "LA CATALINA RETAINS THE TITLE",
-              "headline": "LA CATALINA",
-              "subhead": "def. Flammer & La Hiedra",
-              "detail": "La Catalina pinned Flammer after a running knee to retain the Reina de Reinas title.",
-              "portraits": [
-                "la-catalina"
-              ],
-              "portrait_rule": "winners_only",
-              "belt": "reina_de_reinas.png",
-              "ticker": "LA CATALINA RETAINS THE REINA DE REINAS CHAMPIONSHIP"
-            },
-            {
-              "id": "mega-retains",
-              "kind": "result",
-              "category": "AAA MEGA CHAMPIONSHIP",
-              "strap": "EL GRANDE AMERICANO RETAINS",
-              "headline": "EL GRANDE AMERICANO",
-              "subhead": "def. Dominik Mysterio",
-              "detail": "Despite ringside interference, Americano prevailed with a running headbutt.",
-              "portraits": [
-                "el-grande-americano"
-              ],
-              "portrait_rule": "winners_only",
-              "belt": "mega.png",
-              "ticker": "EL GRANDE AMERICANO DEFEATS DOMINIK MYSTERIO"
-            },
-            {
-              "id": "big-mami-return",
-              "kind": "storyline",
-              "category": "TRIOS TITLE FALLOUT",
-              "strap": "BIG MAMI MAKES THE SAVE",
-              "headline": "BIG MAMI RETURNS",
-              "subhead": "Returns after the trios title match",
-              "detail": "Big Mami charged in after Los Perros del Mal attacked their opponents, confronting Karmen Petrovic.",
-              "portraits": [
-                "big-mami"
-              ],
-              "ticker": "BIG MAMI RETURNS TO CONFRONT KARMEN PETROVIC"
-            },
-            {
-              "id": "rey-intervention",
-              "kind": "storyline",
-              "category": "MEGA TITLE FALLOUT",
-              "strap": "REY MYSTERIO GETS INVOLVED",
-              "headline": "REY MYSTERIO",
-              "subhead": "Stops interference in the title match",
-              "detail": "Rey Mysterio confronted Omos and struck Dominik with a chair during Americano’s title defense.",
-              "portraits": [
-                "rey-mysterio"
-              ],
-              "ticker": "REY MYSTERIO INTERVENES AS AMERICANO RETAINS"
-            },
-            {
-              "id": "toxic-fallout",
-              "kind": "storyline",
-              "category": "REINA DE REINAS FALLOUT",
-              "strap": "LAS TÓXICAS TENSIONS RISE",
-              "headline": "FLAMMER / LA HIEDRA",
-              "subhead": "Dissension costs them the championship",
-              "detail": "Flammer and La Hiedra repeatedly argued during their failed title challenge.",
-              "portraits": [],
-              "ticker": "FLAMMER AND LA HIEDRA CLASH DURING TRIPLE THREAT"
-            },
-            {
-              "id": "fenix-open",
-              "kind": "storyline",
-              "category": "CRUISERWEIGHT TITLE DEVELOPMENT",
-              "strap": "CRUISERWEIGHT OPEN CHALLENGE",
-              "headline": "REY FÉNIX",
-              "subhead": "Title defense awaits on October 31",
-              "detail": "After Mini Vikingo was sidelined by an elbow injury, Fénix faced an open challenge for Week 2.",
-              "portraits": [
-                "rey-fenix"
-              ],
-              "belt": "cruiserweight.png",
-              "ticker": "REY FÉNIX CRUISERWEIGHT OPEN CHALLENGE SET FOR OCT 31"
-            }
-          ]
-        }
-      ]
     },
     "raw-verified-results.json": {
       "schema_version": 1,
@@ -827,63 +677,8 @@
     },
     "official-events.json": {
       "mode": "OFFICIAL_WWE_EVENT_PREVIEWS",
-      "generated_at": "2026-11-01T01:41:40.773Z",
+      "generated_at": "2026-11-01T05:26:42.207Z",
       "programs": [
-        {
-          "event_id": "nxt-halloween-havoc-2026",
-          "board_id": "preview-nxt_halloween_havoc_preview_v4_approved_locked_20261027-night_one",
-          "title": "NXT Halloween Havoc",
-          "show": "nxt",
-          "event_date": "2026-10-31",
-          "source_url": "https://www.wwe.com/shows/nxtple/nxt-halloween-havoc-2026",
-          "checked_at": "2026-11-01T01:41:40.773Z",
-          "verification": "OFFICIAL_VERIFIED",
-          "cards": [
-            {
-              "heading": "NXT CHAMPIONSHIP",
-              "left": "Tony D’Angelo",
-              "left_portrait": "tony-d-angelo",
-              "right": "Grayson Waller",
-              "right_portrait": "grayson-waller",
-              "source_names": [
-                "Grayson Waller",
-                "Tony D'Angelo"
-              ],
-              "footer": "NXT CHAMPIONSHIP • TITLE MATCH",
-              "belt": true,
-              "verified_heading": "Grayson Waller defends the NXT Championship against Tony D'Angelo"
-            },
-            {
-              "heading": "NXT WOMEN’S CHAMPIONSHIP",
-              "left": "Wren Sinclair",
-              "left_portrait": "wren-sinclair",
-              "right": "Kelani Jordan",
-              "right_portrait": "kelani-jordan",
-              "source_names": [
-                "Kelani Jordan",
-                "Wren Sinclair"
-              ],
-              "footer": "NXT WOMEN’S CHAMPIONSHIP • TITLE MATCH",
-              "belt": true,
-              "verified_heading": "Kelani Jordan defends the NXT Women's Championship against Wren Sinclair"
-            },
-            {
-              "heading": "NXT NORTH AMERICAN CHAMPION • NON-TITLE",
-              "left": "Izzi Dame",
-              "left_portrait": "izzi-dame",
-              "right": "Zaria",
-              "right_portrait": "zaria",
-              "source_names": [
-                "Zaria",
-                "Izzi Dame"
-              ],
-              "footer": "ZARIA VS. IZZI DAME • NON-TITLE MATCH",
-              "belt": false,
-              "verified_heading": "NXT Women’s North American Champion Zaria vs. Izzi Dame | Non-Title Match"
-            }
-          ],
-          "render_ready": true
-        },
         {
           "event_id": "wwe-crown-jewel-2026",
           "board_id": "preview-crown_jewel_preview_v1_approved_locked_20261027-night_one",
@@ -891,7 +686,7 @@
           "show": "wwe",
           "event_date": "2026-11-07",
           "source_url": "https://www.wwe.com/shows/wwe-crown-jewel/crown-jewel-2026",
-          "checked_at": "2026-11-01T01:41:40.773Z",
+          "checked_at": "2026-11-01T05:26:42.207Z",
           "verification": "OFFICIAL_VERIFIED",
           "cards": [
             {
@@ -945,9 +740,9 @@
     "programs_with_data": 1,
     "errors": 0,
     "snapshot_fresh": true,
-    "official_event_count": 2,
+    "official_event_count": 1,
     "official_event_warnings": [],
-    "approved_result_count": 1,
+    "approved_result_count": 0,
     "approved_result_warnings": [],
     "official_weekly_result_count": 4,
     "official_weekly_warnings": [],
