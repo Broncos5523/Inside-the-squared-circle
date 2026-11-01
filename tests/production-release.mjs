@@ -25,6 +25,8 @@ test('the main entry starts live playback under the GitHub project subpath',asyn
  let destination;
  runInNewContext(script,{URL,URLSearchParams,location:{href:'https://broncos5523.github.io/Inside-the-squared-circle/?id=weekly-results-tna',search:'?id=weekly-results-tna',replace:value=>{destination=value;}}});
  assert.equal(destination,'https://broncos5523.github.io/Inside-the-squared-circle/staging/?view=tv&mode=active&id=weekly-results-tna');
+ runInNewContext(script,{URL,URLSearchParams,location:{href:'https://broncos5523.github.io/Inside-the-squared-circle/?rotate=right',search:'?rotate=right',replace:value=>{destination=value;}}});
+ assert.equal(new URL(destination).searchParams.get('rotate'),'right');
 });
 
 test('production result cards resolve the new artwork within the GitHub Pages subpath',async()=>{

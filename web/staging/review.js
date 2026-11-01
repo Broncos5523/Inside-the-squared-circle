@@ -3,10 +3,26 @@
  var base=new URL('./',location.href).href,library,routes,feeds={},programming={entries:[]},active=[],visible=[],current=null,timer=null,token=0,mode='archive',refreshing=null,initialized=false,playing=false,advanceAt=0,minimumEnd=0,boardReady=false;
  var params=new URLSearchParams(location.search),byId=function(id){return document.getElementById(id);};
  function getJSON(path){return fetch(new URL(path,base),{cache:'no-store'}).then(function(r){if(!r.ok)throw Error(path+' unavailable');return r.json();});}
- function playbackUrl(id){var u=new URL(location.href);u.searchParams.set('view','tv');u.searchParams.set('mode','active');u.searchParams.set('id',id);u.searchParams.set('v','20261031-verified-delivery-5');return u.href;}
+ function playbackUrl(id){var u=new URL(location.href);u.searchParams.set('view','tv');u.searchParams.set('mode','active');u.searchParams.set('id',id);u.searchParams.set('v','20261101-onn-portrait-6');return u.href;}
  function rememberPosition(record){if(mode!=='active')return;try{history.replaceState({},'',playbackUrl(record.id));}catch(_){}}
  function label(record){if(record.id.indexOf('results-summerslam_night_one_')===0)return 'SummerSlam — Night One — Results & Fallout';if(record.id.indexOf('results-summerslam_night_two_')===0)return 'SummerSlam — Night Two — Results & Fallout';return record.label;}
- function scale(){var p=byId('preview'),screen=p.querySelector('.screen');p.style.height=(document.body.classList.contains('tv')?window.innerHeight:p.clientWidth*1280/720)+'px';var h=p.clientHeight,w=p.clientWidth,s=Math.min(w/720,h/1280);screen.style.transform='translateX(-50%) scale('+s+')';}
+ function scale(){
+  var p=byId('preview'),screen=p.querySelector('.screen'),tv=document.body.classList.contains('tv');
+  p.style.height=(tv?window.innerHeight:p.clientWidth*1280/720)+'px';
+  var h=p.clientHeight,w=p.clientWidth,requested=params.get('rotate'),turn='none';
+  // A physically upright TV still receives a landscape ONN/Google TV signal.
+  // Rotate the outer playback surface; the approved 720 x 1280 board is intact.
+  if(tv)turn=requested==='left'||requested==='right'||requested==='none'?requested:(w>h?'left':'none');
+  screen.dataset.rotation=turn;
+  if(turn!=='none'){
+   var rotatedScale=Math.min(w/1280,h/720);
+   screen.style.top='50%';screen.style.transformOrigin='center center';
+   screen.style.transform='translate(-50%,-50%) rotate('+(turn==='left'?-90:90)+'deg) scale('+rotatedScale+')';
+  }else{
+   screen.style.top='0';screen.style.transformOrigin='top center';
+   screen.style.transform='translateX(-50%) scale('+Math.min(w/720,h/1280)+')';
+  }
+ }
  function setTv(enabled){document.body.classList.toggle('tv',enabled);if(enabled)byId('gallery').replaceChildren();else if(mode==='archive'&&library&&!byId('gallery').childNodes.length)gallery('All designs');byId('review-panel').dataset.mode=mode==='archive'?'ARCHIVE DESIGN REVIEW':'';scale();}
  function waitingForVerified(){
   // Never fall back to the 67-board archive carousel in production playback.

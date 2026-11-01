@@ -12,4 +12,4 @@ The production workflow first collects schedules and the existing permitted feed
 
 The staging validation workflows remain push/manual checks and do not independently schedule production writes. The production workflow commits refreshed programming together with the existing feeds and publishes one matching Pages artifact. Its post-deployment check compares the entry page, live feed, playback scripts, and both new portrait files to that artifact.
 
-Public hosting clearance was confirmed by the owner on October 30, 2026. The separate sports-board project is outside this repository and is unchanged. Actual Fire TV/Silk playback remains a device check; desktop browser QA does not substitute for it.
+Public hosting clearance was confirmed by the owner on October 30, 2026. The separate sports-board project is outside this repository and is unchanged. Actual ONN/TV Bro playback remains a device check; desktop browser QA does not substitute for it.

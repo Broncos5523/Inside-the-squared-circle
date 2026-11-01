@@ -13,6 +13,8 @@
  target.searchParams.set('view','tv');target.searchParams.set('mode','active');
  var id=new URLSearchParams(location.search).get('id');
  if(id&&/^[a-z0-9_-]+$/.test(id))target.searchParams.set('id',id);
+ var rotate=new URLSearchParams(location.search).get('rotate');
+ if(rotate==='left'||rotate==='right'||rotate==='none')target.searchParams.set('rotate',rotate);
  location.replace(target.href);
 })();
 </script></body></html>
