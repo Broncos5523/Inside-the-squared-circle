@@ -35,7 +35,8 @@ export async function collectReviewedArchiveFallback({library,now,root,snapshot,
    // Source spines sometimes label an unaired show as previous earlier in the
    // same day. Accept the verified prior broadcast in that narrow case only.
    const sameDayRollover=expected===today&&age>=0&&age<=8;
-   if(program.airdate!==expected&&!sameDayRollover)continue;
+   const lastVerifiedAaa=show==='aaa'&&expected>=program.airdate&&expected<=today;
+   if(program.airdate!==expected&&!sameDayRollover&&!lastVerifiedAaa)continue;
    if(program.airdate>today||!Number.isFinite(age))continue;
    const url=new URL(program.source_url);
    const hosts={aaa:['wwe.com','www.wwe.com'],raw:['wwe.com','www.wwe.com'],nxt:['wwe.com','www.wwe.com'],smackdown:['wwe.com','www.wwe.com'],tna:['tnawrestling.com','www.tnawrestling.com']};

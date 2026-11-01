@@ -90,7 +90,7 @@ const WRITTEN_DATE=/\b(January|February|March|April|May|June|July|August|Septemb
 const MONTHS=['jan','feb','mar','apr','may','jun','jul','aug','sep','oct','nov','dec'];
 const SPECULATIVE=/\b(?:prediction|predicts?|fantasy booking|might|could|possibly|rumou?r|dark match|spoilers?|injured|cancelled|canceled|postponed|defeated|defeats|retained|pinned|winner)\b/i;
 const SHOW_TOKENS={raw:/\braw\b/i,smackdown:/\bsmack\s?down\b/i,nxt:/\bnxt\b/i,tna:/\b(?:tna|impact)\b/i};
-function articleDates(text,iso){
+export function articleDates(text,iso){
  const [yr,mo,day]=iso.split('-').map(Number);let match=false,invalid=false;let m;
  if(text.includes(iso))match=true;
  HEADLINE_DATE.lastIndex=0;

@@ -40,7 +40,11 @@ test('incorrect official headline date rejects otherwise approved results',async
  const result=await collectReviewedArchiveFallback({...args,now});
  assert.equal(result.entries.length,0);assert.ok(result.warnings[0].includes('date/title'));
 });
-test('never reuse a stale reviewed result if another previous show date was reported',async()=>{
- const args=await fixture();args.snapshot.shows[0].previous.date='2026-10-30';
+test('a later schedule date does not erase the last source-verified AAA episode',async()=>{
+ const args=await fixture();args.snapshot.shows[0].previous.date='2026-10-31';
+ const result=await collectReviewedArchiveFallback({...args,now:new Date('2026-11-01T18:00:00Z')});assert.deepEqual(result.entries.map(x=>x.airdate),['2026-10-24']);
+});
+test('a source schedule cannot move the verified AAA episode backwards',async()=>{
+ const args=await fixture();args.snapshot.shows[0].previous.date='2026-10-17';
  const result=await collectReviewedArchiveFallback({...args,now});assert.deepEqual(result.entries,[]);
 });

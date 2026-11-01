@@ -112,6 +112,29 @@
   window.addEventListener('load',function(){setTimeout(function(){
    installCycleReporter();
    populateOfficialEvent();
+   if(config.mode==='active'&&config.eventResults){
+    var results=config.eventResults,champions=results.matches.filter(function(m){return !!m.belt_url;}),others=results.matches.filter(function(m){return !m.belt_url;}),cardIndex=0;
+    function drawResult(selector,match){
+     var panel=document.querySelector(selector);if(!panel||!match)return;
+     panel.querySelector('.name').textContent=match.headline;
+     panel.querySelector('.detail').textContent=match.subhead;
+     panel.querySelector('.eyebrow').textContent=match.detail;
+     var portrait=panel.querySelector('.portrait');portrait.style.display=match.portrait_url?'':'none';if(match.portrait_url)portrait.src=match.portrait_url;
+     var belt=panel.querySelector('.belt');belt.style.display=match.belt_url?'':'none';if(match.belt_url)belt.src=match.belt_url;
+     var demo=panel.querySelector('.demo');if(demo)demo.style.display='none';
+    }
+    var sections=document.querySelectorAll('.section small');
+    function renderEventResults(){
+     drawResult('.hero',champions[cardIndex%champions.length]);drawResult('.second',others[cardIndex%others.length]);
+     if(sections[0])sections[0].textContent='OCTOBER 31, 2026';
+     if(sections[1])sections[1].textContent=String(cardIndex%others.length+1)+' / '+others.length;
+     cardIndex++;
+    }
+    document.querySelector('.fallout').textContent=results.fallout;
+    document.querySelector('.notice').textContent='NXT HALLOWEEN HAVOC • OCTOBER 31, 2026';
+    var ticker=document.querySelector('.tickertext span'),words=results.matches.map(function(m){return m.headline+' '+m.subhead;}).join(' ◆ ')+' ◆ '+results.fallout+' ◆ ';
+    ticker.textContent=words+words;renderEventResults();setInterval(renderEventResults,14000);
+   }
    if(config.mode==='active'){
     var venue=document.getElementById('wb-venue'),city=document.getElementById('wb-city');
     var oldLocation=[venue&&venue.textContent,city&&city.textContent].filter(Boolean);
@@ -194,9 +217,10 @@ function evolveApplyVerifiedEpisode(html,payload){
   // Extend its accepted source contract only in ACTIVE in-memory playback.
   if(mode==='active'&&record.category==='Weekly Results'){
    html=html.replace(/data\?\.mode!=='EDITORIALLY_VERIFIED_OFFICIAL_RESULTS'/g,
-    "(data?.mode!=='EDITORIALLY_VERIFIED_OFFICIAL_RESULTS'&&data?.mode!=='OFFICIAL_EXTRACTED_RESULTS')");
+    "(data?.mode!=='EDITORIALLY_VERIFIED_OFFICIAL_RESULTS'&&data?.mode!=='OFFICIAL_EXTRACTED_RESULTS'&&data?.mode!=='SOURCE_CORROBORATED_RESULTS')");
    html=html.replace(/p\.verification==='OFFICIAL_RESULTS_REVIEWED'/g,
-    "(p.verification==='OFFICIAL_RESULTS_REVIEWED'||p.verification==='OFFICIAL_SOURCE_EXTRACTED')");
+    "(p.verification==='OFFICIAL_RESULTS_REVIEWED'||p.verification==='OFFICIAL_SOURCE_EXTRACTED'||p.verification==='SOURCE_CORROBORATED')");
+   if(record.id==='weekly-results-aaa'&&feeds?.['aaa-verified-results.json']?.mode==='SOURCE_CORROBORATED_RESULTS')html=html.replace("p.source_url?.startsWith('https://www.wwe.com/shows/aaa/')","(p.source_url?.startsWith('https://www.wwe.com/shows/aaa/')||p.source_url?.startsWith('https://www.fightful.com/wrestling/'))");
   }
   var night=/summerslam.*preview/i.test(record.id)?(/night_two/i.test(record.id)?2:1):null;
   var query=(record.href.split('?')[1]||'')+(mode==='archive'?'&demo=1':'&live=1')+(night?'&card='+night:'');
@@ -225,6 +249,19 @@ function evolveApplyVerifiedEpisode(html,payload){
     if(cards.length===3&&cards.every(function(c){return c.left_image&&c.right_image;})){
      officialEvent={event_id:available.event_id,cards:cards};
     }
+   }
+  }
+  var eventResults=null;
+  if(mode==='active'&&record.category==='PLE Results'){
+   var verified=(feeds&&feeds['official-event-results.json']?.programs||[]).find(function(p){return p.board_id===record.id&&p.verification==='OFFICIAL_SOURCE_EXTRACTED';});
+   function eventAsset(kind,name){
+    var suffix='/assets/'+kind+'/'+name;
+    var key=Object.keys(routes).find(function(k){return k.indexOf('/boards/RESULTS/NXT/')===0&&k.endsWith(suffix);})||Object.keys(routes).find(function(k){return k.endsWith(suffix);});
+    return key?new URL('originals'+routes[key],assetBase).href:null;
+   }
+   if(verified){
+    var matchResults=verified.matches.map(function(m){return Object.assign({},m,{portrait_url:m.portraits?.[0]?eventAsset('portraits',m.portraits[0]+'.png'):null,belt_url:m.belt?eventAsset('belts',m.belt):null});});
+    if(matchResults.filter(function(m){return m.belt_url;}).length===2&&matchResults.some(function(m){return !m.belt_url;}))eventResults={matches:matchResults,fallout:verified.fallout};
    }
   }
   var resultPortraits={},resultBelts={};
@@ -263,7 +300,7 @@ function evolveApplyVerifiedEpisode(html,payload){
    var ownFeed=ownShow+'-verified-results.json';
    if(/^(aaa|nxt|tna)$/.test(ownShow)&&boardFeeds[ownFeed])boardFeeds[ownFeed]=addApprovedPortraits(JSON.parse(JSON.stringify(boardFeeds[ownFeed])));
   }
-  var config={weeklyResults:record.category==='Weekly Results',id:record.id,logical:logical,base:assetBase,routes:boardMap,mode:mode,feeds:boardFeeds,night:night,source_credit:record.source_credit||null,current_location:record.current_location||null,live_preview:record.category==='Weekly Upcoming',officialEvent:officialEvent,resultPortraits:resultPortraits,resultBelts:resultBelts};
+  var config={weeklyResults:record.category==='Weekly Results',id:record.id,logical:logical,base:assetBase,routes:boardMap,mode:mode,feeds:boardFeeds,night:night,source_credit:record.source_credit||null,current_location:record.current_location||null,live_preview:record.category==='Weekly Upcoming',officialEvent:officialEvent,eventResults:eventResults,resultPortraits:resultPortraits,resultBelts:resultBelts};
   var injected='<base href="'+new URL('originals'+prefix,base).href+'"><script>('+shim.toString()+')('+JSON.stringify(config).replace(/</g,'\\u003c')+');<\/script>';
   return html.replace(/<head(?:\s[^>]*)?>/i,function(head){return head+injected;});
  }

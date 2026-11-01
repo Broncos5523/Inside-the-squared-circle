@@ -5,7 +5,8 @@ const SOURCES={
  raw:{host:'www.wwe.com',path:d=>'/shows/raw/'+d+'/results',label:'Raw',source:'WWE'},
  nxt:{host:'www.wwe.com',path:d=>'/shows/wwenxt/'+d+'/results',label:'NXT',source:'WWE'},
  smackdown:{host:'www.wwe.com',path:d=>'/shows/smackdown/'+d+'/results',label:'SmackDown',source:'WWE'},
- tna:{host:'tnawrestling.com',path:d=>{const [year,month,day]=d.split('-');const name=['','january','february','march','april','may','june','july','august','september','october','november','december'][Number(month)];return '/news/tna-thursday-night-impact-on-amc-results-'+name+'-'+Number(day)+'-'+year;},label:'TNA',source:'TNA Wrestling'}
+ tna:{host:'tnawrestling.com',path:d=>{const [year,month,day]=d.split('-');const name=['','january','february','march','april','may','june','july','august','september','october','november','december'][Number(month)];return '/news/tna-thursday-night-impact-on-amc-results-'+name+'-'+Number(day)+'-'+year;},label:'TNA',source:'TNA Wrestling'},
+ aaa:{host:'www.wwe.com',path:d=>'/shows/aaa',label:'AAA',source:'WWE'}
 };
 const SHORT=['','Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
 const LONG=['','January','February','March','April','May','June','July','August','September','October','November','December'];
@@ -29,6 +30,7 @@ function splitOutcome(line){
  const bits=line.split(/\s+def(?:\.|eated)\s+/i);
  if(bits.length!==2)return null;
  let winner=bits[0].trim();
+ winner=winner.replace(/\s*\(c\)\s*$/i,'').replace(/^NXT\s+(?:Women['’]s\s+)?Champion\s+/i,'');
  winner=winner.replace(/^(?:(?:TNA )?(?:Knockouts TV|X-Division|North American|World Tag Team|NXT North American)\s+Champion\s+)/i,'')
   .replace(/\s+acc\.\s+by\s+.*$/i,'').trim();
  let loser=bits[1].split(/\s+(?:by\s+Disqualification|in\s+(?:(?:a|an|the)\s+)?(?:No\s+Disqualification|WWE\s+Women's?|AAA\s+World|Undisputed\s+WWE|Dusty\s+Rhodes))|\s*\|\s*|\s+-\s+(?:Singles Match|TNA|No Disqualification)|\s+–\s+/i)[0].trim();
@@ -75,7 +77,7 @@ function beltFor(show,line,routes){
  }
  return null;
 }
-function segment(line,show,index,routes,day){
+export function segment(line,show,index,routes,day){
  const outcome=splitOutcome(line);if(!outcome)return null;
  const photos=slugsFor(outcome.winner).filter(slug=>portraitExists(routes,slug));
 
@@ -98,8 +100,20 @@ export async function collectOfficialWeeklyResults({library,routes,snapshot,now=
   const last=snapshot.shows.find(x=>x.id===show)?.previous?.date;
   const board=library.records.find(x=>x.id==='weekly-results-'+show);
   if(!board?.source_available||!board.design_approved||!last||!/^\d{4}-\d{2}-\d{2}$/.test(last)||last>today)continue;
-  const url='https://'+spec.host+spec.path(last);
+  let url='https://'+spec.host+spec.path(last);
   try{
+   if(show==='aaa'){
+    const index=await requester(url,{headers:{Accept:'text/html'}});if(!index.ok)throw Error('AAA result index unavailable');
+    const listing=await index.text(),links=[...listing.matchAll(/href=["']([^"']+(?:results|\/2026-)[^"']*)["']/gi)].map(m=>new URL(m[1],'https://www.wwe.com').href).filter(u=>u.startsWith('https://www.wwe.com/shows/aaa/'));
+    let found=null;
+    for(const candidate of [...new Set(links)].slice(0,5)){
+     const r=await requester(candidate,{headers:{Accept:'text/html'}});if(!r.ok)continue;
+     const text=await r.text(),title=decode(text.match(/<title\b[^>]*>([\s\S]*?)<\/title>/i)?.[1]||'');
+     if(/AAA/i.test(title)&&/results/i.test(title)&&dateMatchesTitle(title,last)){found=candidate;break;}
+    }
+    if(!found)throw Error('Latest scheduled AAA episode has no dated official results yet');
+    url=found;
+   }
    const response=await requester(url,{redirect:'error',headers:{Accept:'text/html'}});
    if(!response.ok)throw Error('Official results HTTP '+response.status);
    const html=await response.text();
