@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "mode": "PUBLISHER_RSS_POST_SHOW_LINKS_ONLY",
-  "generated_at": "2026-10-31T21:32:26.064604-04:00",
+  "generated_at": "2026-11-01T01:09:49.772345-04:00",
   "source_name": "Multiple publisher RSS feeds",
   "source_url": "https://www.f4wonline.com/rss.xml",
   "approved_publishers": [
@@ -121,7 +121,8 @@
           "url": "https://411mania.com/wrestling/halls-wwe-nxt-review-10-27-26/",
           "published_at": "2026-10-28T23:52:54+00:00",
           "source_name": "411Mania",
-          "status": "PUBLISHER_HEADLINE_LINK_ONLY"
+          "status": "PUBLISHER_HEADLINE_LINK_ONLY",
+          "retained_from_previous": true
         },
         {
           "headline": "Maple Leaf Pro Title Match Set For PRODUCE Event, WWE NXT Highlights, More | Fight Size",
@@ -143,7 +144,8 @@
           "url": "https://411mania.com/wrestling/cooks-wwe-nxt-review-10-27-26/",
           "published_at": "2026-10-28T02:18:12+00:00",
           "source_name": "411Mania",
-          "status": "PUBLISHER_HEADLINE_LINK_ONLY"
+          "status": "PUBLISHER_HEADLINE_LINK_ONLY",
+          "retained_from_previous": true
         }
       ],
       "source_name": "Multiple publisher RSS feeds",
@@ -161,9 +163,9 @@
       "airdate": "2026-10-29",
       "links": [
         {
-          "headline": "Hall’s TNA Impact Wrestling Review – 10.29.26",
+          "headline": "Hall’s TNA Impact Wrestling Review 10.29.26",
           "url": "https://411mania.com/wrestling/halls-tna-impact-wrestling-review-10-29-26/",
-          "published_at": "2026-11-01T00:06:39+00:00",
+          "published_at": "2026-11-01T02:01:39+00:00",
           "source_name": "411Mania",
           "status": "PUBLISHER_HEADLINE_LINK_ONLY"
         },
@@ -247,7 +249,7 @@
     }
   ],
   "total_links": 25,
-  "retained_link_count": 12,
+  "retained_link_count": 14,
   "collection_status": "ok",
   "successful_feed_urls": [
     "https://www.f4wonline.com/rss.xml",
