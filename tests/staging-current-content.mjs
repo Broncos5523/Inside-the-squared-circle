@@ -16,6 +16,7 @@ test('dated RAW event cards provide matches, appearances, and the special start 
  assert.equal(got.matches.length,3);assert.equal(got.start_time,'18:00');
  assert.deepEqual(got.appearances.map(x=>x.text).sort(),['John Cena','Roman Reigns']);
  assert.ok(!got.matches.some(x=>/Owens|Sami/.test(x.text)));
+ assert.equal(playlist.dwellMs({kind:'upcoming',show:'raw',airdate:'2026-11-02'},{'reported.json':{programs:[{show_id:'raw',airdate:'2026-11-02',...got}]}},45000),90500);
  assert.deepEqual(parseDatedEventBrief(html,'raw','2026-11-09',routes),{matches:[],appearances:[]});
 });
 test('a conflicting article date or NXT article cannot enter the RAW preview',()=>{

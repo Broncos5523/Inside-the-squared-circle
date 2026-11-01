@@ -74,6 +74,11 @@
  // result board off at 45 seconds would hide most of a 5-7-segment episode.
  function dwellMs(entry,feeds,selectedMs){
   var base=Math.max(20000,Number(selectedMs)||45000);
+  if(entry&&entry.kind==='upcoming'){
+   var preview=feeds&&feeds['reported.json']?.programs?.find(function(p){return p.show_id===entry.show&&p.airdate===entry.airdate;});
+   var slides=(preview?.matches?.length||0)+(preview?.appearances?.length||0)+1;
+   return Math.max(base,slides*14000+6500);
+  }
   if(entry&&entry.kind==='ple-results'){
    var event=feeds&&feeds['official-event-results.json']?.programs?.find(function(p){return p.board_id===entry.id;});
    if(event?.matches){var champions=event.matches.filter(function(m){return !!m.belt;}).length;return Math.max(base,Math.max(champions,event.matches.length-champions)*14000+6500);}

@@ -17,6 +17,7 @@ export async function collectOfficialEventResults({library,routes,now=new Date()
   const matches=lines.map((line,i)=>{
    const result=segment(line,'nxt',i,routes,date);if(!result)return null;
    result.id='halloween-2026-'+(i+1);result.detail=line.includes('|')?line.split('|').at(-1).trim().toUpperCase():'MATCH RESULT';
+   result.subhead=result.subhead.replace(/^def\.\s+NXT\s+(?:Women['’]s\s+)?(?:North American\s+)?Champion\s+/i,'def. ');
    delete result.belt;
    if(/^NXT Champion\s/i.test(line))result.belt='nxt_championship.png';
    if(/^NXT Women['’]s Champion\s/i.test(line))result.belt='nxt_womens_championship.png';
