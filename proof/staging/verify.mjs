@@ -9,7 +9,12 @@ for(const row of library.records){
  const path='originals'+row.href.split('?')[0];
  const bytes=await readFile(new URL(path,root));
  if(createHash('sha256').update(bytes).digest('hex')!==row.original_sha256)throw Error('Original HTML hash mismatch: '+row.id);
- if(row.delivery){const delivered=await readFile(new URL(row.delivery,root));if(createHash('sha256').update(delivered).digest('hex')!==row.delivery_sha256)throw Error('Delivery HTML hash mismatch: '+row.id);}
+ if(row.delivery){
+  const delivered=await readFile(new URL(row.delivery,root));
+  if(createHash('sha256').update(delivered).digest('hex')!==row.delivery_sha256)throw Error('Delivery HTML hash mismatch: '+row.id);
+  const payload=await readFile(new URL('delivery/payloads/'+row.delivery_sha256+'.bin',root));
+  if(!payload.equals(delivered))throw Error('Delivery payload changed: '+row.id);
+ }
  html++;
 }
 const embedded=JSON.parse(await readFile(new URL('delivery-assets.json',root),'utf8'));

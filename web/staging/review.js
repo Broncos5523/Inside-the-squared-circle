@@ -3,7 +3,7 @@
  var base=new URL('./',location.href).href,library,routes,feeds={},programming={entries:[]},active=[],visible=[],current=null,timer=null,token=0,mode='archive',refreshing=null,initialized=false,playing=false,advanceAt=0,minimumEnd=0,boardReady=false;
  var params=new URLSearchParams(location.search),byId=function(id){return document.getElementById(id);};
  function getJSON(path){return fetch(new URL(path,base),{cache:'no-store'}).then(function(r){if(!r.ok)throw Error(path+' unavailable');return r.json();});}
- function playbackUrl(id){var u=new URL(location.href);u.searchParams.set('view','tv');u.searchParams.set('mode','active');u.searchParams.set('id',id);u.searchParams.set('v','20261031-headshots-4');return u.href;}
+ function playbackUrl(id){var u=new URL(location.href);u.searchParams.set('view','tv');u.searchParams.set('mode','active');u.searchParams.set('id',id);u.searchParams.set('v','20261031-verified-delivery-5');return u.href;}
  function rememberPosition(record){if(mode!=='active')return;try{history.replaceState({},'',playbackUrl(record.id));}catch(_){}}
  function label(record){if(record.id.indexOf('results-summerslam_night_one_')===0)return 'SummerSlam — Night One — Results & Fallout';if(record.id.indexOf('results-summerslam_night_two_')===0)return 'SummerSlam — Night Two — Results & Fallout';return record.label;}
  function scale(){var p=byId('preview'),screen=p.querySelector('.screen');p.style.height=(document.body.classList.contains('tv')?window.innerHeight:p.clientWidth*1280/720)+'px';var h=p.clientHeight,w=p.clientWidth,s=Math.min(w/720,h/1280);screen.style.transform='translateX(-50%) scale('+s+')';}
@@ -23,6 +23,24 @@
  function schedule(){var ms=Number(byId('duration').value)*1000;minimumEnd=Date.now()+Math.max(20000,ms);if(mode==='active'&&current){var entry=active.find(function(x){return x.id===current.id;});if(entry&&ISCPlaylist.dwellMs)ms=ISCPlaylist.dwellMs(entry,feeds,ms);}armAdvance(ms);}
  function checkAdvance(){if(playing&&current&&!document.hidden&&advanceAt&&Date.now()>=advanceAt)step(1,true);}
  function step(delta,keepPlaying){var list=candidates();if(!list.length)return;var pos=list.findIndex(function(r){return current&&r.id===current.id;});choose(list[(Math.max(pos,0)+delta+list.length)%list.length],keepPlaying);}
+ async function verifiedSource(record){
+  var expected=record.delivery_sha256||record.original_sha256;
+  if(!/^[a-f0-9]{64}$/.test(expected)||!window.crypto||!crypto.subtle)throw Error('This browser cannot verify the approved board');
+  var path=record.delivery?'delivery/payloads/'+expected+'.bin':'originals'+record.href.split('?')[0],lastError;
+  // Immutable binary transport avoids stale HTML responses and host HTML rewriting.
+  // Verify before decoding, and retry a failed transfer once with a fresh request.
+  for(var attempt=0;attempt<2;attempt++){
+   try{
+    var url=new URL(path,base);if(attempt)url.searchParams.set('retry',String(Date.now()));
+    var response=await fetch(url,{cache:'no-store'});if(!response.ok)throw Error('Board source request failed');
+    var bytes=await response.arrayBuffer(),digest=await crypto.subtle.digest('SHA-256',bytes);
+    var hash=Array.from(new Uint8Array(digest)).map(function(n){return n.toString(16).padStart(2,'0');}).join('');
+    if(hash!==expected)throw Error('Original source delivery integrity check failed');
+    return bytes;
+   }catch(error){lastError=error;}
+  }
+  throw lastError;
+ }
  async function choose(record,keepPlaying){
   if(timer)clearTimeout(timer);timer=null;advanceAt=0;boardReady=false;if(!keepPlaying)stop();else playing=true;current=record;var mine=++token;var previousFrame=byId('board'),frame=previousFrame.cloneNode(false);frame.removeAttribute('srcdoc');frame.removeAttribute('src');previousFrame.replaceWith(frame);frame.classList.remove('ready');byId('loading').hidden=false;byId('loading').style.display='grid';
   rememberPosition(record);byId('board-title').textContent=label(record);var list=candidates();byId('board-count').textContent=Math.max(0,list.findIndex(function(r){return r.id===record.id;}))+1+' / '+list.length;
@@ -30,9 +48,7 @@
   if(!record.source_available){frame.srcdoc='';byId('loading').textContent='Final Evolve board awaiting recovery. The approved design has not been substituted.';return;}
   byId('loading').textContent='Loading original source…';
   try{
-   var response=await fetch(new URL(record.delivery||('originals'+record.href.split('?')[0]),base));if(!response.ok)throw Error('Source request failed');
-   var bytes=await response.arrayBuffer();
-   if(window.crypto&&crypto.subtle){var digest=await crypto.subtle.digest('SHA-256',bytes);var hash=Array.from(new Uint8Array(digest)).map(function(n){return n.toString(16).padStart(2,'0');}).join('');if(hash!==(record.delivery_sha256||record.original_sha256))throw Error('Original source delivery integrity check failed');}
+   var bytes=await verifiedSource(record);
    var html=new TextDecoder().decode(bytes);if(mine!==token)return;
    var selectedEntry=mode==='active'?active.find(function(e){return e.id===record.id;}):null;
    var renderRecord=selectedEntry?Object.assign({},record,{source_credit:selectedEntry.source_name,current_location:selectedEntry.venue||null}):record;

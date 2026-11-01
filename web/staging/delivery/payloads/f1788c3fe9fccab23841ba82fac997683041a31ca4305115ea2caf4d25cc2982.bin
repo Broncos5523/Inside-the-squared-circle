@@ -1,0 +1,259 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><meta name="theme-color" content="#071b37"><title>Man Cave Sports Book — Survivor Series Results &amp; Fallout — Review</title><style>
+*{box-sizing:border-box}html,body{margin:0;height:100%;width:100%;overflow:hidden;background:#060705;color:#fff}body{font-family:Arial,Helvetica,sans-serif;display:grid;place-items:center}#board{width:720px;height:1280px;position:relative;isolation:isolate;overflow:hidden;background:#06140a;transform-origin:center}
+.arena{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:0}.tint{position:absolute;inset:0;z-index:1;background:linear-gradient(180deg,#020301ce 0%,#061407d9 21%,#133817ac 38%,#040806e5 62%,#010302fc 100%)}.beam{position:absolute;z-index:2;top:205px;height:575px;width:100px;filter:blur(51px);opacity:.18;background:#e7c260}.beam.left{left:-72px;transform:rotate(-10deg)}.beam.right{right:-72px;transform:rotate(10deg)}
+.brand{position:absolute;z-index:6;top:0;left:48px;width:624px;height:187px;object-fit:contain;filter:drop-shadow(0 5px 7px #000e)}.brandkicker{position:absolute;z-index:5;top:179px;left:0;width:100%;text-align:center;color:#f4da99;letter-spacing:3px;font-size:13px;font-weight:900;text-shadow:0 2px 4px #000}
+.eventplate{position:absolute;z-index:5;top:205px;left:114px;width:492px;height:143px;display:grid;place-items:center}.eventplate:before{content:'';position:absolute;inset:4px;background:radial-gradient(ellipse,#fbd88745,transparent 73%);filter:blur(14px)}.eventplate img{position:relative;width:100%;height:100%;object-fit:contain;filter:drop-shadow(0 3px 4px #000e) drop-shadow(0 0 10px #f5c34f6a)}
+.barMask{position:absolute;z-index:4;left:0;right:0;top:310px;height:153px;pointer-events:none;background:linear-gradient(180deg,#06150900 0%,#061509dc 24%,#051109f6 53%,#030a05fe 100%)}
+.resultsbar{position:absolute;z-index:6;top:350px;left:84px;right:84px;height:90px;text-align:center;background:linear-gradient(90deg,transparent,#3e2b0ddc 16%,#0e2611eb 52%,#3e2b0ddc 85%,transparent);border-top:2px solid #c89c44;border-bottom:2px solid #c89c44;padding:9px 0 0}.resultsbar h1{margin:0;font:900 36px/1.04 Impact,'Arial Black',sans-serif;letter-spacing:2.9px;color:#ffefce;text-shadow:0 3px #000,0 0 12px #d8ab535e}.resultsbar p{margin:9px 0 0;font-weight:900;letter-spacing:2px;color:#e6cc8e;font-size:13px}
+.frame{position:absolute;z-index:7;top:461px;left:19px;right:19px;height:736px;padding:6px;background:linear-gradient(138deg,#ffedb0,#b88b42 4%,#1b2719 9%,#142118 92%,#9e762d 97%,#ffebac);clip-path:polygon(0 17px,17px 0,calc(100% - 17px) 0,100% 17px,100% calc(100% - 19px),calc(100% - 19px) 100%,19px 100%,0 calc(100% - 19px));box-shadow:0 0 30px #d9ae4250}.inner{height:100%;clip-path:inherit;background:linear-gradient(148deg,#122f1c,#080b0c 41%,#0b180d 72%,#040706);padding:10px 12px 9px;border:1px solid #6e773d}
+.topstrip{height:29px;display:flex;align-items:center;justify-content:space-between;gap:8px;padding:0 10px;background:linear-gradient(90deg,#386d2f,#0d2414 33%,#153518 72%,#58722d);border-left:3px solid #efcb75;border-right:3px solid #e7c373;color:#f9e8ba;font-size:11px;font-weight:900;letter-spacing:1px}.topstrip .nightlabel{font-size:13px;color:#fff4ce}
+.section{height:38px;display:flex;align-items:center;justify-content:space-between;padding:0 3px;gap:5px}.section h2{margin:0;font:900 23px Impact,'Arial Black',sans-serif;letter-spacing:1px;color:#fff4da;text-shadow:0 2px #000}.section small{font-size:10px;font-weight:900;color:#dabb75;text-align:right;letter-spacing:.65px}
+.mainResult{height:274px;position:relative;overflow:hidden;border:2px solid #ae8a48;background:radial-gradient(ellipse at 72% 55%,#5c7b344a,transparent 67%),linear-gradient(135deg,#274021,#080b0c 60%,#22351b);box-shadow:inset 0 0 23px #000c}.mainResult:before{content:'';position:absolute;top:5px;left:10px;right:10px;height:3px;background:linear-gradient(90deg,transparent,#ffe9af,transparent)}
+.mainLabel{position:absolute;z-index:5;top:17px;left:16px;max-width:414px;font-size:12px;color:#e0c688;letter-spacing:1.5px;font-weight:900;text-shadow:0 2px #000}.mainCopy{position:absolute;left:16px;top:48px;bottom:14px;width:389px;z-index:5;display:flex;flex-direction:column;justify-content:center;gap:9px;overflow:hidden}.mainName{font:900 51px/.99 Impact,'Arial Black',sans-serif;color:#fff4dc;letter-spacing:.45px;text-transform:uppercase;text-shadow:0 3px 2px #000,0 0 10px #000;max-height:154px;overflow:hidden;overflow-wrap:break-word}.mainName.long{font-size:40px}.mainDetail{font-size:18px;font-weight:900;color:#f7e7b9;text-shadow:0 2px 4px #000;max-height:65px;overflow:hidden}.mainDesc{font-size:12px;font-weight:800;color:#d3d8c0;max-height:36px;overflow:hidden}
+.mainPhoto{position:absolute;right:12px;top:68px;bottom:9px;width:219px;z-index:3;display:flex;align-items:end;justify-content:center;overflow:hidden;border-left:1px solid #eac06e33}.mainPhoto img{max-width:100%;width:100%;height:100%;object-fit:contain;object-position:center bottom;filter:drop-shadow(0 4px 5px #000)}.mainPhoto.two img{width:50%;height:100%}.mainResult.titleResult .mainPhoto{top:94px}.mainBelt{position:absolute;z-index:8;top:9px;right:22px;width:178px;height:72px;display:grid;place-items:center;background:radial-gradient(ellipse,#ead18a47,transparent 75%)}.mainBelt img{max-width:100%;max-height:69px;object-fit:contain;filter:brightness(1.6) contrast(1.11) drop-shadow(0 2px 4px #000)}
+.mainResult.multi .mainCopy{position:absolute;top:35px;left:16px;right:16px;bottom:auto;width:auto;height:45px;align-items:center;justify-content:center}.mainResult.multi .mainName{font-size:29px;max-height:32px}.mainResult.multi .mainDetail,.mainResult.multi .mainDesc{display:none}.mainResult.multi .mainPhoto{left:14px;right:14px;width:auto;top:91px;bottom:15px;border:none;display:grid;grid-template-columns:repeat(3,1fr);grid-template-rows:repeat(2,1fr);gap:7px;align-items:stretch}.mainResult.multi .mainPhoto .tile{min-width:0;min-height:0;border:1px solid #b29a5c;position:relative;overflow:hidden;background:#153520}.mainResult.multi .mainPhoto .tile img{position:absolute;width:100%;height:100%;object-fit:contain;object-position:center bottom}.mainResult.multi .mainPhoto .tile span{position:absolute;bottom:0;left:0;right:0;background:#020603df;padding:3px 1px;text-align:center;font:900 10px Arial,sans-serif;color:#fff3db}
+.fallback{border:1px solid #92743c;background:#1d321dd9;color:#eddfbd;font:900 15px Impact,'Arial Black',sans-serif;letter-spacing:1px;text-align:center;display:grid;place-items:center;width:85%;height:58%;align-self:center}
+.resultsHeading{height:36px;margin-top:7px;display:flex;align-items:center;justify-content:space-between;padding:0 3px}.resultsHeading h2{margin:0;font:900 23px Impact,'Arial Black',sans-serif;color:#fff4d9;letter-spacing:1px}.resultsHeading small{font-size:10px;font-weight:900;color:#d5be80}
+.additional{height:142px;border:2px solid #8e713b;overflow:hidden;position:relative;background:radial-gradient(ellipse at 80% 50%,#456b314d,transparent 64%),linear-gradient(135deg,#1f391f,#050706 59%,#182b13)}.otherCopy{position:absolute;z-index:5;left:13px;top:8px;bottom:7px;width:437px;display:flex;flex-direction:column;gap:4px;justify-content:center;overflow:hidden}.otherLabel{color:#ddc484;font-size:11px;font-weight:900;letter-spacing:1px}.otherName{font:900 29px/.99 Impact,'Arial Black',sans-serif;color:#fff3dc;text-shadow:0 3px 3px #000;max-height:63px;overflow:hidden;overflow-wrap:break-word;text-transform:uppercase}.otherName.long{font-size:23px}.otherDetail{font-size:13px;font-weight:900;color:#f6e8c6;max-height:28px;overflow:hidden}.otherDesc{font-size:11px;font-weight:800;color:#cad4b9;max-height:25px;overflow:hidden}.otherPhotos{position:absolute;z-index:2;right:8px;top:31px;bottom:5px;width:150px;display:flex;justify-content:center;align-items:end;overflow:hidden;border-left:1px solid #d9c17933}.otherPhotos img{height:100%;width:100%;object-fit:contain;object-position:center bottom}.otherPhotos.two img{width:50%}.otherBelt{position:absolute;z-index:8;top:4px;right:11px;width:137px;height:39px;display:grid;place-items:center;background:radial-gradient(ellipse,#ffeba244,transparent 75%)}.otherBelt img{max-width:135px;max-height:38px;object-fit:contain;filter:brightness(1.6) drop-shadow(0 2px 3px #000)}
+.falloutHeading{height:32px;margin-top:7px;display:flex;align-items:center;justify-content:space-between;padding:0 4px}.falloutHeading h2{font:900 21px Impact,'Arial Black',sans-serif;color:#f7dea7;letter-spacing:1px;margin:0}.falloutHeading small{font-size:10px;font-weight:900;color:#cfb77b}
+.fallout{height:77px;padding:8px 12px;border-left:4px solid #e5b956;border-right:2px solid #ba974a;overflow:hidden;background:linear-gradient(90deg,#2d3d1f,#0b100d 56%,#203317)}.fallout h3{font:900 20px/1.04 Impact,'Arial Black',sans-serif;color:#fff2ce;margin:0 0 5px}.fallout p{font-size:12px;font-weight:800;color:#e1dfc6;line-height:1.2;margin:0;max-height:44px;overflow:hidden}
+.venue{height:35px;margin-top:8px;display:grid;place-items:center;text-align:center;padding:0 8px;font-size:13px;font-weight:900;letter-spacing:.8px;color:#fff1c6;text-shadow:0 2px #000;border-left:3px solid #e7cb77;border-right:3px solid #e7cb77;background:linear-gradient(90deg,#5a7429,#1b3d20 24%,#162f18 75%,#666d26)}
+.reviewNotice{position:absolute;bottom:70px;left:0;right:0;z-index:6;text-align:center;color:#f2e1a6;font-weight:900;letter-spacing:.7px;font-size:10px;text-shadow:0 2px #000}.ticker{position:absolute;z-index:9;bottom:0;left:0;right:0;height:70px;border-top:3px solid #e7bd60;display:flex;overflow:hidden;background:linear-gradient(90deg,#1b4b20,#98702a 18%,#101b0d 43%,#040504)}.tickerLogo{width:140px;flex:0 0 140px;display:grid;place-items:center;padding:4px 6px;border-right:2px solid #c9ab5d;background:linear-gradient(90deg,#2a5827,#386f33)}.tickerLogo img{height:55px;max-width:112px;object-fit:contain;filter:drop-shadow(0 2px 4px #000)}.tickerTrack{flex:1;overflow:hidden;display:flex;align-items:center;white-space:nowrap}.tickerTrack span{padding-left:18px;font-size:18px;font-weight:900;color:#f2e3bb;display:inline-block;animation:move 42s linear infinite}@keyframes move{to{transform:translateX(-50%)}}.sampleFlag{display:none;position:absolute;z-index:11;top:440px;left:128px;right:128px;text-align:center;font-size:11px;letter-spacing:1px;font-weight:900;color:#30200a;background:#f7cc78;border:1px solid #fcebbf}.demo .sampleFlag{display:block}.demo .topstrip{box-shadow:inset 0 0 0 1px #c6a75577}#board:after{position:absolute;content:'';z-index:12;inset:0;pointer-events:none;box-shadow:inset 0 0 0 2px #aa7e38,inset 0 0 24px #000}
+@media(prefers-reduced-motion:reduce){.tickerTrack span{animation:none}}
+
+/* REVIEW ONLY — SURVIVOR SERIES HEADER LOGO CLEARANCE — SINGLE-SCOPE FIX.
+   Preserve source art, results panels, frame/ticker, logic and approved assets. */
+.brand{top:-1px;height:170px}
+.brandkicker{top:166px}
+.barMask{top:183px;height:278px;background:linear-gradient(180deg,#061509d6 0%,#061509db 33%,#051109f4 71%,#030a05fe 100%)}
+.eventplate{display:block;top:184px;left:166px;width:388px;height:183px;z-index:6}
+.eventplate img{display:block;min-width:0;min-height:0;width:100%;height:100%;object-fit:contain}
+.resultsbar{top:373px;height:68px;z-index:7;padding:5px 0 0}
+.resultsbar h1{font-size:30px;line-height:1.1;letter-spacing:2.9px}
+.resultsbar p{margin:3px 0 0;font-size:11px}
+.sampleFlag{top:443px}
+
+/* SURVIVOR SERIES RESULTS V1 — two dedicated nights, matches the locked Preview V2 identity.
+   All existing wrestler/arena/brand/title graphics are reused without regeneration. */
+#board{background:#06111d}
+.tint{background:linear-gradient(180deg,#02101acc 0%,#020d1de3 19%,#09101df7 43%,#06090efb 93%,#070507f7 100%)}
+.beam.left{background:#ed5b2022}
+.beam.right{background:#2780fe22}
+.brand{top:0px;left:43px;width:634px;height:179px}
+.brandkicker{top:170px;font-size:11px;letter-spacing:2.9px;color:#ffe6ad}
+.barMask{display:none}
+.eventplate{display:block;top:187px;left:165px;width:390px;height:147px;border:1px solid #d4a35099;box-shadow:0 0 22px #e0752b3d,inset 0 0 9px #080808;background:#0a1019;overflow:hidden;border-radius:6px}
+.eventplate img{display:block;width:100%;height:100%;object-fit:fill}
+.resultsbar{top:345px;left:82px;right:82px;height:73px;padding:6px 0 0;background:linear-gradient(90deg,transparent,#301a17df 12%,#17273bfa 50%,#351514dd 88%,transparent);border-top:2px solid #ffc974;border-bottom:2px solid #ffc974}
+.resultsbar h1{font-size:35px;line-height:1.08;letter-spacing:1.9px;color:#fff2dc;text-shadow:0 2px 0 #02060c,0 0 14px #f56e34a8}
+.resultsbar p{font-size:12px;letter-spacing:1.5px;margin:7px 0 0;color:#ffd29b}
+.frame{top:449px;height:741px;background:linear-gradient(143deg,#ffdf90,#da7a39 4%,#14293d 13%,#171b32 90%,#de7544 97%,#ffdb8c);box-shadow:0 0 22px #a8493150}
+.inner{background:linear-gradient(155deg,#0d2034,#090e1a 48%,#16111a 100%);border:1px solid #5e6988}
+.topstrip{background:linear-gradient(90deg,#9c371d,#253d54 36%,#131d2c 64%,#b45b28);border-color:#e8ad59;color:#ffeac1}
+.topstrip .nightlabel{color:#fff4d8}
+.section h2,.resultsHeading h2{color:#fff0d5}
+.mainResult{border-color:#de9e5d;background:linear-gradient(120deg,#1b3147 0%,#08111e 47%,#35201e 100%)}
+.mainLabel,.otherLabel{color:#ffc58b}
+.mainName,.otherName{color:#fff6ea}
+.mainDetail,.otherDetail{color:#ffdbac}
+.mainDesc,.otherDesc{color:#d5dbe9}
+.mainBelt,.otherBelt{background:radial-gradient(ellipse,#e7b26d42,transparent 75%)}
+.mainPhoto{border-color:#c99e7233}
+.mainResult.multi .mainPhoto .tile{background:#142337;border-color:#b87c53}
+.mainResult.multi .mainPhoto .tile span{background:#040c1be8}
+.fallback{background:#17283a;border-color:#b87b57;color:#d5ddea}
+.additional{border-color:#c78b55;background:linear-gradient(110deg,#203b50,#0c101c 65%,#3b2124)}
+.falloutHeading h2{color:#f9d6a5}
+.fallout{border-color:#c58b5d;background:linear-gradient(90deg,#243c56,#0b101a 55%,#462621)}
+.fallout h3{color:#ffe7c9}
+.fallout p{color:#d9e0ed}
+.venue{border-color:#d89a61;background:linear-gradient(90deg,#244967,#b14e29,#244b6e);color:#fff0d0}
+.reviewNotice{bottom:78px;color:#f2be91}
+.ticker{height:66px;border-top:2px solid #d48b5d;background:#07080e}
+.tickerLogo{width:170px;flex-basis:170px;padding:4px 8px;background:linear-gradient(90deg,#152d43,#76331e);border-right:2px solid #d98d58}
+.tickerLogo img{width:150px;max-width:150px;height:55px;object-fit:contain;filter:drop-shadow(0 1px 2px #000)}
+.tickerTrack span{font-size:15px;color:#ffe7c4}
+.sampleFlag{top:423px;left:138px;right:138px;height:19px;line-height:18px;font-size:10px;letter-spacing:1px;background:linear-gradient(90deg,#dc8537,#ffe2a3,#d07843);color:#291410;border:0}
+.demo .topstrip{box-shadow:inset 0 0 0 1px #ffcd9180}
+#board:after{box-shadow:inset 0 0 0 2px #bb7b51,inset 0 0 24px #000}
+
+/* WarGames-specific presentation derived from the locked Survivor Series preview theme.
+   The five winner portraits move near the top of their image row; no generated artwork. */
+#board{background:#071222}
+.tint{background:linear-gradient(180deg,#051122b7 0%,#090c1fdf 23%,#090d21f4 45%,#090c18fa 93%,#080b15fc 100%)}
+.beam.left{background:#f84b5a22}
+.beam.right{background:#2678fa27}
+.brandkicker{color:#e2e9ff}
+.eventplate{left:135px;top:183px;width:450px;height:156px;overflow:hidden;background:radial-gradient(ellipse,#182f59a9,#060b19ad 74%);box-shadow:0 0 21px #0b46974a;border-color:#405a85}
+.eventplate img{width:100%;height:100%;object-fit:contain;filter:drop-shadow(0 3px 4px #010512)}
+.resultsbar{border-color:#c2d1ed;background:linear-gradient(90deg,transparent,#57152dce 13%,#122c52ed 49%,#552536d9 87%,transparent)}
+.resultsbar h1{color:#f3f6ff;text-shadow:0 2px #071123,0 0 12px #e34b5455}
+.resultsbar p{color:#cadffc}
+.frame{background:linear-gradient(143deg,#edf5ff,#c34659 4%,#101d35 13%,#111b36 90%,#4889de 97%,#e4f2ff)}
+.inner{background:linear-gradient(145deg,#142542,#0a1124 48%,#221320 100%);border-color:#48698e}
+.topstrip{background:linear-gradient(90deg,#9c263e,#253e69 42%,#152d57 72%,#2861b2);color:#f0f5ff;border-color:#b8cbf1}
+.section h2,.resultsHeading h2{color:#f5f7ff}
+.mainResult{border-color:#718ec6;background:linear-gradient(112deg,#291a32,#0c1830 56%,#153760)}
+.mainLabel,.otherLabel{color:#a9ceff}
+.mainName,.otherName{color:#ffffff}
+.mainDetail,.otherDetail{color:#f7eaff}
+.mainDesc,.otherDesc{color:#d7e7fc}
+.mainPhoto{border-color:#94afe750}
+.mainResult.wargames .mainCopy{top:39px;bottom:auto;left:10px;right:10px;width:auto;height:86px;align-items:center;justify-content:flex-start;gap:3px;text-align:center}
+.mainResult.wargames .mainName{font-size:36px;max-height:42px;letter-spacing:1.2px}
+.mainResult.wargames .mainName.long{font-size:28px}
+.mainResult.wargames .mainDetail{font-size:14px;max-height:25px}
+.mainResult.wargames .mainDesc{font-size:10px;max-height:24px}
+.mainResult.wargames .mainPhoto{left:12px;right:12px;width:auto;top:134px;bottom:8px;border:none;display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:5px;align-items:stretch}
+.mainResult.wargames .mainPhoto .tile{min-width:0;min-height:0;position:relative;border:1px solid #658fc5;overflow:hidden;background:linear-gradient(#264b75,#10192c)}
+.mainResult.wargames .mainPhoto .tile img{position:absolute;inset:0;width:100%;height:100%;object-fit:contain;object-position:center top}
+.mainResult.wargames .mainPhoto .tile span{position:absolute;left:0;right:0;bottom:0;z-index:2;background:linear-gradient(transparent,#030812 28%);text-align:center;padding:11px 2px 4px;min-height:23px;line-height:1.04;font:bold 10px Arial,sans-serif;overflow-wrap:break-word}
+.mainResult.wargames .mainBelt{display:none}
+.mainResult.titleResult .mainPhoto{top:94px}
+.additional{border-color:#7295cc;background:linear-gradient(110deg,#263e5a,#0d1328 60%,#382132)}
+.falloutHeading h2{color:#f2e9ff}
+.fallout{border-color:#87a6e0;background:linear-gradient(90deg,#233d63,#10182a 60%,#3b2434)}
+.fallout h3{color:#f5f5ff}
+.fallout p{color:#d6e8fa}
+.venue{border-color:#91aede;background:linear-gradient(90deg,#8e2440,#194980,#245fb5);color:#f6f8ff}
+.ticker{border-color:#a2bde8;background:#060915}
+.tickerLogo{background:linear-gradient(90deg,#0c1631,#14376d);border-color:#7497c9}
+.tickerLogo img{max-width:155px;max-height:58px}
+.sampleFlag{background:linear-gradient(90deg,#bd4961,#d9e5fc,#4781d0);color:#131c31}
+#board:after{box-shadow:inset 0 0 0 2px #597cbb,inset 0 0 24px #000}
+
+/* V2: King of the Ring V4 clearance and borderless championship standard.
+   Preserve approved Survivor Series art and five-member WarGames winning-team grid. */
+.mainResult.wargames .mainCopy{height:82px;top:35px;left:18px;right:18px}
+.mainResult.wargames .mainPhoto{top:132px;bottom:9px;gap:7px}
+.mainResult.wargames .mainPhoto .tile{border-color:#699bd5;box-shadow:inset 0 0 10px #1b69c944}
+.mainResult.wargames .mainPhoto .tile span{font-size:10px;min-height:27px}
+.mainBelt,.otherBelt{background:none!important;border:0!important;box-shadow:none!important}
+.otherBelt{right:9px;top:6px;width:150px;height:52px}
+.otherBelt img{max-width:148px;max-height:50px;filter:drop-shadow(0 3px 4px #000)}
+.additional.titleResult .otherPhotos{top:48px;bottom:4px}
+.additional.titleResult .otherCopy{width:405px;padding-right:6px}
+.otherName{max-height:60px}
+
+/* V3 navy/orange theme — preserves original panel geometry and assets */
+html,body{background:#020817!important}#board{background:#06162d!important}
+.tint{background:linear-gradient(180deg,#020716dc 0%,#071b37e3 21%,#0b294cba 38%,#061126ed 62%,#020817fc 100%)!important}
+.beam{background:#ff7b21!important;opacity:.27!important}
+.brandkicker{color:#ffb77d!important}
+.eventplate:before{background:radial-gradient(ellipse,#ff812a54,transparent 73%)!important}
+.eventplate img{filter:drop-shadow(0 3px 4px #000e) drop-shadow(0 0 11px #ff792b88)!important}
+.barMask{background:linear-gradient(180deg,#06142b00 0%,#06142bdc 24%,#06142bf6 53%,#030918fe 100%)!important}
+.resultsbar{background:linear-gradient(90deg,transparent,#a34715cc 16%,#09244ceb 52%,#a34715cc 85%,transparent)!important;border-color:#ff842c!important}
+.resultsbar h1{color:#fff5eb!important;text-shadow:0 3px #000,0 0 12px #ff782b75!important}
+.resultsbar p{color:#ffb67b!important}
+.frame{background:linear-gradient(138deg,#ffb06a,#f47521 4%,#102c53 9%,#091b38 92%,#fa7420 97%,#ffd09d)!important;box-shadow:0 0 30px #ff7c3455!important}
+.inner{background:linear-gradient(148deg,#102d52,#060d1f 41%,#091d39 72%,#030917)!important;border-color:#d36c31!important}
+.topstrip{background:linear-gradient(90deg,#d35b19,#0a254d 33%,#0b2e5a 72%,#eb7622)!important;border-left-color:#ff9b42!important;border-right-color:#ff9b42!important;color:#ffe0c5!important}
+.topstrip .nightlabel,.section h2,.resultsHeading h2,.falloutHeading h2{color:#fff4ec!important}
+.section small,.resultsHeading small,.falloutHeading small{color:#ffad76!important}
+.mainResult{border-color:#ff7925!important;background:radial-gradient(ellipse at 72% 55%,#2464a04f,transparent 67%),linear-gradient(135deg,#133965,#060d1f 60%,#0d2d56)!important}
+.mainResult:before{background:linear-gradient(90deg,transparent,#ff9145,transparent)!important}
+.mainLabel,.otherLabel{color:#ffb781!important}.mainName,.otherName{color:#fff6f0!important}.mainDetail,.otherDetail{color:#ffddc6!important}.mainDesc,.otherDesc{color:#c9dcf4!important}
+.mainPhoto{border-left-color:#ff883744!important}.mainBelt{background:radial-gradient(ellipse,#ff8c3340,transparent 75%)!important}
+.mainResult.multi .mainPhoto .tile{border-color:#ff8c45!important;background:#0b2c55!important}
+.mainResult.multi .mainPhoto .tile span{background:#041127e9!important;color:#fff!important}
+.fallback{border-color:#e57732!important;background:#0b2c55!important;color:#ffdbbf!important}
+.additional{border-color:#2b91ff!important;background:radial-gradient(ellipse at 80% 50%,#276ab14d,transparent 64%),linear-gradient(135deg,#103963,#040b1b 59%,#0d2d54)!important}
+.otherPhotos{border-left-color:#ff9c5444!important}.otherBelt{background:radial-gradient(ellipse,#ff963b3e,transparent 75%)!important}
+.falloutHeading h2{color:#fff0e7!important}.fallout{border-left-color:#ff7d27!important;border-right-color:#2b91ff!important;background:linear-gradient(90deg,#173b66,#07152d 56%,#102c52)!important}
+.fallout h3{color:#ffcfaa!important}.fallout p{color:#d6e6fa!important}
+.venue{color:#fff0e2!important;border-left-color:#ff8b35!important;border-right-color:#2b91ff!important;background:linear-gradient(90deg,#ad4c1d,#0e3462 24%,#0a2852 75%,#b9521e)!important}
+.reviewNotice{color:#ffb47d!important}.ticker{border-top-color:#ff832b!important;background:linear-gradient(90deg,#0c2b55,#d25b1e 18%,#0a1b38 43%,#030916)!important}
+.tickerLogo{border-right-color:#ff852f!important;background:linear-gradient(90deg,#0d376d,#154b83)!important}
+
+/* V4: CSS-only WarGames steel cage mesh; original arena artwork remains intact. */
+.tint::after{content:"";position:absolute;inset:0;pointer-events:none;opacity:.32;background-image:repeating-linear-gradient(45deg,transparent 0px,transparent 28px,rgba(181,205,238,.28) 29px,rgba(181,205,238,.28) 30px,transparent 31px,transparent 59px),repeating-linear-gradient(-45deg,transparent 0px,transparent 28px,rgba(181,205,238,.28) 29px,rgba(181,205,238,.28) 30px,transparent 31px,transparent 59px);background-size:60px 60px;mask-image:linear-gradient(to bottom,rgba(0,0,0,.65),black 35%,black 90%,rgba(0,0,0,.75));}
+/* SummerSlam-style title display: large borderless belt below winner copy, never over portrait. */
+.additional.titleResult .otherBelt{top:65px!important;left:17px!important;right:auto!important;width:214px!important;height:66px!important;display:flex!important;justify-content:flex-start!important;align-items:center!important;background:none!important;border:none!important;box-shadow:none!important;}
+.additional.titleResult .otherBelt img{max-width:210px!important;max-height:65px!important;width:100%;height:100%;object-fit:contain!important;object-position:left center!important;filter:drop-shadow(0 3px 4px #000)!important;}
+.additional.titleResult .otherCopy{top:4px!important;bottom:auto!important;height:61px!important;justify-content:flex-start!important;gap:3px!important;width:425px!important;}
+.additional.titleResult .otherDetail{font-size:12px!important;max-height:19px!important;}
+.additional.titleResult .otherDesc{display:none!important;}
+.additional.titleResult .otherPhotos{top:12px!important;bottom:3px!important;right:12px!important;width:145px!important;}
+.mainResult.titleResult:not(.wargames) .mainBelt{top:176px!important;left:20px!important;right:auto!important;width:245px!important;height:78px!important;background:none!important;border:none!important;}
+.mainResult.titleResult:not(.wargames) .mainBelt img{max-width:240px!important;max-height:75px!important;filter:drop-shadow(0 3px 5px #000)!important;}
+.mainResult.titleResult:not(.wargames) .mainCopy{top:48px!important;bottom:auto!important;height:120px!important;justify-content:flex-start!important;}
+.mainResult.titleResult:not(.wargames) .mainPhoto{top:65px!important;}
+</style></head><body><main id="board">
+<img class="arena" src="assets/user-survivor-series-arena-original.png" alt="User-approved Survivor Series arena"><div class="tint"></div><div class="beam left"></div><div class="beam right"></div>
+<img class="brand" src="assets/user-approved-mancave-logo.png" alt="Man Cave Sports Book Presents Inside the Squared Circle"><div class="brandkicker">WWE PREMIUM LIVE EVENT · SURVIVOR SERIES</div><div class="eventplate"><img src="assets/user-survivor-series-wargames-houston-logo.png" alt="User-provided Survivor Series WarGames Houston logo"></div><div class="barMask"></div>
+<div class="resultsbar"><h1>RESULTS &amp; FALLOUT</h1><p id="dateBar">SURVIVOR SERIES · DATE TO BE ANNOUNCED</p></div><div class="sampleFlag">SAMPLE OUTCOMES · DESIGN DEMONSTRATION</div>
+<section class="frame"><div class="inner"><div class="topstrip"><span>SURVIVOR SERIES · WARGAMES</span><span class="nightlabel" id="nightTop">WARGAMES</span></div>
+<div class="section"><h2 id="mainHeading">WARGAMES · FEATURED RESULTS</h2><small id="mainStatus">AWAITING VERIFIED RESULTS</small></div>
+<div class="mainResult" id="mainResult"><div class="mainLabel" id="mainLabel">RESULT PENDING</div><div class="mainCopy"><div class="mainName" id="mainName">MAIN EVENT</div><div class="mainDetail" id="mainDetail">Official result pending</div><div class="mainDesc" id="mainDesc">WarGames results appear only after official verification.</div></div><div class="mainPhoto" id="mainPhoto"></div><div class="mainBelt" id="mainBelt"></div></div>
+<div class="resultsHeading"><h2>OTHER MATCH RESULTS</h2><small id="otherStatus">RESULTS AS CONFIRMED</small></div><div class="additional" id="additional"><div class="otherCopy"><div class="otherLabel" id="otherLabel">AWAITING OFFICIAL RESULTS</div><div class="otherName" id="otherName">MATCH RESULTS</div><div class="otherDetail" id="otherDetail">Verified outcomes only</div><div class="otherDesc" id="otherDesc">Matches rotate as results are confirmed.</div></div><div class="otherPhotos" id="otherPhotos"></div><div class="otherBelt" id="otherBelt"></div></div>
+<div class="falloutHeading"><h2>FALLOUT &amp; STORYLINES</h2><small id="falloutStatus">AFTER THE EVENT</small></div><div class="fallout"><h3 id="falloutTitle">THE AFTERMATH</h3><p id="falloutBody">Verified championship and storyline developments will appear here.</p></div><div class="venue" id="venue">DATE & LOCATION TO BE CONFIRMED</div></div></section>
+<div class="reviewNotice" id="reviewNotice">VISUAL REVIEW ONLY · LIVE RESULTS NOT CONNECTED</div><footer class="ticker"><div class="tickerLogo"><img src="assets/user-survivor-series-wargames-houston-logo.png" alt="User-provided Survivor Series WarGames Houston logo"></div><div class="tickerTrack"><span id="tickerText">SURVIVOR SERIES: WARGAMES ◆ RESULTS &amp; FALLOUT ◆ VERIFIED WINNERS ◆ CHAMPIONSHIP DEVELOPMENTS ◆ SURVIVOR SERIES: WARGAMES ◆ RESULTS &amp; FALLOUT ◆ VERIFIED WINNERS ◆ CHAMPIONSHIP DEVELOPMENTS ◆</span></div></footer>
+</main>
+<script>
+(()=>{'use strict';
+const board=document.getElementById('board');
+const $=id=>document.getElementById(id);
+function fit(){board.style.transform='scale('+Math.min(innerWidth/720,innerHeight/1280)+')'}
+window.addEventListener('resize',fit);fit();
+const qs=new URLSearchParams(location.search),demo=qs.get('demo')==='1';let otherIndex=0,storyIndex=0;
+const PORTRAITS=new Set(["austin-theory.png", "b-fab.png", "brad-baylor.png", "bron-breakker.png", "chad-gable.png", "chelsea-green.png", "grayson-waller.png", "indi-hartwell.png", "jackson-drake.png", "kelani-jordan.png", "liv-morgan.png", "michin.png", "raquel-rodriguez.png", "ricky-smokes.png", "roman-reigns.png", "sami-zayn.png", "trick-williams.png", "zaria.png"]),BELTS=new Set(["nxt_championship-transparent.png", "nxt_north_american-transparent.png", "nxt_tag_team-transparent.png", "nxt_womens_championship-transparent.png", "nxt_womens_north_american-transparent.png", "wwe_intercontinental-championship-transparent.png", "wwe_undisputed-wwe-championship-transparent.png", "wwe_united-states-championship-transparent.png", "wwe_womens-intercontinental-championship-transparent.png", "wwe_womens-united-states-championship-transparent.png", "wwe_womens-world-championship-transparent.png", "wwe_world-heavyweight-championship-transparent.png", "wwe_world-tag-team-championship-transparent.png", "wwe_wwe-tag-team-championship-transparent.png", "wwe_wwe-womens-championship-transparent.png", "wwe_wwe-womens-tag-team-championship-transparent.png"]);
+const nameToFile=n=>String(n||'').normalize('NFKD').replace(/[\u0300-\u036f]/g,'').toLowerCase().replace(/['’]/g,'').replace(/[^a-z0-9]+/g,'-').replace(/^-|-$/g,'')+'.png';
+const picKey=person=>{const f=person?.portrait&&PORTRAITS.has(person.portrait)?person.portrait:nameToFile(person?.name);return PORTRAITS.has(f)?'assets/approved-portraits/'+f:null};
+const beltKey=b=>typeof b==='string'&&BELTS.has(b)?'assets/approved-belts/'+b:null;
+const sample={event_date:null,venue:null,main_event:{outcome:'decisive',kind:'wargames',type:'SAMPLE — 5-ON-5 WARGAMES MATCH',winner:{name:'TEAM RED',members:[{name:'Roman Reigns'},{name:'Sami Zayn'},{name:'Bron Breakker'},{name:'Chad Gable'},{name:'Trick Williams'}]},loser:'TEAM BLUE',description:'DESIGN DEMONSTRATION · NOT A REAL RESULT'},results:[{outcome:'decisive',kind:'singles',type:'SAMPLE WOMEN’S CHAMPIONSHIP RESULT',winner:{name:'Liv Morgan'},loser:'Chelsea Green',title:{name:'Women’s World Championship',belt:'wwe_womens-world-championship-transparent.png'},description:'SAMPLE OUTCOME · NOT ACTUAL'},{outcome:'decisive',kind:'tag',type:'SAMPLE TAG TEAM RESULT',winner:{name:'SAMI ZAYN & AUSTIN THEORY',members:[{name:'Sami Zayn'},{name:'Austin Theory'}]},loser:'TRICK WILLIAMS & CHAD GABLE',description:'SAMPLE TEAM RESULT · NOT ACTUAL'}],fallout:[{headline:'SAMPLE — SURVIVOR SERIES WARGAMES AFTERMATH',summary:'Illustrative storyline copy only. Official post-event developments replace this when verified.'}]};
+sample.featured_results=[sample.main_event,{outcome:'decisive',kind:'wargames',type:'SAMPLE — WOMEN’S 5-ON-5 WARGAMES MATCH',winner:{name:'TEAM GOLD',members:[{name:'Liv Morgan'},{name:'Chelsea Green'},{name:'Raquel Rodriguez'},{name:'Zaria'},{name:'Michin'}]},loser:'TEAM SILVER',description:'DESIGN DEMONSTRATION · NOT A REAL RESULT'}];
+const blank={event_date:null,venue:null,main_event:null,featured_results:[],results:[],fallout:[]};
+let state=demo?sample:blank;let featureIndex=0;
+const e=(tag,cl,text)=>{const n=document.createElement(tag);if(cl)n.className=cl;if(text!==undefined)n.textContent=String(text);return n};
+const sourceOK=s=>{try{let u=new URL(s);return u.protocol==='https:'&&(u.hostname==='wwe.com'||u.hostname.endsWith('.wwe.com'))}catch{return false}};
+const dateOK=s=>typeof s==='string'&&/^\d{4}-\d\d-\d\d$/.test(s)&&!Number.isNaN(Date.parse(s+'T12:00:00Z'));
+const easternToday=()=>{const p=new Intl.DateTimeFormat('en-US',{timeZone:'America/New_York',year:'numeric',month:'2-digit',day:'2-digit'}).formatToParts(new Date());const a=Object.fromEntries(p.map(v=>[v.type,v.value]));return a.year+'-'+a.month+'-'+a.day};
+function validMatch(r,eventDate,now){
+ if(!r||r.verified!==true||!sourceOK(r.source_url)||!dateOK(r.source_date)||r.source_date<eventDate||r.source_date>now||!['decisive','draw','no-contest'].includes(r.outcome))return false;
+ if(typeof r.type!=='string'||r.type.length<3||r.type.length>140)return false;
+ if(r.outcome==='decisive'){
+  if(typeof r.winner?.name!=='string'||r.winner.name.length<2||r.winner.name.length>110||typeof r.loser!=='string'||!r.loser||r.loser.length>160)return false;
+  if(r.winner.members!==undefined&&(!Array.isArray(r.winner.members)||r.winner.members.length<2||r.winner.members.length>6||!r.winner.members.every(m=>typeof m?.name==='string'&&m.name.length>1&&m.name.length<=85)))return false;
+  if(r.kind==='wargames'&&(!Array.isArray(r.winner.members)||r.winner.members.length<4||r.winner.members.length>5))return false;
+ }else if(!Array.isArray(r.participants)||r.participants.length<2||r.participants.length>20||!r.participants.every(m=>typeof m?.name==='string'&&m.name.length>0&&m.name.length<110))return false;
+ if(r.title&&typeof r.title.name!=='string')return false;
+ return true;
+}
+function validStory(r,eventDate,now){return !!(r&&r.verified===true&&sourceOK(r.source_url)&&dateOK(r.source_date)&&r.source_date>=eventDate&&r.source_date<=now&&typeof r.headline==='string'&&r.headline.length>2&&r.headline.length<160&&typeof r.summary==='string'&&r.summary.length>2&&r.summary.length<360)}
+function validate(payload){
+ if(!payload||payload.schema_version!==1||payload.event_id!=='survivor-series'||(payload.event_date!==null&&!dateOK(payload.event_date)))return null;
+ const today=easternToday(),held=!!payload.event_date&&payload.event_date<=today;
+ const featured=held&&Array.isArray(payload.featured_results)?payload.featured_results.filter(x=>validMatch(x,payload.event_date,today)&&x.kind==='wargames').slice(0,3):[];
+ const legacy=held&&validMatch(payload.main_event,payload.event_date,today)?payload.main_event:null;
+ return {event_date:payload.event_date,venue:typeof payload.venue==='string'&&payload.venue.length<140?payload.venue:null,main_event:featured[0]||legacy,featured_results:featured.length?featured:(legacy?[legacy]:[]),
+ results:held&&Array.isArray(payload.results)?payload.results.filter(x=>validMatch(x,payload.event_date,today)).slice(0,30):[],fallout:held&&Array.isArray(payload.fallout)?payload.fallout.filter(x=>validStory(x,payload.event_date,today)).slice(0,25):[]};
+}
+function imgFor(person){const path=picKey(person);if(!path)return null;let i=e('img');i.src=path;i.alt=person.name;i.onerror=()=>{i.remove()};return i;}
+function photos(holder,people,asTiles){holder.replaceChildren();holder.className=holder.id==='mainPhoto'?'mainPhoto':'otherPhotos';if(asTiles){for(const m of people.slice(0,5)){let t=e('div','tile');let pic=imgFor(m);if(pic)t.append(pic);else t.append(e('div','fallback','PORTRAIT PENDING'));t.append(e('span','',m.name));holder.append(t)}return}
+ let success=0;for(const m of people.slice(0,2)){let i=imgFor(m);if(i){holder.append(i);success++}}if(success>1)holder.classList.add('two');if(!success)holder.append(e('div','fallback','PORTRAIT PENDING'));
+}
+function renderMatch(r,main){let prefix=main?'main':'other',el=x=>$(prefix+x),root=$(main?'mainResult':'additional');let photo=$(main?'mainPhoto':'otherPhotos'),belt=el('Belt');root.classList.remove('wargames','titleResult','multi');belt.replaceChildren();
+ if(!r){el('Label').textContent=main?'WARGAMES · RESULT PENDING':'AWAITING VERIFIED RESULTS';el('Name').textContent=main?'MAIN EVENT':'MATCH RESULTS';el('Detail').textContent='OFFICIAL RESULTS PENDING';el('Desc').textContent=main?'Results appear after verification.':'Additional verified results rotate here.';photos(photo,[],false);return}
+ el('Label').textContent=r.type.toUpperCase();el('Desc').textContent=r.description||'';let ppl=[];
+ if(r.outcome==='decisive'){
+  el('Name').textContent=r.winner.name.toUpperCase();el('Detail').textContent='def. '+r.loser;
+  ppl=Array.isArray(r.winner.members)?r.winner.members:[r.winner];
+  if(main&&r.kind==='wargames'&&ppl.length>=4){root.classList.add('wargames');photos(photo,ppl,true)}else photos(photo,ppl,false);
+ }else{el('Name').textContent=r.outcome==='draw'?'MATCH ENDS IN A DRAW':'NO CONTEST';el('Detail').textContent=r.participants.map(x=>x.name).join(' · ');ppl=r.participants;photos(photo,ppl,false)}
+ el('Name').className=(main?'mainName':'otherName')+(el('Name').textContent.length>(main?20:23)?' long':'');
+ if(r.title&&!root.classList.contains('wargames')){let path=beltKey(r.title.belt);if(path){let im=e('img');im.src=path;im.alt=r.title.name+' belt';im.onerror=()=>im.remove();belt.append(im);root.classList.add('titleResult')}}
+}
+function renderOthers(){let rows=state.results||[];renderMatch(rows.length?rows[otherIndex%rows.length]:null,false);$('otherStatus').textContent=rows.length?'RESULT '+(otherIndex%rows.length+1)+' / '+rows.length:'RESULTS AS CONFIRMED'}
+function renderStories(){let rows=state.fallout||[],item=rows.length?rows[storyIndex%rows.length]:null;$('falloutStatus').textContent=rows.length?'STORY '+(storyIndex%rows.length+1)+' / '+rows.length:'AFTER THE EVENT';$('falloutTitle').textContent=item?item.headline:'THE AFTERMATH';$('falloutBody').textContent=item?item.summary:'Verified championship developments, WarGames consequences and rivalries will appear here.'}
+function renderFeatured(){const features=state.featured_results||[];const f=features.length?features[featureIndex%features.length]:state.main_event;
+ $('mainStatus').textContent=f?(demo?'SAMPLE '+(featureIndex%features.length+1)+' / '+features.length:'RESULT '+(featureIndex%features.length+1)+' / '+features.length):'AWAITING VERIFIED RESULTS';
+ renderMatch(f,true);
+}
+function render(){$('nightTop').textContent='WARGAMES';$('mainHeading').textContent='WARGAMES · FEATURED RESULTS';$('dateBar').textContent='SURVIVOR SERIES · '+(state.event_date||'DATE TO BE ANNOUNCED');$('venue').textContent=(state.venue||'DATE & LOCATION TO BE CONFIRMED').toUpperCase();renderFeatured();renderOthers();renderStories()}
+if(demo){board.classList.add('demo');$('reviewNotice').textContent='DESIGN DEMONSTRATION · NOT ACTUAL MATCH RESULTS';$('tickerText').textContent='SAMPLE WARGAMES RESULTS ◆ ILLUSTRATIVE MATCHUPS ONLY ◆ NOT AN ACTUAL EVENT RESULT ◆ SAMPLE WARGAMES RESULTS ◆ '}
+async function refresh(){if(demo||location.protocol==='file:')return;try{const r=await fetch('survivor-series-results-data.json?ts='+Date.now(),{cache:'no-store'});if(!r.ok)return;const d=validate(await r.json());if(!d)return;state=d;featureIndex=0;otherIndex=0;storyIndex=0;render()}catch{/* safe pending / retain last valid */}}
+render();refresh();if(!qs.has('static')){setInterval(()=>{featureIndex++;renderFeatured()},15000);setInterval(()=>{otherIndex++;renderOthers()},10000);setInterval(()=>{storyIndex++;renderStories()},12000)}setInterval(refresh,300000);
+window.__survivorResultsQA={state:()=>({demo,main:!!state.main_event,featured:state.featured_results?.length||0,featuredIndex:featureIndex%(state.featured_results?.length||1),other:state.results.length,fallout:state.fallout.length,wargames:!!state.main_event&&state.main_event.kind==='wargames'}),validate,setData:d=>{let v=validate(d);if(v){state=v;featureIndex=0;render();return true}return false},nextFeature:()=>{featureIndex++;renderFeatured()},nextResult:()=>{otherIndex++;renderOthers()},nextStory:()=>{storyIndex++;renderStories()}};
+})();
+</script></body></html>
