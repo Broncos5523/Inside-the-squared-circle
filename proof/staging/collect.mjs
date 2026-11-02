@@ -1,6 +1,7 @@
 import {addApprovedPortraits} from './approved-portrait-additions.mjs';
 import {writeFile,readFile} from 'node:fs/promises';
 import {collectWcn} from './wcn-collector.mjs';
+import {collectOfficialNxtPreview} from './official-nxt-preview.mjs';
 import {collectOfficialEvents} from './official-events.mjs';
 import {collectReviewedArchiveFallback} from './reviewed-archive-fallback.mjs';
 import {collectOfficialWeeklyResults} from './official-weekly-results.mjs';
@@ -41,6 +42,8 @@ const snapshot=responses.get('snapshot.json');
 const snapshotAge=now.getTime()-Date.parse(snapshot?.generated_at||'');
 const snapshotFresh=!!snapshot&&Number.isFinite(snapshotAge)&&snapshotAge>=-300000&&snapshotAge<=48*3600000&&Array.isArray(snapshot.shows);
 const programs=(collected?.programs||[]).filter(p=>p.matches?.length||p.appearances?.length);
+const officialNxt=await collectOfficialNxtPreview({routes:assetRoutes,now,requester});
+if(officialNxt){const i=programs.findIndex(p=>p.show_id==='nxt');if(i>=0)programs[i]=officialNxt;else programs.push(officialNxt);}
 // Never promote an event whose advertised airdate is already in the past.
 // Use New York local calendar dates for the US-based weekly broadcast schedule.
 const easternParts=Object.fromEntries(new Intl.DateTimeFormat('en-US',{timeZone:'America/New_York',year:'numeric',month:'2-digit',day:'2-digit'}).formatToParts(now).filter(p=>p.type!=='literal').map(p=>[p.type,p.value]));
@@ -50,9 +53,9 @@ const entries=[];
 const feeds={};
 if(snapshotFresh){
  const scoped=structuredClone(snapshot);
- for(const p of programs){const s=scoped.shows.find(s=>s.id===p.show_id);if(s)s.next={...s.next,date:p.airdate,...(p.start_time?{time:p.start_time}:{})};}
+ for(const p of programs){const s=scoped.shows.find(s=>s.id===p.show_id);if(s){s.next={...s.next,date:p.airdate,...(p.start_time?{time:p.start_time}:{})};if(p.official_date_verified){s.schedule_status='fresh';s.schedule_source=p.schedule_source;}}}
  feeds['snapshot.json']=scoped;
- feeds['reported.json']={schema_version:1,mode:'REPORTED_MATCHES_UNVERIFIED',generated_at:now.toISOString(),display_attribution:'Wrestling Central News (wrestlingcentralnews.com)',programs,total_reported_matches:programs.reduce((n,p)=>n+p.matches.length,0),total_reported_appearances:programs.reduce((n,p)=>n+p.appearances.length,0)};
+ feeds['reported.json']={schema_version:1,mode:'REPORTED_MATCHES_UNVERIFIED',generated_at:now.toISOString(),display_attribution:'Published weekly show announcements; individual sources retained',programs,total_reported_matches:programs.reduce((n,p)=>n+p.matches.length,0),total_reported_appearances:programs.reduce((n,p)=>n+p.appearances.length,0)};
  // Supply ONE source-confirmed next-broadcast candidate for each weekly show.
  // A schedule-only preview is valid even if no matches/appearances have been
  // announced; do not invent any. The live playlist selects only the nearest
@@ -63,7 +66,7 @@ if(snapshotFresh){
   // Some schedule spines roll a same-day broadcast into "previous" before
   // it has aired. Keep today's announced show eligible until a verified
   // finished-episode record supersedes it, instead of skipping to next week.
-  const previousIsToday=show.previous?.date===easternDate&&show.next?.date>easternDate;
+  const previousIsToday=show.previous?.date===easternDate&&show.next?.date>easternDate&&!programs.some(p=>p.show_id===show.id&&p.official_date_verified);
   const date=previousIsToday?show.previous.date:show.next?.date;
   if(show.schedule_status!=='fresh'||!board?.source_available||!board.design_approved||!isCurrentOrFuture(date))continue;
   if(previousIsToday)show.next={...show.previous};
@@ -72,7 +75,7 @@ if(snapshotFresh){
    id:board.id,title:board.label,show:show.id,kind:'upcoming',airdate:date,
    source_available:true,design_approved:true,content_status:'current',
    verification:'SOURCE_REPORTED',has_content:!!reported,schedule_confirmed:true,
-   checked_at:now.toISOString(),source_name:reported?'Wrestling Central News':'Published episode schedule',
+   checked_at:now.toISOString(),source_name:reported?.source_name||'Published episode schedule',
    source_url:reported?.source_url||sourceRoot+'snapshot.json',venue:(()=>{const m=String(show.next?.title||'').match(/^(?:#\d+\s*-\s*)?(.+?)\s+in\s+(.+)$/);return m?{arena:m[1],city:m[2]}:null;})()
   });
  }
@@ -141,6 +144,6 @@ entries.push(...eventResults.entries);feeds['official-event-results.json']=event
 const champions=await collectChampions({library,routes:assetRoutes,now,requester,root});
 entries.push(...champions.entries);feeds['champions.json']=champions.feed;
 for(const feed of Object.values(feeds))for(const program of feed.programs||[])addApprovedPortraits(program);
-const result={schema_version:1,mode:'SOURCE_GATED_STAGING',generated_at:now.toISOString(),entries,feeds,collection:{...stats,snapshot_fresh:!!snapshotFresh,official_event_count:events.entries.length,official_event_warnings:events.errors,approved_result_count:reviewed.entries.length,approved_result_warnings:reviewed.warnings,official_weekly_result_count:officialWeekly.entries.length,official_weekly_warnings:officialWeekly.warnings,evolve_verified_count:evolve.entries.length,evolve_warnings:evolve.warnings,championship_count:champions.entries.length,championship_warnings:champions.warnings},notes:['Archived examples remain excluded from current programming. Event matches must clear official-source and approved-portrait checks. Only explicit winners from dated official sources are promoted. Evolve is admitted only when the byte-identical approved artwork and the latest source-verified episode pass all checks; stale episodes are held.','Source credits retained privately; public hosting clearance confirmed by owner 2026-10-30.']};
+const result={schema_version:1,mode:'SOURCE_GATED_STAGING',generated_at:now.toISOString(),entries,feeds,collection:{...stats,snapshot_fresh:!!snapshotFresh,official_event_count:events.entries.length,official_event_warnings:events.errors,approved_result_count:reviewed.entries.length,approved_result_warnings:reviewed.warnings,official_weekly_result_count:officialWeekly.entries.length,official_weekly_warnings:officialWeekly.warnings,evolve_verified_count:evolve.entries.length,evolve_warnings:evolve.warnings,championship_count:champions.entries.length,championship_warnings:champions.warnings,official_nxt_preview_count:officialNxt?.matches.length||0,official_nxt_airdate:officialNxt?.airdate||null},notes:['Archived examples remain excluded from current programming. Event matches must clear official-source and approved-portrait checks. Only explicit winners from dated official sources are promoted. Evolve is admitted only when the byte-identical approved artwork and the latest source-verified episode pass all checks; stale episodes are held.','Source credits retained privately; public hosting clearance confirmed by owner 2026-10-30.']};
 await writeFile(new URL('data/programming.json',root),JSON.stringify(result,null,2)+'\n');
 console.log(JSON.stringify({generated_at:result.generated_at,source_programs:programs.length,active_candidates:entries.length,collection:result.collection}));
