@@ -1,0 +1,12 @@
+{
+  "source": "user-supplied RAW and cross-brand belt graphics",
+  "catalog": {
+    "wwe_world-heavyweight-championship": "./assets/belts/wwe_world-heavyweight-championship.png",
+    "wwe_intercontinental-championship": "./assets/belts/wwe_intercontinental-championship.png",
+    "wwe_womens-intercontinental-championship": "./assets/belts/wwe_womens-intercontinental-championship.png",
+    "wwe_world-tag-team-championship": "./assets/belts/wwe_world-tag-team-championship.png",
+    "wwe_wwe-womens-tag-team-championship": "./assets/belts/wwe_wwe-womens-tag-team-championship.png",
+    "wwe_womens-world-championship": "./assets/belts/wwe_womens-world-championship.png"
+  },
+  "rights_for_public_use": "not verified"
+}

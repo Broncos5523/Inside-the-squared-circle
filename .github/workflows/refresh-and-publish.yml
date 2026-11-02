@@ -23,6 +23,9 @@ jobs:
       - uses: actions/setup-python@v5
         with:
           python-version: '3.12'
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
       - name: Collect permitted TVmaze schedule data
         run: |
           python - <<'PY'
@@ -915,10 +918,19 @@ jobs:
           assert all(a['license'] in ('CC BY 2.0','CC BY 4.0','Public domain') for a in d['assets'])
           print('Real license-vetted images:',[(a['id'],a['status']) for a in d['assets']])
           PY
+      - name: Verify approved board sources and playback rules
+        run: |
+          node proof/staging/verify.mjs
+          node --test tests/staging*.cjs tests/staging*.mjs tests/production*.mjs
+      - name: Collect current programming from this run's fresh schedules
+        env:
+          ISC_LOCAL_FEED_DIR: web/data
+        run: node proof/staging/collect.mjs
       - name: Save last-known schedule cache
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          cp web/staging/data/programming.json /tmp/itsc-new-programming.json
           cp web/data/snapshot.json /tmp/itsc-new-snapshot.json
           cp web/data/candidates.json /tmp/itsc-new-candidates.json
           cp web/data/reported.json /tmp/itsc-new-reported.json
@@ -936,6 +948,7 @@ jobs:
           for attempt in 1 2 3; do
             git fetch origin main
             git reset --hard origin/main
+            cp /tmp/itsc-new-programming.json web/staging/data/programming.json
             cp /tmp/itsc-new-snapshot.json web/data/snapshot.json
             cp /tmp/itsc-new-candidates.json web/data/candidates.json
             cp /tmp/itsc-new-reported.json web/data/reported.json
@@ -950,7 +963,7 @@ jobs:
             cp /tmp/itsc-new-rss-fallout.json web/data/rss-fallout.json
             cp /tmp/itsc-new-coverage-health.json web/data/coverage-health.json
             cp /tmp/itsc-new-asset-manifest.json web/assets/vetted/asset-manifest.json
-            git add web/assets/vetted web/data/snapshot.json web/data/candidates.json web/data/reported.json web/data/tvmaze-reported.json web/data/known-events.json web/data/results.json web/data/evolve-synopsis.json web/data/recap-links.json web/data/rss-facts.json web/data/episode-briefs.json web/data/rss-excerpt-results.json web/data/rss-fallout.json web/data/coverage-health.json
+            git add web/staging/data/programming.json web/assets/vetted web/data/snapshot.json web/data/candidates.json web/data/reported.json web/data/tvmaze-reported.json web/data/known-events.json web/data/results.json web/data/evolve-synopsis.json web/data/recap-links.json web/data/rss-facts.json web/data/episode-briefs.json web/data/rss-excerpt-results.json web/data/rss-fallout.json web/data/coverage-health.json
             if git diff --cached --quiet; then
               echo "No schedule changes to commit"
               break
@@ -964,15 +977,19 @@ jobs:
               exit 1
             fi
           done
+      - name: Package and verify production player
+        run: node proof/staging/build-release.mjs
       - name: Configure GitHub Pages
         uses: actions/configure-pages@v5
       - name: Upload static display
         uses: actions/upload-pages-artifact@v3
         with:
-          path: web
+          path: .pages-output
       - name: Publish static display
         id: deploy
         uses: actions/deploy-pages@v4
+      - name: Verify deployed production player and exact new portraits
+        run: node proof/staging/verify-published-release.mjs
       - name: Smoke-test public v4.6 previews and deployed reported feed
         run: |
           python - <<'PY'

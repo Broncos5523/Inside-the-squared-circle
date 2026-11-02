@@ -1,0 +1,19 @@
+{
+  "brand": "NXT",
+  "original_user_supplied_files": {
+    "nxt_championship": "NXT_Championship.jpg",
+    "nxt_womens_championship": "NXT_Womens_Championship.jpg",
+    "nxt_north_american": "NXT_North_American_Championship.jpg",
+    "nxt_womens_north_american": "NXT_Womens_North_American_Championship.jpg",
+    "nxt_tag_team": "NXT_Tag_Team_Championships.jpg"
+  },
+  "display_paths": {
+    "nxt_championship": "./assets/belts/nxt_championship.png",
+    "nxt_womens_championship": "./assets/belts/nxt_womens_championship.png",
+    "nxt_north_american": "./assets/belts/nxt_north_american.png",
+    "nxt_womens_north_american": "./assets/belts/nxt_womens_north_american.png",
+    "nxt_tag_team": "./assets/belts/nxt_tag_team.png"
+  },
+  "current_champions_not_inferred": true,
+  "photo_rights_clearance": "not verified"
+}

@@ -1,0 +1,109 @@
+{
+  "schema_version": 2,
+  "show_id": "evolve",
+  "edition": "2026-10-28",
+  "episode_label": "SEASON 2 • EPISODE 35",
+  "episode_date": "2026-10-28",
+  "episode_timezone": "America/New_York",
+  "venue": "WWE PERFORMANCE CENTER",
+  "locality": "ORLANDO, FLORIDA",
+  "release_status": "EXACT_APPROVED_SOURCE_DEPLOYED_TO_ISOLATED_STAGING",
+  "provenance": [
+    {
+      "title": "Fightful — WWE Evolve Results (10/28)",
+      "url": "https://www.fightful.com/wrestling/wwe-evolve-results-10-28/",
+      "verified_matches": true
+    },
+    {
+      "title": "Pro Wrestling Dot Net — WWE Evolve October 28 Episode 35 review",
+      "url": "https://prowrestling.net/site/2026/10/29/wwe-evolve-results-10-28-vetters-review-of-elijah-holyfield-vs-braxton-cole-vs-marcus-mathers-in-a-triple-threat-jasper-troy-vs-jax-presley-harley-riggins-vs-milosh-jovic/",
+      "verified_matches": true
+    }
+  ],
+  "portraits_policy": "Only verified winner portraits on match results, only subject-relevant approved user portraits for storylines; omit missing assets rather than substitute.",
+  "asset_status": "Exact 14 original image assets and the SHA256-verified final HTML are deployed in isolated GitHub staging. The approved artwork is not modified; current episode content is injected only at runtime.",
+  "segments": [
+    {
+      "id": "riggins",
+      "kind": "result",
+      "eyebrow": "SINGLES • MATCH RESULT",
+      "strap": "RIGGINS TAKES THE WIN",
+      "headline": "HARLEY\nRIGGINS",
+      "subline": "def. Milosh Jovic",
+      "detail": "Riggins won by pinfall, then attacked Jovic after the match.",
+      "portraits": [],
+      "tag": "MATCH RESULT",
+      "belt": null
+    },
+    {
+      "id": "presley",
+      "kind": "result",
+      "eyebrow": "SINGLES • MATCH RESULT",
+      "strap": "PRESLEY ANSWERS THE CHALLENGE",
+      "headline": "JAX PRESLEY",
+      "subline": "def. Jasper Troy",
+      "detail": "Presley answered Troy’s open challenge and scored the pin.",
+      "portraits": [],
+      "tag": "WINNER",
+      "belt": null
+    },
+    {
+      "id": "holyfield",
+      "kind": "result",
+      "eyebrow": "TRIPLE THREAT • MATCH RESULT",
+      "strap": "HOLYFIELD CLAIMS THE WIN",
+      "headline": "ELIJAH\nHOLYFIELD",
+      "subline": "def. Braxton Cole & Marcus Mathers",
+      "detail": "Holyfield won the Triple Threat after pinning Braxton Cole.",
+      "portraits": [
+        "elijah-holyfield"
+      ],
+      "tag": "WINNER",
+      "belt": null
+    },
+    {
+      "id": "admiration",
+      "kind": "fallout",
+      "eyebrow": "WOMEN’S TITLE • STORYLINE FALLOUT",
+      "strap": "THE CELEBRATION IS INTERRUPTED",
+      "headline": "NIKKITA\nLYONS",
+      "subline": "Anya Rune wants a title opportunity",
+      "detail": "Rune confronted Lyons and Sloane Jacobs. Timothy Thatcher booked Rune vs. Jacobs, with a title shot at stake.",
+      "portraits": [
+        "nikkita-lyons"
+      ],
+      "tag": "CHAMPIONSHIP PATH",
+      "belt": null
+    },
+    {
+      "id": "four-way",
+      "kind": "fallout",
+      "eyebrow": "NEXT WEEK • ANNOUNCED MATCH",
+      "strap": "FOUR-WAY MATCH ANNOUNCED",
+      "headline": "LYONS FACES\nTHREE",
+      "subline": "Thea Hail • Laynie Luck • Wendy Choo",
+      "detail": "Timothy Thatcher announced Lyons vs. Laynie Luck vs. Wendy Choo vs. Thea Hail for next week.",
+      "portraits": [
+        "nikkita-lyons"
+      ],
+      "tag": "NEXT WEEK",
+      "belt": null
+    },
+    {
+      "id": "alliance",
+      "kind": "fallout",
+      "eyebrow": "RIVALRY • STORYLINE FALLOUT",
+      "strap": "THE FEUD ESCALATES",
+      "headline": "DIXON &\nALIX BROOKS",
+      "subline": "Aaron Rourke and Laynie Luck unite",
+      "detail": "Rourke and Luck agreed to join forces against Kale Dixon and Alix Brooks.",
+      "portraits": [
+        "kale-dixon",
+        "alix-brooks"
+      ],
+      "tag": "RIVALRY DEVELOPMENT",
+      "belt": null
+    }
+  ],
+  "source_review": "Dated October 28 episode rechecked against Pro Wrestling Dot Net on November 1. The four-way names Laynie Luck, not Skylar Raye; no unverified title stipulation is added."
+}

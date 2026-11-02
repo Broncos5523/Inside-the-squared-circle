@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><meta name="theme-color" content="#161008"><title>Inside the Squared Circle — NXT Champions | Local review</title>
+<style>
+:root{color-scheme:dark;--gold:#e6b74c;--bright:#ffe6a3;--amber:#bb8436;--ink:#140d03}
+*{box-sizing:border-box}html,body{margin:0;width:100%;height:100%;overflow:hidden;background:#050404}body{display:grid;place-items:center;font-family:Arial,Helvetica,sans-serif}
+#stage{position:relative;width:720px;height:1280px;flex:0 0 auto;transform-origin:50% 50%;overflow:hidden;background:#0c0a07}
+#arena{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:0}
+#stage:before{content:"";position:absolute;inset:0;z-index:1;pointer-events:none;background:linear-gradient(180deg,#04040269 0%,#0005 17%,#0002 38%,#08050088 62%,#080602 90%,#020200 100%)}
+#stage:after{content:"";position:absolute;z-index:15;inset:0;pointer-events:none;box-shadow:inset 0 0 0 2px #a77d2c88,inset 0 0 35px #140c03}
+.brand{position:absolute;z-index:10;top:0;left:0;width:720px;height:230px;object-fit:contain;object-position:top center;filter:drop-shadow(0 3px 7px #000b)}
+.show-logo{position:absolute;z-index:10;left:183px;top:230px;width:354px;height:136px;object-fit:contain;filter:drop-shadow(0 6px 10px #000) drop-shadow(0 0 7px #f7ba4975)}
+.crown-rule{position:absolute;top:365px;left:26px;right:26px;height:48px;z-index:7;display:flex;align-items:center;justify-content:center;gap:15px;color:#fff4d7;font-weight:1000;font-size:32px;letter-spacing:7px;text-shadow:0 2px 3px #000,0 0 10px #aa762b}
+.crown-rule:before,.crown-rule:after{content:"";display:block;height:3px;flex:1;background:linear-gradient(90deg,transparent,var(--gold));box-shadow:0 0 13px #ad7622}
+.crown-rule:after{transform:scaleX(-1)}
+.portrait-stage{position:absolute;z-index:3;top:398px;height:540px;left:0;right:0;overflow:hidden;filter:drop-shadow(0 12px 11px #0009)}
+.portrait-stage:before{content:"";position:absolute;inset:42px 36px 0;background:radial-gradient(ellipse at 50% 58%,#ffba291b,transparent 66%);pointer-events:none}
+.portraits{height:100%;width:100%;display:flex;align-items:flex-end;justify-content:center;gap:0;}
+.portraits img{width:620px;height:540px;object-fit:contain;object-position:bottom center;flex:0 0 auto;filter:drop-shadow(8px 7px 7px #000a)}
+.portraits.tag img{width:360px;height:520px;}
+.portraits.tag img:first-child{margin-right:-15px;transform:translateX(15px)}
+.portraits.tag img:last-child{margin-left:-15px;transform:translateX(-15px)}
+.portrait-floor{position:absolute;z-index:4;left:0;right:0;top:812px;height:137px;background:linear-gradient(0deg,#100b04 0%,#100b04df 25%,transparent 100%);pointer-events:none}
+.champ-panel{position:absolute;z-index:8;top:863px;left:16px;width:688px;height:351px;overflow:hidden;clip-path:polygon(0 19px,21px 0,calc(100% - 20px) 0,100% 20px,100% calc(100% - 20px),calc(100% - 20px) 100%,20px 100%,0 calc(100% - 20px));background:linear-gradient(145deg,#ffe9ac 0,#98611f 3%,#442507 5%,#180f07 11%,#160e05 80%,#905f1f 97%,#ffe49e);filter:drop-shadow(0 10px 17px #000)}
+.champ-panel:before{position:absolute;content:"";inset:5px;clip-path:inherit;background:linear-gradient(130deg,#2b1906,#0b0b08 52%,#291703);z-index:0}
+.cap-row{position:relative;z-index:2;height:53px;margin:10px 28px 0;display:flex;justify-content:space-between;align-items:center;border-bottom:1px solid #d2a3488c}
+.cap-left{font-size:18px;font-weight:1000;letter-spacing:1.8px;color:#fff2d0;text-shadow:0 0 8px #c18732}
+.cap-left:before{content:'///';font-size:27px;font-style:italic;color:#eabf66;margin-right:13px}
+.cap-right{font-size:14px;font-weight:1000;letter-spacing:3px;color:#ffe5ad}
+.feature{position:relative;z-index:2;height:201px;margin:0 23px;border:1px solid #87602f;border-top:2px solid #e0b766;background:radial-gradient(ellipse at 75% 24%,#704c233f,transparent 70%),linear-gradient(110deg,#322008,#0c0b08 77%)}
+.feat-label{position:absolute;left:19px;top:10px;right:195px;font-size:19px;letter-spacing:2.5px;font-weight:1000;color:#e8c77e;line-height:1.1;text-shadow:0 1px 2px #000}
+.belt-wrap{position:absolute;right:12px;top:0;width:202px;height:92px;display:flex;align-items:center;justify-content:center}
+.belt{max-height:90px;max-width:195px;object-fit:contain;filter:drop-shadow(0 4px 3px #0009) drop-shadow(0 0 7px #f0b95355)}
+.feat-rule{position:absolute;left:19px;right:16px;top:91px;height:2px;background:linear-gradient(90deg,#c29235,#fce5a0 49%,#8c5c21);box-shadow:0 0 7px #b58545}
+.feat-name{position:absolute;left:17px;right:12px;top:102px;font-family:Impact,'Arial Narrow',Arial,sans-serif;font-size:60px;font-weight:1000;letter-spacing:1px;line-height:1;color:#fff5de;text-transform:uppercase;text-shadow:0 3px 1px #5b3615,0 6px 10px #000}
+.feat-name.long{font-size:51px}.feat-name.tag{font-size:49px}
+.feat-members{position:absolute;left:20px;right:20px;bottom:13px;font-size:19px;letter-spacing:1.5px;font-weight:900;color:#dfbd81}
+.bottom-note{position:relative;z-index:2;display:flex;align-items:center;justify-content:space-between;margin:14px 28px 0;min-height:47px;padding:0 17px;background:linear-gradient(90deg,#a87529,#3a280e 14%,#1c160b 89%,#a36d23);border-left:4px solid #ffe7aa;color:#fff5dc;font-size:21px;font-weight:900;letter-spacing:.8px}
+.bottom-note small{font-size:12px;letter-spacing:2px;color:#ffe0a0}
+.tagline{position:relative;z-index:3;text-align:center;font-size:11px;letter-spacing:2.4px;color:#e5c588;font-weight:900;margin-top:7px}
+.ticker{position:absolute;z-index:20;bottom:0;left:0;right:0;height:60px;display:flex;align-items:center;overflow:hidden;border-top:3px solid #f7d079;box-shadow:0 -4px 13px #000d;background:linear-gradient(90deg,#291906,#50351c 25%,#170e07 90%)}
+.ticker-label{height:100%;width:145px;flex:0 0 auto;display:flex;align-items:center;justify-content:center;border-right:2px solid #f6cf7a;font-size:33px;letter-spacing:1px;font-weight:1000;color:#fff2cc;background:linear-gradient(130deg,#5b3d13,#1d180d);transform:skewX(-9deg);margin-left:-8px;text-shadow:0 1px 3px #000}
+.ticker-label span{transform:skewX(9deg)}
+.ticker-body{min-width:0;overflow:hidden;flex:1;white-space:nowrap;margin-left:16px;color:#f8e6be;font-size:19px;font-weight:900;letter-spacing:1px}
+.ticker-text{display:inline-block;animation:ticker 30s linear infinite;white-space:nowrap}
+@keyframes ticker{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+@media (prefers-reduced-motion:reduce){.ticker-text{animation:none}}
+</style></head>
+<body><main id="stage"><img id="arena" alt="" src="assets/user-nxt-arena.png"><img class="brand" alt="Man Cave Sports Book Presents Inside the Squared Circle" src="assets/user-mancave-master-logo-transparent.png"><img class="show-logo" alt="NXT" src="assets/user-nxt-lettermark-relocated.png"><div class="crown-rule">CHAMPIONS</div><div class="portrait-stage"><div class="portraits" id="portraits"></div></div><div class="portrait-floor"></div><section class="champ-panel"><div class="cap-row"><div class="cap-left">NXT CHAMPIONSHIP SPOTLIGHT</div><div class="cap-right" id="page">01 / 05</div></div><div class="feature"><div class="feat-label" id="belt-title"></div><div class="belt-wrap"><img class="belt" id="belt" alt=""></div><div class="feat-rule"></div><div class="feat-name" id="name"></div><div class="feat-members" id="members"></div></div><div class="bottom-note"><small>CHAMPION SINCE</small><span id="since"></span></div><div class="tagline">WHEN THE BELL RINGS, IT GETS REAL.</div></section><footer class="ticker"><div class="ticker-label"><span>NXT</span></div><div class="ticker-body"><div class="ticker-text" id="ticker"></div></div></footer></main>
+<script>
+(() => {'use strict';
+const CHAMPIONS=[{"id": "nxt-world", "title": "NXT CHAMPIONSHIP", "name": "GRAYSON WALLER", "members": ["Grayson Waller"], "portraits": ["grayson-waller.png"], "belt": "nxt_championship.png", "since": "AUG 30, 2026", "since_date": "2026-08-30", "kind": "singles", "source": "https://www.wwe.com/titlehistory/nxt-championship"}, {"id": "nxt-womens", "title": "NXT WOMEN’S CHAMPIONSHIP", "name": "KELANI JORDAN", "members": ["Kelani Jordan"], "portraits": ["kelani-jordan.png"], "belt": "nxt_womens_championship.png", "since": "AUG 30, 2026", "since_date": "2026-08-30", "kind": "singles", "source": "https://www.wwe.com/titlehistory/nxt-womens-championship"}, {"id": "nxt-north-american", "title": "NXT NORTH AMERICAN CHAMPIONSHIP", "name": "JACKSON DRAKE", "members": ["Jackson Drake"], "portraits": ["jackson-drake.png"], "belt": "nxt_north_american.png", "since": "AUG 30, 2026", "since_date": "2026-08-30", "kind": "singles", "source": "https://www.wwe.com/titlehistory/nxt-north-american-championship"}, {"id": "nxt-womens-na", "title": "NXT WOMEN’S NORTH AMERICAN CHAMPIONSHIP", "name": "ZARIA", "members": ["Zaria"], "portraits": ["zaria.png"], "belt": "nxt_womens_north_american.png", "since": "JUN 9, 2026", "since_date": "2026-06-09", "kind": "singles", "source": "https://www.wwe.com/shows/wwenxt/2026-06-09"}, {"id": "nxt-tag", "title": "NXT TAG TEAM CHAMPIONSHIP", "name": "THE VANITY PROJECT", "members": ["Brad Baylor", "Ricky Smokes"], "portraits": ["brad-baylor.png", "ricky-smokes.png"], "belt": "nxt_tag_team.png", "since": "AUG 30, 2026", "since_date": "2026-08-30", "kind": "tag", "source": "https://www.wwe.com/titlehistory/nxt-tag-team-championship"}];
+const qs=new URLSearchParams(location.search);
+let ix=Math.max(0,Math.min(CHAMPIONS.length-1,Number(qs.get('card')||1)-1));
+const $=id=>document.getElementById(id);
+function render(){const c=CHAMPIONS[ix];$('page').textContent=String(ix+1).padStart(2,'0')+' / '+String(CHAMPIONS.length).padStart(2,'0');$('belt-title').textContent=c.title;$('belt').src='assets/'+c.belt;$('belt').alt=c.title+' title belt';$('name').textContent=c.name;$('name').className='feat-name'+(c.kind==='tag'?' tag':c.name.length>14?' long':'');$('members').textContent=c.kind==='tag'?c.members.join('  •  '):'CURRENT TITLEHOLDER';$('since').textContent=c.since;
+ const p=$('portraits');p.className='portraits'+(c.kind==='tag'?' tag':'');p.replaceChildren();c.portraits.forEach((a,i)=>{let img=document.createElement('img');img.src='assets/'+a;img.alt=c.members[i]||c.name;img.decoding='async';p.append(img)});
+ let t=CHAMPIONS.map(x=>x.title+'  ◆  '+x.name).join('      ◆      ');$('ticker').textContent=t+'      ◆      '+t;
+}
+function fit(){const s=$('stage');const k=Math.min(innerWidth/720,innerHeight/1280);s.style.transform='scale('+k+')';s.style.margin=(-(1280*(1-k))/2)+'px '+(-(720*(1-k))/2)+'px';}
+window.addEventListener('resize',fit,{passive:true});
+window.addEventListener('keydown',e=>{if(e.key==='ArrowRight'){ix=(ix+1)%CHAMPIONS.length;render()}if(e.key==='ArrowLeft'){ix=(ix-1+CHAMPIONS.length)%CHAMPIONS.length;render()}});
+fit();render();
+if(!qs.has('card')&&!qs.has('static'))setInterval(()=>{ix=(ix+1)%CHAMPIONS.length;render()},11000);
+})();
+</script></body></html>

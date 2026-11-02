@@ -1,0 +1,15 @@
+{
+  "schema_version": 1,
+  "event_id": "money-in-the-bank",
+  "event_date": null,
+  "venue": null,
+  "as_of": null,
+  "men": {
+    "entrants": []
+  },
+  "women": {
+    "entrants": []
+  },
+  "other_matches": [],
+  "notes": "No results or announced entrants are presumed. A separately verified event-card intake must update this file when available; data refresh alone does not fetch official WWE cards."
+}

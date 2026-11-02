@@ -1,0 +1,437 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#0b0a06">
+<title>Inside the Squared Circle — NXT | Gold Master Visual Candidate (Local Review)</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Oxanium:wght@600;700;800&family=Rajdhani:wght@500;600;700&family=Teko:wght@500;600;700&display=swap" rel="stylesheet">
+<style>
+:root { color-scheme: dark; background:#02060e; --electric:#0086ff; --ice:#bfe7ff; --steel:#d4e2f0; --deep:#07101e; }
+*,*::before,*::after {box-sizing:border-box}
+html, body {margin:0; width:100%; height:100%; overflow:hidden; background:#02060e; font-family:Arial,Helvetica,sans-serif;}
+body {display:flex; justify-content:center; align-items:center;}
+#stage {position:relative;width:720px;height:1280px;flex:0 0 auto;transform-origin:center center;}
+#board {position:absolute;inset:0;width:720px;height:1280px;overflow:hidden;background:#000b1b;isolation:isolate;}
+#arena {position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center center;z-index:0;}
+#board:before {position:absolute;inset:0;content:"";z-index:1;pointer-events:none;background:linear-gradient(180deg,rgba(0,4,14,.94) 0%,rgba(0,7,22,.72) 13%,rgba(0,8,25,.04) 27%,rgba(0,8,25,.06) 48%,rgba(0,6,19,.61) 61%,rgba(1,9,26,.95) 81%,rgba(1,6,16,.99) 100%);}
+#board:after{position:absolute;inset:0;content:"";z-index:18;pointer-events:none;box-shadow:inset 0 0 0 2px #6dc1ff55,inset 0 0 30px #001529, inset 0 0 50px #000;}
+.top-rule{position:absolute;top:0;left:0;width:100%;height:7px;z-index:5;background:linear-gradient(90deg,#001129,#2c9aff 18%,#e0f4ff 50%,#168ef5 81%,#001129);box-shadow:0 0 13px #2cb6ff;}
+.header{position:absolute;top:0;left:0;width:720px;height:232px;z-index:10;text-align:center;filter:drop-shadow(0 3px 5px rgba(0,0,0,.94));}
+.brand-intro{position:absolute;top:20px;left:0;width:100%;font-size:17px;font-weight:900;letter-spacing:5.3px;color:#fff1d5;text-shadow:0 2px 2px #000,0 0 10px #ffbe62;}
+.presents-row{position:absolute;top:48px;left:88px;width:544px;display:flex;align-items:center;gap:13px;justify-content:center;font-size:14px;font-weight:900;letter-spacing:9px;color:#e0c38b;text-shadow:0 1px 4px #000;}
+.presents-row:before,.presents-row:after{content:"";height:2px;flex:1;background:linear-gradient(90deg,transparent,#f7cb74,#73c7f7);box-shadow:0 0 5px #ffe7b2;}
+.presents-row:after{transform:scaleX(-1)}
+.title-plate{position:absolute;top:69px;left:22px;width:676px;height:126px;z-index:2;filter:drop-shadow(0 4px 3px #000) drop-shadow(0 0 14px #1688ff70);}
+.title-plate:before{content:"";position:absolute;inset:0;background:linear-gradient(178deg,#071627e8 0%,#1a3e5fcc 16%,#020815ee 31%,#0e1b2cee 70%,#020b19dd 100%);clip-path:polygon(4% 0,96% 0,100% 28%,98% 81%,94% 100%,6% 100%,2% 81%,0 28%);border-top:2px solid #e4f6ff;box-shadow:inset 0 0 14px #4098ff;}
+.title-plate:after{content:"";position:absolute;left:28px;right:28px;bottom:0;height:4px;background:linear-gradient(90deg,transparent,#8ccaff,#fff,#8ccaff,transparent);box-shadow:0 0 10px #219aff;}
+.title-small{position:absolute;top:10px;left:0;right:0;z-index:1;font-family:Impact,"Arial Narrow","Arial Black",sans-serif;font-stretch:condensed;font-weight:1000;font-size:36px;letter-spacing:5px;line-height:1.06;color:#e9f7ff;text-shadow:0 1px 0 #a4deff,0 2px 0 #1b528c,0 3px 0 #07335c,0 5px 8px #000;}
+.title-large{position:absolute;top:45px;left:0;right:0;z-index:1;font-family:Impact,"Arial Narrow","Arial Black",sans-serif;font-stretch:condensed;font-size:60px;letter-spacing:-1.6px;line-height:1.02;font-weight:1000;color:#f7fcff;-webkit-text-stroke:1.15px #6e8dac;text-shadow:0 2px 0 #466786,0 4px 0 #294865,0 6px 0 #092038,0 9px 12px #000,0 0 17px #a6ccff;}
+.tagline{position:absolute;top:201px;left:0;width:720px;text-align:center;font-style:italic;font-family:Georgia,serif;font-size:21px;font-weight:bold;color:#ffdd98;text-shadow:0 2px 2px #000,0 0 14px #f7b54d;}
+.rail-lines{position:absolute;z-index:2;left:-50px;right:-50px;top:231px;height:14px;border-top:2px solid rgba(145,203,252,.37);box-shadow:0 0 35px #248bf760;transform:skewY(-.5deg)}
+.hero-shadow{position:absolute;top:368px;left:16px;width:688px;height:415px;z-index:4;pointer-events:none;filter:blur(23px);opacity:.42;background:radial-gradient(ellipse at 50% 58%,#001326,transparent 73%)}
+#hero{position:absolute;z-index:6;top:351px;left:-24px;width:768px;height:auto;pointer-events:none;filter:drop-shadow(0 11px 15px #000d) drop-shadow(0 0 10px #2185f77b);}
+.hero-fade{position:absolute;z-index:7;left:0;right:0;top:720px;height:100px;pointer-events:none;background:linear-gradient(180deg,transparent 0%,rgba(1,12,31,.78) 74%,rgba(1,11,29,.99) 100%);}
+
+.lower{position:absolute;top:795px;left:16px;width:688px;height:427px;z-index:12;filter:drop-shadow(0 9px 20px rgba(0,0,0,.9));}
+.lower:before{content:"";position:absolute;inset:0;z-index:0;background:linear-gradient(143deg,#266ca1 0%,#cdeeff 3%,#274c72 4%,#071a32 7%,#030917 64%,#1e5b89 97%,#96daff 100%);clip-path:polygon(0 19px,23px 0,calc(100% - 24px) 0,100% 22px,100% calc(100% - 24px),calc(100% - 22px) 100%,23px 100%,0 calc(100% - 20px));}
+.lower:after{content:"";position:absolute;inset:4px;z-index:0;pointer-events:none;background:linear-gradient(135deg,rgba(7,32,64,.95),rgba(4,12,28,.98) 44%,rgba(0,16,42,.99)),radial-gradient(circle at 90% 0%,rgba(0,110,255,.35),transparent 50%);clip-path:polygon(0 17px,19px 0,calc(100% - 21px) 0,100% 19px,100% calc(100% - 20px),calc(100% - 19px) 100%,20px 100%,0 calc(100% - 19px));}
+.strap{position:absolute;top:8px;left:31px;right:31px;z-index:2;height:39px;display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid #79b7ed90;}
+.strap-title{font-weight:900;font-size:21px;letter-spacing:2.2px;color:#e7f5ff;text-shadow:0 0 11px #54a9ff;}
+.strap-caption{font-size:12px;font-weight:900;letter-spacing:1.8px;color:#91c6f5;white-space:nowrap;}
+.strap-title:before{content:"";display:inline-block;background:#53a9ff;width:5px;height:22px;vertical-align:middle;margin-right:11px;box-shadow:0 0 13px #3b9bff;}
+.main-card{position:absolute;left:24px;right:24px;top:56px;height:176px;z-index:2;display:flex;background:linear-gradient(102deg,rgba(7,50,109,.9),rgba(6,22,53,.9) 45%,rgba(0,24,60,.6));border:1px solid #497aa9;border-top:3px solid #8ac7ff;box-shadow:inset 0 0 25px #2888f630,0 4px 10px #0006;}
+.date-pane{width:303px;flex:none;padding:12px 16px 10px 20px;border-right:1px solid #5c9cc1a8;background:linear-gradient(135deg,#174f9e3b,transparent);position:relative;}
+.date-pane:after{content:"";position:absolute;right:-1px;top:12px;bottom:12px;border-right:1px solid #bde9ff55;}
+.info-eyebrow{font-size:15px;color:#9bd4ff;font-weight:900;letter-spacing:2px;}
+#main-date{font-size:46px;line-height:1.13;color:#fff;font-weight:1000;letter-spacing:-1.5px;text-shadow:0 3px 0 #1c5997,0 5px 7px #000;white-space:nowrap;margin-top:7px;}
+#main-year{font-size:24px;letter-spacing:4px;font-weight:900;color:#b7dcff;line-height:1.05;}
+.venue-pane{flex:1;padding:12px 14px 5px 20px;overflow:hidden;}
+#main-time{font-size:35px;font-weight:1000;color:#f1f7ff;line-height:1.2;margin:4px 0 9px;white-space:nowrap;text-shadow:0 1px 8px #72c4ff95;}
+#main-venue{font-size:22px;font-weight:900;color:#fff;line-height:1.16;letter-spacing:.2px;text-transform:uppercase;overflow-wrap:anywhere;}
+#main-city{margin-top:6px;font-size:18px;color:#bddcff;font-weight:700;line-height:1.1;}
+.broadcast-card{position:absolute;top:243px;left:24px;right:24px;height:134px;z-index:2;background:linear-gradient(110deg,#071526,#08244a 50%,#061324);border:1px solid #4e80b7;box-shadow:inset 0 1px 0 #bbebff75,inset 0 0 23px #13539b66;display:flex;align-items:stretch;}
+.broadcast-card:before{content:"";position:absolute;left:0;top:0;width:6px;bottom:0;background:#1da8ff;box-shadow:0 0 13px #37c1ff;}
+.card-inner{padding:12px 23px 12px 24px;min-width:0;width:100%;}
+.card-kicker{font-size:15px;font-weight:900;color:#89caff;letter-spacing:2px;margin-bottom:9px;}
+#card-main{font-size:26px;font-weight:1000;color:#fff;line-height:1.15;letter-spacing:-.1px;text-shadow:0 2px 5px #000;}
+#card-sub{font-size:18px;font-weight:700;color:#b5d1e9;margin-top:8px;line-height:1.22;}
+#mode-caption{position:absolute;z-index:2;left:24px;bottom:11px;right:24px;text-align:center;color:#93bcd9;font-size:13px;font-weight:900;letter-spacing:1.8px;}
+
+.lower-bar{position:absolute;top:1224px;left:0;right:0;height:56px;z-index:20;border-top:3px solid #64b9ff;background:linear-gradient(90deg,#001329,#08274f 33%,#010a18 90%);box-shadow:0 -8px 25px #000b, inset 0 8px 11px #164f885e;display:flex;align-items:center;}
+.bottom-mark{width:158px;flex:none;height:53px;display:flex;flex-direction:column;align-items:center;justify-content:center;border-right:1px solid #60b9ff86;background:linear-gradient(90deg,#00101f,#1b65ad);transform:skewX(-9deg);margin-left:-5px;}
+.bottom-mark span{font-size:22px;font-weight:1000;letter-spacing:.4px;line-height:1;color:#fff;transform:skewX(9deg);text-shadow:0 0 7px #39c1ff;}
+.bottom-mark small{font-size:13px;letter-spacing:2px;font-weight:900;color:#d5ebff;transform:skewX(9deg);}
+.marquee{flex:1;overflow:hidden;white-space:nowrap;padding-left:19px;padding-right:19px;color:#e4f2ff;font-size:18px;font-weight:900;letter-spacing:.6px;}
+#ticker-content{display:inline-block;white-space:nowrap;animation:marq 28s linear infinite;}
+@keyframes marq {0%{transform:translateX(9%)}100%{transform:translateX(-100%)}}
+.live-dot{width:8px;height:8px;display:inline-block;border-radius:50%;background:#2d99ff;margin:0 11px;box-shadow:0 0 5px #61c5ff;}
+@media (prefers-reduced-motion:reduce){#ticker-content{animation:none;}}
+
+/* Override earlier generic masthead for the exact supplied graphic. */
+.header {height:236px;z-index:10;filter:drop-shadow(0 3px 8px #000);}
+#master-logo{position:absolute;top:0;left:0;width:720px;height:236px;object-fit:contain;object-position:center top;filter:drop-shadow(0 0 8px #0009);}
+
+/* User-selected sleek sports-entertainment treatment: TV broadcast / 75% C + 25% A.
+   All changes below are confined to the lower information module and ticker. */
+:root{--promo-font:'Teko','Noto Sans Display','Arial Narrow',Impact,sans-serif;
+      --broadcast-font:'Oxanium','Noto Sans Display','Arial',sans-serif;
+      --text-font:'Rajdhani','Noto Sans','Arial',sans-serif;}
+.lower.wb-shell{overflow:hidden; filter:drop-shadow(0 9px 20px rgba(0,0,0,.9));}
+.wb-shell:before{background:linear-gradient(135deg,#8ec8ff 0%,#f2ffff 1.6%,#2e81b8 2%,#09224c 6%,#04132e 60%,#1b6aaa 96%,#a5eaff 100%);}
+.wb-shell:after{background:linear-gradient(139deg,rgba(2,19,48,.99),rgba(2,9,25,.98) 57%,rgba(0,34,78,.99));}
+.wb-grain{position:absolute;inset:5px;z-index:1;pointer-events:none;opacity:.40;background:repeating-linear-gradient(0deg,transparent 0,transparent 4px,#2099ee0b 5px,#2099ee0b 6px),radial-gradient(ellipse at 50% 20%,#236fd554,transparent 65%);}
+.wb-corner{position:absolute;z-index:3;width:57px;height:4px;background:#b4e9ff;box-shadow:0 0 12px #37b2ff;transform:skewX(-35deg)}
+.wb-corner.a{left:21px;top:3px}.wb-corner.b{right:21px;bottom:3px}
+.wb-top{position:absolute;z-index:5;top:14px;left:31px;right:31px;height:36px;display:flex;align-items:center;justify-content:space-between;gap:12px;border-bottom:1px solid #58a6f48a;}
+.wb-lead{display:flex;align-items:center;gap:9px;min-width:0}
+.wb-slashes{font-family:var(--promo-font);font-weight:900;font-size:28px;line-height:1;color:#36beff;font-style:italic;text-shadow:0 0 12px #20b6ff;transform:skewX(-10deg)}
+.wb-brand{font-family:var(--broadcast-font);font-weight:900;letter-spacing:1.55px;font-size:16px;white-space:nowrap;color:#f8fbff;text-shadow:0 0 9px #55aaff88}
+.wb-right{font:800 12px/1 var(--broadcast-font);letter-spacing:2.2px;color:#79bfff;white-space:nowrap;}
+.wb-line{position:absolute;z-index:4;left:31px;right:31px;top:53px;height:2px;background:linear-gradient(90deg,#3bb4ff,transparent 35%,transparent 68%,#51a4eb);opacity:.9}
+.wb-feature{position:absolute;z-index:3;top:58px;left:23px;right:23px;height:275px;overflow:hidden;isolation:isolate;background:radial-gradient(ellipse at 32% 64%,rgba(0,118,255,.45),transparent 57%),linear-gradient(134deg,#08172d,#0a2d59 40%,#041126 80%);border:1px solid #68bcff;box-shadow:0 0 0 3px #052449,0 0 26px #146dec6b,inset 0 0 38px #002658;clip-path:polygon(0 10px,11px 0,calc(100% - 12px) 0,100% 12px,100% calc(100% - 10px),calc(100% - 11px) 100%,10px 100%,0 calc(100% - 12px));}
+.wb-feature:before{position:absolute;z-index:0;content:"";inset:0;opacity:.35;background:repeating-linear-gradient(110deg,transparent 0,transparent 32px,#8fcdff0c 33px,#8fcdff0c 35px),linear-gradient(162deg,transparent 0%,#2fa8fb27 41%,transparent 44%);pointer-events:none}
+.wb-feature:after{position:absolute;z-index:0;content:"";width:340px;height:460px;left:-130px;top:-140px;transform:rotate(-23deg);background:linear-gradient(90deg,transparent 0%,#1677d92a 52%,#52c6ff26 53%,transparent 62%);pointer-events:none}
+.wb-neon-l{position:absolute;z-index:1;left:0;top:0;bottom:0;width:6px;background:linear-gradient(180deg,#24c4ff,#054cb6,#3ac1ff);box-shadow:0 0 16px #238dff}
+.wb-neon-r{position:absolute;z-index:1;right:0;top:0;bottom:0;width:4px;background:linear-gradient(180deg,#a7edff,#0260b0,#baf1ff);box-shadow:0 0 13px #2e9fff}
+.wb-interior{position:relative;z-index:2;width:100%;height:100%;}
+.wb-pretag{position:absolute;top:13px;left:21px;font:800 13px/1 var(--broadcast-font);letter-spacing:4px;color:#87cfff;}
+.wb-rhombus{position:absolute;right:10px;top:10px;font:900 19px/1 var(--promo-font);letter-spacing:1px;color:#bbdffe;opacity:.5;font-style:italic;transform:skewX(-12deg)}
+.wb-feature-display{position:absolute;left:16px;right:16px;top:27px;bottom:12px;}
+.wb-schedule-head{font:800 25px/.92 var(--promo-font);letter-spacing:5px;color:#9bd5ff;transform:skewX(-8deg);text-shadow:0 2px 1px #082751; margin:5px 0 0 7px;}
+.wb-schedule-hero{font:900 85px/.74 var(--promo-font);letter-spacing:1px;color:#fff; margin:5px 0 0 0;transform:skewX(-8deg) scaleX(1.02);transform-origin:0 50%;-webkit-text-stroke:1px #ceeaff;white-space:nowrap;text-shadow:0 2px 0 #74b5ed,0 4px 0 #2266a9,0 7px 0 #123f77,0 13px 20px #000b,0 0 25px #49abff6b;}
+.wb-schedule-hero:after{content:"";display:block;width:88%;margin:8px 0 0 9px;height:3px;background:linear-gradient(90deg,#f0fcff,#3daeff 56%,transparent);box-shadow:0 0 12px #1698ff}
+.wb-schedule-deck{display:flex;align-items:center;gap:14px;margin:23px 0 0 12px;height:82px;}
+.wb-monthday{display:flex;align-items:center;gap:5px;height:81px;}
+.wb-month{display:flex;flex-direction:column;justify-content:center;gap:1px;font:900 27px/.94 var(--promo-font);color:#d0efff;letter-spacing:1px;}
+.wb-bigday{font:900 117px/.7 var(--promo-font);font-style:italic;letter-spacing:-5px;color:#fff;text-shadow:2px 2px 0 #379bfa,5px 6px 0 #064b9f,6px 10px 16px #000,0 0 23px #71c8ff;}
+.wb-timeflag{height:59px;flex:1;min-width:0;margin-left:10px;display:flex;flex-direction:column;align-items:flex-start;justify-content:center;padding:7px 15px;border-left:3px solid #65beff;background:linear-gradient(93deg,#0a3d77b5,transparent 96%);transform:skewX(-8deg);box-shadow:inset 11px 0 18px #177bd72b;}
+.wb-timeflag > *{transform:skewX(8deg)}
+.wb-timeflag small{font:800 10px/1.15 var(--broadcast-font);letter-spacing:1.3px;color:#8cc8f1;}
+.wb-timeflag strong{font:900 36px/.95 var(--promo-font);color:#fff;white-space:nowrap;text-shadow:0 0 12px #6fc8ff8e;letter-spacing:.3px;}
+.wb-timeflag strong span{font-size:23px;color:#b1dfff}
+.wb-cta{position:absolute;left:15px;right:15px;bottom:0;display:flex;gap:10px;align-items:center;justify-content:flex-start;color:#cfe7fa;font:800 13px/1 var(--broadcast-font);letter-spacing:1.2px;}
+.wb-cta:before{content:"";height:2px;width:23px;background:#20aafa;box-shadow:0 0 9px #33c2ff;flex:none}
+.wb-info{position:absolute;left:26px;right:26px;top:342px;height:56px;z-index:3;display:flex;align-items:stretch;border-top:2px solid #61b5fa;background:linear-gradient(98deg,#082d60,#0c1a31 48%,#08264f 88%);box-shadow:0 4px 12px #00102d,inset 0 0 18px #1d7ae338;}
+.wb-info-label{width:102px;flex:none;background:linear-gradient(125deg,#168beb,#0757a2);display:flex;flex-direction:column;align-items:center;justify-content:center;transform:skewX(-12deg);margin-left:5px;border-right:1px solid #a4e0ff;}
+.wb-info-label>*{transform:skewX(12deg)}
+.wb-info-label strong{font:900 23px/.83 var(--promo-font);letter-spacing:1.5px;color:#fff;text-shadow:0 1px 3px #0c3a64;}
+.wb-info-label small{font:800 9px/1 var(--broadcast-font);letter-spacing:1.1px;color:#d8f1ff;margin-top:4px}
+.wb-info-content{display:flex;min-width:0;flex:1;flex-direction:column;justify-content:center;padding-left:18px;padding-right:4px;overflow:hidden;}
+.wb-info-content strong{font:800 21px/1.08 var(--promo-font);letter-spacing:1px;color:#f2f8ff;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
+.wb-info-content small{font:700 12px/1 var(--broadcast-font);letter-spacing:1.3px;color:#8bc7ff;margin-top:2px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
+.wb-bottom-caption{position:absolute;z-index:3;left:27px;right:27px;bottom:10px;display:flex;align-items:center;gap:12px;color:#8cbde2;font:700 11px/1 var(--broadcast-font);letter-spacing:1.6px;}
+.wb-bottom-caption:before{content:"";width:18px;height:2px;background:#44b7ff;box-shadow:0 0 8px #3cacff;}
+.wb-bottom-caption:after{content:"";flex:1;height:1px;background:linear-gradient(90deg,#4e94c966,transparent)}
+/* Announced matches, source-dated recap results and storyline views share the broadcast stage. */
+.wb-layout[hidden]{display:none!important}
+.wb-appearance-name{position:absolute;top:66px;left:18px;right:155px;max-height:154px;overflow:hidden;font:900 67px/.86 var(--promo-font);text-transform:uppercase;color:#fff;letter-spacing:.2px;text-shadow:0 2px 0 #368dce,0 5px 0 #164276,0 8px 14px #000;}
+.wb-appearance-cutout{position:absolute;top:25px;right:0;width:205px;height:195px;background-size:contain;background-repeat:no-repeat;background-position:bottom center;filter:drop-shadow(0 4px 8px #000)}
+.wb-recapportraits{position:absolute;right:0;bottom:2px;display:flex;justify-content:flex-end;gap:2px;pointer-events:none}
+.wb-recapcutout{width:75px;height:108px;background-position:bottom center;background-size:contain;background-repeat:no-repeat;filter:drop-shadow(0 0 6px #000b);}
+.wb-match-title{font:900 61px/.81 var(--promo-font);color:#fff;letter-spacing:0;text-transform:uppercase;text-shadow:0 2px 0 #348cf3,0 5px 8px #000;overflow-wrap:anywhere;max-width:95%;}
+.wb-match-kind{font:900 20px/1 var(--promo-font);color:#bbdfff;letter-spacing:1.2px;text-transform:uppercase;margin:12px 0 0;}
+.wb-match-emblem{font:900 47px/.85 var(--promo-font);font-style:italic;color:#7edaff;text-shadow:0 0 12px #26acff;margin:3px 0;}
+.wb-match-players{display:grid;grid-template-columns:minmax(0,1fr) 65px minmax(0,1fr);height:188px;gap:7px;align-items:end;padding:10px 2px 0;}
+.wb-side{min-width:0;height:100%;position:relative;display:flex;align-items:flex-end;justify-content:center;text-align:center;}
+.wb-side .wb-name{position:relative;z-index:2;padding:4px 7px 5px;background:linear-gradient(90deg,#00142feb,#13579cef,#001936e8);border-top:2px solid #70caff;width:100%;font:900 27px/.87 var(--promo-font);color:white;letter-spacing:.25px;text-shadow:0 1px 3px #001;overflow-wrap:anywhere;}
+.wb-side .wb-portrait{position:absolute;z-index:1;left:0;right:0;top:0;bottom:24px;background-size:contain;background-position:center bottom;background-repeat:no-repeat;filter:drop-shadow(0 5px 8px #000b);}
+.wb-center-vs{display:flex;align-items:center;justify-content:center;height:100%;padding-bottom:20px;font:900 50px/.9 var(--promo-font);font-style:italic;color:#eafaff;-webkit-text-stroke:1px #5bbdff;text-shadow:0 0 15px #138eff,0 5px 5px #000;}
+.wb-detail-note{position:absolute;bottom:3px;left:13px;right:13px;font:700 13px/1.1 var(--broadcast-font);letter-spacing:.7px;color:#b7d8f5;text-align:center;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
+.wb-match-headline{font:900 33px/.9 var(--promo-font);letter-spacing:1px;color:#fff;text-shadow:0 2px 4px #000;}
+.wb-text-result{font:900 45px/1.02 var(--promo-font);color:white;text-shadow:0 2px 3px #000,0 0 13px #2376c28a;letter-spacing:.1px;overflow-wrap:anywhere;margin-top:12px;max-height:170px;overflow:hidden;}
+.wb-archive-label{font:800 15px/1.1 var(--broadcast-font);letter-spacing:2px;color:#79c6fa;margin-top:9px;}
+/* Television ticker: big condensed type, high contrast, no text outside clip. */
+.lower-bar{background:linear-gradient(91deg,#03102b,#083e73 21%,#000c22 64%,#02152c);border-top:3px solid #70cfff;box-shadow:0 -6px 17px #000,inset 0 2px 9px #2f91eb55;}
+.bottom-mark{width:136px;transform:skewX(-12deg);background:linear-gradient(115deg,#0b6ac8,#032c60);border-right:2px solid #b4e5ff;}
+.bottom-mark span{font-family:var(--promo-font);font-size:27px;letter-spacing:1.3px;line-height:.72;transform:skewX(12deg);text-shadow:0 2px 2px #052b55,0 0 11px #8bddff;}
+.bottom-mark small{font-family:var(--broadcast-font);font-size:11px;letter-spacing:3px;transform:skewX(12deg);margin-top:7px;}
+.marquee{padding-left:16px;font-family:var(--text-font);font-size:22px;font-weight:700;letter-spacing:.4px;}
+#ticker-content{animation:marq 35s linear infinite;}
+@keyframes marq{from{transform:translateX(0%)}to{transform:translateX(-100%)}}
+@media (prefers-reduced-motion:reduce){#ticker-content{animation:none}}
+
+/* FINAL COMPOSING PASS — broadcast matchup layouts from user-provided, name-matched transparent PNGs. */
+.wb-match-players{position:absolute;top:22px;left:0;right:0;bottom:12px;height:auto;display:flex;align-items:stretch;justify-content:space-between;gap:0;padding:0;}
+.wb-side{height:100%;flex:1 1 0;min-width:0;position:relative;display:flex;justify-content:center;align-items:flex-end;overflow:visible}
+.wb-side .wb-portrait{left:-12%;right:-12%;top:-12px;bottom:23px;background-position:center bottom;background-repeat:no-repeat;background-size:contain;filter:drop-shadow(0 6px 8px rgba(0,0,0,.86)) drop-shadow(0 0 9px #208ae755)}
+.wb-side .wb-name{font:900 28px/.85 var(--promo-font);font-style:italic;min-height:32px;padding:6px 2px 1px;white-space:normal;background:linear-gradient(90deg,#00142fe9,#1264aeed 48%,#001936e9);-webkit-text-stroke:.25px #dcefff;}
+.wb-center-vs{flex:0 0 56px;font-size:51px;line-height:.85;letter-spacing:-2px;padding-bottom:31px;}
+.wb-match-players.multi-three .wb-center-vs,.wb-match-players.multi-four .wb-center-vs{flex-basis:39px;font-size:35px;}
+.wb-match-players.multi-three .wb-side .wb-name,.wb-match-players.multi-four .wb-side .wb-name{font-size:19px;padding:5px 0 3px;}
+.wb-match-players.multi-four .wb-center-vs{flex-basis:27px;font-size:28px;}
+.wb-match-players.multi-four .wb-side .wb-name{font-size:16px;}
+.wb-match-kind{position:absolute;top:0;left:9px;right:0;margin:0;height:22px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;font-size:17px;letter-spacing:2px;}
+.wb-match-belt{position:absolute;width:100px;height:39px;object-fit:contain;top:-4px;right:10px;filter:drop-shadow(0 2px 4px #000);z-index:4;}
+.wb-match-belt[hidden]{display:none!important}
+.wb-detail-note{bottom:0;}
+.wb-qa-stamp{position:absolute;z-index:40;top:764px;left:21px;right:21px;padding:4px 6px;text-align:center;font:800 15px/1.1 var(--broadcast-font);color:#ffffff;background:#0b3f86e8;border:1px solid #77d8ff;letter-spacing:2px;}
+
+
+/* NXT: approved broadcast proportions + authentic user NXT golden arena. */
+:root{--electric:#e8b82f;--ice:#fff4d5;--steel:#eadbbd;--deep:#160f07;background:#080705}
+html,body{background:#090805}
+#board{background:#090805}
+#board:before{background:linear-gradient(180deg,rgba(9,7,3,.9) 0%,rgba(22,13,1,.65) 12%,rgba(19,14,2,.05) 27%,rgba(10,6,1,.07) 49%,rgba(13,9,2,.6) 61%,rgba(9,7,3,.96) 81%,rgba(9,6,2,.99) 100%)}
+#board:after{box-shadow:inset 0 0 0 2px #ffd36955,inset 0 0 30px #453007,inset 0 0 50px #000}
+.top-rule{background:linear-gradient(90deg,#241904,#f6b937 18%,#fff7d0 50%,#e4ab2f 81%,#1b1102);box-shadow:0 0 13px #e8ac28}
+.rail-lines{border-top-color:#ffe3aa99;box-shadow:0 0 35px #c1923366}
+.hero-shadow{background:radial-gradient(ellipse at 50% 58%,#442c05,transparent 73%)}
+#hero{top:351px;filter:drop-shadow(0 11px 15px #000d) drop-shadow(0 0 9px #ffc24b65)}
+.hero-fade{background:linear-gradient(180deg,transparent 0%,rgba(20,12,2,.78) 74%,rgba(10,7,2,.99) 100%)}
+.wb-shell{filter:drop-shadow(0 9px 16px #000d) drop-shadow(0 0 8px #d59d2675)}
+.wb-shell:before{background:linear-gradient(140deg,#ffdf83,#b87c0b 14%,#382709 50%,#ecc05c 99%)}
+.wb-shell:after{background:linear-gradient(140deg,#1e1608,#0a0906 45%,#211805 100%)}
+.wb-top{border-bottom-color:#b18524}
+.wb-slashes,.wb-brand{color:#fff6dc;text-shadow:0 0 9px #cd9127}
+.wb-right,.wb-pretag,.wb-match-kind,.wb-archive-label,.wb-info-label small{color:#f7cc71}
+.wb-line,.wb-neon-l,.wb-neon-r{background:linear-gradient(90deg,#58370c,#fcd875,#72480e);box-shadow:0 0 14px #eeac3280}
+.wb-feature{border-color:#cc982a;box-shadow:inset 0 0 20px #8d6c2240,0 0 11px #d9a43960;background:linear-gradient(115deg,#1c1408,#221a0b 50%,#0d0b07)}
+.wb-interior{background:linear-gradient(140deg,#170f07,#221705 62%,#100b04)}
+.wb-rhombus{color:#e8c275}
+.wb-schedule-hero{color:#fff9ed;-webkit-text-stroke:1px #eacb8a;text-shadow:0 2px 0 #ebc578,0 4px 0 #a67c29,0 7px 0 #4d350b,0 13px 20px #000b,0 0 25px #e4b35177}
+.wb-schedule-hero:after{background:linear-gradient(90deg,#fff7e5,#e9b447 56%,transparent);box-shadow:0 0 12px #ffcf5b}
+.wb-month,.wb-cta{color:#ffe0a0}
+.wb-bigday{color:#fff7e8;-webkit-text-stroke:1px #ecd18c;text-shadow:0 1px 0 #e8c177,0 4px 0 #a37822,0 7px 14px #000a,0 0 12px #e7b746}
+.wb-timeflag{border-left-color:#efc05e}
+.wb-timeflag strong,.wb-timeflag small{color:#ffe9bc;text-shadow:0 0 8px #6a4a0c}
+.wb-info{border-color:#d9ab4a;background:linear-gradient(100deg,#281e0b,#130f09 60%,#33250c)}
+.wb-info-label{background:linear-gradient(120deg,#9c6d10,#50340b)}
+.wb-info-content strong{color:#fff6e4}
+.wb-info-content small{color:#ebd4aa}
+.wb-bottom-caption{color:#e7d2a0}
+.wb-center-vs{color:#fff5d4;-webkit-text-stroke:1px #e9b647;text-shadow:0 0 15px #e8a32e,0 5px 5px #000}
+.wb-side .wb-name{background:linear-gradient(90deg,#2e210ae8,#a27412ed 48%,#2d2109eb);-webkit-text-stroke:.2px #fff4d3}
+.wb-side .wb-portrait{filter:drop-shadow(0 6px 8px rgba(0,0,0,.86)) drop-shadow(0 0 9px #e9b4475c)}
+.wb-detail-note{color:#f4d99f}
+.wb-text-result{text-shadow:0 3px 5px #000,0 0 12px #ae842b88}
+.lower-bar{background:linear-gradient(91deg,#211602,#5e4313 21%,#150f04 64%,#2d2008);border-top:3px solid #f0c668;box-shadow:0 -6px 17px #000,inset 0 2px 9px #c6973755}
+.bottom-mark{width:136px;background:linear-gradient(115deg,#bd8a1e,#4c310a);border-right:2px solid #ffde91}
+.bottom-mark span{font-size:42px;letter-spacing:2px;text-shadow:0 2px 2px #533904,0 0 11px #ffdd85}
+.bottom-mark small{font-size:10px;letter-spacing:1px;margin-top:4px}
+.live-dot{background:#dfaf41;box-shadow:0 0 5px #ffc761}
+.wb-qa-stamp{background:#6d4a0ade;border-color:#ffe19d}
+
+/* NXT accessibility accents: inherited electric-blue fragments replaced with NXT gold. */
+.wb-schedule-head{color:#ffdb85;text-shadow:0 0 8px #c18b20}
+.wb-cta:before{background:#f2c34b;box-shadow:0 0 10px #efbb48}
+.wb-side .wb-name{border-top-color:#f9cd6e;text-shadow:0 2px 3px #110b04}
+.wb-match-players{color:#fff6e0}
+.wb-match-headline{color:#fff1c6}
+.wb-tile-bottom{color:#ffdf9d}
+.wb-feature-display{color:#fff2da}
+.wb-appearance-name{color:#fff4d9;text-shadow:0 2px 3px #000,0 0 9px #c19648}
+
+/* ONLY authorized visual revision: bring the original NXT stage lettermark into the gap below the locked Man Cave header. */
+#nxt-show-logo{position:absolute;top:230px;left:192px;width:336px;height:auto;z-index:5;object-fit:contain;pointer-events:none;filter:drop-shadow(0 5px 8px #000b) drop-shadow(0 0 12px #d8a231a8);}
+
+/* V2 user-supplied authentic show logo: footer text replaced, show layout preserved. */
+.bottom-mark{overflow:hidden;position:relative;align-items:center;justify-content:center;}
+.bottom-mark .bottom-mark-logo{display:block;width:126px;height:49px;max-width:none;object-fit:contain;object-position:center center;transform:skewX(12deg);filter:drop-shadow(0 1px 3px rgba(0,0,0,.75));}
+</style>
+</head>
+<body>
+<div id="stage"><main id="board" aria-label="NXT portrait wrestling broadcast candidate, editorial design for review">
+  <img id="arena" src="./assets/user-nxt-arena.png" alt="User-supplied WWE NXT red arena background"/>
+  <div class="top-rule"></div>
+  <header class="header" aria-label="Man Cave Sports Book Presents: Inside the Squared Circle"><img id="master-logo" src="./assets/user-mancave-master-logo-transparent.png" alt="Man Cave Sports Book Presents Inside the Squared Circle — user-supplied master logo" /></header>
+  <div class="rail-lines"></div>
+  <img id="nxt-show-logo" src="./assets/user-nxt-lettermark-relocated.png" alt="NXT show logo moved below the Man Cave master logo" />
+  <div class="hero-shadow"></div>
+  <img id="hero" src="./assets/user-nxt-hero-transparent.png" alt="The user-supplied three-wrestler image with its original arrangement"/>
+  <div class="hero-fade"></div>
+  
+  <section class="lower wb-shell" aria-label="NXT broadcast information — live source matched">
+   <div class="wb-grain"></div><div class="wb-corner a"></div><div class="wb-corner b"></div>
+   <div class="wb-top"><div class="wb-lead"><span class="wb-slashes">///</span><span class="wb-brand">TUESDAY NIGHT NXT</span></div><div class="wb-right" id="wb-mode">NEXT BROADCAST</div></div>
+   <div class="wb-line"></div>
+   <div class="wb-feature">
+    <div class="wb-neon-l"></div><div class="wb-neon-r"></div>
+    <div class="wb-interior">
+     <div class="wb-pretag" id="wb-pretag">WWE PRESENTS</div>
+     <div class="wb-rhombus">WWE / NXT</div>
+     <div class="wb-feature-display">
+      <div class="wb-layout" id="wb-schedule-view">
+       <div class="wb-schedule-head" id="wb-promo-kicker">THE NEXT CHAPTER</div>
+       <div class="wb-schedule-hero">TUESDAY</div>
+       <div class="wb-schedule-deck">
+        <div class="wb-monthday"><div class="wb-month" id="wb-date-month">OCT</div><div class="wb-bigday" id="wb-date-day">27</div></div>
+        <div class="wb-timeflag"><small>LIVE BROADCAST</small><strong id="wb-time">8:00 PM ET</strong></div>
+       </div>
+       <div class="wb-cta" id="wb-cta">THE SHOW CONTINUES</div>
+      </div>
+      <div class="wb-layout" id="wb-match-view" hidden>
+       <div class="wb-match-kind" id="wb-match-kind">ANNOUNCED MATCH</div>
+       <div class="wb-match-players" id="wb-match-players"></div>
+       <img id="wb-match-belt" class="wb-match-belt" alt="" hidden>
+       <div class="wb-detail-note" id="wb-match-note"></div>
+      </div>
+      <div class="wb-layout" id="wb-appearance-view" hidden>
+       <div class="wb-match-kind">UPCOMING APPEARANCE</div>
+       <div class="wb-appearance-name" id="wb-appearance-name"></div>
+       <div class="wb-appearance-cutout" id="wb-appearance-cutout"></div>
+       <div class="wb-detail-note" id="wb-appearance-note">UPCOMING NXT</div>
+      </div>
+      <div class="wb-layout" id="wb-fallout-view" hidden>
+       <div class="wb-match-headline" id="wb-fallout-title">RESULTS &amp; FALLOUT</div>
+       <div class="wb-archive-label" id="wb-fallout-date"></div>
+       <div class="wb-text-result" id="wb-fallout-text"></div><div class="wb-recapportraits" id="wb-fallout-portraits"></div>
+      </div>
+     </div>
+    </div>
+   </div>
+   <div class="wb-info"><div class="wb-info-label"><strong id="wb-tile-top">LIVE FROM</strong><small id="wb-tile-bottom">TUESDAY NIGHT</small></div><div class="wb-info-content"><strong id="wb-venue">VENUE NOT LISTED</strong><small id="wb-city"></small></div></div>
+   <div class="wb-bottom-caption" id="wb-caption">MATCH CARD &amp; RESULTS UPDATE AS SOURCES ARE REVIEWED</div>
+  </section>
+  <div class="lower-bar"><div class="bottom-mark" aria-label="WWE NXT"><img class="bottom-mark-logo" src="./assets/user-nxt-footer-logo.png" alt="WWE NXT show logo" /></div><div class="marquee"><span id="ticker-content">TUESDAY NIGHT NXT  ◆  NEXT EPISODE: OCT 27  ◆  VENUE NOT LISTED  ◆  UPCOMING MATCH CARD  ◆  </span></div></div>
+</main></div>
+<script>
+(()=>{
+ 'use strict';
+ const byId=id=>document.getElementById(id), put=(id,value)=>{byId(id).textContent=String(value??'')};
+ const stage=byId('stage');
+ function scale(){stage.style.transform='scale('+Math.min(innerWidth/720,innerHeight/1280).toFixed(5)+')';}
+ addEventListener('resize',scale);scale();
+ // Read-only published data. No image sourcing/scraping or content fabrication.
+ const ROOT='https://broncos5523.github.io/Inside-the-squared-circle/data/';
+ const data={
+  snapshot:{mode:'LIVE_SCHEDULES_ONLY',shows:[{id:'nxt',next:{date:'2026-10-27',time:'20:00',title:'43'},previous:{date:'2026-10-20',time:'20:00',title:'Main Event: Dion Lennox vs. Cruz Montana'}}]},
+  reported:null,research:null,reviewed:null,editorial:null,results:null
+ };
+ const today=()=>{const parts=new Intl.DateTimeFormat('en-US',{timeZone:'America/New_York',year:'numeric',month:'2-digit',day:'2-digit'}).formatToParts(new Date());const m=Object.fromEntries(parts.map(x=>[x.type,x.value]));return `${m.year}-${m.month}-${m.day}`};
+ const dateFmt=(date)=>{if(!/^\d{4}-\d{2}-\d{2}$/.test(date||''))return null;return new Intl.DateTimeFormat('en-US',{month:'short',day:'numeric',timeZone:'UTC'}).format(new Date(date+'T12:00:00Z'))};
+ const show=()=>data.snapshot?.shows?.find(v=>v.id==='nxt')||null;
+ const next=()=>{const a=show()?.next;return a?.date>=today()?a:null;};
+ const locationFromTitle=title=>{const m=String(title||'').match(/^(?:#\d+\s*-\s*)?(.+?)\s+in\s+(.+)$/);if(m)return {venue:m[1],location:m[2].replace(', WV',', WEST VIRGINIA')};return {venue:'VENUE NOT LISTED',location:''}};
+ const getMatches=()=>{
+  const n=next();if(!n)return [];
+  const rows=[];
+  for(const [key,mode] of [['reported','REPORTED_MATCHES_UNVERIFIED'],['research','DATED_RESEARCH_SUPPLEMENT_UNVERIFIED']]){
+   const src=data[key];if(src?.mode!==mode)continue;
+   const block=src.programs?.find(p=>p.show_id==='nxt'&&p.airdate===n.date);
+   for(const x of block?.matches||[]){const t=typeof x==='string'?x:(x.text||x.match_text||x.match||'');if(t&&!rows.find(y=>y.name.toLowerCase()===t.toLowerCase()))rows.push({name:t,stipulation:typeof x==='string'?'':(x.stipulation||x.match_type||'')});}
+  }
+  return rows.slice(0,12);
+ };
+ const getAppearances=()=>{
+  const n=next();if(!n)return [];
+  const rows=[];
+  for(const [key,mode] of [['reported','REPORTED_MATCHES_UNVERIFIED'],['research','DATED_RESEARCH_SUPPLEMENT_UNVERIFIED']]){
+   const source=data[key];if(source?.mode!==mode)continue;
+   const a=source.programs?.find(p=>p.show_id==='nxt'&&p.airdate===n.date);
+   for(const x of a?.appearances||[]){const name=typeof x==='string'?x:(x.name||x.text||x.wrestler||'');if(name&&!rows.includes(name))rows.push(name);}
+  }
+  return rows.slice(0,12);
+ };
+ const getFallout=()=>{
+  const d=show()?.previous?.date;
+  // Only episode-matched facts; an archived October 16 recap cannot masquerade as October 23 results.
+  if(!d||d>=today())return [];
+  const blocks=[];
+  for(const key of ['reviewed']){
+   const p=data[key]?.programs?.find(p=>p.show_id==='nxt'&&p.airdate===d);
+   if(p){for(const x of (p.results||[]).concat(p.developments||[])){
+     const t=typeof x==='string'?x:x.text;if(t&&!blocks.find(a=>a.text.toLowerCase()===t.toLowerCase()))blocks.push({text:t,date:d});
+   }}
+  }
+  return blocks.slice(0,12);
+ };
+ const fmtTime=str=>{if(!/^\d{2}:\d{2}$/.test(str||''))return 'TIME PENDING';let h=+str.slice(0,2);return (h%12||12)+':'+str.slice(3,5)+' '+(h>=12?'PM':'AM')+' ET';};
+ function display(type,item,index,total){
+   for(const id of ['wb-schedule-view','wb-match-view','wb-appearance-view','wb-fallout-view'])byId(id).hidden=true;
+   const n=next(),pl=locationFromTitle(n?.title);
+   if(type==='schedule'){
+    byId('wb-schedule-view').hidden=false;
+    put('wb-mode','NEXT BROADCAST');put('wb-pretag','WWE PRESENTS');
+    put('wb-promo-kicker','THE NEXT CHAPTER');
+    if(n){const d=new Date(n.date+'T12:00:00Z');put('wb-date-month',new Intl.DateTimeFormat('en-US',{month:'short',timeZone:'UTC'}).format(d).toUpperCase());put('wb-date-day',String(d.getUTCDate()));put('wb-time',fmtTime(n.time));put('wb-cta','A NEW TUESDAY NIGHT AWAITS');}
+    else{put('wb-date-month','NEXT');put('wb-date-day','—');put('wb-time','TBA');put('wb-cta','NEXT BROADCAST INFORMATION TO FOLLOW');}
+    put('wb-tile-top','LIVE FROM');put('wb-tile-bottom','TUESDAY NIGHT');put('wb-venue',n?pl.venue.toUpperCase():'NEXT NXT BROADCAST');put('wb-city',n?pl.location.toUpperCase():'');
+    put('wb-caption','ANNOUNCED MATCHES • RESULTS & FALLOUT • UPCOMING EVENTS');
+   }else if(type==='match'){
+    byId('wb-match-view').hidden=false;
+    put('wb-mode',String(index+1).padStart(2,'0')+' / '+String(total).padStart(2,'0'));put('wb-pretag','NXT MATCH CARD');
+    const names=String(item.name||'').split(/\s+(?:vs\.?|versus)\s+/i).map(s=>s.trim()).filter(Boolean);
+    const grid=byId('wb-match-players');grid.replaceChildren();
+    grid.className='wb-match-players'+(names.length>=3?' multi-'+(names.length>=4?'four':'three'):'');
+    for(const [i,name] of names.slice(0,4).entries()){
+     if(i>0){const vs=document.createElement('div');vs.className='wb-center-vs';vs.textContent='VS';grid.append(vs);}
+     const side=document.createElement('div');side.className='wb-side';
+     const portrait=document.createElement('div');portrait.className='wb-portrait';
+     const key=name.toLowerCase().trim();
+     const exact=USER_CUTOUTS[key];
+     const cleaned=key.replace(/\s*\([^)]*\)\s*/g,'').trim();
+     const photo=exact||USER_CUTOUTS[cleaned];
+     if(photo)portrait.style.backgroundImage=`url("${photo}")`;
+     side.append(portrait);
+     const label=document.createElement('div');label.className='wb-name';label.textContent=name.toUpperCase();
+     if(name.length>38)label.style.fontSize='15px';else if(name.length>26)label.style.fontSize='20px';
+     side.append(label);grid.append(side);
+    }
+    const title=String(item.stipulation||'').toLowerCase();
+    const belt=byId('wb-match-belt');belt.hidden=true;belt.removeAttribute('src');
+    const beltTerms=[["women's north american",'nxt_womens_north_american'],['womens north american','nxt_womens_north_american'],["women's championship",'nxt_womens_championship'],['womens championship','nxt_womens_championship'],['north american','nxt_north_american'],['tag team','nxt_tag_team'],['nxt championship','nxt_championship']];
+    for(const [phrase,beltKey] of beltTerms){if(title.includes(phrase)&&BELT_PATHS[beltKey]){belt.src=BELT_PATHS[beltKey];belt.hidden=false;break;}}
+    put('wb-match-kind',item.stipulation || (names.length>=3?'MULTI-WRESTLER MATCH':'UPCOMING MATCH'));
+    put('wb-match-note','TUESDAY NIGHT NXT • '+(dateFmt(n?.date)||'DATE TO BE ANNOUNCED').toUpperCase());
+    put('wb-tile-top','LIVE FROM');put('wb-tile-bottom','NEXT TUESDAY');put('wb-venue',pl.venue.toUpperCase());put('wb-city',pl.location.toUpperCase());
+    put('wb-caption','MATCH CARD SUBJECT TO CHANGE');
+   }else if(type==='appearance'){
+    byId('wb-appearance-view').hidden=false;put('wb-mode',String(index+1).padStart(2,'0')+' / '+String(total).padStart(2,'0'));put('wb-pretag','NXT SPOTLIGHT');
+    put('wb-appearance-name',item.toUpperCase());
+    byId('wb-appearance-name').style.fontSize=item.length>35?'40px':item.length>22?'51px':'67px';
+    byId('wb-appearance-cutout').style.backgroundImage=USER_CUTOUTS[item.toLowerCase().trim()]?`url("${USER_CUTOUTS[item.toLowerCase().trim()]}")`:'';
+    put('wb-appearance-note', 'UPCOMING NXT • '+(dateFmt(n?.date)||'DATE TO BE ANNOUNCED').toUpperCase());
+    put('wb-tile-top','LIVE FROM');put('wb-tile-bottom','NEXT TUESDAY');put('wb-venue',pl.venue.toUpperCase());put('wb-city',pl.location.toUpperCase());
+    put('wb-caption','APPEARANCES SUBJECT TO CHANGE');
+   }else if(type==='fallout'){
+    byId('wb-fallout-view').hidden=false;put('wb-mode',String(index+1).padStart(2,'0')+' / '+String(total).padStart(2,'0'));
+    put('wb-pretag','POST-SHOW BROADCAST');put('wb-fallout-title','RESULTS & FALLOUT');put('wb-fallout-date','NXT • '+dateFmt(item.date).toUpperCase());put('wb-fallout-text',item.text);
+    const matching=Object.keys(USER_CUTOUTS).filter(name=>item.text.toLowerCase().includes(name)).slice(0,3);
+    const spots=byId('wb-fallout-portraits');spots.replaceChildren();
+    for(const name of matching){const el=document.createElement('div');el.className='wb-recapcutout';el.style.backgroundImage=`url("${USER_CUTOUTS[name]}")`;spots.append(el);}
+    byId('wb-fallout-text').style.maxWidth=matching.length?'74%':'95%';
+    byId('wb-fallout-text').style.fontSize=item.text.length>170?'28px':item.text.length>115?'33px':item.text.length>75?'38px':'45px';
+    put('wb-tile-top','EPISODE');put('wb-tile-bottom','RECAP');put('wb-venue',dateFmt(item.date).toUpperCase());put('wb-city','THE AFTERMATH');
+    put('wb-caption','MATCH RESULTS • RIVALRIES • STORYLINE DEVELOPMENTS');
+   }
+ }
+ // LOCAL DESIGN REVIEW ONLY. Names are matched to source-labeled, user-supplied WWE cutouts.
+ // All assets are staged, but public republication rights are NOT established or granted by this review.
+ const USER_CUTOUTS={"abismo negro jr.":"./assets/portraits/abismo-negro-jr.png","adam pearce":"./assets/portraits/adam-pearce.png","aj lee":"./assets/portraits/aj-lee.png","akira tozawa":"./assets/portraits/akira-tozawa.png","alexa bliss":"./assets/portraits/alexa-bliss.png","angel":"./assets/portraits/angel.png","angelo dawkins":"./assets/portraits/angelo-dawkins.png","arianna grace":"./assets/portraits/arianna-grace.png","asuka":"./assets/portraits/asuka.png","austin theory":"./assets/portraits/austin-theory.png","axiom":"./assets/portraits/axiom.png","b-fab":"./assets/portraits/b-fab.png","b-fab & michin":"./assets/portraits/michin-b-fab.png","baron corbin":"./assets/portraits/baron-corbin.png","bayley":"./assets/portraits/bayley.png","becky lynch":"./assets/portraits/becky-lynch.png","berto":"./assets/portraits/berto.png","bianca belair":"./assets/portraits/bianca-belair.png","big cass":"./assets/portraits/big-cass.png","big e":"./assets/portraits/big-e.png","blake monroe":"./assets/portraits/blake-monroe.png","brad baylor":"./assets/portraits/brad-baylor.png","bravo americano":"./assets/portraits/bravo-americano.png","brie bella":"./assets/portraits/brie-bella.png","bron breakker":"./assets/portraits/bron-breakker.png","bron breakker & austin theory":"./assets/portraits/the-vision.png","bronco nima":"./assets/portraits/bronco-nima.png","bronson reed":"./assets/portraits/bronson-reed.png","brooks jensen":"./assets/portraits/brooks-jensen.png","brutus creed":"./assets/portraits/brutus-creed.png","candice lerae":"./assets/portraits/candice-lerae.png","carmelo hayes":"./assets/portraits/carmelo-hayes.png","chad gable":"./assets/portraits/chad-gable.png","channing \"stacks\" lorenzo":"./assets/portraits/channing-stacks-lorenzo.png","charlie dempsey":"./assets/portraits/charlie-dempsey.png","charlotte flair":"./assets/portraits/charlotte-flair.png","chelsea green":"./assets/portraits/chelsea-green.png","cm punk":"./assets/portraits/cm-punk.png","cody rhodes":"./assets/portraits/cody-rhodes.png","corey graves":"./assets/portraits/corey-graves.png","cruz del toro":"./assets/portraits/cruz-del-toro.png","cruz montana":"./assets/portraits/cruz-montana.png","cutler james":"./assets/portraits/cutler-james.png","daga":"./assets/portraits/daga.png","damian priest":"./assets/portraits/damian-priest.png","danhausen":"./assets/portraits/danhausen.png","dion lennox":"./assets/portraits/dion-lennox.png","dominik mysterio":"./assets/portraits/dominik-mysterio.png","dorian van dux":"./assets/portraits/dorian-van-dux.png","dragon lee":"./assets/portraits/dragon-lee.png","drew mcintyre":"./assets/portraits/drew-mcintyre.png","ek prosper":"./assets/portraits/ek-prosper.png","el carnicero":"./assets/portraits/el-carnicero.png","el fiscal":"./assets/portraits/el-fiscal.png","el grande americano":"./assets/portraits/el-grande-americano.png","elio lefleur":"./assets/portraits/elio-lefleur.png","elton prince":"./assets/portraits/elton-prince.png","erik":"./assets/portraits/erik.png","ethan page":"./assets/portraits/ethan-page.png","fallon henley":"./assets/portraits/fallon-henley.png","finn bálor":"./assets/portraits/finn-balor.png","galeno":"./assets/portraits/galeno.png","giulia":"./assets/portraits/giulia.png","grayson waller":"./assets/portraits/grayson-waller.png","gunther":"./assets/portraits/gunther.png","hank walker":"./assets/portraits/hank-walker.png","harlem lewis":"./assets/portraits/harlem-lewis.png","ivar":"./assets/portraits/ivar.png","ivy nile":"./assets/portraits/ivy-nile.png","iyo sky":"./assets/portraits/iyo-sky.png","izzi dame":"./assets/portraits/izzi-dame.png","jackson drake":"./assets/portraits/jackson-drake.png","jacob fatu":"./assets/portraits/jacob-fatu.png","jacy jayne":"./assets/portraits/jacy-jayne.png","jade cargill":"./assets/portraits/jade-cargill.png","jaida parker":"./assets/portraits/jaida-parker.png","jd mcdonagh":"./assets/portraits/jd-mcdonagh.png","je'von evans":"./assets/portraits/je-von-evans.png","jey uso":"./assets/portraits/jey-uso.png","jimmy uso":"./assets/portraits/jimmy-uso.png","joaquin wilde":"./assets/portraits/joaquin-wilde.png","joe hendry":"./assets/portraits/joe-hendry.png","johnny gargano":"./assets/portraits/johnny-gargano.png","jordynne grace":"./assets/portraits/jordynne-grace.png","josh briggs":"./assets/portraits/josh-briggs.png","julius creed":"./assets/portraits/julius-creed.png","kale dixon":"./assets/portraits/kale-dixon.png","kali armstrong":"./assets/portraits/kali-armstrong.png","kam hendrix":"./assets/portraits/kam-hendrix.png","karmen petrovic":"./assets/portraits/karmen-petrovic.png","keanu carver":"./assets/portraits/keanu-carver.png","kelani jordan":"./assets/portraits/kelani-jordan.png","kendal grey":"./assets/portraits/kendal-grey.png","kevin owens":"./assets/portraits/kevin-owens.png","kiana james":"./assets/portraits/kiana-james.png","kit wilson":"./assets/portraits/kit-wilson.png","la catalina":"./assets/portraits/la-catalina.png","la knight":"./assets/portraits/la-knight.png","lady shani":"./assets/portraits/lady-shani.png","lainey reid":"./assets/portraits/lainey-reid.png","lash legend":"./assets/portraits/lash-legend.png","lexis king":"./assets/portraits/lexis-king.png","liv morgan":"./assets/portraits/liv-morgan.png","lizzy rain":"./assets/portraits/lizzy-rain.png","logan paul":"./assets/portraits/logan-paul.png","lola vice":"./assets/portraits/lola-vice.png","lucien price":"./assets/portraits/lucien-price.png","ludwig kaiser":"./assets/portraits/ludwig-kaiser.png","lyra valkyria":"./assets/portraits/lyra-valkyria.png","mason rook":"./assets/portraits/mason-rook.png","matt cardona":"./assets/portraits/matt-cardona.png","maxxine dupri":"./assets/portraits/maxxine-dupri.png","mecha wolf":"./assets/portraits/mecha-wolf.png","megan morant":"./assets/portraits/megan-morant.png","mfts":"./assets/portraits/the-mfts.png","michin":"./assets/portraits/michin.png","michin & b-fab":"./assets/portraits/michin-b-fab.png","montez ford":"./assets/portraits/montez-ford.png","myka lockwood":"./assets/portraits/myka-lockwood.png","myles borne":"./assets/portraits/myles-borne.png","naomi":"./assets/portraits/naomi.png","naraku":"./assets/portraits/naraku.png","nathan frazer":"./assets/portraits/nathan-frazer.png","nattie":"./assets/portraits/nattie.png","nia jax":"./assets/portraits/nia-jax.png","nick aldis":"./assets/portraits/nick-aldis.png","nikki bella":"./assets/portraits/nikki-bella.png","nikkita lyons":"./assets/portraits/nikkita-lyons.png","niko vance":"./assets/portraits/niko-vance.png","noam dar":"./assets/portraits/noam-dar.png","omos":"./assets/portraits/omos.png","osiris griffin":"./assets/portraits/osiris-griffin.png","otis":"./assets/portraits/otis.png","paige":"./assets/portraits/paige.png","penta":"./assets/portraits/penta.png","pete dunne":"./assets/portraits/pete-dunne.png","piper niven":"./assets/portraits/piper-niven.png","r-truth":"./assets/portraits/r-truth.png","randy orton":"./assets/portraits/randy-orton.png","raquel rodriguez":"./assets/portraits/raquel-rodriguez.png","rayo americano":"./assets/portraits/rayo-americano.png","rey fenix":"./assets/portraits/rey-fenix.png","rey mysterio":"./assets/portraits/rey-mysterio.png","rhea ripley":"./assets/portraits/rhea-ripley.png","ricky saints":"./assets/portraits/ricky-saints.png","ricky smokes":"./assets/portraits/ricky-smokes.png","robert stone":"./assets/portraits/robert-stone.png","roman reigns":"./assets/portraits/roman-reigns.png","romeo moreno":"./assets/portraits/romeo-moreno.png","roxanne perez":"./assets/portraits/roxanne-perez.png","royce keys":"./assets/portraits/royce-keys.png","rusev":"./assets/portraits/rusev.png","sami zayn":"./assets/portraits/sami-zayn.png","saquon shugars":"./assets/portraits/saquon-shugars.png","sean legacy":"./assets/portraits/sean-legacy.png","seth rollins":"./assets/portraits/seth-rollins.png","shawn spears":"./assets/portraits/shawn-spears.png","shiloh hill":"./assets/portraits/shiloh-hill.png","skylar raye":"./assets/portraits/skylar-raye.png","sol ruca":"./assets/portraits/sol-ruca.png","solo sikoa":"./assets/portraits/solo-sikoa.png","stephanie vaquer":"./assets/portraits/stephanie-vaquer.png","talla tonga":"./assets/portraits/talla-tonga.png","tama tonga":"./assets/portraits/tama-tonga.png","tamina":"./assets/portraits/tamina.png","tank ledger":"./assets/portraits/tank-ledger.png","tatum paxley":"./assets/portraits/tatum-paxley.png","tavion heights":"./assets/portraits/tavion-heights.png","the mfts":"./assets/portraits/the-mfts.png","the miz":"./assets/portraits/the-miz.png","the vanity project":"./assets/portraits/the-vanity-project.png","the vision":"./assets/portraits/the-vision.png","thea hail":"./assets/portraits/thea-hail.png","tiffany stratton":"./assets/portraits/tiffany-stratton.png","tony d'angelo":"./assets/portraits/tony-d-angelo.png","trick williams":"./assets/portraits/trick-williams.png","triple h":"./assets/portraits/triple-h.png","tristan angels":"./assets/portraits/tristan-angels.png","tyler bate":"./assets/portraits/tyler-bate.png","uriah connors":"./assets/portraits/uriah-connors.png","vanity project":"./assets/portraits/the-vanity-project.png","wren sinclair":"./assets/portraits/wren-sinclair.png","zaria":"./assets/portraits/zaria.png","zilla fatu":"./assets/portraits/zilla-fatu.png"};
+ const BELT_PATHS={"nxt_championship":"./assets/belts/nxt_championship.png","nxt_womens_championship":"./assets/belts/nxt_womens_championship.png","nxt_north_american":"./assets/belts/nxt_north_american.png","nxt_womens_north_american":"./assets/belts/nxt_womens_north_american.png","nxt_tag_team":"./assets/belts/nxt_tag_team.png"};
+ async function loadPortraitManifest(){return;}
+ let frame=0;
+ function render(){
+  const qa=new URLSearchParams(location.search).get('design_demo');
+  if((location.protocol==='file:'||['localhost','127.0.0.1'].includes(location.hostname)) && qa){
+   const sample = qa==='match' ? {name:'Kelani Jordan vs. Zaria',stipulation:'SINGLES MATCH'} :
+                   qa==='tag' ? {name:'The Vanity Project vs. The Vision',stipulation:'TAG TEAM MATCH'} :
+                   qa==='triple' ? {name:'Grayson Waller vs. Jackson Drake vs. Shiloh Hill',stipulation:'TRIPLE THREAT MATCH'} : null;
+   if(sample){display('match',sample,0,1);put('wb-pretag','MATCH CARD VISUAL TEST');put('wb-match-note','DESIGN ONLY • NOT AN ANNOUNCED MATCH');put('ticker-content','NXT DESIGN REVIEW     ◆     DEMO MATCHUP — NOT ANNOUNCED     ◆     ');
+    if(!byId('qa-stamp')){const q=document.createElement('div');q.id='qa-stamp';q.className='wb-qa-stamp';q.textContent='DESIGN DEMO • NOT AN ANNOUNCED MATCH';byId('board').append(q);}return;
+   }
+  }
+  // UPCOMING GOLD STANDARD V1: Preview-only sequence. Match cards lead,
+  // then advertised appearances; broadcast details remain the final/fallback card.
+  // NO results/fallout content may appear on an upcoming-show board.
+  const n=next(),matches=getMatches(),appearances=getAppearances(),slides=[];
+  for(const item of matches)slides.push({type:'match',item,index:slides.filter(s=>s.type==='match').length,total:matches.length});
+  for(const item of appearances)slides.push({type:'appearance',item,index:slides.filter(s=>s.type==='appearance').length,total:appearances.length});
+  // Keep event/date visibility without burying the next match card.
+  slides.push({type:'schedule'});
+  const s=slides[frame%slides.length];display(s.type,s.item,s.index||0,s.total||1);
+  const place=locationFromTitle(n?.title);
+  const words=['NXT',n?'NEXT BROADCAST: '+(dateFmt(n.date)||'').toUpperCase():'NEXT BROADCAST DETAILS TO FOLLOW',n?place.venue.toUpperCase():'',matches.length?matches.length+' UPCOMING MATCH'+(matches.length!==1?'ES':''):'MORE MATCH CARD NEWS TO COME',appearances.length?appearances.length+' ADVERTISED APPEARANCE'+(appearances.length!==1?'S':''):'','MATCH CARD • APPEARANCES • NEXT BROADCAST'];
+  put('ticker-content',words.filter(Boolean).join('     ◆     ')+'     ◆     ');
+ }
+ const feeds={reported:['reported.json','REPORTED_MATCHES_UNVERIFIED'],research:['research-20261022.json','DATED_RESEARCH_SUPPLEMENT_UNVERIFIED'],reviewed:['reviewed-recaps.json','REVIEWED_WEEKLY_EPISODE_FACTS_V1'],editorial:['editorial-recaps-20261022.json','DATED_MULTI_SOURCE_RECAP_REVIEW_UNVERIFIED'],results:['results.json','PROVIDER_REPORTED_POST_BROADCAST_RESULTS_UNVERIFIED']};
+ async function refresh(){
+  await Promise.allSettled([...(Object.entries(feeds).map(async([key,[file,mode]])=>{try{const r=await fetch(ROOT+file+'?v='+Math.floor(Date.now()/120000),{cache:'no-store'});if(!r.ok)return;const v=await r.json();if(v?.mode===mode&&Array.isArray(v.programs))data[key]=v;}catch(e){}})),(async()=>{try{const r=await fetch(ROOT+'snapshot.json?v='+Math.floor(Date.now()/120000),{cache:'no-store'});if(!r.ok)return;const v=await r.json();if(v?.mode==='LIVE_SCHEDULES_ONLY'&&Array.isArray(v.shows)&&v.shows.some(s=>s.id==='nxt'))data.snapshot=v;}catch(e){}})()]);
+  frame=0;render();
+ }
+ render();if(!(new URLSearchParams(location.search).has('design_demo')&&(location.protocol==='file:'||['localhost','127.0.0.1'].includes(location.hostname)))){refresh();setInterval(()=>{frame++;render()},14000);setInterval(refresh,300000);}
+})();
+</script>
+</body></html>

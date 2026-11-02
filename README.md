@@ -2,6 +2,12 @@
 
 **“When the bell rings, it gets real.”**
 
+## Approved player production handoff — October 31, 2026
+
+The current release preparation imports the 68 approved original boards, exact artwork, source-backed active rotation, iPhone memory repairs, and the supplied Big Mami, Chantel Monroe, and Zero / Agent Zero portraits into the existing Pages deployment. The proposed main entry starts live playback; the prior entry remains at `previous-display.html`.
+
+See [the handoff and remaining approval/device checks](proof/staging/PRODUCTION_HANDOFF_20261031.md) and [the current player/data documentation](web/staging/README.md). The historical development notes below describe earlier prototypes and are retained for reference.
+
 ## GitHub staging deployment — October 22, 2026
 
 This repository now contains a **limited, source-conscious cloud research display**. It is an independent wrestling project and makes **no changes to the approved 28 sports boards**.

@@ -1,0 +1,407 @@
+{
+  "brand": "TNA",
+  "source": "user supplied TNA official roster screenshots and cutouts",
+  "individuals": 45,
+  "groups": 11,
+  "mapped_names": {
+    "ace steel": "./assets/portraits/ace-steel.png",
+    "aj francis": "./assets/portraits/aj-francis.png",
+    "alisha edwards": "./assets/portraits/alisha-edwards.png",
+    "allie": "./assets/portraits/allie.png",
+    "amazing red": "./assets/portraits/amazing-red.png",
+    "ash by elegance": "./assets/portraits/ash-by-elegance.png",
+    "avery styles": "./assets/portraits/avery-styles.png",
+    "bde": "./assets/portraits/bde.png",
+    "bear bronson": "./assets/portraits/bear-bronson.png",
+    "brian myers": "./assets/portraits/brian-myers.png",
+    "cedric alexander": "./assets/portraits/cedric-alexander.png",
+    "chris bey": "./assets/portraits/chris-bey.png",
+    "daria rae": "./assets/portraits/daria-rae.png",
+    "dutch": "./assets/portraits/dutch.png",
+    "eddie edwards": "./assets/portraits/eddie-edwards.png",
+    "elayna black": "./assets/portraits/elayna-black.png",
+    "elijah": "./assets/portraits/elijah.png",
+    "fabian aichner": "./assets/portraits/fabian-aichner.png",
+    "frankie kazarian": "./assets/portraits/frankie-kazarian.png",
+    "gabby forza": "./assets/portraits/gabby-forza.png",
+    "harley hudson": "./assets/portraits/harley-hudson.png",
+    "heather by elegance": "./assets/portraits/heather-by-elegance.png",
+    "indi hartwell": "./assets/portraits/indi-hartwell.png",
+    "jada stone": "./assets/portraits/jada-stone.png",
+    "jason hotch": "./assets/portraits/jason-hotch.png",
+    "jdc": "./assets/portraits/jdc.png",
+    "jeff hardy": "./assets/portraits/jeff-hardy.png",
+    "joe alonzo": "./assets/portraits/joe-alonzo.png",
+    "john skyler": "./assets/portraits/john-skyler.png",
+    "joseph sawyer": "./assets/portraits/joseph-sawyer.png",
+    "kc navarro": "./assets/portraits/kc-navarro.png",
+    "kiera hogan": "./assets/portraits/kiera-hogan.png",
+    "kilynn king": "./assets/portraits/kilynn-king.png",
+    "lei ying lee": "./assets/portraits/lei-ying-lee.png",
+    "leon slater": "./assets/portraits/leon-slater.png",
+    "m by elegance": "./assets/portraits/m-by-elegance.png",
+    "matt hardy": "./assets/portraits/matt-hardy.png",
+    "mila moore": "./assets/portraits/mila-moore.png",
+    "moose": "./assets/portraits/moose.png",
+    "mr elegance": "./assets/portraits/mr-elegance.png",
+    "mustafa ali": "./assets/portraits/mustafa-ali.png",
+    "trey miguel": "./assets/portraits/trey-miguel.png",
+    "vincent": "./assets/portraits/vincent.png",
+    "xia brookside": "./assets/portraits/xia-brookside.png",
+    "zoey serrano": "./assets/portraits/zoey-serrano.png",
+    "apex": "./assets/portraits/apex.png",
+    "demonxbunny": "./assets/portraits/demonxbunny.png",
+    "the elegant brand": "./assets/portraits/the-elegant-brand.png",
+    "the great hands": "./assets/portraits/the-great-hands.png",
+    "the hardys": "./assets/portraits/the-hardys.png",
+    "the home town man": "./assets/portraits/the-home-town-man.png",
+    "the nemeths": "./assets/portraits/the-nemeths.png",
+    "the personal concierge": "./assets/portraits/the-personal-concierge.png",
+    "the righteous": "./assets/portraits/the-righteous.png",
+    "the system duo": "./assets/portraits/the-system-duo.png",
+    "the system full group": "./assets/portraits/the-system-full-group.png",
+    "lei y\u01d0ng lee": "./assets/portraits/lei-ying-lee.png",
+    "the system": "./assets/portraits/the-system-full-group.png",
+    "the system (tag)": "./assets/portraits/the-system-duo.png",
+    "the elegance brand": "./assets/portraits/the-elegant-brand.png",
+    "hardys": "./assets/portraits/the-hardys.png"
+  },
+  "groups_and_individuals_separate": {
+    "ace-steel": {
+      "display_name": "Ace Steel",
+      "category": "individual",
+      "file": "./assets/portraits/ace-steel.png",
+      "source_name": "ace-steel.png"
+    },
+    "aj-francis": {
+      "display_name": "Aj Francis",
+      "category": "individual",
+      "file": "./assets/portraits/aj-francis.png",
+      "source_name": "aj-francis.jpeg"
+    },
+    "alisha-edwards": {
+      "display_name": "Alisha Edwards",
+      "category": "individual",
+      "file": "./assets/portraits/alisha-edwards.png",
+      "source_name": "alisha-edwards.png"
+    },
+    "allie": {
+      "display_name": "Allie",
+      "category": "individual",
+      "file": "./assets/portraits/allie.png",
+      "source_name": "allie.png"
+    },
+    "amazing-red": {
+      "display_name": "Amazing Red",
+      "category": "individual",
+      "file": "./assets/portraits/amazing-red.png",
+      "source_name": "amazing-red.jpeg"
+    },
+    "ash-by-elegance": {
+      "display_name": "Ash By Elegance",
+      "category": "individual",
+      "file": "./assets/portraits/ash-by-elegance.png",
+      "source_name": "ash-by-elegance.png"
+    },
+    "avery-styles": {
+      "display_name": "Avery Styles",
+      "category": "individual",
+      "file": "./assets/portraits/avery-styles.png",
+      "source_name": "avery-styles.png"
+    },
+    "bde": {
+      "display_name": "Bde",
+      "category": "individual",
+      "file": "./assets/portraits/bde.png",
+      "source_name": "bde.png"
+    },
+    "bear-bronson": {
+      "display_name": "Bear Bronson",
+      "category": "individual",
+      "file": "./assets/portraits/bear-bronson.png",
+      "source_name": "bear-bronson.png"
+    },
+    "brian-myers": {
+      "display_name": "Brian Myers",
+      "category": "individual",
+      "file": "./assets/portraits/brian-myers.png",
+      "source_name": "brian-myers.png"
+    },
+    "cedric-alexander": {
+      "display_name": "Cedric Alexander",
+      "category": "individual",
+      "file": "./assets/portraits/cedric-alexander.png",
+      "source_name": "cedric-alexander.jpeg"
+    },
+    "chris-bey": {
+      "display_name": "Chris Bey",
+      "category": "individual",
+      "file": "./assets/portraits/chris-bey.png",
+      "source_name": "chris-bey.jpeg"
+    },
+    "daria-rae": {
+      "display_name": "Daria Rae",
+      "category": "individual",
+      "file": "./assets/portraits/daria-rae.png",
+      "source_name": "daria-rae.png"
+    },
+    "dutch": {
+      "display_name": "Dutch",
+      "category": "individual",
+      "file": "./assets/portraits/dutch.png",
+      "source_name": "dutch.png"
+    },
+    "eddie-edwards": {
+      "display_name": "Eddie Edwards",
+      "category": "individual",
+      "file": "./assets/portraits/eddie-edwards.png",
+      "source_name": "eddie-edwards.png"
+    },
+    "elayna-black": {
+      "display_name": "Elayna Black",
+      "category": "individual",
+      "file": "./assets/portraits/elayna-black.png",
+      "source_name": "elayna-black.png"
+    },
+    "elijah": {
+      "display_name": "Elijah",
+      "category": "individual",
+      "file": "./assets/portraits/elijah.png",
+      "source_name": "elijah.jpeg"
+    },
+    "fabian-aichner": {
+      "display_name": "Fabian Aichner",
+      "category": "individual",
+      "file": "./assets/portraits/fabian-aichner.png",
+      "source_name": "fabian-aichner.png"
+    },
+    "frankie-kazarian": {
+      "display_name": "Frankie Kazarian",
+      "category": "individual",
+      "file": "./assets/portraits/frankie-kazarian.png",
+      "source_name": "frankie-kazarian.jpeg"
+    },
+    "gabby-forza": {
+      "display_name": "Gabby Forza",
+      "category": "individual",
+      "file": "./assets/portraits/gabby-forza.png",
+      "source_name": "gabby-forza.jpeg"
+    },
+    "harley-hudson": {
+      "display_name": "Harley Hudson",
+      "category": "individual",
+      "file": "./assets/portraits/harley-hudson.png",
+      "source_name": "harley-hudson.png"
+    },
+    "heather-by-elegance": {
+      "display_name": "Heather By Elegance",
+      "category": "individual",
+      "file": "./assets/portraits/heather-by-elegance.png",
+      "source_name": "heather-by-elegance.png"
+    },
+    "indi-hartwell": {
+      "display_name": "Indi Hartwell",
+      "category": "individual",
+      "file": "./assets/portraits/indi-hartwell.png",
+      "source_name": "indi-hartwell.png"
+    },
+    "jada-stone": {
+      "display_name": "Jada Stone",
+      "category": "individual",
+      "file": "./assets/portraits/jada-stone.png",
+      "source_name": "jada-stone.png"
+    },
+    "jason-hotch": {
+      "display_name": "Jason Hotch",
+      "category": "individual",
+      "file": "./assets/portraits/jason-hotch.png",
+      "source_name": "jason-hotch.jpeg"
+    },
+    "jdc": {
+      "display_name": "Jdc",
+      "category": "individual",
+      "file": "./assets/portraits/jdc.png",
+      "source_name": "jdc.png"
+    },
+    "jeff-hardy": {
+      "display_name": "Jeff Hardy",
+      "category": "individual",
+      "file": "./assets/portraits/jeff-hardy.png",
+      "source_name": "jeff-hardy.jpeg"
+    },
+    "joe-alonzo": {
+      "display_name": "Joe Alonzo",
+      "category": "individual",
+      "file": "./assets/portraits/joe-alonzo.png",
+      "source_name": "joe-alonzo.png"
+    },
+    "john-skyler": {
+      "display_name": "John Skyler",
+      "category": "individual",
+      "file": "./assets/portraits/john-skyler.png",
+      "source_name": "john-skyler.png"
+    },
+    "joseph-sawyer": {
+      "display_name": "Joseph Sawyer",
+      "category": "individual",
+      "file": "./assets/portraits/joseph-sawyer.png",
+      "source_name": "joseph-sawyer.jpeg"
+    },
+    "kc-navarro": {
+      "display_name": "Kc Navarro",
+      "category": "individual",
+      "file": "./assets/portraits/kc-navarro.png",
+      "source_name": "kc-navarro.jpeg"
+    },
+    "kiera-hogan": {
+      "display_name": "Kiera Hogan",
+      "category": "individual",
+      "file": "./assets/portraits/kiera-hogan.png",
+      "source_name": "kiera-hogan.jpeg"
+    },
+    "kilynn-king": {
+      "display_name": "Kilynn King",
+      "category": "individual",
+      "file": "./assets/portraits/kilynn-king.png",
+      "source_name": "kilynn-king.png"
+    },
+    "lei-ying-lee": {
+      "display_name": "Lei Ying Lee",
+      "category": "individual",
+      "file": "./assets/portraits/lei-ying-lee.png",
+      "source_name": "lei-ying-lee.png"
+    },
+    "leon-slater": {
+      "display_name": "Leon Slater",
+      "category": "individual",
+      "file": "./assets/portraits/leon-slater.png",
+      "source_name": "leon-slater.jpeg"
+    },
+    "m-by-elegance": {
+      "display_name": "M By Elegance",
+      "category": "individual",
+      "file": "./assets/portraits/m-by-elegance.png",
+      "source_name": "m-by-elegance.jpeg"
+    },
+    "matt-hardy": {
+      "display_name": "Matt Hardy",
+      "category": "individual",
+      "file": "./assets/portraits/matt-hardy.png",
+      "source_name": "matt-hardy.png"
+    },
+    "mila-moore": {
+      "display_name": "Mila Moore",
+      "category": "individual",
+      "file": "./assets/portraits/mila-moore.png",
+      "source_name": "mila-moore.png"
+    },
+    "moose": {
+      "display_name": "Moose",
+      "category": "individual",
+      "file": "./assets/portraits/moose.png",
+      "source_name": "moose.jpeg"
+    },
+    "mr-elegance": {
+      "display_name": "Mr Elegance",
+      "category": "individual",
+      "file": "./assets/portraits/mr-elegance.png",
+      "source_name": "mr-elegance.png"
+    },
+    "mustafa-ali": {
+      "display_name": "Mustafa Ali",
+      "category": "individual",
+      "file": "./assets/portraits/mustafa-ali.png",
+      "source_name": "mustafa-ali.png"
+    },
+    "trey-miguel": {
+      "display_name": "Trey Miguel",
+      "category": "individual",
+      "file": "./assets/portraits/trey-miguel.png",
+      "source_name": "trey-miguel.jpeg"
+    },
+    "vincent": {
+      "display_name": "Vincent",
+      "category": "individual",
+      "file": "./assets/portraits/vincent.png",
+      "source_name": "vincent.png"
+    },
+    "xia-brookside": {
+      "display_name": "Xia Brookside",
+      "category": "individual",
+      "file": "./assets/portraits/xia-brookside.png",
+      "source_name": "xia-brookside.jpeg"
+    },
+    "zoey-serrano": {
+      "display_name": "Zoey Serrano",
+      "category": "individual",
+      "file": "./assets/portraits/zoey-serrano.png",
+      "source_name": "zoey-serrano.png"
+    },
+    "apex": {
+      "display_name": "Apex",
+      "category": "team_or_faction",
+      "file": "./assets/portraits/apex.png",
+      "source_name": "apex.jpeg"
+    },
+    "demonxbunny": {
+      "display_name": "Demonxbunny",
+      "category": "team_or_faction",
+      "file": "./assets/portraits/demonxbunny.png",
+      "source_name": "demonxbunny.jpeg"
+    },
+    "the-elegant-brand": {
+      "display_name": "The Elegant Brand",
+      "category": "team_or_faction",
+      "file": "./assets/portraits/the-elegant-brand.png",
+      "source_name": "the-elegant-brand.png"
+    },
+    "the-great-hands": {
+      "display_name": "The Great Hands",
+      "category": "team_or_faction",
+      "file": "./assets/portraits/the-great-hands.png",
+      "source_name": "the-great-hands.png"
+    },
+    "the-hardys": {
+      "display_name": "The Hardys",
+      "category": "team_or_faction",
+      "file": "./assets/portraits/the-hardys.png",
+      "source_name": "the-hardys.png"
+    },
+    "the-home-town-man": {
+      "display_name": "The Home Town Man",
+      "category": "team_or_faction",
+      "file": "./assets/portraits/the-home-town-man.png",
+      "source_name": "the-home-town-man.jpeg"
+    },
+    "the-nemeths": {
+      "display_name": "The Nemeths",
+      "category": "team_or_faction",
+      "file": "./assets/portraits/the-nemeths.png",
+      "source_name": "the-nemeths.jpeg"
+    },
+    "the-personal-concierge": {
+      "display_name": "The Personal Concierge",
+      "category": "team_or_faction",
+      "file": "./assets/portraits/the-personal-concierge.png",
+      "source_name": "the-personal-concierge.png"
+    },
+    "the-righteous": {
+      "display_name": "The Righteous",
+      "category": "team_or_faction",
+      "file": "./assets/portraits/the-righteous.png",
+      "source_name": "the-righteous.png"
+    },
+    "the-system-duo": {
+      "display_name": "The System Duo",
+      "category": "team_or_faction",
+      "file": "./assets/portraits/the-system-duo.png",
+      "source_name": "the-system-duo.png"
+    },
+    "the-system-full-group": {
+      "display_name": "The System Full Group",
+      "category": "team_or_faction",
+      "file": "./assets/portraits/the-system-full-group.png",
+      "source_name": "the-system-full-group.png"
+    }
+  }
+}

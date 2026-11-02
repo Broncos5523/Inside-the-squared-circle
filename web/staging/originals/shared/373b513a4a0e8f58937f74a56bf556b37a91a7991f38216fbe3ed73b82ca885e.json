@@ -1,0 +1,129 @@
+{
+  "collection": "WWE Raw + SmackDown main roster belts",
+  "count": 11,
+  "source": "User-provided belt images",
+  "notes": "Files are correctly named copies of uploaded images. Original source images unchanged. Championship holders are not encoded. Image resolutions and alpha vary; most JPEGs have solid backgrounds and need masking before transparent overlay use. Brand mappings reflect supplied grouping and should be kept independent of holders.",
+  "assets": [
+    {
+      "source_file": "IMG_3293.jpeg",
+      "asset_file": "assets/belts/wwe/wwe_world-heavyweight-championship.jpeg",
+      "title": "World Heavyweight Championship",
+      "brand": "RAW",
+      "format": "jpeg",
+      "width": 216,
+      "height": 168,
+      "has_alpha": "no",
+      "sha256": "7c9deb22db23b31fe7a17a86e505de177c024092d9de5d9a7a37645a6d360200"
+    },
+    {
+      "source_file": "IMG_3294.jpeg",
+      "asset_file": "assets/belts/wwe/wwe_undisputed-wwe-championship.jpeg",
+      "title": "Undisputed WWE Championship",
+      "brand": "SmackDown",
+      "format": "jpeg",
+      "width": 222,
+      "height": 227,
+      "has_alpha": "no",
+      "sha256": "8c6cc8fff7eefaf36d7801fd3e76f7adc12655cbb15dad1e3baa7ded99209d12"
+    },
+    {
+      "source_file": "IMG_3295.jpeg",
+      "asset_file": "assets/belts/wwe/wwe_intercontinental-championship.jpeg",
+      "title": "Intercontinental Championship",
+      "brand": "RAW",
+      "format": "jpeg",
+      "width": 461,
+      "height": 216,
+      "has_alpha": "no",
+      "sha256": "7e1bbf48f91e265c1180cc2a6591bd9ae015d7cb6f658a76544242a41f8b1ac6"
+    },
+    {
+      "source_file": "IMG_3296.png",
+      "asset_file": "assets/belts/wwe/wwe_united-states-championship.png",
+      "title": "United States Championship",
+      "brand": "SmackDown",
+      "format": "png",
+      "width": 439,
+      "height": 227,
+      "has_alpha": "yes",
+      "sha256": "6af3062a61cb02c864f6abfb473aa19741f2449ba26657af5e20adf86c0df7d0"
+    },
+    {
+      "source_file": "IMG_3297.jpeg",
+      "asset_file": "assets/belts/wwe/wwe_womens-united-states-championship.jpeg",
+      "title": "Women's United States Championship",
+      "brand": "SmackDown",
+      "format": "jpeg",
+      "width": 739,
+      "height": 415,
+      "has_alpha": "no",
+      "sha256": "80b74c600578925ace3d24fe4b7c5e86bb2293af0991cb0ca11800968b50d9a5"
+    },
+    {
+      "source_file": "IMG_3298.jpeg",
+      "asset_file": "assets/belts/wwe/wwe_womens-intercontinental-championship.jpeg",
+      "title": "Women's Intercontinental Championship",
+      "brand": "RAW",
+      "format": "jpeg",
+      "width": 739,
+      "height": 415,
+      "has_alpha": "no",
+      "sha256": "eddbd6805a51a36b423cf9fb9dbe82f34d620f0dad41fdaeb04d079f1b3b438d"
+    },
+    {
+      "source_file": "IMG_3299.jpeg",
+      "asset_file": "assets/belts/wwe/wwe_wwe-tag-team-championship.jpeg",
+      "title": "WWE Tag Team Championship",
+      "brand": "SmackDown",
+      "format": "jpeg",
+      "width": 330,
+      "height": 129,
+      "has_alpha": "no",
+      "sha256": "ea4b463b85c0eb8f68ea8e7e6d0cd5494a2f579393cb227e8093761cdb7ee144"
+    },
+    {
+      "source_file": "IMG_3300.jpeg",
+      "asset_file": "assets/belts/wwe/wwe_world-tag-team-championship.jpeg",
+      "title": "World Tag Team Championship",
+      "brand": "RAW",
+      "format": "jpeg",
+      "width": 464,
+      "height": 215,
+      "has_alpha": "no",
+      "sha256": "ec741bfa08406daf2b17feec5e2b47a482f083e39720253faaec1c8190f4130c"
+    },
+    {
+      "source_file": "IMG_3301.jpeg",
+      "asset_file": "assets/belts/wwe/wwe_wwe-womens-tag-team-championship.jpeg",
+      "title": "WWE Women's Tag Team Championship",
+      "brand": "Cross-brand",
+      "format": "jpeg",
+      "width": 421,
+      "height": 236,
+      "has_alpha": "no",
+      "sha256": "1be55b2823e66c1df0b2bca52866bae65174ad4b15205e6748d5641b117ecac3"
+    },
+    {
+      "source_file": "IMG_3302.jpeg",
+      "asset_file": "assets/belts/wwe/wwe_wwe-womens-championship.jpeg",
+      "title": "WWE Women's Championship",
+      "brand": "SmackDown",
+      "format": "jpeg",
+      "width": 640,
+      "height": 360,
+      "has_alpha": "no",
+      "sha256": "2e4360037c0aae56bee24ff3d2b6b688586bea2c228c84d571dba14b31121f3d"
+    },
+    {
+      "source_file": "IMG_3303.jpeg",
+      "asset_file": "assets/belts/wwe/wwe_womens-world-championship.jpeg",
+      "title": "Women's World Championship",
+      "brand": "RAW",
+      "format": "jpeg",
+      "width": 420,
+      "height": 237,
+      "has_alpha": "no",
+      "sha256": "e0b0050775582865d78cbc6e74efe7de623ad46d494e6333c26499eea2c40c71"
+    }
+  ]
+}

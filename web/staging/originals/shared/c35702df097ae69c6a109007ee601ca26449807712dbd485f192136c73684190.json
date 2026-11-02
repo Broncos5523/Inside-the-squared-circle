@@ -1,0 +1,23 @@
+{
+  "brand": "TNA",
+  "user_supplied_source_files": {
+    "tna_world": "IMG_3314.jpeg",
+    "tna_knockouts_world": "IMG_3315.jpeg",
+    "tna_x_division": "IMG_3316.jpeg",
+    "tna_international": "IMG_3317.jpeg",
+    "tna_world_tag": "IMG_3318.jpeg",
+    "tna_knockouts_world_tag": "IMG_3319.jpeg",
+    "tna_knockouts_tag_variant": "IMG_3320.png"
+  },
+  "display_paths": {
+    "tna_world": "./assets/belts/tna_world.png",
+    "tna_knockouts_world": "./assets/belts/tna_knockouts_world.png",
+    "tna_x_division": "./assets/belts/tna_x_division.png",
+    "tna_international": "./assets/belts/tna_international.png",
+    "tna_world_tag": "./assets/belts/tna_world_tag.png",
+    "tna_knockouts_world_tag": "./assets/belts/tna_knockouts_world_tag.png",
+    "tna_knockouts_tag_variant": "./assets/belts/tna_knockouts_tag_variant.png"
+  },
+  "current_title_holders_not_inferred": true,
+  "rights_to_publish_not_verified": true
+}

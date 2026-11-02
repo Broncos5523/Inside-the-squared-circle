@@ -1,0 +1,13 @@
+{
+  "schema_version": 1,
+  "event_id": "summerslam",
+  "as_of": null,
+  "event_date": null,
+  "event_date_verified": false,
+  "venue": null,
+  "venue_verified": false,
+  "event_label": null,
+  "event_label_verified": false,
+  "cards": [],
+  "notes": "This is intentionally empty. A separate source-verified authorized collector must fill cards; local auto-refresh does not itself discover WWE announcements. Supports a unified event card or separately verified Night One/Night Two cards."
+}
