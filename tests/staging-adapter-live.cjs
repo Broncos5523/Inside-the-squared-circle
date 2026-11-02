@@ -60,12 +60,11 @@ test('the dynamic TV playlist has only approved source-backed board IDs in date 
   const record=library.records.find(x=>x.id===entry.id);
   assert.ok(record?.source_available&&record?.design_approved,entry.id);
  }
- const results=selected.filter(x=>x.kind==='results'||x.kind==='evolve');
- assert.deepEqual(results.map(x=>x.airdate),results.map(x=>x.airdate).sort());
- assert.ok(selected.filter(x=>x.kind==='upcoming').length<=1);
- const next=selected.findIndex(x=>x.kind==='upcoming');
- if(next>=0)assert.equal(next,results.length);
- assert.equal(selected.some(x=>x.kind==='champions'),false);
+ const weekly=selected.filter(x=>['results','evolve','upcoming','champions'].includes(x.kind));
+ const groups=[...new Set(weekly.map(x=>x.show))];
+ assert.deepEqual(weekly.map(x=>x.show),groups.flatMap(show=>weekly.filter(x=>x.show===show).map(x=>x.show)));
+ for(const show of groups){const kinds=weekly.filter(x=>x.show===show).map(x=>x.kind);assert.deepEqual(kinds,kinds.slice().sort((a,b)=>({results:0,evolve:0,upcoming:1,champions:2}[a]-{results:0,evolve:0,upcoming:1,champions:2}[b])));}
+ assert.equal(new Set(selected.filter(x=>x.kind==='upcoming').map(x=>x.show)).size,selected.filter(x=>x.kind==='upcoming').length);
 });
 test('all 68 original boards are source-backed; Evolve never substitutes old archive dates',()=>{
  const evolve=library.records.find(x=>x.id==='weekly-results-evolve');

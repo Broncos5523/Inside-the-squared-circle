@@ -3,7 +3,7 @@
  var base=new URL('./',location.href).href,library,routes,feeds={},programming={entries:[]},active=[],visible=[],current=null,timer=null,token=0,mode='archive',refreshing=null,initialized=false,playing=false,advanceAt=0,minimumEnd=0,boardReady=false;
  var params=new URLSearchParams(location.search),byId=function(id){return document.getElementById(id);};
  function getJSON(path){return fetch(new URL(path,base),{cache:'no-store'}).then(function(r){if(!r.ok)throw Error(path+' unavailable');return r.json();});}
- function playbackUrl(id){var u=new URL(location.href);u.searchParams.set('view','tv');u.searchParams.set('mode','active');u.searchParams.set('id',id);u.searchParams.set('v','20261101-preview-portraits-9');return u.href;}
+ function playbackUrl(id){var u=new URL(location.href);u.searchParams.set('view','tv');u.searchParams.set('mode','active');u.searchParams.set('id',id);u.searchParams.set('v','20261101-grouped-champions-10');return u.href;}
  function rememberPosition(record){if(mode!=='active')return;try{history.replaceState({},'',playbackUrl(record.id));}catch(_){}}
  function label(record){if(record.id.indexOf('results-summerslam_night_one_')===0)return 'SummerSlam — Night One — Results & Fallout';if(record.id.indexOf('results-summerslam_night_two_')===0)return 'SummerSlam — Night Two — Results & Fallout';return record.label;}
  function scale(){
@@ -95,7 +95,7 @@
   // Fail closed when the collector output is old; archive review remains available.
   active=feedFresh?ISCPlaylist.select(programming.entries,new Date()):[];
   byId('watch-active').disabled=!active.length;
-  byId('active-summary').textContent=active.length?active.length+' current board'+(active.length===1?'':'s')+' selected. Choose a board below to start there. Included: latest weekly results, next weekly preview, event previews within 14 days and event results within 7 days.': 'No current boards have cleared their source and data checks yet. The recovered designs are available in the design library.';
+  byId('active-summary').textContent=active.length?active.length+' current board'+(active.length===1?'':'s')+' selected. Choose a board below to start there. Included: weekly groups (results, next preview, champions), then event results within 7 days and previews within 14 days.': 'No current boards have cleared their source and data checks yet. The recovered designs are available in the design library.';
   var list=byId('active-list');list.replaceChildren();active.forEach(function(x){var d=document.createElement('a'),strong=document.createElement('strong'),small=document.createElement('small');d.href=playbackUrl(x.id);d.addEventListener('click',function(event){event.preventDefault();var record=library.records.find(function(r){return r.id===x.id&&r.source_available&&r.design_approved;});if(!record)return;showActive();choose(record,true);});strong.textContent=x.title;small.textContent=(x.airdate||x.event_date)+' · '+x.source_name;d.append(strong,small);list.append(d);});
   byId('feed-stamp').textContent=programming.generated_at?(feedFresh?'Collector last ran ':'STALE DATA — collector last ran ')+new Date(programming.generated_at).toLocaleString()+'. Browser checks for published updates every five minutes; this does not run the collector.':'Current-content collection is pending; archive examples are held outside the TV playlist.';
   if(!feedFresh)byId('active-summary').textContent='Live-data collection is stale or unavailable. Archived demonstrations remain in the design library and are not presented as live programming.';

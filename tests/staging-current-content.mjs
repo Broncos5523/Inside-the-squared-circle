@@ -74,3 +74,14 @@ test('RAW six-man preview uses three individual portraits on each side and the s
  assert.match(html,/const USER_CUTOUTS=\{"john cena":/);assert.match(html,/const data=\{"snapshot":/);
  const archive=host.ISCBoardAdapter.build(source,row,routes,'https://player.example/','archive',{});assert.ok(!archive.includes('const USER_CUTOUTS={"john cena":'));
 });
+
+test('all five championship designs compile checked current titleholders without changing originals',()=>{
+ const data=JSON.parse(readFileSync(new URL('data/programming.json',root))),host={};runInNewContext(readFileSync(new URL('board-adapter.js',root),'utf8'),{window:host,URL});
+ const champions=data.feeds['champions.json'];assert.equal(champions.programs.length,5);
+ for(const program of champions.programs){const row=library.records.find(r=>r.id===program.board_id),source=readFileSync(new URL(row.delivery,root),'utf8');assert.ok(row.design_approved);const html=host.ISCBoardAdapter.build(source,row,routes,'https://player.example/','active',data.feeds);assert.ok(html.includes(JSON.stringify(program.champions)));assert.ok(playlist.dwellMs({id:row.id,kind:'champions'},data.feeds,45000)>=program.champions.length*11000);}
+});
+test('WWE champion verification reads the current holder, never names in title history',async()=>{
+ const {currentWweHolder}=await import('../proof/staging/collect-champions.mjs');
+ assert.equal(currentWweHolder('<h3><span>Championship Holder</span>New Champion</h3><div>Time Held</div><p>Previous Champion</p>'),'New Champion');
+ assert.equal(currentWweHolder('<p>Former champion New Champion</p>'),null);
+});

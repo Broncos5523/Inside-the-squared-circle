@@ -12,7 +12,7 @@ function row(id,extra={}){
 function preview(id,show,airdate){return row(id,{show,kind:'upcoming',airdate,completed:false,verification:'SOURCE_REPORTED'});}
 function special(id,kind,event_date,event_id){return row(id,{kind,event_date,event_id,completed:kind.endsWith('results'),verification:kind.endsWith('preview')?'SOURCE_REPORTED':'OFFICIAL_VERIFIED'});}
 test('Eastern calendar is used across UTC midnight',()=>assert.equal(engine.etDay(new Date('2026-10-31T00:30:00Z')),'2026-10-30'));
-test('Oct 31 example: 6 latest show results in date order, 1 next show, 2 upcoming events',()=>{
+test('Oct 31 example: weekly groups keep results before all next previews, followed by events',()=>{
  const entries=[
  row('weekly-results-aaa',{show:'aaa',airdate:'2026-10-24'}),
  row('weekly-results-raw',{show:'raw',airdate:'2026-10-26'}),
@@ -26,9 +26,8 @@ test('Oct 31 example: 6 latest show results in date order, 1 next show, 2 upcomi
  special('crown-jewel','ple-preview','2026-11-07','wwe-crown-jewel')
  ];
  assert.deepEqual(engine.select(entries,now).map(x=>x.id),[
-  'weekly-results-aaa','weekly-results-raw','weekly-results-nxt',
-  'weekly-results-evolve','weekly-results-tna','weekly-results-smackdown',
-  'weekly-upcoming-aaa','halloween','crown-jewel'
+  'weekly-results-aaa','weekly-upcoming-aaa','weekly-results-raw','weekly-upcoming-raw','weekly-results-nxt',
+  'weekly-results-evolve','weekly-results-tna','weekly-results-smackdown','halloween','crown-jewel'
  ]);
 });
 test('only the latest verified episode of each show plays, oldest to newest',()=>{
@@ -38,8 +37,8 @@ test('only the latest verified episode of each show plays, oldest to newest',()=
 test('last episode stays until a new verified episode replaces it; no artificial 14-day cutoff',()=>{
  assert.deepEqual(engine.select([row('last-week-show',{airdate:'2026-10-01'})],now).map(x=>x.id),['last-week-show']);
 });
-test('the next weekly show is exactly one, even when several are advertised',()=>{
- assert.deepEqual(engine.select([preview('raw','raw','2026-11-02'),preview('aaa','aaa','2026-10-31'),preview('nxt','nxt','2026-11-03')],now).map(x=>x.id),['aaa']);
+test('each show keeps one next preview in its own weekly group',()=>{
+ assert.deepEqual(engine.select([preview('raw','raw','2026-11-02'),preview('aaa','aaa','2026-10-31'),preview('nxt','nxt','2026-11-03')],now).map(x=>x.id),['aaa','raw','nxt']);
 });
 test('a scheduled show may have no matches, but needs schedule confirmation',()=>{
  const p=preview('schedule-only','aaa','2026-10-31');p.has_content=false;
@@ -55,7 +54,7 @@ test('events are displayed when today or within 14 days, not 15 days',()=>{
 });
 test('only PLE/special results from today through seven days ago',()=>{
  const entries=[special('seven','ple-results','2026-10-24','a'),special('eight','special-results','2026-10-23','b'),special('today','special-results','2026-10-31','c')];
- assert.deepEqual(engine.select(entries,now).map(x=>x.id),['today','seven']);
+ assert.deepEqual(engine.select(entries,now).map(x=>x.id),['seven','today']);
 });
 test('verified event results retire the event preview',()=>{
  const entries=[special('preview','ple-preview','2026-10-31','x'),special('result','ple-results','2026-10-31','x')];
@@ -65,10 +64,10 @@ test('two-night events are independent slots',()=>{
  const entries=[special('one','ple-preview','2026-11-01','summer-night-1'),special('two','ple-preview','2026-11-02','summer-night-2')];
  assert.deepEqual(engine.select(entries,now).map(x=>x.id),['one','two']);
 });
-test('championship and unrelated archive designs never enter current TV rotation',()=>{
+test('only current verified champions enter; unrelated archive designs remain excluded',()=>{
  const entries=[row('champ',{kind:'champions',data_verified:true,belts_verified:true}),
   row('archive',{content_status:'archive'}),row('other',{kind:'random'})];
- assert.deepEqual(engine.select(entries,now),[]);
+ assert.deepEqual(engine.select(entries,now).map(x=>x.id),['champ']);
 });
 test('source unavailable or unapproved Evolve cannot play',()=>{
  const entries=[row('missing',{show:'evolve',kind:'evolve',source_available:false}),
@@ -99,4 +98,17 @@ test('special-event preview and unverified feed do not invent additional dwell o
  assert.equal(engine.dwellMs(preview,{},45000),45000);
  const result=row('raw',{show:'raw',airdate:'2026-10-26'});
  assert.equal(engine.dwellMs(result,{},45000),45000);
+});
+
+test('Sunday and Tuesday follow the owner’s cyclic show groups, with results then preview then champions',()=>{
+ for(const [date,first,expected] of [['2026-11-01','raw',['raw','nxt','evolve','tna','smackdown','aaa']],['2026-11-03','nxt',['nxt','evolve','tna','smackdown','aaa','raw']]]){
+  const when=new Date(date+'T17:00:00Z'),entries=[],dates={raw:date==='2026-11-01'?'2026-11-02':'2026-11-09',nxt:'2026-11-03',tna:'2026-11-05',smackdown:'2026-11-06',aaa:'2026-11-07'};
+  for(const show of expected){entries.push(row(show+'-result',{show,kind:show==='evolve'?'evolve':'results',checked_at:date+'T16:59:00Z',airdate:'2026-10-28'}));if(show!=='evolve')entries.push(preview(show+'-preview',show,dates[show]));entries.push(row(show+'-champions',{show,kind:'champions',airdate:date}));}
+  for(const entry of entries)entry.checked_at=date+'T16:59:00Z';
+  const got=engine.select(entries,when);assert.equal(got[0].show,first);assert.deepEqual(got.map(e=>e.id),expected.flatMap(show=>[show+'-result',...(show==='evolve'?[]:[show+'-preview']),show+'-champions']));
+ }
+});
+test('event results run oldest first, all before soonest-first event previews',()=>{
+ const entries=[special('up-later','special-preview','2026-11-07','up-later'),special('recent','ple-results','2026-10-31','recent'),special('older','special-results','2026-10-25','older'),special('up-first','ple-preview','2026-11-02','up-first')];
+ assert.deepEqual(engine.select(entries,now).map(e=>e.id),['older','recent','up-first','up-later']);
 });

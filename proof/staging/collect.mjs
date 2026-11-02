@@ -7,6 +7,7 @@ import {collectOfficialWeeklyResults} from './official-weekly-results.mjs';
 import {collectEvolve} from './collect-evolve.mjs';
 import {collectOfficialEventResults} from './official-event-results.mjs';
 import {collectCorroboratedAaaResults} from './corroborated-aaa-results.mjs';
+import {collectChampions} from './collect-champions.mjs';
 const now=new Date();
 const root=new URL('../../web/staging/',import.meta.url);
 if(process.env.ISC_FORCE_COLLECT!=='1')try{
@@ -132,7 +133,9 @@ entries.push(...events.entries);
 feeds['official-events.json']=events.feed;
 const eventResults=await collectOfficialEventResults({library,routes:assetRoutes,now,requester});
 entries.push(...eventResults.entries);feeds['official-event-results.json']=eventResults.feed;
+const champions=await collectChampions({library,routes:assetRoutes,now,requester,root});
+entries.push(...champions.entries);feeds['champions.json']=champions.feed;
 for(const feed of Object.values(feeds))for(const program of feed.programs||[])addApprovedPortraits(program);
-const result={schema_version:1,mode:'SOURCE_GATED_STAGING',generated_at:now.toISOString(),entries,feeds,collection:{...stats,snapshot_fresh:!!snapshotFresh,official_event_count:events.entries.length,official_event_warnings:events.errors,approved_result_count:reviewed.entries.length,approved_result_warnings:reviewed.warnings,official_weekly_result_count:officialWeekly.entries.length,official_weekly_warnings:officialWeekly.warnings,evolve_verified_count:evolve.entries.length,evolve_warnings:evolve.warnings},notes:['Archived examples remain excluded from current programming. Event matches must clear official-source and approved-portrait checks. Only explicit winners from dated official sources are promoted. Evolve is admitted only when the byte-identical approved artwork and the latest source-verified episode pass all checks; stale episodes are held.','Source credits retained privately; public hosting clearance confirmed by owner 2026-10-30.']};
+const result={schema_version:1,mode:'SOURCE_GATED_STAGING',generated_at:now.toISOString(),entries,feeds,collection:{...stats,snapshot_fresh:!!snapshotFresh,official_event_count:events.entries.length,official_event_warnings:events.errors,approved_result_count:reviewed.entries.length,approved_result_warnings:reviewed.warnings,official_weekly_result_count:officialWeekly.entries.length,official_weekly_warnings:officialWeekly.warnings,evolve_verified_count:evolve.entries.length,evolve_warnings:evolve.warnings,championship_count:champions.entries.length,championship_warnings:champions.warnings},notes:['Archived examples remain excluded from current programming. Event matches must clear official-source and approved-portrait checks. Only explicit winners from dated official sources are promoted. Evolve is admitted only when the byte-identical approved artwork and the latest source-verified episode pass all checks; stale episodes are held.','Source credits retained privately; public hosting clearance confirmed by owner 2026-10-30.']};
 await writeFile(new URL('data/programming.json',root),JSON.stringify(result,null,2)+'\n');
 console.log(JSON.stringify({generated_at:result.generated_at,source_programs:programs.length,active_candidates:entries.length,collection:result.collection}));

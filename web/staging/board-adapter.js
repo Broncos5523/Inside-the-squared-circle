@@ -312,6 +312,12 @@ function evolveApplyVerifiedEpisode(html,payload){
    }
   }
   var boardFeeds={};
+  if(mode==='active'&&record.id.indexOf('championship-')===0){
+   var championship=feeds&&feeds['champions.json']?.mode==='SOURCE_CHECKED_CHAMPIONS'&&feeds['champions.json'].programs.find(function(p){return p.board_id===record.id&&p.champions?.length;});
+   if(!championship)throw Error('Current verified champions unavailable');
+   html=html.replace(/((?:let|const) CHAMPIONS\s*=\s*)\[[\s\S]*?\];/,function(_,prefix){return prefix+JSON.stringify(championship.champions).replace(/</g,'\\u003c')+';';});
+   html=html.replace(/let AS_OF='[^']+';/,'let AS_OF='+JSON.stringify(championship.as_of)+';');
+  }
   if(mode==='active'&&feeds){
    var ownShow=record.id.replace(/^weekly-(?:results|upcoming)-/,'');
    ['snapshot.json','reported.json',ownShow+'-verified-results.json'].forEach(function(name){if(feeds[name])boardFeeds[name]=feeds[name];});

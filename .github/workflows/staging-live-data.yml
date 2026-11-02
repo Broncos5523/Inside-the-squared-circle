@@ -36,6 +36,7 @@ jobs:
           node --check proof/staging/reviewed-archive-fallback.mjs
           node --check proof/staging/official-weekly-results.mjs
           node --check proof/staging/collect-evolve.mjs
+          node --check proof/staging/collect-champions.mjs
           node --check web/staging/board-adapter.js
           node --check web/staging/playlist-engine.js
           node --check web/staging/review.js
