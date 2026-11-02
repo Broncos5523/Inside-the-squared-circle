@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "mode": "PUBLISHER_RSS_POST_SHOW_LINKS_ONLY",
-  "generated_at": "2026-11-02T04:27:52.305784-05:00",
+  "generated_at": "2026-11-02T08:33:31.874704-05:00",
   "source_name": "Multiple publisher RSS feeds",
   "source_url": "https://www.f4wonline.com/rss.xml",
   "approved_publishers": [
@@ -13,51 +13,10 @@
   "programs": [
     {
       "show_id": "raw",
-      "airdate": "2026-10-26",
-      "links": [
-        {
-          "headline": "Hall’s WWE Raw Review 10.26.26",
-          "url": "https://411mania.com/wrestling/halls-wwe-raw-review-10-26-26/",
-          "published_at": "2026-10-27T22:15:20+00:00",
-          "source_name": "411Mania",
-          "status": "PUBLISHER_HEADLINE_LINK_ONLY",
-          "retained_from_previous": true
-        },
-        {
-          "headline": "AEW To Stream On Twitch Before Blood & Guts, WWE Raw Highlights, More | Fight Size",
-          "url": "https://www.fightful.com/wrestling-news/aew-to-stream-on-twitch-before-blood-guts-wwe-raw-highlights-more-fight-size",
-          "published_at": "2026-10-27T22:00:00+00:00",
-          "source_name": "Fightful",
-          "status": "PUBLISHER_HEADLINE_LINK_ONLY",
-          "retained_from_previous": true
-        },
-        {
-          "headline": "Result of Women’s World Championship match on WWE Raw",
-          "url": "https://www.f4wonline.com/news/wwe/result-of-womens-world-championship-match-on-wwe-raw/",
-          "published_at": "2026-10-27T02:54:00+00:00",
-          "source_name": "F4W / Wrestling Observer",
-          "status": "PUBLISHER_HEADLINE_LINK_ONLY",
-          "retained_from_previous": true
-        },
-        {
-          "headline": "Cook’s WWE Raw Review 10.26.26",
-          "url": "https://411mania.com/wrestling/cooks-wwe-raw-review-10-26-26/",
-          "published_at": "2026-10-27T02:37:34+00:00",
-          "source_name": "411Mania",
-          "status": "PUBLISHER_HEADLINE_LINK_ONLY",
-          "retained_from_previous": true
-        },
-        {
-          "headline": "WWE RAW Results – Oct. 26, 2026 – Chad Gable & Dragon Lee vs. Big Cass & “All Ego” Ethan Page, Bayley vs. Lyra Valkyria in No DQ Match",
-          "url": "https://www.tpww.net/2026/10/wwe-raw-results-oct-26-2026-chad-gable-dragon-lee-vs-big-cass-all-ego-ethan-page-bayley-vs-lyra-valkyria-in-no-dq-match/",
-          "published_at": "2026-10-27T00:23:58+00:00",
-          "source_name": "TPWW",
-          "status": "PUBLISHER_HEADLINE_LINK_ONLY",
-          "retained_from_previous": true
-        }
-      ],
+      "airdate": null,
+      "links": [],
       "source_name": "Multiple publisher RSS feeds",
-      "status": "publisher_coverage_links"
+      "status": "no_matching_published_coverage"
     },
     {
       "show_id": "smackdown",
@@ -250,8 +209,8 @@
       "status": "publisher_coverage_links"
     }
   ],
-  "total_links": 25,
-  "retained_link_count": 16,
+  "total_links": 20,
+  "retained_link_count": 11,
   "collection_status": "ok",
   "successful_feed_urls": [
     "https://www.f4wonline.com/rss.xml",

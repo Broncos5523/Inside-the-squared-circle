@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "mode": "LIVE_SCHEDULES_ONLY",
-  "generated_at": "2026-11-02T09:27:11.361743+00:00",
+  "generated_at": "2026-11-02T13:32:55.916195+00:00",
   "fresh_shows": 6,
   "shows": [
     {
@@ -10,14 +10,14 @@
       "color": "#EC354C",
       "category": "primary",
       "next": {
+        "date": "2026-11-09",
+        "time": null,
+        "title": "#1745 - Bon Secours Wellness Arena in Greenville, SC"
+      },
+      "previous": {
         "date": "2026-11-02",
         "time": null,
         "title": "#1744 - Barclays Center in Brooklyn, NY"
-      },
-      "previous": {
-        "date": "2026-10-26",
-        "time": null,
-        "title": "#1743 - Save Mart Center in Fresno, CA"
       },
       "schedule_status": "fresh",
       "confirmed_matches": [],
