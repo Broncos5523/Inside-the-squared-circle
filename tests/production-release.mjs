@@ -53,7 +53,7 @@ test('the Pages artifact contains all approved delivery boards and exact artwork
   const data=JSON.parse(await readFile(new URL('../web/staging/data/programming.json',import.meta.url),'utf8'));
   const release=await buildRelease({output:join(temporary,'.pages-output'),now:new Date(data.generated_at)});
   assert.equal(release.boards,68);
-  assert.equal(release.shared_assets,543);
+  assert.equal(release.shared_assets,544);
   const library=JSON.parse(await readFile(new URL('../web/staging/library.json',import.meta.url),'utf8'));
   for(const record of library.records){
    const payload=await readFile(join(release.output,'staging/delivery/payloads',record.delivery_sha256+'.bin'));
