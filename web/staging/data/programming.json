@@ -1,11 +1,11 @@
 {
   "schema_version": 1,
   "mode": "SOURCE_GATED_STAGING",
-  "generated_at": "2026-11-02T01:44:00.820Z",
+  "generated_at": "2026-11-02T05:38:47.725Z",
   "entries": [
     {
       "id": "weekly-upcoming-raw",
-      "title": "RAW \u2014 Upcoming Show",
+      "title": "RAW — Upcoming Show",
       "show": "raw",
       "kind": "upcoming",
       "airdate": "2026-11-02",
@@ -15,7 +15,7 @@
       "verification": "SOURCE_REPORTED",
       "has_content": true,
       "schedule_confirmed": true,
-      "checked_at": "2026-11-02T01:44:00.820Z",
+      "checked_at": "2026-11-02T05:38:47.725Z",
       "source_name": "Wrestling Central News",
       "source_url": "https://wrestlingcentralnews.com/events/2026-11-02-wwe-raw/",
       "venue": {
@@ -25,7 +25,7 @@
     },
     {
       "id": "weekly-upcoming-smackdown",
-      "title": "SmackDown \u2014 Upcoming Show",
+      "title": "SmackDown — Upcoming Show",
       "show": "smackdown",
       "kind": "upcoming",
       "airdate": "2026-11-06",
@@ -35,7 +35,7 @@
       "verification": "SOURCE_REPORTED",
       "has_content": false,
       "schedule_confirmed": true,
-      "checked_at": "2026-11-02T01:44:00.820Z",
+      "checked_at": "2026-11-02T05:38:47.725Z",
       "source_name": "Published episode schedule",
       "source_url": "https://broncos5523.github.io/Inside-the-squared-circle/data/snapshot.json",
       "venue": {
@@ -45,7 +45,7 @@
     },
     {
       "id": "weekly-upcoming-nxt",
-      "title": "NXT \u2014 Upcoming Show",
+      "title": "NXT — Upcoming Show",
       "show": "nxt",
       "kind": "upcoming",
       "airdate": "2026-11-04",
@@ -55,14 +55,14 @@
       "verification": "SOURCE_REPORTED",
       "has_content": false,
       "schedule_confirmed": true,
-      "checked_at": "2026-11-02T01:44:00.820Z",
+      "checked_at": "2026-11-02T05:38:47.725Z",
       "source_name": "Published episode schedule",
       "source_url": "https://broncos5523.github.io/Inside-the-squared-circle/data/snapshot.json",
       "venue": null
     },
     {
       "id": "weekly-upcoming-aaa",
-      "title": "AAA \u2014 Upcoming Show",
+      "title": "AAA — Upcoming Show",
       "show": "aaa",
       "kind": "upcoming",
       "airdate": "2026-11-07",
@@ -72,14 +72,14 @@
       "verification": "SOURCE_REPORTED",
       "has_content": false,
       "schedule_confirmed": true,
-      "checked_at": "2026-11-02T01:44:00.820Z",
+      "checked_at": "2026-11-02T05:38:47.725Z",
       "source_name": "Published episode schedule",
       "source_url": "https://broncos5523.github.io/Inside-the-squared-circle/data/snapshot.json",
       "venue": null
     },
     {
       "id": "weekly-upcoming-tna",
-      "title": "TNA \u2014 Upcoming Show",
+      "title": "TNA — Upcoming Show",
       "show": "tna",
       "kind": "upcoming",
       "airdate": "2026-11-05",
@@ -89,14 +89,14 @@
       "verification": "SOURCE_REPORTED",
       "has_content": true,
       "schedule_confirmed": true,
-      "checked_at": "2026-11-02T01:44:00.820Z",
+      "checked_at": "2026-11-02T05:38:47.725Z",
       "source_name": "Wrestling Central News",
       "source_url": "https://wrestlingcentralnews.com/events/2026-11-05-tna-impact/",
       "venue": null
     },
     {
       "id": "weekly-results-aaa",
-      "title": "AAA \u2014 Results & Fallout",
+      "title": "AAA — Results & Fallout",
       "show": "aaa",
       "kind": "results",
       "airdate": "2026-10-24",
@@ -105,13 +105,13 @@
       "content_status": "current",
       "verification": "EDITORIALLY_VERIFIED",
       "completed": true,
-      "checked_at": "2026-11-02T01:44:00.820Z",
-      "source_name": "WWE AAA H\u00e9roes Inmortales | Week 1 results, October 24, 2026",
+      "checked_at": "2026-11-02T05:38:47.725Z",
+      "source_name": "WWE AAA Héroes Inmortales | Week 1 results, October 24, 2026",
       "source_url": "https://www.wwe.com/shows/aaa/aaa-h-roes-inmortales-week-1-results"
     },
     {
       "id": "weekly-results-raw",
-      "title": "RAW \u2014 Results & Fallout",
+      "title": "RAW — Results & Fallout",
       "show": "raw",
       "kind": "results",
       "airdate": "2026-10-26",
@@ -120,13 +120,13 @@
       "content_status": "current",
       "verification": "OFFICIAL_VERIFIED",
       "completed": true,
-      "checked_at": "2026-11-02T01:44:00.820Z",
+      "checked_at": "2026-11-02T05:38:47.725Z",
       "source_name": "WWE",
       "source_url": "https://www.wwe.com/shows/raw/2026-10-26/results"
     },
     {
       "id": "weekly-results-nxt",
-      "title": "NXT \u2014 Results & Fallout",
+      "title": "NXT — Results & Fallout",
       "show": "nxt",
       "kind": "results",
       "airdate": "2026-10-27",
@@ -135,13 +135,13 @@
       "content_status": "current",
       "verification": "OFFICIAL_VERIFIED",
       "completed": true,
-      "checked_at": "2026-11-02T01:44:00.820Z",
+      "checked_at": "2026-11-02T05:38:47.725Z",
       "source_name": "WWE",
       "source_url": "https://www.wwe.com/shows/wwenxt/2026-10-27/results"
     },
     {
       "id": "weekly-results-smackdown",
-      "title": "SmackDown \u2014 Results & Fallout",
+      "title": "SmackDown — Results & Fallout",
       "show": "smackdown",
       "kind": "results",
       "airdate": "2026-10-30",
@@ -150,13 +150,13 @@
       "content_status": "current",
       "verification": "OFFICIAL_VERIFIED",
       "completed": true,
-      "checked_at": "2026-11-02T01:44:00.820Z",
+      "checked_at": "2026-11-02T05:38:47.725Z",
       "source_name": "WWE",
       "source_url": "https://www.wwe.com/shows/smackdown/2026-10-30/results"
     },
     {
       "id": "weekly-results-tna",
-      "title": "TNA \u2014 Results & Fallout",
+      "title": "TNA — Results & Fallout",
       "show": "tna",
       "kind": "results",
       "airdate": "2026-10-29",
@@ -165,13 +165,13 @@
       "content_status": "current",
       "verification": "OFFICIAL_VERIFIED",
       "completed": true,
-      "checked_at": "2026-11-02T01:44:00.820Z",
+      "checked_at": "2026-11-02T05:38:47.725Z",
       "source_name": "TNA Wrestling",
       "source_url": "https://tnawrestling.com/news/tna-thursday-night-impact-on-amc-results-october-29-2026"
     },
     {
       "id": "weekly-results-aaa",
-      "title": "AAA \u2014 Results & Fallout",
+      "title": "AAA — Results & Fallout",
       "show": "aaa",
       "kind": "results",
       "airdate": "2026-10-31",
@@ -180,7 +180,7 @@
       "content_status": "current",
       "verification": "SOURCE_CORROBORATED",
       "completed": true,
-      "checked_at": "2026-11-02T01:44:00.820Z",
+      "checked_at": "2026-11-02T05:38:47.725Z",
       "source_name": "Fightful / TPWW",
       "source_url": "https://www.fightful.com/wrestling/aaa-heroes-inmortales-week-two-results-10-31/",
       "source_urls": [
@@ -190,7 +190,7 @@
     },
     {
       "id": "weekly-results-evolve",
-      "title": "WWE Evolve \u2014 Results & Fallout",
+      "title": "WWE Evolve — Results & Fallout",
       "show": "evolve",
       "kind": "evolve",
       "airdate": "2026-10-28",
@@ -199,13 +199,13 @@
       "content_status": "current",
       "verification": "EDITORIALLY_VERIFIED",
       "completed": true,
-      "checked_at": "2026-11-02T01:44:00.820Z",
+      "checked_at": "2026-11-02T05:38:47.725Z",
       "source_name": "Pro Wrestling Dot Net",
       "source_url": "https://prowrestling.net/site/2026/10/29/wwe-evolve-results-10-28-vetters-review-of-elijah-holyfield-vs-braxton-cole-vs-marcus-mathers-in-a-triple-threat-jasper-troy-vs-jax-presley-harley-riggins-vs-milosh-jovic/"
     },
     {
       "id": "preview-crown_jewel_preview_v1_approved_locked_20261027-night_one",
-      "title": "Crown Jewel \u2014 Preview",
+      "title": "Crown Jewel — Preview",
       "show": "wwe",
       "kind": "ple-preview",
       "event_id": "wwe-crown-jewel-2026",
@@ -217,13 +217,13 @@
       "date_confirmed": true,
       "has_content": true,
       "schedule_confirmed": true,
-      "checked_at": "2026-11-02T01:44:00.820Z",
+      "checked_at": "2026-11-02T05:38:47.725Z",
       "source_name": "WWE",
       "source_url": "https://www.wwe.com/shows/wwe-crown-jewel/crown-jewel-2026"
     },
     {
       "id": "results-nxt_halloween_havoc_results_v2_review-night_one",
-      "title": "NXT Halloween Havoc \u2014 Results & Fallout",
+      "title": "NXT Halloween Havoc — Results & Fallout",
       "show": "nxt",
       "kind": "ple-results",
       "event_id": "nxt-halloween-havoc-2026",
@@ -233,22 +233,22 @@
       "content_status": "current",
       "verification": "OFFICIAL_VERIFIED",
       "completed": true,
-      "checked_at": "2026-11-02T01:44:00.820Z",
+      "checked_at": "2026-11-02T05:38:47.725Z",
       "source_name": "WWE",
       "source_url": "https://www.wwe.com/shows/nxtple/full-nxt-halloween-havoc-2026-results"
     },
     {
       "id": "championship-tna",
-      "title": "TNA \u2014 Championship Board",
+      "title": "TNA — Championship Board",
       "show": "tna",
       "kind": "champions",
-      "as_of": "2026-11-01",
-      "airdate": "2026-11-01",
+      "as_of": "2026-11-02",
+      "airdate": "2026-11-02",
       "source_available": true,
       "design_approved": true,
       "content_status": "current",
       "verification": "OFFICIAL_VERIFIED",
-      "checked_at": "2026-11-02T01:44:00.820Z",
+      "checked_at": "2026-11-02T05:38:47.725Z",
       "source_name": "TNA Wrestling",
       "source_url": "https://tnawrestling.com/roster",
       "source_urls": [
@@ -257,16 +257,16 @@
     },
     {
       "id": "championship-nxt",
-      "title": "NXT \u2014 Championship Board",
+      "title": "NXT — Championship Board",
       "show": "nxt",
       "kind": "champions",
-      "as_of": "2026-11-01",
-      "airdate": "2026-11-01",
+      "as_of": "2026-11-02",
+      "airdate": "2026-11-02",
       "source_available": true,
       "design_approved": true,
       "content_status": "current",
       "verification": "OFFICIAL_VERIFIED",
-      "checked_at": "2026-11-02T01:44:00.820Z",
+      "checked_at": "2026-11-02T05:38:47.725Z",
       "source_name": "WWE",
       "source_url": "https://www.wwe.com/titlehistory/nxt-championship",
       "source_urls": [
@@ -279,16 +279,16 @@
     },
     {
       "id": "championship-smackdown",
-      "title": "SmackDown \u2014 Championship Board",
+      "title": "SmackDown — Championship Board",
       "show": "smackdown",
       "kind": "champions",
-      "as_of": "2026-11-01",
-      "airdate": "2026-11-01",
+      "as_of": "2026-11-02",
+      "airdate": "2026-11-02",
       "source_available": true,
       "design_approved": true,
       "content_status": "current",
       "verification": "OFFICIAL_VERIFIED",
-      "checked_at": "2026-11-02T01:44:00.820Z",
+      "checked_at": "2026-11-02T05:38:47.725Z",
       "source_name": "WWE",
       "source_url": "https://www.wwe.com/titlehistory/wwe-championship",
       "source_urls": [
@@ -302,16 +302,16 @@
     },
     {
       "id": "championship-raw",
-      "title": "RAW \u2014 Championship Board",
+      "title": "RAW — Championship Board",
       "show": "raw",
       "kind": "champions",
-      "as_of": "2026-11-01",
-      "airdate": "2026-11-01",
+      "as_of": "2026-11-02",
+      "airdate": "2026-11-02",
       "source_available": true,
       "design_approved": true,
       "content_status": "current",
       "verification": "OFFICIAL_VERIFIED",
-      "checked_at": "2026-11-02T01:44:00.820Z",
+      "checked_at": "2026-11-02T05:38:47.725Z",
       "source_name": "WWE",
       "source_url": "https://www.wwe.com/classics/titlehistory/world-heavyweight-championship",
       "source_urls": [
@@ -324,16 +324,16 @@
     },
     {
       "id": "championship-aaa",
-      "title": "AAA \u2014 Championship Board",
+      "title": "AAA — Championship Board",
       "show": "aaa",
       "kind": "champions",
-      "as_of": "2026-11-01",
-      "airdate": "2026-11-01",
+      "as_of": "2026-11-02",
+      "airdate": "2026-11-02",
       "source_available": true,
       "design_approved": true,
       "content_status": "current",
       "verification": "SOURCE_CORROBORATED",
-      "checked_at": "2026-11-02T01:44:00.820Z",
+      "checked_at": "2026-11-02T05:38:47.725Z",
       "source_name": "Sacnilk / The SmackDown Hotel",
       "source_url": "https://www.sacnilk.com/news/current_lucha_libre_aaa_worldwide_champions_full_list_of_title_holders",
       "source_urls": [
@@ -346,7 +346,7 @@
     "snapshot.json": {
       "schema_version": 1,
       "mode": "LIVE_SCHEDULES_ONLY",
-      "generated_at": "2026-11-02T01:31:46.090716+00:00",
+      "generated_at": "2026-11-02T05:22:53.401118+00:00",
       "fresh_shows": 6,
       "shows": [
         {
@@ -414,12 +414,12 @@
           "next": {
             "date": "2026-11-07",
             "time": null,
-            "title": "#42 - H\u00e9roes Inmortales (Week 3)"
+            "title": "#42 - Héroes Inmortales (Week 3)"
           },
           "previous": {
             "date": "2026-10-31",
             "time": null,
-            "title": "WWE AAA H\u00e9roes Inmortales | Week 1 results, October 24, 2026"
+            "title": "WWE AAA Héroes Inmortales | Week 1 results, October 24, 2026"
           },
           "schedule_status": "fresh",
           "confirmed_matches": [],
@@ -468,7 +468,7 @@
     "reported.json": {
       "schema_version": 1,
       "mode": "REPORTED_MATCHES_UNVERIFIED",
-      "generated_at": "2026-11-02T01:44:00.820Z",
+      "generated_at": "2026-11-02T05:38:47.725Z",
       "display_attribution": "Wrestling Central News (wrestlingcentralnews.com)",
       "programs": [
         {
@@ -483,7 +483,7 @@
               "status": "REPORTED_UNVERIFIED"
             },
             {
-              "text": "Penta, Je\u2019Von Evans and Dragon Lee vs. The Vision",
+              "text": "Penta, Je’Von Evans and Dragon Lee vs. The Vision",
               "evidence_url": "https://wrestlingcentralnews.com/events/2026-11-02-wwe-raw/",
               "stipulation": "SIX-MAN TAG TEAM MATCH",
               "source_name": "Wrestling Central News (wrestlingcentralnews.com)",
@@ -574,7 +574,7 @@
             "https://www.fightful.com/wrestling/aaa-heroes-inmortales-week-two-results-10-31/",
             "https://www.tpww.net/2026/10/aaa-heroes-inmortales-2026-week-2-results-oct-31-2026-aaa-world-cruiserweight-open-challenge-wagner-brothers-vs-los-vipers/"
           ],
-          "source_name": "Fightful / TPWW \u2022 AAA results, 2026-10-31",
+          "source_name": "Fightful / TPWW • AAA results, 2026-10-31",
           "verification": "SOURCE_CORROBORATED",
           "segments": [
             {
@@ -584,7 +584,7 @@
               "strap": "CHAMPIONSHIP RESULT",
               "headline": "THE WAGNER BROTHERS",
               "subhead": "def. Los Vipers",
-              "detail": "AAA WORLD TAG TEAM CHAMPIONSHIP \u2022 2026-10-31",
+              "detail": "AAA WORLD TAG TEAM CHAMPIONSHIP • 2026-10-31",
               "portraits": [
                 "galeno"
               ],
@@ -599,7 +599,7 @@
               "strap": "MATCH RESULT",
               "headline": "EL CARNICERO & PAGANO",
               "subhead": "def. Los Psycho Circus",
-              "detail": "TAG TEAM MATCH \u2022 2026-10-31",
+              "detail": "TAG TEAM MATCH • 2026-10-31",
               "portraits": [
                 "el-carnicero"
               ],
@@ -613,7 +613,7 @@
               "strap": "CHAMPIONSHIP RESULT",
               "headline": "REY FENIX",
               "subhead": "def. Jack Cartwheel, Takuma, and Laredo Kid",
-              "detail": "AAA WORLD CRUISERWEIGHT CHAMPIONSHIP \u2022 2026-10-31",
+              "detail": "AAA WORLD CRUISERWEIGHT CHAMPIONSHIP • 2026-10-31",
               "portraits": [
                 "rey-fenix"
               ],
@@ -645,13 +645,13 @@
               "category": "MATCH RESULT",
               "strap": "OFFICIAL MATCH RESULT",
               "headline": "SAMI ZAYN",
-              "subhead": "def. Je\u2019Von Evans",
-              "detail": "OFFICIAL RESULTS \u2022 October 26, 2026",
+              "subhead": "def. Je’Von Evans",
+              "detail": "OFFICIAL RESULTS • October 26, 2026",
               "portraits": [
                 "sami-zayn"
               ],
               "portrait_rule": "winners_only",
-              "ticker": "SAMI ZAYN DEFEATS JE\u2019VON EVANS"
+              "ticker": "SAMI ZAYN DEFEATS JE’VON EVANS"
             },
             {
               "id": "official-raw-2026-10-26-2",
@@ -660,7 +660,7 @@
               "strap": "OFFICIAL MATCH RESULT",
               "headline": "BAYLEY",
               "subhead": "def. Lyra Valkyria",
-              "detail": "NO DISQUALIFICATION \u2022 October 26, 2026",
+              "detail": "NO DISQUALIFICATION • October 26, 2026",
               "portraits": [
                 "bayley"
               ],
@@ -674,7 +674,7 @@
               "strap": "OFFICIAL MATCH RESULT",
               "headline": "IYO SKY",
               "subhead": "def. Raquel Rodriguez",
-              "detail": "OFFICIAL RESULTS \u2022 October 26, 2026",
+              "detail": "OFFICIAL RESULTS • October 26, 2026",
               "portraits": [
                 "iyo-sky"
               ],
@@ -688,7 +688,7 @@
               "strap": "OFFICIAL MATCH RESULT",
               "headline": "ETHAN PAGE & BIG CASS",
               "subhead": "def. Chad Gable & Dragon Lee",
-              "detail": "OFFICIAL RESULTS \u2022 October 26, 2026",
+              "detail": "OFFICIAL RESULTS • October 26, 2026",
               "portraits": [
                 "ethan-page",
                 "big-cass"
@@ -703,7 +703,7 @@
               "strap": "OFFICIAL MATCH RESULT",
               "headline": "BECKY LYNCH",
               "subhead": "def. Liv Morgan",
-              "detail": "DISQUALIFICATION \u2022 October 26, 2026",
+              "detail": "DISQUALIFICATION • October 26, 2026",
               "portraits": [
                 "becky-lynch"
               ],
@@ -735,7 +735,7 @@
               "strap": "OFFICIAL MATCH RESULT",
               "headline": "ROMEO MORENO & NOAM DAR",
               "subhead": "def. The Vanity Project",
-              "detail": "DUSTY RHODES TAG TEAM CLASSIC \u2022 October 27, 2026",
+              "detail": "DUSTY RHODES TAG TEAM CLASSIC • October 27, 2026",
               "portraits": [
                 "romeo-moreno",
                 "noam-dar"
@@ -750,7 +750,7 @@
               "strap": "OFFICIAL MATCH RESULT",
               "headline": "CHANTEL MONROE",
               "subhead": "def. Lizzy Rain",
-              "detail": "OFFICIAL RESULTS \u2022 October 27, 2026",
+              "detail": "OFFICIAL RESULTS • October 27, 2026",
               "portraits": [
                 "chantel-monroe"
               ],
@@ -764,7 +764,7 @@
               "strap": "OFFICIAL MATCH RESULT",
               "headline": "SEAN LEGACY",
               "subhead": "def. Saquon Shugars",
-              "detail": "OFFICIAL RESULTS \u2022 October 27, 2026",
+              "detail": "OFFICIAL RESULTS • October 27, 2026",
               "portraits": [
                 "sean-legacy"
               ],
@@ -778,7 +778,7 @@
               "strap": "OFFICIAL MATCH RESULT",
               "headline": "HANK & TANK",
               "subhead": "def. El Hijo de Dr. Wagner Jr. & Galeno",
-              "detail": "DUSTY RHODES TAG TEAM CLASSIC \u2022 October 27, 2026",
+              "detail": "DUSTY RHODES TAG TEAM CLASSIC • October 27, 2026",
               "portraits": [
                 "hank-walker",
                 "tank-ledger"
@@ -793,7 +793,7 @@
               "strap": "CHAMPIONSHIP RESULT",
               "headline": "JACKSON DRAKE",
               "subhead": "def. EK Prosper",
-              "detail": "OFFICIAL RESULTS \u2022 October 27, 2026",
+              "detail": "OFFICIAL RESULTS • October 27, 2026",
               "portraits": [
                 "jackson-drake"
               ],
@@ -825,14 +825,14 @@
               "category": "CHAMPIONSHIP MATCH",
               "strap": "CHAMPIONSHIP RESULT",
               "headline": "CHELSEA GREEN",
-              "subhead": "def. Nikki Bella in a WWE Women\u2019s Championship Match",
-              "detail": "CHAMPIONSHIP MATCH \u2022 October 30, 2026",
+              "subhead": "def. Nikki Bella in a WWE Women’s Championship Match",
+              "detail": "CHAMPIONSHIP MATCH • October 30, 2026",
               "portraits": [
                 "chelsea-green"
               ],
               "portrait_rule": "winners_only",
               "belt": "wwe_wwe-womens-championship.png",
-              "ticker": "CHELSEA GREEN DEFEATS NIKKI BELLA IN A WWE WOMEN\u2019S CHAMPIONSHIP MATCH"
+              "ticker": "CHELSEA GREEN DEFEATS NIKKI BELLA IN A WWE WOMEN’S CHAMPIONSHIP MATCH"
             },
             {
               "id": "official-smackdown-2026-10-30-2",
@@ -841,7 +841,7 @@
               "strap": "CHAMPIONSHIP RESULT",
               "headline": "REY FENIX",
               "subhead": "def. Ricky Saints",
-              "detail": "CHAMPIONSHIP MATCH \u2022 October 30, 2026",
+              "detail": "CHAMPIONSHIP MATCH • October 30, 2026",
               "portraits": [
                 "rey-fenix"
               ],
@@ -856,7 +856,7 @@
               "strap": "OFFICIAL MATCH RESULT",
               "headline": "JADE CARGILL",
               "subhead": "def. Tatum Paxley",
-              "detail": "OFFICIAL RESULTS \u2022 October 30, 2026",
+              "detail": "OFFICIAL RESULTS • October 30, 2026",
               "portraits": [
                 "jade-cargill"
               ],
@@ -870,7 +870,7 @@
               "strap": "CHAMPIONSHIP RESULT",
               "headline": "SAMI ZAYN",
               "subhead": "def. Trick Williams",
-              "detail": "TITLE MATCH \u2022 October 30, 2026",
+              "detail": "TITLE MATCH • October 30, 2026",
               "portraits": [
                 "sami-zayn"
               ],
@@ -903,7 +903,7 @@
               "strap": "OFFICIAL MATCH RESULT",
               "headline": "M BY ELEGANCE",
               "subhead": "def. Jada Stone",
-              "detail": "OFFICIAL RESULTS \u2022 October 29, 2026",
+              "detail": "OFFICIAL RESULTS • October 29, 2026",
               "portraits": [
                 "m-by-elegance"
               ],
@@ -917,7 +917,7 @@
               "strap": "OFFICIAL MATCH RESULT",
               "headline": "ZER0",
               "subhead": "def. BDE",
-              "detail": "SINGLES MATCH \u2022 October 29, 2026",
+              "detail": "SINGLES MATCH • October 29, 2026",
               "portraits": [
                 "agent-zero"
               ],
@@ -931,7 +931,7 @@
               "strap": "CHAMPIONSHIP RESULT",
               "headline": "AMAZING RED",
               "subhead": "def. Cedric Alexander",
-              "detail": "OFFICIAL RESULTS \u2022 October 29, 2026",
+              "detail": "OFFICIAL RESULTS • October 29, 2026",
               "portraits": [
                 "amazing-red"
               ],
@@ -946,7 +946,7 @@
               "strap": "OFFICIAL MATCH RESULT",
               "headline": "AJ FRANCIS",
               "subhead": "def. John Skyler",
-              "detail": "SINGLES MATCH \u2022 October 29, 2026",
+              "detail": "SINGLES MATCH • October 29, 2026",
               "portraits": [
                 "aj-francis"
               ],
@@ -960,7 +960,7 @@
               "strap": "OFFICIAL MATCH RESULT",
               "headline": "ELIJAH",
               "subhead": "def. TNA World Tag Team Champion Ryan Nemeth",
-              "detail": "SINGLES MATCH \u2022 October 29, 2026",
+              "detail": "SINGLES MATCH • October 29, 2026",
               "portraits": [
                 "elijah"
               ],
@@ -974,7 +974,7 @@
     "evolve-verified-results.json": {
       "schema_version": 2,
       "mode": "EDITORIALLY_VERIFIED_EVOLVE_EPISODE",
-      "generated_at": "2026-11-02T01:44:00.820Z",
+      "generated_at": "2026-11-02T05:38:47.725Z",
       "episode_date": "2026-10-28",
       "programs": [
         {
@@ -984,7 +984,7 @@
             {
               "id": "riggins",
               "kind": "result",
-              "eyebrow": "SINGLES \u2022 MATCH RESULT",
+              "eyebrow": "SINGLES • MATCH RESULT",
               "strap": "RIGGINS TAKES THE WIN",
               "headline": "HARLEY\nRIGGINS",
               "subline": "def. Milosh Jovic",
@@ -996,11 +996,11 @@
             {
               "id": "presley",
               "kind": "result",
-              "eyebrow": "SINGLES \u2022 MATCH RESULT",
+              "eyebrow": "SINGLES • MATCH RESULT",
               "strap": "PRESLEY ANSWERS THE CHALLENGE",
               "headline": "JAX PRESLEY",
               "subline": "def. Jasper Troy",
-              "detail": "Presley answered Troy\u2019s open challenge and scored the pin.",
+              "detail": "Presley answered Troy’s open challenge and scored the pin.",
               "portraits": [],
               "tag": "WINNER",
               "belt": null
@@ -1008,7 +1008,7 @@
             {
               "id": "holyfield",
               "kind": "result",
-              "eyebrow": "TRIPLE THREAT \u2022 MATCH RESULT",
+              "eyebrow": "TRIPLE THREAT • MATCH RESULT",
               "strap": "HOLYFIELD CLAIMS THE WIN",
               "headline": "ELIJAH\nHOLYFIELD",
               "subline": "def. Braxton Cole & Marcus Mathers",
@@ -1022,7 +1022,7 @@
             {
               "id": "admiration",
               "kind": "fallout",
-              "eyebrow": "WOMEN\u2019S TITLE \u2022 STORYLINE FALLOUT",
+              "eyebrow": "WOMEN’S TITLE • STORYLINE FALLOUT",
               "strap": "THE CELEBRATION IS INTERRUPTED",
               "headline": "NIKKITA\nLYONS",
               "subline": "Anya Rune wants a title opportunity",
@@ -1036,10 +1036,10 @@
             {
               "id": "four-way",
               "kind": "fallout",
-              "eyebrow": "NEXT WEEK \u2022 ANNOUNCED MATCH",
+              "eyebrow": "NEXT WEEK • ANNOUNCED MATCH",
               "strap": "FOUR-WAY MATCH ANNOUNCED",
               "headline": "LYONS FACES\nTHREE",
-              "subline": "Thea Hail \u2022 Laynie Luck \u2022 Wendy Choo",
+              "subline": "Thea Hail • Laynie Luck • Wendy Choo",
               "detail": "Timothy Thatcher announced Lyons vs. Laynie Luck vs. Wendy Choo vs. Thea Hail for next week.",
               "portraits": [
                 "nikkita-lyons"
@@ -1050,7 +1050,7 @@
             {
               "id": "alliance",
               "kind": "fallout",
-              "eyebrow": "RIVALRY \u2022 STORYLINE FALLOUT",
+              "eyebrow": "RIVALRY • STORYLINE FALLOUT",
               "strap": "THE FEUD ESCALATES",
               "headline": "DIXON &\nALIX BROOKS",
               "subline": "Aaron Rourke and Laynie Luck unite",
@@ -1069,7 +1069,7 @@
         "schema_version": 2,
         "show_id": "evolve",
         "edition": "2026-10-28",
-        "episode_label": "SEASON 2 \u2022 EPISODE 35",
+        "episode_label": "SEASON 2 • EPISODE 35",
         "episode_date": "2026-10-28",
         "episode_timezone": "America/New_York",
         "venue": "WWE PERFORMANCE CENTER",
@@ -1077,12 +1077,12 @@
         "release_status": "EXACT_APPROVED_SOURCE_DEPLOYED_TO_ISOLATED_STAGING",
         "provenance": [
           {
-            "title": "Fightful \u2014 WWE Evolve Results (10/28)",
+            "title": "Fightful — WWE Evolve Results (10/28)",
             "url": "https://www.fightful.com/wrestling/wwe-evolve-results-10-28/",
             "verified_matches": true
           },
           {
-            "title": "Pro Wrestling Dot Net \u2014 WWE Evolve October 28 Episode 35 review",
+            "title": "Pro Wrestling Dot Net — WWE Evolve October 28 Episode 35 review",
             "url": "https://prowrestling.net/site/2026/10/29/wwe-evolve-results-10-28-vetters-review-of-elijah-holyfield-vs-braxton-cole-vs-marcus-mathers-in-a-triple-threat-jasper-troy-vs-jax-presley-harley-riggins-vs-milosh-jovic/",
             "verified_matches": true
           }
@@ -1093,7 +1093,7 @@
           {
             "id": "riggins",
             "kind": "result",
-            "eyebrow": "SINGLES \u2022 MATCH RESULT",
+            "eyebrow": "SINGLES • MATCH RESULT",
             "strap": "RIGGINS TAKES THE WIN",
             "headline": "HARLEY\nRIGGINS",
             "subline": "def. Milosh Jovic",
@@ -1105,11 +1105,11 @@
           {
             "id": "presley",
             "kind": "result",
-            "eyebrow": "SINGLES \u2022 MATCH RESULT",
+            "eyebrow": "SINGLES • MATCH RESULT",
             "strap": "PRESLEY ANSWERS THE CHALLENGE",
             "headline": "JAX PRESLEY",
             "subline": "def. Jasper Troy",
-            "detail": "Presley answered Troy\u2019s open challenge and scored the pin.",
+            "detail": "Presley answered Troy’s open challenge and scored the pin.",
             "portraits": [],
             "tag": "WINNER",
             "belt": null
@@ -1117,7 +1117,7 @@
           {
             "id": "holyfield",
             "kind": "result",
-            "eyebrow": "TRIPLE THREAT \u2022 MATCH RESULT",
+            "eyebrow": "TRIPLE THREAT • MATCH RESULT",
             "strap": "HOLYFIELD CLAIMS THE WIN",
             "headline": "ELIJAH\nHOLYFIELD",
             "subline": "def. Braxton Cole & Marcus Mathers",
@@ -1131,7 +1131,7 @@
           {
             "id": "admiration",
             "kind": "fallout",
-            "eyebrow": "WOMEN\u2019S TITLE \u2022 STORYLINE FALLOUT",
+            "eyebrow": "WOMEN’S TITLE • STORYLINE FALLOUT",
             "strap": "THE CELEBRATION IS INTERRUPTED",
             "headline": "NIKKITA\nLYONS",
             "subline": "Anya Rune wants a title opportunity",
@@ -1145,10 +1145,10 @@
           {
             "id": "four-way",
             "kind": "fallout",
-            "eyebrow": "NEXT WEEK \u2022 ANNOUNCED MATCH",
+            "eyebrow": "NEXT WEEK • ANNOUNCED MATCH",
             "strap": "FOUR-WAY MATCH ANNOUNCED",
             "headline": "LYONS FACES\nTHREE",
-            "subline": "Thea Hail \u2022 Laynie Luck \u2022 Wendy Choo",
+            "subline": "Thea Hail • Laynie Luck • Wendy Choo",
             "detail": "Timothy Thatcher announced Lyons vs. Laynie Luck vs. Wendy Choo vs. Thea Hail for next week.",
             "portraits": [
               "nikkita-lyons"
@@ -1159,7 +1159,7 @@
           {
             "id": "alliance",
             "kind": "fallout",
-            "eyebrow": "RIVALRY \u2022 STORYLINE FALLOUT",
+            "eyebrow": "RIVALRY • STORYLINE FALLOUT",
             "strap": "THE FEUD ESCALATES",
             "headline": "DIXON &\nALIX BROOKS",
             "subline": "Aaron Rourke and Laynie Luck unite",
@@ -1180,7 +1180,7 @@
     },
     "official-events.json": {
       "mode": "OFFICIAL_WWE_EVENT_PREVIEWS",
-      "generated_at": "2026-11-02T01:44:00.820Z",
+      "generated_at": "2026-11-02T05:38:47.725Z",
       "programs": [
         {
           "event_id": "wwe-crown-jewel-2026",
@@ -1189,11 +1189,11 @@
           "show": "wwe",
           "event_date": "2026-11-07",
           "source_url": "https://www.wwe.com/shows/wwe-crown-jewel/crown-jewel-2026",
-          "checked_at": "2026-11-02T01:44:00.820Z",
+          "checked_at": "2026-11-02T05:38:47.725Z",
           "verification": "OFFICIAL_VERIFIED",
           "cards": [
             {
-              "heading": "MEN\u2019S CROWN JEWEL CHAMPIONSHIP",
+              "heading": "MEN’S CROWN JEWEL CHAMPIONSHIP",
               "left": "Roman Reigns",
               "left_portrait": "roman-reigns",
               "right": "Sami Zayn",
@@ -1206,7 +1206,7 @@
               "verified_heading": "World Heavyweight Champion Roman Reigns vs. Undisputed WWE Champion Sami Zayn"
             },
             {
-              "heading": "WOMEN\u2019S CROWN JEWEL CHAMPIONSHIP",
+              "heading": "WOMEN’S CROWN JEWEL CHAMPIONSHIP",
               "left": "Chelsea Green",
               "left_portrait": "chelsea-green",
               "right": "Liv Morgan",
@@ -1238,7 +1238,7 @@
     },
     "official-event-results.json": {
       "mode": "OFFICIAL_WWE_EVENT_RESULTS",
-      "generated_at": "2026-11-02T01:44:00.820Z",
+      "generated_at": "2026-11-02T05:38:47.725Z",
       "programs": [
         {
           "event_id": "nxt-halloween-havoc-2026",
@@ -1273,7 +1273,7 @@
                 "izzi-dame"
               ],
               "portrait_rule": "winners_only",
-              "ticker": "IZZI DAME DEFEATS NXT WOMEN\u2019S NORTH AMERICAN CHAMPION ZARIA"
+              "ticker": "IZZI DAME DEFEATS NXT WOMEN’S NORTH AMERICAN CHAMPION ZARIA"
             },
             {
               "id": "halloween-2026-3",
@@ -1324,13 +1324,13 @@
               "category": "MATCH RESULT",
               "strap": "OFFICIAL MATCH RESULT",
               "headline": "GRAYSON WALLER",
-              "subhead": "def. Tony D\u2019Angelo",
+              "subhead": "def. Tony D’Angelo",
               "detail": "MATCH RESULT",
               "portraits": [
                 "grayson-waller"
               ],
               "portrait_rule": "winners_only",
-              "ticker": "GRAYSON WALLER DEFEATS TONY D\u2019ANGELO",
+              "ticker": "GRAYSON WALLER DEFEATS TONY D’ANGELO",
               "belt": "nxt_championship.png"
             }
           ],
@@ -1341,12 +1341,12 @@
     "champions.json": {
       "schema_version": 1,
       "mode": "SOURCE_CHECKED_CHAMPIONS",
-      "generated_at": "2026-11-02T01:44:00.820Z",
+      "generated_at": "2026-11-02T05:38:47.725Z",
       "programs": [
         {
           "show": "tna",
           "board_id": "championship-tna",
-          "as_of": "2026-11-01",
+          "as_of": "2026-11-02",
           "verification": "OFFICIAL_VERIFIED",
           "champions": [
             {
@@ -1464,7 +1464,7 @@
         {
           "show": "nxt",
           "board_id": "championship-nxt",
-          "as_of": "2026-11-01",
+          "as_of": "2026-11-02",
           "verification": "OFFICIAL_VERIFIED",
           "champions": [
             {
@@ -1485,7 +1485,7 @@
             },
             {
               "id": "nxt-womens",
-              "title": "NXT WOMEN\u2019S CHAMPIONSHIP",
+              "title": "NXT WOMEN’S CHAMPIONSHIP",
               "name": "KELANI JORDAN",
               "members": [
                 "Kelani Jordan"
@@ -1517,7 +1517,7 @@
             },
             {
               "id": "nxt-womens-na",
-              "title": "NXT WOMEN\u2019S NORTH AMERICAN CHAMPIONSHIP",
+              "title": "NXT WOMEN’S NORTH AMERICAN CHAMPIONSHIP",
               "name": "ZARIA",
               "members": [
                 "Zaria"
@@ -1561,7 +1561,7 @@
         {
           "show": "smackdown",
           "board_id": "championship-smackdown",
-          "as_of": "2026-11-01",
+          "as_of": "2026-11-02",
           "verification": "OFFICIAL_VERIFIED",
           "champions": [
             {
@@ -1582,7 +1582,7 @@
             },
             {
               "id": "sd-women",
-              "title": "WWE WOMEN\u2019S CHAMPIONSHIP",
+              "title": "WWE WOMEN’S CHAMPIONSHIP",
               "name": "CHELSEA GREEN",
               "members": [
                 "Chelsea Green"
@@ -1614,7 +1614,7 @@
             },
             {
               "id": "sd-women-us",
-              "title": "WOMEN\u2019S UNITED STATES CHAMPIONSHIP",
+              "title": "WOMEN’S UNITED STATES CHAMPIONSHIP",
               "name": "JACY JAYNE",
               "members": [
                 "Jacy Jayne"
@@ -1648,7 +1648,7 @@
             },
             {
               "id": "sd-women-tag",
-              "title": "WWE WOMEN\u2019S TAG TEAM CHAMPIONSHIP",
+              "title": "WWE WOMEN’S TAG TEAM CHAMPIONSHIP",
               "name": "MICHIN & B-FAB",
               "members": [
                 "Michin",
@@ -1677,7 +1677,7 @@
         {
           "show": "raw",
           "board_id": "championship-raw",
-          "as_of": "2026-11-01",
+          "as_of": "2026-11-02",
           "verification": "OFFICIAL_VERIFIED",
           "champions": [
             {
@@ -1698,7 +1698,7 @@
             },
             {
               "id": "raw-women",
-              "title": "WOMEN\u2019S WORLD CHAMPIONSHIP",
+              "title": "WOMEN’S WORLD CHAMPIONSHIP",
               "name": "LIV MORGAN",
               "members": [
                 "Liv Morgan"
@@ -1730,7 +1730,7 @@
             },
             {
               "id": "raw-women-ic",
-              "title": "WOMEN\u2019S INTERCONTINENTAL CHAMPIONSHIP",
+              "title": "WOMEN’S INTERCONTINENTAL CHAMPIONSHIP",
               "name": "RAQUEL RODRIGUEZ",
               "members": [
                 "Raquel Rodriguez"
@@ -1774,7 +1774,7 @@
         {
           "show": "aaa",
           "board_id": "championship-aaa",
-          "as_of": "2026-11-01",
+          "as_of": "2026-11-02",
           "verification": "SOURCE_CORROBORATED",
           "champions": [
             {
@@ -1936,7 +1936,9 @@
       "aaa:Too few or too many explicit match results in official article"
     ],
     "evolve_verified_count": 1,
-    "evolve_warnings": []
+    "evolve_warnings": [],
+    "championship_count": 5,
+    "championship_warnings": []
   },
   "notes": [
     "Archived examples remain excluded from current programming. Event matches must clear official-source and approved-portrait checks. Only explicit winners from dated official sources are promoted. Evolve is admitted only when the byte-identical approved artwork and the latest source-verified episode pass all checks; stale episodes are held.",
