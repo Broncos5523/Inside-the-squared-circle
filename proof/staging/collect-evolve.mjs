@@ -6,7 +6,7 @@ const SOURCE='https://www.fightful.com/wrestling/wwe-evolve-results-10-28/';
 const REQUIRED=[
  'Harley Riggins','Milosh Jovic','Jax Presley','Jasper Troy',
  'Elijah Holyfield','Braxton Cole','Marcus Mathers',
- 'Nikkita Lyons','Anya Rune','Skylar Raye','Wendy Choo',
+ 'Nikkita Lyons','Anya Rune','Sloane Jacobs','Wendy Choo',
  'Thea Hail','Kale Dixon','Alix Brooks','Aaron Rourke','Laynie Luck'
 ];
 export function latestCompletedWednesday(now){
@@ -35,21 +35,27 @@ export async function collectEvolve({library,routes,payload,now=new Date(),reque
  }
  if(!Array.isArray(payload.provenance)||!payload.provenance.some(x=>x.url===SOURCE&&x.verified_matches===true))
   return {entries,feeds,warnings:['Evolve primary dated verification is missing']};
- try{
-  const response=await requester(SOURCE,{headers:{Accept:'text/html'},redirect:'error'});
-  if(!response.ok)throw Error('Fightful source HTTP '+response.status);
-  const html=await response.text(),normalized=html.toLowerCase().replace(/<[^>]*>/g,' ').replace(/&(?:amp|nbsp);/g,' ');
-  if(html.length<1000||html.length>1_500_000||!normalized.includes('evolve results (10/28)')||
-     !normalized.includes('october 28, 2026')||
-     !REQUIRED.every(name=>normalized.includes(name.toLowerCase())))throw Error('October 28 article/date/participants could not be verified');
- }catch(e){warnings.push('Evolve official-date recap source unavailable: '+String(e?.message||e));return {entries,feeds,warnings};}
- const program={...payload,source_url:SOURCE,verification:'EDITORIALLY_VERIFIED',source_name:'Fightful (verified Oct 28 results)'};
+ let verifiedSource=null;
+ for(const candidate of payload.provenance.filter(p=>p.verified_matches===true&&[SOURCE,'https://prowrestling.net/site/2026/10/29/wwe-evolve-results-10-28-vetters-review-of-elijah-holyfield-vs-braxton-cole-vs-marcus-mathers-in-a-triple-threat-jasper-troy-vs-jax-presley-harley-riggins-vs-milosh-jovic/'].includes(p.url))){
+  try{
+   const response=await requester(candidate.url,{headers:{Accept:'text/html'},redirect:'error'});
+   if(!response.ok)continue;
+   const html=await response.text(),normalized=html.toLowerCase().replace(/<[^>]*>/g,' ').replace(/&#(?:8217|0*39);|&rsquo;/g,"'").replace(/&(?:amp|nbsp);/g,' ').replace(/\s+/g,' ');
+   const title=html.match(/<title[^>]*>([\s\S]*?)<\/title>/i)?.[1]||'';
+   if(html.length<1000||html.length>1_500_000||!/evolve results\s*\(10\/28\)/i.test(title)||
+      !normalized.includes('october 28, 2026')||!REQUIRED.every(name=>normalized.includes(name.toLowerCase())))continue;
+   verifiedSource=candidate;break;
+  }catch{}
+ }
+ if(!verifiedSource){warnings.push('Evolve dated recap sources could not verify October 28/date/participants');return {entries,feeds,warnings};}
+ const sourceName=verifiedSource.url===SOURCE?'Fightful':'Pro Wrestling Dot Net';
+ const program={...payload,source_url:verifiedSource.url,verification:'EDITORIALLY_VERIFIED',source_name:sourceName+' (verified Oct 28 results)'};
  const feed={schema_version:2,mode:'EDITORIALLY_VERIFIED_EVOLVE_EPISODE',generated_at:now.toISOString(),
   episode_date:expected,programs:[{show_id:'evolve',airdate:expected,segments:program.segments}],
   episode:program};
  feeds['evolve-verified-results.json']=feed;
  entries.push({id:record.id,title:record.label,show:'evolve',kind:'evolve',airdate:expected,
   source_available:true,design_approved:true,content_status:'current',verification:'EDITORIALLY_VERIFIED',
-  completed:true,checked_at:now.toISOString(),source_name:'Fightful',source_url:SOURCE});
+  completed:true,checked_at:now.toISOString(),source_name:sourceName,source_url:verifiedSource.url});
  return {entries,feeds,warnings};
 }

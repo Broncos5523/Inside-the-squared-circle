@@ -66,7 +66,25 @@
    new MutationObserver(report).observe(counter,{childList:true,subtree:true,characterData:true});
    report();
   }
-  window.addEventListener('DOMContentLoaded',installCycleReporter,{once:true});
+  // Expand team names inside the existing portrait slots, preserving the source layout.
+  function installPreviewPortraits(){
+   if(config.mode!=='active'||!config.live_preview)return;
+   var grid=document.getElementById('wb-match-players');if(!grid)return;
+   function key(s){return String(s).toLowerCase().normalize('NFKD').replace(/[\u0300-\u036f]/g,'').replace(/[^a-z0-9]/g,'');}
+   function draw(){
+    Array.prototype.forEach.call(grid.querySelectorAll('.wb-side'),function(side){
+     var label=side.querySelector('.wb-name'),slot=side.querySelector('.wb-portrait');if(!label||!slot)return;
+     var text=label.textContent,people=(config.previewTeams||{})[key(text)]||text.split(/\s*,\s*(?:and\s+)?|\s+(?:and|&)\s+/i);
+     if(slot.dataset.members===text)return;slot.dataset.members=text;
+     var images=people.map(function(name){return {name:name,url:config.previewPortraits[key(name)]};}).filter(function(x){return x.url;});
+     if(!images.length)return;
+     slot.style.backgroundImage='none';slot.replaceChildren();
+     images.forEach(function(person,i){var img=document.createElement('img');img.alt=person.name;img.src=person.url;img.style.cssText='position:absolute;bottom:0;height:100%;object-fit:contain;object-position:center bottom;'+(images.length===1?'width:100%;left:0;':'width:44%;left:'+(i*28)+'%;');slot.append(img);});
+    });
+   }
+   new MutationObserver(draw).observe(grid,{childList:true,subtree:true});draw();
+  }
+  window.addEventListener('DOMContentLoaded',function(){installCycleReporter();installPreviewPortraits();},{once:true});
   // Archive content never silently refreshes into a different episode.
   // Populate approved event layouts with ONLY officially verified announcements.
   // The original HTML, styling, belts and graphical assets remain untouched on disk.
@@ -300,7 +318,20 @@ function evolveApplyVerifiedEpisode(html,payload){
    var ownFeed=ownShow+'-verified-results.json';
    if(/^(aaa|nxt|tna)$/.test(ownShow)&&boardFeeds[ownFeed])boardFeeds[ownFeed]=addApprovedPortraits(JSON.parse(JSON.stringify(boardFeeds[ownFeed])));
   }
-  var config={weeklyResults:record.category==='Weekly Results',id:record.id,logical:logical,base:assetBase,routes:boardMap,mode:mode,feeds:boardFeeds,night:night,source_credit:record.source_credit||null,current_location:record.current_location||null,live_preview:record.category==='Weekly Upcoming',officialEvent:officialEvent,eventResults:eventResults,resultPortraits:resultPortraits,resultBelts:resultBelts};
+  var previewPortraits={},previewTeams={};
+  if(mode==='active'&&record.category==='Weekly Upcoming'){
+   Object.keys(boardMap).forEach(function(k){var m=k.match(/\/portraits\/([^/]+)\.png$/);if(m)previewPortraits[m[1].replace(/[^a-z0-9]/g,'')]=new URL('originals'+boardMap[k],assetBase).href;});
+   var preview=boardFeeds['reported.json']?.programs?.find(function(p){return p.show_id===ownShow;});
+   (preview?.matches||[]).forEach(function(m){(m.participant_sides||[]).forEach(function(side){if(side.label&&Array.isArray(side.members))previewTeams[side.label.toLowerCase().replace(/[^a-z0-9]/g,'')]=side.members;});});
+   // Hydrate before the first render: the source's old sample schedule must not flash.
+   if(boardFeeds['snapshot.json']&&boardFeeds['reported.json']){
+    var initial={snapshot:boardFeeds['snapshot.json'],reported:boardFeeds['reported.json'],research:null,reviewed:null,editorial:null,results:null};
+    html=html.replace(/const data=\{[\s\S]*?\n \};/,'const data='+JSON.stringify(initial).replace(/</g,'\\u003c')+';');
+   }
+   var cena=previewPortraits.johncena;
+   if(cena)html=html.replace('const USER_CUTOUTS={','const USER_CUTOUTS={"john cena":'+JSON.stringify(cena)+',');
+  }
+  var config={weeklyResults:record.category==='Weekly Results',id:record.id,logical:logical,base:assetBase,routes:boardMap,mode:mode,feeds:boardFeeds,night:night,source_credit:record.source_credit||null,current_location:record.current_location||null,live_preview:record.category==='Weekly Upcoming',previewPortraits:previewPortraits,previewTeams:previewTeams,officialEvent:officialEvent,eventResults:eventResults,resultPortraits:resultPortraits,resultBelts:resultBelts};
   var injected='<base href="'+new URL('originals'+prefix,base).href+'"><script>('+shim.toString()+')('+JSON.stringify(config).replace(/</g,'\\u003c')+');<\/script>';
   return html.replace(/<head(?:\s[^>]*)?>/i,function(head){return head+injected;});
  }

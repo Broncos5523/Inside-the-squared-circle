@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "mode": "SOURCE_GATED_STAGING",
-  "generated_at": "2026-11-01T20:19:37.363Z",
+  "generated_at": "2026-11-02T01:31:55.767Z",
   "entries": [
     {
       "id": "weekly-upcoming-raw",
@@ -15,7 +15,7 @@
       "verification": "SOURCE_REPORTED",
       "has_content": true,
       "schedule_confirmed": true,
-      "checked_at": "2026-11-01T20:19:37.363Z",
+      "checked_at": "2026-11-02T01:31:55.767Z",
       "source_name": "Wrestling Central News",
       "source_url": "https://wrestlingcentralnews.com/events/2026-11-02-wwe-raw/",
       "venue": {
@@ -35,7 +35,7 @@
       "verification": "SOURCE_REPORTED",
       "has_content": false,
       "schedule_confirmed": true,
-      "checked_at": "2026-11-01T20:19:37.363Z",
+      "checked_at": "2026-11-02T01:31:55.767Z",
       "source_name": "Published episode schedule",
       "source_url": "https://broncos5523.github.io/Inside-the-squared-circle/data/snapshot.json",
       "venue": {
@@ -55,7 +55,7 @@
       "verification": "SOURCE_REPORTED",
       "has_content": false,
       "schedule_confirmed": true,
-      "checked_at": "2026-11-01T20:19:37.363Z",
+      "checked_at": "2026-11-02T01:31:55.767Z",
       "source_name": "Published episode schedule",
       "source_url": "https://broncos5523.github.io/Inside-the-squared-circle/data/snapshot.json",
       "venue": null
@@ -72,7 +72,7 @@
       "verification": "SOURCE_REPORTED",
       "has_content": false,
       "schedule_confirmed": true,
-      "checked_at": "2026-11-01T20:19:37.363Z",
+      "checked_at": "2026-11-02T01:31:55.767Z",
       "source_name": "Published episode schedule",
       "source_url": "https://broncos5523.github.io/Inside-the-squared-circle/data/snapshot.json",
       "venue": null
@@ -89,7 +89,7 @@
       "verification": "SOURCE_REPORTED",
       "has_content": true,
       "schedule_confirmed": true,
-      "checked_at": "2026-11-01T20:19:37.363Z",
+      "checked_at": "2026-11-02T01:31:55.767Z",
       "source_name": "Wrestling Central News",
       "source_url": "https://wrestlingcentralnews.com/events/2026-11-05-tna-impact/",
       "venue": null
@@ -105,7 +105,7 @@
       "content_status": "current",
       "verification": "EDITORIALLY_VERIFIED",
       "completed": true,
-      "checked_at": "2026-11-01T20:19:37.363Z",
+      "checked_at": "2026-11-02T01:31:55.767Z",
       "source_name": "WWE AAA Héroes Inmortales | Week 1 results, October 24, 2026",
       "source_url": "https://www.wwe.com/shows/aaa/aaa-h-roes-inmortales-week-1-results"
     },
@@ -120,7 +120,7 @@
       "content_status": "current",
       "verification": "OFFICIAL_VERIFIED",
       "completed": true,
-      "checked_at": "2026-11-01T20:19:37.363Z",
+      "checked_at": "2026-11-02T01:31:55.767Z",
       "source_name": "WWE",
       "source_url": "https://www.wwe.com/shows/raw/2026-10-26/results"
     },
@@ -135,7 +135,7 @@
       "content_status": "current",
       "verification": "OFFICIAL_VERIFIED",
       "completed": true,
-      "checked_at": "2026-11-01T20:19:37.363Z",
+      "checked_at": "2026-11-02T01:31:55.767Z",
       "source_name": "WWE",
       "source_url": "https://www.wwe.com/shows/wwenxt/2026-10-27/results"
     },
@@ -150,7 +150,7 @@
       "content_status": "current",
       "verification": "OFFICIAL_VERIFIED",
       "completed": true,
-      "checked_at": "2026-11-01T20:19:37.363Z",
+      "checked_at": "2026-11-02T01:31:55.767Z",
       "source_name": "WWE",
       "source_url": "https://www.wwe.com/shows/smackdown/2026-10-30/results"
     },
@@ -165,7 +165,7 @@
       "content_status": "current",
       "verification": "OFFICIAL_VERIFIED",
       "completed": true,
-      "checked_at": "2026-11-01T20:19:37.363Z",
+      "checked_at": "2026-11-02T01:31:55.767Z",
       "source_name": "TNA Wrestling",
       "source_url": "https://tnawrestling.com/news/tna-thursday-night-impact-on-amc-results-october-29-2026"
     },
@@ -180,7 +180,7 @@
       "content_status": "current",
       "verification": "SOURCE_CORROBORATED",
       "completed": true,
-      "checked_at": "2026-11-01T20:19:37.363Z",
+      "checked_at": "2026-11-02T01:31:55.767Z",
       "source_name": "Fightful / TPWW",
       "source_url": "https://www.fightful.com/wrestling/aaa-heroes-inmortales-week-two-results-10-31/",
       "source_urls": [
@@ -202,7 +202,7 @@
       "date_confirmed": true,
       "has_content": true,
       "schedule_confirmed": true,
-      "checked_at": "2026-11-01T20:19:37.363Z",
+      "checked_at": "2026-11-02T01:31:55.767Z",
       "source_name": "WWE",
       "source_url": "https://www.wwe.com/shows/wwe-crown-jewel/crown-jewel-2026"
     },
@@ -218,16 +218,31 @@
       "content_status": "current",
       "verification": "OFFICIAL_VERIFIED",
       "completed": true,
-      "checked_at": "2026-11-01T20:19:37.363Z",
+      "checked_at": "2026-11-02T01:31:55.767Z",
       "source_name": "WWE",
       "source_url": "https://www.wwe.com/shows/nxtple/full-nxt-halloween-havoc-2026-results"
+    },
+    {
+      "id": "weekly-results-evolve",
+      "title": "WWE Evolve — Results & Fallout",
+      "show": "evolve",
+      "kind": "evolve",
+      "airdate": "2026-10-28",
+      "source_available": true,
+      "design_approved": true,
+      "content_status": "current",
+      "verification": "EDITORIALLY_VERIFIED",
+      "completed": true,
+      "checked_at": "2026-11-02T01:33:14.390Z",
+      "source_name": "Pro Wrestling Dot Net",
+      "source_url": "https://prowrestling.net/site/2026/10/29/wwe-evolve-results-10-28-vetters-review-of-elijah-holyfield-vs-braxton-cole-vs-marcus-mathers-in-a-triple-threat-jasper-troy-vs-jax-presley-harley-riggins-vs-milosh-jovic/"
     }
   ],
   "feeds": {
     "snapshot.json": {
       "schema_version": 1,
       "mode": "LIVE_SCHEDULES_ONLY",
-      "generated_at": "2026-11-01T16:56:04.545317+00:00",
+      "generated_at": "2026-11-01T20:56:32.340587+00:00",
       "fresh_shows": 6,
       "shows": [
         {
@@ -349,7 +364,7 @@
     "reported.json": {
       "schema_version": 1,
       "mode": "REPORTED_MATCHES_UNVERIFIED",
-      "generated_at": "2026-11-01T20:19:37.363Z",
+      "generated_at": "2026-11-02T01:31:55.767Z",
       "display_attribution": "Wrestling Central News (wrestlingcentralnews.com)",
       "programs": [
         {
@@ -368,7 +383,18 @@
               "evidence_url": "https://wrestlingcentralnews.com/events/2026-11-02-wwe-raw/",
               "stipulation": "SIX-MAN TAG TEAM MATCH",
               "source_name": "Wrestling Central News (wrestlingcentralnews.com)",
-              "status": "REPORTED_UNVERIFIED"
+              "status": "REPORTED_UNVERIFIED",
+              "participant_sides": [
+                {
+                  "label": "The Vision",
+                  "members": [
+                    "Austin Theory",
+                    "Bronson Reed",
+                    "Bron Breakker"
+                  ]
+                }
+              ],
+              "participants_source_url": "https://www.tpww.net/2026/11/roman-reigns-appearance-penta-jevon-evans-dragon-lee-vs-the-vision-in-six-man-tag-and-all-ego-ethan-page-vs-chad-gable-for-wwe-intercontinental-title-matches-set-for-11-2-wwe-raw-sh/"
             },
             {
               "text": "Solo Sikoa vs. Royce Keys",
@@ -843,7 +869,7 @@
     },
     "official-events.json": {
       "mode": "OFFICIAL_WWE_EVENT_PREVIEWS",
-      "generated_at": "2026-11-01T20:19:37.363Z",
+      "generated_at": "2026-11-02T01:31:55.767Z",
       "programs": [
         {
           "event_id": "wwe-crown-jewel-2026",
@@ -852,7 +878,7 @@
           "show": "wwe",
           "event_date": "2026-11-07",
           "source_url": "https://www.wwe.com/shows/wwe-crown-jewel/crown-jewel-2026",
-          "checked_at": "2026-11-01T20:19:37.363Z",
+          "checked_at": "2026-11-02T01:31:55.767Z",
           "verification": "OFFICIAL_VERIFIED",
           "cards": [
             {
@@ -901,7 +927,7 @@
     },
     "official-event-results.json": {
       "mode": "OFFICIAL_WWE_EVENT_RESULTS",
-      "generated_at": "2026-11-01T20:19:37.363Z",
+      "generated_at": "2026-11-02T01:31:55.767Z",
       "programs": [
         {
           "event_id": "nxt-halloween-havoc-2026",
@@ -1000,6 +1026,213 @@
           "fallout": "CM Punk challenged Grayson Waller for the NXT Championship."
         }
       ]
+    },
+    "evolve-verified-results.json": {
+      "schema_version": 2,
+      "mode": "EDITORIALLY_VERIFIED_EVOLVE_EPISODE",
+      "generated_at": "2026-11-02T01:33:14.390Z",
+      "episode_date": "2026-10-28",
+      "programs": [
+        {
+          "show_id": "evolve",
+          "airdate": "2026-10-28",
+          "segments": [
+            {
+              "id": "riggins",
+              "kind": "result",
+              "eyebrow": "SINGLES • MATCH RESULT",
+              "strap": "RIGGINS TAKES THE WIN",
+              "headline": "HARLEY\nRIGGINS",
+              "subline": "def. Milosh Jovic",
+              "detail": "Riggins won by pinfall, then attacked Jovic after the match.",
+              "portraits": [],
+              "tag": "MATCH RESULT",
+              "belt": null
+            },
+            {
+              "id": "presley",
+              "kind": "result",
+              "eyebrow": "SINGLES • MATCH RESULT",
+              "strap": "PRESLEY ANSWERS THE CHALLENGE",
+              "headline": "JAX PRESLEY",
+              "subline": "def. Jasper Troy",
+              "detail": "Presley answered Troy’s open challenge and scored the pin.",
+              "portraits": [],
+              "tag": "WINNER",
+              "belt": null
+            },
+            {
+              "id": "holyfield",
+              "kind": "result",
+              "eyebrow": "TRIPLE THREAT • MATCH RESULT",
+              "strap": "HOLYFIELD CLAIMS THE WIN",
+              "headline": "ELIJAH\nHOLYFIELD",
+              "subline": "def. Braxton Cole & Marcus Mathers",
+              "detail": "Holyfield won the Triple Threat after pinning Braxton Cole.",
+              "portraits": [
+                "elijah-holyfield"
+              ],
+              "tag": "WINNER",
+              "belt": null
+            },
+            {
+              "id": "admiration",
+              "kind": "fallout",
+              "eyebrow": "WOMEN’S TITLE • STORYLINE FALLOUT",
+              "strap": "THE CELEBRATION IS INTERRUPTED",
+              "headline": "NIKKITA\nLYONS",
+              "subline": "Anya Rune wants a title opportunity",
+              "detail": "Rune confronted Lyons and Sloane Jacobs. Timothy Thatcher booked Rune vs. Jacobs, with a title shot at stake.",
+              "portraits": [
+                "nikkita-lyons"
+              ],
+              "tag": "CHAMPIONSHIP PATH",
+              "belt": null
+            },
+            {
+              "id": "four-way",
+              "kind": "fallout",
+              "eyebrow": "NEXT WEEK • ANNOUNCED MATCH",
+              "strap": "FOUR-WAY MATCH ANNOUNCED",
+              "headline": "LYONS FACES\nTHREE",
+              "subline": "Thea Hail • Laynie Luck • Wendy Choo",
+              "detail": "Timothy Thatcher announced Lyons vs. Laynie Luck vs. Wendy Choo vs. Thea Hail for next week.",
+              "portraits": [
+                "nikkita-lyons"
+              ],
+              "tag": "NEXT WEEK",
+              "belt": null
+            },
+            {
+              "id": "alliance",
+              "kind": "fallout",
+              "eyebrow": "RIVALRY • STORYLINE FALLOUT",
+              "strap": "THE FEUD ESCALATES",
+              "headline": "DIXON &\nALIX BROOKS",
+              "subline": "Aaron Rourke and Laynie Luck unite",
+              "detail": "Rourke and Luck agreed to join forces against Kale Dixon and Alix Brooks.",
+              "portraits": [
+                "kale-dixon",
+                "alix-brooks"
+              ],
+              "tag": "RIVALRY DEVELOPMENT",
+              "belt": null
+            }
+          ]
+        }
+      ],
+      "episode": {
+        "schema_version": 2,
+        "show_id": "evolve",
+        "edition": "2026-10-28",
+        "episode_label": "SEASON 2 • EPISODE 35",
+        "episode_date": "2026-10-28",
+        "episode_timezone": "America/New_York",
+        "venue": "WWE PERFORMANCE CENTER",
+        "locality": "ORLANDO, FLORIDA",
+        "release_status": "EXACT_APPROVED_SOURCE_DEPLOYED_TO_ISOLATED_STAGING",
+        "provenance": [
+          {
+            "title": "Fightful — WWE Evolve Results (10/28)",
+            "url": "https://www.fightful.com/wrestling/wwe-evolve-results-10-28/",
+            "verified_matches": true
+          },
+          {
+            "title": "Pro Wrestling Dot Net — WWE Evolve October 28 Episode 35 review",
+            "url": "https://prowrestling.net/site/2026/10/29/wwe-evolve-results-10-28-vetters-review-of-elijah-holyfield-vs-braxton-cole-vs-marcus-mathers-in-a-triple-threat-jasper-troy-vs-jax-presley-harley-riggins-vs-milosh-jovic/",
+            "verified_matches": true
+          }
+        ],
+        "portraits_policy": "Only verified winner portraits on match results, only subject-relevant approved user portraits for storylines; omit missing assets rather than substitute.",
+        "asset_status": "Exact 14 original image assets and the SHA256-verified final HTML are deployed in isolated GitHub staging. The approved artwork is not modified; current episode content is injected only at runtime.",
+        "segments": [
+          {
+            "id": "riggins",
+            "kind": "result",
+            "eyebrow": "SINGLES • MATCH RESULT",
+            "strap": "RIGGINS TAKES THE WIN",
+            "headline": "HARLEY\nRIGGINS",
+            "subline": "def. Milosh Jovic",
+            "detail": "Riggins won by pinfall, then attacked Jovic after the match.",
+            "portraits": [],
+            "tag": "MATCH RESULT",
+            "belt": null
+          },
+          {
+            "id": "presley",
+            "kind": "result",
+            "eyebrow": "SINGLES • MATCH RESULT",
+            "strap": "PRESLEY ANSWERS THE CHALLENGE",
+            "headline": "JAX PRESLEY",
+            "subline": "def. Jasper Troy",
+            "detail": "Presley answered Troy’s open challenge and scored the pin.",
+            "portraits": [],
+            "tag": "WINNER",
+            "belt": null
+          },
+          {
+            "id": "holyfield",
+            "kind": "result",
+            "eyebrow": "TRIPLE THREAT • MATCH RESULT",
+            "strap": "HOLYFIELD CLAIMS THE WIN",
+            "headline": "ELIJAH\nHOLYFIELD",
+            "subline": "def. Braxton Cole & Marcus Mathers",
+            "detail": "Holyfield won the Triple Threat after pinning Braxton Cole.",
+            "portraits": [
+              "elijah-holyfield"
+            ],
+            "tag": "WINNER",
+            "belt": null
+          },
+          {
+            "id": "admiration",
+            "kind": "fallout",
+            "eyebrow": "WOMEN’S TITLE • STORYLINE FALLOUT",
+            "strap": "THE CELEBRATION IS INTERRUPTED",
+            "headline": "NIKKITA\nLYONS",
+            "subline": "Anya Rune wants a title opportunity",
+            "detail": "Rune confronted Lyons and Sloane Jacobs. Timothy Thatcher booked Rune vs. Jacobs, with a title shot at stake.",
+            "portraits": [
+              "nikkita-lyons"
+            ],
+            "tag": "CHAMPIONSHIP PATH",
+            "belt": null
+          },
+          {
+            "id": "four-way",
+            "kind": "fallout",
+            "eyebrow": "NEXT WEEK • ANNOUNCED MATCH",
+            "strap": "FOUR-WAY MATCH ANNOUNCED",
+            "headline": "LYONS FACES\nTHREE",
+            "subline": "Thea Hail • Laynie Luck • Wendy Choo",
+            "detail": "Timothy Thatcher announced Lyons vs. Laynie Luck vs. Wendy Choo vs. Thea Hail for next week.",
+            "portraits": [
+              "nikkita-lyons"
+            ],
+            "tag": "NEXT WEEK",
+            "belt": null
+          },
+          {
+            "id": "alliance",
+            "kind": "fallout",
+            "eyebrow": "RIVALRY • STORYLINE FALLOUT",
+            "strap": "THE FEUD ESCALATES",
+            "headline": "DIXON &\nALIX BROOKS",
+            "subline": "Aaron Rourke and Laynie Luck unite",
+            "detail": "Rourke and Luck agreed to join forces against Kale Dixon and Alix Brooks.",
+            "portraits": [
+              "kale-dixon",
+              "alix-brooks"
+            ],
+            "tag": "RIVALRY DEVELOPMENT",
+            "belt": null
+          }
+        ],
+        "source_review": "Dated October 28 episode rechecked against Pro Wrestling Dot Net on November 1. The four-way names Laynie Luck, not Skylar Raye; no unverified title stipulation is added.",
+        "source_url": "https://prowrestling.net/site/2026/10/29/wwe-evolve-results-10-28-vetters-review-of-elijah-holyfield-vs-braxton-cole-vs-marcus-mathers-in-a-triple-threat-jasper-troy-vs-jax-presley-harley-riggins-vs-milosh-jovic/",
+        "verification": "EDITORIALLY_VERIFIED",
+        "source_name": "Pro Wrestling Dot Net (verified Oct 28 results)"
+      }
     }
   },
   "collection": {
@@ -1014,12 +1247,10 @@
     "approved_result_warnings": [],
     "official_weekly_result_count": 4,
     "official_weekly_warnings": [
-      "aaa:Latest scheduled AAA episode has no dated official results yet"
+      "aaa:Too few or too many explicit match results in official article"
     ],
-    "evolve_verified_count": 0,
-    "evolve_warnings": [
-      "Evolve official-date recap source unavailable: October 28 article/date/participants could not be verified"
-    ]
+    "evolve_verified_count": 1,
+    "evolve_warnings": []
   },
   "notes": [
     "Archived examples remain excluded from current programming. Event matches must clear official-source and approved-portrait checks. Only explicit winners from dated official sources are promoted. Evolve is admitted only when the byte-identical approved artwork and the latest source-verified episode pass all checks; stale episodes are held.",

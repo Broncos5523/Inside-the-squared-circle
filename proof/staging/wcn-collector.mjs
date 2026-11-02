@@ -1,6 +1,7 @@
 // Portable collector extracted from the recovered V5 source package. Public hosting clearance confirmed by the owner 2026-10-30.
 import {CREDIT,FEED_URL,SNAPSHOT_URL,parseWcnPage,parseWcnPageForEpisode,parseWcnShowIndex,WCN_SHOW_INDEX,safeShows,sourceAlignedShows,WCN_UPCOMING_URL,sanitizedForDisplay,privateReportedFeed} from './parser.mjs';
 import {parseDatedEventBrief} from './event-preview.mjs';
+import {enrichPreviewParticipants} from './preview-participants.mjs';
 const KEY="wcn-staging-facts-v1";
 const CHECK_INTERVAL_MS=15*60000;
 const LIMIT_BYTES=1_000_000;
@@ -41,8 +42,8 @@ export async function collectWcn(env,now=new Date(),requester=fetch,routes={}){
     if(matches.length)entryStatus='source_dated_show_article_headlines';
    }catch(e){audit.error_count++;}
   }
-  audit.programs.push({show_id:show.show_id,airdate:show.airdate,matches,appearances,start_time,
-    source_name:CREDIT,source_url:show.url,collection_status:entryStatus,schedule_source:show.schedule_source});
+  audit.programs.push(await enrichPreviewParticipants({show_id:show.show_id,airdate:show.airdate,matches,appearances,start_time,
+    source_name:CREDIT,source_url:show.url,collection_status:entryStatus,schedule_source:show.schedule_source},requester));
  }
 
  // Never preserve previous week's cards if upstream data disappears.
