@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "mode": "SOURCE_GATED_STAGING",
-  "generated_at": "2026-11-02T21:41:18.058Z",
+  "generated_at": "2026-11-02T21:46:51.352Z",
   "entries": [
     {
       "id": "weekly-upcoming-raw",
@@ -15,7 +15,7 @@
       "verification": "SOURCE_REPORTED",
       "has_content": true,
       "schedule_confirmed": true,
-      "checked_at": "2026-11-02T21:41:18.058Z",
+      "checked_at": "2026-11-02T21:46:51.352Z",
       "source_name": "Wrestling Central News",
       "source_url": "https://wrestlingcentralnews.com/events/2026-11-02-wwe-raw/",
       "venue": {
@@ -35,7 +35,7 @@
       "verification": "SOURCE_REPORTED",
       "has_content": false,
       "schedule_confirmed": true,
-      "checked_at": "2026-11-02T21:41:18.058Z",
+      "checked_at": "2026-11-02T21:46:51.352Z",
       "source_name": "Published episode schedule",
       "source_url": "https://broncos5523.github.io/Inside-the-squared-circle/data/snapshot.json",
       "venue": {
@@ -55,7 +55,7 @@
       "verification": "SOURCE_REPORTED",
       "has_content": false,
       "schedule_confirmed": true,
-      "checked_at": "2026-11-02T21:41:18.058Z",
+      "checked_at": "2026-11-02T21:46:51.352Z",
       "source_name": "Published episode schedule",
       "source_url": "https://broncos5523.github.io/Inside-the-squared-circle/data/snapshot.json",
       "venue": null
@@ -72,7 +72,7 @@
       "verification": "SOURCE_REPORTED",
       "has_content": false,
       "schedule_confirmed": true,
-      "checked_at": "2026-11-02T21:41:18.058Z",
+      "checked_at": "2026-11-02T21:46:51.352Z",
       "source_name": "Published episode schedule",
       "source_url": "https://broncos5523.github.io/Inside-the-squared-circle/data/snapshot.json",
       "venue": null
@@ -89,7 +89,7 @@
       "verification": "SOURCE_REPORTED",
       "has_content": true,
       "schedule_confirmed": true,
-      "checked_at": "2026-11-02T21:41:18.058Z",
+      "checked_at": "2026-11-02T21:46:51.352Z",
       "source_name": "Wrestling Central News",
       "source_url": "https://wrestlingcentralnews.com/events/2026-11-05-tna-impact/",
       "venue": null
@@ -105,7 +105,7 @@
       "content_status": "current",
       "verification": "EDITORIALLY_VERIFIED",
       "completed": true,
-      "checked_at": "2026-11-02T21:41:18.058Z",
+      "checked_at": "2026-11-02T21:46:51.352Z",
       "source_name": "WWE AAA Héroes Inmortales | Week 1 results, October 24, 2026",
       "source_url": "https://www.wwe.com/shows/aaa/aaa-h-roes-inmortales-week-1-results"
     },
@@ -120,7 +120,7 @@
       "content_status": "current",
       "verification": "OFFICIAL_VERIFIED",
       "completed": true,
-      "checked_at": "2026-11-02T21:41:18.058Z",
+      "checked_at": "2026-11-02T21:46:51.352Z",
       "source_name": "WWE",
       "source_url": "https://www.wwe.com/shows/wwenxt/2026-10-27/results"
     },
@@ -135,7 +135,7 @@
       "content_status": "current",
       "verification": "OFFICIAL_VERIFIED",
       "completed": true,
-      "checked_at": "2026-11-02T21:41:18.058Z",
+      "checked_at": "2026-11-02T21:46:51.352Z",
       "source_name": "WWE",
       "source_url": "https://www.wwe.com/shows/smackdown/2026-10-30/results"
     },
@@ -150,7 +150,7 @@
       "content_status": "current",
       "verification": "OFFICIAL_VERIFIED",
       "completed": true,
-      "checked_at": "2026-11-02T21:41:18.058Z",
+      "checked_at": "2026-11-02T21:46:51.352Z",
       "source_name": "TNA Wrestling",
       "source_url": "https://tnawrestling.com/news/tna-thursday-night-impact-on-amc-results-october-29-2026"
     },
@@ -165,13 +165,28 @@
       "content_status": "current",
       "verification": "SOURCE_CORROBORATED",
       "completed": true,
-      "checked_at": "2026-11-02T21:41:18.058Z",
+      "checked_at": "2026-11-02T21:46:51.352Z",
       "source_name": "Fightful / TPWW",
       "source_url": "https://www.fightful.com/wrestling/aaa-heroes-inmortales-week-two-results-10-31/",
       "source_urls": [
         "https://www.fightful.com/wrestling/aaa-heroes-inmortales-week-two-results-10-31/",
         "https://www.tpww.net/2026/10/aaa-heroes-inmortales-2026-week-2-results-oct-31-2026-aaa-world-cruiserweight-open-challenge-wagner-brothers-vs-los-vipers/"
       ]
+    },
+    {
+      "id": "weekly-results-raw",
+      "title": "RAW — Results & Fallout",
+      "show": "raw",
+      "kind": "results",
+      "airdate": "2026-10-26",
+      "source_available": true,
+      "design_approved": true,
+      "content_status": "current",
+      "verification": "OFFICIAL_VERIFIED",
+      "completed": true,
+      "checked_at": "2026-11-02T01:44:00.820Z",
+      "source_name": "WWE",
+      "source_url": "https://www.wwe.com/shows/raw/2026-10-26/results"
     },
     {
       "id": "weekly-results-evolve",
@@ -184,7 +199,7 @@
       "content_status": "current",
       "verification": "EDITORIALLY_VERIFIED",
       "completed": true,
-      "checked_at": "2026-11-02T21:41:18.058Z",
+      "checked_at": "2026-11-02T21:46:51.352Z",
       "source_name": "Pro Wrestling Dot Net",
       "source_url": "https://prowrestling.net/site/2026/10/29/wwe-evolve-results-10-28-vetters-review-of-elijah-holyfield-vs-braxton-cole-vs-marcus-mathers-in-a-triple-threat-jasper-troy-vs-jax-presley-harley-riggins-vs-milosh-jovic/"
     },
@@ -202,7 +217,7 @@
       "date_confirmed": true,
       "has_content": true,
       "schedule_confirmed": true,
-      "checked_at": "2026-11-02T21:41:18.058Z",
+      "checked_at": "2026-11-02T21:46:51.352Z",
       "source_name": "WWE",
       "source_url": "https://www.wwe.com/shows/wwe-crown-jewel/crown-jewel-2026"
     },
@@ -218,7 +233,7 @@
       "content_status": "current",
       "verification": "OFFICIAL_VERIFIED",
       "completed": true,
-      "checked_at": "2026-11-02T21:41:18.058Z",
+      "checked_at": "2026-11-02T21:46:51.352Z",
       "source_name": "WWE",
       "source_url": "https://www.wwe.com/shows/nxtple/full-nxt-halloween-havoc-2026-results"
     },
@@ -233,7 +248,7 @@
       "design_approved": true,
       "content_status": "current",
       "verification": "OFFICIAL_VERIFIED",
-      "checked_at": "2026-11-02T21:41:18.058Z",
+      "checked_at": "2026-11-02T21:46:51.352Z",
       "source_name": "TNA Wrestling",
       "source_url": "https://tnawrestling.com/roster",
       "source_urls": [
@@ -251,7 +266,7 @@
       "design_approved": true,
       "content_status": "current",
       "verification": "OFFICIAL_VERIFIED",
-      "checked_at": "2026-11-02T21:41:18.058Z",
+      "checked_at": "2026-11-02T21:46:51.352Z",
       "source_name": "WWE",
       "source_url": "https://www.wwe.com/titlehistory/nxt-championship",
       "source_urls": [
@@ -273,7 +288,7 @@
       "design_approved": true,
       "content_status": "current",
       "verification": "OFFICIAL_VERIFIED",
-      "checked_at": "2026-11-02T21:41:18.058Z",
+      "checked_at": "2026-11-02T21:46:51.352Z",
       "source_name": "WWE",
       "source_url": "https://www.wwe.com/titlehistory/wwe-championship",
       "source_urls": [
@@ -296,7 +311,7 @@
       "design_approved": true,
       "content_status": "current",
       "verification": "OFFICIAL_VERIFIED",
-      "checked_at": "2026-11-02T21:41:18.058Z",
+      "checked_at": "2026-11-02T21:46:51.352Z",
       "source_name": "WWE",
       "source_url": "https://www.wwe.com/classics/titlehistory/world-heavyweight-championship",
       "source_urls": [
@@ -318,35 +333,20 @@
       "design_approved": true,
       "content_status": "current",
       "verification": "SOURCE_CORROBORATED",
-      "checked_at": "2026-11-02T21:41:18.058Z",
+      "checked_at": "2026-11-02T21:46:51.352Z",
       "source_name": "Sacnilk / The SmackDown Hotel",
       "source_url": "https://www.sacnilk.com/news/current_lucha_libre_aaa_worldwide_champions_full_list_of_title_holders",
       "source_urls": [
         "https://www.sacnilk.com/news/current_lucha_libre_aaa_worldwide_champions_full_list_of_title_holders",
         "https://www.thesmackdownhotel.com/roster/current-champions/?promotion=aaa"
       ]
-    },
-    {
-      "id": "weekly-results-raw",
-      "title": "RAW — Results & Fallout",
-      "show": "raw",
-      "kind": "results",
-      "airdate": "2026-10-26",
-      "source_available": true,
-      "design_approved": true,
-      "content_status": "current",
-      "verification": "OFFICIAL_VERIFIED",
-      "completed": true,
-      "checked_at": "2026-11-02T01:44:00.820Z",
-      "source_name": "WWE",
-      "source_url": "https://www.wwe.com/shows/raw/2026-10-26/results"
     }
   ],
   "feeds": {
     "snapshot.json": {
       "schema_version": 1,
       "mode": "LIVE_SCHEDULES_ONLY",
-      "generated_at": "2026-11-02T21:02:12.368642+00:00",
+      "generated_at": "2026-11-02T21:46:00.562557+00:00",
       "fresh_shows": 6,
       "shows": [
         {
@@ -468,7 +468,7 @@
     "reported.json": {
       "schema_version": 1,
       "mode": "REPORTED_MATCHES_UNVERIFIED",
-      "generated_at": "2026-11-02T21:41:18.058Z",
+      "generated_at": "2026-11-02T21:46:51.352Z",
       "display_attribution": "Wrestling Central News (wrestlingcentralnews.com)",
       "programs": [
         {
@@ -902,10 +902,99 @@
         }
       ]
     },
+    "raw-verified-results.json": {
+      "schema_version": 1,
+      "mode": "OFFICIAL_EXTRACTED_RESULTS",
+      "source_policy": "Only explicit match winners directly extracted from dated official source; not human editorial review. Winners-only original approved portraits; never invent matches or champions.",
+      "programs": [
+        {
+          "show_id": "raw",
+          "airdate": "2026-10-26",
+          "venue": null,
+          "location": null,
+          "source_name": "WWE official Raw results, 2026-10-26",
+          "source_url": "https://www.wwe.com/shows/raw/2026-10-26/results",
+          "verification": "OFFICIAL_SOURCE_EXTRACTED",
+          "segments": [
+            {
+              "id": "official-raw-2026-10-26-1",
+              "kind": "result",
+              "category": "MATCH RESULT",
+              "strap": "OFFICIAL MATCH RESULT",
+              "headline": "SAMI ZAYN",
+              "subhead": "def. Je’Von Evans",
+              "detail": "OFFICIAL RESULTS • October 26, 2026",
+              "portraits": [
+                "sami-zayn"
+              ],
+              "portrait_rule": "winners_only",
+              "ticker": "SAMI ZAYN DEFEATS JE’VON EVANS"
+            },
+            {
+              "id": "official-raw-2026-10-26-2",
+              "kind": "result",
+              "category": "NO DISQUALIFICATION",
+              "strap": "OFFICIAL MATCH RESULT",
+              "headline": "BAYLEY",
+              "subhead": "def. Lyra Valkyria",
+              "detail": "NO DISQUALIFICATION • October 26, 2026",
+              "portraits": [
+                "bayley"
+              ],
+              "portrait_rule": "winners_only",
+              "ticker": "BAYLEY DEFEATS LYRA VALKYRIA"
+            },
+            {
+              "id": "official-raw-2026-10-26-3",
+              "kind": "result",
+              "category": "MATCH RESULT",
+              "strap": "OFFICIAL MATCH RESULT",
+              "headline": "IYO SKY",
+              "subhead": "def. Raquel Rodriguez",
+              "detail": "OFFICIAL RESULTS • October 26, 2026",
+              "portraits": [
+                "iyo-sky"
+              ],
+              "portrait_rule": "winners_only",
+              "ticker": "IYO SKY DEFEATS RAQUEL RODRIGUEZ"
+            },
+            {
+              "id": "official-raw-2026-10-26-4",
+              "kind": "result",
+              "category": "MATCH RESULT",
+              "strap": "OFFICIAL MATCH RESULT",
+              "headline": "ETHAN PAGE & BIG CASS",
+              "subhead": "def. Chad Gable & Dragon Lee",
+              "detail": "OFFICIAL RESULTS • October 26, 2026",
+              "portraits": [
+                "ethan-page",
+                "big-cass"
+              ],
+              "portrait_rule": "winners_only",
+              "ticker": "ETHAN PAGE & BIG CASS DEFEATS CHAD GABLE & DRAGON LEE"
+            },
+            {
+              "id": "official-raw-2026-10-26-5",
+              "kind": "result",
+              "category": "DISQUALIFICATION",
+              "strap": "OFFICIAL MATCH RESULT",
+              "headline": "BECKY LYNCH",
+              "subhead": "def. Liv Morgan",
+              "detail": "DISQUALIFICATION • October 26, 2026",
+              "portraits": [
+                "becky-lynch"
+              ],
+              "portrait_rule": "winners_only",
+              "ticker": "BECKY LYNCH DEFEATS LIV MORGAN"
+            }
+          ]
+        }
+      ]
+    },
     "evolve-verified-results.json": {
       "schema_version": 2,
       "mode": "EDITORIALLY_VERIFIED_EVOLVE_EPISODE",
-      "generated_at": "2026-11-02T21:41:18.058Z",
+      "generated_at": "2026-11-02T21:46:51.352Z",
       "episode_date": "2026-10-28",
       "programs": [
         {
@@ -1111,7 +1200,7 @@
     },
     "official-events.json": {
       "mode": "OFFICIAL_WWE_EVENT_PREVIEWS",
-      "generated_at": "2026-11-02T21:41:18.058Z",
+      "generated_at": "2026-11-02T21:46:51.352Z",
       "programs": [
         {
           "event_id": "wwe-crown-jewel-2026",
@@ -1120,7 +1209,7 @@
           "show": "wwe",
           "event_date": "2026-11-07",
           "source_url": "https://www.wwe.com/shows/wwe-crown-jewel/crown-jewel-2026",
-          "checked_at": "2026-11-02T21:41:18.058Z",
+          "checked_at": "2026-11-02T21:46:51.352Z",
           "verification": "OFFICIAL_VERIFIED",
           "cards": [
             {
@@ -1169,7 +1258,7 @@
     },
     "official-event-results.json": {
       "mode": "OFFICIAL_WWE_EVENT_RESULTS",
-      "generated_at": "2026-11-02T21:41:18.058Z",
+      "generated_at": "2026-11-02T21:46:51.352Z",
       "programs": [
         {
           "event_id": "nxt-halloween-havoc-2026",
@@ -1272,7 +1361,7 @@
     "champions.json": {
       "schema_version": 1,
       "mode": "SOURCE_CHECKED_CHAMPIONS",
-      "generated_at": "2026-11-02T21:41:18.058Z",
+      "generated_at": "2026-11-02T21:46:51.352Z",
       "programs": [
         {
           "show": "tna",
@@ -1847,95 +1936,6 @@
           "source_urls": [
             "https://www.sacnilk.com/news/current_lucha_libre_aaa_worldwide_champions_full_list_of_title_holders",
             "https://www.thesmackdownhotel.com/roster/current-champions/?promotion=aaa"
-          ]
-        }
-      ]
-    },
-    "raw-verified-results.json": {
-      "schema_version": 1,
-      "mode": "OFFICIAL_EXTRACTED_RESULTS",
-      "source_policy": "Only explicit match winners directly extracted from dated official source; not human editorial review. Winners-only original approved portraits; never invent matches or champions.",
-      "programs": [
-        {
-          "show_id": "raw",
-          "airdate": "2026-10-26",
-          "venue": null,
-          "location": null,
-          "source_name": "WWE official Raw results, 2026-10-26",
-          "source_url": "https://www.wwe.com/shows/raw/2026-10-26/results",
-          "verification": "OFFICIAL_SOURCE_EXTRACTED",
-          "segments": [
-            {
-              "id": "official-raw-2026-10-26-1",
-              "kind": "result",
-              "category": "MATCH RESULT",
-              "strap": "OFFICIAL MATCH RESULT",
-              "headline": "SAMI ZAYN",
-              "subhead": "def. Je’Von Evans",
-              "detail": "OFFICIAL RESULTS • October 26, 2026",
-              "portraits": [
-                "sami-zayn"
-              ],
-              "portrait_rule": "winners_only",
-              "ticker": "SAMI ZAYN DEFEATS JE’VON EVANS"
-            },
-            {
-              "id": "official-raw-2026-10-26-2",
-              "kind": "result",
-              "category": "NO DISQUALIFICATION",
-              "strap": "OFFICIAL MATCH RESULT",
-              "headline": "BAYLEY",
-              "subhead": "def. Lyra Valkyria",
-              "detail": "NO DISQUALIFICATION • October 26, 2026",
-              "portraits": [
-                "bayley"
-              ],
-              "portrait_rule": "winners_only",
-              "ticker": "BAYLEY DEFEATS LYRA VALKYRIA"
-            },
-            {
-              "id": "official-raw-2026-10-26-3",
-              "kind": "result",
-              "category": "MATCH RESULT",
-              "strap": "OFFICIAL MATCH RESULT",
-              "headline": "IYO SKY",
-              "subhead": "def. Raquel Rodriguez",
-              "detail": "OFFICIAL RESULTS • October 26, 2026",
-              "portraits": [
-                "iyo-sky"
-              ],
-              "portrait_rule": "winners_only",
-              "ticker": "IYO SKY DEFEATS RAQUEL RODRIGUEZ"
-            },
-            {
-              "id": "official-raw-2026-10-26-4",
-              "kind": "result",
-              "category": "MATCH RESULT",
-              "strap": "OFFICIAL MATCH RESULT",
-              "headline": "ETHAN PAGE & BIG CASS",
-              "subhead": "def. Chad Gable & Dragon Lee",
-              "detail": "OFFICIAL RESULTS • October 26, 2026",
-              "portraits": [
-                "ethan-page",
-                "big-cass"
-              ],
-              "portrait_rule": "winners_only",
-              "ticker": "ETHAN PAGE & BIG CASS DEFEATS CHAD GABLE & DRAGON LEE"
-            },
-            {
-              "id": "official-raw-2026-10-26-5",
-              "kind": "result",
-              "category": "DISQUALIFICATION",
-              "strap": "OFFICIAL MATCH RESULT",
-              "headline": "BECKY LYNCH",
-              "subhead": "def. Liv Morgan",
-              "detail": "DISQUALIFICATION • October 26, 2026",
-              "portraits": [
-                "becky-lynch"
-              ],
-              "portrait_rule": "winners_only",
-              "ticker": "BECKY LYNCH DEFEATS LIV MORGAN"
-            }
           ]
         }
       ]
