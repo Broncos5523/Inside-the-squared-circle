@@ -58,7 +58,7 @@ test('automatic playback gets past AAA, wraps the playlist, and disposes the pri
   assert.equal(h.timers.size,1,'rotation timers accumulated');
   seen.push(h.window.__iscReview.getCurrent().id);
  }
- assert.equal(seen[1],'weekly-results-raw');
+ assert.equal(seen[1],'weekly-upcoming-aaa');
  assert.equal(seen[ids.length],ids[0]);
  assert.equal(h.stats.thumbnailNodes,0);
 });
@@ -69,13 +69,13 @@ test('starting TV playback from the playlist menu also avoids thumbnail construc
  assert.equal(h.elements['review-panel'].hidden,false);
 });
 
-test('AAA cycle completion advances to RAW even when the long parent timeout never fires',async()=>{
+test('AAA cycle completion advances to its next preview even when the long parent timeout never fires',async()=>{
  const h=harness('?view=tv');await settle(()=>h.elements.board.srcdoc&&h.timers.size);
  h.timers.clear();h.advanceTime(98000);
  const old=h.elements.board;
  h.message({type:'isc-board-cycle',id:'weekly-results-aaa',index:1,total:7,complete:true});
  await settle(()=>h.elements.board!==old&&h.elements.board.srcdoc);
- assert.equal(h.window.__iscReview.getCurrent().id,'weekly-results-raw');
+ assert.equal(h.window.__iscReview.getCurrent().id,'weekly-upcoming-aaa');
 });
 test('the final AAA card arms a short switch instead of restarting all seven cards',async()=>{
  const h=harness('?view=tv');await settle(()=>h.elements.board.srcdoc&&h.timers.size);
@@ -83,7 +83,7 @@ test('the final AAA card arms a short switch instead of restarting all seven car
  h.message({type:'isc-board-cycle',id:'weekly-results-aaa',index:7,total:7,complete:false});
  assert.equal(h.timers.size,1);
  assert.equal([...h.timers.values()][0].ms,14000);
- advance(h);await settle(()=>h.window.__iscReview.getCurrent().id==='weekly-results-raw');
+ advance(h);await settle(()=>h.window.__iscReview.getCurrent().id==='weekly-upcoming-aaa');
 });
 test('manual pause ignores the embedded card-cycle completion signal',async()=>{
  const h=harness('?view=tv');await settle(()=>h.elements.board.srcdoc&&h.timers.size);
@@ -115,7 +115,7 @@ test('a mismatched RAW transfer after AAA retries an immutable source without us
  let rawRequests=0;
  const h=harness('?view=tv',{corruptSource:name=>name.includes(raw.delivery_sha256)&&++rawRequests===1});
  await settle(()=>h.elements.board.srcdoc&&h.timers.size);
- advance(h);
+ advance(h);await settle(()=>h.window.__iscReview.getCurrent().id==='weekly-upcoming-aaa'&&h.elements.board.srcdoc);advance(h);
  await settle(()=>h.window.__iscReview.getCurrent().id==='weekly-results-raw'&&h.elements.board.srcdoc&&h.timers.size);
  const requests=h.stats.sourceRequests.filter(r=>r.url.includes(raw.delivery_sha256));
  assert.equal(requests.length,2);
@@ -134,7 +134,7 @@ test('a persistently mismatched source never renders and does not prevent the ne
  assert.equal(h.elements.board.srcdoc,'');
  assert.equal(h.stats.sourceRequests.length,2,'retry must remain bounded');
  advance(h);
- await settle(()=>h.window.__iscReview.getCurrent().id==='weekly-results-nxt'&&h.elements.board.srcdoc);
+ await settle(()=>h.window.__iscReview.getCurrent().id==='weekly-upcoming-raw'&&h.elements.board.srcdoc);
 });
 
 test('a browser without SHA-256 support cannot silently skip source verification',async()=>{

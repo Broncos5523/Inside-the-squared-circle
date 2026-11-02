@@ -1,15 +1,15 @@
 (function(root,factory){if(typeof module==='object'&&module.exports)module.exports=factory();else root.ISCPlaylist=factory();})(typeof globalThis!=='undefined'?globalThis:this,function(){
  'use strict';
  // Live TV PROGRAMMING RULES, not a carousel of every approved design:
- // 1. Last verified episode of each weekly show (including Evolve recap), oldest to newest.
- // 2. The single next advertised weekly show preview (AAA, RAW, NXT, TNA, SmackDown).
- // 3. Every upcoming verified PLE or special-event preview within 14 calendar days.
- // 4. Verified PLE/special-event results from the last 7 calendar days.
- // Championship boards and unrelated/archive designs are NOT always-on TV slots.
+ // 1. Cyclic weekly groups beginning with the next scheduled show.
+ // 2. Each group: latest results, next preview (except Evolve), checked champions.
+ // 3. Verified PLE/special-event results within 7 days, oldest to newest.
+ // 4. Upcoming PLE/special-event previews within 14 days, soonest first.
+ // Current verified champions follow their own show; archive designs stay excluded.
  var weekly=['aaa','raw','nxt','evolve','tna','smackdown'],shows=['aaa','raw','nxt','tna','smackdown'];
  function etDay(now){var p=new Intl.DateTimeFormat('en-US',{timeZone:'America/New_York',year:'numeric',month:'2-digit',day:'2-digit'}).formatToParts(now),v={};p.forEach(function(x){v[x.type]=x.value;});return v.year+'-'+v.month+'-'+v.day;}
  function days(a,b){return (Date.parse(a+'T12:00:00Z')-Date.parse(b+'T12:00:00Z'))/86400000;}
- function stamp(x){return /^(?:ple|special)-/.test(x.kind||'')?(x.event_date||''):(x.airdate||x.event_date||'');}
+ function stamp(x){return /^(?:ple|special)-/.test(x.kind||'')?(x.event_date||''):(x.airdate||x.event_date||x.as_of||'');}
  function verified(x){return x.verification==='OFFICIAL_VERIFIED'||x.verification==='EDITORIALLY_VERIFIED'||(x.verification==='SOURCE_CORROBORATED'&&Array.isArray(x.source_urls)&&new Set(x.source_urls.map(function(u){try{return new URL(u).hostname;}catch(_){return '';}}).filter(Boolean)).size>=2);}
  function select(entries,now){
   now=now||new Date();
@@ -28,25 +28,30 @@
   });
   // Results persist until a newer VERIFIED result is available. They do not expire
   // after 14 days, unlike special-event results, but the collector itself must stay fresh.
-  var latest=weekly.map(function(show){
-   return newest(results.filter(function(x){return x.show===show&&
-    (show==='evolve'?x.kind==='evolve'||x.kind==='results':x.kind==='results');}));
-  }).filter(Boolean);
-  latest.sort(function(a,b){return stamp(a).localeCompare(stamp(b))||
-    weekly.indexOf(a.show)-weekly.indexOf(b.show);}).forEach(add);
-
-  // Only the NEXT weekly broadcast, not every future show. A scheduled preview
-  // may contain an accurate date/venue without advertised matches or appearances.
+  // One group per show, starting with the next scheduled broadcast.
   var previews=usable.filter(function(x){
    return x.kind==='upcoming'&&shows.indexOf(x.show)>=0&&
     (x.verification==='SOURCE_REPORTED'||verified(x))&&
-    (x.has_content===true||x.schedule_confirmed===true)&&
-    x.airdate>=today&&days(x.airdate,today)>=0&&
+    (x.has_content===true||x.schedule_confirmed===true)&&x.airdate>=today&&
     !results.some(function(r){return r.show===x.show&&r.airdate===x.airdate;});
   });
-  previews.sort(function(a,b){return a.airdate.localeCompare(b.airdate)||
-   shows.indexOf(a.show)-shows.indexOf(b.show);});
-  add(previews[0]);
+  var cycle=['raw','nxt','evolve','tna','smackdown','aaa'];
+  var weekday={raw:1,nxt:2,evolve:3,tna:4,smackdown:5,aaa:6};
+  var currentDay=new Date(today+'T12:00:00Z').getUTCDay();
+  function nextDate(show){
+   var advertised=previews.filter(function(p){return p.show===show;}).sort(function(a,b){return a.airdate.localeCompare(b.airdate);})[0];
+   if(advertised)return advertised.airdate;
+   var delta=(weekday[show]-currentDay+7)%7;
+   if(delta===0&&results.some(function(r){return r.show===show&&r.airdate===today;}))delta=7;
+   var date=new Date(today+'T12:00:00Z');date.setUTCDate(date.getUTCDate()+delta);return date.toISOString().slice(0,10);
+  }
+  var first=cycle.slice().sort(function(a,b){return nextDate(a).localeCompare(nextDate(b))||cycle.indexOf(a)-cycle.indexOf(b);})[0];
+  var pivot=cycle.indexOf(first),ordered=cycle.slice(pivot).concat(cycle.slice(0,pivot));
+  ordered.forEach(function(show){
+   add(newest(results.filter(function(x){return x.show===show;})));
+   if(show!=='evolve')add(previews.filter(function(x){return x.show===show;}).sort(function(a,b){return a.airdate.localeCompare(b.airdate);})[0]);
+   add(newest(usable.filter(function(x){return x.kind==='champions'&&x.show===show&&verified(x);})));
+  });
 
   // Specials are independent of weekly episodes. Show all within 14 days,
   // including the day of the event. Once a verified result is available, hide preview.
@@ -54,6 +59,11 @@
    return (x.kind==='ple-results'||x.kind==='special-results')&&verified(x)&&
     x.completed===true&&stamp(x)<=today;
   });
+  // Results from special events are relevant for 7 days, including event day.
+  specialResults.filter(function(x){return days(today,stamp(x))<=7;})
+   .sort(function(a,b){return stamp(a).localeCompare(stamp(b))||String(a.id).localeCompare(String(b.id));})
+   .forEach(add);
+
   usable.filter(function(x){
    return (x.kind==='ple-preview'||x.kind==='special-preview')&&x.date_confirmed===true&&
     (x.has_content===true||x.schedule_confirmed===true)&&
@@ -63,10 +73,6 @@
   }).sort(function(a,b){return a.event_date.localeCompare(b.event_date)||
    String(a.id).localeCompare(String(b.id));}).forEach(add);
 
-  // Results from special events are relevant for 7 days, including event day.
-  specialResults.filter(function(x){return days(today,stamp(x))<=7;})
-   .sort(function(a,b){return stamp(b).localeCompare(stamp(a))||String(a.id).localeCompare(String(b.id));})
-   .forEach(add);
   return out;
  }
  // Give every verified match/result card enough time to display once.
@@ -74,6 +80,10 @@
  // result board off at 45 seconds would hide most of a 5-7-segment episode.
  function dwellMs(entry,feeds,selectedMs){
   var base=Math.max(20000,Number(selectedMs)||45000);
+  if(entry&&entry.kind==='champions'){
+   var championship=feeds&&feeds['champions.json']?.programs?.find(function(p){return p.board_id===entry.id;});
+   return Math.max(base,(championship?.champions?.length||0)*11000+6500);
+  }
   if(entry&&entry.kind==='upcoming'){
    var preview=feeds&&feeds['reported.json']?.programs?.find(function(p){return p.show_id===entry.show&&p.airdate===entry.airdate;});
    var slides=(preview?.matches?.length||0)+(preview?.appearances?.length||0)+1;
