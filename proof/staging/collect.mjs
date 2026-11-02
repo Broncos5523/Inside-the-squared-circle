@@ -8,10 +8,12 @@ import {collectEvolve} from './collect-evolve.mjs';
 import {collectOfficialEventResults} from './official-event-results.mjs';
 import {collectCorroboratedAaaResults} from './corroborated-aaa-results.mjs';
 import {collectChampions} from './collect-champions.mjs';
+import {retainLastVerifiedResults} from './last-verified-results.mjs';
 import {localPublishedFeed,PUBLISHED_FEED_ROOT} from './local-published-feeds.mjs';
 const now=new Date();
 const root=new URL('../../web/staging/',import.meta.url);
 const localFeedDirectory=process.env.ISC_LOCAL_FEED_DIR;
+let previousProgramming=null;try{previousProgramming=JSON.parse(await readFile(new URL('data/programming.json',root),'utf8'));}catch{}
 if(!localFeedDirectory&&process.env.ISC_FORCE_COLLECT!=='1')try{
  const prior=JSON.parse(await readFile(new URL('data/programming.json',root),'utf8'));
  const age=now.getTime()-Date.parse(prior.generated_at);
@@ -120,6 +122,7 @@ if(!entries.some(e=>e.show==='aaa'&&e.kind==='results'&&e.airdate===snapshot?.sh
  const aaa=await collectCorroboratedAaaResults({library,routes:assetRoutes,snapshot,now,requester});
  for(const candidate of aaa.entries){entries.push(candidate);feeds['aaa-verified-results.json']=aaa.feeds['aaa-verified-results.json'];}
 }
+retainLastVerifiedResults({previous:previousProgramming,entries,feeds,library,now});
 for(const show of feeds['snapshot.json']?.shows||[]){
  const latest=entries.filter(e=>e.show===show.id&&e.kind==='results').sort((a,b)=>b.airdate.localeCompare(a.airdate))[0];
  if(latest)show.previous={...show.previous,date:latest.airdate};

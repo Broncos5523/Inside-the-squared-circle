@@ -89,3 +89,14 @@ test('championship reign timestamps use Eastern dates across UTC midnight',async
  const {easternDate}=await import('../proof/staging/collect-champions.mjs');
  assert.equal(easternDate(new Date('2026-08-03T01:00:00Z')),'2026-08-02');
 });
+
+test('schedule rollover retains last verified results without renewing the source check',async()=>{
+ const {retainLastVerifiedResults}=await import('../proof/staging/last-verified-results.mjs');
+ const old={id:'weekly-results-raw',show:'raw',kind:'results',airdate:'2026-10-26',checked_at:'2026-11-01T20:00:00Z',verification:'OFFICIAL_VERIFIED',completed:true,content_status:'current',source_url:'https://www.wwe.com/shows/raw/2026-10-26/results'};
+ const program={show_id:'raw',airdate:old.airdate,source_url:old.source_url,verification:'OFFICIAL_SOURCE_EXTRACTED',segments:[{headline:'SOURCE VERIFIED WINNER'}]};
+ const previous={entries:[old],feeds:{'raw-verified-results.json':{mode:'OFFICIAL_EXTRACTED_RESULTS',programs:[program]}}};
+ const entries=[],feeds={},now=new Date('2026-11-02T21:00:00Z');
+ assert.deepEqual(retainLastVerifiedResults({previous,entries,feeds,library,now}),[old.id]);assert.equal(entries[0].checked_at,old.checked_at);assert.equal(entries[0].airdate,'2026-10-26');
+ const newer=[{...old,airdate:'2026-11-02'}];assert.deepEqual(retainLastVerifiedResults({previous,entries:newer,feeds:{},library,now}),[]);
+ assert.deepEqual(retainLastVerifiedResults({previous,entries:[],feeds:{},library,now:new Date('2026-11-04T21:00:00Z')}),[]);
+});
