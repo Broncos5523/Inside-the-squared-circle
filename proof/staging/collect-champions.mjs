@@ -2,6 +2,7 @@ import {readFile} from 'node:fs/promises';
 const AAA_SOURCES=['https://www.sacnilk.com/news/current_lucha_libre_aaa_worldwide_champions_full_list_of_title_holders','https://www.thesmackdownhotel.com/roster/current-champions/?promotion=aaa'];
 const clean=s=>String(s||'').replace(/<script\b[^>]*>[\s\S]*?<\/script>/gi,' ').replace(/<[^>]+>/g,' ').replace(/&#(?:x([0-9a-f]+)|(\d+));/gi,(_,h,d)=>String.fromCodePoint(parseInt(h||d,h?16:10))).replace(/&amp;/g,'&').replace(/&nbsp;/g,' ').replace(/&rsquo;/g,"'").replace(/\s+/g,' ').trim();
 const key=s=>clean(s).normalize('NFKD').replace(/[\u0300-\u036f]/g,'').toLowerCase().replace(/[^a-z0-9]/g,'');
+export const easternDate=date=>new Intl.DateTimeFormat('en-CA',{timeZone:'America/New_York',year:'numeric',month:'2-digit',day:'2-digit'}).format(date);
 export function currentWweHolder(html){const text=clean(html);return text.match(/Championship Holder\s+(.+?)\s+Time Held/i)?.[1]||null;}
 export async function collectChampions({library,routes,now=new Date(),requester=fetch,root=new URL('../../web/staging/',import.meta.url)}){
  const catalog=JSON.parse(await readFile(new URL('championship-catalog.json',import.meta.url),'utf8'));
@@ -29,7 +30,7 @@ export async function collectChampions({library,routes,now=new Date(),requester=
    }else{
     for(const c of original){const html=await page(c.source),holder=currentWweHolder(html);if(!holder)throw Error('Current holder unavailable: '+c.id);
      if(key(holder)!==key(c.name))throw Error('Changed holder needs approved asset mapping: '+c.id);
-     const epoch=html.match(/data-reign-start-date=["'](\d{10})["']/)?.[1],since=epoch?new Date(Number(epoch)*1000).toISOString().slice(0,10):c.since_date;
+     const epoch=html.match(/data-reign-start-date=["'](\d{10})["']/)?.[1],since=epoch?easternDate(new Date(Number(epoch)*1000)):c.since_date;
      champions.push({...c,since_date:since,since:new Intl.DateTimeFormat('en-US',{month:'short',day:'numeric',year:'numeric',timeZone:'UTC'}).format(new Date(since+'T12:00:00Z')).toUpperCase()});sources.push(c.source);
     }
    }

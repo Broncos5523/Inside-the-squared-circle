@@ -85,3 +85,7 @@ test('WWE champion verification reads the current holder, never names in title h
  assert.equal(currentWweHolder('<h3><span>Championship Holder</span>New Champion</h3><div>Time Held</div><p>Previous Champion</p>'),'New Champion');
  assert.equal(currentWweHolder('<p>Former champion New Champion</p>'),null);
 });
+test('championship reign timestamps use Eastern dates across UTC midnight',async()=>{
+ const {easternDate}=await import('../proof/staging/collect-champions.mjs');
+ assert.equal(easternDate(new Date('2026-08-03T01:00:00Z')),'2026-08-02');
+});
