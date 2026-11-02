@@ -81,6 +81,9 @@
      slot.style.backgroundImage='none';slot.replaceChildren();
      images.forEach(function(person,i){var img=document.createElement('img');img.alt=person.name;img.src=person.url;img.style.cssText='position:absolute;bottom:0;height:100%;object-fit:contain;object-position:center bottom;'+(images.length===1?'width:100%;left:0;':'width:44%;left:'+(i*28)+'%;');slot.append(img);});
     });
+    var labels=Array.prototype.map.call(grid.querySelectorAll('.wb-name'),function(el){return el.textContent;});
+    var note=(config.previewNotes||{})[key(labels.join(' vs. '))],noteNode=document.getElementById('wb-match-note');
+    if(note&&noteNode&&noteNode.textContent!==note)noteNode.textContent=note;
    }
    new MutationObserver(draw).observe(grid,{childList:true,subtree:true});draw();
   }
@@ -324,11 +327,14 @@ function evolveApplyVerifiedEpisode(html,payload){
    var ownFeed=ownShow+'-verified-results.json';
    if(/^(aaa|nxt|tna)$/.test(ownShow)&&boardFeeds[ownFeed])boardFeeds[ownFeed]=addApprovedPortraits(JSON.parse(JSON.stringify(boardFeeds[ownFeed])));
   }
-  var previewPortraits={},previewTeams={};
+  var previewPortraits={},previewTeams={},previewNotes={};
   if(mode==='active'&&record.category==='Weekly Upcoming'){
    Object.keys(boardMap).forEach(function(k){var m=k.match(/\/portraits\/([^/]+)\.png$/);if(m)previewPortraits[m[1].replace(/[^a-z0-9]/g,'')]=new URL('originals'+boardMap[k],assetBase).href;});
+   // Reuse the exact approved person asset across shows (e.g. Cena on NXT).
+   Object.keys(routes).forEach(function(k){var m=k.match(/\/portraits\/([^/]+)\.png$/);if(m){var person=m[1].replace(/[^a-z0-9]/g,'');if(!previewPortraits[person])previewPortraits[person]=new URL('originals'+routes[k],assetBase).href;}});
    var preview=boardFeeds['reported.json']?.programs?.find(function(p){return p.show_id===ownShow;});
-   (preview?.matches||[]).forEach(function(m){(m.participant_sides||[]).forEach(function(side){if(side.label&&Array.isArray(side.members))previewTeams[side.label.toLowerCase().replace(/[^a-z0-9]/g,'')]=side.members;});});
+   if(ownShow==='nxt'&&preview?.official_date_verified){var weekday=new Intl.DateTimeFormat('en-US',{weekday:'long',timeZone:'UTC'}).format(new Date(preview.airdate+'T12:00:00Z')).toUpperCase();html=html.replace(/\bTUESDAY\b/g,weekday);}
+   (preview?.matches||[]).forEach(function(m){if(m.note)previewNotes[m.text.toLowerCase().replace(/[^a-z0-9]/g,'')]=(m.note+' • NXT • '+new Intl.DateTimeFormat('en-US',{month:'short',day:'numeric',timeZone:'UTC'}).format(new Date(preview.airdate+'T12:00:00Z'))).toUpperCase();(m.participant_sides||[]).forEach(function(side){if(side.label&&Array.isArray(side.members))previewTeams[side.label.toLowerCase().replace(/[^a-z0-9]/g,'')]=side.members;});});
    // Hydrate before the first render: the source's old sample schedule must not flash.
    if(boardFeeds['snapshot.json']&&boardFeeds['reported.json']){
     var initial={snapshot:boardFeeds['snapshot.json'],reported:boardFeeds['reported.json'],research:null,reviewed:null,editorial:null,results:null};
@@ -337,7 +343,7 @@ function evolveApplyVerifiedEpisode(html,payload){
    var cena=previewPortraits.johncena;
    if(cena)html=html.replace('const USER_CUTOUTS={','const USER_CUTOUTS={"john cena":'+JSON.stringify(cena)+',');
   }
-  var config={weeklyResults:record.category==='Weekly Results',id:record.id,logical:logical,base:assetBase,routes:boardMap,mode:mode,feeds:boardFeeds,night:night,source_credit:record.source_credit||null,current_location:record.current_location||null,live_preview:record.category==='Weekly Upcoming',previewPortraits:previewPortraits,previewTeams:previewTeams,officialEvent:officialEvent,eventResults:eventResults,resultPortraits:resultPortraits,resultBelts:resultBelts};
+  var config={weeklyResults:record.category==='Weekly Results',id:record.id,logical:logical,base:assetBase,routes:boardMap,mode:mode,feeds:boardFeeds,night:night,source_credit:record.source_credit||null,current_location:record.current_location||null,live_preview:record.category==='Weekly Upcoming',previewPortraits:previewPortraits,previewTeams:previewTeams,previewNotes:previewNotes,officialEvent:officialEvent,eventResults:eventResults,resultPortraits:resultPortraits,resultBelts:resultBelts};
   var injected='<base href="'+new URL('originals'+prefix,base).href+'"><script>('+shim.toString()+')('+JSON.stringify(config).replace(/</g,'\\u003c')+');<\/script>';
   return html.replace(/<head(?:\s[^>]*)?>/i,function(head){return head+injected;});
  }
