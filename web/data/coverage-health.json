@@ -1,35 +1,35 @@
 {
   "schema_version": 1,
   "mode": "WRESTLING_CONTENT_COVERAGE_COUNTS_ONLY",
-  "generated_at": "2026-11-02T12:20:40.723039-05:00",
+  "generated_at": "2026-11-02T16:03:02.066515-05:00",
   "source_health": {
     "reported": {
       "fresh": true,
-      "generated_at": "2026-11-02T12:19:53.961394-05:00"
+      "generated_at": "2026-11-02T16:02:19.566696-05:00"
     },
     "results": {
       "fresh": true,
-      "generated_at": "2026-11-02T12:20:00.490296-05:00"
+      "generated_at": "2026-11-02T16:02:24.176472-05:00"
     },
     "rss_facts": {
       "fresh": true,
-      "generated_at": "2026-11-02T12:20:23.561304-05:00"
+      "generated_at": "2026-11-02T16:02:43.722250-05:00"
     },
     "rss_excerpts": {
       "fresh": true,
-      "generated_at": "2026-11-02T12:20:31.340246-05:00"
+      "generated_at": "2026-11-02T16:02:52.463915-05:00"
     },
     "fallout": {
       "fresh": true,
-      "generated_at": "2026-11-02T12:20:39.177326-05:00"
+      "generated_at": "2026-11-02T16:03:00.505221-05:00"
     },
     "recap_links": {
       "fresh": true,
-      "generated_at": "2026-11-02T12:20:23.399045-05:00"
+      "generated_at": "2026-11-02T16:02:43.517578-05:00"
     },
     "episode_briefs": {
       "fresh": true,
-      "generated_at": "2026-11-02T12:20:09.388186-05:00"
+      "generated_at": "2026-11-02T16:02:31.264023-05:00"
     }
   },
   "totals": {
