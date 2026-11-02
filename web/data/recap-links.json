@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "mode": "PUBLISHER_RSS_POST_SHOW_LINKS_ONLY",
-  "generated_at": "2026-11-01T15:57:17.804880-05:00",
+  "generated_at": "2026-11-01T20:32:17.016281-05:00",
   "source_name": "Multiple publisher RSS feeds",
   "source_url": "https://www.f4wonline.com/rss.xml",
   "approved_publishers": [
@@ -75,7 +75,8 @@
           "url": "https://www.f4wonline.com/news/wwe/result-of-wwe-championship-match-on-smackdown/",
           "published_at": "2026-10-31T02:42:17+00:00",
           "source_name": "F4W / Wrestling Observer",
-          "status": "PUBLISHER_HEADLINE_LINK_ONLY"
+          "status": "PUBLISHER_HEADLINE_LINK_ONLY",
+          "retained_from_previous": true
         },
         {
           "headline": "Winfree’s WWE Smackdown Review 10.30.26",
@@ -210,7 +211,8 @@
           "url": "https://411mania.com/wrestling/halls-wwe-evolve-review-10-28-26/",
           "published_at": "2026-10-29T21:07:55+00:00",
           "source_name": "411Mania",
-          "status": "PUBLISHER_HEADLINE_LINK_ONLY"
+          "status": "PUBLISHER_HEADLINE_LINK_ONLY",
+          "retained_from_previous": true
         },
         {
           "headline": "10/28/26 WWE Evolve Recap",
@@ -249,7 +251,7 @@
     }
   ],
   "total_links": 25,
-  "retained_link_count": 14,
+  "retained_link_count": 16,
   "collection_status": "ok",
   "successful_feed_urls": [
     "https://www.f4wonline.com/rss.xml",
