@@ -68,7 +68,7 @@
       "strap": "THE CELEBRATION IS INTERRUPTED",
       "headline": "NIKKITA\nLYONS",
       "subline": "Anya Rune wants a title opportunity",
-      "detail": "Rune confronted Lyons and Sloane Jacobs. Timothy Thatcher booked a contenders’ match.",
+      "detail": "Rune confronted Lyons and Sloane Jacobs. Timothy Thatcher booked Rune vs. Jacobs, with a title shot at stake.",
       "portraits": [
         "nikkita-lyons"
       ],
@@ -78,16 +78,15 @@
     {
       "id": "four-way",
       "kind": "fallout",
-      "eyebrow": "WOMEN’S TITLE • NEXT WEEK",
-      "strap": "FOUR-WAY DEFENSE ANNOUNCED",
+      "eyebrow": "NEXT WEEK • ANNOUNCED MATCH",
+      "strap": "FOUR-WAY MATCH ANNOUNCED",
       "headline": "LYONS FACES\nTHREE",
-      "subline": "Thea Hail • Skylar Raye • Wendy Choo",
-      "detail": "Lyons is scheduled to defend the Evolve Women’s Championship in a four-way match.",
+      "subline": "Thea Hail • Laynie Luck • Wendy Choo",
+      "detail": "Timothy Thatcher announced Lyons vs. Laynie Luck vs. Wendy Choo vs. Thea Hail for next week.",
       "portraits": [
-        "nikkita-lyons",
-        "skylar-raye"
+        "nikkita-lyons"
       ],
-      "tag": "TITLE DEFENSE",
+      "tag": "NEXT WEEK",
       "belt": null
     },
     {
@@ -106,5 +105,5 @@
       "belt": null
     }
   ],
-  "source_review": "Cross-checked 2026-10-31 against Fightful Oct28 results and Pro Wrestling Dot Net 10/29 recap. Three match winners plus three storyline segments; winner-only photos on results."
+  "source_review": "Dated October 28 episode rechecked against Pro Wrestling Dot Net on November 1. The four-way names Laynie Luck, not Skylar Raye; no unverified title stipulation is added."
 }

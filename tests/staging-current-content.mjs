@@ -56,3 +56,21 @@ test('latest AAA match results require matching dated reports and ignore related
  assert.equal(playlist.select([entry],new Date('2026-11-01T18:00:00Z')).length,1);
  assert.equal(playlist.select([{...entry,source_urls:[entry.source_url]}],new Date('2026-11-01T18:00:00Z')).length,0);
 });
+
+test('RAW six-man preview uses three individual portraits on each side and the supplied Cena asset',async()=>{
+ const {enrichPreviewParticipants}=await import('../proof/staging/preview-participants.mjs');
+ const announced='<title>November 2nd WWE RAW</title><p>Penta, Je’Von Evans, Dragon Lee vs. The Vision (Austin Theory, Bronson Reed, Bron Breakker)</p>';
+ const program={show_id:'raw',airdate:'2026-11-02',matches:[{text:'Penta, Je’Von Evans and Dragon Lee vs. The Vision'}],appearances:[{text:'John Cena'}]};
+ await enrichPreviewParticipants(program,async()=>new Response(announced));
+ assert.deepEqual(program.matches[0].participant_sides[0].members,['Austin Theory','Bronson Reed','Bron Breakker']);
+ const next={show_id:'raw',airdate:'2026-11-09',matches:[{text:program.matches[0].text}]};
+ await enrichPreviewParticipants(next,async()=>{throw Error('must not reuse dated roster');});assert.equal(next.matches[0].participant_sides,undefined);
+ const row=library.records.find(r=>r.id==='weekly-upcoming-raw'),host={};runInNewContext(readFileSync(new URL('board-adapter.js',root),'utf8'),{window:host,URL});
+ const source=readFileSync(new URL(row.delivery,root),'utf8');
+ const html=host.ISCBoardAdapter.build(source,row,routes,'https://player.example/','active',{'reported.json':{programs:[program]},'snapshot.json':{shows:[{id:'raw',next:{date:'2026-11-02'}}]}});
+ const config=JSON.parse(html.match(/<base[^>]*><script>[\s\S]*?\)\((\{"weeklyResults":[\s\S]*?)\);<\/script>/)[1]);
+ for(const key of ['penta','jevonevans','dragonlee','austintheory','bronsonreed','bronbreakker','johncena'])assert.ok(config.previewPortraits[key],key);
+ assert.deepEqual(config.previewTeams.thevision,['Austin Theory','Bronson Reed','Bron Breakker']);
+ assert.match(html,/const USER_CUTOUTS=\{"john cena":/);assert.match(html,/const data=\{"snapshot":/);
+ const archive=host.ISCBoardAdapter.build(source,row,routes,'https://player.example/','archive',{});assert.ok(!archive.includes('const USER_CUTOUTS={"john cena":'));
+});

@@ -16,7 +16,7 @@ const adapterWindow={};
 vm.runInNewContext(fs.readFileSync(path.join(root,'board-adapter.js'),'utf8'),{window:adapterWindow,URL});
 const required=['Harley Riggins','Milosh Jovic','Jax Presley','Jasper Troy',
  'Elijah Holyfield','Braxton Cole','Marcus Mathers','Nikkita Lyons',
- 'Anya Rune','Skylar Raye','Wendy Choo','Thea Hail','Kale Dixon',
+ 'Anya Rune','Sloane Jacobs','Wendy Choo','Thea Hail','Kale Dixon',
  'Alix Brooks','Aaron Rourke','Laynie Luck'];
 function sourceResponse(){return {ok:true,text:async()=>'<html><title>WWE EVOLVE Results (10/28)</title><p>October 28, 2026</p>'+required.join(' • ')+' '+('e'.repeat(1500))+'</html>'};}
 async function collect(args={}){const m=await import('../proof/staging/collect-evolve.mjs');return m.collectEvolve({library,routes,payload,now:new Date('2026-10-31T19:00:00Z'),requester:async()=>sourceResponse(),...args});}
@@ -74,4 +74,12 @@ test('current Evolve data never uses opponent photos for winner-only result card
   assert.ok(!s.portraits.includes('marcus-mathers'));
   for(const slug of s.portraits)assert.ok(routes['/boards/RESULTS/Evolve/assets/portraits/'+slug+'.png']);
  }
+});
+test('dated alternate recap verifies Evolve when Fightful is unavailable without weakening episode checks',async()=>{
+ const r=await collect({requester:async url=>url.includes('fightful')?{ok:false,status:403}:sourceResponse()});
+ assert.equal(r.entries.length,1);assert.equal(r.entries[0].source_name,'Pro Wrestling Dot Net');
+ assert.equal(payload.segments.find(s=>s.id==='four-way').subline,'Thea Hail • Laynie Luck • Wendy Choo');
+ assert.ok(!payload.segments.find(s=>s.id==='four-way').portraits.includes('skylar-raye'));
+ const held=await collect({requester:async()=>({ok:true,text:async()=>'<title>WWE Evolve results (10/21)</title>'+required.join(' ')+'October 28, 2026'+('x'.repeat(1500))})});
+ assert.equal(held.entries.length,0);
 });
