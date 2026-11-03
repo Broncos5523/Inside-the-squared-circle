@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "mode": "SOURCE_GATED_STAGING",
-  "generated_at": "2026-11-02T22:23:06.287Z",
+  "generated_at": "2026-11-03T01:29:56.019Z",
   "entries": [
     {
       "id": "weekly-upcoming-raw",
@@ -15,7 +15,7 @@
       "verification": "SOURCE_REPORTED",
       "has_content": true,
       "schedule_confirmed": true,
-      "checked_at": "2026-11-02T22:23:06.287Z",
+      "checked_at": "2026-11-03T01:29:56.019Z",
       "source_name": "Wrestling Central News (wrestlingcentralnews.com)",
       "source_url": "https://wrestlingcentralnews.com/events/2026-11-02-wwe-raw/",
       "venue": {
@@ -35,7 +35,7 @@
       "verification": "SOURCE_REPORTED",
       "has_content": false,
       "schedule_confirmed": true,
-      "checked_at": "2026-11-02T22:23:06.287Z",
+      "checked_at": "2026-11-03T01:29:56.019Z",
       "source_name": "Published episode schedule",
       "source_url": "https://broncos5523.github.io/Inside-the-squared-circle/data/snapshot.json",
       "venue": {
@@ -55,7 +55,7 @@
       "verification": "SOURCE_REPORTED",
       "has_content": true,
       "schedule_confirmed": true,
-      "checked_at": "2026-11-02T22:23:06.287Z",
+      "checked_at": "2026-11-03T01:29:56.019Z",
       "source_name": "WWE / TPWW",
       "source_url": "https://www.wwe.com/shows/wwenxt",
       "venue": null
@@ -72,7 +72,7 @@
       "verification": "SOURCE_REPORTED",
       "has_content": false,
       "schedule_confirmed": true,
-      "checked_at": "2026-11-02T22:23:06.287Z",
+      "checked_at": "2026-11-03T01:29:56.019Z",
       "source_name": "Published episode schedule",
       "source_url": "https://broncos5523.github.io/Inside-the-squared-circle/data/snapshot.json",
       "venue": null
@@ -89,7 +89,7 @@
       "verification": "SOURCE_REPORTED",
       "has_content": true,
       "schedule_confirmed": true,
-      "checked_at": "2026-11-02T22:23:06.287Z",
+      "checked_at": "2026-11-03T01:29:56.019Z",
       "source_name": "Wrestling Central News (wrestlingcentralnews.com)",
       "source_url": "https://wrestlingcentralnews.com/events/2026-11-05-tna-impact/",
       "venue": null
@@ -105,7 +105,7 @@
       "content_status": "current",
       "verification": "EDITORIALLY_VERIFIED",
       "completed": true,
-      "checked_at": "2026-11-02T22:23:06.287Z",
+      "checked_at": "2026-11-03T01:29:56.019Z",
       "source_name": "WWE AAA Héroes Inmortales | Week 1 results, October 24, 2026",
       "source_url": "https://www.wwe.com/shows/aaa/aaa-h-roes-inmortales-week-1-results"
     },
@@ -120,7 +120,7 @@
       "content_status": "current",
       "verification": "OFFICIAL_VERIFIED",
       "completed": true,
-      "checked_at": "2026-11-02T22:23:06.287Z",
+      "checked_at": "2026-11-03T01:29:56.019Z",
       "source_name": "WWE",
       "source_url": "https://www.wwe.com/shows/wwenxt/2026-10-27/results"
     },
@@ -135,7 +135,7 @@
       "content_status": "current",
       "verification": "OFFICIAL_VERIFIED",
       "completed": true,
-      "checked_at": "2026-11-02T22:23:06.287Z",
+      "checked_at": "2026-11-03T01:29:56.019Z",
       "source_name": "WWE",
       "source_url": "https://www.wwe.com/shows/smackdown/2026-10-30/results"
     },
@@ -150,7 +150,7 @@
       "content_status": "current",
       "verification": "OFFICIAL_VERIFIED",
       "completed": true,
-      "checked_at": "2026-11-02T22:23:06.287Z",
+      "checked_at": "2026-11-03T01:29:56.019Z",
       "source_name": "TNA Wrestling",
       "source_url": "https://tnawrestling.com/news/tna-thursday-night-impact-on-amc-results-october-29-2026"
     },
@@ -165,7 +165,7 @@
       "content_status": "current",
       "verification": "SOURCE_CORROBORATED",
       "completed": true,
-      "checked_at": "2026-11-02T22:23:06.287Z",
+      "checked_at": "2026-11-03T01:29:56.019Z",
       "source_name": "Fightful / TPWW",
       "source_url": "https://www.fightful.com/wrestling/aaa-heroes-inmortales-week-two-results-10-31/",
       "source_urls": [
@@ -199,7 +199,7 @@
       "content_status": "current",
       "verification": "EDITORIALLY_VERIFIED",
       "completed": true,
-      "checked_at": "2026-11-02T22:23:06.287Z",
+      "checked_at": "2026-11-03T01:29:56.019Z",
       "source_name": "Pro Wrestling Dot Net",
       "source_url": "https://prowrestling.net/site/2026/10/29/wwe-evolve-results-10-28-vetters-review-of-elijah-holyfield-vs-braxton-cole-vs-marcus-mathers-in-a-triple-threat-jasper-troy-vs-jax-presley-harley-riggins-vs-milosh-jovic/"
     },
@@ -217,7 +217,7 @@
       "date_confirmed": true,
       "has_content": true,
       "schedule_confirmed": true,
-      "checked_at": "2026-11-02T22:23:06.287Z",
+      "checked_at": "2026-11-03T01:29:56.019Z",
       "source_name": "WWE",
       "source_url": "https://www.wwe.com/shows/wwe-crown-jewel/crown-jewel-2026"
     },
@@ -233,7 +233,7 @@
       "content_status": "current",
       "verification": "OFFICIAL_VERIFIED",
       "completed": true,
-      "checked_at": "2026-11-02T22:23:06.287Z",
+      "checked_at": "2026-11-03T01:29:56.019Z",
       "source_name": "WWE",
       "source_url": "https://www.wwe.com/shows/nxtple/full-nxt-halloween-havoc-2026-results"
     },
@@ -248,7 +248,7 @@
       "design_approved": true,
       "content_status": "current",
       "verification": "OFFICIAL_VERIFIED",
-      "checked_at": "2026-11-02T22:23:06.287Z",
+      "checked_at": "2026-11-03T01:29:56.019Z",
       "source_name": "TNA Wrestling",
       "source_url": "https://tnawrestling.com/roster",
       "source_urls": [
@@ -266,7 +266,7 @@
       "design_approved": true,
       "content_status": "current",
       "verification": "OFFICIAL_VERIFIED",
-      "checked_at": "2026-11-02T22:23:06.287Z",
+      "checked_at": "2026-11-03T01:29:56.019Z",
       "source_name": "WWE",
       "source_url": "https://www.wwe.com/titlehistory/nxt-championship",
       "source_urls": [
@@ -288,7 +288,7 @@
       "design_approved": true,
       "content_status": "current",
       "verification": "OFFICIAL_VERIFIED",
-      "checked_at": "2026-11-02T22:23:06.287Z",
+      "checked_at": "2026-11-03T01:29:56.019Z",
       "source_name": "WWE",
       "source_url": "https://www.wwe.com/titlehistory/wwe-championship",
       "source_urls": [
@@ -298,28 +298,6 @@
         "https://www.wwe.com/classics/titlehistory/womens-united-states-championship",
         "https://www.wwe.com/classics/titlehistory/wwe-tag-team-championship",
         "https://www.wwe.com/classics/titlehistory/wwe-womens-tag-team-championship"
-      ]
-    },
-    {
-      "id": "championship-raw",
-      "title": "RAW — Championship Board",
-      "show": "raw",
-      "kind": "champions",
-      "as_of": "2026-11-02",
-      "airdate": "2026-11-02",
-      "source_available": true,
-      "design_approved": true,
-      "content_status": "current",
-      "verification": "OFFICIAL_VERIFIED",
-      "checked_at": "2026-11-02T22:23:06.287Z",
-      "source_name": "WWE",
-      "source_url": "https://www.wwe.com/classics/titlehistory/world-heavyweight-championship",
-      "source_urls": [
-        "https://www.wwe.com/classics/titlehistory/world-heavyweight-championship",
-        "https://www.wwe.com/titlehistory/smackdown-womens-championship",
-        "https://www.wwe.com/titlehistory/intercontinental-championship",
-        "https://www.wwe.com/classics/titlehistory/womens-intercontinental-championship",
-        "https://www.wwe.com/titlehistory/raw-tag-team-championship"
       ]
     },
     {
@@ -333,7 +311,7 @@
       "design_approved": true,
       "content_status": "current",
       "verification": "SOURCE_CORROBORATED",
-      "checked_at": "2026-11-02T22:23:06.287Z",
+      "checked_at": "2026-11-03T01:29:56.019Z",
       "source_name": "Sacnilk / The SmackDown Hotel",
       "source_url": "https://www.sacnilk.com/news/current_lucha_libre_aaa_worldwide_champions_full_list_of_title_holders",
       "source_urls": [
@@ -346,7 +324,7 @@
     "snapshot.json": {
       "schema_version": 1,
       "mode": "LIVE_SCHEDULES_ONLY",
-      "generated_at": "2026-11-02T22:22:16.735441+00:00",
+      "generated_at": "2026-11-03T01:28:51.576264+00:00",
       "fresh_shows": 6,
       "shows": [
         {
@@ -469,7 +447,7 @@
     "reported.json": {
       "schema_version": 1,
       "mode": "REPORTED_MATCHES_UNVERIFIED",
-      "generated_at": "2026-11-02T22:23:06.287Z",
+      "generated_at": "2026-11-03T01:29:56.019Z",
       "display_attribution": "Published weekly show announcements; individual sources retained",
       "programs": [
         {
@@ -501,41 +479,9 @@
               "evidence_url": "https://wrestlingcentralnews.com/events/2026-11-02-wwe-raw/",
               "source_name": "Wrestling Central News (wrestlingcentralnews.com)",
               "status": "REPORTED_UNVERIFIED"
-            },
-            {
-              "text": "Chad Gable vs. Ethan Page",
-              "evidence_url": "https://wrestlingcentralnews.com/events/2026-11-02-wwe-raw/",
-              "stipulation": "INTERCONTINENTAL CHAMPIONSHIP",
-              "source_name": "Wrestling Central News (wrestlingcentralnews.com)",
-              "status": "REPORTED_UNVERIFIED"
-            },
-            {
-              "text": "Penta, Je’Von Evans and Dragon Lee vs. The Vision",
-              "evidence_url": "https://wrestlingcentralnews.com/events/2026-11-02-wwe-raw/",
-              "stipulation": "SIX-MAN TAG TEAM MATCH",
-              "source_name": "Wrestling Central News (wrestlingcentralnews.com)",
-              "status": "REPORTED_UNVERIFIED",
-              "participant_sides": [
-                {
-                  "label": "The Vision",
-                  "members": [
-                    "Austin Theory",
-                    "Bronson Reed",
-                    "Bron Breakker"
-                  ]
-                }
-              ],
-              "participants_source_url": "https://www.tpww.net/2026/11/roman-reigns-appearance-penta-jevon-evans-dragon-lee-vs-the-vision-in-six-man-tag-and-all-ego-ethan-page-vs-chad-gable-for-wwe-intercontinental-title-matches-set-for-11-2-wwe-raw-sh/"
             }
           ],
-          "appearances": [
-            {
-              "text": "John Cena",
-              "evidence_url": "https://wrestlingcentralnews.com/events/2026-11-02-wwe-raw/",
-              "source_name": "Wrestling Central News (wrestlingcentralnews.com)",
-              "status": "REPORTED_UNVERIFIED"
-            }
-          ],
+          "appearances": [],
           "start_time": "18:00",
           "source_name": "Wrestling Central News (wrestlingcentralnews.com)",
           "source_url": "https://wrestlingcentralnews.com/events/2026-11-02-wwe-raw/",
@@ -649,8 +595,8 @@
           "schedule_source": "official_wwe_episode_banner"
         }
       ],
-      "total_reported_matches": 14,
-      "total_reported_appearances": 3
+      "total_reported_matches": 12,
+      "total_reported_appearances": 2
     },
     "aaa-verified-results.json": {
       "schema_version": 1,
@@ -1065,7 +1011,7 @@
     "evolve-verified-results.json": {
       "schema_version": 2,
       "mode": "EDITORIALLY_VERIFIED_EVOLVE_EPISODE",
-      "generated_at": "2026-11-02T22:23:06.287Z",
+      "generated_at": "2026-11-03T01:29:56.019Z",
       "episode_date": "2026-10-28",
       "programs": [
         {
@@ -1271,7 +1217,7 @@
     },
     "official-events.json": {
       "mode": "OFFICIAL_WWE_EVENT_PREVIEWS",
-      "generated_at": "2026-11-02T22:23:06.287Z",
+      "generated_at": "2026-11-03T01:29:56.019Z",
       "programs": [
         {
           "event_id": "wwe-crown-jewel-2026",
@@ -1280,7 +1226,7 @@
           "show": "wwe",
           "event_date": "2026-11-07",
           "source_url": "https://www.wwe.com/shows/wwe-crown-jewel/crown-jewel-2026",
-          "checked_at": "2026-11-02T22:23:06.287Z",
+          "checked_at": "2026-11-03T01:29:56.019Z",
           "verification": "OFFICIAL_VERIFIED",
           "cards": [
             {
@@ -1329,7 +1275,7 @@
     },
     "official-event-results.json": {
       "mode": "OFFICIAL_WWE_EVENT_RESULTS",
-      "generated_at": "2026-11-02T22:23:06.287Z",
+      "generated_at": "2026-11-03T01:29:56.019Z",
       "programs": [
         {
           "event_id": "nxt-halloween-havoc-2026",
@@ -1432,7 +1378,7 @@
     "champions.json": {
       "schema_version": 1,
       "mode": "SOURCE_CHECKED_CHAMPIONS",
-      "generated_at": "2026-11-02T22:23:06.287Z",
+      "generated_at": "2026-11-03T01:29:56.019Z",
       "programs": [
         {
           "show": "tna",
@@ -1766,103 +1712,6 @@
           ]
         },
         {
-          "show": "raw",
-          "board_id": "championship-raw",
-          "as_of": "2026-11-02",
-          "verification": "OFFICIAL_VERIFIED",
-          "champions": [
-            {
-              "id": "raw-world",
-              "title": "WORLD HEAVYWEIGHT CHAMPIONSHIP",
-              "name": "ROMAN REIGNS",
-              "members": [
-                "Roman Reigns"
-              ],
-              "portraits": [
-                "roman-reigns.png"
-              ],
-              "belt": "wwe_world-heavyweight-championship.png",
-              "since_date": "2026-04-19",
-              "kind": "singles",
-              "source": "https://www.wwe.com/classics/titlehistory/world-heavyweight-championship",
-              "since": "APR 19, 2026"
-            },
-            {
-              "id": "raw-women",
-              "title": "WOMEN’S WORLD CHAMPIONSHIP",
-              "name": "LIV MORGAN",
-              "members": [
-                "Liv Morgan"
-              ],
-              "portraits": [
-                "liv-morgan.png"
-              ],
-              "belt": "wwe_womens-world-championship.png",
-              "since_date": "2026-10-10",
-              "kind": "singles",
-              "source": "https://www.wwe.com/titlehistory/smackdown-womens-championship",
-              "since": "OCT 10, 2026"
-            },
-            {
-              "id": "raw-ic",
-              "title": "INTERCONTINENTAL CHAMPIONSHIP",
-              "name": "CHAD GABLE",
-              "members": [
-                "Chad Gable"
-              ],
-              "portraits": [
-                "chad-gable.png"
-              ],
-              "belt": "wwe_intercontinental-championship.png",
-              "since_date": "2026-08-02",
-              "kind": "singles",
-              "source": "https://www.wwe.com/titlehistory/intercontinental-championship",
-              "since": "AUG 2, 2026"
-            },
-            {
-              "id": "raw-women-ic",
-              "title": "WOMEN’S INTERCONTINENTAL CHAMPIONSHIP",
-              "name": "RAQUEL RODRIGUEZ",
-              "members": [
-                "Raquel Rodriguez"
-              ],
-              "portraits": [
-                "raquel-rodriguez.png"
-              ],
-              "belt": "wwe_womens-intercontinental-championship.png",
-              "since_date": "2026-07-27",
-              "kind": "singles",
-              "source": "https://www.wwe.com/classics/titlehistory/womens-intercontinental-championship",
-              "since": "JUL 27, 2026"
-            },
-            {
-              "id": "raw-tag",
-              "title": "WORLD TAG TEAM CHAMPIONSHIP",
-              "name": "THE VISION",
-              "members": [
-                "Bron Breakker",
-                "Austin Theory"
-              ],
-              "portraits": [
-                "bron-breakker.png",
-                "austin-theory.png"
-              ],
-              "belt": "wwe_world-tag-team-championship.png",
-              "since_date": "2026-07-06",
-              "kind": "tag",
-              "source": "https://www.wwe.com/titlehistory/raw-tag-team-championship",
-              "since": "JUL 6, 2026"
-            }
-          ],
-          "source_urls": [
-            "https://www.wwe.com/classics/titlehistory/world-heavyweight-championship",
-            "https://www.wwe.com/titlehistory/smackdown-womens-championship",
-            "https://www.wwe.com/titlehistory/intercontinental-championship",
-            "https://www.wwe.com/classics/titlehistory/womens-intercontinental-championship",
-            "https://www.wwe.com/titlehistory/raw-tag-team-championship"
-          ]
-        },
-        {
           "show": "aaa",
           "board_id": "championship-aaa",
           "as_of": "2026-11-02",
@@ -2029,8 +1878,10 @@
     ],
     "evolve_verified_count": 1,
     "evolve_warnings": [],
-    "championship_count": 5,
-    "championship_warnings": [],
+    "championship_count": 4,
+    "championship_warnings": [
+      "raw: Changed holder needs approved asset mapping: raw-ic"
+    ],
     "official_nxt_preview_count": 5,
     "official_nxt_airdate": "2026-11-04"
   },
