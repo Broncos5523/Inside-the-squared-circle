@@ -76,7 +76,10 @@ test('RAW six-man preview uses three individual portraits on each side and the s
 });
 
 test('all five championship designs compile checked current titleholders without changing originals',()=>{
- const data=JSON.parse(readFileSync(new URL('data/programming.json',root))),host={};runInNewContext(readFileSync(new URL('board-adapter.js',root),'utf8'),{window:host,URL});
+ // Rendering coverage uses the approved catalog, never mutable collector output.
+ const catalog=JSON.parse(readFileSync(new URL('../proof/staging/championship-catalog.json',import.meta.url)));
+ const programs=Object.entries(catalog).map(([show,champions])=>({show,board_id:'championship-'+show,as_of:'2026-11-02',champions}));
+ const data={feeds:{'champions.json':{mode:'SOURCE_CHECKED_CHAMPIONS',programs}}},host={};runInNewContext(readFileSync(new URL('board-adapter.js',root),'utf8'),{window:host,URL});
  const champions=data.feeds['champions.json'];assert.equal(champions.programs.length,5);
  for(const program of champions.programs){const row=library.records.find(r=>r.id===program.board_id),source=readFileSync(new URL(row.delivery,root),'utf8');assert.ok(row.design_approved);const html=host.ISCBoardAdapter.build(source,row,routes,'https://player.example/','active',data.feeds);assert.ok(html.includes(JSON.stringify(program.champions)));assert.ok(playlist.dwellMs({id:row.id,kind:'champions'},data.feeds,45000)>=program.champions.length*11000);}
 });
@@ -127,3 +130,17 @@ test('official NXT preview rejects a banner title/date mismatch and an article a
  const bad='<div data-a2a-url="https://www.wwe.com/shows/wwenxt/2026-11-4" data-a2a-title="WWE NXT: Nov. 3, 2026">';assert.equal(nextOfficialNxtDate(bad,new Date('2026-11-02T21:00:00Z')),null);
  const url='https://www.wwe.com/shows/wwenxt/2026-11-2/punk-waller';assert.equal(parseOfficialNxtArticle('<link href="'+url+'"><title>CM Punk challenges Grayson Waller</title><div class="field--name-body">WWE NXT airs live on TUESDAY at 8 ET/7 CT</div>',url,'2026-11-04',routes),null);
 });
+
+ test('a changed champion withholds only its show and never invalidates other verified programs',async()=>{
+ const {collectChampions}=await import('../proof/staging/collect-champions.mjs');
+ const catalog=JSON.parse(readFileSync(new URL('../proof/staging/championship-catalog.json',import.meta.url)));
+ const holders=new Map(Object.entries(catalog).filter(([show])=>!['aaa','tna'].includes(show)).flatMap(([,rows])=>rows.map(c=>[c.source,c.name])));
+ const rawSource=catalog.raw[0].source;
+ const got=await collectChampions({library,routes,now:new Date('2026-11-03T14:00:00Z'),requester:async url=>{
+  if(!holders.has(url))throw Error('source temporarily unavailable');
+  return new Response('<h3>Championship Holder '+(url===rawSource?'New Unmapped Champion':holders.get(url))+'</h3><div>Time Held</div>'+' '.repeat(1100));
+ }});
+ assert.deepEqual(got.feed.programs.map(p=>p.show).sort(),['nxt','smackdown']);
+ assert.ok(got.warnings.some(w=>w.startsWith('raw: Changed holder')));
+ assert.ok(!got.entries.some(e=>e.show==='raw'));
+ });
