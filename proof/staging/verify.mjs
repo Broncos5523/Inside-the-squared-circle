@@ -25,5 +25,9 @@ for(const path of new Set(Object.values(routes))){
  if(createHash('sha256').update(bytes).digest('hex')!==expected)throw Error('Original artwork hash mismatch: '+path);
  assets++;
 }
-if(library.records.length!==68||html!==68||assets!==544||Object.keys(routes).length!==1618)throw Error('Source inventory changed unexpectedly');
+const supplement=JSON.parse(await readFile(new URL('../../proof/staging/named-portrait-supplement.json',import.meta.url),'utf8'));
+for(const asset of supplement.assets){for(const route of asset.routes)if(routes[route]!=='/'+asset.path.replace(/^originals\//,''))throw Error('Supplement route mismatch: '+route);}
+const added=new Set(supplement.assets.flatMap(a=>a.routes)),baseline=Object.fromEntries(Object.keys(routes).filter(k=>!added.has(k)).sort().map(k=>[k,routes[k]]));
+if(createHash('sha256').update(JSON.stringify(baseline)).digest('hex')!==supplement.base_mapping_sha256)throw Error('Original route mapping changed');
+if(library.records.length!==68||html!==68||assets!==544+supplement.assets.length||Object.keys(routes).length!==1618+supplement.assets.reduce((n,a)=>n+a.routes.length,0))throw Error('Source inventory changed unexpectedly');
 console.log(JSON.stringify({planned_slots:68,source_backed_slots:html,unchanged_shared_files:assets,asset_routes:Object.keys(routes).length,final_evolve_held:false}));

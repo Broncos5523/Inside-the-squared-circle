@@ -1,0 +1,789 @@
+{
+  "project": "Man Cave Sports Book Presents: Inside the Squared Circle",
+  "document_type": "wwe_teams_and_factions_user_reference",
+  "captured_date": "2026-10-25",
+  "source": "Seven screenshots supplied by user, showing TheSmackDownHotel WWE teams and factions directory",
+  "interpretation": "Snapshot reference only. Do not assume teams are currently active/official for future episodes; date-specific verification is required for broadcast claims.",
+  "teams": [
+    {
+      "id": "the-946",
+      "name": "The 946",
+      "members": [
+        "Bronco Nima",
+        "Carmelo Hayes",
+        "Jaida Parker",
+        "Lucien Price",
+        "Royce Keys"
+      ],
+      "evidence_screenshot": "IMG_3471.jpeg",
+      "status": "reference_snapshot_not_live_verified",
+      "as_of_date": "2026-10-25"
+    },
+    {
+      "id": "allies-of-convenience",
+      "name": "Allies of Convenience",
+      "members": [
+        "Alexa Bliss",
+        "Charlotte Flair",
+        "Tatum Paxley"
+      ],
+      "evidence_screenshot": "IMG_3471.jpeg",
+      "status": "reference_snapshot_not_live_verified",
+      "as_of_date": "2026-10-25"
+    },
+    {
+      "id": "alpha-academy",
+      "name": "Alpha Academy",
+      "members": [
+        "Akira Tozawa",
+        "Otis"
+      ],
+      "evidence_screenshot": "IMG_3471.jpeg",
+      "status": "reference_snapshot_not_live_verified",
+      "as_of_date": "2026-10-25"
+    },
+    {
+      "id": "the-baddies",
+      "name": "The Baddies",
+      "members": [
+        "B-Fab",
+        "Jade Cargill",
+        "Michin"
+      ],
+      "evidence_screenshot": "IMG_3471.jpeg",
+      "status": "reference_snapshot_not_live_verified",
+      "as_of_date": "2026-10-25"
+    },
+    {
+      "id": "bakusai",
+      "name": "Bakusai",
+      "members": [
+        "Kyoki",
+        "Shinsuke Nakamura"
+      ],
+      "evidence_screenshot": "IMG_3471.jpeg",
+      "status": "reference_snapshot_not_live_verified",
+      "as_of_date": "2026-10-25"
+    },
+    {
+      "id": "the-bella-twins",
+      "name": "The Bella Twins",
+      "members": [
+        "Brie Bella",
+        "Nikki Bella"
+      ],
+      "evidence_screenshot": "IMG_3471.jpeg",
+      "status": "reference_snapshot_not_live_verified",
+      "as_of_date": "2026-10-25"
+    },
+    {
+      "id": "birthright",
+      "name": "Birthright",
+      "members": [
+        "Arianna Grace",
+        "Channing 'Stacks' Lorenzo",
+        "Charlie Dempsey",
+        "Lexis King",
+        "Uriah Connors"
+      ],
+      "evidence_screenshot": "IMG_3472.jpeg",
+      "status": "reference_snapshot_not_live_verified",
+      "as_of_date": "2026-10-25"
+    },
+    {
+      "id": "the-bloodline",
+      "name": "The Bloodline",
+      "members": [
+        "Jacob Fatu",
+        "Jey Uso",
+        "Jimmy Uso",
+        "Roman Reigns"
+      ],
+      "evidence_screenshot": "IMG_3472.jpeg",
+      "status": "reference_snapshot_not_live_verified",
+      "as_of_date": "2026-10-25"
+    },
+    {
+      "id": "the-creed-brothers",
+      "name": "The Creed Brothers",
+      "members": [
+        "Brutus Creed",
+        "Julius Creed"
+      ],
+      "evidence_screenshot": "IMG_3472.jpeg",
+      "status": "reference_snapshot_not_live_verified",
+      "as_of_date": "2026-10-25"
+    },
+    {
+      "id": "the-culling",
+      "name": "The Culling",
+      "members": [
+        "Izzi Dame",
+        "Niko Vance"
+      ],
+      "evidence_screenshot": "IMG_3472.jpeg",
+      "status": "reference_snapshot_not_live_verified",
+      "as_of_date": "2026-10-25"
+    },
+    {
+      "id": "darkstate",
+      "name": "DarkState",
+      "members": [
+        "Cutler James",
+        "Dion Lennox",
+        "Osiris Griffin"
+      ],
+      "evidence_screenshot": "IMG_3472.jpeg",
+      "status": "reference_snapshot_not_live_verified",
+      "as_of_date": "2026-10-25"
+    },
+    {
+      "id": "el-nuevo-ojo",
+      "name": "El Nuevo Ojo",
+      "members": [
+        "Dominik Mysterio",
+        "Omos"
+      ],
+      "evidence_screenshot": "IMG_3473.jpeg",
+      "status": "reference_snapshot_not_live_verified",
+      "as_of_date": "2026-10-25"
+    },
+    {
+      "id": "the-fatal-influence",
+      "name": "The Fatal Influence",
+      "members": [
+        "Fallon Henley",
+        "Jacy Jayne",
+        "Lainey Reid"
+      ],
+      "evidence_screenshot": "IMG_3473.jpeg",
+      "status": "reference_snapshot_not_live_verified",
+      "as_of_date": "2026-10-25"
+    },
+    {
+      "id": "fraxiom",
+      "name": "Fraxiom",
+      "members": [
+        "Axiom",
+        "Nathan Frazer"
+      ],
+      "evidence_screenshot": "IMG_3473.jpeg",
+      "status": "reference_snapshot_not_live_verified",
+      "as_of_date": "2026-10-25"
+    },
+    {
+      "id": "hank-tank",
+      "name": "Hank & Tank",
+      "members": [
+        "Hank Walker",
+        "Tank Ledger"
+      ],
+      "evidence_screenshot": "IMG_3473.jpeg",
+      "status": "reference_snapshot_not_live_verified",
+      "as_of_date": "2026-10-25"
+    },
+    {
+      "id": "the-irresistible-forces",
+      "name": "The Irresistible Forces",
+      "members": [
+        "Lash Legend",
+        "Nia Jax"
+      ],
+      "evidence_screenshot": "IMG_3473.jpeg",
+      "status": "reference_snapshot_not_live_verified",
+      "as_of_date": "2026-10-25"
+    },
+    {
+      "id": "jax-presley-harley-riggins",
+      "name": "Jax Presley & Harley Riggins",
+      "members": [
+        "Harley Riggins",
+        "Jax Presley"
+      ],
+      "evidence_screenshot": "IMG_3473.jpeg",
+      "status": "reference_snapshot_not_live_verified",
+      "as_of_date": "2026-10-25"
+    },
+    {
+      "id": "the-judgment-day",
+      "name": "The Judgment Day",
+      "members": [
+        "Dominik Mysterio",
+        "JD McDonagh",
+        "Liv Morgan",
+        "Raquel Rodriguez",
+        "Roxanne Perez"
+      ],
+      "evidence_screenshot": "IMG_3474.jpeg",
+      "status": "reference_snapshot_not_live_verified",
+      "as_of_date": "2026-10-25"
+    },
+    {
+      "id": "los-americanos",
+      "name": "Los Americanos",
+      "members": [
+        "Bravo Americano",
+        "El Grande Americano",
+        "Rayo Americano"
+      ],
+      "evidence_screenshot": "IMG_3474.jpeg",
+      "status": "reference_snapshot_not_live_verified",
+      "as_of_date": "2026-10-25"
+    },
+    {
+      "id": "los-garza",
+      "name": "Los Garza",
+      "members": [
+        "Angel",
+        "Berto"
+      ],
+      "evidence_screenshot": "IMG_3474.jpeg",
+      "status": "reference_snapshot_not_live_verified",
+      "as_of_date": "2026-10-25"
+    },
+    {
+      "id": "los-perros-del-mal",
+      "name": "Los Perros del Mal",
+      "members": [
+        "Angel",
+        "Berto",
+        "Karmen Petrovic"
+      ],
+      "evidence_screenshot": "IMG_3474.jpeg",
+      "status": "reference_snapshot_not_live_verified",
+      "as_of_date": "2026-10-25"
+    },
+    {
+      "id": "lwo-latino-world-order",
+      "name": "LWO — Latino World Order",
+      "members": [
+        "Cruz Del Toro",
+        "Dragon Lee",
+        "Joaquin Wilde",
+        "Rey Mysterio"
+      ],
+      "evidence_screenshot": "IMG_3474.jpeg",
+      "status": "reference_snapshot_not_live_verified",
+      "as_of_date": "2026-10-25"
+    },
+    {
+      "id": "lyons-group",
+      "name": "Lyons' Group",
+      "members": [
+        "Gianna Capri",
+        "Nikkita Lyons",
+        "Sloane Jacobs"
+      ],
+      "evidence_screenshot": "IMG_3475.jpeg",
+      "status": "reference_snapshot_not_live_verified",
+      "as_of_date": "2026-10-25"
+    },
+    {
+      "id": "the-mfts",
+      "name": "The MFTs",
+      "members": [
+        "Haku",
+        "Tala Tonga",
+        "Tama Tonga"
+      ],
+      "evidence_screenshot": "IMG_3475.jpeg",
+      "status": "reference_snapshot_not_live_verified",
+      "as_of_date": "2026-10-25"
+    },
+    {
+      "id": "the-miz-kit-wilson",
+      "name": "The Miz & Kit Wilson",
+      "members": [
+        "Kit Wilson",
+        "The Miz"
+      ],
+      "evidence_screenshot": "IMG_3475.jpeg",
+      "status": "reference_snapshot_not_live_verified",
+      "as_of_date": "2026-10-25"
+    },
+    {
+      "id": "the-mog-squad",
+      "name": "The Mog Squad",
+      "members": [
+        "Jacari Ball",
+        "Max Abrams"
+      ],
+      "evidence_screenshot": "IMG_3475.jpeg",
+      "status": "reference_snapshot_not_live_verified",
+      "as_of_date": "2026-10-25"
+    },
+    {
+      "id": "noam-dar-romeo-moreno",
+      "name": "Noam Dar & Romeo Moreno",
+      "members": [
+        "Noam Dar",
+        "Romeo Moreno"
+      ],
+      "evidence_screenshot": "IMG_3475.jpeg",
+      "status": "reference_snapshot_not_live_verified",
+      "as_of_date": "2026-10-25"
+    },
+    {
+      "id": "otm",
+      "name": "OTM",
+      "members": [
+        "Bronco Nima",
+        "Lucien Price"
+      ],
+      "evidence_screenshot": "IMG_3475.jpeg",
+      "status": "reference_snapshot_not_live_verified",
+      "as_of_date": "2026-10-25"
+    },
+    {
+      "id": "pretty-deadly",
+      "name": "Pretty Deadly",
+      "members": [
+        "Elton Prince",
+        "Kit Wilson"
+      ],
+      "evidence_screenshot": "IMG_3476.jpeg",
+      "status": "reference_snapshot_not_live_verified",
+      "as_of_date": "2026-10-25"
+    },
+    {
+      "id": "rusev-ethan-page",
+      "name": "Rusev & Ethan Page",
+      "members": [
+        "Ethan Page",
+        "Rusev"
+      ],
+      "evidence_screenshot": "IMG_3476.jpeg",
+      "status": "reference_snapshot_not_live_verified",
+      "as_of_date": "2026-10-25"
+    },
+    {
+      "id": "sean-legacy-dvd",
+      "name": "Sean Legacy & DVD",
+      "members": [
+        "Dorian Van Dux",
+        "Sean Legacy"
+      ],
+      "evidence_screenshot": "IMG_3476.jpeg",
+      "status": "reference_snapshot_not_live_verified",
+      "as_of_date": "2026-10-25"
+    },
+    {
+      "id": "the-street-profits",
+      "name": "The Street Profits",
+      "members": [
+        "Angelo Dawkins",
+        "Montez Ford"
+      ],
+      "evidence_screenshot": "IMG_3476.jpeg",
+      "status": "reference_snapshot_not_live_verified",
+      "as_of_date": "2026-10-25"
+    },
+    {
+      "id": "swipe-right",
+      "name": "Swipe Right",
+      "members": [
+        "Brad Baylor",
+        "Ricky Smokes"
+      ],
+      "evidence_screenshot": "IMG_3476.jpeg",
+      "status": "reference_snapshot_not_live_verified",
+      "as_of_date": "2026-10-25"
+    },
+    {
+      "id": "the-usos",
+      "name": "The Usos",
+      "members": [
+        "Jey Uso",
+        "Jimmy Uso"
+      ],
+      "evidence_screenshot": "IMG_3476.jpeg",
+      "status": "reference_snapshot_not_live_verified",
+      "as_of_date": "2026-10-25"
+    },
+    {
+      "id": "the-vanity-project",
+      "name": "The Vanity Project",
+      "members": [
+        "Brad Baylor",
+        "Jackson Drake",
+        "Myka Lockwood",
+        "Ricky Smokes"
+      ],
+      "evidence_screenshot": "IMG_3477.jpeg",
+      "status": "reference_snapshot_not_live_verified",
+      "as_of_date": "2026-10-25"
+    },
+    {
+      "id": "the-vision",
+      "name": "The Vision",
+      "members": [
+        "Austin Theory",
+        "Bron Breakker",
+        "Bronson Reed",
+        "Logan Paul",
+        "Maxxine Dupri"
+      ],
+      "evidence_screenshot": "IMG_3477.jpeg",
+      "status": "reference_snapshot_not_live_verified",
+      "as_of_date": "2026-10-25"
+    },
+    {
+      "id": "the-war-raiders",
+      "name": "The War Raiders",
+      "members": [
+        "Erik",
+        "Ivar"
+      ],
+      "evidence_screenshot": "IMG_3477.jpeg",
+      "status": "reference_snapshot_not_live_verified",
+      "as_of_date": "2026-10-25"
+    },
+    {
+      "id": "wrenqcc",
+      "name": "WRENQCC",
+      "members": [
+        "Kendal Grey",
+        "Wren Sinclair"
+      ],
+      "evidence_screenshot": "IMG_3477.jpeg",
+      "status": "reference_snapshot_not_live_verified",
+      "as_of_date": "2026-10-25"
+    }
+  ],
+  "index_by_member": {
+    "Akira Tozawa": [
+      "Alpha Academy"
+    ],
+    "Alexa Bliss": [
+      "Allies of Convenience"
+    ],
+    "Angel": [
+      "Los Garza",
+      "Los Perros del Mal"
+    ],
+    "Angelo Dawkins": [
+      "The Street Profits"
+    ],
+    "Arianna Grace": [
+      "Birthright"
+    ],
+    "Austin Theory": [
+      "The Vision"
+    ],
+    "Axiom": [
+      "Fraxiom"
+    ],
+    "B-Fab": [
+      "The Baddies"
+    ],
+    "Berto": [
+      "Los Garza",
+      "Los Perros del Mal"
+    ],
+    "Brad Baylor": [
+      "Swipe Right",
+      "The Vanity Project"
+    ],
+    "Bravo Americano": [
+      "Los Americanos"
+    ],
+    "Brie Bella": [
+      "The Bella Twins"
+    ],
+    "Bron Breakker": [
+      "The Vision"
+    ],
+    "Bronco Nima": [
+      "The 946",
+      "OTM"
+    ],
+    "Bronson Reed": [
+      "The Vision"
+    ],
+    "Brutus Creed": [
+      "The Creed Brothers"
+    ],
+    "Carmelo Hayes": [
+      "The 946"
+    ],
+    "Channing 'Stacks' Lorenzo": [
+      "Birthright"
+    ],
+    "Charlie Dempsey": [
+      "Birthright"
+    ],
+    "Charlotte Flair": [
+      "Allies of Convenience"
+    ],
+    "Cruz Del Toro": [
+      "LWO — Latino World Order"
+    ],
+    "Cutler James": [
+      "DarkState"
+    ],
+    "Dion Lennox": [
+      "DarkState"
+    ],
+    "Dominik Mysterio": [
+      "El Nuevo Ojo",
+      "The Judgment Day"
+    ],
+    "Dorian Van Dux": [
+      "Sean Legacy & DVD"
+    ],
+    "Dragon Lee": [
+      "LWO — Latino World Order"
+    ],
+    "El Grande Americano": [
+      "Los Americanos"
+    ],
+    "Elton Prince": [
+      "Pretty Deadly"
+    ],
+    "Erik": [
+      "The War Raiders"
+    ],
+    "Ethan Page": [
+      "Rusev & Ethan Page"
+    ],
+    "Fallon Henley": [
+      "The Fatal Influence"
+    ],
+    "Gianna Capri": [
+      "Lyons' Group"
+    ],
+    "Haku": [
+      "The MFTs"
+    ],
+    "Hank Walker": [
+      "Hank & Tank"
+    ],
+    "Harley Riggins": [
+      "Jax Presley & Harley Riggins"
+    ],
+    "Ivar": [
+      "The War Raiders"
+    ],
+    "Izzi Dame": [
+      "The Culling"
+    ],
+    "JD McDonagh": [
+      "The Judgment Day"
+    ],
+    "Jacari Ball": [
+      "The Mog Squad"
+    ],
+    "Jackson Drake": [
+      "The Vanity Project"
+    ],
+    "Jacob Fatu": [
+      "The Bloodline"
+    ],
+    "Jacy Jayne": [
+      "The Fatal Influence"
+    ],
+    "Jade Cargill": [
+      "The Baddies"
+    ],
+    "Jaida Parker": [
+      "The 946"
+    ],
+    "Jax Presley": [
+      "Jax Presley & Harley Riggins"
+    ],
+    "Jey Uso": [
+      "The Bloodline",
+      "The Usos"
+    ],
+    "Jimmy Uso": [
+      "The Bloodline",
+      "The Usos"
+    ],
+    "Joaquin Wilde": [
+      "LWO — Latino World Order"
+    ],
+    "Julius Creed": [
+      "The Creed Brothers"
+    ],
+    "Karmen Petrovic": [
+      "Los Perros del Mal"
+    ],
+    "Kendal Grey": [
+      "WRENQCC"
+    ],
+    "Kit Wilson": [
+      "The Miz & Kit Wilson",
+      "Pretty Deadly"
+    ],
+    "Kyoki": [
+      "Bakusai"
+    ],
+    "Lainey Reid": [
+      "The Fatal Influence"
+    ],
+    "Lash Legend": [
+      "The Irresistible Forces"
+    ],
+    "Lexis King": [
+      "Birthright"
+    ],
+    "Liv Morgan": [
+      "The Judgment Day"
+    ],
+    "Logan Paul": [
+      "The Vision"
+    ],
+    "Lucien Price": [
+      "The 946",
+      "OTM"
+    ],
+    "Max Abrams": [
+      "The Mog Squad"
+    ],
+    "Maxxine Dupri": [
+      "The Vision"
+    ],
+    "Michin": [
+      "The Baddies"
+    ],
+    "Montez Ford": [
+      "The Street Profits"
+    ],
+    "Myka Lockwood": [
+      "The Vanity Project"
+    ],
+    "Nathan Frazer": [
+      "Fraxiom"
+    ],
+    "Nia Jax": [
+      "The Irresistible Forces"
+    ],
+    "Nikki Bella": [
+      "The Bella Twins"
+    ],
+    "Nikkita Lyons": [
+      "Lyons' Group"
+    ],
+    "Niko Vance": [
+      "The Culling"
+    ],
+    "Noam Dar": [
+      "Noam Dar & Romeo Moreno"
+    ],
+    "Omos": [
+      "El Nuevo Ojo"
+    ],
+    "Osiris Griffin": [
+      "DarkState"
+    ],
+    "Otis": [
+      "Alpha Academy"
+    ],
+    "Raquel Rodriguez": [
+      "The Judgment Day"
+    ],
+    "Rayo Americano": [
+      "Los Americanos"
+    ],
+    "Rey Mysterio": [
+      "LWO — Latino World Order"
+    ],
+    "Ricky Smokes": [
+      "Swipe Right",
+      "The Vanity Project"
+    ],
+    "Roman Reigns": [
+      "The Bloodline"
+    ],
+    "Romeo Moreno": [
+      "Noam Dar & Romeo Moreno"
+    ],
+    "Roxanne Perez": [
+      "The Judgment Day"
+    ],
+    "Royce Keys": [
+      "The 946"
+    ],
+    "Rusev": [
+      "Rusev & Ethan Page"
+    ],
+    "Sean Legacy": [
+      "Sean Legacy & DVD"
+    ],
+    "Shinsuke Nakamura": [
+      "Bakusai"
+    ],
+    "Sloane Jacobs": [
+      "Lyons' Group"
+    ],
+    "Tala Tonga": [
+      "The MFTs"
+    ],
+    "Tama Tonga": [
+      "The MFTs"
+    ],
+    "Tank Ledger": [
+      "Hank & Tank"
+    ],
+    "Tatum Paxley": [
+      "Allies of Convenience"
+    ],
+    "The Miz": [
+      "The Miz & Kit Wilson"
+    ],
+    "Uriah Connors": [
+      "Birthright"
+    ],
+    "Wren Sinclair": [
+      "WRENQCC"
+    ]
+  },
+  "overlapping_memberships": {
+    "Angel": [
+      "Los Garza",
+      "Los Perros del Mal"
+    ],
+    "Berto": [
+      "Los Garza",
+      "Los Perros del Mal"
+    ],
+    "Brad Baylor": [
+      "Swipe Right",
+      "The Vanity Project"
+    ],
+    "Bronco Nima": [
+      "The 946",
+      "OTM"
+    ],
+    "Dominik Mysterio": [
+      "El Nuevo Ojo",
+      "The Judgment Day"
+    ],
+    "Jey Uso": [
+      "The Bloodline",
+      "The Usos"
+    ],
+    "Jimmy Uso": [
+      "The Bloodline",
+      "The Usos"
+    ],
+    "Kit Wilson": [
+      "The Miz & Kit Wilson",
+      "Pretty Deadly"
+    ],
+    "Lucien Price": [
+      "The 946",
+      "OTM"
+    ],
+    "Ricky Smokes": [
+      "Swipe Right",
+      "The Vanity Project"
+    ]
+  },
+  "rules": {
+    "result_card": "Only winners' portraits for a result with a winner; all competitors if no winner.",
+    "storyline_card": "Show relevant people confirmed for the episode, not automatically every roster-listed member.",
+    "team_image": "Use approved group art if verified to depict the participants. Otherwise show accurately mapped individual approved portraits.",
+    "staleness": "Verify faction membership at exact show/episode date, because groups can change."
+  }
+}

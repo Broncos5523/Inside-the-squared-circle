@@ -1,0 +1,11 @@
+# Named portrait recovery — November 3, 2026
+
+The reattached packages preserve 84 AAA originals, 19 Evolve originals, and 38 named WWE team/faction references. Their generic IMG filenames do not establish every person-to-file correspondence. No unnamed photo was assigned by recognizing a face, and no claim is made that the original 103 files have all been mapped.
+
+The live gaps are filled with explicitly labeled image assets linked by the same roster/profile source the user supplied: Kento (SB KENTo), La Hiedra, the current La Parka (Brazo de Oro Jr.), Laredo Kid, Pagano, El Hijo de Dr. Wagner Jr., Harley Riggins, Jax Presley, Shotzi Blackheart, and Tasha Steelz. Each source page, exact image URL, raw source SHA256, alpha bounds, derived file SHA256, and registered route is recorded in named-portrait-supplement.json. Empty transparent margins are trimmed and pixels are stored losslessly as WebP. No scaling, AI generation, background replacement, or edits to person pixels.
+
+Complete previously empty/partial champions photos for La Parka, both Wagner brothers, and Laredo Kid & La Hiedra while keeping original titleholder, belt, and reign data. Restore Harley Riggins and Jax Presley to the verified Evolve episode. AAA results retain all available winners, including Pagano and both Wagner brothers. Match Fire 'N Flava / N Flava to Kiera Hogan & Tasha Steelz using the current source roster, and recognize Shotzi aliases. Kento, SB KENTo, SBK, and Kento Kobune share the named Kento asset; no unsupported Kento match is inserted into programming.
+
+Preserve the user team reference as a dated source. Use its fully pictured two-member tag names for portrait aliases. Never expand a whole multi-member faction into an episode lineup without episode-specific evidence. Original 68 boards, 544 pre-existing assets, and all 1,618 pre-existing route mappings remain protected by hashes. Ten new assets add eighteen routes; total 554 assets / 1,636 routes. Original uploaded ZIPs remain unchanged.
+
+Validation: 97 staging/production Node checks and 271 Python checks pass. Original HTML/payload/image hashes and baseline route fingerprint pass. Player version 15 upgrades automatically from version 14; regression coverage prevents self-reload loops. Production publication and live portrait checks are required before reporting completion.

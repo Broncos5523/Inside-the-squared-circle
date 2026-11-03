@@ -3,7 +3,7 @@
  var base=new URL('./',location.href).href,library,routes,feeds={},programming={entries:[]},active=[],visible=[],current=null,timer=null,token=0,mode='archive',refreshing=null,initialized=false,playing=false,advanceAt=0,minimumEnd=0,boardReady=false;
  var params=new URLSearchParams(location.search),byId=function(id){return document.getElementById(id);};
  function getJSON(path){return fetch(new URL(path,base),{cache:'no-store'}).then(function(r){if(!r.ok)throw Error(path+' unavailable');return r.json();});}
- function playbackUrl(id){var u=new URL(location.href);u.searchParams.set('view','tv');u.searchParams.set('mode','active');u.searchParams.set('id',id);u.searchParams.set('v','20261103-portrait-identities-14');return u.href;}
+ function playbackUrl(id){var u=new URL(location.href);u.searchParams.set('view','tv');u.searchParams.set('mode','active');u.searchParams.set('id',id);u.searchParams.set('v','20261103-named-portraits-15');return u.href;}
  function rememberPosition(record){if(mode!=='active')return;try{history.replaceState({},'',playbackUrl(record.id));}catch(_){}}
  function label(record){if(record.id.indexOf('results-summerslam_night_one_')===0)return 'SummerSlam — Night One — Results & Fallout';if(record.id.indexOf('results-summerslam_night_two_')===0)return 'SummerSlam — Night Two — Results & Fallout';return record.label;}
  function scale(){
@@ -88,7 +88,7 @@
    if(external){try{var controller=new AbortController(),timeout=setTimeout(()=>controller.abort(),4500);var result=await fetch('https://raw.githubusercontent.com/Broncos5523/Inside-the-squared-circle/work/all-boards-github-pages/web/staging/data/programming.json?t='+Math.floor(Date.now()/300000),{cache:'no-store',signal:controller.signal});clearTimeout(timeout);if(!result.ok)throw Error('Branch facts pending');programming=await result.json();}catch(_){programming=await getJSON('data/programming.json');}}
    else programming=await getJSON('data/programming.json');
    feeds=programming.feeds||{};
-   try{var release=await getJSON('player-version.json');if(/^202[0-9]{5}-[a-z0-9-]+$/.test(release.version||'')&&(release.version.slice(0,8)>'20261103'||(release.version.slice(0,8)==='20261103'&&Number(release.version.split('-').pop())>14))){var upgrade=new URL(location.href);upgrade.searchParams.set('v',release.version);location.replace(upgrade.href);return;}}catch(_){}
+   try{var release=await getJSON('player-version.json');if(/^202[0-9]{5}-[a-z0-9-]+$/.test(release.version||'')&&(release.version.slice(0,8)>'20261103'||(release.version.slice(0,8)==='20261103'&&Number(release.version.split('-').pop())>15))){var upgrade=new URL(location.href);upgrade.searchParams.set('v',release.version);location.replace(upgrade.href);return;}}catch(_){}
   }catch(_){programming={entries:[],generated_at:null};feeds={};}
   var feedAge=Date.now()-Date.parse(programming.generated_at||'');
   var feedFresh=Number.isFinite(feedAge)&&feedAge>=-300000&&feedAge<=6*3600000;

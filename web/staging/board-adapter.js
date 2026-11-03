@@ -5,10 +5,12 @@
  function portraitSlugs(label,routes){
   function untitle(s){return String(s||'').replace(/\s+/g,' ').trim().replace(/^(?:(?:WWE|NXT|TNA|AAA|Undisputed|World|Women's|Women’s|North|American|Intercontinental|United|States|Knockouts|X-Division|Tag|Team|Cruiserweight)\s+)*Champions?\s+/i,'').replace(/\s*\(c\)\s*/gi,'');}
   var text=untitle(label);
-  var aliases={zero:'agentzero',zer0:'agentzero',allegoethanpage:'ethanpage',ryanandnicnemeth:'thenemeths',nicnemethryannemeth:'thenemeths',ryannemethnicnemeth:'thenemeths'};
+  var aliases={zero:'agentzero',zer0:'agentzero',allegoethanpage:'ethanpage',ryanandnicnemeth:'thenemeths',nicnemethryannemeth:'thenemeths',ryannemethnicnemeth:'thenemeths',sbkento:'kento',sbk:'kento',kentokobune:'kento',elhijodeldrwagnerjr:'elhijodedrwagnerjr',shotzi:'shotziblackheart',dvd:'dorianvandux',talatonga:'tallatonga'};
   var names=Object.keys(routes).map(function(p){var m=p.match(/\/assets\/(?:portraits|portrait-display)\/([a-z0-9-]+)\.(?:png|webp)$/);return m&&m[1];}).filter(Boolean);
   function exact(name){var k=portraitKey(untitle(name));k=aliases[k]||k;return names.find(function(n){return portraitKey(n)===k;});}
   var whole=exact(text);if(whole)return [whole];
+  var pairs={"alphaacademy":["Akira Tozawa","Otis"],"thebellatwins":["Brie Bella","Nikki Bella"],"thecreedbrothers":["Brutus Creed","Julius Creed"],"theculling":["Izzi Dame","Niko Vance"],"elnuevoojo":["Dominik Mysterio","Omos"],"fraxiom":["Axiom","Nathan Frazer"],"hanktank":["Hank Walker","Tank Ledger"],"theirresistibleforces":["Lash Legend","Nia Jax"],"jaxpresleyharleyriggins":["Harley Riggins","Jax Presley"],"losgarza":["Angel","Berto"],"themizkitwilson":["Kit Wilson","The Miz"],"noamdarromeomoreno":["Noam Dar","Romeo Moreno"],"otm":["Bronco Nima","Lucien Price"],"prettydeadly":["Elton Prince","Kit Wilson"],"rusevethanpage":["Ethan Page","Rusev"],"seanlegacydvd":["Dorian Van Dux","Sean Legacy"],"thestreetprofits":["Angelo Dawkins","Montez Ford"],"swiperight":["Brad Baylor","Ricky Smokes"],"theusos":["Jey Uso","Jimmy Uso"],"thewarraiders":["Erik","Ivar"],"wrenqcc":["Kendal Grey","Wren Sinclair"],"thewagnerbrothers":["El Hijo de Dr. Wagner Jr.","Galeno"],"loswagnerbrothers":["El Hijo de Dr. Wagner Jr.","Galeno"],"firenflava":["Kiera Hogan","Tasha Steelz"],"nflava":["Kiera Hogan","Tasha Steelz"]};
+  var pair=pairs[portraitKey(text)];if(pair)return pair.map(exact).filter(Boolean);
   if(portraitKey(text)==='hanktank')return ['hank-walker','tank-ledger'].filter(function(n){return names.indexOf(n)>=0;});
   var parts=text.split(/\s*,\s*(?:and\s+)?|\s+(?:and|&)\s+/i);
   var last=parts[parts.length-1].trim().split(/\s+/).pop();
@@ -318,7 +320,7 @@ function evolveApplyVerifiedEpisode(html,payload){
    var program=resultFeed&&Array.isArray(resultFeed.programs)?resultFeed.programs.find(function(p){return p.show_id===show&&Array.isArray(p.segments);}):null;
    function existingAsset(kind,name){
     if(!/^[a-z0-9_-]+\.png$/.test(name))return null;
-    var shows=[show==='raw'?'RAW':show==='nxt'?'NXT':show==='smackdown'?'SmackDown':show==='tna'?'TNA':'AAA','RAW','NXT','SmackDown','AAA','TNA'];
+    var shows=[show==='raw'?'RAW':show==='nxt'?'NXT':show==='smackdown'?'SmackDown':show==='tna'?'TNA':show==='evolve'?'Evolve':'AAA','RAW','NXT','SmackDown','AAA','TNA','Evolve'];
     for(var i=0;i<shows.length;i++){
      for(var j=0;j<2;j++){
       var key='/boards/'+(j?'UPCOMING':'RESULTS')+'/'+shows[i]+'/assets/'+kind+'/'+name;

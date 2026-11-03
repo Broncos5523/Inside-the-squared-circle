@@ -1,3 +1,4 @@
+import portraitIdentity from '../../web/staging/board-adapter.js';
 const seeds={
  '2026-10-31':[
   'https://www.fightful.com/wrestling/aaa-heroes-inmortales-week-two-results-10-31/',
@@ -24,7 +25,7 @@ export function parseAaaCorroboration(fightful,tpww,date,routes){
   const [left,right]=line.split(/\sdef\.\s/i);if(!right)continue;
   const winner=left.split(':').at(-1).replace(/\([^)]*\)/g,'').trim(),key=winnerKey(winner);
   if(!other.includes(key))return [];
-  const names=/wagner brothers/i.test(winner)?['galeno']:winner.split(/\s*&\s*/).map(n=>n.toLowerCase().normalize('NFKD').replace(/[\u0300-\u036f]/g,'').replace(/[^a-z0-9]+/g,'-').replace(/^-|-$/g,''));
+  const names=portraitIdentity.portraitSlugs(winner,routes);
   const belt=/World Tag Team Championship/i.test(left)?'world_tag.png':/World Cruiserweight Championship/i.test(left)?'cruiserweight.png':null;
   const portraits=names.filter(slug=>Object.keys(routes).some(k=>k.endsWith('/portraits/'+slug+'.png')));
   const loser=right.replace(/\([^)]*\)/g,'').replace(/\s+to retain.*$/i,'').trim().replace(/[.]$/,'');

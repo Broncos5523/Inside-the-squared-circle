@@ -31,7 +31,9 @@
       "headline": "HARLEY\nRIGGINS",
       "subline": "def. Milosh Jovic",
       "detail": "Riggins won by pinfall, then attacked Jovic after the match.",
-      "portraits": [],
+      "portraits": [
+        "harley-riggins"
+      ],
       "tag": "MATCH RESULT",
       "belt": null
     },
@@ -43,7 +45,9 @@
       "headline": "JAX PRESLEY",
       "subline": "def. Jasper Troy",
       "detail": "Presley answered Troy’s open challenge and scored the pin.",
-      "portraits": [],
+      "portraits": [
+        "jax-presley"
+      ],
       "tag": "WINNER",
       "belt": null
     },

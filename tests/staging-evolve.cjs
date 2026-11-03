@@ -20,7 +20,7 @@ const required=['Harley Riggins','Milosh Jovic','Jax Presley','Jasper Troy',
  'Alix Brooks','Aaron Rourke','Laynie Luck'];
 function sourceResponse(){return {ok:true,text:async()=>'<html><title>WWE EVOLVE Results (10/28)</title><p>October 28, 2026</p>'+required.join(' • ')+' '+('e'.repeat(1500))+'</html>'};}
 async function collect(args={}){const m=await import('../proof/staging/collect-evolve.mjs');return m.collectEvolve({library,routes,payload,now:new Date('2026-10-31T19:00:00Z'),requester:async()=>sourceResponse(),...args});}
-test('68 original approved sources and all fourteen exact Evolve asset routes are accounted for',()=>{
+test('68 original approved sources and the fourteen original Evolve routes plus two named portrait additions are accounted for',()=>{
  assert.equal(library.slots,68);
  assert.equal(library.source_slots,68);
  assert.equal(library.records.filter(x=>x.source_available).length,68);
@@ -31,8 +31,8 @@ test('68 original approved sources and all fourteen exact Evolve asset routes ar
  assert.ok(original.includes('Cappuccino'));
  assert.ok(original.includes('user-evolve-three-wrestler-transparent-display.png'));
  const assets=Object.keys(routes).filter(k=>k.startsWith('/boards/RESULTS/Evolve/assets/'));
- assert.equal(assets.length,14);
- for(const asset of assets)assert.match(routes[asset],/^\/shared\/[a-f0-9]{64}\.(?:png|jpeg)$/);
+ assert.equal(assets.length,16);
+ for(const asset of assets)assert.match(routes[asset],/^\/shared\/[a-f0-9]{64}\.(?:png|jpeg|webp)$/);
 });
 test('source-verified six-segment Oct28 Evolve recap enters current programming',async()=>{
  const r=await collect();

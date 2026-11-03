@@ -1,0 +1,246 @@
+{
+  "as_of": "2026-11-03",
+  "base_assets": 544,
+  "base_routes": 1618,
+  "assets": [
+    {
+      "slug": "kento",
+      "show": "AAA",
+      "source_page": "https://www.thesmackdownhotel.com/wrestlers/sb-kento",
+      "source_image": "https://www.thesmackdownhotel.com/images/wrestling/wrestlers/full-body/kento.png",
+      "source_sha256": "739217720b9dc737dd9b89d310ceacd98f80a23631d03a8654333df5844bc790",
+      "source_dimensions": [
+        1006,
+        566
+      ],
+      "alpha_crop": [
+        272,
+        9,
+        691,
+        566
+      ],
+      "normalization": "lossless WebP; transparent margins removed; no resizing or person-pixel edits",
+      "path": "originals/shared/33472f339d643f287750a553401751177858d89563225c99d013376f1af6f543.webp",
+      "sha256": "33472f339d643f287750a553401751177858d89563225c99d013376f1af6f543",
+      "routes": [
+        "/boards/RESULTS/AAA/assets/portraits/kento.png",
+        "/boards/UPCOMING/AAA/assets/portraits/kento.png"
+      ]
+    },
+    {
+      "slug": "la-hiedra",
+      "show": "AAA",
+      "source_page": "https://www.thesmackdownhotel.com/wrestlers/la-hiedra",
+      "source_image": "https://www.thesmackdownhotel.com/images/jch-optimize/ng/images_wrestling_wrestlers_full-body_la-hiedra-26.avif",
+      "source_sha256": "38a36e39132accf9ce632b3a37b4517fbccf622a4b14c2b40cfe31ae21ddd396",
+      "source_dimensions": [
+        1000,
+        707
+      ],
+      "alpha_crop": [
+        246,
+        30,
+        796,
+        707
+      ],
+      "normalization": "lossless WebP; transparent margins removed; no resizing or person-pixel edits",
+      "path": "originals/shared/4b388c45eb77b47b684bbea327703918ab601958f27a77a1497bf5e03d781da2.webp",
+      "sha256": "4b388c45eb77b47b684bbea327703918ab601958f27a77a1497bf5e03d781da2",
+      "routes": [
+        "/boards/RESULTS/AAA/assets/portraits/la-hiedra.png",
+        "/boards/UPCOMING/AAA/assets/portraits/la-hiedra.png"
+      ]
+    },
+    {
+      "slug": "la-parka",
+      "show": "AAA",
+      "source_page": "https://www.thesmackdownhotel.com/wrestlers/la-parka-brazo-de-oro-jr",
+      "source_image": "https://www.thesmackdownhotel.com/images/jch-optimize/ng/images_wrestling_wrestlers_full-body_la-parka-26.avif",
+      "source_sha256": "6fcaf0c7638d3dacd5c5ef6a0db46bbefdf6a23d34a59db9b27b7ca1a7360e2a",
+      "source_dimensions": [
+        1000,
+        707
+      ],
+      "alpha_crop": [
+        71,
+        39,
+        897,
+        707
+      ],
+      "normalization": "lossless WebP; transparent margins removed; no resizing or person-pixel edits",
+      "path": "originals/shared/5f09f78955178f63ef518dcaaea5ab6c70a7e22be420eba91015dd0cd50b3871.webp",
+      "sha256": "5f09f78955178f63ef518dcaaea5ab6c70a7e22be420eba91015dd0cd50b3871",
+      "routes": [
+        "/boards/RESULTS/AAA/assets/portraits/la-parka.png",
+        "/boards/UPCOMING/AAA/assets/portraits/la-parka.png"
+      ]
+    },
+    {
+      "slug": "laredo-kid",
+      "show": "AAA",
+      "source_page": "https://www.thesmackdownhotel.com/wrestlers/laredo-kid",
+      "source_image": "https://www.thesmackdownhotel.com/images/jch-optimize/ng/images_wrestling_wrestlers_full-body_laredo-kid-26.avif",
+      "source_sha256": "0af79f2210a0ed9196643d13b42fce590150f2153b4033e47dbe47fc3550e468",
+      "source_dimensions": [
+        1000,
+        707
+      ],
+      "alpha_crop": [
+        152,
+        0,
+        873,
+        707
+      ],
+      "normalization": "lossless WebP; transparent margins removed; no resizing or person-pixel edits",
+      "path": "originals/shared/540a0a2f7dc08df8e458435f186bad8dcf81beb6dc805b5c19603015602b4432.webp",
+      "sha256": "540a0a2f7dc08df8e458435f186bad8dcf81beb6dc805b5c19603015602b4432",
+      "routes": [
+        "/boards/RESULTS/AAA/assets/portraits/laredo-kid.png",
+        "/boards/UPCOMING/AAA/assets/portraits/laredo-kid.png"
+      ]
+    },
+    {
+      "slug": "pagano",
+      "show": "AAA",
+      "source_page": "https://www.thesmackdownhotel.com/wrestlers/pagano",
+      "source_image": "https://www.thesmackdownhotel.com/images/jch-optimize/ng/images_wrestling_wrestlers_full-body_pagano-26.avif",
+      "source_sha256": "b051b12e6cd03f52731b90861773357e6eed46e4c93c774be924ef3a481eed5c",
+      "source_dimensions": [
+        1216,
+        848
+      ],
+      "alpha_crop": [
+        238,
+        16,
+        977,
+        848
+      ],
+      "normalization": "lossless WebP; transparent margins removed; no resizing or person-pixel edits",
+      "path": "originals/shared/355890267545a856f0b70eac7ec15142c8269888157103a79fc0f167a1474822.webp",
+      "sha256": "355890267545a856f0b70eac7ec15142c8269888157103a79fc0f167a1474822",
+      "routes": [
+        "/boards/RESULTS/AAA/assets/portraits/pagano.png",
+        "/boards/UPCOMING/AAA/assets/portraits/pagano.png"
+      ]
+    },
+    {
+      "slug": "el-hijo-de-dr-wagner-jr",
+      "show": "AAA",
+      "source_page": "https://www.thesmackdownhotel.com/wrestlers/el-hijo-del-dr-wagner-jr",
+      "source_image": "https://www.thesmackdownhotel.com/images/jch-optimize/ng/images_wrestling_wrestlers_full-body_hijo-de-dr-wagner-jr-26.avif",
+      "source_sha256": "086ff4333cc4a1fa9c858a8f841c861e15c76874d8fc9c131cf4dcdcc2e37061",
+      "source_dimensions": [
+        1000,
+        707
+      ],
+      "alpha_crop": [
+        168,
+        14,
+        825,
+        707
+      ],
+      "normalization": "lossless WebP; transparent margins removed; no resizing or person-pixel edits",
+      "path": "originals/shared/7ee179391c645c576fb0248180fe89642c2aa55d1593071d67b85f4bdaec1929.webp",
+      "sha256": "7ee179391c645c576fb0248180fe89642c2aa55d1593071d67b85f4bdaec1929",
+      "routes": [
+        "/boards/RESULTS/AAA/assets/portraits/el-hijo-de-dr-wagner-jr.png",
+        "/boards/UPCOMING/AAA/assets/portraits/el-hijo-de-dr-wagner-jr.png"
+      ]
+    },
+    {
+      "slug": "harley-riggins",
+      "show": "Evolve",
+      "source_page": "https://www.thesmackdownhotel.com/wrestlers/harley-riggins",
+      "source_image": "https://www.thesmackdownhotel.com/images/jch-optimize/ng/images_wrestling_wrestlers_full-body_harley-riggins.avif",
+      "source_sha256": "6b1fb8251063037b378cf3c9c4fa2db837b6b8dde64256e9687959f9ed68a7df",
+      "source_dimensions": [
+        1006,
+        566
+      ],
+      "alpha_crop": [
+        304,
+        14,
+        697,
+        566
+      ],
+      "normalization": "lossless WebP; transparent margins removed; no resizing or person-pixel edits",
+      "path": "originals/shared/69b2c457823d27d00858c0d50f7acc2c7e0f483993e26ba6a81f37b0df548654.webp",
+      "sha256": "69b2c457823d27d00858c0d50f7acc2c7e0f483993e26ba6a81f37b0df548654",
+      "routes": [
+        "/boards/RESULTS/Evolve/assets/portraits/harley-riggins.png"
+      ]
+    },
+    {
+      "slug": "jax-presley",
+      "show": "Evolve",
+      "source_page": "https://www.thesmackdownhotel.com/wrestlers/jax-presley",
+      "source_image": "https://www.thesmackdownhotel.com/images/jch-optimize/ng/images_wrestling_wrestlers_full-body_jax-presley.avif",
+      "source_sha256": "3bf5ad7a522091cdcb2dd7e174e5bbbe1760c5e04693e64bfc4b693783b6eb10",
+      "source_dimensions": [
+        1006,
+        566
+      ],
+      "alpha_crop": [
+        295,
+        14,
+        673,
+        566
+      ],
+      "normalization": "lossless WebP; transparent margins removed; no resizing or person-pixel edits",
+      "path": "originals/shared/6c60f16eadd13e1ecb7d3de95760a4dbc36a5d7d3e0ecc17190cc0383b8b6865.webp",
+      "sha256": "6c60f16eadd13e1ecb7d3de95760a4dbc36a5d7d3e0ecc17190cc0383b8b6865",
+      "routes": [
+        "/boards/RESULTS/Evolve/assets/portraits/jax-presley.png"
+      ]
+    },
+    {
+      "slug": "shotzi-blackheart",
+      "show": "TNA",
+      "source_page": "https://www.thesmackdownhotel.com/wrestlers/shotzi-blackheart",
+      "source_image": "https://www.thesmackdownhotel.com/images/wrestling/wrestlers/full-body/Shotzi%20Blackheart.png",
+      "source_sha256": "c8f8bd12a339917f0f80a8699831e823c2f7495e0e6fd73f54fcca3466bffeaf",
+      "source_dimensions": [
+        1000,
+        707
+      ],
+      "alpha_crop": [
+        273,
+        29,
+        793,
+        707
+      ],
+      "normalization": "lossless WebP; transparent margins removed; no resizing or person-pixel edits",
+      "path": "originals/shared/f2770f16fe2b6a157a71769b2558f9c74ef6a55926598184d0364154d20b080a.webp",
+      "sha256": "f2770f16fe2b6a157a71769b2558f9c74ef6a55926598184d0364154d20b080a",
+      "routes": [
+        "/boards/RESULTS/TNA/assets/portraits/shotzi-blackheart.png",
+        "/boards/UPCOMING/TNA/assets/portraits/shotzi-blackheart.png"
+      ]
+    },
+    {
+      "slug": "tasha-steelz",
+      "show": "TNA",
+      "source_page": "https://www.thesmackdownhotel.com/wrestlers/tasha-steelz",
+      "source_image": "https://www.thesmackdownhotel.com/images/jch-optimize/ng/images_wrestling_wrestlers_full-body_tasha-steelz.avif",
+      "source_sha256": "daf7cbe42d35e46ca8964cec566a2fc5fa52ecbc3a950c7c856283cacc6646da",
+      "source_dimensions": [
+        1006,
+        566
+      ],
+      "alpha_crop": [
+        272,
+        14,
+        753,
+        566
+      ],
+      "normalization": "lossless WebP; transparent margins removed; no resizing or person-pixel edits",
+      "path": "originals/shared/2deb68d0a0bd1831300dbbd08a5644e85c80756edddb96236131195ffee2119e.webp",
+      "sha256": "2deb68d0a0bd1831300dbbd08a5644e85c80756edddb96236131195ffee2119e",
+      "routes": [
+        "/boards/RESULTS/TNA/assets/portraits/tasha-steelz.png",
+        "/boards/UPCOMING/TNA/assets/portraits/tasha-steelz.png"
+      ]
+    }
+  ],
+  "base_mapping_sha256": "b661c2c44a8f2855a9a1ef0fa9d82dd5c5d760bed51e4d14d7ea0e63c83e7fc2"
+}
