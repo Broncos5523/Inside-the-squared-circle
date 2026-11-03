@@ -11,7 +11,7 @@ const actualDate=Date;
 class Clock extends actualDate {constructor(...args){super(...(args.length?args:[Clock.now()]));}static now(){return actualDate.parse(programming.generated_at)+(Clock.offset||0);}}
 function harness(search,options={}){
  Clock.offset=0;
- let rememberedUrl='';const elements={},timers=new Map(),listeners={},stats={replacements:0,thumbnailNodes:0,sourceRequests:[]};let serial=0;
+ let rememberedUrl='';const elements={},timers=new Map(),listeners={},stats={replacements:0,thumbnailNodes:0,sourceRequests:[],upgrades:[]};let serial=0;
  class Node {
   constructor(id=''){this.id=id;this.contentWindow={};this.childNodes=[];this.dataset={};this.style={};this.hidden=false;this.connected=true;this.srcdoc='';this.clientWidth=390;this.clientHeight=694;this.classes=new Set();this.classList={toggle:(k,enabled)=>{if(enabled===undefined)enabled=!this.classes.has(k);enabled?this.classes.add(k):this.classes.delete(k);},add:k=>this.classes.add(k),remove:k=>this.classes.delete(k),contains:k=>this.classes.has(k)};}
   append(...nodes){this.childNodes.push(...nodes);}
@@ -29,10 +29,10 @@ function harness(search,options={}){
  const body=new Node();
  const document={body,getElementById:id=>elements[id],querySelectorAll:()=>[],addEventListener:(name,fn)=>{listeners['document:'+name]=fn;},createElement:tag=>{if(tag==='img')stats.thumbnailNodes++;return new Node();}};
  const window={crypto:webcrypto,innerHeight:options.height||694,addEventListener:(name,fn)=>{listeners[name]=fn;}};
- const location={href:'https://broncos5523.github.io/Inside-the-squared-circle/staging/'+search,hostname:'broncos5523.github.io',search};
+ const location={replace:url=>stats.upgrades.push(url),href:'https://broncos5523.github.io/Inside-the-squared-circle/staging/'+search,hostname:'broncos5523.github.io',search};
  const context={window,document,location,URL,URLSearchParams,TextDecoder,crypto:webcrypto,Date:Clock,Intl,ISCPlaylist:playlist,history:{pushState(){},replaceState(state,title,url){rememberedUrl=String(url);}},
   setTimeout:(fn,ms)=>{const id=++serial;timers.set(id,{fn,ms});return id;},clearTimeout:id=>timers.delete(id),setInterval:()=>++serial,
-  fetch:async (value,init)=>{const url=new URL(String(value),location.href),name=decodeURI(url.pathname).replace('/Inside-the-squared-circle/staging/','');const file=path.join(root,name);const source=name.startsWith('delivery/');let corrupt=false;if(source){stats.sourceRequests.push({url:url.href,cache:init?.cache});corrupt=options.corruptSource?.(name,stats.sourceRequests.length)===true;}return {ok:fs.existsSync(file),json:async()=>name==='data/programming.json'?JSON.parse(JSON.stringify(programming)):JSON.parse(fs.readFileSync(file)),arrayBuffer:async()=>{const b=corrupt?Buffer.from('<html>older cached board</html>'):fs.readFileSync(file);return b.buffer.slice(b.byteOffset,b.byteOffset+b.byteLength);}};}};
+  fetch:async (value,init)=>{const url=new URL(String(value),location.href),name=decodeURI(url.pathname).replace('/Inside-the-squared-circle/staging/','');const file=path.join(root,name);const source=name.startsWith('delivery/');let corrupt=false;if(source){stats.sourceRequests.push({url:url.href,cache:init?.cache});corrupt=options.corruptSource?.(name,stats.sourceRequests.length)===true;}return {ok:fs.existsSync(file),json:async()=>name==='player-version.json'&&options.version?{version:options.version}:name==='data/programming.json'?JSON.parse(JSON.stringify(programming)):JSON.parse(fs.readFileSync(file)),arrayBuffer:async()=>{const b=corrupt?Buffer.from('<html>older cached board</html>'):fs.readFileSync(file);return b.buffer.slice(b.byteOffset,b.byteOffset+b.byteLength);}};}};
  vm.runInNewContext(fs.readFileSync(path.join(root,'board-adapter.js'),'utf8'),context);
  context.ISCBoardAdapter=window.ISCBoardAdapter;
  vm.runInNewContext(fs.readFileSync(path.join(root,'review.js'),'utf8'),context);
@@ -173,4 +173,10 @@ test('rotation overrides and review mode preserve normal landscape and phone pla
  const phone=harness('?view=tv',{width:390,height:844});
  await settle(()=>phone.elements.board.srcdoc);
  assert.equal(phone.elements.screen.dataset.rotation,'none');
+});
+
+test('player upgrades only for a newer build and never reloads its own build in a loop',async()=>{
+ const version=JSON.parse(fs.readFileSync(path.join(root,'player-version.json'))).version;
+ const same=harness('?view=tv',{version});await settle(()=>same.elements.board.srcdoc&&same.timers.size);assert.equal(same.stats.upgrades.length,0);
+ const newer=version.replace(/-\d+$/,'-999');const next=harness('?view=tv',{version:newer});await settle(()=>next.stats.upgrades.length);assert.equal(next.stats.upgrades.length,1);assert.equal(new URL(next.stats.upgrades[0]).searchParams.get('v'),newer);
 });

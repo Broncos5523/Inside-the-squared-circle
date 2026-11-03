@@ -28,7 +28,13 @@ export function resolveChampion(c,holder,{catalog,routes,board,show,since=null,a
  if(members.length<1||members.length>3)throw Error('Unsupported holder count: '+c.id);
  const prefix=board.href.slice(0,board.href.lastIndexOf('/')+1)+'assets/';
  let portraits=[],portrait_routes={};
- if(same){portraits=c.portraits.slice();}
+ if(same){
+  portraits=c.portraits.slice();
+  // Complete previously missing member artwork; keep existing approved images.
+  const resolved=members.map(member=>{const slug=portraitIdentity.portraitSlugs(member,routes)[0];if(!slug)return null;
+   const name=slug+'.png',route=routes[prefix+name]?prefix+name:portraitIdentity.portraitRoute(slug,routes,show);return route?{name,route}:null;});
+  if(resolved.every(Boolean)&&portraits.length<members.length){portraits=resolved.map(p=>p.name);for(const p of resolved)portrait_routes[p.name]=p.route;}
+ }
  else{
   for(const member of members){
    const slug=portraitIdentity.portraitSlugs(member,routes)[0];
