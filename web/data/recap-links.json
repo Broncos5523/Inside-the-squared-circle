@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "mode": "PUBLISHER_RSS_POST_SHOW_LINKS_ONLY",
-  "generated_at": "2026-11-02T20:29:28.795749-05:00",
+  "generated_at": "2026-11-03T09:03:45.567105-05:00",
   "source_name": "Multiple publisher RSS feeds",
   "source_url": "https://www.f4wonline.com/rss.xml",
   "approved_publishers": [
@@ -13,10 +13,46 @@
   "programs": [
     {
       "show_id": "raw",
-      "airdate": null,
-      "links": [],
+      "airdate": "2026-11-02",
+      "links": [
+        {
+          "headline": "Hall’s WWE Raw Review 11.2.26",
+          "url": "https://411mania.com/wrestling/halls-wwe-raw-review-11-2-26/",
+          "published_at": "2026-11-03T01:52:38+00:00",
+          "source_name": "411Mania",
+          "status": "PUBLISHER_HEADLINE_LINK_ONLY"
+        },
+        {
+          "headline": "Cook’s WWE Raw Review 11.2.26",
+          "url": "https://411mania.com/wrestling/cooks-wwe-raw-review-11-2-26/",
+          "published_at": "2026-11-03T01:44:15+00:00",
+          "source_name": "411Mania",
+          "status": "PUBLISHER_HEADLINE_LINK_ONLY"
+        },
+        {
+          "headline": "Result of Chad Gable vs. Ethan Page Intercontinental title match on WWE Raw",
+          "url": "https://www.f4wonline.com/news/wwe/ethan-page-chad-gable-intercontinental-title-match-wwe-raw-result/",
+          "published_at": "2026-11-03T00:00:28+00:00",
+          "source_name": "F4W / Wrestling Observer",
+          "status": "PUBLISHER_HEADLINE_LINK_ONLY"
+        },
+        {
+          "headline": "WWE RAW Results – Nov. 2, 2026 – John Cena Special Announcement, Solo Sikoa vs. Royce Keys, Chad Gable vs. “All Ego” Ethan Page",
+          "url": "https://www.tpww.net/2026/11/wwe-raw-results-nov-2-2026-john-cena-special-announcement-solo-sikoa-vs-royce-keys-chad-gable-vs-all-ego-ethan-page/",
+          "published_at": "2026-11-02T23:32:33+00:00",
+          "source_name": "TPWW",
+          "status": "PUBLISHER_HEADLINE_LINK_ONLY"
+        },
+        {
+          "headline": "WWE Raw live results: Crown Jewel go-home show, John Cena announcement",
+          "url": "https://www.f4wonline.com/news/wwe/wwe-raw-live-results-crown-jewel-go-home-show-john-cena-announcement/",
+          "published_at": "2026-11-02T22:15:00+00:00",
+          "source_name": "F4W / Wrestling Observer",
+          "status": "PUBLISHER_HEADLINE_LINK_ONLY"
+        }
+      ],
       "source_name": "Multiple publisher RSS feeds",
-      "status": "no_matching_published_coverage"
+      "status": "publisher_coverage_links"
     },
     {
       "show_id": "smackdown",
@@ -42,7 +78,8 @@
           "url": "https://411mania.com/wrestling/winfrees-wwe-smackdown-review-10-30-26/",
           "published_at": "2026-10-31T02:12:46+00:00",
           "source_name": "411Mania",
-          "status": "PUBLISHER_HEADLINE_LINK_ONLY"
+          "status": "PUBLISHER_HEADLINE_LINK_ONLY",
+          "retained_from_previous": true
         },
         {
           "headline": "WWE Danhausen’s Very Nice, Very Evil SmackDown Results, Highlights and Key Moments for October 30, 2026",
@@ -148,7 +185,8 @@
           "url": "https://www.tpww.net/2026/10/tna-impact-results-oct-29-2026-the-hardys-vs-syx-in-slaughterhouse-syx-match-m-by-elegance-vs-jada-stone-amazing-red-vs-cedric-alexander/",
           "published_at": "2026-10-30T00:52:57+00:00",
           "source_name": "TPWW",
-          "status": "PUBLISHER_HEADLINE_LINK_ONLY"
+          "status": "PUBLISHER_HEADLINE_LINK_ONLY",
+          "retained_from_previous": true
         },
         {
           "headline": "TNA iMPACT! Results (10/29): Slaughterhouse Syx, Amazing Red vs. Cedric Alexander",
@@ -210,8 +248,8 @@
       "status": "publisher_coverage_links"
     }
   ],
-  "total_links": 20,
-  "retained_link_count": 12,
+  "total_links": 25,
+  "retained_link_count": 14,
   "collection_status": "ok",
   "successful_feed_urls": [
     "https://www.f4wonline.com/rss.xml",
