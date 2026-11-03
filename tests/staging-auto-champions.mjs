@@ -50,7 +50,8 @@ test('TNA updates by the championship label, never another champion elsewhere in
 });
 test('AAA title changes require both lists to agree and use source date instead of old reign',async()=>{
  const table=(other=false)=>'<table><tr><th>Championship</th><th>Current Champion(s)</th><th>Date Won</th></tr>'+catalog.aaa.map(c=>'<tr><td>'+c.title+'</td><td>'+(c.id==='aaa-mega'?(other?'Penta':'Ethan Page'):c.name+' ('+c.members.join(' & ')+')')+'</td><td>November 2, 2026</td></tr>').join('')+'</table>';
- const request=disagree=>async url=>{if(!/sacnilk|thesmackdownhotel/.test(url))throw Error('offline');return new Response(pad(table(disagree&&url.includes('thesmackdownhotel'))));};
+ const cards=(disagree=false)=>'<h2>Current AAA Champions: Full List</h2>'+catalog.aaa.map(c=>'<h3>'+(c.id==='aaa-mega'?(disagree?'Penta':'Ethan Page'):c.members.join(' & '))+'</h3><a>'+c.title.replace('WORLD TAG','TAG').replace('WORLD TRIOS','TRIOS').replace('WORLD MIXED TAG','MIXED TAG').replace(/CHAMPIONSHIP$/,'CHAMPION')+'</a><p>Won: November 2, 2026</p>').join('');
+ const request=disagree=>async url=>{if(!/sacnilk|thesmackdownhotel/.test(url))throw Error('offline');return new Response(pad(url.includes('thesmackdownhotel')?cards(disagree):table()));};
  const ok=await collectChampions({library,routes,now,requester:request(false)});const aaa=ok.feed.programs.find(p=>p.show==='aaa');assert.equal(aaa.champions.length,7);
  const c=aaa.champions.find(c=>c.id==='aaa-mega');assert.equal(c.name,'ETHAN PAGE');assert.equal(c.since_date,'2026-11-02');
  const held=await collectChampions({library,routes,now,requester:request(true)});assert.equal(held.feed.programs.find(p=>p.show==='aaa').champions.length,6);assert.ok(held.warnings.some(w=>w.includes('AAA current titleholder disagreement')));
