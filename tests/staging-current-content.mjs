@@ -23,9 +23,9 @@ test('a conflicting article date or NXT article cannot enter the RAW preview',()
  const html=page(article('Roman Reigns set for Raw','Roman Reigns will appear on the November 4 Raw.')+article('Shawn Michaels promotes NXT on Raw','John Cena vs. Roman Reigns on November 2 NXT.'));
  const got=parseDatedEventBrief(html,'raw','2026-11-02',routes);assert.deepEqual(got.matches,[]);assert.deepEqual(got.appearances,[]);
 });
-test('TNA preview excludes later tapings but keeps the episode card and announced initiation',()=>{
+test('TNA preview excludes later tapings but keeps one complete episode card and announced initiation',async()=>{
  const url='https://wrestlingcentralnews.com/events/2026-11-05-tna-impact/';
- const wrap=items=>'<link rel="canonical" href="'+url+'"><h1>TNA iMPACT Card &amp; Preview November 5, 2026</h1><section id="card">'+items+'</section>';
+ const wrap=items=>'<link rel="canonical" href="'+url+'"><h1>TNA iMPACT Card &amp; Preview November 5, 2026</h1><h2>Card &amp; preview</h2><section id="card">'+items+'</section>';
  const html=wrap(
   article('TNA Reveals Opening Matches For Calgary Debut','Upcoming TV tapings in Calgary later this month feature Indi Hartwell, Allie, Shotzi Blackheart and Gabby Forza vs. Tasha Steelz, Kiera Hogan, Zoey Serrano and Shayna Baszler.')+
   article('TNA Calgary Impact card','The November 18 TV tapings feature Indi Hartwell vs. Shayna Baszler.')+
@@ -34,6 +34,19 @@ test('TNA preview excludes later tapings but keeps the episode card and announce
  assert.deepEqual(got.matches.map(m=>m.text),['Eddie Edwards vs. Bear Bronson','Ryan and Nic Nemeth vs. Amazing Red and Leon Slater',"Fire 'N Flava vs. Allie and Shotzi Blackheart"]);
  assert.deepEqual(got.appearances.map(a=>a.text),['Harley Hudson']);
  assert.ok(!got.matches.some(m=>/Hartwell|Forza|Baszler/.test(m.text)));
+ const {collectWcn}=await import('../proof/staging/wcn-collector.mjs');
+ const now=new Date('2026-11-03T18:00:00Z');let audit;
+ const snapshot={schema_version:1,generated_at:now.toISOString(),shows:['raw','nxt','evolve','tna','smackdown','aaa'].map(id=>({id,schedule_status:id==='tna'?'fresh':'unavailable',next:id==='tna'?{date:'2026-11-05'}:null}))};
+ const request=async source=>{
+  if(source.endsWith('snapshot.json'))return new Response(JSON.stringify(snapshot));
+  if(source.endsWith('/upcoming/'))return new Response('<a href="'+url+'">TNA</a>');
+  if(source.endsWith('/feed.xml'))return new Response('<rss></rss>');
+  if(source===url)return new Response(html);
+  throw Error('Unexpected source '+source);
+ };
+ await collectWcn({WCN_CACHE:{get:async()=>null,put:async(_,value)=>{audit=JSON.parse(value);}}},now,request,routes);
+ assert.deepEqual(audit.programs[0].matches.map(m=>m.text),got.matches.map(m=>m.text));
+ assert.deepEqual(audit.programs[0].appearances.map(a=>a.text),['Harley Hudson']);
 });
 test('explicit eight-person lineup is complete regardless of available portrait routes',()=>{
  const url='https://wrestlingcentralnews.com/events/2026-11-18-tna-impact/';
