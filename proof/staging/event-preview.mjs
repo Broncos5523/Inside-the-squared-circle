@@ -37,8 +37,9 @@ export function parseDatedEventBrief(html,show,date,routes={}){
    for(const m of sentence.matchAll(bout)){
     // Never emit a shortened list when a bounded/ambiguous name was not read.
     if(trailingParticipant.test(sentence.slice(m.index+m[0].length))||leadingParticipant.test(sentence.slice(0,m.index)))continue;
-    if(/\b(?:Raw|WWE|NXT|Impact|TNA|Monday|Tuesday|Wednesday|Thursday|Friday|Saturday|Sunday)\b/i.test(m[1]+' '+m[2]))continue;
-    const text=m[1].trim()+' vs. '+m[2].trim(),key=[m[1],m[2]].map(s=>s.toLowerCase().replace(/[^a-z0-9]/g,'')).sort().join('|');
+    const sides=[m[1],m[2]].map(s=>s.replace(/^.*\bChampions?\s+/i,'').trim());
+    if(sides.some(s=>!s)||/\b(?:Raw|WWE|NXT|Impact|TNA|Monday|Tuesday|Wednesday|Thursday|Friday|Saturday|Sunday)\b/i.test(sides.join(' ')))continue;
+    const text=sides.join(' vs. '),key=sides.map(s=>s.toLowerCase().replace(/[^a-z0-9]/g,'')).sort().join('|');
     if(!seen.has(key)){seen.add(key);matches.push({text,evidence_url:canonical,...(/Intercontinental Championship/i.test(sentence)?{stipulation:'INTERCONTINENTAL CHAMPIONSHIP'}:/six.man tag/i.test(sentence)?{stipulation:'SIX-MAN TAG TEAM MATCH'}:{})});}
    }
    appearance.lastIndex=0;

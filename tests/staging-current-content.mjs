@@ -29,7 +29,8 @@ test('TNA preview excludes later tapings but keeps one complete episode card and
  const html=wrap(
   article('TNA Reveals Opening Matches For Calgary Debut','Upcoming TV tapings in Calgary later this month feature Indi Hartwell, Allie, Shotzi Blackheart and Gabby Forza vs. Tasha Steelz, Kiera Hogan, Zoey Serrano and Shayna Baszler.')+
   article('TNA Calgary Impact card','The November 18 TV tapings feature Indi Hartwell vs. Shayna Baszler.')+
-  article('Harley Hudson Joins Righteous On 11/5 TNA iMPACT','The November 5 episode of Impact features Harley Hudson. Harley Hudson will undergo her initiation into The Righteous. Eddie Edwards faces Bear Bronson. Ryan and Nic Nemeth will defend the TNA Tag Team titles against Amazing Red and Leon Slater while Fire \'N Flava take on Allie and Shotzi Blackheart.'));
+  article('Harley Hudson Joins Righteous On 11/5 TNA iMPACT','The November 5 episode of Impact features Harley Hudson. Harley Hudson will undergo her initiation into The Righteous. Eddie Edwards faces Bear Bronson. Ryan and Nic Nemeth will defend the TNA Tag Team titles against Amazing Red and Leon Slater while Fire \'N Flava take on Allie and Shotzi Blackheart.')+
+  article('TNA Impact lineup for November 5',"Former Knockouts World Tag Team Champions Fire 'N Flava battle Allie and Shotzi Blackheart."));
  const got=parseDatedEventBrief(html,'tna','2026-11-05',routes);
  assert.deepEqual(got.matches.map(m=>m.text),['Eddie Edwards vs. Bear Bronson','Ryan and Nic Nemeth vs. Amazing Red and Leon Slater',"Fire 'N Flava vs. Allie and Shotzi Blackheart"]);
  assert.deepEqual(got.appearances.map(a=>a.text),['Harley Hudson']);
