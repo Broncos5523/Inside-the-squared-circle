@@ -28,5 +28,14 @@
       "filename": "01-IMG_3606.png",
       "approval": "User identified and supplied this portrait on October 31, 2026."
     }
+  },
+  "raw": {
+    "official-raw-2026-11-02-2": {
+      "headline": "THE JUDGMENT DAY",
+      "kind": "result",
+      "portrait": "liv-morgan",
+      "source_url": "https://www.wwe.com/shows/raw/2026-11-02/results",
+      "evidence": "Official recap explicitly identifies Liv Morgan pinning Chelsea Green. Reuse her approved portrait; do not assume the full faction lineup."
+    }
   }
 }
