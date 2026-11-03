@@ -1,3 +1,4 @@
+import portraitIdentity from '../../web/staging/board-adapter.js';
 import {readFile} from 'node:fs/promises';
 const AAA_SOURCES=['https://www.sacnilk.com/news/current_lucha_libre_aaa_worldwide_champions_full_list_of_title_holders','https://www.thesmackdownhotel.com/roster/current-champions/?promotion=aaa'];
 const clean=s=>String(s||'').replace(/<script\b[^>]*>[\s\S]*?<\/script>/gi,' ').replace(/<[^>]+>/g,' ').replace(/&#(?:x([0-9a-f]+)|(\d+));/gi,(_,h,d)=>String.fromCodePoint(parseInt(h||d,h?16:10))).replace(/&amp;/g,'&').replace(/&nbsp;/g,' ').replace(/&rsquo;|’/g,"'").replace(/\s+/g,' ').trim();
@@ -30,9 +31,8 @@ export function resolveChampion(c,holder,{catalog,routes,board,show,since=null,a
  if(same){portraits=c.portraits.slice();}
  else{
   for(const member of members){
-   const candidates=Object.keys(routes).filter(p=>/\/assets\/(?:portraits\/|portrait-display\/)?[a-z0-9-]+\.(?:png|webp)$/i.test(p)&&key(p.split('/').at(-1).replace(/\.[^.]+$/,''))===key(member));
-   candidates.sort((a,b)=>Number(!a.startsWith('/boards/RESULTS/'+({raw:'RAW',nxt:'NXT',smackdown:'SmackDown',tna:'TNA',aaa:'AAA'}[show])+'/'))-Number(!b.startsWith('/boards/RESULTS/'+({raw:'RAW',nxt:'NXT',smackdown:'SmackDown',tna:'TNA',aaa:'AAA'}[show])+'/'))||a.localeCompare(b));
-   const route=candidates[0];if(!route)throw Error('Approved portrait unavailable: '+member);
+   const slug=portraitIdentity.portraitSlugs(member,routes)[0];
+   const route=slug&&portraitIdentity.portraitRoute(slug,routes,show);if(!route)throw Error('Approved portrait unavailable: '+member);
    const name=route.split('/').at(-1);portraits.push(name);portrait_routes[name]=route;
   }
  }

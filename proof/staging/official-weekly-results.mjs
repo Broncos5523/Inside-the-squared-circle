@@ -1,3 +1,4 @@
+import portraits from '../../web/staging/board-adapter.js';
 // Automatic source-verified episode RESULTS from official WWE / TNA result pages.
 // Does not assert editorial review. No inferred winners, substituted portraits,
 // or title changes. Never republishes full articles: only factual match summaries.
@@ -38,30 +39,6 @@ function splitOutcome(line){
  if(!winner||!loser||winner.length>88||loser.length>95)return null;
  return {winner,loser};
 }
-const KNOWN_TEAMS={
- 'ethan page & big cass':['ethan-page','big-cass'],
- 'romeo moreno & noam dar':['romeo-moreno','noam-dar'],
- 'hank & tank':['hank-walker','tank-ledger']
-};
-const NAMES={
- 'iyo sky':'iyo-sky','rey fenix':'rey-fenix','m by elegance':'m-by-elegance',
- 'aj francis':'aj-francis','big cass':'big-cass','noam dar':'noam-dar',
- 'tony d’angelo':'tony-d-angelo','tna x-division champion amazing red':'amazing-red',
- 'zer0':'agent-zero','zero':'agent-zero','agent zero':'agent-zero'
-};
-function slugsFor(winner){
- const simple=winner.toLowerCase().trim().replace(/[’‘]/g,"'");
- if(KNOWN_TEAMS[simple])return KNOWN_TEAMS[simple];
- if(simple.includes(' & ')||simple.includes(' and '))return [];
- if(NAMES[simple])return [NAMES[simple]];
- return [simple.normalize('NFKD').replace(/[\u0300-\u036f]/g,'').replace(/['.]/g,'').replace(/[^a-z0-9]+/g,'-').replace(/^-|-$/g,'')];
-}
-function portraitExists(routes,slug){
- return ['RAW','NXT','SmackDown','AAA','TNA'].some(show=>
-  ['/boards/RESULTS/','/boards/UPCOMING/'].some(prefix=>
-   Boolean(routes[prefix+show+'/assets/portraits/'+slug+'.png']||
-           routes[prefix+show+'/assets/portrait-display/'+slug+'.png'])));
-}
 function beltFor(show,line,routes){
  const l=line.toLowerCase(),choices=[];
  if(show==='smackdown'){
@@ -79,7 +56,7 @@ function beltFor(show,line,routes){
 }
 export function segment(line,show,index,routes,day){
  const outcome=splitOutcome(line);if(!outcome)return null;
- const photos=slugsFor(outcome.winner).filter(slug=>portraitExists(routes,slug));
+ const photos=portraits.portraitSlugs(outcome.winner,routes);
 
  const stipulation=/(?:Disqualification|No Disqualification|Title Match|Championship Match|Dusty Rhodes Tag Team Classic|Singles Match)/i.exec(line);
  const date=day.split('-'),d=LONG[Number(date[1])]+' '+Number(date[2])+', '+date[0];

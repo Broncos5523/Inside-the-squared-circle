@@ -1,5 +1,24 @@
 (function(root){
  'use strict';
+
+ function portraitKey(value){return String(value||'').normalize('NFKD').replace(/[\u0300-\u036f]/g,'').toLowerCase().replace(/[^a-z0-9]/g,'');}
+ function portraitSlugs(label,routes){
+  function untitle(s){return String(s||'').replace(/\s+/g,' ').trim().replace(/^(?:(?:WWE|NXT|TNA|AAA|Undisputed|World|Women's|Women’s|North|American|Intercontinental|United|States|Knockouts|X-Division|Tag|Team|Cruiserweight)\s+)*Champions?\s+/i,'').replace(/\s*\(c\)\s*/gi,'');}
+  var text=untitle(label);
+  var aliases={zero:'agentzero',zer0:'agentzero',allegoethanpage:'ethanpage',ryanandnicnemeth:'thenemeths',nicnemethryannemeth:'thenemeths',ryannemethnicnemeth:'thenemeths'};
+  var names=Object.keys(routes).map(function(p){var m=p.match(/\/assets\/(?:portraits|portrait-display)\/([a-z0-9-]+)\.(?:png|webp)$/);return m&&m[1];}).filter(Boolean);
+  function exact(name){var k=portraitKey(untitle(name));k=aliases[k]||k;return names.find(function(n){return portraitKey(n)===k;});}
+  var whole=exact(text);if(whole)return [whole];
+  if(portraitKey(text)==='hanktank')return ['hank-walker','tank-ledger'].filter(function(n){return names.indexOf(n)>=0;});
+  var parts=text.split(/\s*,\s*(?:and\s+)?|\s+(?:and|&)\s+/i);
+  var last=parts[parts.length-1].trim().split(/\s+/).pop();
+  return parts.map(function(n){return exact(n)||(!/\s/.test(n.trim())&&parts.length>1?exact(n+' '+last):null);}).filter(function(n,i,a){return n&&a.indexOf(n)===i;});
+ }
+ function portraitRoute(slug,routes,show){
+  var keys=Object.keys(routes).filter(function(k){return /\/assets\/(?:portraits|portrait-display)\//.test(k)&&portraitKey(k.split('/').pop().replace(/\.[^.]+$/,''))===portraitKey(slug);});
+  var folder={raw:'RAW',nxt:'NXT',smackdown:'SmackDown',tna:'TNA',aaa:'AAA',evolve:'Evolve'}[show];
+  return keys.find(function(k){return k.indexOf('/boards/RESULTS/'+folder+'/')===0;})||keys[0]||null;
+ }
  function shim(config){
   var map=config.routes,logical=new URL(config.logical,'https://isc.invalid'),nativeFetch=window.fetch.bind(window);
   function resolve(value){
@@ -225,6 +244,14 @@ function evolveApplyVerifiedEpisode(html,payload){
   if(/^weekly-results-(aaa|nxt|tna)$/.test(record.id)){
    html=html.replace(/(<script id="review-verified-results" type="application\/json">)([\s\S]*?)(<\/script>)/,function(_,a,json,b){return a+JSON.stringify(addApprovedPortraits(JSON.parse(json))).replace(/</g,'\\u003c')+b;});
   }
+  if(mode==='active'&&feeds){
+   feeds=JSON.parse(JSON.stringify(feeds));
+   Object.keys(feeds).forEach(function(name){(feeds[name].programs||[]).forEach(function(p){(p.segments||[]).forEach(function(seg){
+    var names=(seg.portraits||[]).map(function(n){return portraitSlugs(n,routes)[0]||n;});
+    if(seg.kind==='result')portraitSlugs(seg.headline,routes).forEach(function(n){if(names.indexOf(n)<0)names.push(n);});
+    seg.portraits=names;
+   });});});
+  }
   var assetBase=/\.chatgpt\.site$/i.test(new URL(base).hostname)?'https://raw.githubusercontent.com/Broncos5523/Inside-the-squared-circle/work/all-boards-github-pages/web/staging/':base;
   html=html.replace(/__ISC_BASE__/g,assetBase);
   var logical=record.href.split('?')[0],page=new URL(logical,'https://isc.invalid'),boardMap={};
@@ -337,6 +364,10 @@ function evolveApplyVerifiedEpisode(html,payload){
    var preview=boardFeeds['reported.json']?.programs?.find(function(p){return p.show_id===ownShow;});
    if(ownShow==='nxt'&&preview?.official_date_verified){var weekday=new Intl.DateTimeFormat('en-US',{weekday:'long',timeZone:'UTC'}).format(new Date(preview.airdate+'T12:00:00Z')).toUpperCase();html=html.replace(/\bTUESDAY\b/g,weekday);}
    (preview?.matches||[]).forEach(function(m){if(m.note)previewNotes[m.text.toLowerCase().replace(/[^a-z0-9]/g,'')]=(m.note+' • NXT • '+new Intl.DateTimeFormat('en-US',{month:'short',day:'numeric',timeZone:'UTC'}).format(new Date(preview.airdate+'T12:00:00Z'))).toUpperCase();(m.participant_sides||[]).forEach(function(side){if(side.label&&Array.isArray(side.members))previewTeams[side.label.toLowerCase().replace(/[^a-z0-9]/g,'')]=side.members;});});
+   (preview?.matches||[]).forEach(function(m){String(m.text||'').split(/\s+(?:vs\.?|versus)\s+/i).forEach(function(side){
+    var k=portraitKey(side),slugs=portraitSlugs(side,routes);if(!previewTeams[k]&&slugs.length>1)previewTeams[k]=slugs;
+    slugs.forEach(function(slug){var route=portraitRoute(slug,routes,ownShow);if(route){var url=new URL('originals'+routes[route],assetBase).href;previewPortraits[portraitKey(slug)]=url;if(slugs.length===1)previewPortraits[k]=url;}});
+   });});
    // Hydrate before the first render: the source's old sample schedule must not flash.
    if(boardFeeds['snapshot.json']&&boardFeeds['reported.json']){
     var initial={snapshot:boardFeeds['snapshot.json'],reported:boardFeeds['reported.json'],research:null,reviewed:null,editorial:null,results:null};
@@ -349,5 +380,6 @@ function evolveApplyVerifiedEpisode(html,payload){
   var injected='<base href="'+new URL('originals'+prefix,base).href+'"><script>('+shim.toString()+')('+JSON.stringify(config).replace(/</g,'\\u003c')+');<\/script>';
   return html.replace(/<head(?:\s[^>]*)?>/i,function(head){return head+injected;});
  }
- root.ISCBoardAdapter={build:build};
-})(window);
+ root.ISCBoardAdapter={build:build,portraitKey:portraitKey,portraitSlugs:portraitSlugs,portraitRoute:portraitRoute};
+ if(typeof module==='object'&&module.exports)module.exports=root.ISCBoardAdapter;
+})(typeof window!=='undefined'?window:globalThis);
