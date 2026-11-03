@@ -318,6 +318,8 @@ function evolveApplyVerifiedEpisode(html,payload){
   if(mode==='active'&&record.id.indexOf('championship-')===0){
    var championship=feeds&&feeds['champions.json']?.mode==='SOURCE_CHECKED_CHAMPIONS'&&feeds['champions.json'].programs.find(function(p){return p.board_id===record.id&&p.champions?.length;});
    if(!championship)throw Error('Current verified champions unavailable');
+   // Alias only approved inventory routes into the unchanged championship layout.
+   championship.champions.forEach(function(c){Object.keys(c.portrait_routes||{}).forEach(function(name){var route=c.portrait_routes[name];if(/^[a-z0-9-]+\.(?:png|webp)$/.test(name)&&routes[route])boardMap[prefix+'assets/'+name]=routes[route];});});
    html=html.replace(/((?:let|const) CHAMPIONS\s*=\s*)\[[\s\S]*?\];/,function(_,prefix){return prefix+JSON.stringify(championship.champions).replace(/</g,'\\u003c')+';';});
    html=html.replace(/let AS_OF='[^']+';/,'let AS_OF='+JSON.stringify(championship.as_of)+';');
   }

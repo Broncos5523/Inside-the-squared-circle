@@ -131,7 +131,7 @@ test('official NXT preview rejects a banner title/date mismatch and an article a
  const url='https://www.wwe.com/shows/wwenxt/2026-11-2/punk-waller';assert.equal(parseOfficialNxtArticle('<link href="'+url+'"><title>CM Punk challenges Grayson Waller</title><div class="field--name-body">WWE NXT airs live on TUESDAY at 8 ET/7 CT</div>',url,'2026-11-04',routes),null);
 });
 
- test('a changed champion withholds only its show and never invalidates other verified programs',async()=>{
+ test('an unmapped champion withholds only its title and never invalidates other verified programs',async()=>{
  const {collectChampions}=await import('../proof/staging/collect-champions.mjs');
  const catalog=JSON.parse(readFileSync(new URL('../proof/staging/championship-catalog.json',import.meta.url)));
  const holders=new Map(Object.entries(catalog).filter(([show])=>!['aaa','tna'].includes(show)).flatMap(([,rows])=>rows.map(c=>[c.source,c.name])));
@@ -140,7 +140,8 @@ test('official NXT preview rejects a banner title/date mismatch and an article a
   if(!holders.has(url))throw Error('source temporarily unavailable');
   return new Response('<h3>Championship Holder '+(url===rawSource?'New Unmapped Champion':holders.get(url))+'</h3><div>Time Held</div>'+' '.repeat(1100));
  }});
- assert.deepEqual(got.feed.programs.map(p=>p.show).sort(),['nxt','smackdown']);
- assert.ok(got.warnings.some(w=>w.startsWith('raw: Changed holder')));
- assert.ok(!got.entries.some(e=>e.show==='raw'));
+ assert.deepEqual(got.feed.programs.map(p=>p.show).sort(),['nxt','raw','smackdown']);
+ assert.ok(got.warnings.some(w=>w.includes('Approved portrait unavailable: New Unmapped Champion')));
+ assert.equal(got.feed.programs.find(p=>p.show==='raw').champions.length,4);
+ assert.ok(!got.feed.programs.find(p=>p.show==='raw').champions.some(c=>c.id==='raw-world'));
  });
