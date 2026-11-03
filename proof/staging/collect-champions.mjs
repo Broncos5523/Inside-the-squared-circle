@@ -45,16 +45,14 @@ function aaaConfirmation(html,c,holder,catalog){
  const rows=tableRows(html),row=rows.find(r=>titleKey(r[0])===titleKey(c.title));
  if(row)return key(row[1])===key(holder);
  const current=html.match(/<h[12][^>]*>[^<]*Current AAA Champions[\s\S]*?(?=<h[12]|$)/i)?.[0]||html;
- const text=clean(current),normalized=key(text),label=titleKey(c.title);
- // Isolate this title's section before checking its holder, not names in title history.
- const titleVariants=[c.title,c.title.replace('WORLD MIXED TAG CHAMPIONSHIP','WORLD MIXED TAG TEAM CHAMPIONSHIP')];
- let start=-1;for(const title of titleVariants){start=normalized.indexOf(key(title));if(start>=0)break;}
- if(start<0)return false;
- let end=Math.min(normalized.length,start+1200);
- for(const other of catalog.aaa){if(other.id===c.id)continue;const at=normalized.indexOf(key(other.title),start+label.length);if(at>=0)end=Math.min(end,at);}
- const block=normalized.slice(start,end);
- const names=holder.match(/\(([^()]+)\)/)?.[1]||holder;
- return names.split(/\s+(?:&|and)\s+|,\s*/i).every(name=>block.includes(key(name)));
+ const aaaKey=s=>titleKey(s).replace(/^aaa/,'').replace(/^world(?=tag|mixed|trios)/,'');
+ const names=(holder.match(/\(([^()]+)\)/)?.[1]||holder).split(/\s+(?:&|and)\s+|,\s*/i);
+ // SDH puts the holder in h3 BEFORE its title link. Compare within one card.
+ const cards=[...current.matchAll(/<h3\b[^>]*>([\s\S]*?)<\/h3>([\s\S]*?)(?=<h[123]\b|$)/gi)];
+ return cards.some(m=>{
+  const titles=[...m[2].matchAll(/<a\b[^>]*>([\s\S]*?)<\/a>/gi)].map(a=>clean(a[1]));
+  return titles.some(t=>aaaKey(t)===aaaKey(c.title))&&names.every(n=>key(m[1]).includes(key(n)));
+ });
 }
 export async function collectChampions({library,routes,now=new Date(),requester=fetch}){
  const catalog=JSON.parse(await readFile(new URL('championship-catalog.json',import.meta.url),'utf8'));
