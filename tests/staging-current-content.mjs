@@ -23,6 +23,33 @@ test('a conflicting article date or NXT article cannot enter the RAW preview',()
  const html=page(article('Roman Reigns set for Raw','Roman Reigns will appear on the November 4 Raw.')+article('Shawn Michaels promotes NXT on Raw','John Cena vs. Roman Reigns on November 2 NXT.'));
  const got=parseDatedEventBrief(html,'raw','2026-11-02',routes);assert.deepEqual(got.matches,[]);assert.deepEqual(got.appearances,[]);
 });
+test('TNA preview excludes later tapings but keeps the episode card and announced initiation',()=>{
+ const url='https://wrestlingcentralnews.com/events/2026-11-05-tna-impact/';
+ const wrap=items=>'<link rel="canonical" href="'+url+'"><h1>TNA iMPACT Card &amp; Preview November 5, 2026</h1><section id="card">'+items+'</section>';
+ const html=wrap(
+  article('TNA Reveals Opening Matches For Calgary Debut','Upcoming TV tapings in Calgary later this month feature Indi Hartwell, Allie, Shotzi Blackheart and Gabby Forza vs. Tasha Steelz, Kiera Hogan, Zoey Serrano and Shayna Baszler.')+
+  article('TNA Calgary Impact card','The November 18 TV tapings feature Indi Hartwell vs. Shayna Baszler.')+
+  article('Harley Hudson Joins Righteous On 11/5 TNA iMPACT','The November 5 episode of Impact features Harley Hudson. Harley Hudson will undergo her initiation into The Righteous. Eddie Edwards faces Bear Bronson. Ryan and Nic Nemeth will defend the TNA Tag Team titles against Amazing Red and Leon Slater while Fire \'N Flava take on Allie and Shotzi Blackheart.'));
+ const got=parseDatedEventBrief(html,'tna','2026-11-05',routes);
+ assert.deepEqual(got.matches.map(m=>m.text),['Eddie Edwards vs. Bear Bronson','Ryan and Nic Nemeth vs. Amazing Red and Leon Slater',"Fire 'N Flava vs. Allie and Shotzi Blackheart"]);
+ assert.deepEqual(got.appearances.map(a=>a.text),['Harley Hudson']);
+ assert.ok(!got.matches.some(m=>/Hartwell|Forza|Baszler/.test(m.text)));
+});
+test('explicit eight-person lineup is complete regardless of available portrait routes',()=>{
+ const url='https://wrestlingcentralnews.com/events/2026-11-18-tna-impact/';
+ const text='Indi Hartwell, Allie, Shotzi Blackheart and Gabby Forza vs. Tasha Steelz, Kiera Hogan, Zoey Serrano and Shayna Baszler';
+ const html='<link rel="canonical" href="'+url+'"><h1>TNA iMPACT Card &amp; Preview November 18, 2026</h1><section id="card"><article><h3>TNA Calgary Impact card</h3><p class="hs">The November 18 TV tapings feature '+text+'.</p><time datetime="2026-11-04T15:52:00Z"></time></article></section>';
+ const withRoutes=parseDatedEventBrief(html,'tna','2026-11-18',routes);
+ const withoutRoutes=parseDatedEventBrief(html,'tna','2026-11-18',{});
+ assert.deepEqual(withoutRoutes,withRoutes);assert.equal(withoutRoutes.matches.length,1);assert.equal(withoutRoutes.matches[0].text,text);
+});
+test('a bounded or unreadable participant list never produces a shortened matchup',()=>{
+ for(const text of [
+  'Chad Gable vs. Ethan Page and a mystery partner.',
+  'Chad Gable vs. Ethan Page, Penta, Dragon Lee, Sami Zayn and John Cena.',
+  'Ethan Page, Penta, Dragon Lee, Sami Zayn and John Cena vs. Chad Gable.'
+ ])assert.deepEqual(parseDatedEventBrief(page(article('Raw match announcement',text)),'raw','2026-11-02',{}).matches,[],text);
+});
 const headings=['Myles Borne def. Tavion Heights | Weapons Wild Match','Izzi Dame def. NXT Women’s North American Champion Zaria | Non-Title Match','Zilla Fatu def. Charlie Dempsey | Very Nice, Very Evil Match','NXT Women’s Champion Kelani Jordan def. Wren Sinclair','Shiloh Hill def. Naraku','NXT Champion Grayson Waller def. Tony D’Angelo'];
 const resultHtml=lines=>'<title>Full NXT Halloween Havoc 2026 results | WWE</title><div class="field--name-body">'+lines.map(x=>'<strong>'+x+'</strong>').join('')+' CM Punk who demanded a title opportunity.</div>';
 const requester=async url=>new Response(url.includes('full-nxt')?resultHtml(headings):'NXT Halloween Havoc 2026 Saturday, Oct. 31');
