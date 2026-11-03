@@ -24,10 +24,12 @@ export async function collectWcn(env,now=new Date(),requester=fetch,routes={}){
   try{
    const html=await limitedFetch(show.url,'text/html',requester);
    const parsed=parseWcnPageForEpisode(html,show.show_id,show.airdate);
-   matches=parsed.matches.map(text=>({text,source_name:CREDIT,status:'REPORTED_UNVERIFIED',evidence_url:show.url}));
    appearances=parsed.appearances.map(text=>({text,source_name:CREDIT,status:'REPORTED_UNVERIFIED',evidence_url:show.url}));
    const brief=parseDatedEventBrief(html,show.show_id,show.airdate,routes);
-   for(const m of brief.matches)if(!matches.some(x=>x.text.toLowerCase()===m.text.toLowerCase()))matches.push({...m,source_name:CREDIT,status:'REPORTED_UNVERIFIED'});
+   // The structured card owns its complete names. The older paragraph parser
+   // is a fallback, not a second card that can reintroduce shortened team names.
+   const card=brief.matches.length?brief.matches:parsed.matches.map(text=>({text,evidence_url:show.url}));
+   matches=card.map(m=>({...m,source_name:CREDIT,status:'REPORTED_UNVERIFIED'}));
    for(const a of brief.appearances)if(!appearances.some(x=>x.text.toLowerCase()===a.text.toLowerCase()))appearances.push({...a,source_name:CREDIT,status:'REPORTED_UNVERIFIED'});
    start_time=brief.start_time||null;
    if(matches.length||appearances.length)entryStatus='event_page_matches';
