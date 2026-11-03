@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "mode": "SOURCE_GATED_STAGING",
-  "generated_at": "2026-11-03T14:14:29.067Z",
+  "generated_at": "2026-11-03T14:18:06.974Z",
   "entries": [
     {
       "id": "weekly-upcoming-raw",
@@ -15,7 +15,7 @@
       "verification": "SOURCE_REPORTED",
       "has_content": false,
       "schedule_confirmed": true,
-      "checked_at": "2026-11-03T14:14:29.067Z",
+      "checked_at": "2026-11-03T14:18:06.974Z",
       "source_name": "Published episode schedule",
       "source_url": "https://broncos5523.github.io/Inside-the-squared-circle/data/snapshot.json",
       "venue": {
@@ -35,7 +35,7 @@
       "verification": "SOURCE_REPORTED",
       "has_content": false,
       "schedule_confirmed": true,
-      "checked_at": "2026-11-03T14:14:29.067Z",
+      "checked_at": "2026-11-03T14:18:06.974Z",
       "source_name": "Published episode schedule",
       "source_url": "https://broncos5523.github.io/Inside-the-squared-circle/data/snapshot.json",
       "venue": {
@@ -55,7 +55,7 @@
       "verification": "SOURCE_REPORTED",
       "has_content": true,
       "schedule_confirmed": true,
-      "checked_at": "2026-11-03T14:14:29.067Z",
+      "checked_at": "2026-11-03T14:18:06.974Z",
       "source_name": "WWE / TPWW",
       "source_url": "https://www.wwe.com/shows/wwenxt",
       "venue": null
@@ -72,7 +72,7 @@
       "verification": "SOURCE_REPORTED",
       "has_content": false,
       "schedule_confirmed": true,
-      "checked_at": "2026-11-03T14:14:29.067Z",
+      "checked_at": "2026-11-03T14:18:06.974Z",
       "source_name": "Published episode schedule",
       "source_url": "https://broncos5523.github.io/Inside-the-squared-circle/data/snapshot.json",
       "venue": null
@@ -89,7 +89,7 @@
       "verification": "SOURCE_REPORTED",
       "has_content": true,
       "schedule_confirmed": true,
-      "checked_at": "2026-11-03T14:14:29.067Z",
+      "checked_at": "2026-11-03T14:18:06.974Z",
       "source_name": "Wrestling Central News (wrestlingcentralnews.com)",
       "source_url": "https://wrestlingcentralnews.com/events/2026-11-05-tna-impact/",
       "venue": null
@@ -105,7 +105,7 @@
       "content_status": "current",
       "verification": "EDITORIALLY_VERIFIED",
       "completed": true,
-      "checked_at": "2026-11-03T14:14:29.067Z",
+      "checked_at": "2026-11-03T14:18:06.974Z",
       "source_name": "WWE AAA Héroes Inmortales | Week 1 results, October 24, 2026",
       "source_url": "https://www.wwe.com/shows/aaa/aaa-h-roes-inmortales-week-1-results"
     },
@@ -120,7 +120,7 @@
       "content_status": "current",
       "verification": "OFFICIAL_VERIFIED",
       "completed": true,
-      "checked_at": "2026-11-03T14:14:29.067Z",
+      "checked_at": "2026-11-03T14:18:06.974Z",
       "source_name": "WWE",
       "source_url": "https://www.wwe.com/shows/raw/2026-11-02/results"
     },
@@ -135,7 +135,7 @@
       "content_status": "current",
       "verification": "OFFICIAL_VERIFIED",
       "completed": true,
-      "checked_at": "2026-11-03T14:14:29.067Z",
+      "checked_at": "2026-11-03T14:18:06.974Z",
       "source_name": "WWE",
       "source_url": "https://www.wwe.com/shows/wwenxt/2026-10-27/results"
     },
@@ -150,7 +150,7 @@
       "content_status": "current",
       "verification": "OFFICIAL_VERIFIED",
       "completed": true,
-      "checked_at": "2026-11-03T14:14:29.067Z",
+      "checked_at": "2026-11-03T14:18:06.974Z",
       "source_name": "WWE",
       "source_url": "https://www.wwe.com/shows/smackdown/2026-10-30/results"
     },
@@ -165,7 +165,7 @@
       "content_status": "current",
       "verification": "OFFICIAL_VERIFIED",
       "completed": true,
-      "checked_at": "2026-11-03T14:14:29.067Z",
+      "checked_at": "2026-11-03T14:18:06.974Z",
       "source_name": "TNA Wrestling",
       "source_url": "https://tnawrestling.com/news/tna-thursday-night-impact-on-amc-results-october-29-2026"
     },
@@ -180,7 +180,7 @@
       "content_status": "current",
       "verification": "SOURCE_CORROBORATED",
       "completed": true,
-      "checked_at": "2026-11-03T14:14:29.067Z",
+      "checked_at": "2026-11-03T14:18:06.974Z",
       "source_name": "Fightful / TPWW",
       "source_url": "https://www.fightful.com/wrestling/aaa-heroes-inmortales-week-two-results-10-31/",
       "source_urls": [
@@ -199,7 +199,7 @@
       "content_status": "current",
       "verification": "EDITORIALLY_VERIFIED",
       "completed": true,
-      "checked_at": "2026-11-03T14:14:29.067Z",
+      "checked_at": "2026-11-03T14:18:06.974Z",
       "source_name": "Pro Wrestling Dot Net",
       "source_url": "https://prowrestling.net/site/2026/10/29/wwe-evolve-results-10-28-vetters-review-of-elijah-holyfield-vs-braxton-cole-vs-marcus-mathers-in-a-triple-threat-jasper-troy-vs-jax-presley-harley-riggins-vs-milosh-jovic/"
     },
@@ -217,7 +217,7 @@
       "date_confirmed": true,
       "has_content": true,
       "schedule_confirmed": true,
-      "checked_at": "2026-11-03T14:14:29.067Z",
+      "checked_at": "2026-11-03T14:18:06.974Z",
       "source_name": "WWE",
       "source_url": "https://www.wwe.com/shows/wwe-crown-jewel/crown-jewel-2026"
     },
@@ -233,7 +233,7 @@
       "content_status": "current",
       "verification": "OFFICIAL_VERIFIED",
       "completed": true,
-      "checked_at": "2026-11-03T14:14:29.067Z",
+      "checked_at": "2026-11-03T14:18:06.974Z",
       "source_name": "WWE",
       "source_url": "https://www.wwe.com/shows/nxtple/full-nxt-halloween-havoc-2026-results"
     },
@@ -248,7 +248,7 @@
       "design_approved": true,
       "content_status": "current",
       "verification": "OFFICIAL_VERIFIED",
-      "checked_at": "2026-11-03T14:14:29.067Z",
+      "checked_at": "2026-11-03T14:18:06.974Z",
       "source_name": "TNA Wrestling",
       "source_url": "https://tnawrestling.com/roster",
       "source_urls": [
@@ -266,7 +266,7 @@
       "design_approved": true,
       "content_status": "current",
       "verification": "OFFICIAL_VERIFIED",
-      "checked_at": "2026-11-03T14:14:29.067Z",
+      "checked_at": "2026-11-03T14:18:06.974Z",
       "source_name": "WWE",
       "source_url": "https://www.wwe.com/titlehistory/nxt-championship",
       "source_urls": [
@@ -288,7 +288,7 @@
       "design_approved": true,
       "content_status": "current",
       "verification": "OFFICIAL_VERIFIED",
-      "checked_at": "2026-11-03T14:14:29.067Z",
+      "checked_at": "2026-11-03T14:18:06.974Z",
       "source_name": "WWE",
       "source_url": "https://www.wwe.com/titlehistory/wwe-championship",
       "source_urls": [
@@ -311,7 +311,7 @@
       "design_approved": true,
       "content_status": "current",
       "verification": "OFFICIAL_VERIFIED",
-      "checked_at": "2026-11-03T14:14:29.067Z",
+      "checked_at": "2026-11-03T14:18:06.974Z",
       "source_name": "WWE",
       "source_url": "https://www.wwe.com/classics/titlehistory/world-heavyweight-championship",
       "source_urls": [
@@ -321,13 +321,32 @@
         "https://www.wwe.com/classics/titlehistory/womens-intercontinental-championship",
         "https://www.wwe.com/titlehistory/raw-tag-team-championship"
       ]
+    },
+    {
+      "id": "championship-aaa",
+      "title": "AAA — Championship Board",
+      "show": "aaa",
+      "kind": "champions",
+      "as_of": "2026-11-03",
+      "airdate": "2026-11-03",
+      "source_available": true,
+      "design_approved": true,
+      "content_status": "current",
+      "verification": "SOURCE_CORROBORATED",
+      "checked_at": "2026-11-03T14:18:06.974Z",
+      "source_name": "Sacnilk / The SmackDown Hotel",
+      "source_url": "https://www.sacnilk.com/news/current_lucha_libre_aaa_worldwide_champions_full_list_of_title_holders",
+      "source_urls": [
+        "https://www.sacnilk.com/news/current_lucha_libre_aaa_worldwide_champions_full_list_of_title_holders",
+        "https://www.thesmackdownhotel.com/roster/current-champions/?promotion=aaa"
+      ]
     }
   ],
   "feeds": {
     "snapshot.json": {
       "schema_version": 1,
       "mode": "LIVE_SCHEDULES_ONLY",
-      "generated_at": "2026-11-03T14:13:09.483717+00:00",
+      "generated_at": "2026-11-03T14:17:17.414679+00:00",
       "fresh_shows": 6,
       "shows": [
         {
@@ -450,7 +469,7 @@
     "reported.json": {
       "schema_version": 1,
       "mode": "REPORTED_MATCHES_UNVERIFIED",
-      "generated_at": "2026-11-03T14:14:29.067Z",
+      "generated_at": "2026-11-03T14:18:06.974Z",
       "display_attribution": "Published weekly show announcements; individual sources retained",
       "programs": [
         {
@@ -945,7 +964,7 @@
     "evolve-verified-results.json": {
       "schema_version": 2,
       "mode": "EDITORIALLY_VERIFIED_EVOLVE_EPISODE",
-      "generated_at": "2026-11-03T14:14:29.067Z",
+      "generated_at": "2026-11-03T14:18:06.974Z",
       "episode_date": "2026-10-28",
       "programs": [
         {
@@ -1151,7 +1170,7 @@
     },
     "official-events.json": {
       "mode": "OFFICIAL_WWE_EVENT_PREVIEWS",
-      "generated_at": "2026-11-03T14:14:29.067Z",
+      "generated_at": "2026-11-03T14:18:06.974Z",
       "programs": [
         {
           "event_id": "wwe-crown-jewel-2026",
@@ -1160,7 +1179,7 @@
           "show": "wwe",
           "event_date": "2026-11-07",
           "source_url": "https://www.wwe.com/shows/wwe-crown-jewel/crown-jewel-2026",
-          "checked_at": "2026-11-03T14:14:29.067Z",
+          "checked_at": "2026-11-03T14:18:06.974Z",
           "verification": "OFFICIAL_VERIFIED",
           "cards": [
             {
@@ -1209,7 +1228,7 @@
     },
     "official-event-results.json": {
       "mode": "OFFICIAL_WWE_EVENT_RESULTS",
-      "generated_at": "2026-11-03T14:14:29.067Z",
+      "generated_at": "2026-11-03T14:18:06.974Z",
       "programs": [
         {
           "event_id": "nxt-halloween-havoc-2026",
@@ -1312,7 +1331,7 @@
     "champions.json": {
       "schema_version": 1,
       "mode": "SOURCE_CHECKED_CHAMPIONS",
-      "generated_at": "2026-11-03T14:14:29.067Z",
+      "generated_at": "2026-11-03T14:18:06.974Z",
       "programs": [
         {
           "show": "tna",
@@ -1842,6 +1861,167 @@
             "https://www.wwe.com/classics/titlehistory/womens-intercontinental-championship",
             "https://www.wwe.com/titlehistory/raw-tag-team-championship"
           ]
+        },
+        {
+          "show": "aaa",
+          "board_id": "championship-aaa",
+          "as_of": "2026-11-03",
+          "verification": "SOURCE_CORROBORATED",
+          "champions": [
+            {
+              "id": "aaa-mega",
+              "title": "AAA MEGA CHAMPIONSHIP",
+              "name": "EL GRANDE AMERICANO",
+              "members": [
+                "El Grande Americano"
+              ],
+              "portraits": [
+                "el-grande-americano.png"
+              ],
+              "belt": "mega.png",
+              "since_date": "2026-09-13",
+              "kind": "singles",
+              "source": "https://www.sacnilk.com/news/current_lucha_libre_aaa_worldwide_champions_full_list_of_title_holders",
+              "portrait_routes": {},
+              "since": "SEP 13, 2026",
+              "source_urls": [
+                "https://www.sacnilk.com/news/current_lucha_libre_aaa_worldwide_champions_full_list_of_title_holders",
+                "https://www.thesmackdownhotel.com/roster/current-champions/?promotion=aaa"
+              ]
+            },
+            {
+              "id": "aaa-reina",
+              "title": "AAA REINA DE REINAS CHAMPIONSHIP",
+              "name": "LA CATALINA",
+              "members": [
+                "La Catalina"
+              ],
+              "portraits": [
+                "la-catalina.png"
+              ],
+              "belt": "reina_de_reinas.png",
+              "since_date": "2026-09-13",
+              "kind": "singles",
+              "source": "https://www.sacnilk.com/news/current_lucha_libre_aaa_worldwide_champions_full_list_of_title_holders",
+              "portrait_routes": {},
+              "since": "SEP 13, 2026",
+              "source_urls": [
+                "https://www.sacnilk.com/news/current_lucha_libre_aaa_worldwide_champions_full_list_of_title_holders",
+                "https://www.thesmackdownhotel.com/roster/current-champions/?promotion=aaa"
+              ]
+            },
+            {
+              "id": "aaa-latin",
+              "title": "AAA LATIN AMERICAN CHAMPIONSHIP",
+              "name": "LA PARKA",
+              "members": [
+                "La Parka"
+              ],
+              "portraits": [],
+              "belt": "latin_american.png",
+              "since_date": "2026-08-30",
+              "kind": "singles",
+              "source": "https://www.sacnilk.com/news/current_lucha_libre_aaa_worldwide_champions_full_list_of_title_holders",
+              "portrait_routes": {},
+              "since": "AUG 30, 2026",
+              "source_urls": [
+                "https://www.sacnilk.com/news/current_lucha_libre_aaa_worldwide_champions_full_list_of_title_holders",
+                "https://www.thesmackdownhotel.com/roster/current-champions/?promotion=aaa"
+              ]
+            },
+            {
+              "id": "aaa-cruiser",
+              "title": "AAA WORLD CRUISERWEIGHT CHAMPIONSHIP",
+              "name": "REY FENIX",
+              "members": [
+                "Rey Fenix"
+              ],
+              "portraits": [
+                "rey-fenix.png"
+              ],
+              "belt": "cruiserweight.png",
+              "since_date": "2026-05-30",
+              "kind": "singles",
+              "source": "https://www.sacnilk.com/news/current_lucha_libre_aaa_worldwide_champions_full_list_of_title_holders",
+              "portrait_routes": {},
+              "since": "MAY 30, 2026",
+              "source_urls": [
+                "https://www.sacnilk.com/news/current_lucha_libre_aaa_worldwide_champions_full_list_of_title_holders",
+                "https://www.thesmackdownhotel.com/roster/current-champions/?promotion=aaa"
+              ]
+            },
+            {
+              "id": "aaa-tag",
+              "title": "AAA WORLD TAG TEAM CHAMPIONSHIP",
+              "name": "THE WAGNER BROTHERS",
+              "members": [
+                "El Hijo de Dr. Wagner Jr.",
+                "Galeno"
+              ],
+              "portraits": [
+                "galeno.png"
+              ],
+              "belt": "world_tag.png",
+              "since_date": "2026-09-13",
+              "kind": "tag",
+              "source": "https://www.sacnilk.com/news/current_lucha_libre_aaa_worldwide_champions_full_list_of_title_holders",
+              "portrait_routes": {},
+              "since": "SEP 13, 2026",
+              "source_urls": [
+                "https://www.sacnilk.com/news/current_lucha_libre_aaa_worldwide_champions_full_list_of_title_holders",
+                "https://www.thesmackdownhotel.com/roster/current-champions/?promotion=aaa"
+              ]
+            },
+            {
+              "id": "aaa-trios",
+              "title": "AAA WORLD TRIOS CHAMPIONSHIP",
+              "name": "LOS PERROS DEL MAL",
+              "members": [
+                "Daga",
+                "Angel",
+                "Berto"
+              ],
+              "portraits": [
+                "daga.png",
+                "angel.png",
+                "berto.png"
+              ],
+              "belt": "world_trios.png",
+              "since_date": "2026-09-11",
+              "kind": "tag",
+              "source": "https://www.sacnilk.com/news/current_lucha_libre_aaa_worldwide_champions_full_list_of_title_holders",
+              "portrait_routes": {},
+              "since": "SEP 11, 2026",
+              "source_urls": [
+                "https://www.sacnilk.com/news/current_lucha_libre_aaa_worldwide_champions_full_list_of_title_holders",
+                "https://www.thesmackdownhotel.com/roster/current-champions/?promotion=aaa"
+              ]
+            },
+            {
+              "id": "aaa-mixed",
+              "title": "AAA WORLD MIXED TAG CHAMPIONSHIP",
+              "name": "LAREDO KID & LA HIEDRA",
+              "members": [
+                "Laredo Kid",
+                "La Hiedra"
+              ],
+              "portraits": [],
+              "belt": "mixed_tag.png",
+              "since_date": "2026-07-25",
+              "kind": "tag",
+              "source": "https://www.sacnilk.com/news/current_lucha_libre_aaa_worldwide_champions_full_list_of_title_holders",
+              "portrait_routes": {},
+              "since": "JUL 25, 2026",
+              "source_urls": [
+                "https://www.sacnilk.com/news/current_lucha_libre_aaa_worldwide_champions_full_list_of_title_holders",
+                "https://www.thesmackdownhotel.com/roster/current-champions/?promotion=aaa"
+              ]
+            }
+          ],
+          "source_urls": [
+            "https://www.sacnilk.com/news/current_lucha_libre_aaa_worldwide_champions_full_list_of_title_holders",
+            "https://www.thesmackdownhotel.com/roster/current-champions/?promotion=aaa"
+          ]
         }
       ]
     }
@@ -1862,16 +2042,8 @@
     ],
     "evolve_verified_count": 1,
     "evolve_warnings": [],
-    "championship_count": 4,
-    "championship_warnings": [
-      "aaa: aaa-mega: AAA current titleholder disagreement: aaa-mega",
-      "aaa: aaa-reina: AAA current titleholder disagreement: aaa-reina",
-      "aaa: aaa-latin: AAA current titleholder disagreement: aaa-latin",
-      "aaa: aaa-cruiser: AAA current titleholder disagreement: aaa-cruiser",
-      "aaa: aaa-tag: AAA current titleholder disagreement: aaa-tag",
-      "aaa: aaa-trios: AAA current titleholder disagreement: aaa-trios",
-      "aaa: aaa-mixed: AAA current titleholder disagreement: aaa-mixed"
-    ],
+    "championship_count": 5,
+    "championship_warnings": [],
     "official_nxt_preview_count": 5,
     "official_nxt_airdate": "2026-11-04"
   },
