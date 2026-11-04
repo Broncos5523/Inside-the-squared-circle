@@ -1,39 +1,39 @@
 {
   "schema_version": 1,
   "mode": "WRESTLING_CONTENT_COVERAGE_COUNTS_ONLY",
-  "generated_at": "2026-11-03T16:12:29.536425-05:00",
+  "generated_at": "2026-11-03T20:29:58.027746-05:00",
   "source_health": {
     "reported": {
       "fresh": true,
-      "generated_at": "2026-11-03T16:11:35.582437-05:00"
+      "generated_at": "2026-11-03T20:28:57.932971-05:00"
     },
     "results": {
       "fresh": true,
-      "generated_at": "2026-11-03T16:11:42.633421-05:00"
+      "generated_at": "2026-11-03T20:29:04.958036-05:00"
     },
     "rss_facts": {
       "fresh": true,
-      "generated_at": "2026-11-03T16:12:07.109591-05:00"
+      "generated_at": "2026-11-03T20:29:37.604471-05:00"
     },
     "rss_excerpts": {
       "fresh": true,
-      "generated_at": "2026-11-03T16:12:17.505317-05:00"
+      "generated_at": "2026-11-03T20:29:47.722088-05:00"
     },
     "fallout": {
       "fresh": true,
-      "generated_at": "2026-11-03T16:12:27.472145-05:00"
+      "generated_at": "2026-11-03T20:29:56.265092-05:00"
     },
     "recap_links": {
       "fresh": true,
-      "generated_at": "2026-11-03T16:12:06.896569-05:00"
+      "generated_at": "2026-11-03T20:29:37.483727-05:00"
     },
     "episode_briefs": {
       "fresh": true,
-      "generated_at": "2026-11-03T16:11:52.444846-05:00"
+      "generated_at": "2026-11-03T20:29:16.639295-05:00"
     }
   },
   "totals": {
-    "upcoming_reported_matches": 2,
+    "upcoming_reported_matches": 0,
     "upcoming_reported_appearances": 0,
     "upcoming_reviewed_matches": 1,
     "upcoming_reviewed_appearances": 0,
@@ -48,7 +48,7 @@
     "rss_dated_episode_headlines": 11,
     "rss_dated_headlines_with_explicit_winner": 0,
     "rss_dated_descriptions_with_victory_word": 1,
-    "rss_descriptions_with_defeated_word": 34,
+    "rss_descriptions_with_defeated_word": 30,
     "rss_explicit_winner_sentences": 1
   },
   "programs": [
@@ -88,7 +88,7 @@
       "show_id": "nxt",
       "last_completed": "2026-10-27",
       "next_airdate": "2026-11-04",
-      "upcoming_reported_matches": 2,
+      "upcoming_reported_matches": 0,
       "upcoming_reported_appearances": 0,
       "upcoming_reviewed_matches": 0,
       "upcoming_reviewed_appearances": 0,

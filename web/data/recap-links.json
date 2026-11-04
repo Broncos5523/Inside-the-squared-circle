@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "mode": "PUBLISHER_RSS_POST_SHOW_LINKS_ONLY",
-  "generated_at": "2026-11-03T16:12:06.896569-05:00",
+  "generated_at": "2026-11-03T20:29:37.483727-05:00",
   "source_name": "Multiple publisher RSS feeds",
   "source_url": "https://www.f4wonline.com/rss.xml",
   "approved_publishers": [
@@ -15,6 +15,13 @@
       "show_id": "raw",
       "airdate": "2026-11-02",
       "links": [
+        {
+          "headline": "Isaiah Broner vs. Oxx Adams Set For PRODUCE x Assembly Show, WWE Raw Highlights, More | Fight Size",
+          "url": "https://www.fightful.com/wrestling-news/isaiah-broner-vs-oxx-adams-set-for-produce-x-assembly-show-wwe-raw-highlights-more-fight-size",
+          "published_at": "2026-11-03T23:00:00+00:00",
+          "source_name": "Fightful",
+          "status": "PUBLISHER_HEADLINE_LINK_ONLY"
+        },
         {
           "headline": "Hall’s WWE Raw Review 11.2.26",
           "url": "https://411mania.com/wrestling/halls-wwe-raw-review-11-2-26/",
@@ -41,13 +48,6 @@
           "url": "https://www.tpww.net/2026/11/wwe-raw-results-nov-2-2026-john-cena-special-announcement-solo-sikoa-vs-royce-keys-chad-gable-vs-all-ego-ethan-page/",
           "published_at": "2026-11-02T23:32:33+00:00",
           "source_name": "TPWW",
-          "status": "PUBLISHER_HEADLINE_LINK_ONLY"
-        },
-        {
-          "headline": "WWE Raw live results: Crown Jewel go-home show, John Cena announcement",
-          "url": "https://www.f4wonline.com/news/wwe/wwe-raw-live-results-crown-jewel-go-home-show-john-cena-announcement/",
-          "published_at": "2026-11-02T22:15:00+00:00",
-          "source_name": "F4W / Wrestling Observer",
           "status": "PUBLISHER_HEADLINE_LINK_ONLY"
         }
       ],
