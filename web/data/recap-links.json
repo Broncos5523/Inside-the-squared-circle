@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "mode": "PUBLISHER_RSS_POST_SHOW_LINKS_ONLY",
-  "generated_at": "2026-11-03T20:29:37.483727-05:00",
+  "generated_at": "2026-11-04T00:20:48.492296-05:00",
   "source_name": "Multiple publisher RSS feeds",
   "source_url": "https://www.f4wonline.com/rss.xml",
   "approved_publishers": [
@@ -20,7 +20,8 @@
           "url": "https://www.fightful.com/wrestling-news/isaiah-broner-vs-oxx-adams-set-for-produce-x-assembly-show-wwe-raw-highlights-more-fight-size",
           "published_at": "2026-11-03T23:00:00+00:00",
           "source_name": "Fightful",
-          "status": "PUBLISHER_HEADLINE_LINK_ONLY"
+          "status": "PUBLISHER_HEADLINE_LINK_ONLY",
+          "retained_from_previous": true
         },
         {
           "headline": "Hall’s WWE Raw Review 11.2.26",
@@ -41,7 +42,8 @@
           "url": "https://www.f4wonline.com/news/wwe/ethan-page-chad-gable-intercontinental-title-match-wwe-raw-result/",
           "published_at": "2026-11-03T00:00:28+00:00",
           "source_name": "F4W / Wrestling Observer",
-          "status": "PUBLISHER_HEADLINE_LINK_ONLY"
+          "status": "PUBLISHER_HEADLINE_LINK_ONLY",
+          "retained_from_previous": true
         },
         {
           "headline": "WWE RAW Results – Nov. 2, 2026 – John Cena Special Announcement, Solo Sikoa vs. Royce Keys, Chad Gable vs. “All Ego” Ethan Page",
@@ -249,7 +251,7 @@
     }
   ],
   "total_links": 25,
-  "retained_link_count": 14,
+  "retained_link_count": 16,
   "collection_status": "ok",
   "successful_feed_urls": [
     "https://www.f4wonline.com/rss.xml",
