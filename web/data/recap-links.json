@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "mode": "PUBLISHER_RSS_POST_SHOW_LINKS_ONLY",
-  "generated_at": "2026-11-05T04:23:23.563021-05:00",
+  "generated_at": "2026-11-05T08:38:49.759898-05:00",
   "source_name": "Multiple publisher RSS feeds",
   "source_url": "https://www.f4wonline.com/rss.xml",
   "approved_publishers": [
@@ -132,7 +132,8 @@
           "url": "https://www.ringsidenews.com/wwe-nxt-results-highlights-key-moments-november-4-2026/",
           "published_at": "2026-11-05T00:09:13+00:00",
           "source_name": "Ringside News",
-          "status": "PUBLISHER_HEADLINE_LINK_ONLY"
+          "status": "PUBLISHER_HEADLINE_LINK_ONLY",
+          "retained_from_previous": true
         },
         {
           "headline": "WWE NXT Results 11/4/26",
@@ -230,7 +231,7 @@
     }
   ],
   "total_links": 23,
-  "retained_link_count": 9,
+  "retained_link_count": 10,
   "collection_status": "ok",
   "successful_feed_urls": [
     "https://www.f4wonline.com/rss.xml",
