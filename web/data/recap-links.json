@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "mode": "PUBLISHER_RSS_POST_SHOW_LINKS_ONLY",
-  "generated_at": "2026-11-04T20:33:12.366446-05:00",
+  "generated_at": "2026-11-05T00:22:44.035604-05:00",
   "source_name": "Multiple publisher RSS feeds",
   "source_url": "https://www.f4wonline.com/rss.xml",
   "approved_publishers": [
@@ -125,7 +125,8 @@
           "url": "https://411mania.com/wrestling/halls-tna-impact-wrestling-review-10-29-26/",
           "published_at": "2026-11-01T02:01:39+00:00",
           "source_name": "411Mania",
-          "status": "PUBLISHER_HEADLINE_LINK_ONLY"
+          "status": "PUBLISHER_HEADLINE_LINK_ONLY",
+          "retained_from_previous": true
         },
         {
           "headline": "10/29/26 TNA Impact Recap",
@@ -171,7 +172,7 @@
     }
   ],
   "total_links": 15,
-  "retained_link_count": 8,
+  "retained_link_count": 9,
   "collection_status": "ok",
   "successful_feed_urls": [
     "https://www.f4wonline.com/rss.xml",
