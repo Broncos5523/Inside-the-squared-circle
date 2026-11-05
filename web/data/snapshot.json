@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "mode": "LIVE_SCHEDULES_ONLY",
-  "generated_at": "2026-11-05T05:21:41.044757+00:00",
+  "generated_at": "2026-11-05T09:22:44.075863+00:00",
   "fresh_shows": 6,
   "shows": [
     {
@@ -55,7 +55,7 @@
       "previous": {
         "date": "2026-11-04",
         "time": "20:00",
-        "title": "44"
+        "title": "Main Event: CM Punk vs. Grayson Waller (c) for the NXT Championship"
       },
       "schedule_status": "fresh",
       "confirmed_matches": [],
