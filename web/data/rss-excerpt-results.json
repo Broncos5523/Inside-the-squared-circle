@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "mode": "POST_BROADCAST_RSS_SYNDICATED_EXCERPT_FACTS_UNVERIFIED",
-  "generated_at": "2026-11-04T16:13:04.035264-05:00",
+  "generated_at": "2026-11-04T20:33:29.244812-05:00",
   "policy": "Short factual winner/loser statements only from approved publisher-syndicated RSS descriptions after broadcast. Excerpt not published. Zero is acceptable; no website scraping, source quotes, title changes or storyline inference.",
   "programs": [
     {
@@ -18,9 +18,9 @@
     },
     {
       "show_id": "nxt",
-      "airdate": "2026-10-27",
+      "airdate": null,
       "results": [],
-      "status": "no_explicit_syndicated_results"
+      "status": "no_completed_broadcast"
     },
     {
       "show_id": "aaa",
@@ -47,7 +47,7 @@
     "https://www.f4wonline.com/rss.xml": {
       "items": 50,
       "with_description": 50,
-      "with_defeated_word": 2,
+      "with_defeated_word": 1,
       "with_explicit_outcome_sentence": 0,
       "dated_broadcast_headlines": 0,
       "dated_descriptions_with_outcome": 0,
@@ -107,9 +107,9 @@
     "https://gerweck.net/category/results/feed/": {
       "items": 50,
       "with_description": 50,
-      "with_defeated_word": 12,
+      "with_defeated_word": 11,
       "with_explicit_outcome_sentence": 0,
-      "dated_broadcast_headlines": 4,
+      "dated_broadcast_headlines": 3,
       "dated_descriptions_with_outcome": 0,
       "dated_descriptions_with_victory_word": 0,
       "status": "ok"
@@ -117,7 +117,7 @@
     "https://www.tpww.net/feed/": {
       "items": 50,
       "with_description": 50,
-      "with_defeated_word": 6,
+      "with_defeated_word": 4,
       "with_explicit_outcome_sentence": 0,
       "dated_broadcast_headlines": 1,
       "dated_descriptions_with_outcome": 0,
@@ -137,7 +137,7 @@
     "https://wrestlingheadlines.com/feed/": {
       "items": 50,
       "with_description": 50,
-      "with_defeated_word": 2,
+      "with_defeated_word": 1,
       "with_explicit_outcome_sentence": 0,
       "dated_broadcast_headlines": 0,
       "dated_descriptions_with_outcome": 0,

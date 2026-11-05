@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "mode": "RESEARCH_LEADS_ONLY",
-  "generated_at": "2026-11-04T21:12:12.010749+00:00",
+  "generated_at": "2026-11-05T01:32:34.285407+00:00",
   "policy": "Mentions are NOT confirmations. Do not put candidate matches on the public broadcast.",
   "source": "TheSportsDB (free API); attribution required; no artwork fetched.",
   "programs": [
@@ -25,20 +25,12 @@
     },
     {
       "show_id": "nxt",
-      "airdate": "2026-11-04",
-      "intake_status": "unverified_leads_found",
-      "candidate_count": 2,
+      "airdate": "2026-11-10",
+      "intake_status": "no_parseable_leads",
+      "candidate_count": 0,
       "verified_match_count": 0,
       "verified_appearance_count": 0,
-      "events_considered": [
-        {
-          "event_id": "2624415",
-          "event_title": "NXT #862",
-          "source_url": "https://www.thesportsdb.com/api/v1/json/123/lookupevent.php?id=2624415",
-          "possible_match_mentions": 2,
-          "verification": "NOT_CONFIRMED"
-        }
-      ]
+      "events_considered": []
     },
     {
       "show_id": "aaa",
@@ -70,5 +62,5 @@
   ],
   "verified_matches": [],
   "verified_appearances": [],
-  "total_unverified_possible_match_mentions": 2
+  "total_unverified_possible_match_mentions": 0
 }
