@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "mode": "PUBLISHER_RSS_POST_SHOW_LINKS_ONLY",
-  "generated_at": "2026-11-05T08:38:49.759898-05:00",
+  "generated_at": "2026-11-05T12:29:34.260211-05:00",
   "source_name": "Multiple publisher RSS feeds",
   "source_url": "https://www.f4wonline.com/rss.xml",
   "approved_publishers": [
@@ -107,6 +107,13 @@
       "airdate": "2026-11-04",
       "links": [
         {
+          "headline": "WWE NXT (11/4) Dark Match Results: Elio LeFleur Competes & More",
+          "url": "https://411mania.com/wrestling/wwe-nxt-11-4-dark-match-results-elio-lefleur-competes-more/",
+          "published_at": "2026-11-05T15:06:00+00:00",
+          "source_name": "411Mania",
+          "status": "PUBLISHER_HEADLINE_LINK_ONLY"
+        },
+        {
           "headline": "Hall’s WWE NXT Review 11.4.26",
           "url": "https://411mania.com/wrestling/halls-wwe-nxt-review-11-4-26/",
           "published_at": "2026-11-05T03:07:49+00:00",
@@ -134,13 +141,6 @@
           "source_name": "Ringside News",
           "status": "PUBLISHER_HEADLINE_LINK_ONLY",
           "retained_from_previous": true
-        },
-        {
-          "headline": "WWE NXT Results 11/4/26",
-          "url": "https://wrestlingheadlines.com/wwe-nxt-results-11-4-26/",
-          "published_at": "2026-11-05T00:05:13+00:00",
-          "source_name": "Wrestling Headlines",
-          "status": "PUBLISHER_HEADLINE_LINK_ONLY"
         }
       ],
       "source_name": "Multiple publisher RSS feeds",
@@ -205,6 +205,13 @@
       "airdate": "2026-11-04",
       "links": [
         {
+          "headline": "WWE EVOLVE (11/4) Results: Nikkita Lyons Defends EVOLVE Women’s Title in Fatal Four-Way & More",
+          "url": "https://411mania.com/wrestling/wwe-evolve-11-4-results-nikkita-lyons-defends-evolve-womens-title-fatal-four-way-more/",
+          "published_at": "2026-11-05T14:26:03+00:00",
+          "source_name": "411Mania",
+          "status": "PUBLISHER_HEADLINE_LINK_ONLY"
+        },
+        {
           "headline": "Hall’s WWE Evolve Review 11.4.26",
           "url": "https://411mania.com/wrestling/halls-wwe-evolve-review-11-4-26/",
           "published_at": "2026-11-05T05:35:03+00:00",
@@ -216,7 +223,8 @@
           "url": "https://www.fightful.com/wrestling-news/wwe-evolve-results-11-4",
           "published_at": "2026-11-05T04:30:00+00:00",
           "source_name": "Fightful",
-          "status": "PUBLISHER_HEADLINE_LINK_ONLY"
+          "status": "PUBLISHER_HEADLINE_LINK_ONLY",
+          "retained_from_previous": true
         },
         {
           "headline": "Leighty’s WWE Evolve Review 11.4.26",
@@ -230,8 +238,8 @@
       "status": "publisher_coverage_links"
     }
   ],
-  "total_links": 23,
-  "retained_link_count": 10,
+  "total_links": 24,
+  "retained_link_count": 11,
   "collection_status": "ok",
   "successful_feed_urls": [
     "https://www.f4wonline.com/rss.xml",
