@@ -1,8 +1,8 @@
 {
   "schema_version": 1,
   "mode": "REPORTED_MATCHES_UNVERIFIED",
-  "generated_at": "2026-11-05T20:35:12.904913-05:00",
-  "valid_as_of_et": "2026-11-05",
+  "generated_at": "2026-11-06T00:21:08.886263-05:00",
+  "valid_as_of_et": "2026-11-06",
   "policy": "Opt-in UNVERIFIED match and explicit segment mentions only. May be stale, speculative, misassigned, dark matches, taped show results or subject to change. Not announcements from WWE, AAA or TNA. Taped/early results never withdraw advance cards before scheduled U.S. broadcast completion.",
   "programs": [
     {
@@ -35,7 +35,7 @@
       "display_label": "REPORTED · UNVERIFIED",
       "matches": [],
       "appearances": [],
-      "error": null,
+      "error": "PROVIDER_PARTIAL_OR_UNAVAILABLE",
       "episode_outcome_detected": false,
       "episode_withdrawn": false,
       "episode_outcome_evidence_url": null,
@@ -55,11 +55,11 @@
     },
     {
       "show_id": "tna",
-      "airdate": null,
+      "airdate": "2026-11-12",
       "display_label": "REPORTED · UNVERIFIED",
       "matches": [],
       "appearances": [],
-      "error": null,
+      "error": "PROVIDER_PARTIAL_OR_UNAVAILABLE",
       "episode_outcome_detected": false,
       "episode_withdrawn": false,
       "episode_outcome_evidence_url": null,

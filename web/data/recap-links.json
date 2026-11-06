@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "mode": "PUBLISHER_RSS_POST_SHOW_LINKS_ONLY",
-  "generated_at": "2026-11-05T20:35:38.687870-05:00",
+  "generated_at": "2026-11-06T00:21:38.643636-05:00",
   "source_name": "Multiple publisher RSS feeds",
   "source_url": "https://www.f4wonline.com/rss.xml",
   "approved_publishers": [
@@ -66,7 +66,8 @@
           "url": "https://411mania.com/wrestling/halls-smackdown-review-10-30-26/",
           "published_at": "2026-11-01T15:35:33+00:00",
           "source_name": "411Mania",
-          "status": "PUBLISHER_HEADLINE_LINK_ONLY"
+          "status": "PUBLISHER_HEADLINE_LINK_ONLY",
+          "retained_from_previous": true
         },
         {
           "headline": "Result of WWE Championship match on SmackDown",
@@ -108,6 +109,13 @@
       "airdate": "2026-11-04",
       "links": [
         {
+          "headline": "B&V: AEW Blood and Guts and NXT head-to-head recap show!",
+          "url": "https://www.f4wonline.com/podcasts/bryan-and-vinny-show/bv-aew-blood-and-guts-and-nxt-head-to-head-recap-show/",
+          "published_at": "2026-11-06T05:19:33+00:00",
+          "source_name": "F4W / Wrestling Observer",
+          "status": "PUBLISHER_HEADLINE_LINK_ONLY"
+        },
+        {
           "headline": "WWE NXT (11/4) Dark Match Results: Elio LeFleur Competes & More",
           "url": "https://411mania.com/wrestling/wwe-nxt-11-4-dark-match-results-elio-lefleur-competes-more/",
           "published_at": "2026-11-05T15:06:00+00:00",
@@ -135,14 +143,6 @@
           "published_at": "2026-11-05T00:13:00+00:00",
           "source_name": "F4W / Wrestling Observer",
           "status": "PUBLISHER_HEADLINE_LINK_ONLY"
-        },
-        {
-          "headline": "WWE NXT Results, Highlights and Key Moments for November 4, 2026",
-          "url": "https://www.ringsidenews.com/wwe-nxt-results-highlights-key-moments-november-4-2026/",
-          "published_at": "2026-11-05T00:09:13+00:00",
-          "source_name": "Ringside News",
-          "status": "PUBLISHER_HEADLINE_LINK_ONLY",
-          "retained_from_previous": true
         }
       ],
       "source_name": "Multiple publisher RSS feeds",
@@ -157,46 +157,35 @@
     },
     {
       "show_id": "tna",
-      "airdate": "2026-10-29",
+      "airdate": "2026-11-05",
       "links": [
         {
-          "headline": "Hall’s TNA Impact Wrestling Review 10.29.26",
-          "url": "https://411mania.com/wrestling/halls-tna-impact-wrestling-review-10-29-26/",
-          "published_at": "2026-11-01T02:01:39+00:00",
+          "headline": "Ciocco’s TNA Impact Review 11.5.26",
+          "url": "https://411mania.com/wrestling/cioccos-tna-impact-review-11-5-26/",
+          "published_at": "2026-11-06T04:11:01+00:00",
           "source_name": "411Mania",
-          "status": "PUBLISHER_HEADLINE_LINK_ONLY",
-          "retained_from_previous": true
-        },
-        {
-          "headline": "10/29/26 TNA Impact Recap",
-          "url": "https://gerweck.net/2026/10/30/10-29-26-tna-impact-recap/",
-          "published_at": "2026-10-30T04:07:57+00:00",
-          "source_name": "Gerweck.net",
           "status": "PUBLISHER_HEADLINE_LINK_ONLY"
         },
         {
-          "headline": "Ciocco’s TNA Impact Review 10.29.26",
-          "url": "https://411mania.com/wrestling/cioccos-tna-impact-review-10-29-26/",
-          "published_at": "2026-10-30T03:11:16+00:00",
-          "source_name": "411Mania",
-          "status": "PUBLISHER_HEADLINE_LINK_ONLY",
-          "retained_from_previous": true
-        },
-        {
-          "headline": "TNA Impact! Results – Oct. 29, 2026 – The Hardys vs. syX in Slaughterhouse syX Match, M By Elegance vs. Jada Stone, Amazing Red vs. Cedric Alexander",
-          "url": "https://www.tpww.net/2026/10/tna-impact-results-oct-29-2026-the-hardys-vs-syx-in-slaughterhouse-syx-match-m-by-elegance-vs-jada-stone-amazing-red-vs-cedric-alexander/",
-          "published_at": "2026-10-30T00:52:57+00:00",
-          "source_name": "TPWW",
-          "status": "PUBLISHER_HEADLINE_LINK_ONLY",
-          "retained_from_previous": true
-        },
-        {
-          "headline": "TNA iMPACT! Results (10/29): Slaughterhouse Syx, Amazing Red vs. Cedric Alexander",
-          "url": "https://www.fightful.com/wrestling-news/tna-impact-results-10-29-slaughterhouse-syx-amazing-red-vs-cedric-alexander",
-          "published_at": "2026-10-30T00:35:16+00:00",
+          "headline": "TNA iMPACT! Results (11/5): Nemeths vs. Leon Slater And Amazing Red",
+          "url": "https://www.fightful.com/wrestling-news/tna-impact-results-11-5-nemeths-vs-leon-slater-and-amazing-red",
+          "published_at": "2026-11-06T02:46:33+00:00",
           "source_name": "Fightful",
-          "status": "PUBLISHER_HEADLINE_LINK_ONLY",
-          "retained_from_previous": true
+          "status": "PUBLISHER_HEADLINE_LINK_ONLY"
+        },
+        {
+          "headline": "TNA Impact live results: Ryan & Nic Nemeth vs. Leon Slater & Amazing Red",
+          "url": "https://www.f4wonline.com/news/tna-wrestling/tna-results/tna-impact-live-results-nemeths-slater-amazing-red/",
+          "published_at": "2026-11-06T01:15:00+00:00",
+          "source_name": "F4W / Wrestling Observer",
+          "status": "PUBLISHER_HEADLINE_LINK_ONLY"
+        },
+        {
+          "headline": "TNA iMPACT Results 11/5/26",
+          "url": "https://wrestlingheadlines.com/tna-impact-results-11-5-26/",
+          "published_at": "2026-11-06T00:26:37+00:00",
+          "source_name": "Wrestling Headlines",
+          "status": "PUBLISHER_HEADLINE_LINK_ONLY"
         }
       ],
       "source_name": "Multiple publisher RSS feeds",
@@ -241,8 +230,8 @@
       "status": "publisher_coverage_links"
     }
   ],
-  "total_links": 24,
-  "retained_link_count": 14,
+  "total_links": 23,
+  "retained_link_count": 10,
   "collection_status": "ok",
   "successful_feed_urls": [
     "https://www.f4wonline.com/rss.xml",
