@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "mode": "RESEARCH_LEADS_ONLY",
-  "generated_at": "2026-11-05T21:09:58.117244+00:00",
+  "generated_at": "2026-11-06T01:35:12.064155+00:00",
   "policy": "Mentions are NOT confirmations. Do not put candidate matches on the public broadcast.",
   "source": "TheSportsDB (free API); attribution required; no artwork fetched.",
   "programs": [
@@ -43,8 +43,8 @@
     },
     {
       "show_id": "tna",
-      "airdate": "2026-11-05",
-      "intake_status": "no_parseable_leads",
+      "airdate": null,
+      "intake_status": "no_verified_card_source",
       "candidate_count": 0,
       "verified_match_count": 0,
       "verified_appearance_count": 0,

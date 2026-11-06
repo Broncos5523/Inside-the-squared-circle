@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "mode": "PUBLISHER_RSS_POST_SHOW_LINKS_ONLY",
-  "generated_at": "2026-11-05T16:10:33.704575-05:00",
+  "generated_at": "2026-11-05T20:35:38.687870-05:00",
   "source_name": "Multiple publisher RSS feeds",
   "source_url": "https://www.f4wonline.com/rss.xml",
   "approved_publishers": [
@@ -50,7 +50,8 @@
           "url": "https://www.tpww.net/2026/11/wwe-raw-results-nov-2-2026-john-cena-special-announcement-solo-sikoa-vs-royce-keys-chad-gable-vs-all-ego-ethan-page/",
           "published_at": "2026-11-02T23:32:33+00:00",
           "source_name": "TPWW",
-          "status": "PUBLISHER_HEADLINE_LINK_ONLY"
+          "status": "PUBLISHER_HEADLINE_LINK_ONLY",
+          "retained_from_previous": true
         }
       ],
       "source_name": "Multiple publisher RSS feeds",
@@ -241,7 +242,7 @@
     }
   ],
   "total_links": 24,
-  "retained_link_count": 13,
+  "retained_link_count": 14,
   "collection_status": "ok",
   "successful_feed_urls": [
     "https://www.f4wonline.com/rss.xml",

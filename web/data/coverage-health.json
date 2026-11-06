@@ -1,35 +1,35 @@
 {
   "schema_version": 1,
   "mode": "WRESTLING_CONTENT_COVERAGE_COUNTS_ONLY",
-  "generated_at": "2026-11-05T16:10:56.088396-05:00",
+  "generated_at": "2026-11-05T20:36:02.161900-05:00",
   "source_health": {
     "reported": {
       "fresh": true,
-      "generated_at": "2026-11-05T16:09:58.947081-05:00"
+      "generated_at": "2026-11-05T20:35:12.904913-05:00"
     },
     "results": {
       "fresh": true,
-      "generated_at": "2026-11-05T16:10:05.481515-05:00"
+      "generated_at": "2026-11-05T20:35:13.436817-05:00"
     },
     "rss_facts": {
       "fresh": true,
-      "generated_at": "2026-11-05T16:10:33.915657-05:00"
+      "generated_at": "2026-11-05T20:35:38.827662-05:00"
     },
     "rss_excerpts": {
       "fresh": true,
-      "generated_at": "2026-11-05T16:10:43.500458-05:00"
+      "generated_at": "2026-11-05T20:35:49.944030-05:00"
     },
     "fallout": {
       "fresh": true,
-      "generated_at": "2026-11-05T16:10:54.437056-05:00"
+      "generated_at": "2026-11-05T20:36:00.749159-05:00"
     },
     "recap_links": {
       "fresh": true,
-      "generated_at": "2026-11-05T16:10:33.704575-05:00"
+      "generated_at": "2026-11-05T20:35:38.687870-05:00"
     },
     "episode_briefs": {
       "fresh": true,
-      "generated_at": "2026-11-05T16:10:16.617516-05:00"
+      "generated_at": "2026-11-05T20:35:23.121735-05:00"
     }
   },
   "totals": {
@@ -45,10 +45,10 @@
     "rss_feeds_checked": 10,
     "rss_feeds_responding": 10,
     "rss_items_examined": 345,
-    "rss_dated_episode_headlines": 12,
+    "rss_dated_episode_headlines": 11,
     "rss_dated_headlines_with_explicit_winner": 0,
-    "rss_dated_descriptions_with_victory_word": 2,
-    "rss_descriptions_with_defeated_word": 29,
+    "rss_dated_descriptions_with_victory_word": 1,
+    "rss_descriptions_with_defeated_word": 28,
     "rss_explicit_winner_sentences": 0
   },
   "programs": [
@@ -119,7 +119,7 @@
     {
       "show_id": "tna",
       "last_completed": "2026-10-29",
-      "next_airdate": "2026-11-05",
+      "next_airdate": null,
       "upcoming_reported_matches": 0,
       "upcoming_reported_appearances": 0,
       "upcoming_reviewed_matches": 0,
