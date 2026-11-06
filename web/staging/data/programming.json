@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "mode": "SOURCE_GATED_STAGING",
-  "generated_at": "2026-11-06T17:15:34.390Z",
+  "generated_at": "2026-11-06T21:05:49.642Z",
   "entries": [
     {
       "id": "weekly-upcoming-raw",
@@ -15,7 +15,7 @@
       "verification": "SOURCE_REPORTED",
       "has_content": false,
       "schedule_confirmed": true,
-      "checked_at": "2026-11-06T17:15:34.390Z",
+      "checked_at": "2026-11-06T21:05:49.642Z",
       "source_name": "Published episode schedule",
       "source_url": "https://broncos5523.github.io/Inside-the-squared-circle/data/snapshot.json",
       "venue": {
@@ -33,11 +33,11 @@
       "design_approved": true,
       "content_status": "current",
       "verification": "SOURCE_REPORTED",
-      "has_content": false,
+      "has_content": true,
       "schedule_confirmed": true,
-      "checked_at": "2026-11-06T17:15:34.390Z",
-      "source_name": "Published episode schedule",
-      "source_url": "https://broncos5523.github.io/Inside-the-squared-circle/data/snapshot.json",
+      "checked_at": "2026-11-06T21:05:49.642Z",
+      "source_name": "Wrestling Central News (wrestlingcentralnews.com)",
+      "source_url": "https://wrestlingcentralnews.com/events/2026-11-06-wwe-smackdown/",
       "venue": {
         "arena": "Barclays Center",
         "city": "Brooklyn, NY"
@@ -55,7 +55,7 @@
       "verification": "SOURCE_REPORTED",
       "has_content": true,
       "schedule_confirmed": true,
-      "checked_at": "2026-11-06T17:15:34.390Z",
+      "checked_at": "2026-11-06T21:05:49.642Z",
       "source_name": "Wrestling Central News (wrestlingcentralnews.com)",
       "source_url": "https://wrestlingcentralnews.com/events/2026-11-10-wwe-nxt/",
       "venue": null
@@ -72,7 +72,7 @@
       "verification": "SOURCE_REPORTED",
       "has_content": false,
       "schedule_confirmed": true,
-      "checked_at": "2026-11-06T17:15:34.390Z",
+      "checked_at": "2026-11-06T21:05:49.642Z",
       "source_name": "Published episode schedule",
       "source_url": "https://broncos5523.github.io/Inside-the-squared-circle/data/snapshot.json",
       "venue": null
@@ -89,7 +89,7 @@
       "verification": "SOURCE_REPORTED",
       "has_content": false,
       "schedule_confirmed": true,
-      "checked_at": "2026-11-06T17:15:34.390Z",
+      "checked_at": "2026-11-06T21:05:49.642Z",
       "source_name": "Published episode schedule",
       "source_url": "https://broncos5523.github.io/Inside-the-squared-circle/data/snapshot.json",
       "venue": null
@@ -105,7 +105,7 @@
       "content_status": "current",
       "verification": "EDITORIALLY_VERIFIED",
       "completed": true,
-      "checked_at": "2026-11-06T17:15:34.390Z",
+      "checked_at": "2026-11-06T21:05:49.642Z",
       "source_name": "WWE AAA Héroes Inmortales | Week 1 results, October 24, 2026",
       "source_url": "https://www.wwe.com/shows/aaa/aaa-h-roes-inmortales-week-1-results"
     },
@@ -120,7 +120,7 @@
       "content_status": "current",
       "verification": "OFFICIAL_VERIFIED",
       "completed": true,
-      "checked_at": "2026-11-06T17:15:34.390Z",
+      "checked_at": "2026-11-06T21:05:49.642Z",
       "source_name": "WWE",
       "source_url": "https://www.wwe.com/shows/raw/2026-11-02/results"
     },
@@ -135,7 +135,7 @@
       "content_status": "current",
       "verification": "OFFICIAL_VERIFIED",
       "completed": true,
-      "checked_at": "2026-11-06T17:15:34.390Z",
+      "checked_at": "2026-11-06T21:05:49.642Z",
       "source_name": "WWE",
       "source_url": "https://www.wwe.com/shows/smackdown/2026-10-30/results"
     },
@@ -150,7 +150,7 @@
       "content_status": "current",
       "verification": "OFFICIAL_VERIFIED",
       "completed": true,
-      "checked_at": "2026-11-06T17:15:34.390Z",
+      "checked_at": "2026-11-06T21:05:49.642Z",
       "source_name": "TNA Wrestling",
       "source_url": "https://tnawrestling.com/news/tna-thursday-night-impact-on-amc-results-november-5-2026"
     },
@@ -165,7 +165,7 @@
       "content_status": "current",
       "verification": "SOURCE_CORROBORATED",
       "completed": true,
-      "checked_at": "2026-11-06T17:15:34.390Z",
+      "checked_at": "2026-11-06T21:05:49.642Z",
       "source_name": "Fightful / TPWW",
       "source_url": "https://www.fightful.com/wrestling/aaa-heroes-inmortales-week-two-results-10-31/",
       "source_urls": [
@@ -202,7 +202,7 @@
       "date_confirmed": true,
       "has_content": true,
       "schedule_confirmed": true,
-      "checked_at": "2026-11-06T17:15:34.390Z",
+      "checked_at": "2026-11-06T21:05:49.642Z",
       "source_name": "WWE",
       "source_url": "https://www.wwe.com/shows/wwe-crown-jewel/crown-jewel-2026"
     },
@@ -218,7 +218,7 @@
       "content_status": "current",
       "verification": "OFFICIAL_VERIFIED",
       "completed": true,
-      "checked_at": "2026-11-06T17:15:34.390Z",
+      "checked_at": "2026-11-06T21:05:49.642Z",
       "source_name": "WWE",
       "source_url": "https://www.wwe.com/shows/nxtple/full-nxt-halloween-havoc-2026-results"
     },
@@ -233,7 +233,7 @@
       "design_approved": true,
       "content_status": "current",
       "verification": "OFFICIAL_VERIFIED",
-      "checked_at": "2026-11-06T17:15:34.390Z",
+      "checked_at": "2026-11-06T21:05:49.642Z",
       "source_name": "TNA Wrestling",
       "source_url": "https://tnawrestling.com/roster",
       "source_urls": [
@@ -251,7 +251,7 @@
       "design_approved": true,
       "content_status": "current",
       "verification": "OFFICIAL_VERIFIED",
-      "checked_at": "2026-11-06T17:15:34.390Z",
+      "checked_at": "2026-11-06T21:05:49.642Z",
       "source_name": "WWE",
       "source_url": "https://www.wwe.com/titlehistory/nxt-championship",
       "source_urls": [
@@ -273,7 +273,7 @@
       "design_approved": true,
       "content_status": "current",
       "verification": "OFFICIAL_VERIFIED",
-      "checked_at": "2026-11-06T17:15:34.390Z",
+      "checked_at": "2026-11-06T21:05:49.642Z",
       "source_name": "WWE",
       "source_url": "https://www.wwe.com/titlehistory/wwe-championship",
       "source_urls": [
@@ -296,7 +296,7 @@
       "design_approved": true,
       "content_status": "current",
       "verification": "OFFICIAL_VERIFIED",
-      "checked_at": "2026-11-06T17:15:34.390Z",
+      "checked_at": "2026-11-06T21:05:49.642Z",
       "source_name": "WWE",
       "source_url": "https://www.wwe.com/classics/titlehistory/world-heavyweight-championship",
       "source_urls": [
@@ -318,7 +318,7 @@
       "design_approved": true,
       "content_status": "current",
       "verification": "SOURCE_CORROBORATED",
-      "checked_at": "2026-11-06T17:15:34.390Z",
+      "checked_at": "2026-11-06T21:05:49.642Z",
       "source_name": "Sacnilk / The SmackDown Hotel",
       "source_url": "https://www.sacnilk.com/news/current_lucha_libre_aaa_worldwide_champions_full_list_of_title_holders",
       "source_urls": [
@@ -331,7 +331,7 @@
     "snapshot.json": {
       "schema_version": 1,
       "mode": "LIVE_SCHEDULES_ONLY",
-      "generated_at": "2026-11-06T17:14:29.284312+00:00",
+      "generated_at": "2026-11-06T21:04:41.756313+00:00",
       "fresh_shows": 6,
       "shows": [
         {
@@ -453,9 +453,45 @@
     "reported.json": {
       "schema_version": 1,
       "mode": "REPORTED_MATCHES_UNVERIFIED",
-      "generated_at": "2026-11-06T17:15:34.390Z",
+      "generated_at": "2026-11-06T21:05:49.642Z",
       "display_attribution": "Published weekly show announcements; individual sources retained",
       "programs": [
+        {
+          "show_id": "smackdown",
+          "airdate": "2026-11-06",
+          "matches": [
+            {
+              "text": "CM Punk vs. Kevin Owens",
+              "evidence_url": "https://wrestlingcentralnews.com/events/2026-11-06-wwe-smackdown/",
+              "source_name": "Wrestling Central News (wrestlingcentralnews.com)",
+              "status": "REPORTED_UNVERIFIED"
+            },
+            {
+              "text": "B-Fab & Michin vs. Fatal Influence",
+              "evidence_url": "https://wrestlingcentralnews.com/events/2026-11-06-wwe-smackdown/",
+              "source_name": "Wrestling Central News (wrestlingcentralnews.com)",
+              "status": "REPORTED_UNVERIFIED"
+            },
+            {
+              "text": "Nathan Frazer vs. Damian Priest",
+              "evidence_url": "https://wrestlingcentralnews.com/events/2026-11-06-wwe-smackdown/",
+              "source_name": "Wrestling Central News (wrestlingcentralnews.com)",
+              "status": "REPORTED_UNVERIFIED"
+            },
+            {
+              "text": "Shinsuke Nakamura vs. Tama Tonga",
+              "evidence_url": "https://wrestlingcentralnews.com/events/2026-11-06-wwe-smackdown/",
+              "source_name": "Wrestling Central News (wrestlingcentralnews.com)",
+              "status": "REPORTED_UNVERIFIED"
+            }
+          ],
+          "appearances": [],
+          "start_time": null,
+          "source_name": "Wrestling Central News (wrestlingcentralnews.com)",
+          "source_url": "https://wrestlingcentralnews.com/events/2026-11-06-wwe-smackdown/",
+          "collection_status": "event_page_matches",
+          "schedule_source": "wcn_upcoming_listing"
+        },
         {
           "show_id": "nxt",
           "airdate": "2026-11-10",
@@ -481,7 +517,7 @@
           "schedule_source": "wcn_upcoming_listing"
         }
       ],
-      "total_reported_matches": 2,
+      "total_reported_matches": 6,
       "total_reported_appearances": 0
     },
     "aaa-verified-results.json": {
@@ -842,7 +878,7 @@
     },
     "official-events.json": {
       "mode": "OFFICIAL_WWE_EVENT_PREVIEWS",
-      "generated_at": "2026-11-06T17:15:34.390Z",
+      "generated_at": "2026-11-06T21:05:49.642Z",
       "programs": [
         {
           "event_id": "wwe-crown-jewel-2026",
@@ -851,7 +887,7 @@
           "show": "wwe",
           "event_date": "2026-11-07",
           "source_url": "https://www.wwe.com/shows/wwe-crown-jewel/crown-jewel-2026",
-          "checked_at": "2026-11-06T17:15:34.390Z",
+          "checked_at": "2026-11-06T21:05:49.642Z",
           "verification": "OFFICIAL_VERIFIED",
           "cards": [
             {
@@ -900,7 +936,7 @@
     },
     "official-event-results.json": {
       "mode": "OFFICIAL_WWE_EVENT_RESULTS",
-      "generated_at": "2026-11-06T17:15:34.390Z",
+      "generated_at": "2026-11-06T21:05:49.642Z",
       "programs": [
         {
           "event_id": "nxt-halloween-havoc-2026",
@@ -1003,7 +1039,7 @@
     "champions.json": {
       "schema_version": 1,
       "mode": "SOURCE_CHECKED_CHAMPIONS",
-      "generated_at": "2026-11-06T17:15:34.390Z",
+      "generated_at": "2026-11-06T21:05:49.642Z",
       "programs": [
         {
           "show": "tna",
@@ -1715,7 +1751,7 @@
   "collection": {
     "skipped": false,
     "show_count": 4,
-    "programs_with_data": 1,
+    "programs_with_data": 2,
     "errors": 0,
     "snapshot_fresh": true,
     "official_event_count": 1,

@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "mode": "PUBLISHER_RSS_POST_SHOW_LINKS_ONLY",
-  "generated_at": "2026-11-06T12:15:09.003067-05:00",
+  "generated_at": "2026-11-06T16:05:21.985244-05:00",
   "source_name": "Multiple publisher RSS feeds",
   "source_url": "https://www.f4wonline.com/rss.xml",
   "approved_publishers": [
@@ -160,6 +160,13 @@
       "airdate": "2026-11-05",
       "links": [
         {
+          "headline": "GCW Set To Debut In Mississippi, TNA iMPACT! Highlights, More | Fight Size",
+          "url": "https://www.fightful.com/wrestling-news/gcw-set-to-debut-in-mississippi-tna-impact-highlights-more-fight-size",
+          "published_at": "2026-11-06T19:00:00+00:00",
+          "source_name": "Fightful",
+          "status": "PUBLISHER_HEADLINE_LINK_ONLY"
+        },
+        {
           "headline": "11/5/26 TNA Impact Recap",
           "url": "https://gerweck.net/2026/11/06/11-5-26-tna-impact-recap/",
           "published_at": "2026-11-06T05:56:17+00:00",
@@ -186,13 +193,6 @@
           "url": "https://www.tpww.net/2026/11/tna-impact-results-nov-5-2026-the-nemeths-vs-leon-slater-amazing-red/",
           "published_at": "2026-11-06T01:54:07+00:00",
           "source_name": "TPWW",
-          "status": "PUBLISHER_HEADLINE_LINK_ONLY"
-        },
-        {
-          "headline": "TNA Impact live results: Ryan & Nic Nemeth vs. Leon Slater & Amazing Red",
-          "url": "https://www.f4wonline.com/news/tna-wrestling/tna-results/tna-impact-live-results-nemeths-slater-amazing-red/",
-          "published_at": "2026-11-06T01:15:00+00:00",
-          "source_name": "F4W / Wrestling Observer",
           "status": "PUBLISHER_HEADLINE_LINK_ONLY"
         }
       ],
