@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "mode": "PUBLISHER_RSS_POST_SHOW_LINKS_ONLY",
-  "generated_at": "2026-11-06T00:21:38.643636-05:00",
+  "generated_at": "2026-11-06T04:18:13.044603-05:00",
   "source_name": "Multiple publisher RSS feeds",
   "source_url": "https://www.f4wonline.com/rss.xml",
   "approved_publishers": [
@@ -160,6 +160,13 @@
       "airdate": "2026-11-05",
       "links": [
         {
+          "headline": "11/5/26 TNA Impact Recap",
+          "url": "https://gerweck.net/2026/11/06/11-5-26-tna-impact-recap/",
+          "published_at": "2026-11-06T05:56:17+00:00",
+          "source_name": "Gerweck.net",
+          "status": "PUBLISHER_HEADLINE_LINK_ONLY"
+        },
+        {
           "headline": "Ciocco’s TNA Impact Review 11.5.26",
           "url": "https://411mania.com/wrestling/cioccos-tna-impact-review-11-5-26/",
           "published_at": "2026-11-06T04:11:01+00:00",
@@ -171,6 +178,14 @@
           "url": "https://www.fightful.com/wrestling-news/tna-impact-results-11-5-nemeths-vs-leon-slater-and-amazing-red",
           "published_at": "2026-11-06T02:46:33+00:00",
           "source_name": "Fightful",
+          "status": "PUBLISHER_HEADLINE_LINK_ONLY",
+          "retained_from_previous": true
+        },
+        {
+          "headline": "TNA Impact! Results – Nov. 5, 2026 – The Nemeths vs. Leon Slater & Amazing Red",
+          "url": "https://www.tpww.net/2026/11/tna-impact-results-nov-5-2026-the-nemeths-vs-leon-slater-amazing-red/",
+          "published_at": "2026-11-06T01:54:07+00:00",
+          "source_name": "TPWW",
           "status": "PUBLISHER_HEADLINE_LINK_ONLY"
         },
         {
@@ -178,13 +193,6 @@
           "url": "https://www.f4wonline.com/news/tna-wrestling/tna-results/tna-impact-live-results-nemeths-slater-amazing-red/",
           "published_at": "2026-11-06T01:15:00+00:00",
           "source_name": "F4W / Wrestling Observer",
-          "status": "PUBLISHER_HEADLINE_LINK_ONLY"
-        },
-        {
-          "headline": "TNA iMPACT Results 11/5/26",
-          "url": "https://wrestlingheadlines.com/tna-impact-results-11-5-26/",
-          "published_at": "2026-11-06T00:26:37+00:00",
-          "source_name": "Wrestling Headlines",
           "status": "PUBLISHER_HEADLINE_LINK_ONLY"
         }
       ],
@@ -230,8 +238,8 @@
       "status": "publisher_coverage_links"
     }
   ],
-  "total_links": 23,
-  "retained_link_count": 10,
+  "total_links": 24,
+  "retained_link_count": 11,
   "collection_status": "ok",
   "successful_feed_urls": [
     "https://www.f4wonline.com/rss.xml",
