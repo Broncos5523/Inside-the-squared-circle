@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "mode": "LIVE_SCHEDULES_ONLY",
-  "generated_at": "2026-11-06T21:04:41.756313+00:00",
+  "generated_at": "2026-11-07T01:25:49.130176+00:00",
   "fresh_shows": 6,
   "shows": [
     {
@@ -29,14 +29,14 @@
       "color": "#2385FF",
       "category": "primary",
       "next": {
+        "date": "2026-11-13",
+        "time": "20:00",
+        "title": "#1419 - Amerant Bank Arena in Fort Lauderdale, FL"
+      },
+      "previous": {
         "date": "2026-11-06",
         "time": "20:00",
         "title": "#1418 - Barclays Center in Brooklyn, NY"
-      },
-      "previous": {
-        "date": "2026-10-30",
-        "time": "20:00",
-        "title": "#1417 - Charleston Coliseum in Charleston, WV"
       },
       "schedule_status": "fresh",
       "confirmed_matches": [],

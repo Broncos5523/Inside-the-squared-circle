@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "mode": "SOURCE_GATED_STAGING",
-  "generated_at": "2026-11-06T21:05:49.642Z",
+  "generated_at": "2026-11-07T01:28:23.338Z",
   "entries": [
     {
       "id": "weekly-upcoming-raw",
@@ -15,7 +15,7 @@
       "verification": "SOURCE_REPORTED",
       "has_content": false,
       "schedule_confirmed": true,
-      "checked_at": "2026-11-06T21:05:49.642Z",
+      "checked_at": "2026-11-07T01:28:23.338Z",
       "source_name": "Published episode schedule",
       "source_url": "https://broncos5523.github.io/Inside-the-squared-circle/data/snapshot.json",
       "venue": {
@@ -35,12 +35,12 @@
       "verification": "SOURCE_REPORTED",
       "has_content": true,
       "schedule_confirmed": true,
-      "checked_at": "2026-11-06T21:05:49.642Z",
+      "checked_at": "2026-11-07T01:28:23.338Z",
       "source_name": "Wrestling Central News (wrestlingcentralnews.com)",
       "source_url": "https://wrestlingcentralnews.com/events/2026-11-06-wwe-smackdown/",
       "venue": {
-        "arena": "Barclays Center",
-        "city": "Brooklyn, NY"
+        "arena": "Amerant Bank Arena",
+        "city": "Fort Lauderdale, FL"
       }
     },
     {
@@ -55,7 +55,7 @@
       "verification": "SOURCE_REPORTED",
       "has_content": true,
       "schedule_confirmed": true,
-      "checked_at": "2026-11-06T21:05:49.642Z",
+      "checked_at": "2026-11-07T01:28:23.338Z",
       "source_name": "Wrestling Central News (wrestlingcentralnews.com)",
       "source_url": "https://wrestlingcentralnews.com/events/2026-11-10-wwe-nxt/",
       "venue": null
@@ -72,7 +72,7 @@
       "verification": "SOURCE_REPORTED",
       "has_content": false,
       "schedule_confirmed": true,
-      "checked_at": "2026-11-06T21:05:49.642Z",
+      "checked_at": "2026-11-07T01:28:23.338Z",
       "source_name": "Published episode schedule",
       "source_url": "https://broncos5523.github.io/Inside-the-squared-circle/data/snapshot.json",
       "venue": null
@@ -89,7 +89,7 @@
       "verification": "SOURCE_REPORTED",
       "has_content": false,
       "schedule_confirmed": true,
-      "checked_at": "2026-11-06T21:05:49.642Z",
+      "checked_at": "2026-11-07T01:28:23.338Z",
       "source_name": "Published episode schedule",
       "source_url": "https://broncos5523.github.io/Inside-the-squared-circle/data/snapshot.json",
       "venue": null
@@ -105,7 +105,7 @@
       "content_status": "current",
       "verification": "EDITORIALLY_VERIFIED",
       "completed": true,
-      "checked_at": "2026-11-06T21:05:49.642Z",
+      "checked_at": "2026-11-07T01:28:23.338Z",
       "source_name": "WWE AAA Héroes Inmortales | Week 1 results, October 24, 2026",
       "source_url": "https://www.wwe.com/shows/aaa/aaa-h-roes-inmortales-week-1-results"
     },
@@ -120,9 +120,43 @@
       "content_status": "current",
       "verification": "OFFICIAL_VERIFIED",
       "completed": true,
-      "checked_at": "2026-11-06T21:05:49.642Z",
+      "checked_at": "2026-11-07T01:28:23.338Z",
       "source_name": "WWE",
       "source_url": "https://www.wwe.com/shows/raw/2026-11-02/results"
+    },
+    {
+      "id": "weekly-results-tna",
+      "title": "TNA — Results & Fallout",
+      "show": "tna",
+      "kind": "results",
+      "airdate": "2026-11-05",
+      "source_available": true,
+      "design_approved": true,
+      "content_status": "current",
+      "verification": "OFFICIAL_VERIFIED",
+      "completed": true,
+      "checked_at": "2026-11-07T01:28:23.338Z",
+      "source_name": "TNA Wrestling",
+      "source_url": "https://tnawrestling.com/news/tna-thursday-night-impact-on-amc-results-november-5-2026"
+    },
+    {
+      "id": "weekly-results-aaa",
+      "title": "AAA — Results & Fallout",
+      "show": "aaa",
+      "kind": "results",
+      "airdate": "2026-10-31",
+      "source_available": true,
+      "design_approved": true,
+      "content_status": "current",
+      "verification": "SOURCE_CORROBORATED",
+      "completed": true,
+      "checked_at": "2026-11-07T01:28:23.338Z",
+      "source_name": "Fightful / TPWW",
+      "source_url": "https://www.fightful.com/wrestling/aaa-heroes-inmortales-week-two-results-10-31/",
+      "source_urls": [
+        "https://www.fightful.com/wrestling/aaa-heroes-inmortales-week-two-results-10-31/",
+        "https://www.tpww.net/2026/10/aaa-heroes-inmortales-2026-week-2-results-oct-31-2026-aaa-world-cruiserweight-open-challenge-wagner-brothers-vs-los-vipers/"
+      ]
     },
     {
       "id": "weekly-results-smackdown",
@@ -140,55 +174,6 @@
       "source_url": "https://www.wwe.com/shows/smackdown/2026-10-30/results"
     },
     {
-      "id": "weekly-results-tna",
-      "title": "TNA — Results & Fallout",
-      "show": "tna",
-      "kind": "results",
-      "airdate": "2026-11-05",
-      "source_available": true,
-      "design_approved": true,
-      "content_status": "current",
-      "verification": "OFFICIAL_VERIFIED",
-      "completed": true,
-      "checked_at": "2026-11-06T21:05:49.642Z",
-      "source_name": "TNA Wrestling",
-      "source_url": "https://tnawrestling.com/news/tna-thursday-night-impact-on-amc-results-november-5-2026"
-    },
-    {
-      "id": "weekly-results-aaa",
-      "title": "AAA — Results & Fallout",
-      "show": "aaa",
-      "kind": "results",
-      "airdate": "2026-10-31",
-      "source_available": true,
-      "design_approved": true,
-      "content_status": "current",
-      "verification": "SOURCE_CORROBORATED",
-      "completed": true,
-      "checked_at": "2026-11-06T21:05:49.642Z",
-      "source_name": "Fightful / TPWW",
-      "source_url": "https://www.fightful.com/wrestling/aaa-heroes-inmortales-week-two-results-10-31/",
-      "source_urls": [
-        "https://www.fightful.com/wrestling/aaa-heroes-inmortales-week-two-results-10-31/",
-        "https://www.tpww.net/2026/10/aaa-heroes-inmortales-2026-week-2-results-oct-31-2026-aaa-world-cruiserweight-open-challenge-wagner-brothers-vs-los-vipers/"
-      ]
-    },
-    {
-      "id": "weekly-results-nxt",
-      "title": "NXT — Results & Fallout",
-      "show": "nxt",
-      "kind": "results",
-      "airdate": "2026-10-27",
-      "source_available": true,
-      "design_approved": true,
-      "content_status": "current",
-      "verification": "OFFICIAL_VERIFIED",
-      "completed": true,
-      "checked_at": "2026-11-04T21:13:20.325Z",
-      "source_name": "WWE",
-      "source_url": "https://www.wwe.com/shows/wwenxt/2026-10-27/results"
-    },
-    {
       "id": "preview-crown_jewel_preview_v1_approved_locked_20261027-night_one",
       "title": "Crown Jewel — Preview",
       "show": "wwe",
@@ -202,7 +187,7 @@
       "date_confirmed": true,
       "has_content": true,
       "schedule_confirmed": true,
-      "checked_at": "2026-11-06T21:05:49.642Z",
+      "checked_at": "2026-11-07T01:28:23.338Z",
       "source_name": "WWE",
       "source_url": "https://www.wwe.com/shows/wwe-crown-jewel/crown-jewel-2026"
     },
@@ -218,7 +203,7 @@
       "content_status": "current",
       "verification": "OFFICIAL_VERIFIED",
       "completed": true,
-      "checked_at": "2026-11-06T21:05:49.642Z",
+      "checked_at": "2026-11-07T01:28:23.338Z",
       "source_name": "WWE",
       "source_url": "https://www.wwe.com/shows/nxtple/full-nxt-halloween-havoc-2026-results"
     },
@@ -233,7 +218,7 @@
       "design_approved": true,
       "content_status": "current",
       "verification": "OFFICIAL_VERIFIED",
-      "checked_at": "2026-11-06T21:05:49.642Z",
+      "checked_at": "2026-11-07T01:28:23.338Z",
       "source_name": "TNA Wrestling",
       "source_url": "https://tnawrestling.com/roster",
       "source_urls": [
@@ -251,7 +236,7 @@
       "design_approved": true,
       "content_status": "current",
       "verification": "OFFICIAL_VERIFIED",
-      "checked_at": "2026-11-06T21:05:49.642Z",
+      "checked_at": "2026-11-07T01:28:23.338Z",
       "source_name": "WWE",
       "source_url": "https://www.wwe.com/titlehistory/nxt-championship",
       "source_urls": [
@@ -273,7 +258,7 @@
       "design_approved": true,
       "content_status": "current",
       "verification": "OFFICIAL_VERIFIED",
-      "checked_at": "2026-11-06T21:05:49.642Z",
+      "checked_at": "2026-11-07T01:28:23.338Z",
       "source_name": "WWE",
       "source_url": "https://www.wwe.com/titlehistory/wwe-championship",
       "source_urls": [
@@ -296,7 +281,7 @@
       "design_approved": true,
       "content_status": "current",
       "verification": "OFFICIAL_VERIFIED",
-      "checked_at": "2026-11-06T21:05:49.642Z",
+      "checked_at": "2026-11-07T01:28:23.338Z",
       "source_name": "WWE",
       "source_url": "https://www.wwe.com/classics/titlehistory/world-heavyweight-championship",
       "source_urls": [
@@ -318,7 +303,7 @@
       "design_approved": true,
       "content_status": "current",
       "verification": "SOURCE_CORROBORATED",
-      "checked_at": "2026-11-06T21:05:49.642Z",
+      "checked_at": "2026-11-07T01:28:23.338Z",
       "source_name": "Sacnilk / The SmackDown Hotel",
       "source_url": "https://www.sacnilk.com/news/current_lucha_libre_aaa_worldwide_champions_full_list_of_title_holders",
       "source_urls": [
@@ -331,7 +316,7 @@
     "snapshot.json": {
       "schema_version": 1,
       "mode": "LIVE_SCHEDULES_ONLY",
-      "generated_at": "2026-11-06T21:04:41.756313+00:00",
+      "generated_at": "2026-11-07T01:25:49.130176+00:00",
       "fresh_shows": 6,
       "shows": [
         {
@@ -361,12 +346,12 @@
           "next": {
             "date": "2026-11-06",
             "time": "20:00",
-            "title": "#1418 - Barclays Center in Brooklyn, NY"
+            "title": "#1419 - Amerant Bank Arena in Fort Lauderdale, FL"
           },
           "previous": {
             "date": "2026-10-30",
             "time": "20:00",
-            "title": "#1417 - Charleston Coliseum in Charleston, WV"
+            "title": "#1418 - Barclays Center in Brooklyn, NY"
           },
           "schedule_status": "fresh",
           "confirmed_matches": [],
@@ -383,7 +368,7 @@
             "title": "45"
           },
           "previous": {
-            "date": "2026-10-27",
+            "date": "2026-11-04",
             "time": "20:00",
             "title": "Main Event: CM Punk vs. Grayson Waller (c) for the NXT Championship"
           },
@@ -453,7 +438,7 @@
     "reported.json": {
       "schema_version": 1,
       "mode": "REPORTED_MATCHES_UNVERIFIED",
-      "generated_at": "2026-11-06T21:05:49.642Z",
+      "generated_at": "2026-11-07T01:28:23.338Z",
       "display_attribution": "Published weekly show announcements; individual sources retained",
       "programs": [
         {
@@ -480,6 +465,12 @@
             },
             {
               "text": "Shinsuke Nakamura vs. Tama Tonga",
+              "evidence_url": "https://wrestlingcentralnews.com/events/2026-11-06-wwe-smackdown/",
+              "source_name": "Wrestling Central News (wrestlingcentralnews.com)",
+              "status": "REPORTED_UNVERIFIED"
+            },
+            {
+              "text": "B-Fab and Michin vs. Fatal Influence's Lainey Reid and Fallon Henley",
               "evidence_url": "https://wrestlingcentralnews.com/events/2026-11-06-wwe-smackdown/",
               "source_name": "Wrestling Central News (wrestlingcentralnews.com)",
               "status": "REPORTED_UNVERIFIED"
@@ -517,7 +508,7 @@
           "schedule_source": "wcn_upcoming_listing"
         }
       ],
-      "total_reported_matches": 6,
+      "total_reported_matches": 7,
       "total_reported_appearances": 0
     },
     "aaa-verified-results.json": {
@@ -646,6 +637,68 @@
         }
       ]
     },
+    "tna-verified-results.json": {
+      "schema_version": 1,
+      "mode": "OFFICIAL_EXTRACTED_RESULTS",
+      "source_policy": "Only explicit match winners directly extracted from dated official source; not human editorial review. Winners-only original approved portraits; never invent matches or champions.",
+      "programs": [
+        {
+          "show_id": "tna",
+          "airdate": "2026-11-05",
+          "venue": null,
+          "location": null,
+          "source_name": "TNA Wrestling official TNA results, 2026-11-05",
+          "source_url": "https://tnawrestling.com/news/tna-thursday-night-impact-on-amc-results-november-5-2026",
+          "verification": "OFFICIAL_SOURCE_EXTRACTED",
+          "segments": [
+            {
+              "id": "official-tna-2026-11-05-1",
+              "kind": "result",
+              "category": "MATCH RESULT",
+              "strap": "OFFICIAL MATCH RESULT",
+              "headline": "FRANKIE KAZARIAN & AVERY STYLES",
+              "subhead": "def. Hunter James & Alexander Lev - Tag Team Match",
+              "detail": "OFFICIAL RESULTS • November 5, 2026",
+              "portraits": [
+                "frankie-kazarian",
+                "avery-styles"
+              ],
+              "portrait_rule": "winners_only",
+              "ticker": "FRANKIE KAZARIAN & AVERY STYLES DEFEATS HUNTER JAMES & ALEXANDER LEV - TAG TEAM MATCH"
+            },
+            {
+              "id": "official-tna-2026-11-05-2",
+              "kind": "result",
+              "category": "SINGLES MATCH",
+              "strap": "OFFICIAL MATCH RESULT",
+              "headline": "EDDIE EDWARDS",
+              "subhead": "def. Bear Bronson",
+              "detail": "SINGLES MATCH • November 5, 2026",
+              "portraits": [
+                "eddie-edwards"
+              ],
+              "portrait_rule": "winners_only",
+              "ticker": "EDDIE EDWARDS DEFEATS BEAR BRONSON"
+            },
+            {
+              "id": "official-tna-2026-11-05-3",
+              "kind": "result",
+              "category": "MATCH RESULT",
+              "strap": "OFFICIAL MATCH RESULT",
+              "headline": "ALLIE & SHOTZI BLACKHEART",
+              "subhead": "def. Fire 'n Flava (Tasha Steelz & Kiera Hogan) - Tag Team Match",
+              "detail": "OFFICIAL RESULTS • November 5, 2026",
+              "portraits": [
+                "allie",
+                "shotzi-blackheart"
+              ],
+              "portrait_rule": "winners_only",
+              "ticker": "ALLIE & SHOTZI BLACKHEART DEFEATS FIRE 'N FLAVA (TASHA STEELZ & KIERA HOGAN) - TAG TEAM MATCH"
+            }
+          ]
+        }
+      ]
+    },
     "smackdown-verified-results.json": {
       "schema_version": 1,
       "mode": "OFFICIAL_EXTRACTED_RESULTS",
@@ -723,162 +776,9 @@
         }
       ]
     },
-    "tna-verified-results.json": {
-      "schema_version": 1,
-      "mode": "OFFICIAL_EXTRACTED_RESULTS",
-      "source_policy": "Only explicit match winners directly extracted from dated official source; not human editorial review. Winners-only original approved portraits; never invent matches or champions.",
-      "programs": [
-        {
-          "show_id": "tna",
-          "airdate": "2026-11-05",
-          "venue": null,
-          "location": null,
-          "source_name": "TNA Wrestling official TNA results, 2026-11-05",
-          "source_url": "https://tnawrestling.com/news/tna-thursday-night-impact-on-amc-results-november-5-2026",
-          "verification": "OFFICIAL_SOURCE_EXTRACTED",
-          "segments": [
-            {
-              "id": "official-tna-2026-11-05-1",
-              "kind": "result",
-              "category": "MATCH RESULT",
-              "strap": "OFFICIAL MATCH RESULT",
-              "headline": "FRANKIE KAZARIAN & AVERY STYLES",
-              "subhead": "def. Hunter James & Alexander Lev - Tag Team Match",
-              "detail": "OFFICIAL RESULTS • November 5, 2026",
-              "portraits": [
-                "frankie-kazarian",
-                "avery-styles"
-              ],
-              "portrait_rule": "winners_only",
-              "ticker": "FRANKIE KAZARIAN & AVERY STYLES DEFEATS HUNTER JAMES & ALEXANDER LEV - TAG TEAM MATCH"
-            },
-            {
-              "id": "official-tna-2026-11-05-2",
-              "kind": "result",
-              "category": "SINGLES MATCH",
-              "strap": "OFFICIAL MATCH RESULT",
-              "headline": "EDDIE EDWARDS",
-              "subhead": "def. Bear Bronson",
-              "detail": "SINGLES MATCH • November 5, 2026",
-              "portraits": [
-                "eddie-edwards"
-              ],
-              "portrait_rule": "winners_only",
-              "ticker": "EDDIE EDWARDS DEFEATS BEAR BRONSON"
-            },
-            {
-              "id": "official-tna-2026-11-05-3",
-              "kind": "result",
-              "category": "MATCH RESULT",
-              "strap": "OFFICIAL MATCH RESULT",
-              "headline": "ALLIE & SHOTZI BLACKHEART",
-              "subhead": "def. Fire 'n Flava (Tasha Steelz & Kiera Hogan) - Tag Team Match",
-              "detail": "OFFICIAL RESULTS • November 5, 2026",
-              "portraits": [
-                "allie",
-                "shotzi-blackheart"
-              ],
-              "portrait_rule": "winners_only",
-              "ticker": "ALLIE & SHOTZI BLACKHEART DEFEATS FIRE 'N FLAVA (TASHA STEELZ & KIERA HOGAN) - TAG TEAM MATCH"
-            }
-          ]
-        }
-      ]
-    },
-    "nxt-verified-results.json": {
-      "schema_version": 1,
-      "mode": "OFFICIAL_EXTRACTED_RESULTS",
-      "source_policy": "Only explicit match winners directly extracted from dated official source; not human editorial review. Winners-only original approved portraits; never invent matches or champions.",
-      "programs": [
-        {
-          "show_id": "nxt",
-          "airdate": "2026-10-27",
-          "venue": null,
-          "location": null,
-          "source_name": "WWE official NXT results, 2026-10-27",
-          "source_url": "https://www.wwe.com/shows/wwenxt/2026-10-27/results",
-          "verification": "OFFICIAL_SOURCE_EXTRACTED",
-          "segments": [
-            {
-              "id": "official-nxt-2026-10-27-1",
-              "kind": "result",
-              "category": "DUSTY RHODES TAG TEAM CLASSIC",
-              "strap": "OFFICIAL MATCH RESULT",
-              "headline": "ROMEO MORENO & NOAM DAR",
-              "subhead": "def. The Vanity Project",
-              "detail": "DUSTY RHODES TAG TEAM CLASSIC • October 27, 2026",
-              "portraits": [
-                "romeo-moreno",
-                "noam-dar"
-              ],
-              "portrait_rule": "winners_only",
-              "ticker": "ROMEO MORENO & NOAM DAR DEFEATS THE VANITY PROJECT"
-            },
-            {
-              "id": "official-nxt-2026-10-27-2",
-              "kind": "result",
-              "category": "MATCH RESULT",
-              "strap": "OFFICIAL MATCH RESULT",
-              "headline": "CHANTEL MONROE",
-              "subhead": "def. Lizzy Rain",
-              "detail": "OFFICIAL RESULTS • October 27, 2026",
-              "portraits": [
-                "chantel-monroe"
-              ],
-              "portrait_rule": "winners_only",
-              "ticker": "CHANTEL MONROE DEFEATS LIZZY RAIN"
-            },
-            {
-              "id": "official-nxt-2026-10-27-3",
-              "kind": "result",
-              "category": "MATCH RESULT",
-              "strap": "OFFICIAL MATCH RESULT",
-              "headline": "SEAN LEGACY",
-              "subhead": "def. Saquon Shugars",
-              "detail": "OFFICIAL RESULTS • October 27, 2026",
-              "portraits": [
-                "sean-legacy"
-              ],
-              "portrait_rule": "winners_only",
-              "ticker": "SEAN LEGACY DEFEATS SAQUON SHUGARS"
-            },
-            {
-              "id": "official-nxt-2026-10-27-4",
-              "kind": "result",
-              "category": "DUSTY RHODES TAG TEAM CLASSIC",
-              "strap": "OFFICIAL MATCH RESULT",
-              "headline": "HANK & TANK",
-              "subhead": "def. El Hijo de Dr. Wagner Jr. & Galeno",
-              "detail": "DUSTY RHODES TAG TEAM CLASSIC • October 27, 2026",
-              "portraits": [
-                "hank-walker",
-                "tank-ledger"
-              ],
-              "portrait_rule": "winners_only",
-              "ticker": "HANK & TANK DEFEATS EL HIJO DE DR. WAGNER JR. & GALENO"
-            },
-            {
-              "id": "official-nxt-2026-10-27-5",
-              "kind": "result",
-              "category": "MATCH RESULT",
-              "strap": "CHAMPIONSHIP RESULT",
-              "headline": "JACKSON DRAKE",
-              "subhead": "def. EK Prosper",
-              "detail": "OFFICIAL RESULTS • October 27, 2026",
-              "portraits": [
-                "jackson-drake"
-              ],
-              "portrait_rule": "winners_only",
-              "belt": "nxt_north_american.png",
-              "ticker": "JACKSON DRAKE DEFEATS EK PROSPER"
-            }
-          ]
-        }
-      ]
-    },
     "official-events.json": {
       "mode": "OFFICIAL_WWE_EVENT_PREVIEWS",
-      "generated_at": "2026-11-06T21:05:49.642Z",
+      "generated_at": "2026-11-07T01:28:23.338Z",
       "programs": [
         {
           "event_id": "wwe-crown-jewel-2026",
@@ -887,7 +787,7 @@
           "show": "wwe",
           "event_date": "2026-11-07",
           "source_url": "https://www.wwe.com/shows/wwe-crown-jewel/crown-jewel-2026",
-          "checked_at": "2026-11-06T21:05:49.642Z",
+          "checked_at": "2026-11-07T01:28:23.338Z",
           "verification": "OFFICIAL_VERIFIED",
           "cards": [
             {
@@ -936,7 +836,7 @@
     },
     "official-event-results.json": {
       "mode": "OFFICIAL_WWE_EVENT_RESULTS",
-      "generated_at": "2026-11-06T21:05:49.642Z",
+      "generated_at": "2026-11-07T01:28:23.338Z",
       "programs": [
         {
           "event_id": "nxt-halloween-havoc-2026",
@@ -1039,7 +939,7 @@
     "champions.json": {
       "schema_version": 1,
       "mode": "SOURCE_CHECKED_CHAMPIONS",
-      "generated_at": "2026-11-06T21:05:49.642Z",
+      "generated_at": "2026-11-07T01:28:23.338Z",
       "programs": [
         {
           "show": "tna",
@@ -1758,9 +1658,10 @@
     "official_event_warnings": [],
     "approved_result_count": 1,
     "approved_result_warnings": [],
-    "official_weekly_result_count": 3,
+    "official_weekly_result_count": 2,
     "official_weekly_warnings": [
       "nxt:Official results HTTP 404",
+      "smackdown:Official results HTTP 404",
       "aaa:Too few or too many explicit match results in official article"
     ],
     "evolve_verified_count": 0,

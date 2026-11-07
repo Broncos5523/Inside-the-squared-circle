@@ -1,35 +1,35 @@
 {
   "schema_version": 1,
   "mode": "WRESTLING_CONTENT_COVERAGE_COUNTS_ONLY",
-  "generated_at": "2026-11-06T16:05:45.769249-05:00",
+  "generated_at": "2026-11-06T20:28:19.718762-05:00",
   "source_health": {
     "reported": {
       "fresh": true,
-      "generated_at": "2026-11-06T16:04:48.548291-05:00"
+      "generated_at": "2026-11-06T20:25:56.243675-05:00"
     },
     "results": {
       "fresh": true,
-      "generated_at": "2026-11-06T16:04:55.145470-05:00"
+      "generated_at": "2026-11-06T20:26:03.040314-05:00"
     },
     "rss_facts": {
       "fresh": true,
-      "generated_at": "2026-11-06T16:05:22.193019-05:00"
+      "generated_at": "2026-11-06T20:27:05.530949-05:00"
     },
     "rss_excerpts": {
       "fresh": true,
-      "generated_at": "2026-11-06T16:05:32.431742-05:00"
+      "generated_at": "2026-11-06T20:28:00.232968-05:00"
     },
     "fallout": {
       "fresh": true,
-      "generated_at": "2026-11-06T16:05:43.424068-05:00"
+      "generated_at": "2026-11-06T20:28:17.630411-05:00"
     },
     "recap_links": {
       "fresh": true,
-      "generated_at": "2026-11-06T16:05:21.985244-05:00"
+      "generated_at": "2026-11-06T20:27:05.346189-05:00"
     },
     "episode_briefs": {
       "fresh": true,
-      "generated_at": "2026-11-06T16:05:06.574303-05:00"
+      "generated_at": "2026-11-06T20:26:12.302653-05:00"
     }
   },
   "totals": {
@@ -41,14 +41,14 @@
     "automatic_storylines": 0,
     "manually_reviewed_outcomes": 0,
     "manually_reviewed_storylines": 0,
-    "publisher_headline_links": 24,
+    "publisher_headline_links": 19,
     "rss_feeds_checked": 10,
-    "rss_feeds_responding": 10,
-    "rss_items_examined": 345,
+    "rss_feeds_responding": 7,
+    "rss_items_examined": 195,
     "rss_dated_episode_headlines": 12,
     "rss_dated_headlines_with_explicit_winner": 0,
     "rss_dated_descriptions_with_victory_word": 2,
-    "rss_descriptions_with_defeated_word": 25,
+    "rss_descriptions_with_defeated_word": 16,
     "rss_explicit_winner_sentences": 1
   },
   "programs": [
@@ -70,8 +70,8 @@
     },
     {
       "show_id": "smackdown",
-      "last_completed": "2026-10-30",
-      "next_airdate": "2026-11-06",
+      "last_completed": null,
+      "next_airdate": "2026-11-13",
       "upcoming_reported_matches": 0,
       "upcoming_reported_appearances": 0,
       "upcoming_reviewed_matches": 0,
@@ -80,8 +80,8 @@
       "automatic_storylines": 0,
       "manually_reviewed_outcomes": 0,
       "manually_reviewed_storylines": 0,
-      "episode_synopsis_available": true,
-      "publisher_headline_links": 5,
+      "episode_synopsis_available": false,
+      "publisher_headline_links": 0,
       "results_data_status": "no_usable_result_facts"
     },
     {

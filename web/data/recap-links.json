@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "mode": "PUBLISHER_RSS_POST_SHOW_LINKS_ONLY",
-  "generated_at": "2026-11-06T16:05:21.985244-05:00",
+  "generated_at": "2026-11-06T20:27:05.346189-05:00",
   "source_name": "Multiple publisher RSS feeds",
   "source_url": "https://www.f4wonline.com/rss.xml",
   "approved_publishers": [
@@ -59,50 +59,10 @@
     },
     {
       "show_id": "smackdown",
-      "airdate": "2026-10-30",
-      "links": [
-        {
-          "headline": "Hall’s WWE Smackdown Review 10.30.26",
-          "url": "https://411mania.com/wrestling/halls-smackdown-review-10-30-26/",
-          "published_at": "2026-11-01T15:35:33+00:00",
-          "source_name": "411Mania",
-          "status": "PUBLISHER_HEADLINE_LINK_ONLY",
-          "retained_from_previous": true
-        },
-        {
-          "headline": "Result of WWE Championship match on SmackDown",
-          "url": "https://www.f4wonline.com/news/wwe/result-of-wwe-championship-match-on-smackdown/",
-          "published_at": "2026-10-31T02:42:17+00:00",
-          "source_name": "F4W / Wrestling Observer",
-          "status": "PUBLISHER_HEADLINE_LINK_ONLY",
-          "retained_from_previous": true
-        },
-        {
-          "headline": "Winfree’s WWE Smackdown Review 10.30.26",
-          "url": "https://411mania.com/wrestling/winfrees-wwe-smackdown-review-10-30-26/",
-          "published_at": "2026-10-31T02:12:46+00:00",
-          "source_name": "411Mania",
-          "status": "PUBLISHER_HEADLINE_LINK_ONLY",
-          "retained_from_previous": true
-        },
-        {
-          "headline": "WWE Danhausen’s Very Nice, Very Evil SmackDown Results, Highlights and Key Moments for October 30, 2026",
-          "url": "https://www.ringsidenews.com/wwe-danhausens-very-nice-very-evil-smackdown-results-highlights-key-moments-october-30-2026/",
-          "published_at": "2026-10-30T23:31:00+00:00",
-          "source_name": "Ringside News",
-          "status": "PUBLISHER_HEADLINE_LINK_ONLY",
-          "retained_from_previous": true
-        },
-        {
-          "headline": "WWE SmackDown live results: Three championship matches, Danhausen Halloween special",
-          "url": "https://www.f4wonline.com/news/wwe/results/wwe-smackdown-live-results-october-30-2026/",
-          "published_at": "2026-10-30T23:15:00+00:00",
-          "source_name": "F4W / Wrestling Observer",
-          "status": "PUBLISHER_HEADLINE_LINK_ONLY"
-        }
-      ],
+      "airdate": null,
+      "links": [],
       "source_name": "Multiple publisher RSS feeds",
-      "status": "publisher_coverage_links"
+      "status": "no_matching_published_coverage"
     },
     {
       "show_id": "nxt",
@@ -142,7 +102,8 @@
           "url": "https://www.f4wonline.com/news/nxt/nxt-results/wwe-nxt-live-results-cm-punk-grayson-waller/",
           "published_at": "2026-11-05T00:13:00+00:00",
           "source_name": "F4W / Wrestling Observer",
-          "status": "PUBLISHER_HEADLINE_LINK_ONLY"
+          "status": "PUBLISHER_HEADLINE_LINK_ONLY",
+          "retained_from_previous": true
         }
       ],
       "source_name": "Multiple publisher RSS feeds",
@@ -160,11 +121,19 @@
       "airdate": "2026-11-05",
       "links": [
         {
+          "headline": "Hall’s Impact Wrestling Review – 11.5.26",
+          "url": "https://411mania.com/wrestling/halls-impact-wrestling-review-11-5-26/",
+          "published_at": "2026-11-07T01:16:59+00:00",
+          "source_name": "411Mania",
+          "status": "PUBLISHER_HEADLINE_LINK_ONLY"
+        },
+        {
           "headline": "GCW Set To Debut In Mississippi, TNA iMPACT! Highlights, More | Fight Size",
           "url": "https://www.fightful.com/wrestling-news/gcw-set-to-debut-in-mississippi-tna-impact-highlights-more-fight-size",
           "published_at": "2026-11-06T19:00:00+00:00",
           "source_name": "Fightful",
-          "status": "PUBLISHER_HEADLINE_LINK_ONLY"
+          "status": "PUBLISHER_HEADLINE_LINK_ONLY",
+          "retained_from_previous": true
         },
         {
           "headline": "11/5/26 TNA Impact Recap",
@@ -187,13 +156,6 @@
           "source_name": "Fightful",
           "status": "PUBLISHER_HEADLINE_LINK_ONLY",
           "retained_from_previous": true
-        },
-        {
-          "headline": "TNA Impact! Results – Nov. 5, 2026 – The Nemeths vs. Leon Slater & Amazing Red",
-          "url": "https://www.tpww.net/2026/11/tna-impact-results-nov-5-2026-the-nemeths-vs-leon-slater-amazing-red/",
-          "published_at": "2026-11-06T01:54:07+00:00",
-          "source_name": "TPWW",
-          "status": "PUBLISHER_HEADLINE_LINK_ONLY"
         }
       ],
       "source_name": "Multiple publisher RSS feeds",
@@ -238,13 +200,12 @@
       "status": "publisher_coverage_links"
     }
   ],
-  "total_links": 24,
-  "retained_link_count": 11,
+  "total_links": 19,
+  "retained_link_count": 9,
   "collection_status": "ok",
   "successful_feed_urls": [
     "https://www.f4wonline.com/rss.xml",
     "https://www.f4wonline.com/category/news/wwe/results/feed/",
-    "https://www.f4wonline.com/category/news/nxt/nxt-results/feed/",
     "https://411mania.com/wrestling/feed/",
     "https://411mania.com/wrestling/category/tv-report/feed/",
     "https://www.fightful.com/wrestling/rss",

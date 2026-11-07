@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "mode": "RESEARCH_LEADS_ONLY",
-  "generated_at": "2026-11-06T21:04:46.996865+00:00",
+  "generated_at": "2026-11-07T01:25:54.569350+00:00",
   "policy": "Mentions are NOT confirmations. Do not put candidate matches on the public broadcast.",
   "source": "TheSportsDB (free API); attribution required; no artwork fetched.",
   "programs": [
@@ -16,12 +16,20 @@
     },
     {
       "show_id": "smackdown",
-      "airdate": "2026-11-06",
+      "airdate": "2026-11-13",
       "intake_status": "no_parseable_leads",
       "candidate_count": 0,
       "verified_match_count": 0,
       "verified_appearance_count": 0,
-      "events_considered": []
+      "events_considered": [
+        {
+          "event_id": "2624417",
+          "event_title": "SmackDown #1421",
+          "source_url": "https://www.thesportsdb.com/api/v1/json/123/lookupevent.php?id=2624417",
+          "possible_match_mentions": 0,
+          "verification": "NOT_CONFIRMED"
+        }
+      ]
     },
     {
       "show_id": "nxt",
