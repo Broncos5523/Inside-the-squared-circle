@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "mode": "LIVE_SCHEDULES_ONLY",
-  "generated_at": "2026-11-07T01:25:49.130176+00:00",
+  "generated_at": "2026-11-08T20:20:47.381734+00:00",
   "fresh_shows": 6,
   "shows": [
     {
@@ -66,15 +66,11 @@
       "name": "LUCHA LIBRE AAA",
       "color": "#21C6AE",
       "category": "primary",
-      "next": {
+      "next": null,
+      "previous": {
         "date": "2026-11-07",
         "time": null,
         "title": "#42 - Héroes Inmortales (Week 3)"
-      },
-      "previous": {
-        "date": "2026-10-31",
-        "time": null,
-        "title": "#41 - Héroes Inmortales (Week 2)"
       },
       "schedule_status": "fresh",
       "confirmed_matches": [],

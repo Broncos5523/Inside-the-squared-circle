@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "mode": "PUBLISHER_RSS_POST_SHOW_LINKS_ONLY",
-  "generated_at": "2026-11-06T20:27:05.346189-05:00",
+  "generated_at": "2026-11-08T15:21:26.116372-05:00",
   "source_name": "Multiple publisher RSS feeds",
   "source_url": "https://www.f4wonline.com/rss.xml",
   "approved_publishers": [
@@ -28,14 +28,16 @@
           "url": "https://411mania.com/wrestling/halls-wwe-raw-review-11-2-26/",
           "published_at": "2026-11-03T01:52:38+00:00",
           "source_name": "411Mania",
-          "status": "PUBLISHER_HEADLINE_LINK_ONLY"
+          "status": "PUBLISHER_HEADLINE_LINK_ONLY",
+          "retained_from_previous": true
         },
         {
           "headline": "Cook’s WWE Raw Review 11.2.26",
           "url": "https://411mania.com/wrestling/cooks-wwe-raw-review-11-2-26/",
           "published_at": "2026-11-03T01:44:15+00:00",
           "source_name": "411Mania",
-          "status": "PUBLISHER_HEADLINE_LINK_ONLY"
+          "status": "PUBLISHER_HEADLINE_LINK_ONLY",
+          "retained_from_previous": true
         },
         {
           "headline": "Result of Chad Gable vs. Ethan Page Intercontinental title match on WWE Raw",
@@ -59,10 +61,46 @@
     },
     {
       "show_id": "smackdown",
-      "airdate": null,
-      "links": [],
+      "airdate": "2026-11-06",
+      "links": [
+        {
+          "headline": "Hall’s WWE Smackdown Review 11.6.26",
+          "url": "https://411mania.com/wrestling/halls-wwe-smackdown-review-11-6-26/",
+          "published_at": "2026-11-07T05:27:42+00:00",
+          "source_name": "411Mania",
+          "status": "PUBLISHER_HEADLINE_LINK_ONLY"
+        },
+        {
+          "headline": "Winfree’s WWE Smackdown Review 11.06.26",
+          "url": "https://411mania.com/wrestling/winfrees-wwe-smackdown-review-11-06-26/",
+          "published_at": "2026-11-07T03:11:26+00:00",
+          "source_name": "411Mania",
+          "status": "PUBLISHER_HEADLINE_LINK_ONLY"
+        },
+        {
+          "headline": "WWE SmackDown Results – Nov. 6, 2026 – B-Fab & Michin vs. Fatal Influence, CM Punk vs. Kevin Owens In No Holds Barred Match",
+          "url": "https://www.tpww.net/2026/11/wwe-smackdown-results-nov-6-2026-b-fab-michin-vs-fatal-influence-cm-punk-vs-kevin-owens-in-no-holds-barred-match/",
+          "published_at": "2026-11-07T00:53:51+00:00",
+          "source_name": "TPWW",
+          "status": "PUBLISHER_HEADLINE_LINK_ONLY"
+        },
+        {
+          "headline": "WWE SmackDown Results 11/6/26",
+          "url": "https://gerweck.net/2026/11/06/wwe-smackdown-results-11-6-26/",
+          "published_at": "2026-11-07T00:38:12+00:00",
+          "source_name": "Gerweck.net",
+          "status": "PUBLISHER_HEADLINE_LINK_ONLY"
+        },
+        {
+          "headline": "WWE SmackDown Results 11/6/26",
+          "url": "https://wrestlingheadlines.com/wwe-smackdown-results-11-6-26/",
+          "published_at": "2026-11-07T00:34:33+00:00",
+          "source_name": "Wrestling Headlines",
+          "status": "PUBLISHER_HEADLINE_LINK_ONLY"
+        }
+      ],
       "source_name": "Multiple publisher RSS feeds",
-      "status": "no_matching_published_coverage"
+      "status": "publisher_coverage_links"
     },
     {
       "show_id": "nxt",
@@ -73,7 +111,8 @@
           "url": "https://www.f4wonline.com/podcasts/bryan-and-vinny-show/bv-aew-blood-and-guts-and-nxt-head-to-head-recap-show/",
           "published_at": "2026-11-06T05:19:33+00:00",
           "source_name": "F4W / Wrestling Observer",
-          "status": "PUBLISHER_HEADLINE_LINK_ONLY"
+          "status": "PUBLISHER_HEADLINE_LINK_ONLY",
+          "retained_from_previous": true
         },
         {
           "headline": "WWE NXT (11/4) Dark Match Results: Elio LeFleur Competes & More",
@@ -88,22 +127,23 @@
           "url": "https://411mania.com/wrestling/halls-wwe-nxt-review-11-4-26/",
           "published_at": "2026-11-05T03:07:49+00:00",
           "source_name": "411Mania",
-          "status": "PUBLISHER_HEADLINE_LINK_ONLY"
+          "status": "PUBLISHER_HEADLINE_LINK_ONLY",
+          "retained_from_previous": true
         },
         {
           "headline": "WWE NXT Results – Nov. 4, 2026 – Dusty Rhodes Tag Team Classic Finals, John Cena & Cody Rhodes Appears, Grayson Waller vs. CM Punk",
           "url": "https://www.tpww.net/2026/11/wwe-nxt-results-nov-4-2026-dusty-rhodes-tag-team-classic-finals-john-cena-cody-rhodes-appears-grayson-waller-vs-cm-punk/",
           "published_at": "2026-11-05T00:55:11+00:00",
           "source_name": "TPWW",
-          "status": "PUBLISHER_HEADLINE_LINK_ONLY"
+          "status": "PUBLISHER_HEADLINE_LINK_ONLY",
+          "retained_from_previous": true
         },
         {
           "headline": "WWE NXT live results: CM Punk vs. Grayson Waller",
           "url": "https://www.f4wonline.com/news/nxt/nxt-results/wwe-nxt-live-results-cm-punk-grayson-waller/",
           "published_at": "2026-11-05T00:13:00+00:00",
           "source_name": "F4W / Wrestling Observer",
-          "status": "PUBLISHER_HEADLINE_LINK_ONLY",
-          "retained_from_previous": true
+          "status": "PUBLISHER_HEADLINE_LINK_ONLY"
         }
       ],
       "source_name": "Multiple publisher RSS feeds",
@@ -121,11 +161,19 @@
       "airdate": "2026-11-05",
       "links": [
         {
+          "headline": "Hall’s TNA Impact Review 11.5.26",
+          "url": "https://411mania.com/wrestling/halls-tna-impact-review-11-5-26/",
+          "published_at": "2026-11-07T01:16:59+00:00",
+          "source_name": "411Mania",
+          "status": "PUBLISHER_HEADLINE_LINK_ONLY"
+        },
+        {
           "headline": "Hall’s Impact Wrestling Review – 11.5.26",
           "url": "https://411mania.com/wrestling/halls-impact-wrestling-review-11-5-26/",
           "published_at": "2026-11-07T01:16:59+00:00",
           "source_name": "411Mania",
-          "status": "PUBLISHER_HEADLINE_LINK_ONLY"
+          "status": "PUBLISHER_HEADLINE_LINK_ONLY",
+          "retained_from_previous": true
         },
         {
           "headline": "GCW Set To Debut In Mississippi, TNA iMPACT! Highlights, More | Fight Size",
@@ -147,13 +195,6 @@
           "url": "https://411mania.com/wrestling/cioccos-tna-impact-review-11-5-26/",
           "published_at": "2026-11-06T04:11:01+00:00",
           "source_name": "411Mania",
-          "status": "PUBLISHER_HEADLINE_LINK_ONLY"
-        },
-        {
-          "headline": "TNA iMPACT! Results (11/5): Nemeths vs. Leon Slater And Amazing Red",
-          "url": "https://www.fightful.com/wrestling-news/tna-impact-results-11-5-nemeths-vs-leon-slater-and-amazing-red",
-          "published_at": "2026-11-06T02:46:33+00:00",
-          "source_name": "Fightful",
           "status": "PUBLISHER_HEADLINE_LINK_ONLY",
           "retained_from_previous": true
         }
@@ -178,7 +219,8 @@
           "url": "https://411mania.com/wrestling/halls-wwe-evolve-review-11-4-26/",
           "published_at": "2026-11-05T05:35:03+00:00",
           "source_name": "411Mania",
-          "status": "PUBLISHER_HEADLINE_LINK_ONLY"
+          "status": "PUBLISHER_HEADLINE_LINK_ONLY",
+          "retained_from_previous": true
         },
         {
           "headline": "WWE EVOLVE Results (11/4)",
@@ -193,19 +235,21 @@
           "url": "https://411mania.com/wrestling/leightys-wwe-evolve-review-11-4-26/",
           "published_at": "2026-11-05T03:44:53+00:00",
           "source_name": "411Mania",
-          "status": "PUBLISHER_HEADLINE_LINK_ONLY"
+          "status": "PUBLISHER_HEADLINE_LINK_ONLY",
+          "retained_from_previous": true
         }
       ],
       "source_name": "Multiple publisher RSS feeds",
       "status": "publisher_coverage_links"
     }
   ],
-  "total_links": 19,
-  "retained_link_count": 9,
+  "total_links": 24,
+  "retained_link_count": 16,
   "collection_status": "ok",
   "successful_feed_urls": [
     "https://www.f4wonline.com/rss.xml",
     "https://www.f4wonline.com/category/news/wwe/results/feed/",
+    "https://www.f4wonline.com/category/news/nxt/nxt-results/feed/",
     "https://411mania.com/wrestling/feed/",
     "https://411mania.com/wrestling/category/tv-report/feed/",
     "https://www.fightful.com/wrestling/rss",

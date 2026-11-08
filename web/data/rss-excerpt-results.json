@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "mode": "POST_BROADCAST_RSS_SYNDICATED_EXCERPT_FACTS_UNVERIFIED",
-  "generated_at": "2026-11-06T20:28:00.232968-05:00",
+  "generated_at": "2026-11-08T15:21:35.003420-05:00",
   "policy": "Short factual winner/loser statements only from approved publisher-syndicated RSS descriptions after broadcast. Excerpt not published. Zero is acceptable; no website scraping, source quotes, title changes or storyline inference.",
   "programs": [
     {
@@ -12,9 +12,9 @@
     },
     {
       "show_id": "smackdown",
-      "airdate": null,
+      "airdate": "2026-11-06",
       "results": [],
-      "status": "no_completed_broadcast"
+      "status": "no_explicit_syndicated_results"
     },
     {
       "show_id": "nxt",
@@ -42,26 +42,44 @@
     }
   ],
   "total_reported_results": 0,
-  "working_rss_feeds": 7,
+  "working_rss_feeds": 10,
   "source_diagnostics": {
     "https://www.f4wonline.com/rss.xml": {
-      "status": "unavailable",
-      "reason": "TimeoutError"
+      "items": 50,
+      "with_description": 50,
+      "with_defeated_word": 4,
+      "with_explicit_outcome_sentence": 1,
+      "dated_broadcast_headlines": 0,
+      "dated_descriptions_with_outcome": 0,
+      "dated_descriptions_with_victory_word": 0,
+      "status": "ok"
     },
     "https://www.f4wonline.com/category/news/wwe/results/feed/": {
-      "status": "unavailable",
-      "reason": "TimeoutError"
+      "items": 50,
+      "with_description": 50,
+      "with_defeated_word": 4,
+      "with_explicit_outcome_sentence": 0,
+      "dated_broadcast_headlines": 0,
+      "dated_descriptions_with_outcome": 0,
+      "dated_descriptions_with_victory_word": 0,
+      "status": "ok"
     },
     "https://www.f4wonline.com/category/news/nxt/nxt-results/feed/": {
-      "status": "unavailable",
-      "reason": "TimeoutError"
+      "items": 50,
+      "with_description": 50,
+      "with_defeated_word": 3,
+      "with_explicit_outcome_sentence": 0,
+      "dated_broadcast_headlines": 0,
+      "dated_descriptions_with_outcome": 0,
+      "dated_descriptions_with_victory_word": 0,
+      "status": "ok"
     },
     "https://411mania.com/wrestling/feed/": {
       "items": 10,
       "with_description": 10,
       "with_defeated_word": 0,
       "with_explicit_outcome_sentence": 0,
-      "dated_broadcast_headlines": 1,
+      "dated_broadcast_headlines": 0,
       "dated_descriptions_with_outcome": 0,
       "dated_descriptions_with_victory_word": 0,
       "status": "ok"
@@ -71,7 +89,7 @@
       "with_description": 10,
       "with_defeated_word": 0,
       "with_explicit_outcome_sentence": 0,
-      "dated_broadcast_headlines": 6,
+      "dated_broadcast_headlines": 3,
       "dated_descriptions_with_outcome": 0,
       "dated_descriptions_with_victory_word": 0,
       "status": "ok"
@@ -91,7 +109,7 @@
       "with_description": 50,
       "with_defeated_word": 12,
       "with_explicit_outcome_sentence": 0,
-      "dated_broadcast_headlines": 2,
+      "dated_broadcast_headlines": 3,
       "dated_descriptions_with_outcome": 0,
       "dated_descriptions_with_victory_word": 0,
       "status": "ok"
@@ -99,7 +117,7 @@
     "https://www.tpww.net/feed/": {
       "items": 50,
       "with_description": 50,
-      "with_defeated_word": 3,
+      "with_defeated_word": 5,
       "with_explicit_outcome_sentence": 0,
       "dated_broadcast_headlines": 2,
       "dated_descriptions_with_outcome": 0,
@@ -119,7 +137,7 @@
     "https://wrestlingheadlines.com/feed/": {
       "items": 50,
       "with_description": 50,
-      "with_defeated_word": 1,
+      "with_defeated_word": 9,
       "with_explicit_outcome_sentence": 1,
       "dated_broadcast_headlines": 1,
       "dated_descriptions_with_outcome": 0,
