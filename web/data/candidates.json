@@ -1,26 +1,18 @@
 {
   "schema_version": 1,
   "mode": "RESEARCH_LEADS_ONLY",
-  "generated_at": "2026-11-09T09:31:30.759654+00:00",
+  "generated_at": "2026-11-09T13:38:46.859444+00:00",
   "policy": "Mentions are NOT confirmations. Do not put candidate matches on the public broadcast.",
   "source": "TheSportsDB (free API); attribution required; no artwork fetched.",
   "programs": [
     {
       "show_id": "raw",
-      "airdate": "2026-11-09",
+      "airdate": "2026-11-16",
       "intake_status": "no_parseable_leads",
       "candidate_count": 0,
       "verified_match_count": 0,
       "verified_appearance_count": 0,
-      "events_considered": [
-        {
-          "event_id": "2624416",
-          "event_title": "RAW #1746",
-          "source_url": "https://www.thesportsdb.com/api/v1/json/123/lookupevent.php?id=2624416",
-          "possible_match_mentions": 0,
-          "verification": "NOT_CONFIRMED"
-        }
-      ]
+      "events_considered": []
     },
     {
       "show_id": "smackdown",
@@ -42,11 +34,19 @@
     {
       "show_id": "nxt",
       "airdate": "2026-11-10",
-      "intake_status": "no_parseable_leads",
-      "candidate_count": 0,
+      "intake_status": "unverified_leads_found",
+      "candidate_count": 4,
       "verified_match_count": 0,
       "verified_appearance_count": 0,
-      "events_considered": []
+      "events_considered": [
+        {
+          "event_id": "2626988",
+          "event_title": "NXT #863",
+          "source_url": "https://www.thesportsdb.com/api/v1/json/123/lookupevent.php?id=2626988",
+          "possible_match_mentions": 4,
+          "verification": "NOT_CONFIRMED"
+        }
+      ]
     },
     {
       "show_id": "aaa",
@@ -78,5 +78,5 @@
   ],
   "verified_matches": [],
   "verified_appearances": [],
-  "total_unverified_possible_match_mentions": 0
+  "total_unverified_possible_match_mentions": 4
 }

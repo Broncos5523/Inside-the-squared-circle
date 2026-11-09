@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "mode": "LIVE_SCHEDULES_ONLY",
-  "generated_at": "2026-11-09T09:31:24.678729+00:00",
+  "generated_at": "2026-11-09T13:38:40.189626+00:00",
   "fresh_shows": 6,
   "shows": [
     {
@@ -10,14 +10,14 @@
       "color": "#EC354C",
       "category": "primary",
       "next": {
+        "date": "2026-11-16",
+        "time": null,
+        "title": "#1746 - Lenovo Center in Raleigh, NC"
+      },
+      "previous": {
         "date": "2026-11-09",
         "time": null,
         "title": "#1745 - Bon Secours Wellness Arena in Greenville, SC"
-      },
-      "previous": {
-        "date": "2026-11-02",
-        "time": null,
-        "title": "#1744 - Barclays Center in Brooklyn, NY"
       },
       "schedule_status": "fresh",
       "confirmed_matches": [],

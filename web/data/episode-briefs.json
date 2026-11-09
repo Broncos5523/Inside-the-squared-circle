@@ -1,18 +1,18 @@
 {
   "schema_version": 1,
   "mode": "TVMAZE_FINISHED_EPISODE_GUIDE_SYNOPSIS_ONLY",
-  "generated_at": "2026-11-09T04:31:50.426421-05:00",
+  "generated_at": "2026-11-09T08:39:04.919794-05:00",
   "policy": "TVmaze CC BY-SA episode synopses only; these may have been written before broadcast. No match winners, title changes, storylines or confirmed appearances may be inferred.",
   "programs": [
     {
       "show_id": "raw",
-      "airdate": "2026-11-02",
-      "synopsis": "World Heavyweight Champion Roman Reigns will address Undisputed WWE Champion Sami Zayn and their upcoming Men's Crown Jewel Championship Match this Monday on Raw. John Cena is returning to Monday Night Raw in Brooklyn, N.Y., for a specia…",
-      "episode_id": 3680025,
-      "evidence_url": "https://api.tvmaze.com/episodes/3680025",
+      "airdate": null,
+      "synopsis": null,
+      "episode_id": null,
+      "evidence_url": null,
       "source_name": "TVmaze",
       "license": "CC BY-SA",
-      "status": "episode_synopsis"
+      "status": "no_completed_episode"
     },
     {
       "show_id": "smackdown",
@@ -65,5 +65,5 @@
       "status": "episode_synopsis"
     }
   ],
-  "synopses_available": 3
+  "synopses_available": 2
 }
