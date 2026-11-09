@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "mode": "SOURCE_GATED_STAGING",
-  "generated_at": "2026-11-08T20:57:41.503Z",
+  "generated_at": "2026-11-09T01:36:45.962Z",
   "entries": [
     {
       "id": "weekly-upcoming-raw",
@@ -15,7 +15,7 @@
       "verification": "SOURCE_REPORTED",
       "has_content": false,
       "schedule_confirmed": true,
-      "checked_at": "2026-11-08T20:57:41.503Z",
+      "checked_at": "2026-11-09T01:36:45.962Z",
       "source_name": "Published episode schedule",
       "source_url": "https://broncos5523.github.io/Inside-the-squared-circle/data/snapshot.json",
       "venue": {
@@ -35,7 +35,7 @@
       "verification": "SOURCE_REPORTED",
       "has_content": false,
       "schedule_confirmed": true,
-      "checked_at": "2026-11-08T20:57:41.503Z",
+      "checked_at": "2026-11-09T01:36:45.962Z",
       "source_name": "Published episode schedule",
       "source_url": "https://broncos5523.github.io/Inside-the-squared-circle/data/snapshot.json",
       "venue": {
@@ -55,9 +55,26 @@
       "verification": "SOURCE_REPORTED",
       "has_content": true,
       "schedule_confirmed": true,
-      "checked_at": "2026-11-08T20:57:41.503Z",
+      "checked_at": "2026-11-09T01:36:45.962Z",
       "source_name": "Wrestling Central News (wrestlingcentralnews.com)",
       "source_url": "https://wrestlingcentralnews.com/events/2026-11-10-wwe-nxt/",
+      "venue": null
+    },
+    {
+      "id": "weekly-upcoming-aaa",
+      "title": "AAA — Upcoming Show",
+      "show": "aaa",
+      "kind": "upcoming",
+      "airdate": "2026-11-14",
+      "source_available": true,
+      "design_approved": true,
+      "content_status": "current",
+      "verification": "SOURCE_REPORTED",
+      "has_content": false,
+      "schedule_confirmed": true,
+      "checked_at": "2026-11-09T01:36:45.962Z",
+      "source_name": "Published episode schedule",
+      "source_url": "https://broncos5523.github.io/Inside-the-squared-circle/data/snapshot.json",
       "venue": null
     },
     {
@@ -72,7 +89,7 @@
       "verification": "SOURCE_REPORTED",
       "has_content": false,
       "schedule_confirmed": true,
-      "checked_at": "2026-11-08T20:57:41.503Z",
+      "checked_at": "2026-11-09T01:36:45.962Z",
       "source_name": "Published episode schedule",
       "source_url": "https://broncos5523.github.io/Inside-the-squared-circle/data/snapshot.json",
       "venue": null
@@ -88,7 +105,7 @@
       "content_status": "current",
       "verification": "EDITORIALLY_VERIFIED",
       "completed": true,
-      "checked_at": "2026-11-08T20:57:41.503Z",
+      "checked_at": "2026-11-09T01:36:45.962Z",
       "source_name": "WWE AAA Héroes Inmortales | Week 1 results, October 24, 2026",
       "source_url": "https://www.wwe.com/shows/aaa/aaa-h-roes-inmortales-week-1-results"
     },
@@ -103,7 +120,7 @@
       "content_status": "current",
       "verification": "OFFICIAL_VERIFIED",
       "completed": true,
-      "checked_at": "2026-11-08T20:57:41.503Z",
+      "checked_at": "2026-11-09T01:36:45.962Z",
       "source_name": "WWE",
       "source_url": "https://www.wwe.com/shows/raw/2026-11-02/results"
     },
@@ -118,43 +135,9 @@
       "content_status": "current",
       "verification": "OFFICIAL_VERIFIED",
       "completed": true,
-      "checked_at": "2026-11-08T20:57:41.503Z",
+      "checked_at": "2026-11-09T01:36:45.962Z",
       "source_name": "TNA Wrestling",
       "source_url": "https://tnawrestling.com/news/tna-thursday-night-impact-on-amc-results-november-5-2026"
-    },
-    {
-      "id": "weekly-results-aaa",
-      "title": "AAA — Results & Fallout",
-      "show": "aaa",
-      "kind": "results",
-      "airdate": "2026-10-31",
-      "source_available": true,
-      "design_approved": true,
-      "content_status": "current",
-      "verification": "SOURCE_CORROBORATED",
-      "completed": true,
-      "checked_at": "2026-11-07T01:28:23.338Z",
-      "source_name": "Fightful / TPWW",
-      "source_url": "https://www.fightful.com/wrestling/aaa-heroes-inmortales-week-two-results-10-31/",
-      "source_urls": [
-        "https://www.fightful.com/wrestling/aaa-heroes-inmortales-week-two-results-10-31/",
-        "https://www.tpww.net/2026/10/aaa-heroes-inmortales-2026-week-2-results-oct-31-2026-aaa-world-cruiserweight-open-challenge-wagner-brothers-vs-los-vipers/"
-      ]
-    },
-    {
-      "id": "weekly-results-smackdown",
-      "title": "SmackDown — Results & Fallout",
-      "show": "smackdown",
-      "kind": "results",
-      "airdate": "2026-10-30",
-      "source_available": true,
-      "design_approved": true,
-      "content_status": "current",
-      "verification": "OFFICIAL_VERIFIED",
-      "completed": true,
-      "checked_at": "2026-11-06T21:05:49.642Z",
-      "source_name": "WWE",
-      "source_url": "https://www.wwe.com/shows/smackdown/2026-10-30/results"
     },
     {
       "id": "championship-tna",
@@ -167,7 +150,7 @@
       "design_approved": true,
       "content_status": "current",
       "verification": "OFFICIAL_VERIFIED",
-      "checked_at": "2026-11-08T20:57:41.503Z",
+      "checked_at": "2026-11-09T01:36:45.962Z",
       "source_name": "TNA Wrestling",
       "source_url": "https://tnawrestling.com/roster",
       "source_urls": [
@@ -185,7 +168,7 @@
       "design_approved": true,
       "content_status": "current",
       "verification": "OFFICIAL_VERIFIED",
-      "checked_at": "2026-11-08T20:57:41.503Z",
+      "checked_at": "2026-11-09T01:36:45.962Z",
       "source_name": "WWE",
       "source_url": "https://www.wwe.com/titlehistory/nxt-championship",
       "source_urls": [
@@ -207,7 +190,7 @@
       "design_approved": true,
       "content_status": "current",
       "verification": "OFFICIAL_VERIFIED",
-      "checked_at": "2026-11-08T20:57:41.503Z",
+      "checked_at": "2026-11-09T01:36:45.962Z",
       "source_name": "WWE",
       "source_url": "https://www.wwe.com/titlehistory/wwe-championship",
       "source_urls": [
@@ -230,7 +213,7 @@
       "design_approved": true,
       "content_status": "current",
       "verification": "OFFICIAL_VERIFIED",
-      "checked_at": "2026-11-08T20:57:41.503Z",
+      "checked_at": "2026-11-09T01:36:45.962Z",
       "source_name": "WWE",
       "source_url": "https://www.wwe.com/classics/titlehistory/world-heavyweight-championship",
       "source_urls": [
@@ -252,7 +235,7 @@
       "design_approved": true,
       "content_status": "current",
       "verification": "SOURCE_CORROBORATED",
-      "checked_at": "2026-11-08T20:57:41.503Z",
+      "checked_at": "2026-11-09T01:36:45.962Z",
       "source_name": "Sacnilk / The SmackDown Hotel",
       "source_url": "https://www.sacnilk.com/news/current_lucha_libre_aaa_worldwide_champions_full_list_of_title_holders",
       "source_urls": [
@@ -265,7 +248,7 @@
     "snapshot.json": {
       "schema_version": 1,
       "mode": "LIVE_SCHEDULES_ONLY",
-      "generated_at": "2026-11-08T20:56:38.173374+00:00",
+      "generated_at": "2026-11-09T01:35:47.446020+00:00",
       "fresh_shows": 6,
       "shows": [
         {
@@ -298,7 +281,7 @@
             "title": "#1419 - Amerant Bank Arena in Fort Lauderdale, FL"
           },
           "previous": {
-            "date": "2026-10-30",
+            "date": "2026-11-06",
             "time": "20:00",
             "title": "#1418 - Barclays Center in Brooklyn, NY"
           },
@@ -330,9 +313,13 @@
           "name": "LUCHA LIBRE AAA",
           "color": "#21C6AE",
           "category": "primary",
-          "next": null,
+          "next": {
+            "date": "2026-11-14",
+            "time": null,
+            "title": "#43"
+          },
           "previous": {
-            "date": "2026-10-31",
+            "date": "2026-10-24",
             "time": null,
             "title": "WWE AAA Héroes Inmortales | Week 1 results, October 24, 2026"
           },
@@ -383,7 +370,7 @@
     "reported.json": {
       "schema_version": 1,
       "mode": "REPORTED_MATCHES_UNVERIFIED",
-      "generated_at": "2026-11-08T20:57:41.503Z",
+      "generated_at": "2026-11-09T01:36:45.962Z",
       "display_attribution": "Published weekly show announcements; individual sources retained",
       "programs": [
         {
@@ -416,65 +403,116 @@
     },
     "aaa-verified-results.json": {
       "schema_version": 1,
-      "mode": "SOURCE_CORROBORATED_RESULTS",
-      "source_policy": "Matching explicit winners from two independent dated result reports; not labeled as official WWE verification.",
+      "mode": "EDITORIALLY_VERIFIED_OFFICIAL_RESULTS",
+      "source_policy": "Official-results-only, exact date. Winners only in match-result portraits; all contestants when no winner. Championship belt for verified current champion and championship storyline; preserve locally approved imagery and NEVER substitute an unrelated headshot. Héroes Inmortales Week 1 is a televised AAA episode, NOT Week 2.",
       "programs": [
         {
           "show_id": "aaa",
-          "airdate": "2026-10-31",
-          "source_url": "https://www.fightful.com/wrestling/aaa-heroes-inmortales-week-two-results-10-31/",
-          "source_urls": [
-            "https://www.fightful.com/wrestling/aaa-heroes-inmortales-week-two-results-10-31/",
-            "https://www.tpww.net/2026/10/aaa-heroes-inmortales-2026-week-2-results-oct-31-2026-aaa-world-cruiserweight-open-challenge-wagner-brothers-vs-los-vipers/"
-          ],
-          "source_name": "Fightful / TPWW • AAA results, 2026-10-31",
-          "verification": "SOURCE_CORROBORATED",
+          "airdate": "2026-10-24",
+          "venue": "GIMNASIO OLÍMPICO JUAN DE LA BARRERA",
+          "location": "MEXICO CITY, MEXICO",
+          "source_name": "WWE AAA Héroes Inmortales | Week 1 results, October 24, 2026",
+          "source_url": "https://www.wwe.com/shows/aaa/aaa-h-roes-inmortales-week-1-results",
+          "secondary_url": "https://www.tpww.net/2026/10/aaa-heroes-inmortales-2026-week-1-results-oct-24-2026-el-grande-americano-vs-dominik-mysterio/",
+          "verification": "OFFICIAL_RESULTS_REVIEWED",
           "segments": [
             {
-              "id": "aaa-2026-10-31-1",
+              "id": "trios-title",
               "kind": "result",
-              "category": "MATCH RESULT",
-              "strap": "CHAMPIONSHIP RESULT",
-              "headline": "THE WAGNER BROTHERS",
-              "subhead": "def. Los Vipers",
-              "detail": "AAA WORLD TAG TEAM CHAMPIONSHIP • 2026-10-31",
+              "category": "AAA WORLD TRIOS CHAMPIONSHIP",
+              "strap": "LOS PERROS DEL MAL RETAIN",
+              "headline": "LOS PERROS DEL MAL",
+              "subhead": "def. La Parka, Mr. Iguana & Niño Hamburguesa",
+              "detail": "Daga, Angel and Berto retained their titles after Daga pinned La Parka.",
               "portraits": [
-                "el-hijo-de-dr-wagner-jr",
-                "galeno"
+                "daga",
+                "angel",
+                "berto"
               ],
               "portrait_rule": "winners_only",
-              "belt": "world_tag.png",
-              "ticker": "THE WAGNER BROTHERS DEFEATS LOS VIPERS"
+              "belt": "world_trios.png",
+              "ticker": "LOS PERROS DEL MAL RETAIN THE AAA WORLD TRIOS TITLES"
             },
             {
-              "id": "aaa-2026-10-31-2",
+              "id": "reina-retains",
               "kind": "result",
-              "category": "MATCH RESULT",
-              "strap": "MATCH RESULT",
-              "headline": "EL CARNICERO & PAGANO",
-              "subhead": "def. Los Psycho Circus",
-              "detail": "TAG TEAM MATCH • 2026-10-31",
+              "category": "REINA DE REINAS CHAMPIONSHIP",
+              "strap": "LA CATALINA RETAINS THE TITLE",
+              "headline": "LA CATALINA",
+              "subhead": "def. Flammer & La Hiedra",
+              "detail": "La Catalina pinned Flammer after a running knee to retain the Reina de Reinas title.",
               "portraits": [
-                "el-carnicero",
-                "pagano"
+                "la-catalina"
               ],
               "portrait_rule": "winners_only",
-              "ticker": "EL CARNICERO & PAGANO DEFEATS LOS PSYCHO CIRCUS"
+              "belt": "reina_de_reinas.png",
+              "ticker": "LA CATALINA RETAINS THE REINA DE REINAS CHAMPIONSHIP"
             },
             {
-              "id": "aaa-2026-10-31-3",
+              "id": "mega-retains",
               "kind": "result",
-              "category": "MATCH RESULT",
-              "strap": "CHAMPIONSHIP RESULT",
-              "headline": "REY FENIX",
-              "subhead": "def. Jack Cartwheel, Takuma, and Laredo Kid",
-              "detail": "AAA WORLD CRUISERWEIGHT CHAMPIONSHIP • 2026-10-31",
+              "category": "AAA MEGA CHAMPIONSHIP",
+              "strap": "EL GRANDE AMERICANO RETAINS",
+              "headline": "EL GRANDE AMERICANO",
+              "subhead": "def. Dominik Mysterio",
+              "detail": "Despite ringside interference, Americano prevailed with a running headbutt.",
+              "portraits": [
+                "el-grande-americano"
+              ],
+              "portrait_rule": "winners_only",
+              "belt": "mega.png",
+              "ticker": "EL GRANDE AMERICANO DEFEATS DOMINIK MYSTERIO"
+            },
+            {
+              "id": "big-mami-return",
+              "kind": "storyline",
+              "category": "TRIOS TITLE FALLOUT",
+              "strap": "BIG MAMI MAKES THE SAVE",
+              "headline": "BIG MAMI RETURNS",
+              "subhead": "Returns after the trios title match",
+              "detail": "Big Mami charged in after Los Perros del Mal attacked their opponents, confronting Karmen Petrovic.",
+              "portraits": [
+                "big-mami"
+              ],
+              "ticker": "BIG MAMI RETURNS TO CONFRONT KARMEN PETROVIC"
+            },
+            {
+              "id": "rey-intervention",
+              "kind": "storyline",
+              "category": "MEGA TITLE FALLOUT",
+              "strap": "REY MYSTERIO GETS INVOLVED",
+              "headline": "REY MYSTERIO",
+              "subhead": "Stops interference in the title match",
+              "detail": "Rey Mysterio confronted Omos and struck Dominik with a chair during Americano’s title defense.",
+              "portraits": [
+                "rey-mysterio"
+              ],
+              "ticker": "REY MYSTERIO INTERVENES AS AMERICANO RETAINS"
+            },
+            {
+              "id": "toxic-fallout",
+              "kind": "storyline",
+              "category": "REINA DE REINAS FALLOUT",
+              "strap": "LAS TÓXICAS TENSIONS RISE",
+              "headline": "FLAMMER / LA HIEDRA",
+              "subhead": "Dissension costs them the championship",
+              "detail": "Flammer and La Hiedra repeatedly argued during their failed title challenge.",
+              "portraits": [],
+              "ticker": "FLAMMER AND LA HIEDRA CLASH DURING TRIPLE THREAT"
+            },
+            {
+              "id": "fenix-open",
+              "kind": "storyline",
+              "category": "CRUISERWEIGHT TITLE DEVELOPMENT",
+              "strap": "CRUISERWEIGHT OPEN CHALLENGE",
+              "headline": "REY FÉNIX",
+              "subhead": "Title defense awaits on October 31",
+              "detail": "After Mini Vikingo was sidelined by an elbow injury, Fénix faced an open challenge for Week 2.",
               "portraits": [
                 "rey-fenix"
               ],
-              "portrait_rule": "winners_only",
               "belt": "cruiserweight.png",
-              "ticker": "REY FENIX DEFEATS JACK CARTWHEEL, TAKUMA, AND LAREDO KID"
+              "ticker": "REY FÉNIX CRUISERWEIGHT OPEN CHALLENGE SET FOR OCT 31"
             }
           ]
         }
@@ -602,86 +640,9 @@
         }
       ]
     },
-    "smackdown-verified-results.json": {
-      "schema_version": 1,
-      "mode": "OFFICIAL_EXTRACTED_RESULTS",
-      "source_policy": "Only explicit match winners directly extracted from dated official source; not human editorial review. Winners-only original approved portraits; never invent matches or champions.",
-      "programs": [
-        {
-          "show_id": "smackdown",
-          "airdate": "2026-10-30",
-          "venue": null,
-          "location": null,
-          "source_name": "WWE official SmackDown results, 2026-10-30",
-          "source_url": "https://www.wwe.com/shows/smackdown/2026-10-30/results",
-          "verification": "OFFICIAL_SOURCE_EXTRACTED",
-          "segments": [
-            {
-              "id": "official-smackdown-2026-10-30-1",
-              "kind": "result",
-              "category": "CHAMPIONSHIP MATCH",
-              "strap": "CHAMPIONSHIP RESULT",
-              "headline": "CHELSEA GREEN",
-              "subhead": "def. Nikki Bella in a WWE Women’s Championship Match",
-              "detail": "CHAMPIONSHIP MATCH • October 30, 2026",
-              "portraits": [
-                "chelsea-green"
-              ],
-              "portrait_rule": "winners_only",
-              "belt": "wwe_wwe-womens-championship.png",
-              "ticker": "CHELSEA GREEN DEFEATS NIKKI BELLA IN A WWE WOMEN’S CHAMPIONSHIP MATCH"
-            },
-            {
-              "id": "official-smackdown-2026-10-30-2",
-              "kind": "result",
-              "category": "CHAMPIONSHIP MATCH",
-              "strap": "CHAMPIONSHIP RESULT",
-              "headline": "REY FENIX",
-              "subhead": "def. Ricky Saints",
-              "detail": "CHAMPIONSHIP MATCH • October 30, 2026",
-              "portraits": [
-                "rey-fenix"
-              ],
-              "portrait_rule": "winners_only",
-              "belt": "cruiserweight.png",
-              "ticker": "REY FENIX DEFEATS RICKY SAINTS"
-            },
-            {
-              "id": "official-smackdown-2026-10-30-3",
-              "kind": "result",
-              "category": "MATCH RESULT",
-              "strap": "OFFICIAL MATCH RESULT",
-              "headline": "JADE CARGILL",
-              "subhead": "def. Tatum Paxley",
-              "detail": "OFFICIAL RESULTS • October 30, 2026",
-              "portraits": [
-                "jade-cargill"
-              ],
-              "portrait_rule": "winners_only",
-              "ticker": "JADE CARGILL DEFEATS TATUM PAXLEY"
-            },
-            {
-              "id": "official-smackdown-2026-10-30-4",
-              "kind": "result",
-              "category": "TITLE MATCH",
-              "strap": "CHAMPIONSHIP RESULT",
-              "headline": "SAMI ZAYN",
-              "subhead": "def. Trick Williams",
-              "detail": "TITLE MATCH • October 30, 2026",
-              "portraits": [
-                "sami-zayn"
-              ],
-              "portrait_rule": "winners_only",
-              "belt": "wwe_undisputed-wwe-championship.png",
-              "ticker": "SAMI ZAYN DEFEATS TRICK WILLIAMS"
-            }
-          ]
-        }
-      ]
-    },
     "official-events.json": {
       "mode": "OFFICIAL_WWE_EVENT_PREVIEWS",
-      "generated_at": "2026-11-08T20:57:41.503Z",
+      "generated_at": "2026-11-09T01:36:45.962Z",
       "programs": []
     },
     "official-event-results.json": {
@@ -691,7 +652,7 @@
     "champions.json": {
       "schema_version": 1,
       "mode": "SOURCE_CHECKED_CHAMPIONS",
-      "generated_at": "2026-11-08T20:57:41.503Z",
+      "generated_at": "2026-11-09T01:36:45.962Z",
       "programs": [
         {
           "show": "tna",
