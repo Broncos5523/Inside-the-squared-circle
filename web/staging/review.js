@@ -94,12 +94,12 @@
   var feedFresh=Number.isFinite(feedAge)&&feedAge>=-300000&&feedAge<=6*3600000;
   // A browser reload is not evidence of a successful upstream collection.
   // Fail closed when the collector output is old; archive review remains available.
-  active=feedFresh?ISCPlaylist.select(programming.entries,new Date()):[];
+  active=ISCPlaylist.select(programming.entries,new Date(),!feedFresh);
   byId('watch-active').disabled=!active.length;
   byId('active-summary').textContent=active.length?active.length+' current board'+(active.length===1?'':'s')+' selected. Choose a board below to start there. Included: weekly groups (results, next preview, champions), then event results within 7 days and previews within 14 days.': 'No current boards have cleared their source and data checks yet. The recovered designs are available in the design library.';
   var list=byId('active-list');list.replaceChildren();active.forEach(function(x){var d=document.createElement('a'),strong=document.createElement('strong'),small=document.createElement('small');d.href=playbackUrl(x.id);d.addEventListener('click',function(event){event.preventDefault();var record=library.records.find(function(r){return r.id===x.id&&r.source_available&&r.design_approved;});if(!record)return;showActive();choose(record,true);});strong.textContent=x.title;small.textContent=(x.airdate||x.event_date)+' · '+x.source_name;d.append(strong,small);list.append(d);});
   byId('feed-stamp').textContent=programming.generated_at?(feedFresh?'Collector last ran ':'STALE DATA — collector last ran ')+new Date(programming.generated_at).toLocaleString()+'. Browser checks for published updates every five minutes; this does not run the collector.':'Current-content collection is pending; archive examples are held outside the TV playlist.';
-  if(!feedFresh)byId('active-summary').textContent='Live-data collection is stale or unavailable. Archived demonstrations remain in the design library and are not presented as live programming.';
+  if(!feedFresh)byId('active-summary').textContent=active.length?'Live update delayed. Showing previously source-verified results only; these are not claimed as current programming.':'Live-data collection is stale or unavailable. Archived demonstrations remain in the design library and are not presented as live programming.';
   if(mode==='active'&&initialized){
    var next=candidates()[0];
    if(current&&!active.some(function(x){return x.id===current.id;})){
