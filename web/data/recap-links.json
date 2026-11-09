@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "mode": "PUBLISHER_RSS_POST_SHOW_LINKS_ONLY",
-  "generated_at": "2026-11-08T20:36:22.419821-05:00",
+  "generated_at": "2026-11-09T00:30:40.195678-05:00",
   "source_name": "Multiple publisher RSS feeds",
   "source_url": "https://www.f4wonline.com/rss.xml",
   "approved_publishers": [
@@ -247,8 +247,6 @@
   "retained_link_count": 16,
   "collection_status": "ok",
   "successful_feed_urls": [
-    "https://www.f4wonline.com/rss.xml",
-    "https://www.f4wonline.com/category/news/wwe/results/feed/",
     "https://www.f4wonline.com/category/news/nxt/nxt-results/feed/",
     "https://411mania.com/wrestling/feed/",
     "https://411mania.com/wrestling/category/tv-report/feed/",
