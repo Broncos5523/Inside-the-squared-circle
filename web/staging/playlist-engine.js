@@ -11,14 +11,14 @@
  function days(a,b){return (Date.parse(a+'T12:00:00Z')-Date.parse(b+'T12:00:00Z'))/86400000;}
  function stamp(x){return /^(?:ple|special)-/.test(x.kind||'')?(x.event_date||''):(x.airdate||x.event_date||x.as_of||'');}
  function verified(x){return x.verification==='OFFICIAL_VERIFIED'||x.verification==='EDITORIALLY_VERIFIED'||(x.verification==='SOURCE_CORROBORATED'&&Array.isArray(x.source_urls)&&new Set(x.source_urls.map(function(u){try{return new URL(u).hostname;}catch(_){return '';}}).filter(Boolean)).size>=2);}
- function select(entries,now){
+ function select(entries,now,allowStaleResults){
   now=now||new Date();
   var today=etDay(now),out=[],seen={};
   var usable=(entries||[]).filter(function(x){
    var checked=x&&Date.parse(x.checked_at||'');
    return x&&typeof x.id==='string'&&x.source_available===true&&x.design_approved===true&&
     x.content_status==='current'&&typeof x.source_url==='string'&&/^https:\/\//.test(x.source_url)&&
-    Number.isFinite(checked)&&checked<=now.getTime()+300000&&now.getTime()-checked<=48*3600000&&
+    Number.isFinite(checked)&&checked<=now.getTime()+300000&&(now.getTime()-checked<=48*3600000||(allowStaleResults===true&&now.getTime()-checked<=14*86400000&&(x.kind==='results'||x.kind==='evolve')&&x.completed===true&&verified(x)))&&
     /^\d{4}-\d{2}-\d{2}$/.test(stamp(x));
   });
   function add(x){if(x&&!seen[x.id]){seen[x.id]=true;out.push(x);}}
