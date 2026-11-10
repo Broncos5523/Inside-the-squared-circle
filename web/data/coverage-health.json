@@ -1,35 +1,35 @@
 {
   "schema_version": 1,
   "mode": "WRESTLING_CONTENT_COVERAGE_COUNTS_ONLY",
-  "generated_at": "2026-11-10T12:14:29.277672-05:00",
+  "generated_at": "2026-11-10T16:07:05.638530-05:00",
   "source_health": {
     "reported": {
       "fresh": true,
-      "generated_at": "2026-11-10T12:13:44.334575-05:00"
+      "generated_at": "2026-11-10T16:06:08.627119-05:00"
     },
     "results": {
       "fresh": true,
-      "generated_at": "2026-11-10T12:13:45.822704-05:00"
+      "generated_at": "2026-11-10T16:06:15.240934-05:00"
     },
     "rss_facts": {
       "fresh": true,
-      "generated_at": "2026-11-10T12:14:07.276935-05:00"
+      "generated_at": "2026-11-10T16:06:41.101436-05:00"
     },
     "rss_excerpts": {
       "fresh": true,
-      "generated_at": "2026-11-10T12:14:16.517951-05:00"
+      "generated_at": "2026-11-10T16:06:52.136135-05:00"
     },
     "fallout": {
       "fresh": true,
-      "generated_at": "2026-11-10T12:14:26.929439-05:00"
+      "generated_at": "2026-11-10T16:07:03.350795-05:00"
     },
     "recap_links": {
       "fresh": true,
-      "generated_at": "2026-11-10T12:14:07.070726-05:00"
+      "generated_at": "2026-11-10T16:06:40.899984-05:00"
     },
     "episode_briefs": {
       "fresh": true,
-      "generated_at": "2026-11-10T12:13:52.037015-05:00"
+      "generated_at": "2026-11-10T16:06:26.404460-05:00"
     }
   },
   "totals": {
@@ -37,7 +37,7 @@
     "upcoming_reported_appearances": 0,
     "upcoming_reviewed_matches": 0,
     "upcoming_reviewed_appearances": 0,
-    "automatic_match_outcomes": 5,
+    "automatic_match_outcomes": 0,
     "automatic_storylines": 0,
     "manually_reviewed_outcomes": 0,
     "manually_reviewed_storylines": 0,
@@ -49,7 +49,7 @@
     "rss_dated_headlines_with_explicit_winner": 0,
     "rss_dated_descriptions_with_victory_word": 2,
     "rss_descriptions_with_defeated_word": 29,
-    "rss_explicit_winner_sentences": 1
+    "rss_explicit_winner_sentences": 0
   },
   "programs": [
     {
@@ -92,13 +92,13 @@
       "upcoming_reported_appearances": 0,
       "upcoming_reviewed_matches": 0,
       "upcoming_reviewed_appearances": 0,
-      "automatic_match_outcomes": 5,
+      "automatic_match_outcomes": 0,
       "automatic_storylines": 0,
       "manually_reviewed_outcomes": 0,
       "manually_reviewed_storylines": 0,
       "episode_synopsis_available": false,
       "publisher_headline_links": 5,
-      "results_data_status": "automatic_results_present"
+      "results_data_status": "no_usable_result_facts"
     },
     {
       "show_id": "aaa",
