@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "mode": "PUBLISHER_RSS_POST_SHOW_LINKS_ONLY",
-  "generated_at": "2026-11-10T08:29:53.977303-05:00",
+  "generated_at": "2026-11-10T12:14:07.070726-05:00",
   "source_name": "Multiple publisher RSS feeds",
   "source_url": "https://www.f4wonline.com/rss.xml",
   "approved_publishers": [
@@ -15,6 +15,13 @@
       "show_id": "raw",
       "airdate": "2026-11-09",
       "links": [
+        {
+          "headline": "Gunther vs. Trick Williams dark match result after WWE Raw",
+          "url": "https://www.f4wonline.com/news/wwe/gunther-vs-trick-williams-dark-match-result-after-wwe-raw/",
+          "published_at": "2026-11-10T14:28:22+00:00",
+          "source_name": "F4W / Wrestling Observer",
+          "status": "PUBLISHER_HEADLINE_LINK_ONLY"
+        },
         {
           "headline": "Hall’s WWE Raw Review 11.9.26",
           "url": "https://411mania.com/wrestling/halls-wwe-raw-review-11-9-26/",
@@ -41,14 +48,8 @@
           "url": "https://www.ringsidenews.com/wwe-raw-results-highlights-key-moments-november-9-2026/",
           "published_at": "2026-11-10T00:31:00+00:00",
           "source_name": "Ringside News",
-          "status": "PUBLISHER_HEADLINE_LINK_ONLY"
-        },
-        {
-          "headline": "WWE Raw live results: Crown Jewel fallout show",
-          "url": "https://www.f4wonline.com/news/wwe/results/wwe-raw-live-results-crown-jewel-fallout-show/",
-          "published_at": "2026-11-10T00:30:00+00:00",
-          "source_name": "F4W / Wrestling Observer",
-          "status": "PUBLISHER_HEADLINE_LINK_ONLY"
+          "status": "PUBLISHER_HEADLINE_LINK_ONLY",
+          "retained_from_previous": true
         }
       ],
       "source_name": "Multiple publisher RSS feeds",
@@ -241,7 +242,7 @@
     }
   ],
   "total_links": 24,
-  "retained_link_count": 13,
+  "retained_link_count": 14,
   "collection_status": "ok",
   "successful_feed_urls": [
     "https://www.f4wonline.com/rss.xml",
