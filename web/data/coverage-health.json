@@ -1,60 +1,60 @@
 {
   "schema_version": 1,
   "mode": "WRESTLING_CONTENT_COVERAGE_COUNTS_ONLY",
-  "generated_at": "2026-11-10T00:17:24.201463-05:00",
+  "generated_at": "2026-11-10T04:13:55.648805-05:00",
   "source_health": {
     "reported": {
       "fresh": true,
-      "generated_at": "2026-11-10T00:16:32.254750-05:00"
+      "generated_at": "2026-11-10T04:13:07.611961-05:00"
     },
     "results": {
       "fresh": true,
-      "generated_at": "2026-11-10T00:16:38.898716-05:00"
+      "generated_at": "2026-11-10T04:13:09.350863-05:00"
     },
     "rss_facts": {
       "fresh": true,
-      "generated_at": "2026-11-10T00:17:01.560019-05:00"
+      "generated_at": "2026-11-10T04:13:31.136322-05:00"
     },
     "rss_excerpts": {
       "fresh": true,
-      "generated_at": "2026-11-10T00:17:12.490757-05:00"
+      "generated_at": "2026-11-10T04:13:42.128645-05:00"
     },
     "fallout": {
       "fresh": true,
-      "generated_at": "2026-11-10T00:17:22.227764-05:00"
+      "generated_at": "2026-11-10T04:13:53.457827-05:00"
     },
     "recap_links": {
       "fresh": true,
-      "generated_at": "2026-11-10T00:17:01.361424-05:00"
+      "generated_at": "2026-11-10T04:13:30.996477-05:00"
     },
     "episode_briefs": {
       "fresh": true,
-      "generated_at": "2026-11-10T00:16:48.029507-05:00"
+      "generated_at": "2026-11-10T04:13:16.449473-05:00"
     }
   },
   "totals": {
-    "upcoming_reported_matches": 0,
+    "upcoming_reported_matches": 4,
     "upcoming_reported_appearances": 0,
     "upcoming_reviewed_matches": 0,
     "upcoming_reviewed_appearances": 0,
-    "automatic_match_outcomes": 0,
+    "automatic_match_outcomes": 9,
     "automatic_storylines": 0,
     "manually_reviewed_outcomes": 0,
     "manually_reviewed_storylines": 0,
-    "publisher_headline_links": 19,
+    "publisher_headline_links": 24,
     "rss_feeds_checked": 10,
     "rss_feeds_responding": 10,
     "rss_items_examined": 345,
-    "rss_dated_episode_headlines": 5,
+    "rss_dated_episode_headlines": 13,
     "rss_dated_headlines_with_explicit_winner": 0,
-    "rss_dated_descriptions_with_victory_word": 1,
+    "rss_dated_descriptions_with_victory_word": 2,
     "rss_descriptions_with_defeated_word": 31,
     "rss_explicit_winner_sentences": 3
   },
   "programs": [
     {
       "show_id": "raw",
-      "last_completed": null,
+      "last_completed": "2026-11-09",
       "next_airdate": "2026-11-16",
       "upcoming_reported_matches": 0,
       "upcoming_reported_appearances": 0,
@@ -64,8 +64,8 @@
       "automatic_storylines": 0,
       "manually_reviewed_outcomes": 0,
       "manually_reviewed_storylines": 0,
-      "episode_synopsis_available": false,
-      "publisher_headline_links": 0,
+      "episode_synopsis_available": true,
+      "publisher_headline_links": 5,
       "results_data_status": "no_usable_result_facts"
     },
     {
@@ -88,17 +88,17 @@
       "show_id": "nxt",
       "last_completed": "2026-11-04",
       "next_airdate": "2026-11-10",
-      "upcoming_reported_matches": 0,
+      "upcoming_reported_matches": 4,
       "upcoming_reported_appearances": 0,
       "upcoming_reviewed_matches": 0,
       "upcoming_reviewed_appearances": 0,
-      "automatic_match_outcomes": 0,
+      "automatic_match_outcomes": 5,
       "automatic_storylines": 0,
       "manually_reviewed_outcomes": 0,
       "manually_reviewed_storylines": 0,
       "episode_synopsis_available": false,
       "publisher_headline_links": 5,
-      "results_data_status": "no_usable_result_facts"
+      "results_data_status": "automatic_results_present"
     },
     {
       "show_id": "aaa",
@@ -124,13 +124,13 @@
       "upcoming_reported_appearances": 0,
       "upcoming_reviewed_matches": 0,
       "upcoming_reviewed_appearances": 0,
-      "automatic_match_outcomes": 0,
+      "automatic_match_outcomes": 4,
       "automatic_storylines": 0,
       "manually_reviewed_outcomes": 0,
       "manually_reviewed_storylines": 0,
       "episode_synopsis_available": false,
       "publisher_headline_links": 5,
-      "results_data_status": "no_usable_result_facts"
+      "results_data_status": "automatic_results_present"
     },
     {
       "show_id": "evolve",

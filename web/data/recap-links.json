@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "mode": "PUBLISHER_RSS_POST_SHOW_LINKS_ONLY",
-  "generated_at": "2026-11-10T00:17:01.361424-05:00",
+  "generated_at": "2026-11-10T04:13:30.996477-05:00",
   "source_name": "Multiple publisher RSS feeds",
   "source_url": "https://www.f4wonline.com/rss.xml",
   "approved_publishers": [
@@ -13,10 +13,46 @@
   "programs": [
     {
       "show_id": "raw",
-      "airdate": null,
-      "links": [],
+      "airdate": "2026-11-09",
+      "links": [
+        {
+          "headline": "Hall’s WWE Raw Review 11.9.26",
+          "url": "https://411mania.com/wrestling/halls-wwe-raw-review-11-9-26/",
+          "published_at": "2026-11-10T04:00:13+00:00",
+          "source_name": "411Mania",
+          "status": "PUBLISHER_HEADLINE_LINK_ONLY"
+        },
+        {
+          "headline": "Cook’s WWE Raw Review 11.9.26",
+          "url": "https://411mania.com/wrestling/cooks-wwe-raw-review-11-9-26/",
+          "published_at": "2026-11-10T03:40:24+00:00",
+          "source_name": "411Mania",
+          "status": "PUBLISHER_HEADLINE_LINK_ONLY"
+        },
+        {
+          "headline": "WWE RAW Results – Nov. 9, 2026 – Cody Rhodes Appears, IYO SKY & Mystery Partner vs. Judgement Day",
+          "url": "https://www.tpww.net/2026/11/wwe-raw-results-nov-9-2026-cody-rhodes-appears-iyo-sky-mystery-partner-vs-judgement-day/",
+          "published_at": "2026-11-10T01:34:58+00:00",
+          "source_name": "TPWW",
+          "status": "PUBLISHER_HEADLINE_LINK_ONLY"
+        },
+        {
+          "headline": "WWE RAW Results, Highlights and Key Moments for November 9, 2026",
+          "url": "https://www.ringsidenews.com/wwe-raw-results-highlights-key-moments-november-9-2026/",
+          "published_at": "2026-11-10T00:31:00+00:00",
+          "source_name": "Ringside News",
+          "status": "PUBLISHER_HEADLINE_LINK_ONLY"
+        },
+        {
+          "headline": "WWE Raw live results: Crown Jewel fallout show",
+          "url": "https://www.f4wonline.com/news/wwe/results/wwe-raw-live-results-crown-jewel-fallout-show/",
+          "published_at": "2026-11-10T00:30:00+00:00",
+          "source_name": "F4W / Wrestling Observer",
+          "status": "PUBLISHER_HEADLINE_LINK_ONLY"
+        }
+      ],
       "source_name": "Multiple publisher RSS feeds",
-      "status": "no_matching_published_coverage"
+      "status": "publisher_coverage_links"
     },
     {
       "show_id": "smackdown",
@@ -204,7 +240,7 @@
       "status": "publisher_coverage_links"
     }
   ],
-  "total_links": 19,
+  "total_links": 24,
   "retained_link_count": 13,
   "collection_status": "ok",
   "successful_feed_urls": [

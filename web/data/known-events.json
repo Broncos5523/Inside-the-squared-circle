@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "mode": "KNOWN_PROVIDER_EVENT_IDENTIFIERS",
-  "generated_at": "2026-11-10T00:16:38.822177-05:00",
+  "generated_at": "2026-11-10T04:13:09.297230-05:00",
   "policy": "Identifiers only, retained 14 days after airdate to permit post-show lookup. Always re-fetch source event and recheck league/show/local day; never copy historic match claims.",
   "entries": [
     {
@@ -9,6 +9,13 @@
       "airdate": "2026-11-04",
       "event_ids": [
         "2624415"
+      ]
+    },
+    {
+      "show_id": "nxt",
+      "airdate": "2026-11-10",
+      "event_ids": [
+        "2626988"
       ]
     },
     {
