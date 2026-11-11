@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "mode": "PUBLISHER_RSS_POST_SHOW_LINKS_ONLY",
-  "generated_at": "2026-11-11T04:17:16.793612-05:00",
+  "generated_at": "2026-11-11T08:36:30.803632-05:00",
   "source_name": "Multiple publisher RSS feeds",
   "source_url": "https://www.f4wonline.com/rss.xml",
   "approved_publishers": [
@@ -201,47 +201,14 @@
     },
     {
       "show_id": "evolve",
-      "airdate": "2026-11-04",
-      "links": [
-        {
-          "headline": "WWE EVOLVE (11/4) Results: Nikkita Lyons Defends EVOLVE Women’s Title in Fatal Four-Way & More",
-          "url": "https://411mania.com/wrestling/wwe-evolve-11-4-results-nikkita-lyons-defends-evolve-womens-title-fatal-four-way-more/",
-          "published_at": "2026-11-05T14:26:03+00:00",
-          "source_name": "411Mania",
-          "status": "PUBLISHER_HEADLINE_LINK_ONLY",
-          "retained_from_previous": true
-        },
-        {
-          "headline": "Hall’s WWE Evolve Review 11.4.26",
-          "url": "https://411mania.com/wrestling/halls-wwe-evolve-review-11-4-26/",
-          "published_at": "2026-11-05T05:35:03+00:00",
-          "source_name": "411Mania",
-          "status": "PUBLISHER_HEADLINE_LINK_ONLY",
-          "retained_from_previous": true
-        },
-        {
-          "headline": "WWE EVOLVE Results (11/4)",
-          "url": "https://www.fightful.com/wrestling-news/wwe-evolve-results-11-4",
-          "published_at": "2026-11-05T04:30:00+00:00",
-          "source_name": "Fightful",
-          "status": "PUBLISHER_HEADLINE_LINK_ONLY",
-          "retained_from_previous": true
-        },
-        {
-          "headline": "Leighty’s WWE Evolve Review 11.4.26",
-          "url": "https://411mania.com/wrestling/leightys-wwe-evolve-review-11-4-26/",
-          "published_at": "2026-11-05T03:44:53+00:00",
-          "source_name": "411Mania",
-          "status": "PUBLISHER_HEADLINE_LINK_ONLY",
-          "retained_from_previous": true
-        }
-      ],
+      "airdate": null,
+      "links": [],
       "source_name": "Multiple publisher RSS feeds",
-      "status": "publisher_coverage_links"
+      "status": "no_matching_published_coverage"
     }
   ],
-  "total_links": 24,
-  "retained_link_count": 13,
+  "total_links": 20,
+  "retained_link_count": 9,
   "collection_status": "ok",
   "successful_feed_urls": [
     "https://www.f4wonline.com/rss.xml",

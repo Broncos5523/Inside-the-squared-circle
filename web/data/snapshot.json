@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "mode": "LIVE_SCHEDULES_ONLY",
-  "generated_at": "2026-11-11T09:16:36.237555+00:00",
+  "generated_at": "2026-11-11T13:35:50.587472+00:00",
   "fresh_shows": 6,
   "shows": [
     {
@@ -105,14 +105,14 @@
       "color": "#BA80F7",
       "category": "recap",
       "next": {
+        "date": "2026-11-18",
+        "time": null,
+        "title": "Episode 38"
+      },
+      "previous": {
         "date": "2026-11-11",
         "time": null,
         "title": "Episode 37"
-      },
-      "previous": {
-        "date": "2026-11-04",
-        "time": null,
-        "title": "Episode 36"
       },
       "schedule_status": "fresh",
       "confirmed_matches": [],

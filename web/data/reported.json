@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "mode": "REPORTED_MATCHES_UNVERIFIED",
-  "generated_at": "2026-11-11T04:16:43.740195-05:00",
+  "generated_at": "2026-11-11T08:35:58.004820-05:00",
   "valid_as_of_et": "2026-11-11",
   "policy": "Opt-in UNVERIFIED match and explicit segment mentions only. May be stale, speculative, misassigned, dark matches, taped show results or subject to change. Not announcements from WWE, AAA or TNA. Taped/early results never withdraw advance cards before scheduled U.S. broadcast completion.",
   "programs": [
@@ -67,7 +67,7 @@
     },
     {
       "show_id": "evolve",
-      "airdate": "2026-11-11",
+      "airdate": "2026-11-18",
       "display_label": "REPORTED · UNVERIFIED",
       "matches": [],
       "appearances": [],
