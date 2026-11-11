@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "mode": "PUBLISHER_RSS_POST_SHOW_LINKS_ONLY",
-  "generated_at": "2026-11-11T08:36:30.803632-05:00",
+  "generated_at": "2026-11-11T12:21:24.841450-05:00",
   "source_name": "Multiple publisher RSS feeds",
   "source_url": "https://www.f4wonline.com/rss.xml",
   "approved_publishers": [
@@ -107,6 +107,13 @@
       "airdate": "2026-11-10",
       "links": [
         {
+          "headline": "WWE NXT (11.10) Dark Match Results: Skylar Rae, Brooks Jensen & More Compete",
+          "url": "https://411mania.com/wrestling/wwe-nxt-11-10-dark-match-results-skylar-rae-brooks-jensen-more-compete/",
+          "published_at": "2026-11-11T14:57:04+00:00",
+          "source_name": "411Mania",
+          "status": "PUBLISHER_HEADLINE_LINK_ONLY"
+        },
+        {
           "headline": "Hall’s WWE NXT Review 11.10.26",
           "url": "https://411mania.com/wrestling/halls-wwe-nxt-review-11-10-26/",
           "published_at": "2026-11-11T07:02:32+00:00",
@@ -132,13 +139,6 @@
           "url": "https://www.tpww.net/2026/11/wwe-nxt-results-nov-10-2026-wren-sinclair-vs-izzi-dame-the-vanity-project-vs-noam-dar-romeo-moreno/",
           "published_at": "2026-11-11T01:00:22+00:00",
           "source_name": "TPWW",
-          "status": "PUBLISHER_HEADLINE_LINK_ONLY"
-        },
-        {
-          "headline": "WWE NXT Results 11/10/26",
-          "url": "https://wrestlingheadlines.com/wwe-nxt-results-11-10-26/",
-          "published_at": "2026-11-11T01:00:15+00:00",
-          "source_name": "Wrestling Headlines",
           "status": "PUBLISHER_HEADLINE_LINK_ONLY"
         }
       ],
