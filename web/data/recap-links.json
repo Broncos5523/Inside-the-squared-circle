@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "mode": "PUBLISHER_RSS_POST_SHOW_LINKS_ONLY",
-  "generated_at": "2026-11-11T12:21:24.841450-05:00",
+  "generated_at": "2026-11-11T16:54:03.658419-05:00",
   "source_name": "Multiple publisher RSS feeds",
   "source_url": "https://www.f4wonline.com/rss.xml",
   "approved_publishers": [
@@ -111,7 +111,8 @@
           "url": "https://411mania.com/wrestling/wwe-nxt-11-10-dark-match-results-skylar-rae-brooks-jensen-more-compete/",
           "published_at": "2026-11-11T14:57:04+00:00",
           "source_name": "411Mania",
-          "status": "PUBLISHER_HEADLINE_LINK_ONLY"
+          "status": "PUBLISHER_HEADLINE_LINK_ONLY",
+          "retained_from_previous": true
         },
         {
           "headline": "Hall’s WWE NXT Review 11.10.26",
@@ -208,7 +209,7 @@
     }
   ],
   "total_links": 20,
-  "retained_link_count": 9,
+  "retained_link_count": 10,
   "collection_status": "ok",
   "successful_feed_urls": [
     "https://www.f4wonline.com/rss.xml",
