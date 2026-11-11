@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "mode": "POST_BROADCAST_RSS_SYNDICATED_EXCERPT_FACTS_UNVERIFIED",
-  "generated_at": "2026-11-10T16:06:52.136135-05:00",
+  "generated_at": "2026-11-10T20:28:53.808228-05:00",
   "policy": "Short factual winner/loser statements only from approved publisher-syndicated RSS descriptions after broadcast. Excerpt not published. Zero is acceptable; no website scraping, source quotes, title changes or storyline inference.",
   "programs": [
     {
@@ -18,9 +18,9 @@
     },
     {
       "show_id": "nxt",
-      "airdate": "2026-11-04",
+      "airdate": null,
       "results": [],
-      "status": "no_explicit_syndicated_results"
+      "status": "no_completed_broadcast"
     },
     {
       "show_id": "aaa",
@@ -97,7 +97,7 @@
     "https://www.fightful.com/wrestling/rss": {
       "items": 10,
       "with_description": 10,
-      "with_defeated_word": 1,
+      "with_defeated_word": 0,
       "with_explicit_outcome_sentence": 0,
       "dated_broadcast_headlines": 0,
       "dated_descriptions_with_outcome": 0,
@@ -117,11 +117,11 @@
     "https://www.tpww.net/feed/": {
       "items": 50,
       "with_description": 50,
-      "with_defeated_word": 5,
+      "with_defeated_word": 4,
       "with_explicit_outcome_sentence": 0,
-      "dated_broadcast_headlines": 2,
+      "dated_broadcast_headlines": 1,
       "dated_descriptions_with_outcome": 0,
-      "dated_descriptions_with_victory_word": 2,
+      "dated_descriptions_with_victory_word": 1,
       "status": "ok"
     },
     "https://www.ringsidenews.com/feed/": {
@@ -137,7 +137,7 @@
     "https://wrestlingheadlines.com/feed/": {
       "items": 50,
       "with_description": 50,
-      "with_defeated_word": 2,
+      "with_defeated_word": 1,
       "with_explicit_outcome_sentence": 0,
       "dated_broadcast_headlines": 1,
       "dated_descriptions_with_outcome": 0,

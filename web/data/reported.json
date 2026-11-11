@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "mode": "REPORTED_MATCHES_UNVERIFIED",
-  "generated_at": "2026-11-10T16:06:08.627119-05:00",
+  "generated_at": "2026-11-10T20:28:12.857537-05:00",
   "valid_as_of_et": "2026-11-10",
   "policy": "Opt-in UNVERIFIED match and explicit segment mentions only. May be stale, speculative, misassigned, dark matches, taped show results or subject to change. Not announcements from WWE, AAA or TNA. Taped/early results never withdraw advance cards before scheduled U.S. broadcast completion.",
   "programs": [
@@ -31,44 +31,11 @@
     },
     {
       "show_id": "nxt",
-      "airdate": "2026-11-10",
+      "airdate": "2026-11-17",
       "display_label": "REPORTED · UNVERIFIED",
-      "matches": [
-        {
-          "text": "EK Prosper vs. Kam Hendrix",
-          "stipulation": "Singles Match",
-          "evidence_url": "https://www.thesportsdb.com/api/v1/json/123/lookupevent.php?id=2626988",
-          "provider_event_id": "2626988",
-          "status": "REPORTED_UNVERIFIED",
-          "source_name": "TheSportsDB"
-        },
-        {
-          "text": "Izzi Dame vs. Wren Sinclair",
-          "stipulation": "Singles Match",
-          "evidence_url": "https://www.thesportsdb.com/api/v1/json/123/lookupevent.php?id=2626988",
-          "provider_event_id": "2626988",
-          "status": "REPORTED_UNVERIFIED",
-          "source_name": "TheSportsDB"
-        },
-        {
-          "text": "Lizzy Rain vs. Chantel Monroe",
-          "stipulation": "Singles Match",
-          "evidence_url": "https://www.thesportsdb.com/api/v1/json/123/lookupevent.php?id=2626988",
-          "provider_event_id": "2626988",
-          "status": "REPORTED_UNVERIFIED",
-          "source_name": "TheSportsDB"
-        },
-        {
-          "text": "The Vanity Project (Brad Baylor & Ricky Smokes) (w/Jackson Drake & Myka Lockwood) (c) vs. Noam Dar & Romeo Moreno",
-          "stipulation": "WWE NXT Tag Team Title Match",
-          "evidence_url": "https://www.thesportsdb.com/api/v1/json/123/lookupevent.php?id=2626988",
-          "provider_event_id": "2626988",
-          "status": "REPORTED_UNVERIFIED",
-          "source_name": "TheSportsDB"
-        }
-      ],
+      "matches": [],
       "appearances": [],
-      "error": "PROVIDER_PARTIAL_OR_UNAVAILABLE",
+      "error": null,
       "episode_outcome_detected": false,
       "episode_withdrawn": false,
       "episode_outcome_evidence_url": null,
@@ -111,6 +78,6 @@
       "source_name": "TheSportsDB"
     }
   ],
-  "total_reported_matches": 4,
+  "total_reported_matches": 0,
   "total_reported_appearances": 0
 }

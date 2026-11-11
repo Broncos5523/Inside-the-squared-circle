@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "mode": "PUBLISHER_RSS_POST_SHOW_LINKS_ONLY",
-  "generated_at": "2026-11-10T16:06:40.899984-05:00",
+  "generated_at": "2026-11-10T20:28:43.313469-05:00",
   "source_name": "Multiple publisher RSS feeds",
   "source_url": "https://www.f4wonline.com/rss.xml",
   "approved_publishers": [
@@ -15,6 +15,13 @@
       "show_id": "raw",
       "airdate": "2026-11-09",
       "links": [
+        {
+          "headline": "Rhio Returning To wXw, WWE Raw Highlights, More | Fight Size",
+          "url": "https://www.fightful.com/wrestling-news/rhio-returning-to-wxw-wwe-raw-highlights-more-fight-size",
+          "published_at": "2026-11-10T23:00:00+00:00",
+          "source_name": "Fightful",
+          "status": "PUBLISHER_HEADLINE_LINK_ONLY"
+        },
         {
           "headline": "Gunther vs. Trick Williams dark match result after WWE Raw",
           "url": "https://www.f4wonline.com/news/wwe/gunther-vs-trick-williams-dark-match-result-after-wwe-raw/",
@@ -42,14 +49,6 @@
           "published_at": "2026-11-10T01:34:58+00:00",
           "source_name": "TPWW",
           "status": "PUBLISHER_HEADLINE_LINK_ONLY"
-        },
-        {
-          "headline": "WWE RAW Results, Highlights and Key Moments for November 9, 2026",
-          "url": "https://www.ringsidenews.com/wwe-raw-results-highlights-key-moments-november-9-2026/",
-          "published_at": "2026-11-10T00:31:00+00:00",
-          "source_name": "Ringside News",
-          "status": "PUBLISHER_HEADLINE_LINK_ONLY",
-          "retained_from_previous": true
         }
       ],
       "source_name": "Multiple publisher RSS feeds",
@@ -78,7 +77,8 @@
           "url": "https://www.tpww.net/2026/11/wwe-smackdown-results-nov-6-2026-b-fab-michin-vs-fatal-influence-cm-punk-vs-kevin-owens-in-no-holds-barred-match/",
           "published_at": "2026-11-07T00:53:51+00:00",
           "source_name": "TPWW",
-          "status": "PUBLISHER_HEADLINE_LINK_ONLY"
+          "status": "PUBLISHER_HEADLINE_LINK_ONLY",
+          "retained_from_previous": true
         },
         {
           "headline": "WWE SmackDown Results 11/6/26",
@@ -101,50 +101,10 @@
     },
     {
       "show_id": "nxt",
-      "airdate": "2026-11-04",
-      "links": [
-        {
-          "headline": "B&V: AEW Blood and Guts and NXT head-to-head recap show!",
-          "url": "https://www.f4wonline.com/podcasts/bryan-and-vinny-show/bv-aew-blood-and-guts-and-nxt-head-to-head-recap-show/",
-          "published_at": "2026-11-06T05:19:33+00:00",
-          "source_name": "F4W / Wrestling Observer",
-          "status": "PUBLISHER_HEADLINE_LINK_ONLY",
-          "retained_from_previous": true
-        },
-        {
-          "headline": "WWE NXT (11/4) Dark Match Results: Elio LeFleur Competes & More",
-          "url": "https://411mania.com/wrestling/wwe-nxt-11-4-dark-match-results-elio-lefleur-competes-more/",
-          "published_at": "2026-11-05T15:06:00+00:00",
-          "source_name": "411Mania",
-          "status": "PUBLISHER_HEADLINE_LINK_ONLY",
-          "retained_from_previous": true
-        },
-        {
-          "headline": "Hall’s WWE NXT Review 11.4.26",
-          "url": "https://411mania.com/wrestling/halls-wwe-nxt-review-11-4-26/",
-          "published_at": "2026-11-05T03:07:49+00:00",
-          "source_name": "411Mania",
-          "status": "PUBLISHER_HEADLINE_LINK_ONLY",
-          "retained_from_previous": true
-        },
-        {
-          "headline": "WWE NXT Results – Nov. 4, 2026 – Dusty Rhodes Tag Team Classic Finals, John Cena & Cody Rhodes Appears, Grayson Waller vs. CM Punk",
-          "url": "https://www.tpww.net/2026/11/wwe-nxt-results-nov-4-2026-dusty-rhodes-tag-team-classic-finals-john-cena-cody-rhodes-appears-grayson-waller-vs-cm-punk/",
-          "published_at": "2026-11-05T00:55:11+00:00",
-          "source_name": "TPWW",
-          "status": "PUBLISHER_HEADLINE_LINK_ONLY",
-          "retained_from_previous": true
-        },
-        {
-          "headline": "WWE NXT live results: CM Punk vs. Grayson Waller",
-          "url": "https://www.f4wonline.com/news/nxt/nxt-results/wwe-nxt-live-results-cm-punk-grayson-waller/",
-          "published_at": "2026-11-05T00:13:00+00:00",
-          "source_name": "F4W / Wrestling Observer",
-          "status": "PUBLISHER_HEADLINE_LINK_ONLY"
-        }
-      ],
+      "airdate": null,
+      "links": [],
       "source_name": "Multiple publisher RSS feeds",
-      "status": "publisher_coverage_links"
+      "status": "no_matching_published_coverage"
     },
     {
       "show_id": "aaa",
@@ -241,8 +201,8 @@
       "status": "publisher_coverage_links"
     }
   ],
-  "total_links": 24,
-  "retained_link_count": 14,
+  "total_links": 19,
+  "retained_link_count": 10,
   "collection_status": "ok",
   "successful_feed_urls": [
     "https://www.f4wonline.com/rss.xml",
