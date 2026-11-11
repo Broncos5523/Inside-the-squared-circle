@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "mode": "PUBLISHER_RSS_POST_SHOW_LINKS_ONLY",
-  "generated_at": "2026-11-10T20:28:43.313469-05:00",
+  "generated_at": "2026-11-11T00:21:25.934898-05:00",
   "source_name": "Multiple publisher RSS feeds",
   "source_url": "https://www.f4wonline.com/rss.xml",
   "approved_publishers": [
@@ -20,7 +20,8 @@
           "url": "https://www.fightful.com/wrestling-news/rhio-returning-to-wxw-wwe-raw-highlights-more-fight-size",
           "published_at": "2026-11-10T23:00:00+00:00",
           "source_name": "Fightful",
-          "status": "PUBLISHER_HEADLINE_LINK_ONLY"
+          "status": "PUBLISHER_HEADLINE_LINK_ONLY",
+          "retained_from_previous": true
         },
         {
           "headline": "Gunther vs. Trick Williams dark match result after WWE Raw",
@@ -70,7 +71,8 @@
           "url": "https://411mania.com/wrestling/winfrees-wwe-smackdown-review-11-06-26/",
           "published_at": "2026-11-07T03:11:26+00:00",
           "source_name": "411Mania",
-          "status": "PUBLISHER_HEADLINE_LINK_ONLY"
+          "status": "PUBLISHER_HEADLINE_LINK_ONLY",
+          "retained_from_previous": true
         },
         {
           "headline": "WWE SmackDown Results – Nov. 6, 2026 – B-Fab & Michin vs. Fatal Influence, CM Punk vs. Kevin Owens In No Holds Barred Match",
@@ -202,7 +204,7 @@
     }
   ],
   "total_links": 19,
-  "retained_link_count": 10,
+  "retained_link_count": 12,
   "collection_status": "ok",
   "successful_feed_urls": [
     "https://www.f4wonline.com/rss.xml",
