@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "mode": "PUBLISHER_RSS_POST_SHOW_LINKS_ONLY",
-  "generated_at": "2026-11-11T00:21:25.934898-05:00",
+  "generated_at": "2026-11-11T04:17:16.793612-05:00",
   "source_name": "Multiple publisher RSS feeds",
   "source_url": "https://www.f4wonline.com/rss.xml",
   "approved_publishers": [
@@ -64,7 +64,8 @@
           "url": "https://411mania.com/wrestling/halls-wwe-smackdown-review-11-6-26/",
           "published_at": "2026-11-07T05:27:42+00:00",
           "source_name": "411Mania",
-          "status": "PUBLISHER_HEADLINE_LINK_ONLY"
+          "status": "PUBLISHER_HEADLINE_LINK_ONLY",
+          "retained_from_previous": true
         },
         {
           "headline": "Winfree’s WWE Smackdown Review 11.06.26",
@@ -103,10 +104,46 @@
     },
     {
       "show_id": "nxt",
-      "airdate": null,
-      "links": [],
+      "airdate": "2026-11-10",
+      "links": [
+        {
+          "headline": "Hall’s WWE NXT Review 11.10.26",
+          "url": "https://411mania.com/wrestling/halls-wwe-nxt-review-11-10-26/",
+          "published_at": "2026-11-11T07:02:32+00:00",
+          "source_name": "411Mania",
+          "status": "PUBLISHER_HEADLINE_LINK_ONLY"
+        },
+        {
+          "headline": "11/10/26 NXT Recap",
+          "url": "https://gerweck.net/2026/11/10/11-10-26-nxt-recap/",
+          "published_at": "2026-11-11T04:05:51+00:00",
+          "source_name": "Gerweck.net",
+          "status": "PUBLISHER_HEADLINE_LINK_ONLY"
+        },
+        {
+          "headline": "Cook’s WWE NXT Review 11.10.26",
+          "url": "https://411mania.com/wrestling/cooks-wwe-nxt-review-11-10-26/",
+          "published_at": "2026-11-11T03:14:33+00:00",
+          "source_name": "411Mania",
+          "status": "PUBLISHER_HEADLINE_LINK_ONLY"
+        },
+        {
+          "headline": "WWE NXT Results – Nov. 10, 2026 – Wren Sinclair vs. Izzi Dame, The Vanity Project vs. Noam Dar & Romeo Moreno",
+          "url": "https://www.tpww.net/2026/11/wwe-nxt-results-nov-10-2026-wren-sinclair-vs-izzi-dame-the-vanity-project-vs-noam-dar-romeo-moreno/",
+          "published_at": "2026-11-11T01:00:22+00:00",
+          "source_name": "TPWW",
+          "status": "PUBLISHER_HEADLINE_LINK_ONLY"
+        },
+        {
+          "headline": "WWE NXT Results 11/10/26",
+          "url": "https://wrestlingheadlines.com/wwe-nxt-results-11-10-26/",
+          "published_at": "2026-11-11T01:00:15+00:00",
+          "source_name": "Wrestling Headlines",
+          "status": "PUBLISHER_HEADLINE_LINK_ONLY"
+        }
+      ],
       "source_name": "Multiple publisher RSS feeds",
-      "status": "no_matching_published_coverage"
+      "status": "publisher_coverage_links"
     },
     {
       "show_id": "aaa",
@@ -203,8 +240,8 @@
       "status": "publisher_coverage_links"
     }
   ],
-  "total_links": 19,
-  "retained_link_count": 12,
+  "total_links": 24,
+  "retained_link_count": 13,
   "collection_status": "ok",
   "successful_feed_urls": [
     "https://www.f4wonline.com/rss.xml",
