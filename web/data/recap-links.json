@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "mode": "PUBLISHER_RSS_POST_SHOW_LINKS_ONLY",
-  "generated_at": "2026-11-11T16:54:03.658419-05:00",
+  "generated_at": "2026-11-11T20:39:15.492611-05:00",
   "source_name": "Multiple publisher RSS feeds",
   "source_url": "https://www.f4wonline.com/rss.xml",
   "approved_publishers": [
@@ -28,7 +28,8 @@
           "url": "https://www.f4wonline.com/news/wwe/gunther-vs-trick-williams-dark-match-result-after-wwe-raw/",
           "published_at": "2026-11-10T14:28:22+00:00",
           "source_name": "F4W / Wrestling Observer",
-          "status": "PUBLISHER_HEADLINE_LINK_ONLY"
+          "status": "PUBLISHER_HEADLINE_LINK_ONLY",
+          "retained_from_previous": true
         },
         {
           "headline": "Hall’s WWE Raw Review 11.9.26",
@@ -107,6 +108,13 @@
       "airdate": "2026-11-10",
       "links": [
         {
+          "headline": "Asuka Visits SEGA Headquarters In Tokyo, WWE NXT Highlights, More | Fight Size",
+          "url": "https://www.fightful.com/wrestling-news/asuka-visits-sega-headquarters-in-tokyo-wwe-nxt-highlights-more-fight-size",
+          "published_at": "2026-11-11T23:05:08+00:00",
+          "source_name": "Fightful",
+          "status": "PUBLISHER_HEADLINE_LINK_ONLY"
+        },
+        {
           "headline": "WWE NXT (11.10) Dark Match Results: Skylar Rae, Brooks Jensen & More Compete",
           "url": "https://411mania.com/wrestling/wwe-nxt-11-10-dark-match-results-skylar-rae-brooks-jensen-more-compete/",
           "published_at": "2026-11-11T14:57:04+00:00",
@@ -133,13 +141,6 @@
           "url": "https://411mania.com/wrestling/cooks-wwe-nxt-review-11-10-26/",
           "published_at": "2026-11-11T03:14:33+00:00",
           "source_name": "411Mania",
-          "status": "PUBLISHER_HEADLINE_LINK_ONLY"
-        },
-        {
-          "headline": "WWE NXT Results – Nov. 10, 2026 – Wren Sinclair vs. Izzi Dame, The Vanity Project vs. Noam Dar & Romeo Moreno",
-          "url": "https://www.tpww.net/2026/11/wwe-nxt-results-nov-10-2026-wren-sinclair-vs-izzi-dame-the-vanity-project-vs-noam-dar-romeo-moreno/",
-          "published_at": "2026-11-11T01:00:22+00:00",
-          "source_name": "TPWW",
           "status": "PUBLISHER_HEADLINE_LINK_ONLY"
         }
       ],
@@ -209,7 +210,7 @@
     }
   ],
   "total_links": 20,
-  "retained_link_count": 10,
+  "retained_link_count": 11,
   "collection_status": "ok",
   "successful_feed_urls": [
     "https://www.f4wonline.com/rss.xml",
