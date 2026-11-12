@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "mode": "PUBLISHER_RSS_POST_SHOW_LINKS_ONLY",
-  "generated_at": "2026-11-12T08:40:08.809439-05:00",
+  "generated_at": "2026-11-12T12:20:08.001695-05:00",
   "source_name": "Multiple publisher RSS feeds",
   "source_url": "https://www.f4wonline.com/rss.xml",
   "approved_publishers": [
@@ -43,7 +43,8 @@
           "url": "https://411mania.com/wrestling/cooks-wwe-raw-review-11-9-26/",
           "published_at": "2026-11-10T03:40:24+00:00",
           "source_name": "411Mania",
-          "status": "PUBLISHER_HEADLINE_LINK_ONLY"
+          "status": "PUBLISHER_HEADLINE_LINK_ONLY",
+          "retained_from_previous": true
         },
         {
           "headline": "WWE RAW Results – Nov. 9, 2026 – Cody Rhodes Appears, IYO SKY & Mystery Partner vs. Judgement Day",
@@ -207,6 +208,13 @@
       "airdate": "2026-11-11",
       "links": [
         {
+          "headline": "WWE EVOLVE (11.11) Results: Anya Rune, Laynie Luck & More Compete",
+          "url": "https://411mania.com/wrestling/wwe-evolve-11-11-results-anya-rune-laynie-luck-more-compete/",
+          "published_at": "2026-11-12T14:11:26+00:00",
+          "source_name": "411Mania",
+          "status": "PUBLISHER_HEADLINE_LINK_ONLY"
+        },
+        {
           "headline": "Leighty’s WWE Evolve Review 11.11.26",
           "url": "https://411mania.com/wrestling/leightys-wwe-evolve-review-11-11-26/",
           "published_at": "2026-11-12T05:21:03+00:00",
@@ -225,26 +233,23 @@
           "url": "https://www.fightful.com/wrestling-news/wwe-evolve-results-11-11",
           "published_at": "2026-11-12T04:00:00+00:00",
           "source_name": "Fightful",
-          "status": "PUBLISHER_HEADLINE_LINK_ONLY"
+          "status": "PUBLISHER_HEADLINE_LINK_ONLY",
+          "retained_from_previous": true
         }
       ],
       "source_name": "Multiple publisher RSS feeds",
       "status": "publisher_coverage_links"
     }
   ],
-  "total_links": 23,
-  "retained_link_count": 12,
+  "total_links": 24,
+  "retained_link_count": 14,
   "collection_status": "ok",
   "successful_feed_urls": [
-    "https://www.f4wonline.com/rss.xml",
-    "https://www.f4wonline.com/category/news/wwe/results/feed/",
-    "https://www.f4wonline.com/category/news/nxt/nxt-results/feed/",
     "https://411mania.com/wrestling/feed/",
     "https://411mania.com/wrestling/category/tv-report/feed/",
     "https://www.fightful.com/wrestling/rss",
     "https://gerweck.net/category/results/feed/",
     "https://www.tpww.net/feed/",
-    "https://www.ringsidenews.com/feed/",
-    "https://wrestlingheadlines.com/feed/"
+    "https://www.ringsidenews.com/feed/"
   ]
 }
