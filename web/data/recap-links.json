@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "mode": "PUBLISHER_RSS_POST_SHOW_LINKS_ONLY",
-  "generated_at": "2026-11-11T20:39:15.492611-05:00",
+  "generated_at": "2026-11-12T00:23:38.784660-05:00",
   "source_name": "Multiple publisher RSS feeds",
   "source_url": "https://www.f4wonline.com/rss.xml",
   "approved_publishers": [
@@ -112,7 +112,8 @@
           "url": "https://www.fightful.com/wrestling-news/asuka-visits-sega-headquarters-in-tokyo-wwe-nxt-highlights-more-fight-size",
           "published_at": "2026-11-11T23:05:08+00:00",
           "source_name": "Fightful",
-          "status": "PUBLISHER_HEADLINE_LINK_ONLY"
+          "status": "PUBLISHER_HEADLINE_LINK_ONLY",
+          "retained_from_previous": true
         },
         {
           "headline": "WWE NXT (11.10) Dark Match Results: Skylar Rae, Brooks Jensen & More Compete",
@@ -210,7 +211,7 @@
     }
   ],
   "total_links": 20,
-  "retained_link_count": 11,
+  "retained_link_count": 12,
   "collection_status": "ok",
   "successful_feed_urls": [
     "https://www.f4wonline.com/rss.xml",
