@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "mode": "SOURCE_GATED_STAGING",
-  "generated_at": "2026-11-12T09:22:43.114Z",
+  "generated_at": "2026-11-12T13:40:48.139Z",
   "entries": [
     {
       "id": "weekly-upcoming-raw",
@@ -15,7 +15,7 @@
       "verification": "SOURCE_REPORTED",
       "has_content": false,
       "schedule_confirmed": true,
-      "checked_at": "2026-11-12T09:22:43.114Z",
+      "checked_at": "2026-11-12T13:40:48.139Z",
       "source_name": "Published episode schedule",
       "source_url": "https://broncos5523.github.io/Inside-the-squared-circle/data/snapshot.json",
       "venue": {
@@ -33,11 +33,11 @@
       "design_approved": true,
       "content_status": "current",
       "verification": "SOURCE_REPORTED",
-      "has_content": false,
+      "has_content": true,
       "schedule_confirmed": true,
-      "checked_at": "2026-11-12T09:22:43.114Z",
-      "source_name": "Published episode schedule",
-      "source_url": "https://broncos5523.github.io/Inside-the-squared-circle/data/snapshot.json",
+      "checked_at": "2026-11-12T13:40:48.139Z",
+      "source_name": "Wrestling Central News (wrestlingcentralnews.com)",
+      "source_url": "https://wrestlingcentralnews.com/events/2026-11-13-wwe-smackdown/",
       "venue": {
         "arena": "Amerant Bank Arena",
         "city": "Fort Lauderdale, FL"
@@ -55,7 +55,7 @@
       "verification": "SOURCE_REPORTED",
       "has_content": true,
       "schedule_confirmed": true,
-      "checked_at": "2026-11-12T09:22:43.114Z",
+      "checked_at": "2026-11-12T13:40:48.139Z",
       "source_name": "Wrestling Central News (wrestlingcentralnews.com)",
       "source_url": "https://wrestlingcentralnews.com/events/2026-11-17-wwe-nxt/",
       "venue": null
@@ -72,7 +72,7 @@
       "verification": "SOURCE_REPORTED",
       "has_content": false,
       "schedule_confirmed": true,
-      "checked_at": "2026-11-12T09:22:43.114Z",
+      "checked_at": "2026-11-12T13:40:48.139Z",
       "source_name": "Published episode schedule",
       "source_url": "https://broncos5523.github.io/Inside-the-squared-circle/data/snapshot.json",
       "venue": null
@@ -87,11 +87,11 @@
       "design_approved": true,
       "content_status": "current",
       "verification": "SOURCE_REPORTED",
-      "has_content": false,
+      "has_content": true,
       "schedule_confirmed": true,
-      "checked_at": "2026-11-12T09:22:43.114Z",
-      "source_name": "Published episode schedule",
-      "source_url": "https://broncos5523.github.io/Inside-the-squared-circle/data/snapshot.json",
+      "checked_at": "2026-11-12T13:40:48.139Z",
+      "source_name": "Wrestling Central News (wrestlingcentralnews.com)",
+      "source_url": "https://wrestlingcentralnews.com/events/2026-11-12-tna-impact/",
       "venue": null
     },
     {
@@ -105,7 +105,7 @@
       "content_status": "current",
       "verification": "EDITORIALLY_VERIFIED",
       "completed": true,
-      "checked_at": "2026-11-12T09:22:43.114Z",
+      "checked_at": "2026-11-12T13:40:48.139Z",
       "source_name": "WWE AAA Héroes Inmortales | Week 1 results, October 24, 2026",
       "source_url": "https://www.wwe.com/shows/aaa/aaa-h-roes-inmortales-week-1-results"
     },
@@ -120,7 +120,7 @@
       "content_status": "current",
       "verification": "OFFICIAL_VERIFIED",
       "completed": true,
-      "checked_at": "2026-11-12T09:22:43.114Z",
+      "checked_at": "2026-11-12T13:40:48.139Z",
       "source_name": "WWE",
       "source_url": "https://www.wwe.com/shows/wwenxt/2026-11-10/results"
     },
@@ -135,7 +135,7 @@
       "content_status": "current",
       "verification": "OFFICIAL_VERIFIED",
       "completed": true,
-      "checked_at": "2026-11-12T09:22:43.114Z",
+      "checked_at": "2026-11-12T13:40:48.139Z",
       "source_name": "TNA Wrestling",
       "source_url": "https://tnawrestling.com/news/tna-thursday-night-impact-on-amc-results-november-5-2026"
     },
@@ -150,7 +150,7 @@
       "design_approved": true,
       "content_status": "current",
       "verification": "OFFICIAL_VERIFIED",
-      "checked_at": "2026-11-12T09:22:43.114Z",
+      "checked_at": "2026-11-12T13:40:48.139Z",
       "source_name": "TNA Wrestling",
       "source_url": "https://tnawrestling.com/roster",
       "source_urls": [
@@ -168,7 +168,7 @@
       "design_approved": true,
       "content_status": "current",
       "verification": "OFFICIAL_VERIFIED",
-      "checked_at": "2026-11-12T09:22:43.114Z",
+      "checked_at": "2026-11-12T13:40:48.139Z",
       "source_name": "WWE",
       "source_url": "https://www.wwe.com/titlehistory/nxt-championship",
       "source_urls": [
@@ -190,7 +190,7 @@
       "design_approved": true,
       "content_status": "current",
       "verification": "OFFICIAL_VERIFIED",
-      "checked_at": "2026-11-12T09:22:43.114Z",
+      "checked_at": "2026-11-12T13:40:48.139Z",
       "source_name": "WWE",
       "source_url": "https://www.wwe.com/titlehistory/wwe-championship",
       "source_urls": [
@@ -213,7 +213,7 @@
       "design_approved": true,
       "content_status": "current",
       "verification": "OFFICIAL_VERIFIED",
-      "checked_at": "2026-11-12T09:22:43.114Z",
+      "checked_at": "2026-11-12T13:40:48.139Z",
       "source_name": "WWE",
       "source_url": "https://www.wwe.com/classics/titlehistory/world-heavyweight-championship",
       "source_urls": [
@@ -235,7 +235,7 @@
       "design_approved": true,
       "content_status": "current",
       "verification": "SOURCE_CORROBORATED",
-      "checked_at": "2026-11-12T09:22:43.114Z",
+      "checked_at": "2026-11-12T13:40:48.139Z",
       "source_name": "Sacnilk / The SmackDown Hotel",
       "source_url": "https://www.sacnilk.com/news/current_lucha_libre_aaa_worldwide_champions_full_list_of_title_holders",
       "source_urls": [
@@ -248,7 +248,7 @@
     "snapshot.json": {
       "schema_version": 1,
       "mode": "LIVE_SCHEDULES_ONLY",
-      "generated_at": "2026-11-12T09:21:46.403595+00:00",
+      "generated_at": "2026-11-12T13:39:32.232794+00:00",
       "fresh_shows": 6,
       "shows": [
         {
@@ -370,9 +370,27 @@
     "reported.json": {
       "schema_version": 1,
       "mode": "REPORTED_MATCHES_UNVERIFIED",
-      "generated_at": "2026-11-12T09:22:43.114Z",
+      "generated_at": "2026-11-12T13:40:48.139Z",
       "display_attribution": "Published weekly show announcements; individual sources retained",
       "programs": [
+        {
+          "show_id": "smackdown",
+          "airdate": "2026-11-13",
+          "matches": [],
+          "appearances": [
+            {
+              "text": "John Cena",
+              "evidence_url": "https://wrestlingcentralnews.com/events/2026-11-13-wwe-smackdown/",
+              "source_name": "Wrestling Central News (wrestlingcentralnews.com)",
+              "status": "REPORTED_UNVERIFIED"
+            }
+          ],
+          "start_time": null,
+          "source_name": "Wrestling Central News (wrestlingcentralnews.com)",
+          "source_url": "https://wrestlingcentralnews.com/events/2026-11-13-wwe-smackdown/",
+          "collection_status": "event_page_matches",
+          "schedule_source": "wcn_upcoming_listing"
+        },
         {
           "show_id": "nxt",
           "airdate": "2026-11-17",
@@ -396,10 +414,40 @@
           "source_url": "https://wrestlingcentralnews.com/events/2026-11-17-wwe-nxt/",
           "collection_status": "event_page_matches",
           "schedule_source": "wcn_upcoming_listing"
+        },
+        {
+          "show_id": "tna",
+          "airdate": "2026-11-12",
+          "matches": [
+            {
+              "text": "Elijah vs. Nic Nemeth, Moose",
+              "evidence_url": "https://wrestlingcentralnews.com/events/2026-11-12-tna-impact/",
+              "source_name": "Wrestling Central News (wrestlingcentralnews.com)",
+              "status": "REPORTED_UNVERIFIED"
+            },
+            {
+              "text": "Samuel Shaw, Mustafa Ali vs. Frankie Kazarian, Heather",
+              "evidence_url": "https://wrestlingcentralnews.com/events/2026-11-12-tna-impact/",
+              "source_name": "Wrestling Central News (wrestlingcentralnews.com)",
+              "status": "REPORTED_UNVERIFIED"
+            },
+            {
+              "text": "Elegance vs. Elayna Black, Apex",
+              "evidence_url": "https://wrestlingcentralnews.com/events/2026-11-12-tna-impact/",
+              "source_name": "Wrestling Central News (wrestlingcentralnews.com)",
+              "status": "REPORTED_UNVERIFIED"
+            }
+          ],
+          "appearances": [],
+          "start_time": null,
+          "source_name": "Wrestling Central News (wrestlingcentralnews.com)",
+          "source_url": "https://wrestlingcentralnews.com/events/2026-11-12-tna-impact/",
+          "collection_status": "event_page_matches",
+          "schedule_source": "wcn_upcoming_listing"
         }
       ],
-      "total_reported_matches": 2,
-      "total_reported_appearances": 0
+      "total_reported_matches": 5,
+      "total_reported_appearances": 1
     },
     "aaa-verified-results.json": {
       "schema_version": 1,
@@ -656,7 +704,7 @@
     },
     "official-events.json": {
       "mode": "OFFICIAL_WWE_EVENT_PREVIEWS",
-      "generated_at": "2026-11-12T09:22:43.114Z",
+      "generated_at": "2026-11-12T13:40:48.139Z",
       "programs": []
     },
     "official-event-results.json": {
@@ -666,7 +714,7 @@
     "champions.json": {
       "schema_version": 1,
       "mode": "SOURCE_CHECKED_CHAMPIONS",
-      "generated_at": "2026-11-12T09:22:43.114Z",
+      "generated_at": "2026-11-12T13:40:48.139Z",
       "programs": [
         {
           "show": "tna",
@@ -1383,7 +1431,7 @@
   "collection": {
     "skipped": false,
     "show_count": 4,
-    "programs_with_data": 1,
+    "programs_with_data": 3,
     "errors": 0,
     "snapshot_fresh": true,
     "official_event_count": 0,
