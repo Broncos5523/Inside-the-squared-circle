@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "mode": "PUBLISHER_RSS_POST_SHOW_LINKS_ONLY",
-  "generated_at": "2026-11-12T20:32:48.633813-05:00",
+  "generated_at": "2026-11-13T00:21:54.194494-05:00",
   "source_name": "Multiple publisher RSS feeds",
   "source_url": "https://www.f4wonline.com/rss.xml",
   "approved_publishers": [
@@ -36,7 +36,8 @@
           "url": "https://411mania.com/wrestling/halls-wwe-raw-review-11-9-26/",
           "published_at": "2026-11-10T04:00:13+00:00",
           "source_name": "411Mania",
-          "status": "PUBLISHER_HEADLINE_LINK_ONLY"
+          "status": "PUBLISHER_HEADLINE_LINK_ONLY",
+          "retained_from_previous": true
         },
         {
           "headline": "Cook’s WWE Raw Review 11.9.26",
@@ -51,7 +52,8 @@
           "url": "https://www.tpww.net/2026/11/wwe-raw-results-nov-9-2026-cody-rhodes-appears-iyo-sky-mystery-partner-vs-judgement-day/",
           "published_at": "2026-11-10T01:34:58+00:00",
           "source_name": "TPWW",
-          "status": "PUBLISHER_HEADLINE_LINK_ONLY"
+          "status": "PUBLISHER_HEADLINE_LINK_ONLY",
+          "retained_from_previous": true
         }
       ],
       "source_name": "Multiple publisher RSS feeds",
@@ -158,46 +160,42 @@
     },
     {
       "show_id": "tna",
-      "airdate": "2026-11-05",
+      "airdate": "2026-11-12",
       "links": [
         {
-          "headline": "Hall’s TNA Impact Review 11.5.26",
-          "url": "https://411mania.com/wrestling/halls-tna-impact-review-11-5-26/",
-          "published_at": "2026-11-07T01:16:59+00:00",
+          "headline": "Ciocco’s TNA Impact Review 11.12.26",
+          "url": "https://411mania.com/wrestling/cioccos-tna-impact-review-11-12-26/",
+          "published_at": "2026-11-13T04:09:46+00:00",
           "source_name": "411Mania",
-          "status": "PUBLISHER_HEADLINE_LINK_ONLY",
-          "retained_from_previous": true
-        },
-        {
-          "headline": "Hall’s Impact Wrestling Review – 11.5.26",
-          "url": "https://411mania.com/wrestling/halls-impact-wrestling-review-11-5-26/",
-          "published_at": "2026-11-07T01:16:59+00:00",
-          "source_name": "411Mania",
-          "status": "PUBLISHER_HEADLINE_LINK_ONLY",
-          "retained_from_previous": true
-        },
-        {
-          "headline": "GCW Set To Debut In Mississippi, TNA iMPACT! Highlights, More | Fight Size",
-          "url": "https://www.fightful.com/wrestling-news/gcw-set-to-debut-in-mississippi-tna-impact-highlights-more-fight-size",
-          "published_at": "2026-11-06T19:00:00+00:00",
-          "source_name": "Fightful",
-          "status": "PUBLISHER_HEADLINE_LINK_ONLY",
-          "retained_from_previous": true
-        },
-        {
-          "headline": "11/5/26 TNA Impact Recap",
-          "url": "https://gerweck.net/2026/11/06/11-5-26-tna-impact-recap/",
-          "published_at": "2026-11-06T05:56:17+00:00",
-          "source_name": "Gerweck.net",
           "status": "PUBLISHER_HEADLINE_LINK_ONLY"
         },
         {
-          "headline": "Ciocco’s TNA Impact Review 11.5.26",
-          "url": "https://411mania.com/wrestling/cioccos-tna-impact-review-11-5-26/",
-          "published_at": "2026-11-06T04:11:01+00:00",
-          "source_name": "411Mania",
-          "status": "PUBLISHER_HEADLINE_LINK_ONLY",
-          "retained_from_previous": true
+          "headline": "TNA iMPACT! Results (11/12): Nic Nemeth, Elijah, Moose Compete",
+          "url": "https://www.fightful.com/wrestling-news/tna-impact-results-11-12-nic-nemeth-elijah-moose-compete",
+          "published_at": "2026-11-13T03:08:08+00:00",
+          "source_name": "Fightful",
+          "status": "PUBLISHER_HEADLINE_LINK_ONLY"
+        },
+        {
+          "headline": "TNA Impact! Results – Nov. 12, 2026 – Leon Slater & Trey Miguel “Destination Next”, Mustafa Ali vs. Frankie Kazarian",
+          "url": "https://www.tpww.net/2026/11/tna-impact-results-nov-12-2026-leon-slater-trey-miguel-destination-next-mustafa-ali-vs-frankie-kazarian/",
+          "published_at": "2026-11-13T01:53:15+00:00",
+          "source_name": "TPWW",
+          "status": "PUBLISHER_HEADLINE_LINK_ONLY"
+        },
+        {
+          "headline": "TNA Impact live results: Destination X go-home show",
+          "url": "https://www.f4wonline.com/news/tna-wrestling/tna-results/tna-impact-live-results-destination-x-go-home-show/",
+          "published_at": "2026-11-13T01:15:00+00:00",
+          "source_name": "F4W / Wrestling Observer",
+          "status": "PUBLISHER_HEADLINE_LINK_ONLY"
+        },
+        {
+          "headline": "TNA iMPACT Results 11/12/26",
+          "url": "https://wrestlingheadlines.com/tna-impact-results-11-12-26/",
+          "published_at": "2026-11-13T00:12:42+00:00",
+          "source_name": "Wrestling Headlines",
+          "status": "PUBLISHER_HEADLINE_LINK_ONLY"
         }
       ],
       "source_name": "Multiple publisher RSS feeds",
@@ -243,7 +241,7 @@
     }
   ],
   "total_links": 24,
-  "retained_link_count": 15,
+  "retained_link_count": 13,
   "collection_status": "ok",
   "successful_feed_urls": [
     "https://www.f4wonline.com/rss.xml",
