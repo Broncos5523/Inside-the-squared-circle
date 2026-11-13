@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "mode": "PUBLISHER_RSS_POST_SHOW_LINKS_ONLY",
-  "generated_at": "2026-11-13T04:20:05.408668-05:00",
+  "generated_at": "2026-11-13T08:34:29.754061-05:00",
   "source_name": "Multiple publisher RSS feeds",
   "source_url": "https://www.f4wonline.com/rss.xml",
   "approved_publishers": [
@@ -181,7 +181,8 @@
           "url": "https://www.fightful.com/wrestling-news/tna-impact-results-11-12-nic-nemeth-elijah-moose-compete",
           "published_at": "2026-11-13T03:08:08+00:00",
           "source_name": "Fightful",
-          "status": "PUBLISHER_HEADLINE_LINK_ONLY"
+          "status": "PUBLISHER_HEADLINE_LINK_ONLY",
+          "retained_from_previous": true
         },
         {
           "headline": "TNA Impact! Results – Nov. 12, 2026 – Leon Slater & Trey Miguel “Destination Next”, Mustafa Ali vs. Frankie Kazarian",
@@ -241,7 +242,7 @@
     }
   ],
   "total_links": 24,
-  "retained_link_count": 13,
+  "retained_link_count": 14,
   "collection_status": "ok",
   "successful_feed_urls": [
     "https://www.f4wonline.com/rss.xml",
