@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "mode": "POST_BROADCAST_RSS_FALLOUT_FACTS_UNVERIFIED",
-  "generated_at": "2026-11-13T08:34:50.012726-05:00",
+  "generated_at": "2026-11-13T12:18:24.491707-05:00",
   "policy": "Post-broadcast exact-date subject/verb/object factual developments only. Original RSS excerpts not republished; no title-change or match-winner inference. Unverified provenance retained in JSON, not presented as official.",
   "programs": [
     {
