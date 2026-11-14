@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "mode": "PUBLISHER_RSS_POST_SHOW_LINKS_ONLY",
-  "generated_at": "2026-11-13T16:11:40.065332-05:00",
+  "generated_at": "2026-11-13T20:29:29.533468-05:00",
   "source_name": "Multiple publisher RSS feeds",
   "source_url": "https://www.f4wonline.com/rss.xml",
   "approved_publishers": [
@@ -61,50 +61,10 @@
     },
     {
       "show_id": "smackdown",
-      "airdate": "2026-11-06",
-      "links": [
-        {
-          "headline": "Hall’s WWE Smackdown Review 11.6.26",
-          "url": "https://411mania.com/wrestling/halls-wwe-smackdown-review-11-6-26/",
-          "published_at": "2026-11-07T05:27:42+00:00",
-          "source_name": "411Mania",
-          "status": "PUBLISHER_HEADLINE_LINK_ONLY",
-          "retained_from_previous": true
-        },
-        {
-          "headline": "Winfree’s WWE Smackdown Review 11.06.26",
-          "url": "https://411mania.com/wrestling/winfrees-wwe-smackdown-review-11-06-26/",
-          "published_at": "2026-11-07T03:11:26+00:00",
-          "source_name": "411Mania",
-          "status": "PUBLISHER_HEADLINE_LINK_ONLY",
-          "retained_from_previous": true
-        },
-        {
-          "headline": "WWE SmackDown Results – Nov. 6, 2026 – B-Fab & Michin vs. Fatal Influence, CM Punk vs. Kevin Owens In No Holds Barred Match",
-          "url": "https://www.tpww.net/2026/11/wwe-smackdown-results-nov-6-2026-b-fab-michin-vs-fatal-influence-cm-punk-vs-kevin-owens-in-no-holds-barred-match/",
-          "published_at": "2026-11-07T00:53:51+00:00",
-          "source_name": "TPWW",
-          "status": "PUBLISHER_HEADLINE_LINK_ONLY",
-          "retained_from_previous": true
-        },
-        {
-          "headline": "WWE SmackDown Results 11/6/26",
-          "url": "https://gerweck.net/2026/11/06/wwe-smackdown-results-11-6-26/",
-          "published_at": "2026-11-07T00:38:12+00:00",
-          "source_name": "Gerweck.net",
-          "status": "PUBLISHER_HEADLINE_LINK_ONLY"
-        },
-        {
-          "headline": "WWE SmackDown Results 11/6/26",
-          "url": "https://wrestlingheadlines.com/wwe-smackdown-results-11-6-26/",
-          "published_at": "2026-11-07T00:34:33+00:00",
-          "source_name": "Wrestling Headlines",
-          "status": "PUBLISHER_HEADLINE_LINK_ONLY",
-          "retained_from_previous": true
-        }
-      ],
+      "airdate": null,
+      "links": [],
       "source_name": "Multiple publisher RSS feeds",
-      "status": "publisher_coverage_links"
+      "status": "no_matching_published_coverage"
     },
     {
       "show_id": "nxt",
@@ -145,7 +105,8 @@
           "url": "https://411mania.com/wrestling/cooks-wwe-nxt-review-11-10-26/",
           "published_at": "2026-11-11T03:14:33+00:00",
           "source_name": "411Mania",
-          "status": "PUBLISHER_HEADLINE_LINK_ONLY"
+          "status": "PUBLISHER_HEADLINE_LINK_ONLY",
+          "retained_from_previous": true
         }
       ],
       "source_name": "Multiple publisher RSS feeds",
@@ -174,7 +135,8 @@
           "url": "https://www.fightful.com/wrestling-news/drew-mcintyre-attends-premiere-for-his-new-film-hexed-tna-impact-highlights-more-fight-size",
           "published_at": "2026-11-13T19:00:00+00:00",
           "source_name": "Fightful",
-          "status": "PUBLISHER_HEADLINE_LINK_ONLY"
+          "status": "PUBLISHER_HEADLINE_LINK_ONLY",
+          "retained_from_previous": true
         },
         {
           "headline": "11/12/26 TNA Impact Recap",
@@ -241,8 +203,8 @@
       "status": "publisher_coverage_links"
     }
   ],
-  "total_links": 24,
-  "retained_link_count": 14,
+  "total_links": 19,
+  "retained_link_count": 12,
   "collection_status": "ok",
   "successful_feed_urls": [
     "https://www.f4wonline.com/rss.xml",

@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "mode": "TVMAZE_FINISHED_EPISODE_GUIDE_SYNOPSIS_ONLY",
-  "generated_at": "2026-11-13T16:11:28.653269-05:00",
+  "generated_at": "2026-11-13T20:29:15.424696-05:00",
   "policy": "TVmaze CC BY-SA episode synopses only; these may have been written before broadcast. No match winners, title changes, storylines or confirmed appearances may be inferred.",
   "programs": [
     {
@@ -16,13 +16,13 @@
     },
     {
       "show_id": "smackdown",
-      "airdate": "2026-11-06",
-      "synopsis": "Bitter enemies and two of the most decorated Superstars in WWE history, CM Punk and Kevin Owens will attempt to destroy each other tonight in a No Holds Barred Match. The WWE Women's Tag Team Title will be on the line when B-Fab and Mich…",
-      "episode_id": 3717638,
-      "evidence_url": "https://api.tvmaze.com/episodes/3717638",
+      "airdate": null,
+      "synopsis": null,
+      "episode_id": null,
+      "evidence_url": null,
       "source_name": "TVmaze",
       "license": "CC BY-SA",
-      "status": "episode_synopsis"
+      "status": "no_completed_episode"
     },
     {
       "show_id": "nxt",
@@ -65,5 +65,5 @@
       "status": "episode_synopsis"
     }
   ],
-  "synopses_available": 3
+  "synopses_available": 2
 }
