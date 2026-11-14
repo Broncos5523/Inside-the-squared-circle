@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "mode": "PUBLISHER_RSS_POST_SHOW_LINKS_ONLY",
-  "generated_at": "2026-11-13T20:29:29.533468-05:00",
+  "generated_at": "2026-11-14T00:14:13.627530-05:00",
   "source_name": "Multiple publisher RSS feeds",
   "source_url": "https://www.f4wonline.com/rss.xml",
   "approved_publishers": [
@@ -91,7 +91,8 @@
           "url": "https://411mania.com/wrestling/halls-wwe-nxt-review-11-10-26/",
           "published_at": "2026-11-11T07:02:32+00:00",
           "source_name": "411Mania",
-          "status": "PUBLISHER_HEADLINE_LINK_ONLY"
+          "status": "PUBLISHER_HEADLINE_LINK_ONLY",
+          "retained_from_previous": true
         },
         {
           "headline": "11/10/26 NXT Recap",
@@ -204,7 +205,7 @@
     }
   ],
   "total_links": 19,
-  "retained_link_count": 12,
+  "retained_link_count": 13,
   "collection_status": "ok",
   "successful_feed_urls": [
     "https://www.f4wonline.com/rss.xml",
