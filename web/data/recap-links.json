@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "mode": "PUBLISHER_RSS_POST_SHOW_LINKS_ONLY",
-  "generated_at": "2026-11-14T00:14:13.627530-05:00",
+  "generated_at": "2026-11-14T04:09:40.716574-05:00",
   "source_name": "Multiple publisher RSS feeds",
   "source_url": "https://www.f4wonline.com/rss.xml",
   "approved_publishers": [
@@ -61,10 +61,46 @@
     },
     {
       "show_id": "smackdown",
-      "airdate": null,
-      "links": [],
+      "airdate": "2026-11-13",
+      "links": [
+        {
+          "headline": "Hall’s WWE Smackdown Review 11.13.26",
+          "url": "https://411mania.com/wrestling/halls-wwe-smackdown-review-11-13-26/",
+          "published_at": "2026-11-14T03:27:20+00:00",
+          "source_name": "411Mania",
+          "status": "PUBLISHER_HEADLINE_LINK_ONLY"
+        },
+        {
+          "headline": "Winfree’s WWE Smackdown Review 11.13.26",
+          "url": "https://411mania.com/wrestling/winfrees-wwe-smackdown-review-11-13-26/",
+          "published_at": "2026-11-14T03:15:20+00:00",
+          "source_name": "411Mania",
+          "status": "PUBLISHER_HEADLINE_LINK_ONLY"
+        },
+        {
+          "headline": "WWE SmackDown Results – Nov. 13, 2026 – John Cena To Appear, Bakusai vs. MFTs, Finn Balor vs. Gunther",
+          "url": "https://www.tpww.net/2026/11/wwe-smackdown-results-nov-13-2026-john-cena-to-appear-bakusai-vs-mfts-finn-balor-vs-gunther/",
+          "published_at": "2026-11-14T01:03:17+00:00",
+          "source_name": "TPWW",
+          "status": "PUBLISHER_HEADLINE_LINK_ONLY"
+        },
+        {
+          "headline": "WWE SmackDown Results 11/13/26",
+          "url": "https://gerweck.net/2026/11/13/wwe-smackdown-results-11-13-26/",
+          "published_at": "2026-11-14T00:32:43+00:00",
+          "source_name": "Gerweck.net",
+          "status": "PUBLISHER_HEADLINE_LINK_ONLY"
+        },
+        {
+          "headline": "WWE SmackDown Results, Highlights and Key Moments for November 13, 2026",
+          "url": "https://www.ringsidenews.com/wwe-smackdown-results-highlights-key-moments-november-13-2026/",
+          "published_at": "2026-11-14T00:31:00+00:00",
+          "source_name": "Ringside News",
+          "status": "PUBLISHER_HEADLINE_LINK_ONLY"
+        }
+      ],
       "source_name": "Multiple publisher RSS feeds",
-      "status": "no_matching_published_coverage"
+      "status": "publisher_coverage_links"
     },
     {
       "show_id": "nxt",
@@ -204,7 +240,7 @@
       "status": "publisher_coverage_links"
     }
   ],
-  "total_links": 19,
+  "total_links": 24,
   "retained_link_count": 13,
   "collection_status": "ok",
   "successful_feed_urls": [

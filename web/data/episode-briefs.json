@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "mode": "TVMAZE_FINISHED_EPISODE_GUIDE_SYNOPSIS_ONLY",
-  "generated_at": "2026-11-14T00:14:02.003356-05:00",
+  "generated_at": "2026-11-14T04:09:29.960037-05:00",
   "policy": "TVmaze CC BY-SA episode synopses only; these may have been written before broadcast. No match winners, title changes, storylines or confirmed appearances may be inferred.",
   "programs": [
     {
@@ -16,13 +16,13 @@
     },
     {
       "show_id": "smackdown",
-      "airdate": null,
-      "synopsis": null,
-      "episode_id": null,
-      "evidence_url": null,
+      "airdate": "2026-11-13",
+      "synopsis": "After traveling to Raw and NXT, John Cena is set to journey to Friday Night SmackDown to invite more Superstars to the John Cena Classic, airing from Disney's ESPN Wide World of Sports Complex on Monday, Dec. 14. After betraying her frie…",
+      "episode_id": 3717639,
+      "evidence_url": "https://api.tvmaze.com/episodes/3717639",
       "source_name": "TVmaze",
       "license": "CC BY-SA",
-      "status": "no_completed_episode"
+      "status": "episode_synopsis"
     },
     {
       "show_id": "nxt",
@@ -65,5 +65,5 @@
       "status": "episode_synopsis"
     }
   ],
-  "synopses_available": 2
+  "synopses_available": 3
 }
