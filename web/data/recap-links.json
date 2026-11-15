@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "mode": "PUBLISHER_RSS_POST_SHOW_LINKS_ONLY",
-  "generated_at": "2026-11-15T12:00:17.507556-05:00",
+  "generated_at": "2026-11-15T15:58:49.564330-05:00",
   "source_name": "Multiple publisher RSS feeds",
   "source_url": "https://www.f4wonline.com/rss.xml",
   "approved_publishers": [
@@ -219,7 +219,8 @@
           "url": "https://411mania.com/wrestling/leightys-wwe-evolve-review-11-11-26/",
           "published_at": "2026-11-12T05:21:03+00:00",
           "source_name": "411Mania",
-          "status": "PUBLISHER_HEADLINE_LINK_ONLY"
+          "status": "PUBLISHER_HEADLINE_LINK_ONLY",
+          "retained_from_previous": true
         },
         {
           "headline": "Hall’s WWE Evolve Review 11.11.26",
@@ -243,7 +244,7 @@
     }
   ],
   "total_links": 24,
-  "retained_link_count": 15,
+  "retained_link_count": 16,
   "collection_status": "ok",
   "successful_feed_urls": [
     "https://www.f4wonline.com/rss.xml",
