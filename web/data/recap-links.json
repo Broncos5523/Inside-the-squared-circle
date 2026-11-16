@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "mode": "PUBLISHER_RSS_POST_SHOW_LINKS_ONLY",
-  "generated_at": "2026-11-16T10:31:30.706908-05:00",
+  "generated_at": "2026-11-16T12:35:40.114536-05:00",
   "source_name": "Multiple publisher RSS feeds",
   "source_url": "https://www.f4wonline.com/rss.xml",
   "approved_publishers": [
@@ -147,7 +147,8 @@
           "url": "https://411mania.com/wrestling/cioccos-tna-impact-review-11-12-26/",
           "published_at": "2026-11-13T04:09:46+00:00",
           "source_name": "411Mania",
-          "status": "PUBLISHER_HEADLINE_LINK_ONLY"
+          "status": "PUBLISHER_HEADLINE_LINK_ONLY",
+          "retained_from_previous": true
         },
         {
           "headline": "TNA iMPACT! Results (11/12): Nic Nemeth, Elijah, Moose Compete",
@@ -203,7 +204,7 @@
     }
   ],
   "total_links": 19,
-  "retained_link_count": 11,
+  "retained_link_count": 12,
   "collection_status": "ok",
   "successful_feed_urls": [
     "https://www.f4wonline.com/rss.xml",
