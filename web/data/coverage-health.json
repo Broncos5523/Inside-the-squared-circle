@@ -1,35 +1,35 @@
 {
   "schema_version": 1,
   "mode": "WRESTLING_CONTENT_COVERAGE_COUNTS_ONLY",
-  "generated_at": "2026-11-15T20:49:57.294575-05:00",
+  "generated_at": "2026-11-16T00:46:36.003256-05:00",
   "source_health": {
     "reported": {
       "fresh": true,
-      "generated_at": "2026-11-15T20:48:59.424034-05:00"
+      "generated_at": "2026-11-16T00:45:00.109941-05:00"
     },
     "results": {
       "fresh": true,
-      "generated_at": "2026-11-15T20:49:06.279127-05:00"
+      "generated_at": "2026-11-16T00:45:06.674334-05:00"
     },
     "rss_facts": {
       "fresh": true,
-      "generated_at": "2026-11-15T20:49:32.135862-05:00"
+      "generated_at": "2026-11-16T00:45:45.669331-05:00"
     },
     "rss_excerpts": {
       "fresh": true,
-      "generated_at": "2026-11-15T20:49:44.241090-05:00"
+      "generated_at": "2026-11-16T00:46:09.665156-05:00"
     },
     "fallout": {
       "fresh": true,
-      "generated_at": "2026-11-15T20:49:55.502507-05:00"
+      "generated_at": "2026-11-16T00:46:33.633872-05:00"
     },
     "recap_links": {
       "fresh": true,
-      "generated_at": "2026-11-15T20:49:31.992493-05:00"
+      "generated_at": "2026-11-16T00:45:45.466154-05:00"
     },
     "episode_briefs": {
       "fresh": true,
-      "generated_at": "2026-11-15T20:49:17.708574-05:00"
+      "generated_at": "2026-11-16T00:45:17.731355-05:00"
     }
   },
   "totals": {
@@ -43,12 +43,12 @@
     "manually_reviewed_storylines": 0,
     "publisher_headline_links": 24,
     "rss_feeds_checked": 10,
-    "rss_feeds_responding": 10,
-    "rss_items_examined": 345,
-    "rss_dated_episode_headlines": 11,
+    "rss_feeds_responding": 9,
+    "rss_items_examined": 295,
+    "rss_dated_episode_headlines": 9,
     "rss_dated_headlines_with_explicit_winner": 0,
-    "rss_dated_descriptions_with_victory_word": 2,
-    "rss_descriptions_with_defeated_word": 34,
+    "rss_dated_descriptions_with_victory_word": 0,
+    "rss_descriptions_with_defeated_word": 28,
     "rss_explicit_winner_sentences": 1
   },
   "programs": [
@@ -149,6 +149,6 @@
       "results_data_status": "no_usable_result_facts"
     }
   ],
-  "rss_bottleneck": "no_explicit_winner_sentences",
+  "rss_bottleneck": "no_dated_victory_language",
   "interpretation": "Availability counts, not a list of unique confirmed matches. Reviewed upcoming card entries are distinct from provider-reported rows and may overlap. Publisher links and synopses are not results."
 }
