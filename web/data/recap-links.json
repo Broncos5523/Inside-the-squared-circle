@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "mode": "PUBLISHER_RSS_POST_SHOW_LINKS_ONLY",
-  "generated_at": "2026-11-16T00:45:45.466154-05:00",
+  "generated_at": "2026-11-16T05:21:11.102361-05:00",
   "source_name": "Multiple publisher RSS feeds",
   "source_url": "https://www.f4wonline.com/rss.xml",
   "approved_publishers": [
@@ -82,8 +82,7 @@
           "url": "https://www.tpww.net/2026/11/wwe-smackdown-results-nov-13-2026-john-cena-to-appear-bakusai-vs-mfts-finn-balor-vs-gunther/",
           "published_at": "2026-11-14T01:03:17+00:00",
           "source_name": "TPWW",
-          "status": "PUBLISHER_HEADLINE_LINK_ONLY",
-          "retained_from_previous": true
+          "status": "PUBLISHER_HEADLINE_LINK_ONLY"
         },
         {
           "headline": "WWE SmackDown Results 11/13/26",
@@ -245,7 +244,7 @@
     }
   ],
   "total_links": 24,
-  "retained_link_count": 17,
+  "retained_link_count": 16,
   "collection_status": "ok",
   "successful_feed_urls": [
     "https://www.f4wonline.com/rss.xml",
@@ -255,6 +254,7 @@
     "https://411mania.com/wrestling/category/tv-report/feed/",
     "https://www.fightful.com/wrestling/rss",
     "https://gerweck.net/category/results/feed/",
+    "https://www.tpww.net/feed/",
     "https://www.ringsidenews.com/feed/",
     "https://wrestlingheadlines.com/feed/"
   ]
