@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "mode": "LIVE_SCHEDULES_ONLY",
-  "generated_at": "2026-11-16T10:20:31.890588+00:00",
+  "generated_at": "2026-11-16T15:30:50.215549+00:00",
   "fresh_shows": 6,
   "shows": [
     {
@@ -10,14 +10,14 @@
       "color": "#EC354C",
       "category": "primary",
       "next": {
+        "date": "2026-11-23",
+        "time": null,
+        "title": "#1747 - Intrust Bank Arena in Wichita, KS"
+      },
+      "previous": {
         "date": "2026-11-16",
         "time": null,
         "title": "#1746 - Lenovo Center in Raleigh, NC"
-      },
-      "previous": {
-        "date": "2026-11-09",
-        "time": null,
-        "title": "#1745 - Bon Secours Wellness Arena in Greenville, SC"
       },
       "schedule_status": "fresh",
       "confirmed_matches": [],
