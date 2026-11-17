@@ -1,18 +1,18 @@
 {
   "schema_version": 1,
   "mode": "TVMAZE_FINISHED_EPISODE_GUIDE_SYNOPSIS_ONLY",
-  "generated_at": "2026-11-17T00:21:05.978545-05:00",
+  "generated_at": "2026-11-17T04:24:33.864899-05:00",
   "policy": "TVmaze CC BY-SA episode synopses only; these may have been written before broadcast. No match winners, title changes, storylines or confirmed appearances may be inferred.",
   "programs": [
     {
       "show_id": "raw",
-      "airdate": null,
-      "synopsis": null,
-      "episode_id": null,
-      "evidence_url": null,
+      "airdate": "2026-11-16",
+      "synopsis": "Tonight John Cena returns to Raw en route to The John Cena Classic. Cena has already invited the likes of Cody Rhodes, Zilla Fatu, NXT Women's Champion Kelani Jordan, Fatal Influence and Charlotte Flair. Who will The Greatest of All Time…",
+      "episode_id": 3717631,
+      "evidence_url": "https://api.tvmaze.com/episodes/3717631",
       "source_name": "TVmaze",
       "license": "CC BY-SA",
-      "status": "no_completed_episode"
+      "status": "episode_synopsis"
     },
     {
       "show_id": "smackdown",
@@ -65,5 +65,5 @@
       "status": "episode_synopsis"
     }
   ],
-  "synopses_available": 2
+  "synopses_available": 3
 }

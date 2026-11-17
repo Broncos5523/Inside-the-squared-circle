@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "mode": "PUBLISHER_RSS_POST_SHOW_LINKS_ONLY",
-  "generated_at": "2026-11-17T00:21:16.600583-05:00",
+  "generated_at": "2026-11-17T04:24:45.499412-05:00",
   "source_name": "Multiple publisher RSS feeds",
   "source_url": "https://www.f4wonline.com/rss.xml",
   "approved_publishers": [
@@ -13,10 +13,46 @@
   "programs": [
     {
       "show_id": "raw",
-      "airdate": null,
-      "links": [],
+      "airdate": "2026-11-16",
+      "links": [
+        {
+          "headline": "Hall’s WWE Raw Review 11.16.26",
+          "url": "https://411mania.com/wrestling/halls-monday-night-raw-review-11-16-26/",
+          "published_at": "2026-11-17T03:42:53+00:00",
+          "source_name": "411Mania",
+          "status": "PUBLISHER_HEADLINE_LINK_ONLY"
+        },
+        {
+          "headline": "Cook’s WWE Raw Review 11.16.26",
+          "url": "https://411mania.com/wrestling/cooks-wwe-raw-review-11-16-26/",
+          "published_at": "2026-11-17T03:42:28+00:00",
+          "source_name": "411Mania",
+          "status": "PUBLISHER_HEADLINE_LINK_ONLY"
+        },
+        {
+          "headline": "WWE Raw Results 11/16/26",
+          "url": "https://wrestlingheadlines.com/wwe-raw-results-11-16-26/",
+          "published_at": "2026-11-17T03:13:05+00:00",
+          "source_name": "Wrestling Headlines",
+          "status": "PUBLISHER_HEADLINE_LINK_ONLY"
+        },
+        {
+          "headline": "WWE RAW Results – Nov. 16, 2026 – Men’s WarGames Advantage Match, Raquel Rodriguez vs. IYO SKY",
+          "url": "https://www.tpww.net/2026/11/wwe-raw-results-nov-16-2026-mens-wargames-advantage-match-raquel-rodriguez-vs-iyo-sky/",
+          "published_at": "2026-11-17T01:30:41+00:00",
+          "source_name": "TPWW",
+          "status": "PUBLISHER_HEADLINE_LINK_ONLY"
+        },
+        {
+          "headline": "WWE Raw Results 11/16/26",
+          "url": "https://gerweck.net/2026/11/16/wwe-raw-results-11-16-26/",
+          "published_at": "2026-11-17T00:54:29+00:00",
+          "source_name": "Gerweck.net",
+          "status": "PUBLISHER_HEADLINE_LINK_ONLY"
+        }
+      ],
       "source_name": "Multiple publisher RSS feeds",
-      "status": "no_matching_published_coverage"
+      "status": "publisher_coverage_links"
     },
     {
       "show_id": "smackdown",
@@ -204,7 +240,7 @@
       "status": "publisher_coverage_links"
     }
   ],
-  "total_links": 19,
+  "total_links": 24,
   "retained_link_count": 13,
   "collection_status": "ok",
   "successful_feed_urls": [
