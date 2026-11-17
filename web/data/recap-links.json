@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "mode": "PUBLISHER_RSS_POST_SHOW_LINKS_ONLY",
-  "generated_at": "2026-11-17T08:38:07.643996-05:00",
+  "generated_at": "2026-11-17T12:24:57.706427-05:00",
   "source_name": "Multiple publisher RSS feeds",
   "source_url": "https://www.f4wonline.com/rss.xml",
   "approved_publishers": [
@@ -17,10 +17,18 @@
       "links": [
         {
           "headline": "Hall’s WWE Raw Review 11.16.26",
-          "url": "https://411mania.com/wrestling/halls-monday-night-raw-review-11-16-26/",
+          "url": "https://411mania.com/wrestling/halls-wwe-monday-night-raw-review-11-16-26/",
           "published_at": "2026-11-17T03:42:53+00:00",
           "source_name": "411Mania",
           "status": "PUBLISHER_HEADLINE_LINK_ONLY"
+        },
+        {
+          "headline": "Hall’s WWE Raw Review 11.16.26",
+          "url": "https://411mania.com/wrestling/halls-monday-night-raw-review-11-16-26/",
+          "published_at": "2026-11-17T03:42:53+00:00",
+          "source_name": "411Mania",
+          "status": "PUBLISHER_HEADLINE_LINK_ONLY",
+          "retained_from_previous": true
         },
         {
           "headline": "Cook’s WWE Raw Review 11.16.26",
@@ -41,13 +49,6 @@
           "url": "https://www.tpww.net/2026/11/wwe-raw-results-nov-16-2026-mens-wargames-advantage-match-raquel-rodriguez-vs-iyo-sky/",
           "published_at": "2026-11-17T01:30:41+00:00",
           "source_name": "TPWW",
-          "status": "PUBLISHER_HEADLINE_LINK_ONLY"
-        },
-        {
-          "headline": "WWE Raw Results 11/16/26",
-          "url": "https://gerweck.net/2026/11/16/wwe-raw-results-11-16-26/",
-          "published_at": "2026-11-17T00:54:29+00:00",
-          "source_name": "Gerweck.net",
           "status": "PUBLISHER_HEADLINE_LINK_ONLY"
         }
       ],
@@ -241,7 +242,7 @@
     }
   ],
   "total_links": 24,
-  "retained_link_count": 13,
+  "retained_link_count": 14,
   "collection_status": "ok",
   "successful_feed_urls": [
     "https://www.f4wonline.com/rss.xml",
