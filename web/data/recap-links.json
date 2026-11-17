@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "mode": "PUBLISHER_RSS_POST_SHOW_LINKS_ONLY",
-  "generated_at": "2026-11-16T20:39:29.412747-05:00",
+  "generated_at": "2026-11-17T00:21:16.600583-05:00",
   "source_name": "Multiple publisher RSS feeds",
   "source_url": "https://www.f4wonline.com/rss.xml",
   "approved_publishers": [
@@ -125,7 +125,8 @@
           "url": "https://411mania.com/wrestling/halls-tna-impact-wrestling-review-11-12-26/",
           "published_at": "2026-11-13T20:16:37+00:00",
           "source_name": "411Mania",
-          "status": "PUBLISHER_HEADLINE_LINK_ONLY"
+          "status": "PUBLISHER_HEADLINE_LINK_ONLY",
+          "retained_from_previous": true
         },
         {
           "headline": "Drew McIntyre Attends Premiere For His New Film 'Hexed', TNA iMPACT Highlights, More | Fight Size",
@@ -204,7 +205,7 @@
     }
   ],
   "total_links": 19,
-  "retained_link_count": 12,
+  "retained_link_count": 13,
   "collection_status": "ok",
   "successful_feed_urls": [
     "https://www.f4wonline.com/rss.xml",
