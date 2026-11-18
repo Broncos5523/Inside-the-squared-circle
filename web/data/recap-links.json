@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "mode": "PUBLISHER_RSS_POST_SHOW_LINKS_ONLY",
-  "generated_at": "2026-11-17T20:43:49.435276-05:00",
+  "generated_at": "2026-11-18T00:24:07.197605-05:00",
   "source_name": "Multiple publisher RSS feeds",
   "source_url": "https://www.f4wonline.com/rss.xml",
   "approved_publishers": [
@@ -16,11 +16,19 @@
       "airdate": "2026-11-16",
       "links": [
         {
+          "headline": "WWE Raw on Netflix viewership for Crown Jewel fallout episode",
+          "url": "https://www.f4wonline.com/news/wwe/wwe-raw-on-netflix-viewership-for-crown-jewel-fallout-episode/",
+          "published_at": "2026-11-18T03:24:28+00:00",
+          "source_name": "F4W / Wrestling Observer",
+          "status": "PUBLISHER_HEADLINE_LINK_ONLY"
+        },
+        {
           "headline": "GCW Returning To The American Dream In January 2027, WWE Raw Highlights, More | Fight Size",
           "url": "https://www.fightful.com/wrestling-news/gcw-returning-to-the-american-dream-in-january-2027-wwe-raw-highlights-more-fight-size",
           "published_at": "2026-11-17T23:00:00+00:00",
           "source_name": "Fightful",
-          "status": "PUBLISHER_HEADLINE_LINK_ONLY"
+          "status": "PUBLISHER_HEADLINE_LINK_ONLY",
+          "retained_from_previous": true
         },
         {
           "headline": "Hall’s WWE Raw Review 11.16.26",
@@ -43,13 +51,6 @@
           "published_at": "2026-11-17T03:42:28+00:00",
           "source_name": "411Mania",
           "status": "PUBLISHER_HEADLINE_LINK_ONLY"
-        },
-        {
-          "headline": "WWE Raw Results 11/16/26",
-          "url": "https://wrestlingheadlines.com/wwe-raw-results-11-16-26/",
-          "published_at": "2026-11-17T03:13:05+00:00",
-          "source_name": "Wrestling Headlines",
-          "status": "PUBLISHER_HEADLINE_LINK_ONLY"
         }
       ],
       "source_name": "Multiple publisher RSS feeds",
@@ -64,14 +65,16 @@
           "url": "https://411mania.com/wrestling/halls-wwe-smackdown-review-11-13-26/",
           "published_at": "2026-11-14T03:27:20+00:00",
           "source_name": "411Mania",
-          "status": "PUBLISHER_HEADLINE_LINK_ONLY"
+          "status": "PUBLISHER_HEADLINE_LINK_ONLY",
+          "retained_from_previous": true
         },
         {
           "headline": "Winfree’s WWE Smackdown Review 11.13.26",
           "url": "https://411mania.com/wrestling/winfrees-wwe-smackdown-review-11-13-26/",
           "published_at": "2026-11-14T03:15:20+00:00",
           "source_name": "411Mania",
-          "status": "PUBLISHER_HEADLINE_LINK_ONLY"
+          "status": "PUBLISHER_HEADLINE_LINK_ONLY",
+          "retained_from_previous": true
         },
         {
           "headline": "WWE SmackDown Results – Nov. 13, 2026 – John Cena To Appear, Bakusai vs. MFTs, Finn Balor vs. Gunther",
@@ -203,7 +206,7 @@
     }
   ],
   "total_links": 19,
-  "retained_link_count": 11,
+  "retained_link_count": 14,
   "collection_status": "ok",
   "successful_feed_urls": [
     "https://www.f4wonline.com/rss.xml",
