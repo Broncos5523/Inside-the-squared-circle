@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "mode": "POST_BROADCAST_RSS_EXPLICIT_FACTS_UNVERIFIED",
-  "generated_at": "2026-11-17T16:14:28.880551-05:00",
+  "generated_at": "2026-11-17T20:43:49.571099-05:00",
   "policy": "Extremely strict direct winner-vs-loser statements only from dated post-broadcast public RSS headlines. No full articles read; no title changes or storylines inferred. Source-attributed and unverified. Zero results is an expected safe outcome.",
   "programs": [
     {
@@ -20,10 +20,10 @@
     },
     {
       "show_id": "nxt",
-      "airdate": "2026-11-10",
+      "airdate": null,
       "results": [],
       "developments": [],
-      "status": "no_post_broadcast_explicit_outcomes"
+      "status": "no_completed_episode"
     },
     {
       "show_id": "aaa",

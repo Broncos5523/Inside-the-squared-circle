@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "mode": "SOURCE_GATED_STAGING",
-  "generated_at": "2026-11-17T21:15:19.349Z",
+  "generated_at": "2026-11-18T01:44:15.219Z",
   "entries": [
     {
       "id": "weekly-upcoming-raw",
@@ -15,7 +15,7 @@
       "verification": "SOURCE_REPORTED",
       "has_content": false,
       "schedule_confirmed": true,
-      "checked_at": "2026-11-17T21:15:19.349Z",
+      "checked_at": "2026-11-18T01:44:15.219Z",
       "source_name": "Published episode schedule",
       "source_url": "https://broncos5523.github.io/Inside-the-squared-circle/data/snapshot.json",
       "venue": {
@@ -35,7 +35,7 @@
       "verification": "SOURCE_REPORTED",
       "has_content": false,
       "schedule_confirmed": true,
-      "checked_at": "2026-11-17T21:15:19.349Z",
+      "checked_at": "2026-11-18T01:44:15.219Z",
       "source_name": "Published episode schedule",
       "source_url": "https://broncos5523.github.io/Inside-the-squared-circle/data/snapshot.json",
       "venue": {
@@ -55,7 +55,7 @@
       "verification": "SOURCE_REPORTED",
       "has_content": true,
       "schedule_confirmed": true,
-      "checked_at": "2026-11-17T21:15:19.349Z",
+      "checked_at": "2026-11-18T01:44:15.219Z",
       "source_name": "Wrestling Central News (wrestlingcentralnews.com)",
       "source_url": "https://wrestlingcentralnews.com/events/2026-11-17-wwe-nxt/",
       "venue": null
@@ -72,7 +72,7 @@
       "verification": "SOURCE_REPORTED",
       "has_content": false,
       "schedule_confirmed": true,
-      "checked_at": "2026-11-17T21:15:19.349Z",
+      "checked_at": "2026-11-18T01:44:15.219Z",
       "source_name": "Published episode schedule",
       "source_url": "https://broncos5523.github.io/Inside-the-squared-circle/data/snapshot.json",
       "venue": null
@@ -89,7 +89,7 @@
       "verification": "SOURCE_REPORTED",
       "has_content": false,
       "schedule_confirmed": true,
-      "checked_at": "2026-11-17T21:15:19.349Z",
+      "checked_at": "2026-11-18T01:44:15.219Z",
       "source_name": "Published episode schedule",
       "source_url": "https://broncos5523.github.io/Inside-the-squared-circle/data/snapshot.json",
       "venue": null
@@ -105,9 +105,39 @@
       "content_status": "current",
       "verification": "EDITORIALLY_VERIFIED",
       "completed": true,
-      "checked_at": "2026-11-17T21:15:19.349Z",
+      "checked_at": "2026-11-18T01:44:15.219Z",
       "source_name": "WWE AAA Héroes Inmortales | Week 1 results, October 24, 2026",
       "source_url": "https://www.wwe.com/shows/aaa/aaa-h-roes-inmortales-week-1-results"
+    },
+    {
+      "id": "weekly-results-smackdown",
+      "title": "SmackDown — Results & Fallout",
+      "show": "smackdown",
+      "kind": "results",
+      "airdate": "2026-11-13",
+      "source_available": true,
+      "design_approved": true,
+      "content_status": "current",
+      "verification": "OFFICIAL_VERIFIED",
+      "completed": true,
+      "checked_at": "2026-11-18T01:44:15.219Z",
+      "source_name": "WWE",
+      "source_url": "https://www.wwe.com/shows/smackdown/2026-11-13/results"
+    },
+    {
+      "id": "weekly-results-tna",
+      "title": "TNA — Results & Fallout",
+      "show": "tna",
+      "kind": "results",
+      "airdate": "2026-11-12",
+      "source_available": true,
+      "design_approved": true,
+      "content_status": "current",
+      "verification": "OFFICIAL_VERIFIED",
+      "completed": true,
+      "checked_at": "2026-11-18T01:44:15.219Z",
+      "source_name": "TNA Wrestling",
+      "source_url": "https://tnawrestling.com/news/tna-thursday-night-impact-on-amc-results-november-12-2026"
     },
     {
       "id": "weekly-results-nxt",
@@ -125,36 +155,6 @@
       "source_url": "https://www.wwe.com/shows/wwenxt/2026-11-10/results"
     },
     {
-      "id": "weekly-results-smackdown",
-      "title": "SmackDown — Results & Fallout",
-      "show": "smackdown",
-      "kind": "results",
-      "airdate": "2026-11-13",
-      "source_available": true,
-      "design_approved": true,
-      "content_status": "current",
-      "verification": "OFFICIAL_VERIFIED",
-      "completed": true,
-      "checked_at": "2026-11-17T21:15:19.349Z",
-      "source_name": "WWE",
-      "source_url": "https://www.wwe.com/shows/smackdown/2026-11-13/results"
-    },
-    {
-      "id": "weekly-results-tna",
-      "title": "TNA — Results & Fallout",
-      "show": "tna",
-      "kind": "results",
-      "airdate": "2026-11-12",
-      "source_available": true,
-      "design_approved": true,
-      "content_status": "current",
-      "verification": "OFFICIAL_VERIFIED",
-      "completed": true,
-      "checked_at": "2026-11-17T21:15:19.349Z",
-      "source_name": "TNA Wrestling",
-      "source_url": "https://tnawrestling.com/news/tna-thursday-night-impact-on-amc-results-november-12-2026"
-    },
-    {
       "id": "championship-tna",
       "title": "TNA — Championship Board",
       "show": "tna",
@@ -165,7 +165,7 @@
       "design_approved": true,
       "content_status": "current",
       "verification": "OFFICIAL_VERIFIED",
-      "checked_at": "2026-11-17T21:15:19.349Z",
+      "checked_at": "2026-11-18T01:44:15.219Z",
       "source_name": "TNA Wrestling",
       "source_url": "https://tnawrestling.com/roster",
       "source_urls": [
@@ -183,7 +183,7 @@
       "design_approved": true,
       "content_status": "current",
       "verification": "OFFICIAL_VERIFIED",
-      "checked_at": "2026-11-17T21:15:19.349Z",
+      "checked_at": "2026-11-18T01:44:15.219Z",
       "source_name": "WWE",
       "source_url": "https://www.wwe.com/titlehistory/nxt-championship",
       "source_urls": [
@@ -205,7 +205,7 @@
       "design_approved": true,
       "content_status": "current",
       "verification": "OFFICIAL_VERIFIED",
-      "checked_at": "2026-11-17T21:15:19.349Z",
+      "checked_at": "2026-11-18T01:44:15.219Z",
       "source_name": "WWE",
       "source_url": "https://www.wwe.com/titlehistory/wwe-championship",
       "source_urls": [
@@ -228,7 +228,7 @@
       "design_approved": true,
       "content_status": "current",
       "verification": "OFFICIAL_VERIFIED",
-      "checked_at": "2026-11-17T21:15:19.349Z",
+      "checked_at": "2026-11-18T01:44:15.219Z",
       "source_name": "WWE",
       "source_url": "https://www.wwe.com/classics/titlehistory/world-heavyweight-championship",
       "source_urls": [
@@ -250,7 +250,7 @@
       "design_approved": true,
       "content_status": "current",
       "verification": "SOURCE_CORROBORATED",
-      "checked_at": "2026-11-17T21:15:19.349Z",
+      "checked_at": "2026-11-18T01:44:15.219Z",
       "source_name": "Sacnilk / The SmackDown Hotel",
       "source_url": "https://www.sacnilk.com/news/current_lucha_libre_aaa_worldwide_champions_full_list_of_title_holders",
       "source_urls": [
@@ -263,7 +263,7 @@
     "snapshot.json": {
       "schema_version": 1,
       "mode": "LIVE_SCHEDULES_ONLY",
-      "generated_at": "2026-11-17T21:13:37.711249+00:00",
+      "generated_at": "2026-11-18T01:43:26.354999+00:00",
       "fresh_shows": 6,
       "shows": [
         {
@@ -312,12 +312,12 @@
           "next": {
             "date": "2026-11-17",
             "time": "20:00",
-            "title": "46"
+            "title": "47"
           },
           "previous": {
             "date": "2026-11-10",
             "time": "20:00",
-            "title": "Zilla Fatu interrupted in the ring by Darkstate, Birth Right and Perros Del Mal"
+            "title": "Main Event: Kendal Grey vs. Kelani Jordan (c) for the NXT Women's Championship"
           },
           "schedule_status": "fresh",
           "confirmed_matches": [],
@@ -385,7 +385,7 @@
     "reported.json": {
       "schema_version": 1,
       "mode": "REPORTED_MATCHES_UNVERIFIED",
-      "generated_at": "2026-11-17T21:15:19.349Z",
+      "generated_at": "2026-11-18T01:44:15.219Z",
       "display_attribution": "Published weekly show announcements; individual sources retained",
       "programs": [
         {
@@ -528,80 +528,6 @@
               ],
               "belt": "cruiserweight.png",
               "ticker": "REY FÉNIX CRUISERWEIGHT OPEN CHALLENGE SET FOR OCT 31"
-            }
-          ]
-        }
-      ]
-    },
-    "nxt-verified-results.json": {
-      "schema_version": 1,
-      "mode": "OFFICIAL_EXTRACTED_RESULTS",
-      "source_policy": "Only explicit match winners directly extracted from dated official source; not human editorial review. Winners-only original approved portraits; never invent matches or champions.",
-      "programs": [
-        {
-          "show_id": "nxt",
-          "airdate": "2026-11-10",
-          "venue": null,
-          "location": null,
-          "source_name": "WWE official NXT results, 2026-11-10",
-          "source_url": "https://www.wwe.com/shows/wwenxt/2026-11-10/results",
-          "verification": "OFFICIAL_SOURCE_EXTRACTED",
-          "segments": [
-            {
-              "id": "official-nxt-2026-11-10-1",
-              "kind": "result",
-              "category": "MATCH RESULT",
-              "strap": "OFFICIAL MATCH RESULT",
-              "headline": "EK PROSPER",
-              "subhead": "def. Kam Hendrix",
-              "detail": "OFFICIAL RESULTS • November 10, 2026",
-              "portraits": [
-                "ek-prosper"
-              ],
-              "portrait_rule": "winners_only",
-              "ticker": "EK PROSPER DEFEATS KAM HENDRIX"
-            },
-            {
-              "id": "official-nxt-2026-11-10-2",
-              "kind": "result",
-              "category": "MATCH RESULT",
-              "strap": "OFFICIAL MATCH RESULT",
-              "headline": "IZZI DAME",
-              "subhead": "def. Wren Sinclair",
-              "detail": "OFFICIAL RESULTS • November 10, 2026",
-              "portraits": [
-                "izzi-dame"
-              ],
-              "portrait_rule": "winners_only",
-              "ticker": "IZZI DAME DEFEATS WREN SINCLAIR"
-            },
-            {
-              "id": "official-nxt-2026-11-10-3",
-              "kind": "result",
-              "category": "MATCH RESULT",
-              "strap": "OFFICIAL MATCH RESULT",
-              "headline": "LIZZY RAIN",
-              "subhead": "def. Chantel Monroe",
-              "detail": "OFFICIAL RESULTS • November 10, 2026",
-              "portraits": [
-                "lizzy-rain"
-              ],
-              "portrait_rule": "winners_only",
-              "ticker": "LIZZY RAIN DEFEATS CHANTEL MONROE"
-            },
-            {
-              "id": "official-nxt-2026-11-10-4",
-              "kind": "result",
-              "category": "MATCH RESULT",
-              "strap": "OFFICIAL MATCH RESULT",
-              "headline": "NXT TAG TEAM CHAMPIONS THE VANITY PROJECT",
-              "subhead": "def. Hank & Tank",
-              "detail": "OFFICIAL RESULTS • November 10, 2026",
-              "portraits": [
-                "the-vanity-project"
-              ],
-              "portrait_rule": "winners_only",
-              "ticker": "NXT TAG TEAM CHAMPIONS THE VANITY PROJECT DEFEATS HANK & TANK"
             }
           ]
         }
@@ -753,9 +679,83 @@
         }
       ]
     },
+    "nxt-verified-results.json": {
+      "schema_version": 1,
+      "mode": "OFFICIAL_EXTRACTED_RESULTS",
+      "source_policy": "Only explicit match winners directly extracted from dated official source; not human editorial review. Winners-only original approved portraits; never invent matches or champions.",
+      "programs": [
+        {
+          "show_id": "nxt",
+          "airdate": "2026-11-10",
+          "venue": null,
+          "location": null,
+          "source_name": "WWE official NXT results, 2026-11-10",
+          "source_url": "https://www.wwe.com/shows/wwenxt/2026-11-10/results",
+          "verification": "OFFICIAL_SOURCE_EXTRACTED",
+          "segments": [
+            {
+              "id": "official-nxt-2026-11-10-1",
+              "kind": "result",
+              "category": "MATCH RESULT",
+              "strap": "OFFICIAL MATCH RESULT",
+              "headline": "EK PROSPER",
+              "subhead": "def. Kam Hendrix",
+              "detail": "OFFICIAL RESULTS • November 10, 2026",
+              "portraits": [
+                "ek-prosper"
+              ],
+              "portrait_rule": "winners_only",
+              "ticker": "EK PROSPER DEFEATS KAM HENDRIX"
+            },
+            {
+              "id": "official-nxt-2026-11-10-2",
+              "kind": "result",
+              "category": "MATCH RESULT",
+              "strap": "OFFICIAL MATCH RESULT",
+              "headline": "IZZI DAME",
+              "subhead": "def. Wren Sinclair",
+              "detail": "OFFICIAL RESULTS • November 10, 2026",
+              "portraits": [
+                "izzi-dame"
+              ],
+              "portrait_rule": "winners_only",
+              "ticker": "IZZI DAME DEFEATS WREN SINCLAIR"
+            },
+            {
+              "id": "official-nxt-2026-11-10-3",
+              "kind": "result",
+              "category": "MATCH RESULT",
+              "strap": "OFFICIAL MATCH RESULT",
+              "headline": "LIZZY RAIN",
+              "subhead": "def. Chantel Monroe",
+              "detail": "OFFICIAL RESULTS • November 10, 2026",
+              "portraits": [
+                "lizzy-rain"
+              ],
+              "portrait_rule": "winners_only",
+              "ticker": "LIZZY RAIN DEFEATS CHANTEL MONROE"
+            },
+            {
+              "id": "official-nxt-2026-11-10-4",
+              "kind": "result",
+              "category": "MATCH RESULT",
+              "strap": "OFFICIAL MATCH RESULT",
+              "headline": "NXT TAG TEAM CHAMPIONS THE VANITY PROJECT",
+              "subhead": "def. Hank & Tank",
+              "detail": "OFFICIAL RESULTS • November 10, 2026",
+              "portraits": [
+                "the-vanity-project"
+              ],
+              "portrait_rule": "winners_only",
+              "ticker": "NXT TAG TEAM CHAMPIONS THE VANITY PROJECT DEFEATS HANK & TANK"
+            }
+          ]
+        }
+      ]
+    },
     "official-events.json": {
       "mode": "OFFICIAL_WWE_EVENT_PREVIEWS",
-      "generated_at": "2026-11-17T21:15:19.349Z",
+      "generated_at": "2026-11-18T01:44:15.219Z",
       "programs": []
     },
     "official-event-results.json": {
@@ -765,7 +765,7 @@
     "champions.json": {
       "schema_version": 1,
       "mode": "SOURCE_CHECKED_CHAMPIONS",
-      "generated_at": "2026-11-17T21:15:19.349Z",
+      "generated_at": "2026-11-18T01:44:15.219Z",
       "programs": [
         {
           "show": "tna",
@@ -1491,9 +1491,10 @@
     "official_event_warnings": [],
     "approved_result_count": 1,
     "approved_result_warnings": [],
-    "official_weekly_result_count": 3,
+    "official_weekly_result_count": 2,
     "official_weekly_warnings": [
       "raw:Official results HTTP 404",
+      "nxt:Official results HTTP 403",
       "aaa:Latest scheduled AAA episode has no dated official results yet"
     ],
     "evolve_verified_count": 0,

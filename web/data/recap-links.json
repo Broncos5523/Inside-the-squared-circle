@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "mode": "PUBLISHER_RSS_POST_SHOW_LINKS_ONLY",
-  "generated_at": "2026-11-17T16:14:28.743275-05:00",
+  "generated_at": "2026-11-17T20:43:49.435276-05:00",
   "source_name": "Multiple publisher RSS feeds",
   "source_url": "https://www.f4wonline.com/rss.xml",
   "approved_publishers": [
@@ -15,6 +15,13 @@
       "show_id": "raw",
       "airdate": "2026-11-16",
       "links": [
+        {
+          "headline": "GCW Returning To The American Dream In January 2027, WWE Raw Highlights, More | Fight Size",
+          "url": "https://www.fightful.com/wrestling-news/gcw-returning-to-the-american-dream-in-january-2027-wwe-raw-highlights-more-fight-size",
+          "published_at": "2026-11-17T23:00:00+00:00",
+          "source_name": "Fightful",
+          "status": "PUBLISHER_HEADLINE_LINK_ONLY"
+        },
         {
           "headline": "Hall’s WWE Raw Review 11.16.26",
           "url": "https://411mania.com/wrestling/halls-wwe-monday-night-raw-review-11-16-26/",
@@ -42,14 +49,6 @@
           "url": "https://wrestlingheadlines.com/wwe-raw-results-11-16-26/",
           "published_at": "2026-11-17T03:13:05+00:00",
           "source_name": "Wrestling Headlines",
-          "status": "PUBLISHER_HEADLINE_LINK_ONLY",
-          "retained_from_previous": true
-        },
-        {
-          "headline": "WWE RAW Results – Nov. 16, 2026 – Men’s WarGames Advantage Match, Raquel Rodriguez vs. IYO SKY",
-          "url": "https://www.tpww.net/2026/11/wwe-raw-results-nov-16-2026-mens-wargames-advantage-match-raquel-rodriguez-vs-iyo-sky/",
-          "published_at": "2026-11-17T01:30:41+00:00",
-          "source_name": "TPWW",
           "status": "PUBLISHER_HEADLINE_LINK_ONLY"
         }
       ],
@@ -79,7 +78,8 @@
           "url": "https://www.tpww.net/2026/11/wwe-smackdown-results-nov-13-2026-john-cena-to-appear-bakusai-vs-mfts-finn-balor-vs-gunther/",
           "published_at": "2026-11-14T01:03:17+00:00",
           "source_name": "TPWW",
-          "status": "PUBLISHER_HEADLINE_LINK_ONLY"
+          "status": "PUBLISHER_HEADLINE_LINK_ONLY",
+          "retained_from_previous": true
         },
         {
           "headline": "WWE SmackDown Results 11/13/26",
@@ -102,50 +102,10 @@
     },
     {
       "show_id": "nxt",
-      "airdate": "2026-11-10",
-      "links": [
-        {
-          "headline": "Asuka Visits SEGA Headquarters In Tokyo, WWE NXT Highlights, More | Fight Size",
-          "url": "https://www.fightful.com/wrestling-news/asuka-visits-sega-headquarters-in-tokyo-wwe-nxt-highlights-more-fight-size",
-          "published_at": "2026-11-11T23:05:08+00:00",
-          "source_name": "Fightful",
-          "status": "PUBLISHER_HEADLINE_LINK_ONLY",
-          "retained_from_previous": true
-        },
-        {
-          "headline": "WWE NXT (11.10) Dark Match Results: Skylar Rae, Brooks Jensen & More Compete",
-          "url": "https://411mania.com/wrestling/wwe-nxt-11-10-dark-match-results-skylar-rae-brooks-jensen-more-compete/",
-          "published_at": "2026-11-11T14:57:04+00:00",
-          "source_name": "411Mania",
-          "status": "PUBLISHER_HEADLINE_LINK_ONLY",
-          "retained_from_previous": true
-        },
-        {
-          "headline": "Hall’s WWE NXT Review 11.10.26",
-          "url": "https://411mania.com/wrestling/halls-wwe-nxt-review-11-10-26/",
-          "published_at": "2026-11-11T07:02:32+00:00",
-          "source_name": "411Mania",
-          "status": "PUBLISHER_HEADLINE_LINK_ONLY",
-          "retained_from_previous": true
-        },
-        {
-          "headline": "11/10/26 NXT Recap",
-          "url": "https://gerweck.net/2026/11/10/11-10-26-nxt-recap/",
-          "published_at": "2026-11-11T04:05:51+00:00",
-          "source_name": "Gerweck.net",
-          "status": "PUBLISHER_HEADLINE_LINK_ONLY"
-        },
-        {
-          "headline": "Cook’s WWE NXT Review 11.10.26",
-          "url": "https://411mania.com/wrestling/cooks-wwe-nxt-review-11-10-26/",
-          "published_at": "2026-11-11T03:14:33+00:00",
-          "source_name": "411Mania",
-          "status": "PUBLISHER_HEADLINE_LINK_ONLY",
-          "retained_from_previous": true
-        }
-      ],
+      "airdate": null,
+      "links": [],
       "source_name": "Multiple publisher RSS feeds",
-      "status": "publisher_coverage_links"
+      "status": "no_matching_published_coverage"
     },
     {
       "show_id": "aaa",
@@ -242,8 +202,8 @@
       "status": "publisher_coverage_links"
     }
   ],
-  "total_links": 24,
-  "retained_link_count": 15,
+  "total_links": 19,
+  "retained_link_count": 11,
   "collection_status": "ok",
   "successful_feed_urls": [
     "https://www.f4wonline.com/rss.xml",
@@ -254,6 +214,7 @@
     "https://www.fightful.com/wrestling/rss",
     "https://gerweck.net/category/results/feed/",
     "https://www.tpww.net/feed/",
-    "https://www.ringsidenews.com/feed/"
+    "https://www.ringsidenews.com/feed/",
+    "https://wrestlingheadlines.com/feed/"
   ]
 }

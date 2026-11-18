@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "mode": "LIVE_SCHEDULES_ONLY",
-  "generated_at": "2026-11-17T21:13:37.711249+00:00",
+  "generated_at": "2026-11-18T01:43:26.354999+00:00",
   "fresh_shows": 6,
   "shows": [
     {
@@ -48,14 +48,14 @@
       "color": "#E5BD50",
       "category": "primary",
       "next": {
-        "date": "2026-11-17",
+        "date": "2026-11-24",
         "time": "20:00",
-        "title": "46"
+        "title": "47"
       },
       "previous": {
-        "date": "2026-11-10",
+        "date": "2026-11-17",
         "time": "20:00",
-        "title": "Zilla Fatu interrupted in the ring by Darkstate, Birth Right and Perros Del Mal"
+        "title": "Main Event: Kendal Grey vs. Kelani Jordan (c) for the NXT Women's Championship"
       },
       "schedule_status": "fresh",
       "confirmed_matches": [],
