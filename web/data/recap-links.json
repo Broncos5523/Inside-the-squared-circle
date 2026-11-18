@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "mode": "PUBLISHER_RSS_POST_SHOW_LINKS_ONLY",
-  "generated_at": "2026-11-18T12:24:31.630559-05:00",
+  "generated_at": "2026-11-18T16:14:33.240686-05:00",
   "source_name": "Multiple publisher RSS feeds",
   "source_url": "https://www.f4wonline.com/rss.xml",
   "approved_publishers": [
@@ -108,6 +108,13 @@
       "airdate": "2026-11-17",
       "links": [
         {
+          "headline": "FREE WOL: Remembering Bill Watts, The Rock Heads to Survivor Series, Bronson Reed Update, NXT TV Recap",
+          "url": "https://www.f4wonline.com/podcasts/wrestling-observer-live/free-wol-remembering-bill-watts-the-rock-heads-to-survivor-series-bronson-reed-update-nxt-tv-recap/",
+          "published_at": "2026-11-18T21:08:04+00:00",
+          "source_name": "F4W / Wrestling Observer",
+          "status": "PUBLISHER_HEADLINE_LINK_ONLY"
+        },
+        {
           "headline": "Dark Match Results From This Week’s WWE NXT",
           "url": "https://411mania.com/wrestling/dark-match-results-wwe-nxt-11-17-26/",
           "published_at": "2026-11-18T05:29:05+00:00",
@@ -134,13 +141,6 @@
           "url": "https://411mania.com/wrestling/cooks-wwe-nxt-review-11-17-26/",
           "published_at": "2026-11-18T03:24:52+00:00",
           "source_name": "411Mania",
-          "status": "PUBLISHER_HEADLINE_LINK_ONLY"
-        },
-        {
-          "headline": "WWE NXT Results – Nov. 17, 2026 – Kelani Jordan vs. Kendal Grey",
-          "url": "https://www.tpww.net/2026/11/wwe-nxt-results-nov-17-2026-kelani-jordan-vs-kendal-grey/",
-          "published_at": "2026-11-18T00:55:47+00:00",
-          "source_name": "TPWW",
           "status": "PUBLISHER_HEADLINE_LINK_ONLY"
         }
       ],
