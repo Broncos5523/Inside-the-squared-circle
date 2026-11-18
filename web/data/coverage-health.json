@@ -1,35 +1,35 @@
 {
   "schema_version": 1,
   "mode": "WRESTLING_CONTENT_COVERAGE_COUNTS_ONLY",
-  "generated_at": "2026-11-18T00:24:27.273917-05:00",
+  "generated_at": "2026-11-18T04:26:12.134216-05:00",
   "source_health": {
     "reported": {
       "fresh": true,
-      "generated_at": "2026-11-18T00:23:36.334430-05:00"
+      "generated_at": "2026-11-18T04:25:23.572843-05:00"
     },
     "results": {
       "fresh": true,
-      "generated_at": "2026-11-18T00:23:42.967231-05:00"
+      "generated_at": "2026-11-18T04:25:30.127416-05:00"
     },
     "rss_facts": {
       "fresh": true,
-      "generated_at": "2026-11-18T00:24:07.401475-05:00"
+      "generated_at": "2026-11-18T04:25:53.225120-05:00"
     },
     "rss_excerpts": {
       "fresh": true,
-      "generated_at": "2026-11-18T00:24:16.462916-05:00"
+      "generated_at": "2026-11-18T04:26:01.578488-05:00"
     },
     "fallout": {
       "fresh": true,
-      "generated_at": "2026-11-18T00:24:24.972233-05:00"
+      "generated_at": "2026-11-18T04:26:10.532784-05:00"
     },
     "recap_links": {
       "fresh": true,
-      "generated_at": "2026-11-18T00:24:07.197605-05:00"
+      "generated_at": "2026-11-18T04:25:53.023505-05:00"
     },
     "episode_briefs": {
       "fresh": true,
-      "generated_at": "2026-11-18T00:23:52.068917-05:00"
+      "generated_at": "2026-11-18T04:25:40.942964-05:00"
     }
   },
   "totals": {
@@ -41,14 +41,14 @@
     "automatic_storylines": 0,
     "manually_reviewed_outcomes": 0,
     "manually_reviewed_storylines": 0,
-    "publisher_headline_links": 19,
+    "publisher_headline_links": 24,
     "rss_feeds_checked": 10,
     "rss_feeds_responding": 10,
     "rss_items_examined": 345,
-    "rss_dated_episode_headlines": 7,
+    "rss_dated_episode_headlines": 15,
     "rss_dated_headlines_with_explicit_winner": 0,
-    "rss_dated_descriptions_with_victory_word": 1,
-    "rss_descriptions_with_defeated_word": 28,
+    "rss_dated_descriptions_with_victory_word": 2,
+    "rss_descriptions_with_defeated_word": 26,
     "rss_explicit_winner_sentences": 0
   },
   "programs": [
@@ -86,7 +86,7 @@
     },
     {
       "show_id": "nxt",
-      "last_completed": null,
+      "last_completed": "2026-11-17",
       "next_airdate": "2026-11-24",
       "upcoming_reported_matches": 0,
       "upcoming_reported_appearances": 0,
@@ -97,7 +97,7 @@
       "manually_reviewed_outcomes": 0,
       "manually_reviewed_storylines": 0,
       "episode_synopsis_available": false,
-      "publisher_headline_links": 0,
+      "publisher_headline_links": 5,
       "results_data_status": "no_usable_result_facts"
     },
     {
