@@ -1,35 +1,35 @@
 {
   "schema_version": 1,
   "mode": "WRESTLING_CONTENT_COVERAGE_COUNTS_ONLY",
-  "generated_at": "2026-11-18T20:40:56.941035-05:00",
+  "generated_at": "2026-11-19T00:27:14.483111-05:00",
   "source_health": {
     "reported": {
       "fresh": true,
-      "generated_at": "2026-11-18T20:40:10.800774-05:00"
+      "generated_at": "2026-11-19T00:26:24.430185-05:00"
     },
     "results": {
       "fresh": true,
-      "generated_at": "2026-11-18T20:40:11.962438-05:00"
+      "generated_at": "2026-11-19T00:26:30.850292-05:00"
     },
     "rss_facts": {
       "fresh": true,
-      "generated_at": "2026-11-18T20:40:27.567399-05:00"
+      "generated_at": "2026-11-19T00:26:55.509251-05:00"
     },
     "rss_excerpts": {
       "fresh": true,
-      "generated_at": "2026-11-18T20:40:41.121167-05:00"
+      "generated_at": "2026-11-19T00:27:04.079377-05:00"
     },
     "fallout": {
       "fresh": true,
-      "generated_at": "2026-11-18T20:40:55.091942-05:00"
+      "generated_at": "2026-11-19T00:27:12.794297-05:00"
     },
     "recap_links": {
       "fresh": true,
-      "generated_at": "2026-11-18T20:40:27.405450-05:00"
+      "generated_at": "2026-11-19T00:26:55.330982-05:00"
     },
     "episode_briefs": {
       "fresh": true,
-      "generated_at": "2026-11-18T20:40:13.933185-05:00"
+      "generated_at": "2026-11-19T00:26:41.688097-05:00"
     }
   },
   "totals": {
@@ -37,7 +37,7 @@
     "upcoming_reported_appearances": 0,
     "upcoming_reviewed_matches": 0,
     "upcoming_reviewed_appearances": 0,
-    "automatic_match_outcomes": 2,
+    "automatic_match_outcomes": 0,
     "automatic_storylines": 0,
     "manually_reviewed_outcomes": 0,
     "manually_reviewed_storylines": 0,
@@ -124,13 +124,13 @@
       "upcoming_reported_appearances": 0,
       "upcoming_reviewed_matches": 0,
       "upcoming_reviewed_appearances": 0,
-      "automatic_match_outcomes": 2,
+      "automatic_match_outcomes": 0,
       "automatic_storylines": 0,
       "manually_reviewed_outcomes": 0,
       "manually_reviewed_storylines": 0,
       "episode_synopsis_available": false,
       "publisher_headline_links": 5,
-      "results_data_status": "automatic_results_present"
+      "results_data_status": "no_usable_result_facts"
     },
     {
       "show_id": "evolve",
