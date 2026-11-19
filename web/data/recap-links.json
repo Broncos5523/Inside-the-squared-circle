@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "mode": "PUBLISHER_RSS_POST_SHOW_LINKS_ONLY",
-  "generated_at": "2026-11-19T12:23:28.380359-05:00",
+  "generated_at": "2026-11-19T16:12:44.004226-05:00",
   "source_name": "Multiple publisher RSS feeds",
   "source_url": "https://www.f4wonline.com/rss.xml",
   "approved_publishers": [
@@ -212,7 +212,8 @@
           "url": "https://411mania.com/wrestling/wwe-evolve-11-18-results-evolve-championship-match-more/",
           "published_at": "2026-11-19T14:09:26+00:00",
           "source_name": "411Mania",
-          "status": "PUBLISHER_HEADLINE_LINK_ONLY"
+          "status": "PUBLISHER_HEADLINE_LINK_ONLY",
+          "retained_from_previous": true
         },
         {
           "headline": "Leighty’s WWE Evolve Review 11.18.26",
@@ -242,7 +243,7 @@
     }
   ],
   "total_links": 24,
-  "retained_link_count": 14,
+  "retained_link_count": 15,
   "collection_status": "ok",
   "successful_feed_urls": [
     "https://www.f4wonline.com/rss.xml",
