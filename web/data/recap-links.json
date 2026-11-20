@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "mode": "PUBLISHER_RSS_POST_SHOW_LINKS_ONLY",
-  "generated_at": "2026-11-20T00:25:00.314199-05:00",
+  "generated_at": "2026-11-20T04:24:28.523301-05:00",
   "source_name": "Multiple publisher RSS feeds",
   "source_url": "https://www.f4wonline.com/rss.xml",
   "approved_publishers": [
@@ -163,6 +163,20 @@
       "airdate": "2026-11-19",
       "links": [
         {
+          "headline": "11/19/26 TNA Impact Recap",
+          "url": "https://gerweck.net/2026/11/20/11-19-26-tna-impact-recap/",
+          "published_at": "2026-11-20T07:14:27+00:00",
+          "source_name": "Gerweck.net",
+          "status": "PUBLISHER_HEADLINE_LINK_ONLY"
+        },
+        {
+          "headline": "Hall’s Impact Wrestling Review – 11.19.26",
+          "url": "https://411mania.com/wrestling/halls-impact-wrestling-review-11-19-26/",
+          "published_at": "2026-11-20T06:44:34+00:00",
+          "source_name": "411Mania",
+          "status": "PUBLISHER_HEADLINE_LINK_ONLY"
+        },
+        {
           "headline": "Ciocco’s TNA Impact Review 11.19.26",
           "url": "https://411mania.com/wrestling/cioccos-tna-impact-review-11-19-26/",
           "published_at": "2026-11-20T04:13:59+00:00",
@@ -181,20 +195,6 @@
           "url": "https://www.tpww.net/2026/11/tna-impact-results-nov-19-2026-leon-slater-vs-nic-nemeth/",
           "published_at": "2026-11-20T01:57:15+00:00",
           "source_name": "TPWW",
-          "status": "PUBLISHER_HEADLINE_LINK_ONLY"
-        },
-        {
-          "headline": "TNA Impact live results: Leon Slater defends world title vs. Nic Nemeth",
-          "url": "https://www.f4wonline.com/news/tna-wrestling/tna-results/tna-impact-live-results-leon-slater-nic-nemeth/",
-          "published_at": "2026-11-20T01:15:00+00:00",
-          "source_name": "F4W / Wrestling Observer",
-          "status": "PUBLISHER_HEADLINE_LINK_ONLY"
-        },
-        {
-          "headline": "TNA iMPACT Results 11/19/26",
-          "url": "https://wrestlingheadlines.com/tna-impact-results-11-19-26/",
-          "published_at": "2026-11-19T23:18:05+00:00",
-          "source_name": "Wrestling Headlines",
           "status": "PUBLISHER_HEADLINE_LINK_ONLY"
         }
       ],
