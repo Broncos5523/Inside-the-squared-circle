@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "mode": "PUBLISHER_RSS_POST_SHOW_LINKS_ONLY",
-  "generated_at": "2026-11-19T20:34:38.585580-05:00",
+  "generated_at": "2026-11-20T00:25:00.314199-05:00",
   "source_name": "Multiple publisher RSS feeds",
   "source_url": "https://www.f4wonline.com/rss.xml",
   "approved_publishers": [
@@ -51,7 +51,8 @@
           "url": "https://411mania.com/wrestling/cooks-wwe-raw-review-11-16-26/",
           "published_at": "2026-11-17T03:42:28+00:00",
           "source_name": "411Mania",
-          "status": "PUBLISHER_HEADLINE_LINK_ONLY"
+          "status": "PUBLISHER_HEADLINE_LINK_ONLY",
+          "retained_from_previous": true
         }
       ],
       "source_name": "Multiple publisher RSS feeds",
@@ -159,46 +160,42 @@
     },
     {
       "show_id": "tna",
-      "airdate": "2026-11-12",
+      "airdate": "2026-11-19",
       "links": [
         {
-          "headline": "Hall’s TNA Impact Review 11.12.26",
-          "url": "https://411mania.com/wrestling/halls-tna-impact-wrestling-review-11-12-26/",
-          "published_at": "2026-11-13T20:16:37+00:00",
+          "headline": "Ciocco’s TNA Impact Review 11.19.26",
+          "url": "https://411mania.com/wrestling/cioccos-tna-impact-review-11-19-26/",
+          "published_at": "2026-11-20T04:13:59+00:00",
           "source_name": "411Mania",
-          "status": "PUBLISHER_HEADLINE_LINK_ONLY",
-          "retained_from_previous": true
-        },
-        {
-          "headline": "Drew McIntyre Attends Premiere For His New Film 'Hexed', TNA iMPACT Highlights, More | Fight Size",
-          "url": "https://www.fightful.com/wrestling-news/drew-mcintyre-attends-premiere-for-his-new-film-hexed-tna-impact-highlights-more-fight-size",
-          "published_at": "2026-11-13T19:00:00+00:00",
-          "source_name": "Fightful",
-          "status": "PUBLISHER_HEADLINE_LINK_ONLY",
-          "retained_from_previous": true
-        },
-        {
-          "headline": "11/12/26 TNA Impact Recap",
-          "url": "https://gerweck.net/2026/11/13/11-12-26-tna-impact-recap/",
-          "published_at": "2026-11-13T05:22:29+00:00",
-          "source_name": "Gerweck.net",
           "status": "PUBLISHER_HEADLINE_LINK_ONLY"
         },
         {
-          "headline": "Ciocco’s TNA Impact Review 11.12.26",
-          "url": "https://411mania.com/wrestling/cioccos-tna-impact-review-11-12-26/",
-          "published_at": "2026-11-13T04:09:46+00:00",
-          "source_name": "411Mania",
-          "status": "PUBLISHER_HEADLINE_LINK_ONLY",
-          "retained_from_previous": true
+          "headline": "TNA iMPACT! Results (11/19): Leon Slater vs. Nic Nemeth",
+          "url": "https://www.fightful.com/wrestling-news/tna-impact-results-11-19-leon-slater-vs-nic-nemeth",
+          "published_at": "2026-11-20T03:09:26+00:00",
+          "source_name": "Fightful",
+          "status": "PUBLISHER_HEADLINE_LINK_ONLY"
         },
         {
-          "headline": "TNA iMPACT! Results (11/12): Nic Nemeth, Elijah, Moose Compete",
-          "url": "https://www.fightful.com/wrestling-news/tna-impact-results-11-12-nic-nemeth-elijah-moose-compete",
-          "published_at": "2026-11-13T03:08:08+00:00",
-          "source_name": "Fightful",
-          "status": "PUBLISHER_HEADLINE_LINK_ONLY",
-          "retained_from_previous": true
+          "headline": "TNA Impact! Results – Nov. 19, 2026 – Leon Slater vs. Nic Nemeth",
+          "url": "https://www.tpww.net/2026/11/tna-impact-results-nov-19-2026-leon-slater-vs-nic-nemeth/",
+          "published_at": "2026-11-20T01:57:15+00:00",
+          "source_name": "TPWW",
+          "status": "PUBLISHER_HEADLINE_LINK_ONLY"
+        },
+        {
+          "headline": "TNA Impact live results: Leon Slater defends world title vs. Nic Nemeth",
+          "url": "https://www.f4wonline.com/news/tna-wrestling/tna-results/tna-impact-live-results-leon-slater-nic-nemeth/",
+          "published_at": "2026-11-20T01:15:00+00:00",
+          "source_name": "F4W / Wrestling Observer",
+          "status": "PUBLISHER_HEADLINE_LINK_ONLY"
+        },
+        {
+          "headline": "TNA iMPACT Results 11/19/26",
+          "url": "https://wrestlingheadlines.com/tna-impact-results-11-19-26/",
+          "published_at": "2026-11-19T23:18:05+00:00",
+          "source_name": "Wrestling Headlines",
+          "status": "PUBLISHER_HEADLINE_LINK_ONLY"
         }
       ],
       "source_name": "Multiple publisher RSS feeds",
@@ -244,7 +241,7 @@
     }
   ],
   "total_links": 24,
-  "retained_link_count": 16,
+  "retained_link_count": 13,
   "collection_status": "ok",
   "successful_feed_urls": [
     "https://www.f4wonline.com/rss.xml",
