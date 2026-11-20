@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "mode": "PUBLISHER_RSS_POST_SHOW_LINKS_ONLY",
-  "generated_at": "2026-11-19T16:12:44.004226-05:00",
+  "generated_at": "2026-11-19T20:34:38.585580-05:00",
   "source_name": "Multiple publisher RSS feeds",
   "source_url": "https://www.f4wonline.com/rss.xml",
   "approved_publishers": [
@@ -121,7 +121,8 @@
           "url": "https://www.f4wonline.com/podcasts/wrestling-observer-live/free-wol-remembering-bill-watts-the-rock-heads-to-survivor-series-bronson-reed-update-nxt-tv-recap/",
           "published_at": "2026-11-18T21:08:04+00:00",
           "source_name": "F4W / Wrestling Observer",
-          "status": "PUBLISHER_HEADLINE_LINK_ONLY"
+          "status": "PUBLISHER_HEADLINE_LINK_ONLY",
+          "retained_from_previous": true
         },
         {
           "headline": "Dark Match Results From This Week’s WWE NXT",
@@ -243,7 +244,7 @@
     }
   ],
   "total_links": 24,
-  "retained_link_count": 15,
+  "retained_link_count": 16,
   "collection_status": "ok",
   "successful_feed_urls": [
     "https://www.f4wonline.com/rss.xml",
