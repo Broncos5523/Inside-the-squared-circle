@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "mode": "PUBLISHER_RSS_POST_SHOW_LINKS_ONLY",
-  "generated_at": "2026-11-20T08:38:58.111785-05:00",
+  "generated_at": "2026-11-20T12:18:23.022926-05:00",
   "source_name": "Multiple publisher RSS feeds",
   "source_url": "https://www.f4wonline.com/rss.xml",
   "approved_publishers": [
@@ -36,7 +36,8 @@
           "url": "https://411mania.com/wrestling/halls-wwe-monday-night-raw-review-11-16-26/",
           "published_at": "2026-11-17T03:42:53+00:00",
           "source_name": "411Mania",
-          "status": "PUBLISHER_HEADLINE_LINK_ONLY"
+          "status": "PUBLISHER_HEADLINE_LINK_ONLY",
+          "retained_from_previous": true
         },
         {
           "headline": "Hall’s WWE Raw Review 11.16.26",
@@ -163,17 +164,17 @@
       "airdate": "2026-11-19",
       "links": [
         {
+          "headline": "Hall’s TNA Impact Wrestling Review 11.19.26",
+          "url": "https://411mania.com/wrestling/halls-impact-wrestling-review-11-19-26/",
+          "published_at": "2026-11-20T16:00:34+00:00",
+          "source_name": "411Mania",
+          "status": "PUBLISHER_HEADLINE_LINK_ONLY"
+        },
+        {
           "headline": "11/19/26 TNA Impact Recap",
           "url": "https://gerweck.net/2026/11/20/11-19-26-tna-impact-recap/",
           "published_at": "2026-11-20T07:14:27+00:00",
           "source_name": "Gerweck.net",
-          "status": "PUBLISHER_HEADLINE_LINK_ONLY"
-        },
-        {
-          "headline": "Hall’s Impact Wrestling Review – 11.19.26",
-          "url": "https://411mania.com/wrestling/halls-impact-wrestling-review-11-19-26/",
-          "published_at": "2026-11-20T06:44:34+00:00",
-          "source_name": "411Mania",
           "status": "PUBLISHER_HEADLINE_LINK_ONLY"
         },
         {
@@ -188,7 +189,8 @@
           "url": "https://www.fightful.com/wrestling-news/tna-impact-results-11-19-leon-slater-vs-nic-nemeth",
           "published_at": "2026-11-20T03:09:26+00:00",
           "source_name": "Fightful",
-          "status": "PUBLISHER_HEADLINE_LINK_ONLY"
+          "status": "PUBLISHER_HEADLINE_LINK_ONLY",
+          "retained_from_previous": true
         },
         {
           "headline": "TNA Impact! Results – Nov. 19, 2026 – Leon Slater vs. Nic Nemeth",
@@ -241,7 +243,7 @@
     }
   ],
   "total_links": 24,
-  "retained_link_count": 13,
+  "retained_link_count": 15,
   "collection_status": "ok",
   "successful_feed_urls": [
     "https://www.f4wonline.com/rss.xml",
