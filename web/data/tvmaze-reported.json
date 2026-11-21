@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "mode": "TVMAZE_EPISODE_SUMMARY_REPORTED_UNVERIFIED",
-  "generated_at": "2026-11-21T04:09:02.565162-05:00",
+  "generated_at": "2026-11-21T08:24:38.473676-05:00",
   "policy": "CC BY-SA TVmaze attributed episode-summary leads, not official advertised cards. Exact local airdate only; no spoilers or claims of completeness.",
   "programs": [
     {
@@ -30,7 +30,7 @@
     },
     {
       "show_id": "aaa",
-      "airdate": "2026-11-21",
+      "airdate": "2026-11-28",
       "source_name": "TVmaze",
       "matches": [],
       "appearances": [],
