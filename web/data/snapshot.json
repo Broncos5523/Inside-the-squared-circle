@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "mode": "LIVE_SCHEDULES_ONLY",
-  "generated_at": "2026-11-20T21:11:56.849073+00:00",
+  "generated_at": "2026-11-21T01:38:36.970479+00:00",
   "fresh_shows": 6,
   "shows": [
     {
@@ -29,14 +29,14 @@
       "color": "#2385FF",
       "category": "primary",
       "next": {
+        "date": "2026-11-27",
+        "time": "20:00",
+        "title": "#1421 - Intrust Bank Arena in Wichita, KS"
+      },
+      "previous": {
         "date": "2026-11-20",
         "time": "20:00",
         "title": "#1420 - Ford Center in Evansville, IN"
-      },
-      "previous": {
-        "date": "2026-11-13",
-        "time": "20:00",
-        "title": "#1419 - Amerant Bank Arena in Fort Lauderdale, FL"
       },
       "schedule_status": "fresh",
       "confirmed_matches": [],

@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "mode": "TVMAZE_EPISODE_SUMMARY_REPORTED_UNVERIFIED",
-  "generated_at": "2026-11-20T16:13:00.009475-05:00",
+  "generated_at": "2026-11-20T20:39:34.403320-05:00",
   "policy": "CC BY-SA TVmaze attributed episode-summary leads, not official advertised cards. Exact local airdate only; no spoilers or claims of completeness.",
   "programs": [
     {
@@ -14,7 +14,7 @@
     },
     {
       "show_id": "smackdown",
-      "airdate": "2026-11-20",
+      "airdate": "2026-11-27",
       "source_name": "TVmaze",
       "matches": [],
       "appearances": [],

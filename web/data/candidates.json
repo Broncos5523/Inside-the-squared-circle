@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "mode": "RESEARCH_LEADS_ONLY",
-  "generated_at": "2026-11-20T21:12:02.716117+00:00",
+  "generated_at": "2026-11-21T01:38:43.040383+00:00",
   "policy": "Mentions are NOT confirmations. Do not put candidate matches on the public broadcast.",
   "source": "TheSportsDB (free API); attribution required; no artwork fetched.",
   "programs": [
@@ -12,20 +12,28 @@
       "candidate_count": 0,
       "verified_match_count": 0,
       "verified_appearance_count": 0,
-      "events_considered": []
+      "events_considered": [
+        {
+          "event_id": "2624421",
+          "event_title": "RAW #1748",
+          "source_url": "https://www.thesportsdb.com/api/v1/json/123/lookupevent.php?id=2624421",
+          "possible_match_mentions": 0,
+          "verification": "NOT_CONFIRMED"
+        }
+      ]
     },
     {
       "show_id": "smackdown",
-      "airdate": "2026-11-20",
+      "airdate": "2026-11-27",
       "intake_status": "no_parseable_leads",
       "candidate_count": 0,
       "verified_match_count": 0,
       "verified_appearance_count": 0,
       "events_considered": [
         {
-          "event_id": "2624419",
-          "event_title": "SmackDown #1422",
-          "source_url": "https://www.thesportsdb.com/api/v1/json/123/lookupevent.php?id=2624419",
+          "event_id": "2624420",
+          "event_title": "SmackDown #1423",
+          "source_url": "https://www.thesportsdb.com/api/v1/json/123/lookupevent.php?id=2624420",
           "possible_match_mentions": 0,
           "verification": "NOT_CONFIRMED"
         }

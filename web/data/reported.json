@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "mode": "REPORTED_MATCHES_UNVERIFIED",
-  "generated_at": "2026-11-20T16:12:04.328727-05:00",
+  "generated_at": "2026-11-20T20:38:43.821201-05:00",
   "valid_as_of_et": "2026-11-20",
   "policy": "Opt-in UNVERIFIED match and explicit segment mentions only. May be stale, speculative, misassigned, dark matches, taped show results or subject to change. Not announcements from WWE, AAA or TNA. Taped/early results never withdraw advance cards before scheduled U.S. broadcast completion.",
   "programs": [
@@ -19,7 +19,7 @@
     },
     {
       "show_id": "smackdown",
-      "airdate": "2026-11-20",
+      "airdate": "2026-11-27",
       "display_label": "REPORTED · UNVERIFIED",
       "matches": [],
       "appearances": [],
